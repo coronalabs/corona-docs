@@ -1,0 +1,150 @@
+# 2.5D — Perspective and Depth
+
+This guide explains how you can achieve interesting 2.5D effects in Corona. While Corona is not a true 3D engine, its 2.5D capabilities allow you to simulate effects that appear <nobr>three-dimensional</nobr> (3D) without the complexity of working in 3D.
+
+<div class="guides-toc">
+
+* [Background](#background)
+* [Perspective](#perspective)
+* [Depth](#depth)
+
+</div>
+
+
+<a id="background"></a>
+
+## Background
+
+During the Renaissance, [Filippo Brunelleschi](http://en.wikipedia.org/wiki/Filippo_Brunelleschi#Invention_of_linear_perspective) demonstrated the geometrical method of perspective that is still used today. This method solved the problem of how to represent three dimensional objects on a 2D plane. Even today, this remains the basis of how 3D computer graphics are represented on the screen. In essence, your eye is tricked into believing that what is rendered on a flat screen is actually 3D.
+
+
+
+
+<a id="perspective"></a>
+
+## Perspective
+
+### Quadrilateral Distortion
+
+Several [display objects][guide.media.displayObjects] can be distorted by general quadrilaterals (quads). For objects with quadrilateral support, each corner has an associated `x,y` property which specifies how the corner of the object should be distorted. These properties default to `0,0`, meaning there is no offset.
+
+<div class="inner-table" style="margin-bottom: 25px;">
+
+Object							Method																  Quadrilateral Support
+------------------------------	------------------------------------------------------------------	----------------------------
+Display Group					[display.newGroup()][api.library.display.newGroup]
+Standard Image					[display.newImage()][api.library.display.newImage]					  &#x2713;
+Dynamically-Selected Image		[display.newImageRect()][api.library.display.newImageRect]			  &#x2713;
+Text							[display.newText()][api.library.display.newText]
+Animated Sprite					[display.newSprite()][api.library.display.newSprite]				  &#x2713;
+Rectangle						[display.newRect()][api.library.display.newRect]					  &#x2713;
+Circle							[display.newCircle()][api.library.display.newCircle]
+Rounded Rectangle				[display.newRoundedRect()][api.library.display.newRoundedRect]
+Line							[display.newLine()][api.library.display.newLine]
+Polygon							[display.newPolygon()][api.library.display.newPolygon]
+Embossed Text					[display.newEmbossedText()][api.library.display.newEmbossedText]
+Container						[display.newContainer()][api.library.display.newContainer]
+Snapshot						[display.newSnapshot()][api.library.display.newSnapshot]			  &#x2713;
+Particle Emitter				[display.newEmitter()][api.library.display.newEmitter]
+------------------------------	------------------------------------------------------------------	----------------------------
+
+</div>
+
+The following diagram shows how an image is distorted by moving the <nobr>top-right</nobr> and <nobr>bottom-right</nobr> corners.
+
+<div class="float-right" style="float: none; margin: 20px 0px 20px 0px; color: #292929; vertical-align: middle;">
+
+------------------------------	----------------------------------------------------------	------------------------------	--------------	------------------------------	--------------
+																															   (`x1`,`y1`)									(`x4`,`y4`)
+![][images.simulator.quad1]		<span style="font-size: 125%;">&nbsp;&rarr;&nbsp;</span>	![][images.simulator.quad2]						  ![][images.simulator.quad3]
+																															   (`x2`,`y2`)									(`x3`,`y3`)
+------------------------------	----------------------------------------------------------	------------------------------  --------------  ------------------------------	--------------
+
+</div>
+
+``````lua
+local logo = display.newImage( "corona-logo.png" )
+
+logo.path.x4 = -110
+logo.path.y3 = -55
+``````
+
+### Transitional Distortion
+
+Just as individual corner points can be explicitly set to distort a display object, you can also [transition][guide.media.transitionLib] the points for a gradual distortion effect.
+
+Note that you must reference the `object.path` property as the first argument in the transition method since you are transitioning the object's path, not the object itself. Then, in turn, include the specific corner points of the path as the target properties of the transition.
+
+``````lua
+-- Use "logo.path" as the first argument, not "logo"
+transition.to( logo.path, { time=2000, x2=20, y2=-20, x4=-40, y4=40 } )
+``````
+
+The following video and associated [sample](https://github.com/coronalabs/samples-coronasdk/tree/master/Graphics/Perspective) shows some of the interesting effects you can achieve using transitional distortion:
+
+<iframe width="640" height="360" src="http://www.youtube.com/embed/qJsF1PsI5G8?rel=0" frameborder="0" allowfullscreen style="margin: 10px 0px;"></iframe>
+
+### Z-axis Ordering
+
+All Corona display objects exist on the `z=0` plane, but they can be ordered as shown in the [Group Programming][guide.graphics.group] guide. When you distort an image, it looks like it exists in a 3D world, but it actually remains in the same plane. Thus, all of the standard object ordering rules will continue to be honored.
+
+### Billboarding
+
+In the Corona graphics model, billboarding is available toll-free. Just create a group and ensure it's the top-most by calling [group:toFront()][api.type.DisplayObject.toFront].
+
+### Mode 7
+
+In [Super Nintendo Mode 7](http://en.wikipedia.org/wiki/Mode_7), you could only place the background in perspective. In Corona, you can distort any rectangle to make the image appear in perspective.
+
+### Meshes
+
+You can build more complex effects by creating a mesh of rectangles and distorting all of the corners for a particular intersection point in the mesh.
+
+![][images.simulator.mesh]
+
+``````lua
+local group = display.newGroup()
+
+local a = display.newRect( group, 0, 0, 300, 300 )
+local b = display.newRect( group, 300, 0, 300, 300 )
+local c = display.newRect( group, 0, 300, 300, 300 )
+local d = display.newRect( group, 300, 300, 300, 300 )
+
+local intersectionX = -90
+local intersectionY = -70
+
+a.path.x3 = intersectionX
+a.path.y3 = intersectionY
+
+b.path.x2 = intersectionX
+b.path.y2 = intersectionY
+
+c.path.x4 = intersectionX
+c.path.y4 = intersectionY
+
+d.path.x1 = intersectionX
+d.path.y1 = intersectionY
+``````
+
+
+
+
+<a id="depth"></a>
+
+## Depth
+
+### Z-axis Scaling
+
+In Corona, you can simulate depth by scaling objects as they move closer or further from the viewer. This can be used to create an illusion of relative depth, for example a series of trees receding into the distance.
+
+### Scrolling
+
+Placing images in the background is <nobr>toll-free</nobr> in Corona. Consequently, horizontal scrollers, side scrollers, and <nobr>bi-directional</nobr> scrollers are all easily achievable in Corona &mdash; just make sure that your background is drawn first or move it to the back via [object:toBack()][api.type.DisplayObject.toBack]).
+
+### Parallax
+
+Parallax provides a sense of "distance" between the camera and moving objects that recede into the simulated space.
+
+### Skybox/Skydome
+
+In Corona, the skybox/skydome effect is available <nobr>toll-free</nobr>. Just create a group and ensure it's the <nobr>back-most</nobr> by calling [group:toBack()][api.type.DisplayObject.toBack].

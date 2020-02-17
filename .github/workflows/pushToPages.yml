@@ -1,0 +1,23 @@
+name: Build and Deploy to github pages
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Checkout Submodules
+      run: |
+        git submodule sync --recursive
+        git submodule update --init --force --recursive --depth=1 --remote --merge
+    - name: Install necessary packages
+      run: sudo apt-get update && sudo apt-get install -y lua5.1 lua-filesystem pandoc pcregrep python
+    - name: Build the docs
+      working-directory: ./bin
+      run: lua build.lua
+    - name: Deploy Github Pages
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: html

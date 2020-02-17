@@ -1,0 +1,603 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="Add method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedList_Add.htm" />
+  <HelpKINode Title="AddEventListener method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_AddEventListener.htm" />
+  <HelpKINode Title="AutoLaunchEnabled property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_AutoLaunchEnabled.htm" />
+  <HelpKINode Title="AutoLaunchSettings property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_AutoLaunchSettings.htm" />
+  <HelpKINode Title="BackgroundContentProvider property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_BackgroundContentProvider.htm" />
+  <HelpKINode Title="BackgroundManipulationHandler property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_BackgroundManipulationHandler.htm" />
+  <HelpKINode Title="BackgroundRenderingEnabled property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_BackgroundRenderingEnabled.htm" />
+  <HelpKINode Title="BoxedString class">
+    <HelpKINode Title="BoxedString Class" Url="html/T_CoronaLabs_WinRT_BoxedString.htm" />
+    <HelpKINode Title="about BoxedString class" Url="html/T_CoronaLabs_WinRT_BoxedString.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CoronaLabs_WinRT_BoxedString__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_WinRT_BoxedString.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_WinRT_BoxedString.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BoxedString.BoxedString constructor" Url="html/M_CoronaLabs_WinRT_BoxedString__ctor.htm" />
+  <HelpKINode Title="BoxedString.ToString method" Url="html/M_CoronaLabs_WinRT_BoxedString_ToString.htm" />
+  <HelpKINode Title="BoxedString.Value property" Url="html/P_CoronaLabs_WinRT_BoxedString_Value.htm" />
+  <HelpKINode Title="ButtonLabels property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_ButtonLabels.htm" />
+  <HelpKINode Title="ByteCount property" Url="html/P_CoronaLabs_WinRT_Utf8String_ByteCount.htm" />
+  <HelpKINode Title="CachesDirectoryPath property">
+    <HelpKINode Title="CoronaRuntimeEnvironment.CachesDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_CachesDirectoryPath.htm" />
+    <HelpKINode Title="CoronaRuntimeLaunchSettings.CachesDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_CachesDirectoryPath.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Cancel property" Url="html/P_CoronaLabs_WinRT_CancelEventArgs_Cancel.htm" />
+  <HelpKINode Title="CancelEventArgs class">
+    <HelpKINode Title="CancelEventArgs Class" Url="html/T_CoronaLabs_WinRT_CancelEventArgs.htm" />
+    <HelpKINode Title="about CancelEventArgs class" Url="html/T_CoronaLabs_WinRT_CancelEventArgs.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CoronaLabs_WinRT_CancelEventArgs__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_WinRT_CancelEventArgs.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_WinRT_CancelEventArgs.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CancelEventArgs.Cancel property" Url="html/P_CoronaLabs_WinRT_CancelEventArgs_Cancel.htm" />
+  <HelpKINode Title="CancelEventArgs.CancelEventArgs constructor" Url="html/M_CoronaLabs_WinRT_CancelEventArgs__ctor.htm" />
+  <HelpKINode Title="CharacterCount property" Url="html/P_CoronaLabs_WinRT_Utf8String_CharacterCount.htm" />
+  <HelpKINode Title="Children property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_Children.htm" />
+  <HelpKINode Title="Clear method">
+    <HelpKINode Title="CoronaBoxedList.Clear Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedList_Clear.htm" />
+    <HelpKINode Title="CoronaBoxedTable.Clear Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_Clear.htm" />
+    <HelpKINode Title="CoronaLuaEventProperties.Clear Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Clear.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Close method" Url="html/M_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_Close.htm" />
+  <HelpKINode Title="Closed event" Url="html/E_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_Closed.htm" />
+  <HelpKINode Title="CloseWithButtonIndex method" Url="html/M_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_CloseWithButtonIndex.htm" />
+  <HelpKINode Title="CompareTo method">
+    <HelpKINode Title="CoronaBoxedBoolean.CompareTo Method " Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_CompareTo.htm" />
+    <HelpKINode Title="CoronaBoxedNumber.CompareTo Method " Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_CompareTo.htm" />
+    <HelpKINode Title="CoronaBoxedString.CompareTo Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_CompareTo.htm" />
+    <HelpKINode Title="ICoronaBoxedComparableData.CompareTo Method " Url="html/M_CoronaLabs_Corona_WinRT_ICoronaBoxedComparableData_CompareTo.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Contains method">
+    <HelpKINode Title="CoronaLuaEventProperties.Contains Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Contains.htm" />
+    <HelpKINode Title="ReadOnlyCoronaLuaEventProperties.Contains Method " Url="html/M_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties_Contains.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ContainsKey method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_ContainsKey.htm" />
+  <HelpKINode Title="CopyFrom method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_CopyFrom.htm" />
+  <HelpKINode Title="CoronaBoxedBoolean class">
+    <HelpKINode Title="CoronaBoxedBoolean Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean.htm" />
+    <HelpKINode Title="about CoronaBoxedBoolean class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoronaBoxedBoolean.CompareTo method" Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_CompareTo.htm" />
+  <HelpKINode Title="CoronaBoxedBoolean.Equals method" Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_Equals.htm" />
+  <HelpKINode Title="CoronaBoxedBoolean.False property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_False.htm" />
+  <HelpKINode Title="CoronaBoxedBoolean.From method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_From.htm" />
+  <HelpKINode Title="CoronaBoxedBoolean.GetHashCode method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_GetHashCode.htm" />
+  <HelpKINode Title="CoronaBoxedBoolean.PushToLua method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_PushToLua.htm" />
+  <HelpKINode Title="CoronaBoxedBoolean.ToString method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_ToString.htm" />
+  <HelpKINode Title="CoronaBoxedBoolean.True property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_True.htm" />
+  <HelpKINode Title="CoronaBoxedBoolean.Value property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_Value.htm" />
+  <HelpKINode Title="CoronaBoxedData class">
+    <HelpKINode Title="CoronaBoxedData Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedData.htm" />
+    <HelpKINode Title="about CoronaBoxedData class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedData.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaBoxedData.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoronaBoxedData.FromLua method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedData_FromLua.htm" />
+  <HelpKINode Title="CoronaBoxedList class">
+    <HelpKINode Title="CoronaBoxedList Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedList.htm" />
+    <HelpKINode Title="about CoronaBoxedList class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedList.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedList__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaBoxedList.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaBoxedList.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoronaBoxedList.Add method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedList_Add.htm" />
+  <HelpKINode Title="CoronaBoxedList.Clear method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedList_Clear.htm" />
+  <HelpKINode Title="CoronaBoxedList.CoronaBoxedList constructor" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedList__ctor.htm" />
+  <HelpKINode Title="CoronaBoxedList.Count property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedList_Count.htm" />
+  <HelpKINode Title="CoronaBoxedList.First method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedList_First.htm" />
+  <HelpKINode Title="CoronaBoxedList.PushToLua method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedList_PushToLua.htm" />
+  <HelpKINode Title="CoronaBoxedNumber class">
+    <HelpKINode Title="CoronaBoxedNumber Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedNumber.htm" />
+    <HelpKINode Title="about CoronaBoxedNumber class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedNumber.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedNumber__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaBoxedNumber.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaBoxedNumber.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoronaBoxedNumber.CompareTo method" Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_CompareTo.htm" />
+  <HelpKINode Title="CoronaBoxedNumber.CoronaBoxedNumber constructor" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedNumber__ctor.htm" />
+  <HelpKINode Title="CoronaBoxedNumber.Equals method" Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_Equals.htm" />
+  <HelpKINode Title="CoronaBoxedNumber.GetHashCode method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_GetHashCode.htm" />
+  <HelpKINode Title="CoronaBoxedNumber.PushToLua method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_PushToLua.htm" />
+  <HelpKINode Title="CoronaBoxedNumber.ToString method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_ToString.htm" />
+  <HelpKINode Title="CoronaBoxedNumber.Value property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_Value.htm" />
+  <HelpKINode Title="CoronaBoxedString class">
+    <HelpKINode Title="CoronaBoxedString Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedString.htm" />
+    <HelpKINode Title="about CoronaBoxedString class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedString.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaBoxedString.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaBoxedString.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoronaBoxedString.CompareTo method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_CompareTo.htm" />
+  <HelpKINode Title="CoronaBoxedString.Empty property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedString_Empty.htm" />
+  <HelpKINode Title="CoronaBoxedString.Equals method" Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedString_Equals.htm" />
+  <HelpKINode Title="CoronaBoxedString.From method" Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedString_From.htm" />
+  <HelpKINode Title="CoronaBoxedString.GetHashCode method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_GetHashCode.htm" />
+  <HelpKINode Title="CoronaBoxedString.PushToLua method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_PushToLua.htm" />
+  <HelpKINode Title="CoronaBoxedString.ToString method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_ToString.htm" />
+  <HelpKINode Title="CoronaBoxedString.ToUtf16String method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_ToUtf16String.htm" />
+  <HelpKINode Title="CoronaBoxedString.ToUtf8String method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_ToUtf8String.htm" />
+  <HelpKINode Title="CoronaBoxedTable class">
+    <HelpKINode Title="CoronaBoxedTable Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedTable.htm" />
+    <HelpKINode Title="about CoronaBoxedTable class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedTable.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaBoxedTable.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaBoxedTable.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoronaBoxedTable.Clear method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_Clear.htm" />
+  <HelpKINode Title="CoronaBoxedTable.ContainsKey method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_ContainsKey.htm" />
+  <HelpKINode Title="CoronaBoxedTable.CoronaBoxedTable constructor" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable__ctor.htm" />
+  <HelpKINode Title="CoronaBoxedTable.Count property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedTable_Count.htm" />
+  <HelpKINode Title="CoronaBoxedTable.First method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_First.htm" />
+  <HelpKINode Title="CoronaBoxedTable.GetValueByKey method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_GetValueByKey.htm" />
+  <HelpKINode Title="CoronaBoxedTable.PushToLua method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_PushToLua.htm" />
+  <HelpKINode Title="CoronaBoxedTable.RemoveByKey method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_RemoveByKey.htm" />
+  <HelpKINode Title="CoronaBoxedTable.Set method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_Set.htm" />
+  <HelpKINode Title="CoronaControlAdapter property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_CoronaControlAdapter.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT namespace" Url="html/N_CoronaLabs_Corona_WinRT.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.CoronaBoxedBoolean class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.CoronaBoxedData class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedData.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.CoronaBoxedList class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedList.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.CoronaBoxedNumber class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedNumber.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.CoronaBoxedString class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedString.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.CoronaBoxedTable class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedTable.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.CoronaLuaEventArgs class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaLuaEventArgs.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.CoronaLuaEventHandler delegate" Url="html/T_CoronaLabs_Corona_WinRT_CoronaLuaEventHandler.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.CoronaLuaEventProperties class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.CoronaRuntime class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntime.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.CoronaRuntimeEnvironment class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.CoronaRuntimeEventArgs class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeEventArgs.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.CoronaRuntimeLaunchSettings class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.CoronaRuntimeState enumeration" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeState.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.DispatchCoronaLuaEventResult class" Url="html/T_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.ICoronaBoxedComparableData interface" Url="html/T_CoronaLabs_Corona_WinRT_ICoronaBoxedComparableData.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.ICoronaBoxedData interface" Url="html/T_CoronaLabs_Corona_WinRT_ICoronaBoxedData.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.Phone namespace" Url="html/N_CoronaLabs_Corona_WinRT_Phone.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.Phone.CoronaMessageBox class" Url="html/T_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.Phone.CoronaPanel class" Url="html/T_CoronaLabs_Corona_WinRT_Phone_CoronaPanel.htm" />
+  <HelpKINode Title="CoronaLabs.Corona.WinRT.ReadOnlyCoronaLuaEventProperties class" Url="html/T_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties.htm" />
+  <HelpKINode Title="CoronaLabs.WinRT namespace" Url="html/N_CoronaLabs_WinRT.htm" />
+  <HelpKINode Title="CoronaLabs.WinRT.BoxedString class" Url="html/T_CoronaLabs_WinRT_BoxedString.htm" />
+  <HelpKINode Title="CoronaLabs.WinRT.CancelEventArgs class" Url="html/T_CoronaLabs_WinRT_CancelEventArgs.htm" />
+  <HelpKINode Title="CoronaLabs.WinRT.EmptyEventArgs class" Url="html/T_CoronaLabs_WinRT_EmptyEventArgs.htm" />
+  <HelpKINode Title="CoronaLabs.WinRT.HandledEventArgs class" Url="html/T_CoronaLabs_WinRT_HandledEventArgs.htm" />
+  <HelpKINode Title="CoronaLabs.WinRT.ImmutableByteBuffer class" Url="html/T_CoronaLabs_WinRT_ImmutableByteBuffer.htm" />
+  <HelpKINode Title="CoronaLabs.WinRT.IOperationResult interface" Url="html/T_CoronaLabs_WinRT_IOperationResult.htm" />
+  <HelpKINode Title="CoronaLabs.WinRT.MessageEventArgs class" Url="html/T_CoronaLabs_WinRT_MessageEventArgs.htm" />
+  <HelpKINode Title="CoronaLabs.WinRT.OperationResult class" Url="html/T_CoronaLabs_WinRT_OperationResult.htm" />
+  <HelpKINode Title="CoronaLabs.WinRT.Utf8String class" Url="html/T_CoronaLabs_WinRT_Utf8String.htm" />
+  <HelpKINode Title="CoronaLuaEventArgs class">
+    <HelpKINode Title="CoronaLuaEventArgs Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaLuaEventArgs.htm" />
+    <HelpKINode Title="about CoronaLuaEventArgs class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaLuaEventArgs.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventArgs__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaLuaEventArgs.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaLuaEventArgs.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoronaLuaEventArgs.CoronaLuaEventArgs constructor" Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventArgs__ctor.htm" />
+  <HelpKINode Title="CoronaLuaEventArgs.EventName property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaLuaEventArgs_EventName.htm" />
+  <HelpKINode Title="CoronaLuaEventArgs.Properties property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaLuaEventArgs_Properties.htm" />
+  <HelpKINode Title="CoronaLuaEventHandler delegate" Url="html/T_CoronaLabs_Corona_WinRT_CoronaLuaEventHandler.htm" />
+  <HelpKINode Title="CoronaLuaEventProperties class">
+    <HelpKINode Title="CoronaLuaEventProperties Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties.htm" />
+    <HelpKINode Title="about CoronaLuaEventProperties class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoronaLuaEventProperties.Clear method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Clear.htm" />
+  <HelpKINode Title="CoronaLuaEventProperties.Contains method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Contains.htm" />
+  <HelpKINode Title="CoronaLuaEventProperties.Count property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Count.htm" />
+  <HelpKINode Title="CoronaLuaEventProperties.CreateWithName method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_CreateWithName.htm" />
+  <HelpKINode Title="CoronaLuaEventProperties.First method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_First.htm" />
+  <HelpKINode Title="CoronaLuaEventProperties.Get method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Get.htm" />
+  <HelpKINode Title="CoronaLuaEventProperties.Remove method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Remove.htm" />
+  <HelpKINode Title="CoronaLuaEventProperties.Set method" Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Set.htm" />
+  <HelpKINode Title="CoronaMessageBox class">
+    <HelpKINode Title="CoronaMessageBox Class" Url="html/T_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox.htm" />
+    <HelpKINode Title="about CoronaMessageBox class" Url="html/T_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox__ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoronaMessageBox.ButtonLabels property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_ButtonLabels.htm" />
+  <HelpKINode Title="CoronaMessageBox.Close method" Url="html/M_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_Close.htm" />
+  <HelpKINode Title="CoronaMessageBox.Closed event" Url="html/E_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_Closed.htm" />
+  <HelpKINode Title="CoronaMessageBox.CloseWithButtonIndex method" Url="html/M_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_CloseWithButtonIndex.htm" />
+  <HelpKINode Title="CoronaMessageBox.CoronaMessageBox constructor" Url="html/M_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox__ctor.htm" />
+  <HelpKINode Title="CoronaMessageBox.IsShowing property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_IsShowing.htm" />
+  <HelpKINode Title="CoronaMessageBox.Message property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_Message.htm" />
+  <HelpKINode Title="CoronaMessageBox.PressedButtonIndex property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_PressedButtonIndex.htm" />
+  <HelpKINode Title="CoronaMessageBox.Show method" Url="html/M_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_Show.htm" />
+  <HelpKINode Title="CoronaMessageBox.ShownMessagBoxes property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_ShownMessagBoxes.htm" />
+  <HelpKINode Title="CoronaMessageBox.Title property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_Title.htm" />
+  <HelpKINode Title="CoronaMessageBox.WasButtonPressed property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_WasButtonPressed.htm" />
+  <HelpKINode Title="CoronaPanel class">
+    <HelpKINode Title="CoronaPanel Class" Url="html/T_CoronaLabs_Corona_WinRT_Phone_CoronaPanel.htm" />
+    <HelpKINode Title="about CoronaPanel class" Url="html/T_CoronaLabs_Corona_WinRT_Phone_CoronaPanel.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CoronaLabs_Corona_WinRT_Phone_CoronaPanel__ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_CoronaLabs_Corona_WinRT_Phone_CoronaPanel.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_Phone_CoronaPanel.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_Phone_CoronaPanel.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoronaPanel.AutoLaunchEnabled property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_AutoLaunchEnabled.htm" />
+  <HelpKINode Title="CoronaPanel.AutoLaunchSettings property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_AutoLaunchSettings.htm" />
+  <HelpKINode Title="CoronaPanel.BackgroundContentProvider property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_BackgroundContentProvider.htm" />
+  <HelpKINode Title="CoronaPanel.BackgroundManipulationHandler property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_BackgroundManipulationHandler.htm" />
+  <HelpKINode Title="CoronaPanel.BackgroundRenderingEnabled property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_BackgroundRenderingEnabled.htm" />
+  <HelpKINode Title="CoronaPanel.Children property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_Children.htm" />
+  <HelpKINode Title="CoronaPanel.CoronaPanel constructor" Url="html/M_CoronaLabs_Corona_WinRT_Phone_CoronaPanel__ctor.htm" />
+  <HelpKINode Title="CoronaPanel.RenderSurface property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_RenderSurface.htm" />
+  <HelpKINode Title="CoronaPanel.Runtime property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_Runtime.htm" />
+  <HelpKINode Title="CoronaRuntime class">
+    <HelpKINode Title="CoronaRuntime Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntime.htm" />
+    <HelpKINode Title="about CoronaRuntime class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntime.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime__ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_CoronaLabs_Corona_WinRT_CoronaRuntime.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaRuntime.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaRuntime.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoronaRuntime.CoronaRuntime constructor" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime__ctor.htm" />
+  <HelpKINode Title="CoronaRuntime.Loaded event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntime_Loaded.htm" />
+  <HelpKINode Title="CoronaRuntime.Resume method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime_Resume.htm" />
+  <HelpKINode Title="CoronaRuntime.Resumed event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntime_Resumed.htm" />
+  <HelpKINode Title="CoronaRuntime.Run method" Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaRuntime_Run.htm" />
+  <HelpKINode Title="CoronaRuntime.RunInDirectory method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime_RunInDirectory.htm" />
+  <HelpKINode Title="CoronaRuntime.RunUsing method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime_RunUsing.htm" />
+  <HelpKINode Title="CoronaRuntime.Started event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntime_Started.htm" />
+  <HelpKINode Title="CoronaRuntime.State property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntime_State.htm" />
+  <HelpKINode Title="CoronaRuntime.Suspend method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime_Suspend.htm" />
+  <HelpKINode Title="CoronaRuntime.Suspended event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntime_Suspended.htm" />
+  <HelpKINode Title="CoronaRuntime.Terminate method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime_Terminate.htm" />
+  <HelpKINode Title="CoronaRuntime.Terminating event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntime_Terminating.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment class">
+    <HelpKINode Title="CoronaRuntimeEnvironment Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment.htm" />
+    <HelpKINode Title="about CoronaRuntimeEnvironment class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoronaRuntimeEnvironment property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEventArgs_CoronaRuntimeEnvironment.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.AddEventListener method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_AddEventListener.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.CachesDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_CachesDirectoryPath.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.CoronaControlAdapter property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_CoronaControlAdapter.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.DefaultCachesDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DefaultCachesDirectoryPath.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.DefaultDocumentsDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DefaultDocumentsDirectoryPath.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.DefaultInternalDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DefaultInternalDirectoryPath.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.DefaultResourceDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DefaultResourceDirectoryPath.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.DefaultTemporaryDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DefaultTemporaryDirectoryPath.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.DispatchEvent method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DispatchEvent.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.DocumentsDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DocumentsDirectoryPath.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.InternalDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_InternalDirectoryPath.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.InteropServices property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_InteropServices.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.LaunchFilePath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_LaunchFilePath.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.RemoveEventListener method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_RemoveEventListener.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.ResourceDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_ResourceDirectoryPath.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.Resumed event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_Resumed.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.RuntimeState property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_RuntimeState.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.Suspended event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_Suspended.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.TemporaryDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_TemporaryDirectoryPath.htm" />
+  <HelpKINode Title="CoronaRuntimeEnvironment.Terminating event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_Terminating.htm" />
+  <HelpKINode Title="CoronaRuntimeEventArgs class">
+    <HelpKINode Title="CoronaRuntimeEventArgs Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeEventArgs.htm" />
+    <HelpKINode Title="about CoronaRuntimeEventArgs class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeEventArgs.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeEventArgs__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaRuntimeEventArgs.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaRuntimeEventArgs.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoronaRuntimeEventArgs.CoronaRuntimeEnvironment property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEventArgs_CoronaRuntimeEnvironment.htm" />
+  <HelpKINode Title="CoronaRuntimeEventArgs.CoronaRuntimeEventArgs constructor" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeEventArgs__ctor.htm" />
+  <HelpKINode Title="CoronaRuntimeLaunchSettings class">
+    <HelpKINode Title="CoronaRuntimeLaunchSettings Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings.htm" />
+    <HelpKINode Title="about CoronaRuntimeLaunchSettings class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoronaRuntimeLaunchSettings.CachesDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_CachesDirectoryPath.htm" />
+  <HelpKINode Title="CoronaRuntimeLaunchSettings.CopyFrom method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_CopyFrom.htm" />
+  <HelpKINode Title="CoronaRuntimeLaunchSettings.CoronaRuntimeLaunchSettings constructor" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings__ctor.htm" />
+  <HelpKINode Title="CoronaRuntimeLaunchSettings.DocumentsDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_DocumentsDirectoryPath.htm" />
+  <HelpKINode Title="CoronaRuntimeLaunchSettings.InternalDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_InternalDirectoryPath.htm" />
+  <HelpKINode Title="CoronaRuntimeLaunchSettings.LaunchFilePath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_LaunchFilePath.htm" />
+  <HelpKINode Title="CoronaRuntimeLaunchSettings.ResourceDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_ResourceDirectoryPath.htm" />
+  <HelpKINode Title="CoronaRuntimeLaunchSettings.TemporaryDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_TemporaryDirectoryPath.htm" />
+  <HelpKINode Title="CoronaRuntimeState enumeration" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeState.htm" />
+  <HelpKINode Title="Count property">
+    <HelpKINode Title="CoronaBoxedList.Count Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedList_Count.htm" />
+    <HelpKINode Title="CoronaBoxedTable.Count Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedTable_Count.htm" />
+    <HelpKINode Title="CoronaLuaEventProperties.Count Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Count.htm" />
+    <HelpKINode Title="ImmutableByteBuffer.Count Property " Url="html/P_CoronaLabs_WinRT_ImmutableByteBuffer_Count.htm" />
+    <HelpKINode Title="ReadOnlyCoronaLuaEventProperties.Count Property " Url="html/P_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties_Count.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CreateWithName method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_CreateWithName.htm" />
+  <HelpKINode Title="DefaultCachesDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DefaultCachesDirectoryPath.htm" />
+  <HelpKINode Title="DefaultDocumentsDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DefaultDocumentsDirectoryPath.htm" />
+  <HelpKINode Title="DefaultInternalDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DefaultInternalDirectoryPath.htm" />
+  <HelpKINode Title="DefaultResourceDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DefaultResourceDirectoryPath.htm" />
+  <HelpKINode Title="DefaultTemporaryDirectoryPath property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DefaultTemporaryDirectoryPath.htm" />
+  <HelpKINode Title="DispatchCoronaLuaEventResult class">
+    <HelpKINode Title="DispatchCoronaLuaEventResult Class" Url="html/T_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult.htm" />
+    <HelpKINode Title="about DispatchCoronaLuaEventResult class" Url="html/T_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DispatchCoronaLuaEventResult.FailedWith method" Url="html/M_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_FailedWith.htm" />
+  <HelpKINode Title="DispatchCoronaLuaEventResult.HasFailed property" Url="html/P_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_HasFailed.htm" />
+  <HelpKINode Title="DispatchCoronaLuaEventResult.HasSucceeded property" Url="html/P_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_HasSucceeded.htm" />
+  <HelpKINode Title="DispatchCoronaLuaEventResult.Message property" Url="html/P_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_Message.htm" />
+  <HelpKINode Title="DispatchCoronaLuaEventResult.ReturnedValue property" Url="html/P_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_ReturnedValue.htm" />
+  <HelpKINode Title="DispatchCoronaLuaEventResult.SucceededWith method" Url="html/M_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_SucceededWith.htm" />
+  <HelpKINode Title="DispatchEvent method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DispatchEvent.htm" />
+  <HelpKINode Title="DocumentsDirectoryPath property">
+    <HelpKINode Title="CoronaRuntimeEnvironment.DocumentsDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DocumentsDirectoryPath.htm" />
+    <HelpKINode Title="CoronaRuntimeLaunchSettings.DocumentsDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_DocumentsDirectoryPath.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Empty property">
+    <HelpKINode Title="CoronaBoxedString.Empty Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedString_Empty.htm" />
+    <HelpKINode Title="ImmutableByteBuffer.Empty Property " Url="html/P_CoronaLabs_WinRT_ImmutableByteBuffer_Empty.htm" />
+    <HelpKINode Title="Utf8String.Empty Property " Url="html/P_CoronaLabs_WinRT_Utf8String_Empty.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EmptyEventArgs class">
+    <HelpKINode Title="EmptyEventArgs Class" Url="html/T_CoronaLabs_WinRT_EmptyEventArgs.htm" />
+    <HelpKINode Title="about EmptyEventArgs class" Url="html/T_CoronaLabs_WinRT_EmptyEventArgs.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_WinRT_EmptyEventArgs.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_WinRT_EmptyEventArgs.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EmptyEventArgs.Instance property" Url="html/P_CoronaLabs_WinRT_EmptyEventArgs_Instance.htm" />
+  <HelpKINode Title="Equals method">
+    <HelpKINode Title="CoronaBoxedBoolean.Equals Method " Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_Equals.htm" />
+    <HelpKINode Title="CoronaBoxedNumber.Equals Method " Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_Equals.htm" />
+    <HelpKINode Title="CoronaBoxedString.Equals Method " Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedString_Equals.htm" />
+    <HelpKINode Title="ICoronaBoxedComparableData.Equals Method " Url="html/M_CoronaLabs_Corona_WinRT_ICoronaBoxedComparableData_Equals.htm" />
+    <HelpKINode Title="Utf8String.Equals Method " Url="html/Overload_CoronaLabs_WinRT_Utf8String_Equals.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EventName property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaLuaEventArgs_EventName.htm" />
+  <HelpKINode Title="FailedWith method">
+    <HelpKINode Title="DispatchCoronaLuaEventResult.FailedWith Method " Url="html/M_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_FailedWith.htm" />
+    <HelpKINode Title="OperationResult.FailedWith Method " Url="html/M_CoronaLabs_WinRT_OperationResult_FailedWith.htm" />
+  </HelpKINode>
+  <HelpKINode Title="False property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_False.htm" />
+  <HelpKINode Title="First method">
+    <HelpKINode Title="CoronaBoxedList.First Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedList_First.htm" />
+    <HelpKINode Title="CoronaBoxedTable.First Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_First.htm" />
+    <HelpKINode Title="CoronaLuaEventProperties.First Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_First.htm" />
+    <HelpKINode Title="ImmutableByteBuffer.First Method " Url="html/M_CoronaLabs_WinRT_ImmutableByteBuffer_First.htm" />
+    <HelpKINode Title="ReadOnlyCoronaLuaEventProperties.First Method " Url="html/M_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties_First.htm" />
+  </HelpKINode>
+  <HelpKINode Title="From method">
+    <HelpKINode Title="CoronaBoxedBoolean.From Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_From.htm" />
+    <HelpKINode Title="CoronaBoxedString.From Method " Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedString_From.htm" />
+    <HelpKINode Title="ImmutableByteBuffer.From Method " Url="html/Overload_CoronaLabs_WinRT_ImmutableByteBuffer_From.htm" />
+    <HelpKINode Title="Utf8String.From Method " Url="html/M_CoronaLabs_WinRT_Utf8String_From.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FromLua method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedData_FromLua.htm" />
+  <HelpKINode Title="Get method">
+    <HelpKINode Title="CoronaLuaEventProperties.Get Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Get.htm" />
+    <HelpKINode Title="ReadOnlyCoronaLuaEventProperties.Get Method " Url="html/M_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties_Get.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetByIndex method" Url="html/M_CoronaLabs_WinRT_ImmutableByteBuffer_GetByIndex.htm" />
+  <HelpKINode Title="GetHashCode method">
+    <HelpKINode Title="CoronaBoxedBoolean.GetHashCode Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_GetHashCode.htm" />
+    <HelpKINode Title="CoronaBoxedNumber.GetHashCode Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_GetHashCode.htm" />
+    <HelpKINode Title="CoronaBoxedString.GetHashCode Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_GetHashCode.htm" />
+    <HelpKINode Title="ICoronaBoxedComparableData.GetHashCode Method " Url="html/M_CoronaLabs_Corona_WinRT_ICoronaBoxedComparableData_GetHashCode.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetValueByKey method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_GetValueByKey.htm" />
+  <HelpKINode Title="Handled property" Url="html/P_CoronaLabs_WinRT_HandledEventArgs_Handled.htm" />
+  <HelpKINode Title="HandledEventArgs class">
+    <HelpKINode Title="HandledEventArgs Class" Url="html/T_CoronaLabs_WinRT_HandledEventArgs.htm" />
+    <HelpKINode Title="about HandledEventArgs class" Url="html/T_CoronaLabs_WinRT_HandledEventArgs.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CoronaLabs_WinRT_HandledEventArgs__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_WinRT_HandledEventArgs.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_WinRT_HandledEventArgs.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HandledEventArgs.Handled property" Url="html/P_CoronaLabs_WinRT_HandledEventArgs_Handled.htm" />
+  <HelpKINode Title="HandledEventArgs.HandledEventArgs constructor" Url="html/M_CoronaLabs_WinRT_HandledEventArgs__ctor.htm" />
+  <HelpKINode Title="HasFailed property">
+    <HelpKINode Title="DispatchCoronaLuaEventResult.HasFailed Property " Url="html/P_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_HasFailed.htm" />
+    <HelpKINode Title="IOperationResult.HasFailed Property " Url="html/P_CoronaLabs_WinRT_IOperationResult_HasFailed.htm" />
+    <HelpKINode Title="OperationResult.HasFailed Property " Url="html/P_CoronaLabs_WinRT_OperationResult_HasFailed.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HasSucceeded property">
+    <HelpKINode Title="DispatchCoronaLuaEventResult.HasSucceeded Property " Url="html/P_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_HasSucceeded.htm" />
+    <HelpKINode Title="IOperationResult.HasSucceeded Property " Url="html/P_CoronaLabs_WinRT_IOperationResult_HasSucceeded.htm" />
+    <HelpKINode Title="OperationResult.HasSucceeded Property " Url="html/P_CoronaLabs_WinRT_OperationResult_HasSucceeded.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ICoronaBoxedComparableData interface">
+    <HelpKINode Title="ICoronaBoxedComparableData Interface" Url="html/T_CoronaLabs_Corona_WinRT_ICoronaBoxedComparableData.htm" />
+    <HelpKINode Title="about ICoronaBoxedComparableData interface" Url="html/T_CoronaLabs_Corona_WinRT_ICoronaBoxedComparableData.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_ICoronaBoxedComparableData.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ICoronaBoxedComparableData.CompareTo method" Url="html/M_CoronaLabs_Corona_WinRT_ICoronaBoxedComparableData_CompareTo.htm" />
+  <HelpKINode Title="ICoronaBoxedComparableData.Equals method" Url="html/M_CoronaLabs_Corona_WinRT_ICoronaBoxedComparableData_Equals.htm" />
+  <HelpKINode Title="ICoronaBoxedComparableData.GetHashCode method" Url="html/M_CoronaLabs_Corona_WinRT_ICoronaBoxedComparableData_GetHashCode.htm" />
+  <HelpKINode Title="ICoronaBoxedData interface">
+    <HelpKINode Title="ICoronaBoxedData Interface" Url="html/T_CoronaLabs_Corona_WinRT_ICoronaBoxedData.htm" />
+    <HelpKINode Title="about ICoronaBoxedData interface" Url="html/T_CoronaLabs_Corona_WinRT_ICoronaBoxedData.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_ICoronaBoxedData.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ICoronaBoxedData.PushToLua method" Url="html/M_CoronaLabs_Corona_WinRT_ICoronaBoxedData_PushToLua.htm" />
+  <HelpKINode Title="ImmutableByteBuffer class">
+    <HelpKINode Title="ImmutableByteBuffer Class" Url="html/T_CoronaLabs_WinRT_ImmutableByteBuffer.htm" />
+    <HelpKINode Title="about ImmutableByteBuffer class" Url="html/T_CoronaLabs_WinRT_ImmutableByteBuffer.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_WinRT_ImmutableByteBuffer.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_WinRT_ImmutableByteBuffer.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ImmutableByteBuffer.Count property" Url="html/P_CoronaLabs_WinRT_ImmutableByteBuffer_Count.htm" />
+  <HelpKINode Title="ImmutableByteBuffer.Empty property" Url="html/P_CoronaLabs_WinRT_ImmutableByteBuffer_Empty.htm" />
+  <HelpKINode Title="ImmutableByteBuffer.First method" Url="html/M_CoronaLabs_WinRT_ImmutableByteBuffer_First.htm" />
+  <HelpKINode Title="ImmutableByteBuffer.From method" Url="html/Overload_CoronaLabs_WinRT_ImmutableByteBuffer_From.htm" />
+  <HelpKINode Title="ImmutableByteBuffer.GetByIndex method" Url="html/M_CoronaLabs_WinRT_ImmutableByteBuffer_GetByIndex.htm" />
+  <HelpKINode Title="ImmutableByteBuffer.IsEmpty property" Url="html/P_CoronaLabs_WinRT_ImmutableByteBuffer_IsEmpty.htm" />
+  <HelpKINode Title="ImmutableByteBuffer.IsNotEmpty property" Url="html/P_CoronaLabs_WinRT_ImmutableByteBuffer_IsNotEmpty.htm" />
+  <HelpKINode Title="Instance property" Url="html/P_CoronaLabs_WinRT_EmptyEventArgs_Instance.htm" />
+  <HelpKINode Title="InternalDirectoryPath property">
+    <HelpKINode Title="CoronaRuntimeEnvironment.InternalDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_InternalDirectoryPath.htm" />
+    <HelpKINode Title="CoronaRuntimeLaunchSettings.InternalDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_InternalDirectoryPath.htm" />
+  </HelpKINode>
+  <HelpKINode Title="InteropServices property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_InteropServices.htm" />
+  <HelpKINode Title="IOperationResult interface">
+    <HelpKINode Title="IOperationResult Interface" Url="html/T_CoronaLabs_WinRT_IOperationResult.htm" />
+    <HelpKINode Title="about IOperationResult interface" Url="html/T_CoronaLabs_WinRT_IOperationResult.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_WinRT_IOperationResult.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IOperationResult.HasFailed property" Url="html/P_CoronaLabs_WinRT_IOperationResult_HasFailed.htm" />
+  <HelpKINode Title="IOperationResult.HasSucceeded property" Url="html/P_CoronaLabs_WinRT_IOperationResult_HasSucceeded.htm" />
+  <HelpKINode Title="IOperationResult.Message property" Url="html/P_CoronaLabs_WinRT_IOperationResult_Message.htm" />
+  <HelpKINode Title="IsEmpty property">
+    <HelpKINode Title="ImmutableByteBuffer.IsEmpty Property " Url="html/P_CoronaLabs_WinRT_ImmutableByteBuffer_IsEmpty.htm" />
+    <HelpKINode Title="Utf8String.IsEmpty Property " Url="html/P_CoronaLabs_WinRT_Utf8String_IsEmpty.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IsNotEmpty property">
+    <HelpKINode Title="ImmutableByteBuffer.IsNotEmpty Property " Url="html/P_CoronaLabs_WinRT_ImmutableByteBuffer_IsNotEmpty.htm" />
+    <HelpKINode Title="Utf8String.IsNotEmpty Property " Url="html/P_CoronaLabs_WinRT_Utf8String_IsNotEmpty.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IsShowing property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_IsShowing.htm" />
+  <HelpKINode Title="LaunchFilePath property">
+    <HelpKINode Title="CoronaRuntimeEnvironment.LaunchFilePath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_LaunchFilePath.htm" />
+    <HelpKINode Title="CoronaRuntimeLaunchSettings.LaunchFilePath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_LaunchFilePath.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Loaded event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntime_Loaded.htm" />
+  <HelpKINode Title="Message property">
+    <HelpKINode Title="CoronaMessageBox.Message Property " Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_Message.htm" />
+    <HelpKINode Title="DispatchCoronaLuaEventResult.Message Property " Url="html/P_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_Message.htm" />
+    <HelpKINode Title="IOperationResult.Message Property " Url="html/P_CoronaLabs_WinRT_IOperationResult_Message.htm" />
+    <HelpKINode Title="MessageEventArgs.Message Property " Url="html/P_CoronaLabs_WinRT_MessageEventArgs_Message.htm" />
+    <HelpKINode Title="OperationResult.Message Property " Url="html/P_CoronaLabs_WinRT_OperationResult_Message.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MessageEventArgs class">
+    <HelpKINode Title="MessageEventArgs Class" Url="html/T_CoronaLabs_WinRT_MessageEventArgs.htm" />
+    <HelpKINode Title="about MessageEventArgs class" Url="html/T_CoronaLabs_WinRT_MessageEventArgs.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CoronaLabs_WinRT_MessageEventArgs__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_WinRT_MessageEventArgs.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_WinRT_MessageEventArgs.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MessageEventArgs.Message property" Url="html/P_CoronaLabs_WinRT_MessageEventArgs_Message.htm" />
+  <HelpKINode Title="MessageEventArgs.MessageEventArgs constructor" Url="html/M_CoronaLabs_WinRT_MessageEventArgs__ctor.htm" />
+  <HelpKINode Title="NotStarted enumeration member" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeState.htm" />
+  <HelpKINode Title="OperationResult class">
+    <HelpKINode Title="OperationResult Class" Url="html/T_CoronaLabs_WinRT_OperationResult.htm" />
+    <HelpKINode Title="about OperationResult class" Url="html/T_CoronaLabs_WinRT_OperationResult.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_WinRT_OperationResult.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_WinRT_OperationResult.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OperationResult.FailedWith method" Url="html/M_CoronaLabs_WinRT_OperationResult_FailedWith.htm" />
+  <HelpKINode Title="OperationResult.HasFailed property" Url="html/P_CoronaLabs_WinRT_OperationResult_HasFailed.htm" />
+  <HelpKINode Title="OperationResult.HasSucceeded property" Url="html/P_CoronaLabs_WinRT_OperationResult_HasSucceeded.htm" />
+  <HelpKINode Title="OperationResult.Message property" Url="html/P_CoronaLabs_WinRT_OperationResult_Message.htm" />
+  <HelpKINode Title="OperationResult.Succeeded property" Url="html/P_CoronaLabs_WinRT_OperationResult_Succeeded.htm" />
+  <HelpKINode Title="OperationResult.SucceededWith method" Url="html/M_CoronaLabs_WinRT_OperationResult_SucceededWith.htm" />
+  <HelpKINode Title="PressedButtonIndex property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_PressedButtonIndex.htm" />
+  <HelpKINode Title="Properties property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaLuaEventArgs_Properties.htm" />
+  <HelpKINode Title="PushToLua method">
+    <HelpKINode Title="CoronaBoxedBoolean.PushToLua Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_PushToLua.htm" />
+    <HelpKINode Title="CoronaBoxedList.PushToLua Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedList_PushToLua.htm" />
+    <HelpKINode Title="CoronaBoxedNumber.PushToLua Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_PushToLua.htm" />
+    <HelpKINode Title="CoronaBoxedString.PushToLua Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_PushToLua.htm" />
+    <HelpKINode Title="CoronaBoxedTable.PushToLua Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_PushToLua.htm" />
+    <HelpKINode Title="ICoronaBoxedData.PushToLua Method " Url="html/M_CoronaLabs_Corona_WinRT_ICoronaBoxedData_PushToLua.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ReadOnlyCoronaLuaEventProperties class">
+    <HelpKINode Title="ReadOnlyCoronaLuaEventProperties Class" Url="html/T_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties.htm" />
+    <HelpKINode Title="about ReadOnlyCoronaLuaEventProperties class" Url="html/T_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties.htm" />
+    <HelpKINode Title="constructor" Url="html/M_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ReadOnlyCoronaLuaEventProperties.Contains method" Url="html/M_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties_Contains.htm" />
+  <HelpKINode Title="ReadOnlyCoronaLuaEventProperties.Count property" Url="html/P_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties_Count.htm" />
+  <HelpKINode Title="ReadOnlyCoronaLuaEventProperties.First method" Url="html/M_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties_First.htm" />
+  <HelpKINode Title="ReadOnlyCoronaLuaEventProperties.Get method" Url="html/M_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties_Get.htm" />
+  <HelpKINode Title="ReadOnlyCoronaLuaEventProperties.ReadOnlyCoronaLuaEventProperties constructor" Url="html/M_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties__ctor.htm" />
+  <HelpKINode Title="Remove method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Remove.htm" />
+  <HelpKINode Title="RemoveByKey method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_RemoveByKey.htm" />
+  <HelpKINode Title="RemoveEventListener method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_RemoveEventListener.htm" />
+  <HelpKINode Title="RenderSurface property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_RenderSurface.htm" />
+  <HelpKINode Title="ResourceDirectoryPath property">
+    <HelpKINode Title="CoronaRuntimeEnvironment.ResourceDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_ResourceDirectoryPath.htm" />
+    <HelpKINode Title="CoronaRuntimeLaunchSettings.ResourceDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_ResourceDirectoryPath.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Resume method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime_Resume.htm" />
+  <HelpKINode Title="Resumed event">
+    <HelpKINode Title="CoronaRuntime.Resumed Event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntime_Resumed.htm" />
+    <HelpKINode Title="CoronaRuntimeEnvironment.Resumed Event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_Resumed.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Resuming enumeration member" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeState.htm" />
+  <HelpKINode Title="ReturnedValue property" Url="html/P_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_ReturnedValue.htm" />
+  <HelpKINode Title="Run method" Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaRuntime_Run.htm" />
+  <HelpKINode Title="RunInDirectory method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime_RunInDirectory.htm" />
+  <HelpKINode Title="Running enumeration member" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeState.htm" />
+  <HelpKINode Title="Runtime property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_Runtime.htm" />
+  <HelpKINode Title="RuntimeState property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_RuntimeState.htm" />
+  <HelpKINode Title="RunUsing method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime_RunUsing.htm" />
+  <HelpKINode Title="Set method">
+    <HelpKINode Title="CoronaBoxedTable.Set Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_Set.htm" />
+    <HelpKINode Title="CoronaLuaEventProperties.Set Method " Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Set.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Show method" Url="html/M_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_Show.htm" />
+  <HelpKINode Title="ShownMessagBoxes property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_ShownMessagBoxes.htm" />
+  <HelpKINode Title="Started event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntime_Started.htm" />
+  <HelpKINode Title="Starting enumeration member" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeState.htm" />
+  <HelpKINode Title="State property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntime_State.htm" />
+  <HelpKINode Title="Succeeded property" Url="html/P_CoronaLabs_WinRT_OperationResult_Succeeded.htm" />
+  <HelpKINode Title="SucceededWith method">
+    <HelpKINode Title="DispatchCoronaLuaEventResult.SucceededWith Method " Url="html/M_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_SucceededWith.htm" />
+    <HelpKINode Title="OperationResult.SucceededWith Method " Url="html/M_CoronaLabs_WinRT_OperationResult_SucceededWith.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Suspend method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime_Suspend.htm" />
+  <HelpKINode Title="Suspended enumeration member" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeState.htm" />
+  <HelpKINode Title="Suspended event">
+    <HelpKINode Title="CoronaRuntime.Suspended Event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntime_Suspended.htm" />
+    <HelpKINode Title="CoronaRuntimeEnvironment.Suspended Event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_Suspended.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Suspending enumeration member" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeState.htm" />
+  <HelpKINode Title="TemporaryDirectoryPath property">
+    <HelpKINode Title="CoronaRuntimeEnvironment.TemporaryDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_TemporaryDirectoryPath.htm" />
+    <HelpKINode Title="CoronaRuntimeLaunchSettings.TemporaryDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_TemporaryDirectoryPath.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Terminate method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime_Terminate.htm" />
+  <HelpKINode Title="Terminated enumeration member" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeState.htm" />
+  <HelpKINode Title="Terminating enumeration member" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeState.htm" />
+  <HelpKINode Title="Terminating event">
+    <HelpKINode Title="CoronaRuntime.Terminating Event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntime_Terminating.htm" />
+    <HelpKINode Title="CoronaRuntimeEnvironment.Terminating Event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_Terminating.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Title property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_Title.htm" />
+  <HelpKINode Title="ToLower method" Url="html/M_CoronaLabs_WinRT_Utf8String_ToLower.htm" />
+  <HelpKINode Title="ToString method">
+    <HelpKINode Title="BoxedString.ToString Method " Url="html/M_CoronaLabs_WinRT_BoxedString_ToString.htm" />
+    <HelpKINode Title="CoronaBoxedBoolean.ToString Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_ToString.htm" />
+    <HelpKINode Title="CoronaBoxedNumber.ToString Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_ToString.htm" />
+    <HelpKINode Title="CoronaBoxedString.ToString Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_ToString.htm" />
+    <HelpKINode Title="Utf8String.ToString Method " Url="html/M_CoronaLabs_WinRT_Utf8String_ToString.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ToUpper method" Url="html/M_CoronaLabs_WinRT_Utf8String_ToUpper.htm" />
+  <HelpKINode Title="ToUtf16String method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_ToUtf16String.htm" />
+  <HelpKINode Title="ToUtf8String method" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_ToUtf8String.htm" />
+  <HelpKINode Title="True property" Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_True.htm" />
+  <HelpKINode Title="Utf8String class">
+    <HelpKINode Title="Utf8String Class" Url="html/T_CoronaLabs_WinRT_Utf8String.htm" />
+    <HelpKINode Title="about Utf8String class" Url="html/T_CoronaLabs_WinRT_Utf8String.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_CoronaLabs_WinRT_Utf8String__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_CoronaLabs_WinRT_Utf8String.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_CoronaLabs_WinRT_Utf8String.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Utf8String.ByteCount property" Url="html/P_CoronaLabs_WinRT_Utf8String_ByteCount.htm" />
+  <HelpKINode Title="Utf8String.CharacterCount property" Url="html/P_CoronaLabs_WinRT_Utf8String_CharacterCount.htm" />
+  <HelpKINode Title="Utf8String.Empty property" Url="html/P_CoronaLabs_WinRT_Utf8String_Empty.htm" />
+  <HelpKINode Title="Utf8String.Equals method" Url="html/Overload_CoronaLabs_WinRT_Utf8String_Equals.htm" />
+  <HelpKINode Title="Utf8String.From method" Url="html/M_CoronaLabs_WinRT_Utf8String_From.htm" />
+  <HelpKINode Title="Utf8String.IsEmpty property" Url="html/P_CoronaLabs_WinRT_Utf8String_IsEmpty.htm" />
+  <HelpKINode Title="Utf8String.IsNotEmpty property" Url="html/P_CoronaLabs_WinRT_Utf8String_IsNotEmpty.htm" />
+  <HelpKINode Title="Utf8String.ToLower method" Url="html/M_CoronaLabs_WinRT_Utf8String_ToLower.htm" />
+  <HelpKINode Title="Utf8String.ToString method" Url="html/M_CoronaLabs_WinRT_Utf8String_ToString.htm" />
+  <HelpKINode Title="Utf8String.ToUpper method" Url="html/M_CoronaLabs_WinRT_Utf8String_ToUpper.htm" />
+  <HelpKINode Title="Utf8String.Utf8String constructor" Url="html/Overload_CoronaLabs_WinRT_Utf8String__ctor.htm" />
+  <HelpKINode Title="Value property">
+    <HelpKINode Title="BoxedString.Value Property " Url="html/P_CoronaLabs_WinRT_BoxedString_Value.htm" />
+    <HelpKINode Title="CoronaBoxedBoolean.Value Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_Value.htm" />
+    <HelpKINode Title="CoronaBoxedNumber.Value Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_Value.htm" />
+  </HelpKINode>
+  <HelpKINode Title="WasButtonPressed property" Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_WasButtonPressed.htm" />
+</HelpKI>

@@ -1,0 +1,19 @@
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+
+<p>If building for iOS, you must bypass App Transport Security (ATS) by adding the following to the <code>plist</code> table of <code>build.settings</code>. While Corona&nbsp;Labs does not blindly encourage this approach for all developers and projects, bypassing ATS is required in certain cases. For more information on ATS, please see the <a href="../../guide/hardware/appleATS/index.html">Managing App Transport Security</a> guide.</p>
+
+<pre class="brush: lua;">settings =
+{
+	iphone =
+	{
+		plist =
+		{
+			NSAppTransportSecurity = { NSAllowsArbitraryLoads=true },
+		},
+	},
+}</pre>
+
+</div>

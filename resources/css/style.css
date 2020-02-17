@@ -1,0 +1,1179 @@
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+/*
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
+*/
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400);
+
+html {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	font-family: "Open Sans", "Helvetica Neue", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 22px;
+	color: #2C2323;
+	border: none;
+	margin: 0 auto;
+	text-align: left;
+	background: #fff;
+	overflow: hidden;
+	zoom: 100%;
+}
+
+img {
+	max-width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+iframe {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+a, a code {
+	color: #325baa;
+	text-decoration: underline;
+	white-space: nowrap;
+}
+
+a:hover {
+	color: #292929;
+	outline: none !important;
+}
+	
+h1 {
+	margin: 0px 0px 20px 0px;
+	padding: 0px;
+	font-size: 180%;
+	font-weight: 600;
+	color: #343030;
+}
+h1 a, h1 a:hover { color: #343030; text-decoration: none;
+	cursor: default;  /* prevents active cursor on header (Pandoc makes them links but they go nowhere) */
+}
+
+h2 {
+	margin: 14px 0px 20px 0px;
+	font-size: 150%;
+	font-weight: 600;
+	padding: 18px 0px 8px 0px;
+	border-bottom: 1px solid #e4e3e3;
+	color: #343030;
+}
+h2 a, h2 a:hover { color: #343030; text-decoration: none;
+	cursor: default;  /* prevents active cursor on header (Pandoc makes them links but they go nowhere) */
+}
+
+h3, .small-header {
+	margin: 20px 0px 0px 0px;
+	padding: 0px;
+	font-size: 120%;
+	font-weight: 600;
+}
+h3 a, h3 a:hover { color: #343030; text-decoration: none;
+	cursor: default;  /* prevents active cursor on header (Pandoc makes them links but they go nowhere) */
+}
+
+h4 {
+	margin-top: 14px;
+	margin-bottom: 0px;
+	padding: 0px;
+	font-size: 110%;
+	font-weight: 400;
+	color: #325baa;
+}
+h4 a { color: #327dcc; text-decoration: none; font-weight: 400;
+	cursor: default;  /* prevents active cursor on header (Pandoc makes them links but they go nowhere) */
+}
+h4 a:hover { color: #343030; cursor: pointer; }
+
+h5 {
+	margin-top: 12px;
+	margin-bottom: 0px;
+	padding: 0px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #343030; /*5a5757*/
+}
+h5 a, h5 a:hover { color: #343030; font-weight: 600; text-decoration: none; cursor: default; }
+
+h6 {
+	margin: 18px 0px 2px 0px;
+	padding: 0px;
+	font-size: 110%;
+	font-weight: 600;
+}
+h6 a, h6 a:hover { color: #343030; text-decoration: none;
+	cursor: default;  /* prevents active cursor on header (Pandoc makes them links but they go nowhere) */
+}
+
+p {
+	margin-top: 12px;
+	margin-bottom: 0px;
+	padding: 0px;
+	font-size: 100%;
+}
+
+
+/* ------------------------------------------------------------
+OVERRIDES FOR PANDOC-GENERATED TAGS
+------------------------------------------------------------ */
+
+.level5 p { margin-top: 0px; }
+.level4 p { margin-top: 8px; }
+.level5 ul { margin-bottom: 10px; }
+
+/* override style for sub-topics in examples */
+#example h5 a, #examples h5 a {
+	font-size: 15px !important;
+}
+#example pre, #examples pre {
+	margin-top: 8px !important;
+}
+
+/* override styles for sub-category links on API index page */
+div[id="api-reference"] div[id="librariesapi.library"] h4 a,
+div[id="api-reference"] div[id="eventsapi.event"] h4 a,
+div[id="api-reference"] div[id="typesapi.type"] h4 a {
+	font-size: 15px;
+	text-decoration: none;
+	color: #504e4e;
+	font-weight: 600;
+	line-height: 22px;
+	cursor: pointer;  /* re-actives cursor */
+}
+
+
+/* ------------------------------------------------------------
+OTHER CORE STYLES
+------------------------------------------------------------ */
+
+p.index {
+	margin-top: 2px;
+	margin-bottom: 0px;
+	font-size: 100%;
+	font-weight: 400;
+	color: #2C2323;
+}
+p.index a { text-decoration: none; }  /* prevents underline for links on API index page */
+
+b, strong {
+	font-style: normal;
+	font-weight: 600;
+	color: #000;
+}
+
+.small-bold {
+	font-size: 92%;
+	font-weight: bold;
+	white-space: nowrap;
+	margin-left: 1px;
+	margin-right: 1px;
+}
+
+em, i {
+	font-weight: 400 !important;
+	font-style: normal !important;
+}
+
+hr {
+	height: 1px;
+	background: #e4e3e3;
+	border: 0px;
+	margin: 50px -60px 50px;
+	padding: 0px;
+}
+
+blockquote {
+	margin-left: 0px;
+}
+
+.newline {
+	border-bottom: 1px solid #e4e3e3;
+	width: 100%;
+	clear: both;
+}
+
+.clearspace-1 {
+	min-height: 8px;
+}
+
+
+/* ------------------------------------------------------------
+CODE BLOCKS
+------------------------------------------------------------ */
+
+pre, code {
+	font-size: 14px;
+	font-family: "Source Code Pro", "Monaco", monospace; !important;
+	font-style: normal !important;
+	font-weight: normal !important;
+}
+
+code {
+	border: 1px solid #e1e1e1;
+	background-color: #f8f8f8 !important;
+	color: #231c1c !important;
+	padding: 0px 4px 1px 4px;
+	line-height: 21px !important;
+}
+
+
+/* ------------------------------------------------------------
+LIST ELEMENTS
+------------------------------------------------------------ */
+
+ul {
+	list-style-type: square;
+	padding: 0px;
+	margin: 12px 0px 10px 28px;
+}
+
+ol {
+	padding: 0px;
+	margin: 12px 0px 10px 28px;
+}
+
+ul li, ol li, ul li p, ol li p {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+ul ul, ol ul {
+	list-style: square;
+	margin: 4px 0px 14px 20px;
+}
+
+ol ol, ul ol {
+	margin: 4px 0px 14px 20px;
+}
+
+ul ul li, ol ol li, ul ol li, ol ul li {
+	/*list-style-type: none;*/
+	font-size: 14px;
+	line-height: 22px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	margin-left: 2px;
+	color: #504e4e;
+}
+
+ul ul li strong, ol ol li strong, ul ol li strong, ol ul li strong {
+	color: #666363;
+}
+
+
+/* ------------------------------------------------------------
+API TABLE STYLES
+------------------------------------------------------------ */
+
+blockquote table {
+	border-collapse: collapse;
+	margin: 8px 0px 8px 0px;
+	padding: 0px;
+}
+blockquote table { margin: 0px 0px -4px 0px; }
+
+blockquote table tr.even td, blockquote table tr.odd td {
+	margin: 0px;
+	padding: 0px 30px 0px 0px;
+	vertical-align: baseline;
+}
+blockquote tr.even td, blockquote table tr.odd td {
+	line-height: 26px;
+}
+
+blockquote table tr.even td a, blockquote table tr.odd td a {
+	text-decoration: none;
+}
+
+blockquote table tr td strong, blockquote table tr td em {
+	font-style: normal;
+	font-weight: 400;
+	color: #666;
+	padding-left: 1px;
+}
+
+
+/* ------------------------------------------------------------
+MAIN PAGE SECTION
+------------------------------------------------------------ */
+
+.section.level1 {
+	position: absolute;
+	top: 74px;
+	left: 246px;
+	right: 0;
+	bottom: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 30px 42px;
+}
+
+
+/* ------------------------------------------------------------
+SEARCH BOX SECTION
+------------------------------------------------------------ */
+
+.SearchBar {
+	position: absolute;
+	display: block;
+	overflow: hidden;
+	top: 5px;
+	right: 6px;
+	z-index: 110;
+}
+
+.SearchBar form input[type=text] {
+	background-color: #666;
+	opacity: 0.8;
+	width: 160px;
+	border: 0px;
+	font-family: "Open Sans", "Helvetica Neue", sans-serif;
+	font-size: 14px;
+	color: #eee;
+	padding: 3px 12px 3px 12px;
+	-webkit-appearance: none;
+	border-radius: 19px;
+	outline: none;
+	margin: 2px 0 0;
+}
+
+::-webkit-input-placeholder { color: #bbb; }
+:-moz-placeholder { color: #bbb; opacity: 1; }
+::-moz-placeholder { color: #bbb; opacity: 1; }
+:-ms-input-placeholder { color: #bbb; }
+
+.SearchBar form input[type=text]:focus {
+	opacity: 1.0;
+	outline: none;
+}
+
+.SearchBar form input[type=submit] {
+	display: none;
+	-webkit-appearance: none;
+	border-radius: 18px;
+}
+
+
+/* ------------------------------------------------------------
+TOC SECTION
+------------------------------------------------------------ */
+
+#TOC {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	top: 74px;
+	width: 220px;
+	text-overflow: ellipsis;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 28px 10px 12px 15px;
+	margin: 0px;
+	border-right: 1px solid #e4e3e3;
+	}
+
+#TOC a {
+	color: #d45500; /*#e4640f;*/
+	text-decoration: none;
+	white-space: normal;
+}
+
+/* TOC level 1 (# in Markdown) */
+#TOC ul {
+	list-style-type: none;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+#TOC ul li {
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 17px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+#TOC ul li a {
+	color: #403d3d;
+	padding: 0px;
+	margin: 0px;
+}
+
+/* TOC level 2 (## in Markdown) */
+#TOC ul ul {
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+#TOC ul ul li {
+	font-size: 14px;
+	font-weight: 400;
+	padding: 16px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	cursor: pointer;
+}
+#TOC ul ul li a {
+	color: #292929;
+	padding: 0px;
+	margin: 0px;
+}
+
+/* TOC level 3 (### or #### in Markdown) */
+#TOC ul ul ul {
+	margin: 4px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+#TOC ul ul ul li {
+	font-size: 13px;
+	font-weight: 400;
+	margin: 0px 0px 0px 0px;
+	padding: 3px 0px 0px 0px;
+	cursor: pointer;
+}
+#TOC ul ul ul li a {
+	color: #888;
+	padding: 0px;
+	margin: 0px;
+}
+
+/* TOC level 4 (### or #### in Markdown) */
+#TOC ul ul ul ul, #TOC code, #TOC em, #TOC strong {
+	display: none;
+}
+
+#TOC ul ul li a:hover {
+	color: #c25515; /*d45500 257CF5*/
+}
+
+#TOC ul ul ul li a code {
+	font-family: "Open Sans", "Helvetica Neue", sans-serif;
+	font-size: 13px;
+	margin-left: -3px;
+	border: 0;
+	background-color: none;
+	color: #888 !important;
+	text-decoration: none;
+}
+
+
+/* ------------------------------------------------------------
+MEDIA QUERIES SECTION
+------------------------------------------------------------ */
+
+@media screen and ( max-device-width: 1200px ) {
+	body { overflow: visible; width: auto; max-width: 1200px; }
+	html { padding: 0px; }
+	#TOC { display: none; overflow: visible; }
+	.section.level1 { left: 0px; overflow: visible; }
+}
+
+
+/* ------------------------------------------------------------
+NAV SECTION
+------------------------------------------------------------ */
+
+#nav {
+	margin-top: 0px;
+	padding-top: 0px;
+	margin-left: 52px;
+	overflow: auto;
+}
+
+#nav ul {
+	padding-top: 0px;
+	padding-left: 0px;
+	margin-left:0px;
+	margin-top: 6px;
+	display: block;
+	position: absolute;
+	overflow: hidden;
+}
+
+#nav ul li {
+	display: inline-block;
+	list-style-type: none;
+	padding-top: 0px;
+	margin-top: 0px;
+	padding-right: 28px;
+	float: left;
+	white-space: nowrap;
+	font-weight: 400;
+	font-size: 15px;
+}
+
+#nav a {
+	color: #f6f6f6;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+#nav a:hover {
+	color: #dcdcdc;
+}
+
+#resources-link {
+	display: none;
+	position: absolute;
+	right: 20px;
+	color: #a14615;
+	margin-top: 6px;
+}
+#resources-link a { color: #E89957; }
+#resources-link a:hover { color: #d6854c; }
+
+#footer {
+	font-size: 14px;
+	padding-top: 0px;
+	margin-top: 0px;
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+#footer p.copyright, .tiny-copy {
+	font-size: 12px;
+	color: #888;
+}
+
+#footer p.feedback {
+	font-size: 14px;
+	color: #292929;
+	margin-bottom: 12px;
+}
+
+#footer a.feedback-button {
+	background-color: #4E7FC2;
+	border-radius: 2px;
+	color: white;
+	padding: 4px 40px 6px 40px;
+	text-decoration: none;
+	margin-top: 0px;
+}
+#footer a.feedback-button:hover { background-color: #426faf; }
+
+.title {
+	width: 100%;
+	height: 40px;
+	background-color: #434141;
+	position: absolute;
+	display: block;
+	overflow: hidden;
+	top: 0px;
+	left: 0px;
+	padding: 4px 0px 0px 6px;
+}
+
+.titleimg {
+	background-image: url('../images/logo.png');
+	background-repeat: no-repeat;
+	background-size: 32px 32px;
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	display: block;
+	overflow: hidden;
+	top: 4px;
+	left: 6px;
+	cursor: pointer;
+}
+
+sub sup {
+	vertical-align: top;
+	color: #777;
+	padding: 0px 0px 0px 1px;
+	margin: 0px;
+	display: none;
+}
+
+h5 sub sup {
+	font-size: 11px;
+	font-weight: 400;
+	position: relative;
+	top: 1px;
+	display: inline;
+}
+
+div[id="api-reference"] div[id="librariesapi.library"] { width: 33%; float: left; }
+div[id="api-reference"] div[id="eventsapi.event"] { width: 33%; float: left; }
+div[id="api-reference"] div[id="typesapi.type"] { width: 33%; float: left; }
+div#section { clear: both; }
+
+
+/* ------------------------------------------------------------
+BREADCRUMB SECTION
+------------------------------------------------------------ */
+
+#breadcrumb {
+	background-color: #e4e3e3;
+	width: 120%;
+	height: 32px;
+	line-height: 30px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #494949;
+	position: absolute;
+	left: 0px;
+	top: 40px;
+	z-index: 100;
+	overflow: hidden;
+	display: block;
+	padding-left: 10px;
+	padding-top: 3px;
+	padding-bottom: 1px;
+}
+
+#breadcrumb a {
+	color: #535353;
+	text-decoration: none;
+	font-weight: 400;
+}
+#breadcrumb a:hover { color: #c25515; text-decoration: none; }
+
+
+/* ------------------------------------------------------------
+GUIDES TOC
+------------------------------------------------------------ */
+
+.guides-toc ul {
+	list-style: none;
+	margin: 16px 0px 20px 0px;
+	padding: 8px 10px 10px 15px;
+	background-color: #f6f8fb;
+	border-left: 2px solid #dae2f0;
+	width: 50%;
+	white-space: nowrap;
+}
+
+.guides-toc ul li, .guides-toc ul li a {
+	margin: 6px 0px 4px 0px;
+	font-size: 15px;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+
+/* ------------------------------------------------------------
+NOTE BOXES
+------------------------------------------------------------ */
+
+.guide-notebox, .guide-notebox-imp, .guide-notebox-pink {
+	padding: 12px 16px 14px 15px;
+	margin: 20px 0px 20px 0px;
+	overflow: auto;
+}
+.guide-notebox {
+	background-color: #f6f8fb;
+	border-left: 2px solid #dae2f0;
+}
+.guide-notebox-imp {
+	background-color: #fff5e7;
+	border-left: 2px solid rgba(255,221,179,1);
+}
+.guide-notebox-pink {
+	background-color: #f6f2ff;
+	border-left: 2px solid rgba(227,215,255,1);
+}
+
+.guide-notebox ul, .guide-notebox ol, .guide-notebox-imp ul, .guide-notebox-imp ol, .guide-notebox-pink ul, .guide-notebox-pink ol {
+	margin-top: 12px;
+	margin-bottom: 0px;
+	padding: 0px;
+}
+.guide-notebox li, .guide-notebox-imp li, .guide-notebox-pink li {
+	margin-top: 8px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding: 0px;
+}
+.guide-notebox p, .guide-notebox-imp p, .guide-notebox-pink p {
+	margin-top: 14px;
+	margin-bottom: 0px;
+	padding: 0px 0px 1px 0px;
+}
+.guide-notebox li p, .guide-notebox-imp li p, .guide-notebox-pink li p {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.notebox-title {
+	font-size: 115%;
+	color: #46487e;
+	margin-bottom: 8px;
+	padding-bottom: 3px;
+	border-bottom: 1px solid #dae2f0;
+	text-decoration: none;
+}
+.notebox-title a, .notebox-title a:hover { text-decoration: none; color: #46487e; }
+
+.notebox-title-imp {
+	font-size: 115%;
+	color: #c05000;
+	margin-bottom: 8px;
+	padding-bottom: 3px;
+	border-bottom: 1px solid rgba(255,221,179,1);
+	text-decoration: none;
+}
+.notebox-title-imp a, .notebox-title-imp a:hover { text-decoration: none; color: #c05000; }
+
+.notebox-title-pink {
+	font-size: 115%;
+	color: #584387;
+	margin-bottom: 8px;
+	padding-bottom: 3px;
+	border-bottom: 1px solid rgba(227,215,255,1);
+	text-decoration: none;
+}
+.notebox-title-pink a, .notebox-title-pink a:hover { text-decoration: none; color: #584387; }
+
+.guide-notebox pre, .guide-notebox-imp pre, .guide-notebox-pink pre, .docs-tip-outer pre {
+	margin-bottom: 2px;
+	margin-left: 0px;
+}
+
+
+/* ------------------------------------------------------------
+IMAGE OR CODE BLOCK INDENTION
+------------------------------------------------------------ */
+
+.image-indent {
+	margin-left: 28px;
+}
+
+.code-indent {
+	margin-left: 28px;
+	margin-right: 20px;
+}
+
+
+/* ------------------------------------------------------------
+INNER TABLE STYLES (COMPARISON/FEATURE TABLES AND MISC.)
+------------------------------------------------------------ */
+
+.inner-table table {
+	border-collapse: collapse;
+	padding: 0px;
+	margin: 16px 0px 20px 0px;
+}
+.inner-table table th {
+	font-weight: 400;
+	border-bottom: 2px solid #b6d9f7;
+	margin: 0px;
+	padding: 0px 18px 8px 18px;
+	font-size: 110%;
+	color: #3b68b4;
+}
+.inner-table table td {
+	border-bottom: 1px solid #daecfb;
+	padding: 8px 18px 8px 18px;
+	line-height: 22px;
+	vertical-align: top !important;
+}
+.inner-table table tr.odd {
+	background-color: #f7fbfe;
+}
+.inner-table table tr.even {
+	background-color: #fbfdfe;
+}
+.inner-table code {
+	margin: 0px;
+	line-height: 21px !important;
+	vertical-align: baseline;
+}
+.nobr table td {
+	white-space: nowrap;
+}
+.full-width table {
+	width: 100%;
+}
+.vert-compact table td {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.percent50 table td {
+	width: 50%;
+}
+.percent33 table td {
+	width: 33%;
+}
+.percent25 table td {
+	width: 25%;
+}
+
+
+/* ------------------------------------------------------------
+FLOAT STYLES
+------------------------------------------------------------ */
+
+.float-right {
+	margin: 0px 20px 0px 0px;
+	padding: 0px;
+	float: right;
+}
+.float-right table {
+	border-collapse: collapse;
+	padding: 0px;
+	margin: 0px 0px 0px 20px;
+	border: 0px;
+}
+.float-right table td {
+	min-width: 32px;
+	padding: 0px;
+	border: 0px;
+	text-align: center;
+}
+.float-right img {
+	margin: 0px;
+	padding: 0px 0px 0px 20px;
+	background-color: white;
+}
+.float-right table td img {
+	padding: 0px;
+}
+.float-left {
+	margin: 0px 25px 0px 0px;
+	padding: 0px;
+	float: left;
+}
+.float-left img {
+	margin: 0px;
+	padding: 0px 25px 0px 0px;
+	background-color: white;
+}
+@media screen and (max-width: 1000px) {
+	.float-right { float: none; }
+	.float-right img { padding: 0px; }
+}
+
+/* ------------------------------------------------------------
+WALKTHROUGH NAVIGATION STYLES
+------------------------------------------------------------ */
+
+.walkthrough-nav {
+	margin: 16px 0px 28px 0px !important;
+	line-height: 30px;
+}
+.walkthrough-nav strong {
+	color: #ffdf33;
+	font-size: 17px;
+	font-weight: 600;
+	padding: 0px 0px 0px 0px;
+	vertical-align: top;
+}
+.walkthrough-nav em {
+	color: #fff;
+	margin: 0px 8px 0px 8px;
+	padding: 0px;
+	font-size: 40px;
+	font-style: normal;
+	font-weight: 300;
+	vertical-align: top;
+	overflow: hidden;
+}
+.walkthrough-nav p {
+	background-color: #fc7336;
+	display: table-cell;
+	border-radius: 2px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 1px;
+}
+.walkthrough-nav a {
+	color: #fff;
+	font-size: 15px;
+	font-weight: 400;
+	padding: 0px 5px 0px 5px;
+	vertical-align: baseline;
+	text-decoration: none;
+	display: inline-block;
+}
+.walkthrough-nav-upper-right {
+	float: right;
+	margin-top: -44px;
+	padding-left: 30px;
+	padding-bottom: 30px;
+	clear: left;
+}
+@media screen and (max-width: 1160px) {
+	.walkthrough-nav-upper-right {
+		display: none;
+	}
+}
+
+
+/* ------------------------------------------------------------
+FOR HD/RETINA DISPLAYS
+------------------------------------------------------------ */
+
+@media only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2) {
+	body, a code {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		color: #292929;
+	}
+}
+
+
+/* ------------------------------------------------------------
+DOCS HUB PAGE STYLES
+------------------------------------------------------------ */
+
+.doc-items {
+	background: #fff;
+    clear: both;
+    overflow: hidden;
+    padding-bottom: 40px;
+    max-width: 1080px;
+}
+
+.doc-items .itembox a {
+    cursor: pointer;
+    text-decoration: none;
+	white-space: normal;
+    color: #343030;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.doc-items .itembox {
+    background: #fff;
+    float: left;
+    width: 300px;
+    height: 180px;
+    margin: 24px 12px 0px 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    border: 4px solid #fff;
+    padding: 15px;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+.doc-items .itembox:hover {
+    border-color: #e57d36;
+}
+
+.doc-items .itembox p {
+    font-size: 15px;
+    line-height: 24px;
+	font-weight: 400;
+	padding-top: 0px;
+	margin-top: 8px;
+}
+
+.doc-items .itembox-header p {
+    color: #e57d36;
+    font-size: 22px;
+    border-bottom: 1px solid #e4e3e3;
+    padding-bottom: 10px;
+    margin: 0;
+    font-weight: 600;
+	vertical-align: baseline;
+}
+
+.doc-items .itembox-icon {
+    padding-right: 10px;
+	color: #e57d36;
+    font-size: 25px;
+	float: left;
+	vertical-align: baseline;
+}
+
+.clear	{
+	clear: both;
+	overflow: hidden;
+}
+
+
+/* ------------------------------------------------------------
+TIP/ALERT/FEATURE BOX STYLES
+------------------------------------------------------------ */
+
+.docs-tip-inner-left {
+	float: left;
+	width: 50px;
+	min-height: 47px;
+	color: #fff;
+	text-align: center;
+	overflow: hidden;
+}
+.docs-tip-inner-left .fa {
+	font-size: 36px;
+	padding-top: 3px;
+}
+.docs-tip-inner-right {
+	overflow: hidden;
+	background-color: rgba(255,255,255,0.94);
+	min-height: 35px;
+	padding: 0px 24px 12px 16px;
+}
+.docs-tip-inner-right p {
+	margin: 10px 0px 0px 0px !important;
+}
+/*.docs-tip-inner-right h4 {
+	margin-top: 8px !important;
+	margin-bottom: 2px;
+}*/
+.docs-tip-inner-left img {
+	margin: 0px 0px 0px 2px;
+	padding: 0px;
+}
+.docs-tip-inner-left p {
+	margin: 0px;
+	padding: 0px;
+}
+.docs-tip-outer {
+	background-color: #6cb3ef;
+	margin: 20px 0px 20px 0px;
+	padding: 2px 1px 1px 0px;
+	overflow: hidden;
+}
+.docs-tip-color-alert {
+	background-color: #f05b54;
+}
+.docs-tip-color-action {
+	background-color: #8383a0;
+}
+.docs-tip-color-orange {
+	background-color: #ffa752;
+}
+
+
+/* ------------------------------------------------------------
+VISUAL "BULLET POINT" STYLES
+------------------------------------------------------------ */
+
+.fa-list-element {
+	min-height: 36px;
+	margin-top: 16px;
+	margin-bottom: 0px;
+	line-height: 22px;
+	font-size: 14px;
+}
+.fa-list-element p {
+	padding-top: 7px;
+	display: table-cell;
+}
+.fa-list-element-tile {
+	float: left;
+	background-color: #ff9f4b;
+	color: #fff;
+	border-radius: 36px;
+	min-width: 52px;
+	max-width: 52px;
+	min-height: 36px;
+	max-height: 36px;
+	text-align: center;
+	margin-right: 11px;
+	display: block;
+}
+.fa-list-element-tile .fa {
+	font-size: 26px;
+	padding-top: 5px;
+	overflow: hidden;
+}
+
+
+/* ------------------------------------------------------------
+OTHER STYLES
+------------------------------------------------------------ */
+
+.cta-button {
+	background-color: #fb7f40;
+	border-radius: 2px;
+	color: white;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px 32px 5px 32px;
+	margin: 9px 0px 2px 0px;
+	text-decoration: none;
+	display: table;
+}
+.cta-button:hover {
+	/*background-color: #fc7336;*/
+	color: white;
+}
+
+a code {
+	font-family: "Open Sans", "Helvetica Neue", sans-serif !important;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+	line-height: 22px !important;
+	border: 0px !important;
+	background-color: transparent !important;
+	color: #325baa !important;
+	border: none !important;
+	margin: 0 auto !important;
+	padding: 0 !important;
+	text-decoration: underline !important;
+	white-space: nowrap;
+}
+
+a code:hover {
+	color: #292929 !important;
+	outline: none !important;
+}
+
+h4 em, #TOC em {
+	font-size: 80%;
+	font-style: normal;
+	font-weight: 400;
+	opacity: 0.64;
+	padding-left: 0px;
+}
+
+.tree ul { list-style-type: none; margin: 12px 0px 10px 0px; padding: 0px; }
+.tree ul ul { list-style-type: none; margin: 0px 0px 0px 40px; padding: 0px; }
+.tree li { margin: 6px 0px 6px 0px; padding: 0px; color: #2C2323; }
+
+h3 code, h4 code, h6 code {
+	font-size: 14px !important;
+	font-family: "Source Code Pro", "Monaco", monospace; !important;
+	border: 1px solid rgba(2,0,0,0.08) !important;
+	background-color: #fcfbfb !important;
+	color: #343030 !important;
+	padding: 3px 4px 2px 4px !important;
+	text-decoration: none !important;
+}
+
+.console-warning code {
+	color: black !important;
+	background-color: #ffcc00 !important;
+	border: 0px !important;
+	padding: 3px 6px 3px 8px !important;
+}
+
+.console-error code {
+	color: black !important;
+	background-color: #ff594c !important;
+	border: 0px !important;
+	padding: 3px 6px 3px 8px !important;
+}
+
+div[id="methods"] pre, div[id="properties"] pre, div[id="functions"] pre {
+	margin-bottom: 16px;
+}
+
+/* ------------------------------------------------------------
+PRINTING STYLES
+------------------------------------------------------------ */
+
+@media print {
+   body{margin:0.5in;font-family:times; display:block; page-break-before:always; overflow: visible !important;}
+   *{background:#fff !important;color:#000 !important;float:none !important;width:auto !important;height:auto !important;}
+   .title, .SearchBar, #TOC, #footer{display:none !important;}
+   .section.level1 {width: 100%; left: 0; overflow: visible !important; padding: 0 10px !important;}
+   .guides-toc ul {padding: 0 10px;}
+   .fa-list-element {min-height: 22px;}
+   .fa-list-element-tile{display:none !important;}
+   a{border:0;text-decoration:none;}
+   a img{border:0}
+   /* a:after{content:" (" attr(href) ") ";font-size: 90%;} */
+   /* a[href^="/"]:after {content: " (http://www.aimweb.name" attr(href) ") ";} */
+}

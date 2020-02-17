@@ -1,0 +1,4 @@
+tools/
+*.pyc
+bin/.lastbuild.log
+html/

@@ -1,0 +1,2 @@
+Some features or functionality outlined in this document only apply to <a href="https://developer.coronalabs.com/downloads/daily-builds/" target="_new">daily builds</a> since the current public release. Please see the inline notes below for details.
+

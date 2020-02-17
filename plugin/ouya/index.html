@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | ouya</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#ouya.">ouya.*</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#gotchas">Gotchas</a></li>
+<li><a href="#functions">Functions</a><ul>
+<li><a href="#named-java-methods">Named Java Methods</a><ul>
+<li><a href="#ouyasdk.initouyaplugin">ouyaSDK.initOuyaPlugin</a></li>
+<li><a href="#ouyasdk.asyncluaouyainitinput">ouyaSDK.asyncLuaOuyaInitInput</a></li>
+<li><a href="#ouyasdk.asyncluaouyagetcontrollername">ouyaSDK.asyncLuaOuyaGetControllerName</a></li>
+<li><a href="#ouyasdk.asyncluaouyarequestgamerinfo">ouyaSDK.asyncLuaOuyaRequestGamerInfo</a></li>
+<li><a href="#ouyasdk.asyncluaouyarequestproducts">ouyaSDK.asyncLuaOuyaRequestProducts</a></li>
+<li><a href="#ouyasdk.asyncluaouyarequestpurchase">ouyaSDK.asyncLuaOuyaRequestPurchase</a></li>
+<li><a href="#ouyasdk.asyncluaouyarequestreceipts">ouyaSDK.asyncLuaOuyaRequestReceipts</a></li>
+</ul></li>
+<li><a href="#wrapped-methods">Wrapped Methods</a><ul>
+<li><a href="#plugin_ouya.initouyaplugin">plugin_ouya.initOuyaPlugin</a></li>
+<li><a href="#plugin_ouya.asyncluaouyainitinput">plugin_ouya.asyncLuaOuyaInitInput</a></li>
+<li><a href="#plugin_ouya.asyncluaouyagetcontrollername">plugin_ouya.asyncLuaOuyaGetControllerName</a></li>
+<li><a href="#plugin_ouya.asyncluaouyarequestgamerinfo">plugin_ouya.asyncLuaOuyaRequestGamerInfo</a></li>
+<li><a href="#plugin_ouya.asyncluaouyarequestproducts">plugin_ouya.asyncLuaOuyaRequestProducts</a></li>
+<li><a href="#plugin_ouya.asyncluaouyarequestpurchase">plugin_ouya.asyncLuaOuyaRequestPurchase</a></li>
+<li><a href="#plugin_ouya.asyncluaouyarequestreceipts">plugin_ouya.asyncLuaOuyaRequestReceipts</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#signing-key">Signing Key</a></li>
+<li><a href="#project-settings">Project Settings</a></li>
+<li><a href="#sample-code">Sample Code</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#support">Support</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/ouya/index.html">ouya</a>
+</div>
+<div id="ouya." class="section level1">
+<h1>ouya.*</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left">[library][api.type.library]</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">OUYA</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Platforms</strong></td>
+<td align="left">Android</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>The OUYA plugin allows you to build games supported on the OUYA system. This plugin adds an interface for <nobr>in-app</nobr> purchases (entitlements and consumables) as well as support for accessing the gamer unique identifier.</p>
+<p>In addition, this plugin integrates with OUYA-Everywhere Input which shares code with the <code>OuyaFramework</code> for controller support. Without needing to rebuild or republish, new support for controllers and devices will be added with OUYA OTA updates.</p>
+<p>Plugin has been upgraded to ODK version: 2.0.1353.</p>
+</div>
+<div id="gotchas" class="section level2">
+<h2>Gotchas</h2>
+<p>Before in-app purchase functions can be invoked, wait a couple seconds to allow Java to load the OUYA plugin. When you invoke an <nobr>in-app</nobr> purchase method, wait for the callback to happen before making a call to another <nobr>in-app</nobr> purchase function. Each call should happen in serial versus asynchronous.</p>
+</div>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<div id="named-java-methods" class="section level3">
+<h3>Named Java Methods</h3>
+<div id="ouyasdk.initouyaplugin" class="section level4">
+<h4>ouyaSDK.initOuyaPlugin</h4>
+<p>Requires callback arguments for onSuccess, onFailure, and the initialization plugin values. This method initializes the plugin and invokes the corresponding callback.</p>
+</div>
+<div id="ouyasdk.asyncluaouyainitinput" class="section level4">
+<h4>ouyaSDK.asyncLuaOuyaInitInput</h4>
+<p>Requires callback arguments for onGenericMotionEvent, onKeyDown, and onKeyUp. This method subcribes input callbacks for axis and button events. This is also connected with OUYA-Everywhere input. OUYA-Everywhere input ensures the same controller mappings will work on all supported OUYA devices. New devices can be adding without needing to recompile the app/game.</p>
+</div>
+<div id="ouyasdk.asyncluaouyagetcontrollername" class="section level4">
+<h4>ouyaSDK.asyncLuaOuyaGetControllerName</h4>
+<p>Requires onGetControllerName callback and PlayerNum arguments. The onGetControllerName callback is passed the string of the controller name. The controller name comes from the OUYA Framework which provides a more detailed name of the controller than the device name on the KeyEvent and MotionEvent. PlayerNum is a zero-based integer which is intended to indicate controller #1, #2, #3, and #4.</p>
+</div>
+<div id="ouyasdk.asyncluaouyarequestgamerinfo" class="section level4">
+<h4>ouyaSDK.asyncLuaOuyaRequestGamerInfo</h4>
+<p>Requires initOuyaPlugin to be successfully invoked.</p>
+<p>This method has success, failure, and cancel callbacks.</p>
+<p>The success event provides access to the gamer's username and unique identifier.</p>
+</div>
+<div id="ouyasdk.asyncluaouyarequestproducts" class="section level4">
+<h4>ouyaSDK.asyncLuaOuyaRequestProducts</h4>
+<p>Requires initOuyaPlugin to be successfully invoked.</p>
+<p>This method has success, failure, and cancel callbacks.</p>
+<p>The success event provides access purchasable details for name, description, and price for the given entitlement/consumable purchasable identifier.</p>
+<p>The failure event provides an error code and description.</p>
+<p>The cancel event provides no arguments and indicates the request was cancelled.</p>
+</div>
+<div id="ouyasdk.asyncluaouyarequestpurchase" class="section level4">
+<h4>ouyaSDK.asyncLuaOuyaRequestPurchase</h4>
+<p>Requires initOuyaPlugin to be successfully invoked.</p>
+<p>This method has success, failure, and cancel callbacks.</p>
+<p>The success event provides opens the purchase dialog for the requested purchasable identifier.</p>
+<p>The failure event provides an error code and description.</p>
+<p>The cancel event provides no arguments and indicates the request was cancelled.</p>
+</div>
+<div id="ouyasdk.asyncluaouyarequestreceipts" class="section level4">
+<h4>ouyaSDK.asyncLuaOuyaRequestReceipts</h4>
+<p>Requires initOuyaPlugin to be successfully invoked.</p>
+<p>This method has success, failure, and cancel callbacks.</p>
+<p>The success event returns the list of receipts associated with the bundle identifier for the gamer.</p>
+<p>The failure event provides an error code and description.</p>
+<p>The cancel event provides no arguments and indicates the request was cancelled.</p>
+</div>
+</div>
+<div id="wrapped-methods" class="section level3">
+<h3>Wrapped Methods</h3>
+<div id="plugin_ouya.initouyaplugin" class="section level4">
+<h4>plugin_ouya.initOuyaPlugin</h4>
+<p>Be sure to set your developer id from the <a href="http://devs.ouya.tv">developer portal</a>.</p>
+<pre class="brush: lua;">local ouya = require("plugin.ouya") -- load the ouya plugin
+
+callbacksInitOuyaPlugin = require "callbacksInitOuyaPlugin"
+
+local json = require "json"
+plugin_ouya = require "plugin_ouya"
+
+if nil ~= plugin_ouya and nil ~= plugin_ouya.initOuyaPlugin then
+    local data = {
+    [1] = {
+        ["key"] = "tv.ouya.developer_id",
+        ["value"] = "310a8f51-4d6e-4ae5-bda0-b93878e5f5d0"
+    }};
+    local jsonData = json.encode(data);
+    --print (jsonData);
+    plugin_ouya.initOuyaPlugin(
+        callbacksInitOuyaPlugin.onSuccess,
+        callbacksInitOuyaPlugin.onFailure,
+        jsonData);
+end</pre>
+</div>
+<div id="plugin_ouya.asyncluaouyainitinput" class="section level4">
+<h4>plugin_ouya.asyncLuaOuyaInitInput</h4>
+<p>Wraps calling ouyaSDK.asyncLuaOuyaInitInput to check if the plugin has been initialized before invoking.</p>
+</div>
+<div id="plugin_ouya.asyncluaouyagetcontrollername" class="section level4">
+<h4>plugin_ouya.asyncLuaOuyaGetControllerName</h4>
+<p>Wraps calling ouyaSDK.asyncLuaOuyaGetControllerName to check if the plugin has been initialized before invoking.</p>
+</div>
+<div id="plugin_ouya.asyncluaouyarequestgamerinfo" class="section level4">
+<h4>plugin_ouya.asyncLuaOuyaRequestGamerInfo</h4>
+<p>Wraps calling ouyaSDK.asyncLuaOuyaRequestGamerInfo to check if the plugin has been initialized before invoking.</p>
+</div>
+<div id="plugin_ouya.asyncluaouyarequestproducts" class="section level4">
+<h4>plugin_ouya.asyncLuaOuyaRequestProducts</h4>
+<p>Wraps calling ouyaSDK.asyncLuaOuyaRequestProducts to check if the plugin has been initialized before invoking.</p>
+</div>
+<div id="plugin_ouya.asyncluaouyarequestpurchase" class="section level4">
+<h4>plugin_ouya.asyncLuaOuyaRequestPurchase</h4>
+<p>Wraps calling ouyaSDK.asyncLuaOuyaRequestPurchase to check if the plugin has been initialized before invoking.</p>
+</div>
+<div id="plugin_ouya.asyncluaouyarequestreceipts" class="section level4">
+<h4>plugin_ouya.asyncLuaOuyaRequestReceipts</h4>
+<p>Wraps calling ouyaSDK.asyncLuaOuyaRequestReceipts to check if the plugin has been initialized before invoking.</p>
+</div>
+</div>
+</div>
+<div id="signing-key" class="section level2">
+<h2>Signing Key</h2>
+<p>Remember to include the <code>key.der</code> signing key from the OUYA developer portal inside your main Corona project directory, alongside <code>main.lua</code>.</p>
+</div>
+<div id="project-settings" class="section level2">
+<h2>Project Settings</h2>
+<p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
+<pre class="brush: lua;">settings =
+{
+    plugins =
+    {
+        ["plugin.ouya"] =
+        {
+            publisherId = "tv.ouya",
+            supportedPlatforms = { android=true },
+        },
+    },
+}</pre>
+<p>In addition, you must add an intent filter to the <code>android</code> table within <code>build.settings</code> so that your game icon will appear in the OUYA Play section:</p>
+<pre class="brush: lua;">settings =
+{
+    android =
+   {
+        mainIntentFilter =
+        {
+            categories = { "tv.ouya.intent.category.GAME" },
+        }
+    },
+}</pre>
+</div>
+<div id="sample-code" class="section level2">
+<h2>Sample Code</h2>
+<ul>
+<li><p>Enterprise samples — <a href="https://github.com/ouya/docs/blob/master/corona.md" class="uri">https://github.com/ouya/docs/blob/master/corona.md</a></p></li>
+<li><p>In-App Purchase sample — <a href="https://github.com/ouya/ouya-sdk-examples/tree/master/Corona/Submission/ouya/samples/InAppPurchasesPlugin">https://github.com/ouya/ouya-sdk-examples/tree/master/Corona/Submission/ouya/samples/InAppPurchasesPlugin/</a></p></li>
+<li><p>Virtual Controller sample — <a href="https://github.com/ouya/ouya-sdk-examples/tree/master/Corona/Submission/ouya/samples/VirtualControllerPlugin">https://github.com/ouya/ouya-sdk-examples/tree/master/Corona/Submission/ouya/samples/VirtualControllerPlugin/</a></p></li>
+</ul>
+</div>
+<div id="documentation" class="section level2">
+<h2>Documentation</h2>
+<p><a href="https://devs.ouya.tv/developers/docs/corona">https://devs.ouya.tv/developers/docs/corona/</a></p>
+</div>
+<div id="support" class="section level2">
+<h2>Support</h2>
+<ul>
+<li><a href="http://www.ouya.tv" class="uri">http://www.ouya.tv</a></li>
+<li><a href="http://forums.ouya.tv/categories/corona-on-ouya">OUYA Forums</a></li>
+<li><a href="http://forums.coronalabs.com/forum/627-ouya/">Corona Forums</a></li>
+<li><a href="https://github.com/ouya/docs/blob/master/developer_support.md">Developer Support</a></li>
+<li><a href="mailto:tgraupmann@ouya.tv">Email</a></li>
+</ul>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.ouya.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

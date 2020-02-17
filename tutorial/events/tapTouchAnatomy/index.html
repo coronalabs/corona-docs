@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Tutorials | Events/Listeners</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#taptouch-anatomy">Tap/Touch Anatomy</a><ul>
+<li><a href="#tap-vs.-touch">Tap vs. Touch</a></li>
+<li><a href="#event-distinction">Event Distinction</a></li>
+<li><a href="#test-project-setup">Test Project Setup</a></li>
+<li><a href="#tap-over-tap">Tap Over Tap</a></li>
+<li><a href="#touch-over-touch">Touch Over Touch</a></li>
+<li><a href="#taptouch-over-touchtap">Tap/Touch Over Touch/Tap</a></li>
+<li><a href="#working-with-overlaps">Working with Overlaps</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/events/index.html">Events/Listeners</a>
+</div>
+<div id="taptouch-anatomy" class="section level1">
+<h1>Tap/Touch Anatomy</h1>
+<p>Most Corona developers understand the concepts behind <strong>tap</strong> and <strong>touch</strong> events, but the lines get a little blurry when dealing with more complex scenarios, for example overlapping objects with different types of event listeners. This tutorial explains exactly how Corona handles these events and which events are broadcast to which objects.</p>
+<div id="tap-vs.-touch" class="section level2">
+<h2>Tap vs. Touch</h2>
+<p>Let's quickly discuss the basics for users who may be new to Corona or mobile development in general. When the user touches the screen of a <nobr>touch-sensitive</nobr> device, this action is regarded in one of two ways:</p>
+<ul>
+<li><p><strong>tap</strong> — This event is represented by the user quickly touching the screen and lifting off at the same approximate point on the screen.</p></li>
+<li><p><strong>touch</strong> — These events provide for a much greater level of screen interactivity. Using touch events, you can detect when the user first touches the screen and when the touch is lifted off the screen. You can also track the motion of the touch as it moves around the screen.</p></li>
+</ul>
+<p>This tutorial won't go into depth about the properties returned from these events — if you need to explore this topic further, please refer to the <a href="../../../guide/events/touchMultitouch/index.html">Tap/Touch/Multitouch</a> guide.</p>
+</div>
+<div id="event-distinction" class="section level2">
+<h2>Event Distinction</h2>
+<p>Looking beyond the basic concept of tap vs. touch, let's explore how Corona handles these events. At the core level, it's important to understand that each type is regarded as <strong>distinct</strong>. You may think that &quot;a screen touch is just a screen touch,&quot; but the difference will become more apparent as we examine more complex examples.</p>
+</div>
+<div id="test-project-setup" class="section level2">
+<h2>Test Project Setup</h2>
+<p>For purposes of this tutorial, let's quickly set up a test project consisting of two squares that overlap in the center. We'll use these squares to test different types of listeners and explore how/when the events are processed.</p>
+<ol style="list-style-type: decimal">
+<li><p>Open the Corona Simulator.</p></li>
+<li><p>Click <strong>New Project</strong> from the welcome window or select <nobr><strong>New Project...</strong></nobr> from the <strong>File</strong> menu.</p></li>
+<li><p>For the project/application name, type <code>TapTouch</code> and ensure that the <strong>Blank</strong> template option is selected. Leave the other settings at default and click <strong>OK</strong> (Windows) or <strong>Next</strong> (Mac). This will create the basic files for the test project in the location (folder) that you specified.</p></li>
+<li><p>Locate the project folder and open the <code>main.lua</code> file in your chosen text editor. Inside, <strong>replace</strong> the existing lines with this code:</p></li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: true; first-line: 1;">local backObject = display.newRect( 130, 130, 150, 150 )
+backObject:setFillColor( 0.2, 0.4, 0.8 )
+backObject.alpha = 0.75
+backObject.name = "Back Object"
+
+local frontObject = display.newRect( 190, 190, 150, 150 )
+frontObject:setFillColor( 1, 0.2, 0.3 )
+frontObject.alpha = 0.75
+frontObject.name = "Front Object"
+
+-- Tap listener function
+local function tapListener( event )
+    local object = event.target
+    print( object.name .. " TAP" )
+end
+
+-- Touch listener function
+local function touchListener( event )
+    local object = event.target
+    print( object.name .. " TOUCH (" .. event.phase .. ")" )
+end
+
+-- Add event listener to back object
+backObject:addEventListener( "tap", tapListener )
+
+-- Add event listener to front object
+frontObject:addEventListener( "tap", tapListener )</pre>
+</div>
+</div>
+<div id="tap-over-tap" class="section level2">
+<h2>Tap Over Tap</h2>
+<p>Working with this example, let's explore the most simple case of overlapping objects: one <strong>tap</strong> object overlapping another <strong>tap</strong> object. When you click/tap in the center section where the squares <strong>overlap</strong> and observe the output in the console, you'll notice that (by default) tap events transmit through — or &quot;propagate&quot; through — to underlying objects. In other words, the front (red) square doesn't block the tap event from reaching the back (blue) square, and the console reflects this:</p>
+<pre class="brush: lua;">Front Object TAP
+Back Object TAP</pre>
+<p>This is by design, but how do you prevent this from occurring when such behavior is not desired? The solution is to simply <nobr><code>return true</code></nobr> at the end of the listener function for associated objects, in this case <code>tapListener()</code>. Doing so will prevent tap events on an object from propagating through to <nobr>tap-able</nobr> objects behind it.</p>
+<p>To test this concept, add the following line to your code:</p>
+<pre class="brush: lua; gutter: true; highlight: [15]; first-line: 11;">-- Tap listener function
+local function tapListener( event )
+    local object = event.target
+    print( object.name .. " TAP" )
+    return true  -- Prevent propagation to underlying tap objects
+end</pre>
+<p>Now refresh/reload the project and, once again, click/tap in the center section where the squares <strong>overlap</strong>. By inspecting the console, you'll notice that the tap now only reaches the <strong>front</strong> square:</p>
+<pre class="brush: lua;">Front Object TAP</pre>
+</div>
+<div id="touch-over-touch" class="section level2">
+<h2>Touch Over Touch</h2>
+<p>As expected, the same principle applies to <strong>touch</strong> events. Let's <nobr><code>return true</code></nobr> at the end of our touch event listener function (<code>touchListener()</code>) exactly as we did for the tap listener function:</p>
+<pre class="brush: lua; gutter: true; highlight: [22]; first-line: 18;">-- Touch listener function
+local function touchListener( event )
+    local object = event.target
+    print( object.name .. " TOUCH (" .. event.phase .. ")" )
+    return true  -- Prevent propagation to underlying touch objects
+end</pre>
+<p>In addition, let's change both squares to <strong>touch</strong> objects instead of tap objects and associate them with the <code>touchListener()</code> function. This can be done on lines 26 and 29 by changing <code>&quot;tap&quot;</code> to <code>&quot;touch&quot;</code> and changing <code>tapListener</code> to <code>touchListener</code>.</p>
+<pre class="brush: lua; gutter: true; highlight: [26,29]; first-line: 25;">-- Add event listener to back object
+backObject:addEventListener( "touch", touchListener )
+
+-- Add event listener to front object
+frontObject:addEventListener( "touch", touchListener )</pre>
+<p>Refresh/reload the project and then click/drag on the front (red) square. While doing so, inspect the console and you'll notice output messages that look like this:</p>
+<pre class="brush: lua;">Front Object TOUCH (began)
+Front Object TOUCH (moved)
+Front Object TOUCH (moved)
+Front Object TOUCH (moved)
+Front Object TOUCH (moved)
+...</pre>
+</div>
+<div id="taptouch-over-touchtap" class="section level2">
+<h2>Tap/Touch Over Touch/Tap</h2>
+<p>Things get a little more complicated when you have objects with different listener types overlapping each other, but you still need to control the propagation of tap and touch events. For testing purposes, let's adjust the sample project so it becomes a <strong>tap</strong> object (red square) over a <strong>touch</strong> object (blue square). Do this by editing line 29, changing <code>&quot;touch&quot;</code> to <code>&quot;tap&quot;</code> and <code>touchListener</code> to <code>tapListener</code>:</p>
+<pre class="brush: lua; gutter: true; highlight: [29]; first-line: 25;">-- Add event listener to back object
+backObject:addEventListener( "touch", touchListener )
+
+-- Add event listener to front object
+frontObject:addEventListener( "tap", tapListener )</pre>
+<p>Now refresh/reload the project and click/tap in the center section where the squares <strong>overlap</strong>. In the console, the output messages may look similar to this:</p>
+<pre class="brush: lua;">Back Object TOUCH (began)
+Back Object TOUCH (ended)
+Front Object TAP</pre>
+<p>Notice that the back square <strong>still receives touch events</strong> despite the fact that we've added <nobr><code>return true</code></nobr> to both the <code>tapListener()</code> and <code>touchListener()</code> functions. This is why it's important to understand, as noted earlier, that tap and touch events are actually <strong>distinct</strong> from Corona's standpoint, despite some similarities from the user's standpoint.</p>
+<p>The behavior is similar if we change the sample project to a <strong>touch</strong> object over a <strong>tap</strong> object. To test this, edit the code as follows:</p>
+<ol style="list-style-type: decimal">
+<li>On line 26, change <code>&quot;touch&quot;</code> to <code>&quot;tap&quot;</code> and <code>touchListener</code> to <code>tapListener</code>.</li>
+<li>On line 29, change <code>&quot;tap&quot;</code> to <code>&quot;touch&quot;</code> and <code>tapListener</code> to <code>touchListener</code>.</li>
+</ol>
+<pre class="brush: lua; gutter: true; highlight: [26,29]; first-line: 25;">-- Add event listener to back object
+backObject:addEventListener( "tap", tapListener )
+
+-- Add event listener to front object
+frontObject:addEventListener( "touch", touchListener )</pre>
+<p>Refresh/reload the project and, once again, click/tap in the center section where the squares <strong>overlap</strong>. In the console, the output messages may look similar to this:</p>
+<pre class="brush: lua;">Front Object TOUCH (began)
+Front Object TOUCH (ended)
+Back Object TAP</pre>
+</div>
+<div id="working-with-overlaps" class="section level2">
+<h2>Working with Overlaps</h2>
+<p>The above examples of overlapping objects with different listener types is fairly common in app development, so you'll need an approach to handle these situations. Some examples include:</p>
+<ul>
+<li><p>Objects with <strong>tap</strong> listeners over a larger region that must detect <strong>touch</strong> events, for example basic <nobr>tap-able</nobr> objects placed over a background that can be scrolled/moved as the user touches and drags it.</p></li>
+<li><p>A draggable <strong>touch</strong> object that can be moved around over underlying <strong>tap</strong> objects which the user can tap on to collect/activate.</p></li>
+</ul>
+<p>For both of these cases, and numerous others, there is a tactic to prevent the &quot;wrong type&quot; of event from propagating through to an underlying object with a different listener type, as follows:</p>
+<ol style="list-style-type: decimal">
+<li>In the instance where a front object should behave as a <strong>tap</strong> object, and objects behind are <strong>touch</strong> objects, we can add a listener of <strong>both</strong> types (tap and touch) to the front object, with the <code>&quot;touch&quot;</code> event listener being simply an anonymous function which returns <code>true</code>:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: false; highlight: [6]; first-line: 1;">-- Add event listener to back object
+backObject:addEventListener( "touch", touchListener )
+
+-- Add two event listeners to front object
+frontObject:addEventListener( "tap", tapListener )
+frontObject:addEventListener( "touch", function() return true; end )</pre>
+<p>In addition, we can use the <code>:setFocus()</code> method in the <code>touchListener()</code> function to give focus to the background object. This works nicely because, since we effectively blocked touch propagation from passing through the front object, any touch object behind it will only receive focus if the touch point is <strong>outside</strong> of the front object's bounds.</p>
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9]; first-line: 1;">-- Touch listener function
+local function touchListener( event )
+    local object = event.target
+
+    if ( event.phase == "began" ) then
+        display.getCurrentStage():setFocus( object )
+    elseif ( event.phase == "ended" or event.phase == "cancelled" ) then
+        display.getCurrentStage():setFocus( nil )
+    end
+
+    print( object.name .. " TOUCH (" .. event.phase .. ")" )
+    return true  -- Prevent propagation to underlying touch objects
+end</pre>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>If the front object should behave as a <strong>touch</strong> object, and objects behind are <strong>tap</strong> objects, the same concept applies. Just add a listener of both types to the front object and define its <code>&quot;tap&quot;</code> event listener as an anonymous function which returns <code>true</code>:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: false; highlight: [6]; first-line: 1;">-- Add event listener to back object
+backObject:addEventListener( "tap", tapListener )
+
+-- Add two event listeners to front object
+frontObject:addEventListener( "touch", touchListener )
+frontObject:addEventListener( "tap", function() return true; end )</pre>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>Every project will vary slightly in the exact way that it should behave in regards to tap and touch, but understanding these core concepts is essential to the ultimate user experience. Experiment with the different types and phases, and always remember to test, test, and test again!</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=tutorial.events.tapTouchAnatomy.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#libraries">Libraries</a><ul>
+<li><a href="#overview">Overview</a><ul>
+<li><a href="#ads.api.library.ads"><a href="../../api/library/ads/index.html">ads.*</a></a></li>
+<li><a href="#audio.api.library.audio"><a href="../../api/library/audio/index.html">audio.*</a></a></li>
+<li><a href="#composer.api.library.composer"><a href="../../api/library/composer/index.html">composer.*</a></a></li>
+<li><a href="#crypto.api.library.crypto"><a href="../../api/library/crypto/index.html">crypto.*</a></a></li>
+<li><a href="#display.api.library.display"><a href="../../api/library/display/index.html">display.*</a></a></li>
+<li><a href="#easing.api.library.easing"><a href="../../api/library/easing/index.html">easing.*</a></a></li>
+<li><a href="#facebook.api.library.facebook"><a href="../../api/library/facebook/index.html">facebook.*</a></a></li>
+<li><a href="#gamenetwork.api.library.gamenetwork"><a href="../../api/library/gameNetwork/index.html">gameNetwork.*</a></a></li>
+<li><a href="#globalsapi.library.global"><a href="../../api/library/global/index.html">(globals)</a></a></li>
+<li><a href="#graphics.api.library.graphics"><a href="../../api/library/graphics/index.html">graphics.*</a></a></li>
+<li><a href="#io.api.library.io"><a href="../../api/library/io/index.html">io.*</a></a></li>
+<li><a href="#json.api.library.json"><a href="../../api/library/json/index.html">json.*</a></a></li>
+<li><a href="#lfs.-file-system-api.library.lfs"><a href="../../api/library/lfs/index.html">lfs.* (file system)</a></a></li>
+<li><a href="#licensing.api.library.licensing"><a href="../../api/library/licensing/index.html">licensing.*</a></a></li>
+<li><a href="#math.api.library.math"><a href="../../api/library/math/index.html">math.*</a></a></li>
+<li><a href="#media.api.library.media"><a href="../../api/library/media/index.html">media.*</a></a></li>
+<li><a href="#native.api.library.native"><a href="../../api/library/native/index.html">native.*</a></a></li>
+<li><a href="#network.api.library.network"><a href="../../api/library/network/index.html">network.*</a></a></li>
+<li><a href="#os.api.library.os"><a href="../../api/library/os/index.html">os.*</a></a></li>
+<li><a href="#package.api.library.package"><a href="../../api/library/package/index.html">package.*</a></a></li>
+<li><a href="#physics.api.library.physics"><a href="../../api/library/physics/index.html">physics.*</a></a></li>
+<li><a href="#socket.api.library.socket"><a href="../../api/library/socket/index.html">socket.*</a></a></li>
+<li><a href="#sqlite3.-databaseapi.library.sqlite3"><a href="../../api/library/sqlite3/index.html">sqlite3.* (database)</a></a></li>
+<li><a href="#store.api.library.store"><a href="../../api/library/store/index.html">store.*</a></a></li>
+<li><a href="#string.api.library.string"><a href="../../api/library/string/index.html">string.*</a></a></li>
+<li><a href="#system.api.library.system"><a href="../../api/library/system/index.html">system.*</a></a></li>
+<li><a href="#table.-arrayapi.library.table"><a href="../../api/library/table/index.html">table.* (array)</a></a></li>
+<li><a href="#timer.api.library.timer"><a href="../../api/library/timer/index.html">timer.*</a></a></li>
+<li><a href="#transition.api.library.transition"><a href="../../api/library/transition/index.html">transition.*</a></a></li>
+<li><a href="#widget.api.library.widget"><a href="../../api/library/widget/index.html">widget.*</a></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../api/index.html">API Reference</a>  ▸  <a href="../../api/library/index.html">Libraries</a>
+</div>
+<div id="libraries" class="section level1">
+<h1>Libraries</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Availability</strong></td>
+<td><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Keywords</strong></td>
+<td>library, libraries</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<div id="ads.api.library.ads" class="section level4">
+<h4><a href="../../api/library/ads/index.html">ads.*</a></h4>
+</div>
+<div id="audio.api.library.audio" class="section level4">
+<h4><a href="../../api/library/audio/index.html">audio.*</a></h4>
+</div>
+<div id="composer.api.library.composer" class="section level4">
+<h4><a href="../../api/library/composer/index.html">composer.*</a></h4>
+</div>
+<div id="crypto.api.library.crypto" class="section level4">
+<h4><a href="../../api/library/crypto/index.html">crypto.*</a></h4>
+</div>
+<div id="display.api.library.display" class="section level4">
+<h4><a href="../../api/library/display/index.html">display.*</a></h4>
+</div>
+<div id="easing.api.library.easing" class="section level4">
+<h4><a href="../../api/library/easing/index.html">easing.*</a></h4>
+</div>
+<div id="facebook.api.library.facebook" class="section level4">
+<h4><a href="../../api/library/facebook/index.html">facebook.*</a></h4>
+</div>
+<div id="gamenetwork.api.library.gamenetwork" class="section level4">
+<h4><a href="../../api/library/gameNetwork/index.html">gameNetwork.*</a></h4>
+</div>
+<div id="globalsapi.library.global" class="section level4">
+<h4><a href="../../api/library/global/index.html">(globals)</a></h4>
+</div>
+<div id="graphics.api.library.graphics" class="section level4">
+<h4><a href="../../api/library/graphics/index.html">graphics.*</a></h4>
+</div>
+<div id="io.api.library.io" class="section level4">
+<h4><a href="../../api/library/io/index.html">io.*</a></h4>
+</div>
+<div id="json.api.library.json" class="section level4">
+<h4><a href="../../api/library/json/index.html">json.*</a></h4>
+</div>
+<div id="lfs.-file-system-api.library.lfs" class="section level4">
+<h4><a href="../../api/library/lfs/index.html">lfs.* (file system)</a></h4>
+</div>
+<div id="licensing.api.library.licensing" class="section level4">
+<h4><a href="../../api/library/licensing/index.html">licensing.*</a></h4>
+</div>
+<div id="math.api.library.math" class="section level4">
+<h4><a href="../../api/library/math/index.html">math.*</a></h4>
+</div>
+<div id="media.api.library.media" class="section level4">
+<h4><a href="../../api/library/media/index.html">media.*</a></h4>
+</div>
+<div id="native.api.library.native" class="section level4">
+<h4><a href="../../api/library/native/index.html">native.*</a></h4>
+</div>
+<div id="network.api.library.network" class="section level4">
+<h4><a href="../../api/library/network/index.html">network.*</a></h4>
+</div>
+<div id="os.api.library.os" class="section level4">
+<h4><a href="../../api/library/os/index.html">os.*</a></h4>
+</div>
+<div id="package.api.library.package" class="section level4">
+<h4><a href="../../api/library/package/index.html">package.*</a></h4>
+</div>
+<div id="physics.api.library.physics" class="section level4">
+<h4><a href="../../api/library/physics/index.html">physics.*</a></h4>
+</div>
+<div id="socket.api.library.socket" class="section level4">
+<h4><a href="../../api/library/socket/index.html">socket.*</a></h4>
+</div>
+<div id="sqlite3.-databaseapi.library.sqlite3" class="section level4">
+<h4><a href="../../api/library/sqlite3/index.html">sqlite3.* (database)</a></h4>
+</div>
+<div id="store.api.library.store" class="section level4">
+<h4><a href="../../api/library/store/index.html">store.*</a></h4>
+</div>
+<div id="string.api.library.string" class="section level4">
+<h4><a href="../../api/library/string/index.html">string.*</a></h4>
+</div>
+<div id="system.api.library.system" class="section level4">
+<h4><a href="../../api/library/system/index.html">system.*</a></h4>
+</div>
+<div id="table.-arrayapi.library.table" class="section level4">
+<h4><a href="../../api/library/table/index.html">table.* (array)</a></h4>
+</div>
+<div id="timer.api.library.timer" class="section level4">
+<h4><a href="../../api/library/timer/index.html">timer.*</a></h4>
+</div>
+<div id="transition.api.library.transition" class="section level4">
+<h4><a href="../../api/library/transition/index.html">transition.*</a></h4>
+</div>
+<div id="widget.api.library.widget" class="section level4">
+<h4><a href="../../api/library/widget/index.html">widget.*</a></h4>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

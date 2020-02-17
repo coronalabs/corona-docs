@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Tutorials | Data/Files/Strings</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#shuffling-table-items">Shuffling Table Items</a><ul>
+<li><a href="#basic-shuffling">Basic Shuffling</a></li>
+<li><a href="#drawing-cards">Drawing Cards</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/data/index.html">Data/Files/Strings</a>
+</div>
+<div id="shuffling-table-items" class="section level1">
+<h1>Shuffling Table Items</h1>
+<p>This tutorial explores basic shuffling and how to implement it in Corona/Lua. For example, consider a basic card game where the player draws a random card. The initial consideration may be to simply select a random card using <code>math.random()</code>, but unlike rolling dice where a number can appear multiple times, a specific card should only appear once during a game.</p>
+<p>Basically, shuffling logic applies any time you need to pull an item from a larger collection and ensure that it's never repeated, for instance:</p>
+<ul>
+<li>Randomly gather a series of questions for a quiz game and ensure that no question is repeated.</li>
+<li>Pick letters for a word game like Scrabble<span style="font-size: 80%;"><sup>™</sup></span> where there's a predictable set of tiles for each game.</li>
+</ul>
+<div id="basic-shuffling" class="section level2">
+<h2>Basic Shuffling</h2>
+<p>Let's further explore the &quot;deck of cards&quot; scenario where, before each game begins, the deck is shuffled. In Lua, this can be accomplished by randomly sorting a table of values. Consider a basic example based on standard playing cards:</p>
+<pre class="brush: lua;">local cardDeck = { "AS", "AH", "2S", "3S", "KH", "QD", "QS", "KD", "4D", "10H" }</pre>
+<p>Obviously, for an actual card game, you'd need to populate the table with all 52 cards, but we'll keep it simple for this tutorial.</p>
+<p>With this <nobr>numerically-indexed</nobr> table (array), we can call the following function to randomize items:</p>
+<pre class="brush: lua; gutter: false; highlight: [1,5,6,7,8,12,13,14,15,19]; first-line: 1;">math.randomseed( os.time() )  -- Seed the pseudo-random number generator
+
+local function shuffleTable( t )
+
+    if ( type(t) ~= "table" ) then
+        print( "WARNING: shuffleTable() function expects a table" )
+        return false
+    end
+
+    local j
+
+    for i = #t, 2, -1 do
+        j = math.random( i )
+        t[i], t[j] = t[j], t[i]
+    end
+    return t
+end
+
+cardDeck = shuffleTable( cardDeck )</pre>
+<p>Inspecting this code in more detail, we perform these tasks:</p>
+<ol style="list-style-type: decimal">
+<li><p>On the first line, we seed the <nobr>pseudo-random</nobr> number generator — this is an important line but it only needs to be done once, so it can simply be included near the top of <code>main.lua</code>.</p></li>
+<li><p>Inside the function, we first confirm that a Lua table was passed in as the sole parameter. If not, the function issues a warning and returns <code>false</code>.</p></li>
+<li><p>Next, we loop through the table (<code>t</code>) in reverse. Here, the loop index (<code>i</code>) is the count of items which have not yet been shuffled. Inside, we generate a random number between <code>1</code> and <code>i</code> and then swap the two table items. This process is repeated until the <nobr>next-to-last</nobr> item because, at this point, the last item will have been shuffled.</p></li>
+<li><p>The final line calls the function and effectively shuffles the deck, setting the result back to the <code>cardDeck</code> variable which represents the deck.</p></li>
+</ol>
+</div>
+<div id="drawing-cards" class="section level2">
+<h2>Drawing Cards</h2>
+<p>With the table shuffled, we can use the following code to pick cards from the deck. Since the table itself is already in random order, we don't have to worry about generating random numbers, just simply get the next number in the list. We also don't need to &quot;remove drawn cards from <nobr>the deck&quot; —</nobr> instead, we use a simple variable <code>currentIndex</code> which represents which card is on top of the deck. This variable begins at <code>1</code> when the game starts and, when cards are drawn, it increments by the same value:</p>
+<pre class="brush: lua; gutter: false; highlight: [1,5,7,8,9,11,16]; first-line: 1;">local currentIndex = 1  -- Deck starts at top card (1)
+
+local function drawCards( num, deck )
+
+    local cardsDrawn = {}  -- Empty table to begin
+
+    for i = currentIndex, num do
+        cardsDrawn[#cardsDrawn+1] = deck[i]
+    end
+
+    currentIndex = currentIndex + num
+    return cardsDrawn
+end
+
+-- Deal 5 cards to a player
+local playerHand = drawCards( 5, cardDeck )</pre>
+<p>Let's look further in detail at this code:</p>
+<ol style="list-style-type: decimal">
+<li><p>As stated above, we initially set a variable <code>currentIndex</code> to <code>1</code> to represent the top of the deck.</p></li>
+<li><p>On the first line inside the <code>drawCards()</code> function, we create a local empty table (<code>cardsDrawn</code>) to store the cards that will be drawn.</p></li>
+<li><p>In the loop following, we simply loop from <code>currentIndex</code> for <code>num</code> iterations and store that card in the <code>cardsDrawn</code> table.</p></li>
+<li><p>At the end of the function, we increase <code>currentIndex</code> by <code>num</code>, effectively indicating that <code>num</code> amount of cards were drawn from the deck.</p></li>
+<li><p>To draw cards, we simply call the <code>drawCards()</code> function with a number of cards (<code>5</code>) and the deck to draw from (<code>cardDeck</code> from the code in the previous section).</p></li>
+</ol>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>When the deck is exhausted and/or when you want to start a new game, you can just shuffle the deck, reset <code>currentIndex</code> to <code>1</code>, and start fresh. Because no cards were &quot;removed&quot; from the master card table (<code>cardDeck</code>), there's no need to <nobr>re-insert</nobr> cards or anything else complicated — simply <nobr>re-shuffle</nobr>, reset the starting card, and you're good to go!</p>
+</div>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>As you can see, creating a <nobr>non-repeating</nobr> sequence of random numbers is simple. From card games to trivia games and more, shuffling is easy to implement with just a couple basic functions!</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=tutorial.data.shuffleTable.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

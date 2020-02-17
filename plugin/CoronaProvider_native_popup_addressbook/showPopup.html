@@ -1,0 +1,470 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | Address Book | showPopup</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#native.showpopup-address-book">native.showPopup() — Address Book</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#name-required">name <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#params-required">params <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+<li><a href="#options-reference">Options Reference</a><ul>
+<li><a href="#getpermission">getPermission</a></li>
+<li><a href="#pickcontact">pickContact</a><ul>
+<li><a href="#hidedetails">hideDetails</a></li>
+<li><a href="#performdefaultaction">performDefaultAction</a></li>
+<li><a href="#filter">filter</a></li>
+<li><a href="#listener">listener</a></li>
+</ul></li>
+<li><a href="#viewcontact">viewContact</a><ul>
+<li><a href="#performdefaultaction-1">performDefaultAction</a></li>
+<li><a href="#iseditable">isEditable</a></li>
+<li><a href="#name">name</a></li>
+<li><a href="#filter-1">filter</a></li>
+<li><a href="#listener-1">listener</a></li>
+</ul></li>
+<li><a href="#newcontact">newContact</a><ul>
+<li><a href="#data">data</a></li>
+<li><a href="#listener-2">listener</a></li>
+</ul></li>
+<li><a href="#unknowncontact">unknownContact</a><ul>
+<li><a href="#performdefaultaction-2">performDefaultAction</a></li>
+<li><a href="#allowsactions">allowsActions</a></li>
+<li><a href="#allowsadding">allowsAdding</a></li>
+<li><a href="#alternatename">alternateName</a></li>
+<li><a href="#message">message</a></li>
+<li><a href="#data-1">data</a></li>
+<li><a href="#listener-3">listener</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#contact-data">Contact Data</a></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/CoronaProvider_native_popup_addressbook/index.html">Address Book</a>  ▸  <a href="../../plugin/CoronaProvider_native_popup_addressbook/showPopup.html">showPopup</a>
+</div>
+<div id="native.showpopup-address-book" class="section level1">
+<h1>native.showPopup() — Address Book</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../api/type/Function.html">function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../plugin/CoronaProvider_native_popup_addressbook/index.html">native.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">native, showPopup, address, contacts</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Displays the operating system's default popup window to access a user's address book and contacts.</p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">native.showPopup( name, params )</pre>
+<div id="name-required" class="section level5">
+<h5>name <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> The string name of the popup to be shown. For the Address Book plugin, use <code>&quot;addressbook&quot;</code>.</p>
+</div>
+<div id="params-required" class="section level5">
+<h5>params <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> A table that specifies the properties for the popup. This table requires the <code>option</code> parameter with a value of either <code>&quot;pickContact&quot;</code>, <code>&quot;viewContact&quot;</code>, <code>&quot;newContact&quot;</code>, or <code>&quot;unknownContact&quot;</code>. Depending on this value, additional options apply — see the next section for details.</p>
+<div class="code-indent">
+<pre class="brush: lua;">native.showPopup( "addressbook",
+    {
+        option = "pickContact",  --"pickContact", "viewContact", "newContact", or `"unknownContact"
+        --additional options (see below)
+    }
+)</pre>
+</div>
+</div>
+</div>
+<div id="options-reference" class="section level2">
+<h2>Options Reference</h2>
+<p>Valid properties in the <code>params</code> table depend upon the value specified for <code>option</code>.</p>
+<div id="getpermission" class="section level3">
+<h3>getPermission</h3>
+<p>Gets the permission state of your access to the users contacts. If a permission request has not been issued before, then a permission popup will be shown to request permission to the users contacts. One of the following strings are returned upon calling this function, describing the contact access permission state.</p>
+<ul>
+<li><code>&quot;authorized&quot;</code>: User authorized access to their contacts.</li>
+<li><code>&quot;denied&quot;</code>: User denied access to their contacts.</li>
+<li><code>&quot;restricted&quot;</code>: Access to the users contact is restricted due to parental settings.</li>
+<li><code>&quot;requestPermission&quot;</code>: A permission popup is shown to request access to the users contacts. If a permission request was previously denied, this popup cannot be shown again due to iOS limitations. The only way the user can grant access to your app from this point is to enable your app under Settings &gt; Privacy &gt; Contacts &gt; Select your app. Note: After the function returns, you can call <code>native.showPopup(&quot;addressbook&quot;, {option = &quot;getPermission&quot;})</code> to check if the user authorized or denied your request</li>
+</ul>
+</div>
+<div id="pickcontact" class="section level3">
+<h3>pickContact</h3>
+<p>The following additional properties apply if <code>params.option</code> is set to <code>&quot;pickContact&quot;</code>:</p>
+<div id="hidedetails" class="section level5">
+<h5>hideDetails</h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> If set to <code>true</code>, the address book will be dismissed upon selecting a contact.</p>
+</div>
+<div id="performdefaultaction" class="section level5">
+<h5>performDefaultAction</h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> If set to <code>true</code>, tapping/touching a contact's phone number or email will perform the default system action, for example call the contact or show the compose email UI.</p>
+</div>
+<div id="filter" class="section level5">
+<h5>filter</h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> Table of string values indicating the items to show within the detail view section for a contact. For example, <code>filter = { &quot;phone&quot;, &quot;email&quot;, &quot;birthday&quot; }</code>. The following values are supported:</p>
+<ul>
+<li><code>&quot;phone&quot;</code></li>
+<li><code>&quot;email&quot;</code></li>
+<li><code>&quot;address&quot;</code></li>
+<li><code>&quot;birthday&quot;</code></li>
+<li><code>&quot;relatedNames&quot;</code></li>
+<li><code>&quot;socialProfiles&quot;</code></li>
+<li><code>&quot;instantMessagingProfiles&quot;</code></li>
+</ul>
+</div>
+<div id="listener" class="section level5">
+<h5>listener</h5>
+<p><em><a href="../../api/type/Function.html">Function</a>.</em> Listener function to be called when the popup is dismissed. This function is passed an <code>event</code> table which contains the following properties:</p>
+<ul>
+<li><code>event.name</code> (<a href="../../api/type/String.html">string</a>) — Value of <code>&quot;contact&quot;</code>.</li>
+<li><code>event.type</code> (<a href="../../api/type/String.html">string</a>) — Value of either <code>&quot;pickContact&quot;</code>, <code>&quot;viewContact&quot;</code>, <code>&quot;newContact&quot;</code>, or <code>&quot;unknownContact&quot;</code>, depending on the popup shown.</li>
+<li><code>event.data</code> (<a href="../../api/type/Table.html">table</a>) — Table containing data for the selected contact. See <a href="#contactData">Contact Data</a> below for a list of available data.</li>
+</ul>
+</div>
+</div>
+<div id="viewcontact" class="section level3">
+<h3>viewContact</h3>
+<p>The following additional properties apply if <code>params.option</code> is set to <code>&quot;viewContact&quot;</code>:</p>
+<div id="performdefaultaction-1" class="section level5">
+<h5>performDefaultAction</h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> If set to <code>true</code>, tapping/touching a contact's phone number or email will perform the default system action, for example call the contact or show the compose email UI.</p>
+</div>
+<div id="iseditable" class="section level5">
+<h5>isEditable</h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> If set to <code>true</code>, the user can edit the person's information.</p>
+</div>
+<div id="name" class="section level5">
+<h5>name</h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> The name of the contact you wish to view.</p>
+</div>
+<div id="filter-1" class="section level5">
+<h5>filter</h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> Table of string values indicating the items to show within the detail view section for a contact. For example, <code>filter = { &quot;phone&quot;, &quot;email&quot;, &quot;birthday&quot; }</code>. The following values are supported:</p>
+<ul>
+<li><code>&quot;phone&quot;</code></li>
+<li><code>&quot;email&quot;</code></li>
+<li><code>&quot;address&quot;</code></li>
+<li><code>&quot;birthday&quot;</code></li>
+<li><code>&quot;relatedNames&quot;</code></li>
+<li><code>&quot;socialProfiles&quot;</code></li>
+<li><code>&quot;instantMessagingProfiles&quot;</code></li>
+</ul>
+</div>
+<div id="listener-1" class="section level5">
+<h5>listener</h5>
+<p><em><a href="../../api/type/Function.html">Function</a>.</em> Listener function to be called when the popup is dismissed. This function is passed an <code>event</code> table which contains the following properties:</p>
+<ul>
+<li><code>event.name</code> (<a href="../../api/type/String.html">string</a>) — Value of <code>&quot;contact&quot;</code>.</li>
+<li><code>event.type</code> (<a href="../../api/type/String.html">string</a>) — Value of either <code>&quot;pickContact&quot;</code>, <code>&quot;viewContact&quot;</code>, <code>&quot;newContact&quot;</code>, or <code>&quot;unknownContact&quot;</code>, depending on the popup shown.</li>
+<li><code>event.data</code> (<a href="../../api/type/Table.html">table</a>) — Table containing data for the selected contact. See <a href="#contactData">Contact Data</a> below for a list of available data.</li>
+</ul>
+</div>
+</div>
+<div id="newcontact" class="section level3">
+<h3>newContact</h3>
+<p>The following additional properties apply if <code>params.option</code> is set to <code>&quot;newContact&quot;</code>:</p>
+<div id="data" class="section level5">
+<h5>data</h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> Table containing key/value pairs to pre-fill a new contact's details with. Supported keys include:</p>
+<ul>
+<li><code>firstName</code>, <code>middleName</code>, <code>lastName</code></li>
+<li><code>organization</code>, <code>jobTitle</code>, <code>birthday</code></li>
+<li><code>phoneticFirstName</code>, <code>phoneticMiddleName</code>, <code>phoneticLastName</code></li>
+<li><code>prefix</code>, <code>suffix</code>, <code>nickname</code></li>
+<li><code>phoneIphone</code>, <code>phoneMobile</code>, <code>phoneMain</code>, <code>phoneHome</code>, <code>phoneWork</code></li>
+<li><code>faxHome</code>, <code>faxWork</code>, <code>faxOther</code>, <code>pager</code></li>
+<li><code>homeEmail</code>, <code>workEmail</code></li>
+<li><code>homePageUrl</code>, <code>workUrl</code>, <code>homeUrl</code></li>
+<li><code>father</code>, <code>mother</code>, <code>parent</code>, <code>brother</code>, <code>sister</code>, <code>child</code></li>
+<li><code>friend</code>, <code>spouse</code>, <code>partner</code>, <code>assistant</code>, <code>manager</code></li>
+<li><code>homeStreet</code>, <code>homeCity</code>, <code>homeState</code>, <code>homeZip</code>, <code>homeCountry</code></li>
+<li><code>workStreet</code>, <code>workCity</code>, <code>workState</code>, <code>workZip</code>, <code>workCountry</code></li>
+<li><code>socialFacebook</code>, <code>socialTwitter</code>, <code>socialFlickr</code>, <code>socialLinkedIn</code>, <code>socialMyspace</code>, <code>socialSinaWeibo</code>, <code>socialGameCenter</code></li>
+<li><code>instantMessagingAim</code>, <code>instantMessagingFacebook</code>, <code>instantMessagingGaduGadu</code>, <code>instantMessagingGoogleTalk</code>, <code>instantMessagingICQ</code>, <code>instantMessagingJabber</code>, <code>instantMessagingMSN</code>, <code>instantMessagingQQ</code>, <code>instantMessagingSkype</code>, <code>instantMessagingYahoo</code></li>
+</ul>
+</div>
+<div id="listener-2" class="section level5">
+<h5>listener</h5>
+<p><em><a href="../../api/type/Function.html">Function</a>.</em> Listener function to be called when the popup is dismissed. This function is passed an <code>event</code> table which contains the following properties:</p>
+<ul>
+<li><code>event.name</code> (<a href="../../api/type/String.html">string</a>) — Value of <code>&quot;contact&quot;</code>.</li>
+<li><code>event.type</code> (<a href="../../api/type/String.html">string</a>) — Value of either <code>&quot;pickContact&quot;</code>, <code>&quot;viewContact&quot;</code>, <code>&quot;newContact&quot;</code>, or <code>&quot;unknownContact&quot;</code>, depending on the popup shown.</li>
+<li><code>event.data</code> (<a href="../../api/type/Table.html">table</a>) — Table containing data for the selected contact. See <a href="#contactData">Contact Data</a> below for a list of available data.</li>
+</ul>
+</div>
+</div>
+<div id="unknowncontact" class="section level3">
+<h3>unknownContact</h3>
+<p>The following additional properties apply if <code>params.option</code> is set to <code>&quot;unknownContact&quot;</code>:</p>
+<div id="performdefaultaction-2" class="section level5">
+<h5>performDefaultAction</h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> If set to <code>true</code>, tapping/touching a contact's phone number or email will perform the default system action, for example call the contact or show the compose email UI.</p>
+</div>
+<div id="allowsactions" class="section level5">
+<h5>allowsActions</h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> This specifies whether buttons appear to let the user perform actions such as sharing the contact, initiating a call, or sending a text message.</p>
+</div>
+<div id="allowsadding" class="section level5">
+<h5>allowsAdding</h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> If set to <code>true</code>, the <strong>Add to Existing Contact</strong> or <strong>Create New Contact</strong> buttons will be available on the contacts overview screen.</p>
+</div>
+<div id="alternatename" class="section level5">
+<h5>alternateName</h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> Alternate name to display instead of the contact's first and last name.</p>
+</div>
+<div id="message" class="section level5">
+<h5>message</h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> This string is displayed below <code>alternateName</code>.</p>
+</div>
+<div id="data-1" class="section level5">
+<h5>data</h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> Table containing key/value pairs to pre-fill an unknown contact's details with. Supported keys include:</p>
+<ul>
+<li><code>firstName</code>, <code>middleName</code>, <code>lastName</code></li>
+<li><code>organization</code>, <code>jobTitle</code>, <code>birthday</code></li>
+<li><code>phoneticFirstName</code>, <code>phoneticMiddleName</code>, <code>phoneticLastName</code></li>
+<li><code>prefix</code>, <code>suffix</code>, <code>nickname</code></li>
+<li><code>phoneIphone</code>, <code>phoneMobile</code>, <code>phoneMain</code>, <code>phoneHome</code>, <code>phoneWork</code></li>
+<li><code>faxHome</code>, <code>faxWork</code>, <code>faxOther</code>, <code>pager</code></li>
+<li><code>homeEmail</code>, <code>workEmail</code></li>
+<li><code>homePageUrl</code>, <code>workUrl</code>, <code>homeUrl</code></li>
+<li><code>father</code>, <code>mother</code>, <code>parent</code>, <code>brother</code>, <code>sister</code>, <code>child</code></li>
+<li><code>friend</code>, <code>spouse</code>, <code>partner</code>, <code>assistant</code>, <code>manager</code></li>
+<li><code>homeStreet</code>, <code>homeCity</code>, <code>homeState</code>, <code>homeZip</code>, <code>homeCountry</code></li>
+<li><code>workStreet</code>, <code>workCity</code>, <code>workState</code>, <code>workZip</code>, <code>workCountry</code></li>
+<li><code>socialFacebook</code>, <code>socialTwitter</code>, <code>socialFlickr</code>, <code>socialLinkedIn</code>, <code>socialMyspace</code>, <code>socialSinaWeibo</code>, <code>socialGameCenter</code></li>
+<li><code>instantMessagingAim</code>, <code>instantMessagingFacebook</code>, <code>instantMessagingGaduGadu</code>, <code>instantMessagingGoogleTalk</code>, <code>instantMessagingICQ</code>, <code>instantMessagingJabber</code>, <code>instantMessagingMSN</code>, <code>instantMessagingQQ</code>, <code>instantMessagingSkype</code>, <code>instantMessagingYahoo</code></li>
+</ul>
+</div>
+<div id="listener-3" class="section level5">
+<h5>listener</h5>
+<p><em><a href="../../api/type/Function.html">Function</a>.</em> Listener function to be called when the popup is dismissed. This function is passed an <code>event</code> table which contains the following properties:</p>
+<ul>
+<li><code>event.name</code> (<a href="../../api/type/String.html">string</a>) — Value of <code>&quot;contact&quot;</code>.</li>
+<li><code>event.type</code> (<a href="../../api/type/String.html">string</a>) — Value of either <code>&quot;pickContact&quot;</code>, <code>&quot;viewContact&quot;</code>, <code>&quot;newContact&quot;</code>, or <code>&quot;unknownContact&quot;</code>, depending on the popup shown.</li>
+<li><code>event.data</code> (<a href="../../api/type/Table.html">table</a>) — Table containing data for the selected contact. See <a href="#contactData">Contact Data</a> below for a list of available data.</li>
+</ul>
+<p><a id="contactData"></a></p>
+</div>
+</div>
+</div>
+<div id="contact-data" class="section level2">
+<h2>Contact Data</h2>
+<p>The following data is available in the <code>event</code> table of the listener function when the popup is dismissed:</p>
+<ul>
+<li><code>firstName</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>middleName</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><p><code>lastName</code> (<a href="../../api/type/String.html">string</a>)</p></li>
+<li><code>organization</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>jobTitle</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><p><code>department</code> (<a href="../../api/type/String.html">string</a>)</p></li>
+<li><code>birthday</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>anniversary</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><p><code>otherDate1</code> (<a href="../../api/type/String.html">string</a>) — this key is incremented for each &quot;other&quot; entry, for example <code>otherDate2</code></p></li>
+<li><code>phoneticFirstName</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>phoneticMiddleName</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><p><code>phoneticLastName</code> (<a href="../../api/type/String.html">string</a>)</p></li>
+<li><code>prefix</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>suffix</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><p><code>nickName</code> (<a href="../../api/type/String.html">string</a>)</p></li>
+<li><code>phoneIphone</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>phoneMobile</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>phoneMain</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>phoneHome</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>phoneWork</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><p><code>phoneOther1</code> (<a href="../../api/type/String.html">string</a>) — this key is incremented for each &quot;other&quot; entry, for example <code>phoneOther2</code></p></li>
+<li><p><code>picture</code> (<a href="../../api/type/Table.html">table</a>) — contains keys <code>filename</code> (<a href="../../api/type/String.html">string</a>) and <code>baseDir</code> ([userdata][api.Type.Userdata])</p></li>
+<li><code>faxHome</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>faxWork</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>faxOther</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><p><code>pager</code> (<a href="../../api/type/String.html">string</a>)</p></li>
+<li><code>homeEmail</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>workEmail</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><p><code>otherEmail1</code> (<a href="../../api/type/String.html">string</a>) — this key is incremented for each &quot;other&quot; entry, for example <code>otherEmail2</code></p></li>
+<li><code>homePageUrl</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>homeUrl</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>workUrl</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><p><code>otherUrl1</code> (<a href="../../api/type/String.html">string</a>) — this key is incremented for each &quot;other&quot; entry, for example <code>otherUrl2</code></p></li>
+<li><code>father</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>mother</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>parent</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>brother</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>sister</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><p><code>child</code> (<a href="../../api/type/String.html">string</a>)</p></li>
+<li><code>friend</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>spouse</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>partner</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>assistant</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><p><code>manager</code> (<a href="../../api/type/String.html">string</a>)</p></li>
+<li><code>homeStreet</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>homeCity</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>homeState</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>homeZip</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><p><code>homeCountry</code> (<a href="../../api/type/String.html">string</a>)</p></li>
+<li><code>workStreet</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>workCity</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>workState</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><code>workZip</code> (<a href="../../api/type/String.html">string</a>)</li>
+<li><p><code>workCountry</code> (<a href="../../api/type/String.html">string</a>)</p></li>
+<li><code>otherStreet1</code> (<a href="../../api/type/String.html">string</a>) — this key is incremented for each &quot;other&quot; entry, for example <code>otherStreet2</code></li>
+<li><code>otherCity1</code> (<a href="../../api/type/String.html">string</a>) — this key is incremented for each &quot;other&quot; entry, for example <code>otherCity2</code></li>
+<li><code>otherState1</code> (<a href="../../api/type/String.html">string</a>) — this key is incremented for each &quot;other&quot; entry, for example <code>otherState2</code></li>
+<li><code>otherZip1</code> (<a href="../../api/type/String.html">string</a>) — this key is incremented for each &quot;other&quot; entry, for example <code>otherZip2</code></li>
+<li><p><code>otherCountry1</code> (<a href="../../api/type/String.html">string</a>) — this key is incremented for each &quot;other&quot; entry, for example <code>otherCountry2</code></p></li>
+<li><code>Facebook</code> (<a href="../../api/type/Table.html">table</a>) — contains <code>username</code> (<a href="../../api/type/String.html">string</a>) and <code>url</code> (<a href="../../api/type/String.html">string</a>) for certain services</li>
+<li><code>gamecenter</code> (<a href="../../api/type/Table.html">table</a>) — contains <code>username</code> (<a href="../../api/type/String.html">string</a>) and <code>url</code> (<a href="../../api/type/String.html">string</a>) for certain services</li>
+<li><code>linkedin</code> (<a href="../../api/type/Table.html">table</a>) — contains <code>username</code> (<a href="../../api/type/String.html">string</a>) and <code>url</code> (<a href="../../api/type/String.html">string</a>) for certain services</li>
+<li><code>GoogleTalk</code> (<a href="../../api/type/Table.html">table</a>) — contains <code>username</code> (<a href="../../api/type/String.html">string</a>) and <code>url</code> (<a href="../../api/type/String.html">string</a>) for certain services</li>
+<li><code>sinaweibo</code> (<a href="../../api/type/Table.html">table</a>) — contains <code>username</code> (<a href="../../api/type/String.html">string</a>) and <code>url</code> (<a href="../../api/type/String.html">string</a>) for certain services</li>
+<li><code>AIM</code> (<a href="../../api/type/Table.html">table</a>) — contains <code>username</code> (<a href="../../api/type/String.html">string</a>) and <code>url</code> (<a href="../../api/type/String.html">string</a>) for certain services</li>
+<li><code>GaduGadu</code> (<a href="../../api/type/Table.html">table</a>) — contains <code>username</code> (<a href="../../api/type/String.html">string</a>) and <code>url</code> (<a href="../../api/type/String.html">string</a>) for certain services</li>
+<li><code>Skype</code> (<a href="../../api/type/Table.html">table</a>) — contains <code>username</code> (<a href="../../api/type/String.html">string</a>) and <code>url</code> (<a href="../../api/type/String.html">string</a>) for certain services</li>
+<li><code>Jabber</code> (<a href="../../api/type/Table.html">table</a>) — contains <code>username</code> (<a href="../../api/type/String.html">string</a>) and <code>url</code> (<a href="../../api/type/String.html">string</a>) for certain services</li>
+<li><code>flickr</code> (<a href="../../api/type/Table.html">table</a>) — contains <code>username</code> (<a href="../../api/type/String.html">string</a>) and <code>url</code> (<a href="../../api/type/String.html">string</a>) for certain services</li>
+<li><code>myspace</code> (<a href="../../api/type/Table.html">table</a>) — contains <code>username</code> (<a href="../../api/type/String.html">string</a>) and <code>url</code> (<a href="../../api/type/String.html">string</a>) for certain services</li>
+<li><code>twitter</code> (<a href="../../api/type/Table.html">table</a>) — contains <code>username</code> (<a href="../../api/type/String.html">string</a>) and <code>url</code> (<a href="../../api/type/String.html">string</a>) for certain services</li>
+<li><code>MSN</code> (<a href="../../api/type/Table.html">table</a>) — contains <code>username</code> (<a href="../../api/type/String.html">string</a>) and <code>url</code> (<a href="../../api/type/String.html">string</a>) for certain services</li>
+<li><code>ICQ</code> (<a href="../../api/type/Table.html">table</a>) — contains <code>username</code> (<a href="../../api/type/String.html">string</a>) and <code>url</code> (<a href="../../api/type/String.html">string</a>) for certain services</li>
+<li><code>facebook</code> (<a href="../../api/type/Table.html">table</a>) — contains <code>username</code> (<a href="../../api/type/String.html">string</a>) and <code>url</code> (<a href="../../api/type/String.html">string</a>) for certain services</li>
+<li><code>QQ</code> (<a href="../../api/type/Table.html">table</a>) — contains <code>username</code> (<a href="../../api/type/String.html">string</a>) and <code>url</code> (<a href="../../api/type/String.html">string</a>) for certain services</li>
+<li><p><code>Yahoo</code> (<a href="../../api/type/Table.html">table</a>) — contains <code>username</code> (<a href="../../api/type/String.html">string</a>) and <code>url</code> (<a href="../../api/type/String.html">string</a>) for certain services</p></li>
+</ul>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="brush: lua;">local function onPopupDismiss( event )
+    print( "event.name:", event.name )
+    print( "event.type:", event.type )
+
+    -- event.data is either a table or nil depending on the option chosen
+    print ( "event.data:", event.data )
+
+    -- if there is 'event.data', print its key/value pairs
+    if ( event.data ) then
+        print( "event.data: {" )
+
+        for k,v in pairs( event.data ) do
+            print( k, ":", v )
+        end
+
+        print( "}" )
+    end
+end
+
+local pickContactOptions =
+{
+    option = "pickContact",
+    hideDetails = true,
+    performDefaultAction = true,
+    filter = { "phone", "email", "birthday" },
+    listener = onPopupDismiss
+}
+native.showPopup( "addressbook", pickContactOptions )</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.CoronaProvider_native_popup_addressbook.showPopup&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

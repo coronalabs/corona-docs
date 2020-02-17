@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Corona Native | Corona C Functions | CoronaGraphics.h</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#coronagraphics.h">CoronaGraphics.h</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#external-bitmaps">External Bitmaps</a></li>
+<li><a href="#functions">Functions</a><ul>
+<li><a href="#coronaexternalpushtexturenative.c.coronagraphics.coronaexternalpushtexture"><a href="../../../native/C/CoronaGraphics/CoronaExternalPushTexture.html">CoronaExternalPushTexture()</a></a></li>
+<li><a href="#coronaexternalgetuserdatanative.c.coronagraphics.coronaexternalgetuserdata"><a href="../../../native/C/CoronaGraphics/CoronaExternalGetUserData.html">CoronaExternalGetUserData()</a></a></li>
+<li><a href="#coronaexternalformatbppnative.c.coronagraphics.coronaexternalformatbpp"><a href="../../../native/C/CoronaGraphics/CoronaExternalFormatBPP.html">CoronaExternalFormatBPP()</a></a></li>
+</ul></li>
+<li><a href="#enums">Enums</a><ul>
+<li><a href="#coronaexternalbitmapformatnative.c.coronagraphics.coronaexternalbitmapformat"><a href="../../../native/C/CoronaGraphics/CoronaExternalBitmapFormat.html">CoronaExternalBitmapFormat</a></a></li>
+</ul></li>
+<li><a href="#structs">Structs</a><ul>
+<li><a href="#coronaexternaltexturecallbacksnative.c.coronagraphics.coronaexternaltexturecallbacks"><a href="../../../native/C/CoronaGraphics/CoronaExternalTextureCallbacks.html">CoronaExternalTextureCallbacks</a></a></li>
+</ul></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../native/index.html">Corona Native</a>  ▸  <a href="../../../native/C/index.html">Corona C Functions</a>  ▸  <a href="../../../native/C/CoronaGraphics/index.html">CoronaGraphics.h</a>
+</div>
+<div id="coronagraphics.h" class="section level1">
+<h1>CoronaGraphics.h</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left">C header</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">iOS, Corona Native, C, CoronaGraphics.h</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../native/C/index.html">Corona C Functions</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../api/type/TextureResourceExternal/index.html">TextureResourceExternal</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p><code>CoronaGraphics.h</code> contains interfaces to interact with the Corona graphics pipeline. These interfaces are all prefixed with <code>CoronaExternal</code>.</p>
+</div>
+<div id="external-bitmaps" class="section level2">
+<h2>External Bitmaps</h2>
+<p>These interfaces allow bitmaps loaded from a C plugin to be made displayable in Corona by pushing them to Lua as <a href="../../../api/type/TextureResourceExternal/index.html">TextureResourceExternal</a> objects. A bitmap that is wrapped in a Lua <a href="../../../api/type/TextureResourceExternal/index.html">TextureResourceExternal</a> object can then be displayed in Corona via APIs that accept image <code>filename</code> and <code>baseDir</code> parameters such as the Lua <a href="../../../api/library/display/newImage.html">display.newImage()</a>, <a href="../../../api/library/display/newImageRect.html">display.newImageRect()</a>, and <a href="../../../api/library/graphics/newImageSheet.html">graphics.newImageSheet()</a> functions. Textures can also be applied to display objects that have a <a href="../../../api/type/ShapeObject/fill.html">fill</a> property such as a <a href="../../../api/type/ShapeObject/index.html">ShapeObject</a>.</p>
+<p>Please see the <a href="../../../guide/graphics/textureManagement.html">Texture Loading/Management</a> guide for examples on how to use and manage textures in Corona.</p>
+</div>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<div id="coronaexternalpushtexturenative.c.coronagraphics.coronaexternalpushtexture" class="section level4">
+<h4><a href="../../../native/C/CoronaGraphics/CoronaExternalPushTexture.html">CoronaExternalPushTexture()</a></h4>
+</div>
+<div id="coronaexternalgetuserdatanative.c.coronagraphics.coronaexternalgetuserdata" class="section level4">
+<h4><a href="../../../native/C/CoronaGraphics/CoronaExternalGetUserData.html">CoronaExternalGetUserData()</a></h4>
+</div>
+<div id="coronaexternalformatbppnative.c.coronagraphics.coronaexternalformatbpp" class="section level4">
+<h4><a href="../../../native/C/CoronaGraphics/CoronaExternalFormatBPP.html">CoronaExternalFormatBPP()</a></h4>
+</div>
+</div>
+<div id="enums" class="section level2">
+<h2>Enums</h2>
+<div id="coronaexternalbitmapformatnative.c.coronagraphics.coronaexternalbitmapformat" class="section level4">
+<h4><a href="../../../native/C/CoronaGraphics/CoronaExternalBitmapFormat.html">CoronaExternalBitmapFormat</a></h4>
+</div>
+</div>
+<div id="structs" class="section level2">
+<h2>Structs</h2>
+<div id="coronaexternaltexturecallbacksnative.c.coronagraphics.coronaexternaltexturecallbacks" class="section level4">
+<h4><a href="../../../native/C/CoronaGraphics/CoronaExternalTextureCallbacks.html">CoronaExternalTextureCallbacks</a></h4>
+</div>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<p>This example is a hypothetical <code>plugin.texturer</code> with a single function, <code>newTexture()</code>, that pushes an image from <nobr>third-party</nobr> APIs <nobr>(prefixed with <code>TPA_</code>)</nobr>. Images have indices and <nobr>third-party</nobr> APIs can retrieve images with these indices.</p>
+<ol style="list-style-type: decimal">
+<li>Declare the plugin with the <code>luaopen_</code> function. This is common for all plugins.</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; c">CORONA_EXPORT int luaopen_plugin_texturer( lua_State *L )
+{
+    // Functions in library
+    const luaL_Reg kVTable[] =
+    {
+        { "newTexture", newTexture },
+        { NULL, NULL }
+    };
+
+    luaL_openlib( L, kName, kVTable, 0 );
+
+    return 1;
+}</pre>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Implement the <code>newTexture()</code> function which will push images:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; c">/** TextureResourceExternal texturer.newTexture(image) */
+int newTexture(lua_State* luaStatePointer)
+{
+    int image = 0;
+    if (lua_type(luaStatePointer, 1) == LUA_TNUMBER)
+    {
+        image = (int)lua_tointeger(luaStatePointer, 1);
+    }
+    else
+    {
+        luaL_argerror( L, 1, "image must be a number")
+    }
+
+    // creating callbacks structure and initializing it with zeros
+    CoronaExternalTextureCallbacks callbacks = {0};
+    // setting size
+    callbacks.size = sizeof(CoronaExternalTextureCallbacks);
+    // setting callbacks
+    callbacks.getWidth = getWidth;
+    callbacks.getHeight = getHeight;
+    callbacks.onRequestBitmap = onRequestBitmap;
+    callbacks.onReleaseBitmap = onReleaseBitmap;
+    callbacks.onFinalize = onFinalize;
+
+    // Creating helper structure
+    HelperStruct* helper = new HelperStruct();
+    helper->image = image;    
+    helper->w = TPA_GetImageWidth(image);   //caching width and height
+    helper->h = TPA_GetImageHeight(image);
+
+    int ret = CoronaExternalPushTexture(L, &callbacks, (image));
+
+    // Note that we're not deleting `helper` when everything is OK. It would be released in finalizing callback.
+    if (ret == 0)
+    {
+        // something went wrong. Texture was not pushed, so should clean up to prevent memory leak
+        delete helper;
+    }
+    return ret;
+}</pre>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Implement callbacks and helper:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; c">struct HelperStruct
+{
+    unsigned w;
+    unsigned h;
+    int image;
+    void *buff;    
+}
+
+
+unsigned getWidth(void* userData)
+{
+    HelperStruct* self = (HelperStruct*)userData;
+    return self->w;
+}
+
+unsigned getHeight(void* userData)
+{
+    HelperStruct* self = (HelperStruct*)userData;
+    return self->h;
+}
+
+const void* onRequestBitmap(void* userData)
+{
+    HelperStruct* self = (HelperStruct*)userData;
+
+    int sz = self->w*self->h*4; // we know that our API always return 4 byte RGBA
+    self->buff = new unsigned char[sz];
+    TPA_GetImageRGBA(self->image, self->buff, sz);
+    return self->buff;
+}
+
+void onReleaseBitmap(void* userData)
+{
+    HelperStruct* self = (HelperStruct*)userData;
+    delete [] self->buff;
+}
+
+void onFinalize(void *userData)
+{
+    HelperStruct* self = (HelperStruct*)userData;
+    // release helper when texture is no longer required
+    delete self;
+}</pre>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Use the plugin in Lua code:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua;">local texturer = require( "plugin.texturer" )
+
+local tex = texturer.newTexture( 42 )
+display.newImageRect( tex.filename, tex.baseDir, tex.width, tex.height )
+tex:releaseSelf()</pre>
+</div>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>When the texture is created, callbacks will not be instantly called. Corona creates textures between frames and only when they're required. Also, after <code>texture:releaseSelf()</code> is called, <code>texture</code> is not necessarily released — only this Lua <strong>reference</strong> is. If any display objects are using the texture, it will not be released, such that they can still be rendered correctly.</p>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=native.C.CoronaGraphics.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

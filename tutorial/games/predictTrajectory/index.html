@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Tutorials | Gaming/Physics</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#predicting-trajectory">Predicting Trajectory</a><ul>
+<li><a href="#test-project-setup">Test Project Setup</a></li>
+<li><a href="#touch-handling">Touch Handling</a></li>
+<li><a href="#calculating-trajectory">Calculating Trajectory</a></li>
+<li><a href="#launching-a-projectile">Launching a Projectile</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/games/index.html">Gaming/Physics</a>
+</div>
+<div id="predicting-trajectory" class="section level1">
+<h1>Predicting Trajectory</h1>
+<p>Predicting trajectory has traditionally been a confusing endeavor, and some developers simply &quot;guess&quot; and hope for the best. In this tutorial, we'll discuss the real solution!</p>
+<div id="test-project-setup" class="section level2">
+<h2>Test Project Setup</h2>
+<p>For purposes of this tutorial, let's quickly create a test project:</p>
+<ol style="list-style-type: decimal">
+<li><p>Open the Corona Simulator.</p></li>
+<li><p>Click <strong>New Project</strong> from the welcome window or select <nobr><strong>New Project...</strong></nobr> from the <strong>File</strong> menu.</p></li>
+<li><p>For the project/application name, type <code>TestLaunch</code> and ensure that the <strong>Blank</strong> template option is selected. Leave the screen size settings at default but set <strong>Default Orientation</strong> to <strong>Sideways</strong>, then click <strong>OK</strong> (Windows) or <strong>Next</strong> (Mac). This will create the basic files for the test project in the location (folder) that you specified.</p></li>
+<li><p>Locate the project folder, open the <code>main.lua</code> file in your chosen text editor, and insert these lines of code:</p></li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: false; first-line: 1;">local physics = require( "physics" )
+physics.start()  -- Start the physics engine
+physics.setGravity( 0, 9.8 )  -- Set typical Earth gravity
+
+-- Create display group for predicted trajectory
+local predictedPath = display.newGroup()
+
+-- Create function forward references
+local getTrajectoryPoint
+local launchProjectile</pre>
+</div>
+</div>
+<div id="touch-handling" class="section level2">
+<h2>Touch Handling</h2>
+<p>The core task of predictive trajectory is gathering some basic data like the starting position and starting velocity of the projectile you want to launch. This can be accomplished with a <code>&quot;touch&quot;</code> event listener, so add the following code to your test project after the previous commands:</p>
+<pre class="brush: lua; gutter: false; highlight: [3,6,7,9,11,12,13,14,15]; first-line: 1;">local function screenTouch( event )
+
+    if ( event.phase == "moved" ) then
+
+        -- Remove trajectory path group (to clear previous path), then re-create it
+        display.remove( predictedPath )
+        predictedPath = display.newGroup()
+
+        local startingVelocity = { x=event.x-event.xStart, y=event.y-event.yStart }
+
+        for i = 1,240,2 do
+            local s = { x=event.xStart, y=event.yStart }
+            local trajectoryPosition = getTrajectoryPoint( s, startingVelocity, i )
+            local dot = display.newCircle( predictedPath, trajectoryPosition.x, trajectoryPosition.y, 4 )
+        end
+
+    elseif ( event.phase == "ended" ) then
+
+        launchProjectile( event )
+    end
+    return true
+end
+Runtime:addEventListener( "touch", screenTouch )</pre>
+<p>Let's inspect this code in more detail:</p>
+<ol style="list-style-type: decimal">
+<li><p>The core of this function works on the <code>&quot;moved&quot;</code> touch phase. This allows us to start touching at a certain point on the screen (this will be the origin of the projectile) and then drag around to render a dotted path that represents the predicted trajectory.</p></li>
+<li><p>Inside the conditional <code>&quot;moved&quot;</code> phase block, we first remove the <code>predictedPath</code> display group created earlier, then we <nobr>re-create</nobr> it. It may seem odd to remove the group then immediately <nobr>re-create</nobr> it, but this is a simple way to remove all of the <nobr>previously-drawn</nobr> dots before drawing an entirely new set which represents the adjusted trajectory.</p></li>
+<li><p>Following that, we calculate the starting <strong>x</strong> and <strong>y</strong> &quot;velocity&quot; values by subtracting the starting touch location (<code>event.xStart</code>/<code>event.yStart</code>) from the current touch location (<code>event.x</code>/<code>event.y</code>).</p></li>
+<li><p>Finally, with this basic information, we run a <code>for</code> loop which draws the predicted trajectory path in 240 steps — 4 seconds of launch time at <nobr>60 frames-per-second —</nobr> using vector circles (you could use images if desired). Note that we iterate by <code>2</code> in the loop since, for test purposes, 120 path points (dots) is enough to clearly represent the predicted trajectory.</p></li>
+</ol>
+</div>
+<div id="calculating-trajectory" class="section level2">
+<h2>Calculating Trajectory</h2>
+<p>Within the <code>for</code> loop in the above function, the core calculation is done via the following function which uses the <nobr>frames-per-second</nobr> in &quot;time steps&quot; along with the starting position and velocity. Add this code block to your project following the previous lines:</p>
+<pre class="brush: lua; gutter: false; first-line: 1;">getTrajectoryPoint = function( startingPosition, startingVelocity, n )
+
+    -- Velocity and gravity are given per second but we want time step values
+    local t = 1/display.fps  -- Seconds per time step at 60 frames-per-second (default)
+    local stepVelocity = { x=t*startingVelocity.x, y=t*startingVelocity.y }
+    local gx, gy = physics.getGravity()
+    local stepGravity = { x=t*gx, y=t*gy }
+
+    return {
+        x = startingPosition.x + n * stepVelocity.x + 0.25 * (n*n+n) * stepGravity.x,
+        y = startingPosition.y + n * stepVelocity.y + 0.25 * (n*n+n) * stepGravity.y
+    }
+end</pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>This trajectory calculation is based on an app running at 60 <nobr>frames-per-second</nobr> <nobr>(<code>fps</code> value within <code>config.lua</code>)</nobr>. If you wish to use 30 frames per second, change each instance of <code>0.25</code> in the returned <code>x</code> and <code>y</code> values to <code>0.5</code> and everything should mesh up perfectly.</p>
+</div>
+</div>
+<div id="launching-a-projectile" class="section level2">
+<h2>Launching a Projectile</h2>
+<p>On touch release, firing the projectile is simple. We simply generate the projectile, add a physical body, and assign the velocity values that we gathered to send it flying across the trajectory path in a perfect match. To test, add this code block to your project following the previous lines:</p>
+<pre class="brush: lua;">launchProjectile = function( event )
+    
+    -- Create projectile object
+    local proj = display.newCircle( event.xStart, event.yStart, 24 )
+    proj:setFillColor( 1,0.2,0.2 )
+
+    -- Add physical body to object
+    physics.addBody( proj, { bounce=0.2, density=1.0, radius=24 } )
+
+    -- Apply velocity values to object
+    local vx, vy = event.x-event.xStart, event.y-event.yStart
+    proj:setLinearVelocity( vx, vy )
+end</pre>
+<p>Now save the project, refresh/reload it, and touch/drag around the screen to draw a predicted trajectory path. Upon release, a projectile (red circle) should generate at the starting point and it should perfectly follow the predicted path!</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>Hopefully this tutorial illustrates that predictive trajectory is not an insurmountable task, nor one that requires a &quot;best guess&quot; sort of operation. With these calculations, accurate trajectory paths are easily accomplished in Corona!</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=tutorial.games.predictTrajectory.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

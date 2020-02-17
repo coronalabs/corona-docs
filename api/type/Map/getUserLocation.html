@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | type | Map | getUserLocation</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#objectgetuserlocation">object:getUserLocation()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#error-handling">Error Handling</a></li>
+<li><a href="#gotchas">Gotchas</a><ul>
+<li><a href="#android">Android</a></li>
+<li><a href="#ios">iOS</a></li>
+</ul></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/Map/index.html">Map</a>  ▸  <a href="../../../api/type/Map/getUserLocation.html">getUserLocation</a>
+</div>
+<div id="objectgetuserlocation" class="section level1">
+<h1>object:getUserLocation()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Object</strong></td>
+<td align="left"><a href="../../../api/type/Map/index.html">Map</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../../api/library/native/index.html">native.*</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Return value</strong></td>
+<td align="left"><a href="../../../api/type/Table.html">Table</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">getUserLocation</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Returns a <a href="../../../api/type/Table.html">table</a> containing values for the user's current location, including:</p>
+<ul>
+<li><p><code>latitude</code> — The latitude in degrees of the current GPS location.</p></li>
+<li><p><code>longitude</code> — The longitude in degrees of the current GPS location.</p></li>
+<li><p><code>altitude</code> — The altitude in meters of the current GPS location.</p></li>
+<li><p><code>accuracy</code> — The accuracy of the GPS location in meters. If negative, the latitude and longitude are not valid.</p></li>
+<li><p><code>speed</code> — The instantaneous speed of the GPS device in meters per second. Divide the results by <code>0.447</code> to get MPH (miles per hour).</p></li>
+<li><p><code>direction</code> — The direction the device is traveling in degrees clockwise from true north. If negative, the direction is invalid.</p></li>
+<li><p><code>time</code> — Returns the UTC timestamp of the GPS location event. This is a <nobr>Unix-style</nobr> timestamp, expressed in seconds since <nobr>Jan. 1, 1970</nobr>.</p></li>
+<li><p><code>errorCode</code> — A platform-specific integer for an error condition that is not language dependent. See <a href="#errors">Error Handling</a> below for details.</p></li>
+<li><p><code>errorMessage</code> — A string that describes an error in acquiring a GPS location from the device. See <a href="#errors">Error Handling</a> below for details. The string may be localized according to the user's language.</p></li>
+</ul>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">object:getUserLocation()</pre>
+<p><a id="errors"></a></p>
+</div>
+<div id="error-handling" class="section level2">
+<h2>Error Handling</h2>
+<p>If the returned table's <code>errorCode</code> field is not <code>nil</code>, this indicates that the application has failed to fetch the user's current location. This can happen for the following reasons:</p>
+<ul>
+<li>Current location has not been received yet.</li>
+<li>Current location tracking is not available on the device.</li>
+<li>The application does not have permission.</li>
+</ul>
+<p>The specific error codes (<code>errorCode</code>) and messages (<code>errorMessage</code>) are as follows:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="center">Code</th>
+<th align="left">Message / Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>-3</code></td>
+<td align="left"><code>&quot;Current location is unknown&quot;</code> — Occurs if location services is enabled but the device's location hardware is still activating.</td>
+</tr>
+<tr class="even">
+<td align="center"><code>-2</code></td>
+<td align="left"><code>&quot;Current location tracking is not available on this device&quot;</code> — Occurs if this device doesn't have any means of determining the current location.</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>-1</code></td>
+<td align="left"><code>&quot;Location services are disabled&quot;</code> — Occurs when the device can determine the current location, but the user has disabled location services.</td>
+</tr>
+<tr class="even">
+<td align="center"><code>0</code></td>
+<td align="left"><code>&quot;Pending user authorization&quot;</code> — Occurs when the device is prompting the user for authorization to use location services.</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>1</code></td>
+<td align="left"><code>&quot;App is missing location permissions&quot;</code> — Available on Android only. Occurs if neither <code>&quot;android.permission.ACCESS_FINE_LOCATION&quot;</code> nor <code>&quot;android.permission.ACCESS_COARSE_LOCATION&quot;</code> is defined in <code>build.settings</code>.</td>
+</tr>
+<tr class="even">
+<td align="center"><code>2</code></td>
+<td align="left"><code>&quot;Location is denied by user&quot;</code> — On iOS, this occurs if the user has denied access to location data for the app. On Android 6.0 and above, this occurs if the user has denied the app access to location data <strong>and</strong> has requested that location permission is never requested again.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="gotchas" class="section level2">
+<h2>Gotchas</h2>
+<div id="android" class="section level3">
+<h3>Android</h3>
+<p>In order to retrieve current location on Android, you must set the following permissions in the <code>build.settings</code> file.</p>
+<pre class="brush: lua;">settings =
+{
+    android =
+    {
+        usesPermissions =
+        {
+            -- Permission to retrieve current location from the GPS.
+            "android.permission.ACCESS_FINE_LOCATION",
+
+            -- Permission to retrieve current location from WiFi or cellular service.
+            "android.permission.ACCESS_COARSE_LOCATION",
+        },
+    },
+}</pre>
+</div>
+<div id="ios" class="section level3">
+<h3>iOS</h3>
+<p>Starting with iOS 8, you must add the <code>NSLocationWhenInUseUsageDescription</code> key to the plist section of the <code>build.settings</code> file which contains the reason why you need access to location services.</p>
+<pre class="brush: lua;">settings =
+{
+    iphone =
+    {
+        plist =
+        {
+            NSLocationWhenInUseUsageDescription = "A description of why the app needs access to location services."
+        },
+    },
+}</pre>
+</div>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="brush: lua;">-- Create a native map view
+local myMap = native.newMapView( 20, 20, 280, 360 )
+myMap.x = display.contentCenterX
+
+local attempts = 0
+
+local locationText = display.newText( "Location: ", 0, 400, native.systemFont, 16 )
+locationText.anchorY = 0
+locationText.x = display.contentCenterX
+
+local function locationHandler( event )
+
+    local currentLocation = myMap:getUserLocation()
+
+    if ( currentLocation.errorCode or ( currentLocation.latitude == 0 and currentLocation.longitude == 0 ) ) then
+        locationText.text = currentLocation.errorMessage
+
+        attempts = attempts + 1
+
+        if ( attempts > 10 ) then
+            native.showAlert( "No GPS Signal", "Can't sync with GPS.", { "Okay" } )
+        else
+            timer.performWithDelay( 1000, locationHandler )
+        end
+    else
+        locationText.text = "Current location: " .. currentLocation.latitude .. "," .. currentLocation.longitude
+        myMap:setCenter( currentLocation.latitude, currentLocation.longitude )
+        myMap:addMarker( currentLocation.latitude, currentLocation.longitude )
+    end
+end
+
+locationHandler()</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.type.Map.getUserLocation&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

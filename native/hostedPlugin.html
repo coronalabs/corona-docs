@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Corona Native | Self-Hosted Plugins</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../guide/index.html">Guides</a></li>
+<li><a href="../api/index.html">API Reference</a></li>
+<li><a href="../tutorial/index.html">Tutorials</a></li>
+<li><a href="../plugin/index.html">Plugins</a></li>
+<li><a href="../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#self-hosted-plugins">Self-Hosted Plugins</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#packaging-and-hosting">Packaging and Hosting</a><ul>
+<li><a href="#flat-file-structure">Flat File Structure</a></li>
+<li><a href="#web-server-requirements">Web Server Requirements</a></li>
+</ul></li>
+<li><a href="#corona-simulator-and-builds">Corona Simulator and Builds</a><ul>
+<li><a href="#running-plugins-in-the-simulator">Running Plugins in the Simulator</a></li>
+<li><a href="#device-buildssettings">Device Builds/Settings</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../native/index.html">Corona Native</a>  ▸  <a href="../native/hostedPlugin.html">Self-Hosted Plugins</a>
+</div>
+<div id="self-hosted-plugins" class="section level1">
+<h1>Self-Hosted Plugins</h1>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Corona Native users who have purchased a <a href="https://marketplace.coronalabs.com/support/priority-plus-support">Priority Plus</a> support plan can enable plugins hosted on <nobr>3rd-party</nobr> servers. This allows you to create plugins for internal use and leverage the Corona Simulator's rapid build process with native code that you've written.</p>
+</div>
+<div id="packaging-and-hosting" class="section level2">
+<h2>Packaging and Hosting</h2>
+<p>Plugins must be packaged for each platform <strong>separately</strong> as a <code>.tgz</code> file and hosted on a web server.</p>
+<div id="flat-file-structure" class="section level3">
+<h3>Flat File Structure</h3>
+<p>Follow the <a href="../native/plugin/index.html">Plugins</a> guide to build your plugin, then package the plugin on your server. The plugin needs to be stored in a flat (no directories) <code>.tgz</code> format. For example, from inside your plugin build folder, run:</p>
+<pre class="brush: lua;">tar -czf myplugin.tgz myplugin.lua metadata.lua</pre>
+</div>
+<div id="web-server-requirements" class="section level3">
+<h3>Web Server Requirements</h3>
+<p>Upload the resulting <code>.tgz</code> file to a web server that is accessible from the Internet. If necessary, <code>https://</code> and basic authentication are supported for security and access control.</p>
+</div>
+</div>
+<div id="corona-simulator-and-builds" class="section level2">
+<h2>Corona Simulator and Builds</h2>
+<div id="running-plugins-in-the-simulator" class="section level3">
+<h3>Running Plugins in the Simulator</h3>
+<p>The Corona Simulator only accesses hosted plugins for device builds. When it comes to running these plugins in the Simulator, you must install these plugins locally by placing the plugin file in the following directory:</p>
+<pre class="brush: lua;">~/Library/Application Support/Corona/Simulator/Plugins/</pre>
+<p>This file should match the name used as the key in the <code>plugins</code> table, for example <code>&quot;plugin.hostedplugin&quot;</code> in the <code>build.settings</code> example below.</p>
+</div>
+<div id="device-buildssettings" class="section level3">
+<h3>Device Builds/Settings</h3>
+<p>In order to use hosted plugins with your Corona project, the following changes to <code>build.settings</code> must be made:</p>
+<ol style="list-style-type: decimal">
+<li><p>For each <strong>device</strong> platform, you must tell Corona the URL from which to fetch the plugin <code>.tgz</code> file.</p>
+<p>In the <code>supportedPlatforms</code> table for the plugin, each platform property key's value should contain the URL pointing to the <code>.tgz</code> plugin file.</p></li>
+<li><p>For each <strong>Simulator</strong> platform, you must tell Corona <strong>not</strong> to attempt download of a <code>.tgz</code> file.</p>
+<p>In the <code>supportedPlatforms</code> table for the plugin, the <code>macos</code> and <code>win32</code> key values should be <code>false</code>.</p>
+<p>If you wish to use the plugin in the Corona Simulator, you must install the plugin locally as noted above.</p></li>
+</ol>
+<p>Here is an example of including a hosted plugin within <code>build.settings</code>:</p>
+<pre class="brush: lua;">settings =
+{
+    plugins =
+    {
+        ["plugin.hostedplugin"] =
+        {
+            publisherId = "com.company",
+            supportedPlatforms = { 
+                iphone = { url="https://test:abc123@example.com/plugin/iphone.tgz" },
+                android = { url="https://test:abc123@example.com/plugin/android.tgz" },
+                macos = false,
+                win32 = false
+            },
+        },
+    },
+}</pre>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<ul>
+<li><p>The maximum <strong>compressed</strong> size for the <code>.tgz</code> file is 25 MB. The maximum <strong>uncompressed</strong> size for the <code>.tgz</code> file is 50 MB.</p></li>
+<li><p>The Corona Simulator will throw an error on launch/relaunch saying that the plugin couldn't be downloaded. This message is safe to ignore.</p></li>
+</ul>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=native.hostedPlugin&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

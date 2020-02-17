@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries | display | newMesh</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#display.newmesh">display.newMesh()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#parent-optional">parent <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#x-y-optional">x / y <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#options-required">options <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+<li><a href="#options-reference">Options Reference</a><ul>
+<li><a href="#vertices-required">vertices <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#parent-optional-1">parent <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#x-y-optional-1">x / y <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#mode-optional">mode <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#indices-optional">indices <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#zerobasedindices-optional">zeroBasedIndices <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#uvs-optional">uvs <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#mesh-draw-modes">Mesh Draw Modes</a><ul>
+<li><a href="#trianglesindexed">triangles/indexed</a></li>
+<li><a href="#strip">strip</a></li>
+<li><a href="#fan">fan</a></li>
+</ul></li>
+<li><a href="#gotchas">Gotchas</a></li>
+<li><a href="#methods">Methods</a><ul>
+<li><a href="#object.pathsetvertex">object.path:setVertex()</a></li>
+<li><a href="#object.pathgetvertex">object.path:getVertex()</a></li>
+<li><a href="#object.pathsetuv">object.path:setUV()</a></li>
+<li><a href="#object.pathgetuv">object.path:getUV()</a></li>
+<li><a href="#object.pathgetvertexoffset">object.path:getVertexOffset()</a></li>
+</ul></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#triangles-mode">Triangles Mode</a></li>
+<li><a href="#indexed-mode">Indexed Mode</a></li>
+<li><a href="#strip-mode">Strip Mode</a></li>
+<li><a href="#fan-mode">Fan Mode</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/display/index.html">display</a>  ▸  <a href="../../../api/library/display/newMesh.html">newMesh</a>
+</div>
+<div id="display.newmesh" class="section level1">
+<h1>display.newMesh()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Return value</strong></td>
+<td align="left"><a href="../../../api/type/ShapeObject/index.html">ShapeObject</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">shape, mesh, vector object</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../guide/graphics/path.html">Shapes — Paths, Fills, Strokes</a> <em>(guide)</em></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../guide/media/displayObjects/index.html">Display Objects</a> <em>(guide)</em></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Draws a mesh shape by providing vertices of the shape. The local origin is at the center of the mesh and the <a href="../../../guide/graphics/transform-anchor.html">anchor point</a> is initialized to this local origin.</p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">display.newMesh( [parent,] [x, y,] options )
+
+display.newMesh( options )</pre>
+<div id="parent-optional" class="section level5">
+<h5>parent <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/GroupObject/index.html">GroupObject</a>.</em> An optional display group in which to insert the mesh.</p>
+</div>
+<div id="x-y-optional" class="section level5">
+<h5>x / y <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The location of the object relative to its parent.</p>
+</div>
+<div id="options-required" class="section level5">
+<h5>options <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Table.html">Table</a>.</em> Table containing options for the mesh — see the next section for details.</p>
+</div>
+</div>
+<div id="options-reference" class="section level2">
+<h2>Options Reference</h2>
+<p>The <code>options</code> table accepts the following parameters for the mesh:</p>
+<div id="vertices-required" class="section level5">
+<h5>vertices <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Array.html">Array</a>.</em> An array of <strong>x</strong> and <strong>y</strong> coordinates of vertices forming the mesh. Meshes are built with these vertices depending on the <code>mode</code> parameter.</p>
+</div>
+<div id="parent-optional-1" class="section level5">
+<h5>parent <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/GroupObject/index.html">GroupObject</a>.</em> An optional display group in which to insert the mesh. If included here, this will override any <code>parent</code> definition specified outside of the <code>options</code> table.</p>
+</div>
+<div id="x-y-optional-1" class="section level5">
+<h5>x / y <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The location of the object relative to its parent. If included here, these will override any <code>x</code> or <code>y</code> definitions specified outside of the <code>options</code> table.</p>
+</div>
+<div id="mode-optional" class="section level5">
+<h5>mode <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> String indicating how the mesh should be formed with the provided vertices. Default is <code>&quot;triangles&quot;</code>. Acceptable values are <code>&quot;triangles&quot;</code>, <code>&quot;strip&quot;</code>, <code>&quot;fan&quot;</code>, or <code>&quot;indexed&quot;</code>. See <a href="#modes">Mesh Draw Modes</a> below for a description of each mode.</p>
+</div>
+<div id="indices-optional" class="section level5">
+<h5>indices <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Array.html">Array</a>.</em> An array of indices required for <code>mode</code> type of <code>&quot;indexed&quot;</code>. For example, to mimic the behavior of the <code>&quot;strip&quot;</code> mode, the value of this parameter could be <nobr><code>{ 1,2,3, 2,3,4, 3,4,5 }</code></nobr>.</p>
+</div>
+<div id="zerobasedindices-optional" class="section level5">
+<h5>zeroBasedIndices <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Boolean.html">Boolean</a>.</em> Convenience parameter with default of <code>false</code>. If set to <code>true</code>, the <code>indices</code> array will be treated as a <nobr>zero-based</nobr> array.</p>
+</div>
+<div id="uvs-optional" class="section level5">
+<h5>uvs <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Array.html">Array</a>.</em> An array of <strong>u</strong> and <strong>v</strong> texture coordinates of vertices forming the mesh. If omitted or invalid, UVs will be automatically assigned based on normalized <code>vertices</code> values. Texture coordinates are normalized coordinates where <code>0,0</code> is the <nobr>top-left</nobr> corner of the image and <code>1,1</code> is the <nobr>bottom-right</nobr> corner of the image.</p>
+<p><a id="modes"></a></p>
+</div>
+</div>
+<div id="mesh-draw-modes" class="section level2">
+<h2>Mesh Draw Modes</h2>
+<div style="max-width: 600px;">
+<div class="figure">
+<img src="../../../images/simulator/meshes.png" />
+
+</div>
+</div>
+<div id="trianglesindexed" class="section level3">
+<h3>triangles/indexed</h3>
+<p>Meshes with a <code>mode</code> of <code>&quot;triangles&quot;</code> or <code>&quot;indexed&quot;</code> are formed with disjointed groups of three consecutive vertices. An example of a <code>&quot;triangles&quot;</code> mode could have vertices with indices <code>1,2,3</code>, <code>4,5,6</code>, and <code>7,8,9</code>. Note, however, that the <code>&quot;triangles&quot;</code> mode may result in duplicate vertices shared by several triangles — to avoid this, you can use the <code>&quot;indexed&quot;</code> type and define an <code>indices</code> table with indices pointing to the vertices used.</p>
+<p>While these methods can be used to encode any mesh, they both have some duplication if a vertex is used by several triangles. In the case of <code>&quot;triangles&quot;</code>, this is the vertices themselves. In the case of <code>&quot;indexed&quot;</code>, this is the vertex indices. Duplicating indices is much cheaper because they're single integer numbers, not an entire vertex with coordinates and texture coordinates.</p>
+<p>In some cases, this duplication can be avoided via the <code>&quot;strip&quot;</code> or <code>&quot;fan&quot;</code> mode (see below).</p>
+</div>
+<div id="strip" class="section level3">
+<h3>strip</h3>
+<p>Meshes with a <code>mode</code> of <code>&quot;strip&quot;</code> are formed with three consecutive vertices. An example could have vertices with indices <code>1,2,3</code>, <code>2,3,4</code>, and <code>3,4,5</code>. For more information on this type, see <a href="https://en.wikipedia.org/wiki/Triangle_strip">here</a>.</p>
+</div>
+<div id="fan" class="section level3">
+<h3>fan</h3>
+<p>Meshes with a <code>mode</code> of <code>&quot;fan&quot;</code> are formed with an initial vertex and two ending vertices. An example could have vertices with indices <code>1,2,3</code>, <code>1,3,4</code>, and <code>1,4,5</code>. For more information on this type, see <a href="https://en.wikipedia.org/wiki/Triangle_fan">here</a>.</p>
+</div>
+</div>
+<div id="gotchas" class="section level2">
+<h2>Gotchas</h2>
+<ul>
+<li><p>Vertices will be visually shifted so that the center of the mesh will be at the origin of the object. This does not change values when accessing vertices.</p></li>
+<li><p>The origin will not be adjusted to the center of the mesh when modifying the mesh.</p></li>
+<li><p>When referencing the <code>index</code> parameter of any method, you must point to an existing vertex.</p></li>
+<li><p>If an invalid mesh is requested, this function will return <code>nil</code>.</p></li>
+<li><p>Setting the stroke for a mesh with <code>mode</code> value of <code>&quot;triangles&quot;</code> or <code>&quot;indices&quot;</code> can impact performance if the mesh has a lot of vertices.</p></li>
+</ul>
+</div>
+<div id="methods" class="section level2">
+<h2>Methods</h2>
+<p><em>(Inherits properties from <a href="../../../api/type/ShapeObject/index.html">ShapeObject</a>)</em></p>
+<p>Shape objects have a <code>path</code> property that exposes methods to manipulate the mesh. Most methods accept the <code>index</code> parameter which is the Lua array index of the vertex in question (the first vertex would have an index of <code>1</code>). All arguments are <a href="../../../api/type/Number.html">numbers</a>.</p>
+<div id="object.pathsetvertex" class="section level5">
+<h5>object.path:setVertex()</h5>
+<p>Sets the vertex with index <code>index</code> to coordinates <code>x</code> and <code>y</code>:</p>
+<pre class="brush: lua;">object.path:setVertex( index, x, y )</pre>
+</div>
+<div id="object.pathgetvertex" class="section level5">
+<h5>object.path:getVertex()</h5>
+<p>Returns two <a href="../../../api/type/Number.html">numbers</a> corresponding to a vertex's coordinates:</p>
+<pre class="brush: lua;">object.path:getVertex( index )</pre>
+</div>
+<div id="object.pathsetuv" class="section level5">
+<h5>object.path:setUV()</h5>
+<p>Sets the vertex with index <code>index</code> to texture coordinates <code>u</code> and <code>v</code>:</p>
+<pre class="brush: lua;">object.path:setUV( index, u, v )</pre>
+</div>
+<div id="object.pathgetuv" class="section level5">
+<h5>object.path:getUV()</h5>
+<p>Returns two <a href="../../../api/type/Number.html">numbers</a> corresponding to a vertex's texture coordinates:</p>
+<pre class="brush: lua;">object.path:getUV( index )</pre>
+</div>
+<div id="object.pathgetvertexoffset" class="section level5">
+<h5>object.path:getVertexOffset()</h5>
+<p>Returns two <a href="../../../api/type/Number.html">numbers</a> corresponding to the horizontal and vertical offsets applied when moving the origin to the center of the mesh. You can offset the mesh object by these values to compensate for initial shift and get precise vertex positions in world coordinates.</p>
+<div style="margin-bottom: -10px;">
+<pre class="brush: lua;">object.path:getVertexOffset()</pre>
+</div>
+<p>Note that a vertex with coordinates <code>x</code> and <code>y</code> will have world coordinates of <nobr><code>mesh.x + x - offsetX</code></nobr> and <nobr><code>mesh.y + y - offsetY</code></nobr> respectively, assuming no scaling is applied. Consider the following command which shifts the object by the offsets and puts a vertex at <code>0,0</code> into the previous object origin:</p>
+<pre class="brush: lua;">mesh:translate( mesh.path:getVertexOffset() )</pre>
+</div>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<div id="triangles-mode" class="section level5">
+<h5>Triangles Mode</h5>
+<pre class="brush: lua;">local mesh = display.newMesh(
+    {
+        x = 100,
+        y = 100,
+        mode = "triangles",
+        vertices = {
+            0,0, 50,0, 0,100,
+            0,100, 50,0, 100,100,
+            100,100, 50,0, 100,0
+        },
+        uvs = {
+            0,0, 0.5,0, 0,1,
+            0,1, 0.5,0, 1,1,
+            1,1, 0.5,0, 1,0
+        }
+    })
+mesh:translate( mesh.path:getVertexOffset() )  -- Translate mesh so that vertices have proper world coordinates
+
+mesh.fill = { type="image", filename="cat.png" }
+
+local vertexX, vertexY = mesh.path:getVertex( 3 )
+mesh.path:setVertex( 3, vertexX, vertexY-10 )</pre>
+</div>
+<div id="indexed-mode" class="section level5">
+<h5>Indexed Mode</h5>
+<pre class="brush: lua;">local mesh = display.newMesh(
+    {
+        x = 100,
+        y = 100,
+        mode = "indexed",
+        vertices = {
+            0,0, 0,100, 50,0, 100,100, 100,0
+        },
+        indices = {
+            1,2,3,
+            2,3,4,
+            3,4,5
+        }
+    })
+mesh:translate( mesh.path:getVertexOffset() )  -- Translate mesh so that vertices have proper world coordinates
+
+mesh.fill = { type="image", filename="cat.png" }
+
+local vertexX, vertexY = mesh.path:getVertex( 3 )
+mesh.path:setVertex( 3, vertexX, vertexY-10 )</pre>
+</div>
+<div id="strip-mode" class="section level5">
+<h5>Strip Mode</h5>
+<pre class="brush: lua;">local mesh = display.newMesh(
+    {
+        x = 100,
+        y = 100,
+        mode = "strip",
+        vertices = {
+            0,0, 0,100,
+            50,0, 100,100,
+            100,0
+        }
+    })
+mesh:translate( mesh.path:getVertexOffset() )  -- Translate mesh so that vertices have proper world coordinates
+
+mesh.fill = { type="image", filename="cat.png" }
+
+local vertexX, vertexY = mesh.path:getVertex( 3 )
+mesh.path:setVertex( 3, vertexX, vertexY-10 )</pre>
+</div>
+<div id="fan-mode" class="section level5">
+<h5>Fan Mode</h5>
+<pre class="brush: lua;">local mesh = display.newMesh(
+    {
+        x = 100,
+        y = 100,
+        mode = "fan",
+        vertices = {
+            50,0,
+            0,0, 0,100, 100,100, 100,0
+        }
+    })
+mesh:translate( mesh.path:getVertexOffset() )  -- Translate mesh so that vertices have proper world coordinates
+
+mesh.fill = { type="image", filename="cat.png" }
+
+local vertexX, vertexY = mesh.path:getVertex( 3 )
+mesh.path:setVertex( 3, vertexX, vertexY-10 )</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.display.newMesh&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

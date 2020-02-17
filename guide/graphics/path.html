@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Graphics/Audio/Animation</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#shapes-paths-fills-strokes">Shapes — Paths, Fills, Strokes</a><ul>
+<li><a href="#creating-shapes">Creating Shapes</a></li>
+<li><a href="#shape-paths">Shape Paths</a><ul>
+<li><a href="#rectangle">Rectangle</a></li>
+<li><a href="#rounded-rectangle">Rounded Rectangle</a></li>
+<li><a href="#circle">Circle</a></li>
+<li><a href="#mesh">Mesh</a></li>
+</ul></li>
+<li><a href="#fills-and-strokes">Fills and Strokes</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../guide/index.html">Developer Guides</a>  ▸  <a href="../../guide/graphics/index.html">Graphics/Audio/Animation</a>
+</div>
+<div id="shapes-paths-fills-strokes" class="section level1">
+<h1>Shapes — Paths, Fills, Strokes</h1>
+<p><a href="../../api/type/ShapeObject/index.html">Shape objects</a> are display objects whose geometry encloses an area defined by a boundary.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#creating">Creating Shapes</a></li>
+<li><a href="#paths">Shape Paths</a></li>
+<li><a href="#fillstroke">Fills and Strokes</a></li>
+</ul>
+</div>
+<p><a id="creating"></a></p>
+<div id="creating-shapes" class="section level2">
+<h2>Creating Shapes</h2>
+<p>Shapes can be created with the following methods:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Object</th>
+<th align="left">Method</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Rectangle</td>
+<td align="left"><a href="../../api/library/display/newRect.html">display.newRect()</a></td>
+</tr>
+<tr class="even">
+<td align="left">Rounded Rectangle</td>
+<td align="left"><a href="../../api/library/display/newRoundedRect.html">display.newRoundedRect()</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Circle</td>
+<td align="left"><a href="../../api/library/display/newCircle.html">display.newCircle()</a></td>
+</tr>
+<tr class="even">
+<td align="left">Polygon</td>
+<td align="left"><a href="../../api/library/display/newPolygon.html">display.newPolygon()</a></td>
+</tr>
+<tr class="odd">
+<td align="left">Line</td>
+<td align="left"><a href="../../api/library/display/newLine.html">display.newLine()</a></td>
+</tr>
+<tr class="even">
+<td align="left">Mesh</td>
+<td align="left"><a href="../../api/library/display/newMesh.html">display.newMesh()</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a id="paths"></a></p>
+</div>
+<div id="shape-paths" class="section level2">
+<h2>Shape Paths</h2>
+<p>Most shapes have a <code>object.path</code> property. This property has limited child properties which let you manipulate specific aspects of the shape. These aspects can either be set explicitly or animated via a <a href="../../guide/media/transitionLib/index.html">transition</a>.</p>
+<div id="rectangle" class="section level3">
+<h3>Rectangle</h3>
+<p>All <a href="../../api/library/display/newRect.html">rectangle</a> objects have a <a href="../../api/type/RectPath/index.html">RectPath</a>. The <code>width</code> and <code>height</code> of this path can be manipulated, and you can achieve <a href="../../guide/graphics/3D.html">quadrilateral distortion</a> by manipulating any of the four corner points of the path.</p>
+<pre class="brush: lua;">local rect = display.newRect( 160, 240, 150, 50 )
+rect.path.x1 = -50
+
+transition.to( rect.path, { time=2000, height=100, x1=0 } )</pre>
+</div>
+<div id="rounded-rectangle" class="section level3">
+<h3>Rounded Rectangle</h3>
+<p>All <a href="../../api/library/display/newRoundedRect.html">rounded rectangle</a> objects have a <a href="../../api/type/RoundedRectPath/index.html">RoundedRectPath</a>. The width and height of this path can be manipulated, along with the radius of the corners.</p>
+<pre class="brush: lua;">local roundedRect = display.newRoundedRect( 160, 240, 150, 50, 10 )
+roundedRect.path.radius = 20
+
+transition.to( roundedRect.path, { time=2000, width=100, height=100, radius=5 } )</pre>
+</div>
+<div id="circle" class="section level3">
+<h3>Circle</h3>
+<p>All <a href="../../api/library/display/newCircle.html">circle</a> objects have a <a href="../../api/type/CirclePath/index.html">CirclePath</a> for which the radius can be manipulated.</p>
+<pre class="brush: lua;">local circle = display.newCircle( 160, 240, 10 )
+circle.path.radius = 50
+
+transition.to( circle.path, { time=2000, radius=10 } )</pre>
+</div>
+<div id="mesh" class="section level3">
+<h3>Mesh</h3>
+<p>All <a href="../../api/library/display/newMesh.html">mesh</a> objects have a <code>path</code> property that exposes methods to manipulate the mesh. See the <a href="../../api/library/display/newMesh.html">display.newMesh()</a> documentation for details.</p>
+<p><a id="fillstroke"></a></p>
+</div>
+</div>
+<div id="fills-and-strokes" class="section level2">
+<h2>Fills and Strokes</h2>
+<p>All shapes have a <a href="../../api/type/ShapeObject/fill.html">fill</a> and a <a href="../../api/type/ShapeObject/stroke.html">stroke</a>. The fill of a shape is the interior area of the geometry, while the stroke of a shape is its boundary.</p>
+<p>Corona uses the concept of <a href="../../api/type/Paint/index.html">paint</a> to specify how fills and strokes are drawn. In general, paints are specified via <a href="../../api/type/Table.html">tables</a> which contain the relevant data.</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Paint</th>
+<th align="left">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="../../api/type/Paint/index.html">Paint</a></td>
+<td align="left">Fill/stroke an object with a solid color.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../api/type/BitmapPaint/index.html">BitmapPaint</a></td>
+<td align="left">Fill/stroke an object with an image.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../api/type/CompositePaint/index.html">CompositePaint</a></td>
+<td align="left">Used for multi-texture fills/strokes.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../api/type/GradientPaint/index.html">GradientPaint</a></td>
+<td align="left">Used for linear gradient fills/strokes.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../api/type/ImageSheetPaint/index.html">ImageSheetPaint</a></td>
+<td align="left">Fill/stroke an object with an <a href="../../api/library/graphics/newImageSheet.html">image sheet</a> frame.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.graphics.path&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Data/Files/Strings</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#reading-and-writing-files">Reading and Writing Files</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#getting-file-paths">Getting File Paths</a></li>
+<li><a href="#writing-files">Writing Files</a></li>
+<li><a href="#reading-files">Reading Files</a><ul>
+<li><a href="#reading-lines">Reading Lines</a></li>
+</ul></li>
+<li><a href="#system-directories">System Directories</a></li>
+<li><a href="#working-with-subfolders">Working With Subfolders</a><ul>
+<li><a href="#creating-subfolders">Creating Subfolders</a></li>
+<li><a href="#accessing-files-in-subfolders">Accessing Files in Subfolders</a></li>
+<li><a href="#testing-if-files-exist">Testing if Files Exist</a></li>
+<li><a href="#copying-files-to-subfolders">Copying Files to Subfolders</a></li>
+<li><a href="#android-file-restrictions">Android File Restrictions</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/data/index.html">Data/Files/Strings</a>
+</div>
+<div id="reading-and-writing-files" class="section level1">
+<h1>Reading and Writing Files</h1>
+<p>This guide discusses how to read and write files from/to the device's local storage.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#filepath">Getting File Paths</a></li>
+<li><a href="#writing">Writing Files</a></li>
+<li><a href="#reading">Reading Files</a></li>
+<li><a href="#directories">System Directories</a></li>
+<li><a href="#subfolders">Working With Subfolders</a></li>
+</ul>
+</div>
+<p><a id="overview"></a></p>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Reading and writing files — data in the form of plain text, JSON, XML, a local SQLite database, etc. — is essential to app development. There are countless cases when your app may need to read and/or write a file, but here are a few common instances:</p>
+<ul>
+<li><p>Save/load user settings or other statistics.</p></li>
+<li><p>Save the &quot;app state&quot; to a file and read it in a future session, so the user can return to exactly the same place where they left off, even if the app has exited.</p></li>
+<li><p>Generate a local HTML file and load it in a <a href="../../../api/library/native/newWebView.html">native Web view</a>.</p></li>
+<li><p>Load data from a file that has been downloaded from a remote server and use that data in the app.</p></li>
+</ul>
+<p><a id="filepath"></a></p>
+</div>
+<div id="getting-file-paths" class="section level2">
+<h2>Getting File Paths</h2>
+<p>The <code>system.pathForFile()</code> function is the foundation of all file operations in Corona. Lua requires the entire path of a file when reading and writing, but mobile operating systems such as iOS obscure the file system via &quot;sandboxing.&quot; This makes it difficult to determine exactly where the file resides. Fortunately, Corona has simplified this with the <a href="../../../api/library/system/pathForFile.html">system.pathForFile()</a> function which returns a path that is compatible with Lua's file I/O functions.</p>
+<pre class="brush: lua;">system.pathForFile( filename [, baseDirectory] )</pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>The <code>baseDirectory</code> argument is an optional constant that corresponds to the base directory where the file is located. If not specified, the default is <a href="../../../api/library/system/ResourceDirectory.html">system.ResourceDirectory</a>. See the <a href="#directories">System Directories</a> section below for more information.</p>
+</div>
+<p><a id="writing"></a></p>
+</div>
+<div id="writing-files" class="section level2">
+<h2>Writing Files</h2>
+<p>In the context of this guide, &quot;writing&quot; is synonymous with &quot;saving&quot; since you might need to generate new files as well as write to existing files.</p>
+<p>Here's a basic example of how to write data to a file:</p>
+<pre class="brush: lua;">-- Data (string) to write
+local saveData = "My app state data"
+
+-- Path for the file to write
+local path = system.pathForFile( "myfile.txt", system.DocumentsDirectory )
+
+-- Open the file handle
+local file, errorString = io.open( path, "w" )
+
+if not file then
+    -- Error occurred; output the cause
+    print( "File error: " .. errorString )
+else
+    -- Write data to file
+    file:write( saveData )
+    -- Close the file handle
+    io.close( file )
+end
+
+file = nil</pre>
+<ul>
+<li><p><code>system.pathForFile()</code> — this returns the path for the file to write, <code>myfile.txt</code>. Also, note that the base directory is set to <code>system.DocumentsDirectory</code>. This is important because, for security reasons, you can <strong>not</strong> write/save data to <code>system.ResourceDirectory</code>.</p></li>
+<li><p><code>io.open()</code> — this function opens the file for writing (or reading). It returns a new file handle, set to <code>file</code>. The second argument, <code>&quot;w&quot;</code>, corresponds to the &quot;mode&quot; that the file will be opened in. This dictates what you'll be doing with the file. In this case, <code>&quot;w&quot;</code> indicates <strong>write</strong> and tells Corona to create (write) a new file, or overwrite the file if it already exists. For a complete list of I/O modes, see the <a href="../../../api/library/io/open.html">io.open()</a> documentation.</p></li>
+<li><p><code>file:write()</code> — assuming the file is opened in write-compatible mode, the <code>file:write()</code> method will write the specified string to the file handle. In this example, the contents of the <code>saveData</code> variable are written to the specified file.</p></li>
+<li><p><code>io.close()</code> — whenever you perform file operations and you're finished with the file handle, do <strong>not</strong> forget to call <code>io.close()</code>. This method closes the file handle and ends the I/O process.</p></li>
+</ul>
+<p><a id="reading"></a></p>
+</div>
+<div id="reading-files" class="section level2">
+<h2>Reading Files</h2>
+<p>To read a file, just get the file path, open the I/O in <strong>read</strong> mode, and set the contents to a variable.</p>
+<pre class="brush: lua;">-- Path for the file to read
+local path = system.pathForFile( "myfile.txt", system.DocumentsDirectory )
+
+-- Open the file handle
+local file, errorString = io.open( path, "r" )
+
+if not file then
+    -- Error occurred; output the cause
+    print( "File error: " .. errorString )
+else
+    -- Read data from file
+    local contents = file:read( "*a" )
+    -- Output the file contents
+    print( "Contents of " .. path .. "\n" .. contents )
+    -- Close the file handle
+    io.close( file )
+end
+
+file = nil</pre>
+<ul>
+<li><p><code>system.pathForFile()</code> — once again, you'll need the path to the file that you want to read from. When reading files, you can specify any of the four system directories (see <a href="#directories">System Directories</a> below). For example, if you include/bundle data files as part of your app, you can <strong>read</strong> these files from <code>system.ResourceDirectory</code>.</p></li>
+<li><p><code>io.open()</code> — this function opens the file and returns the file handle, set to <code>file</code> in this example. This time, the second argument must be set to <code>&quot;r&quot;</code> which corresponds to the <strong>read</strong> mode. For a complete list of I/O modes, see the <a href="../../../api/library/io/open.html">io.open()</a> documentation.</p></li>
+<li><p><code>file:read()</code> — assuming the file is opened in read-compatible mode, the <code>file:read()</code> method will read the contents of the file and set it to the variable <code>savedData</code>. The argument for the read function specifies the format of the procedure. If you want to read the entire contents of the file (newline characters preserved), use <code>&quot;*a&quot;</code> as in this example. Other formats are explained in the <a href="../../../api/type/File/read.html">object:read()</a> documentation.</p></li>
+<li><p><code>io.close()</code> — as emphasized above, whenever you perform file operations and you're finished with the file handle, call <code>io.close()</code> to close the file handle and end the I/O process.</p></li>
+</ul>
+<div id="reading-lines" class="section level3">
+<h3>Reading Lines</h3>
+<p>Another common task when reading data is to process each <strong>line</strong> of a file and use it for some purpose. For example, if you have a text file representing a list of products along with a price for each, you can loop through the file by lines and output or parse each line (product) individually.</p>
+<p>The <code>file:lines()</code> function, in conjunction with a <code>for</code> loop, accomplishes this:</p>
+<pre class="brush: lua;">-- Path for the file to read
+local path = system.pathForFile( "myfile.txt", system.DocumentsDirectory )
+
+-- Open the file handle
+local file, errorString = io.open( path, "r" )
+
+if not file then
+    -- Error occurred; output the cause
+    print( "File error: " .. errorString )
+else
+    -- Output lines
+    for line in file:lines() do
+        print( line )
+    end
+    -- Close the file handle
+    io.close( file )
+end
+
+file = nil</pre>
+<p>This process will return the next line on each iteration and continue until no more lines are available. Each line can be used in its entirety or parsed into smaller elements using string patterns. See the <a href="../../../guide/data/luaString/index.html">String Manipulation</a> guide for details.</p>
+<p><a id="directories"></a></p>
+</div>
+</div>
+<div id="system-directories" class="section level2">
+<h2>System Directories</h2>
+<p>As noted above, <code>system.pathForFile()</code> requires a <code>baseDirectory</code> argument if you want to access a directory aside from the default <code>system.ResourceDirectory</code>.</p>
+<p>Here are all four available system directory constants for reading/writing:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Directory</th>
+<th align="left">Permissions</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>system.ResourceDirectory</code></td>
+<td align="left">read</td>
+<td align="left">This directory refers to the core project directory which is the same location as the <code>main.lua</code> file. This is the default base directory for <code>system.pathForFile()</code>.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>system.DocumentsDirectory</code></td>
+<td align="left">read/write</td>
+<td align="left">This directory is intended for files that the app cannot regenerate on its own, for example user-specific data, &quot;app state&quot; data, or anything that the app generates post-installation. Files in this directory will persist for the lifetime of the app — that is, until the app is explicitly removed from the device. On iOS, files in this location are backed up by syncing unless you specify otherwise (see notes below).</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>system.TemporaryDirectory</code></td>
+<td align="left">read/write</td>
+<td align="left">This directory is intended for single-session data. Files written to this location will generally persist as long as the app is running, but the operating system reserves the right to delete this data at any time. Thus, do <strong>not</strong> place important data in this directory.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>system.CachesDirectory</code></td>
+<td align="left">read/write</td>
+<td align="left">Files in <code>system.CachesDirectory</code> tend to have a longer lifespan than those in <code>system.TemporaryDirectory</code>, but this is not reliable and you shouldn't place important data in this directory. On iOS, files in this location are not backed up by syncing.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="guide-notebox">
+<div class="notebox-title">
+Notes
+</div>
+<ul>
+<li><p>On Android devices, there is no literal <code>system.ResourceDirectory</code> because all resource files reside inside a compressed APK file. See <a href="#androidrestrict">Android File Restrictions</a> below for more information.</p></li>
+<li><p>In the Corona Simulator, equivalents of <code>system.DocumentsDirectory</code> and <code>system.TemporaryDirectory</code> are located in a sandboxed folder for each application. You can view these directories and the files within by selecting <strong>File</strong> → <strong>Show Project Sandbox</strong> in the Simulator.</p></li>
+<li><p>On iOS and macOS, the <code>native.setSync()</code> API can be used to set the iCloud automatic backup flag for files in <code>system.DocumentsDirectory</code>. See <a href="../../../api/library/native/setSync.html">native.setSync()</a> for more information.</p></li>
+<li><p>When accessing <code>system.ResourceDirectory</code> via <code>system.pathForFile()</code>, setting the <code>filename</code> parameter to <code>nil</code> will return the directory path without checking if the file exists.</p></li>
+<li><p>If you need to check for the presence of a file, examine <a href="#testingexist">Testing if Files Exist</a> in the next section.</p></li>
+</ul>
+</div>
+<p><a id="subfolders"></a></p>
+</div>
+<div id="working-with-subfolders" class="section level2">
+<h2>Working With Subfolders</h2>
+<div id="creating-subfolders" class="section level3">
+<h3>Creating Subfolders</h3>
+<p>Subfolders can be added to <code>system.DocumentsDirectory</code> and <code>system.TemporaryDirectory</code> using the <a href="../../../api/library/lfs/index.html">LuaFileSystem</a> (LFS).</p>
+<p>Here's how to create an <code>images</code> folder within <code>system.DocumentsDirectory</code>.</p>
+<pre class="brush: lua;">local lfs = require( "lfs" )
+
+-- Get raw path to documents directory
+local docs_path = system.pathForFile( "", system.DocumentsDirectory )
+
+-- Change current working directory
+local success = lfs.chdir( docs_path )  -- Returns true on success
+
+local new_folder_path
+local dname = "images"
+
+if ( success ) then
+    lfs.mkdir( dname )
+    new_folder_path = lfs.currentdir() .. "/" .. dname
+end</pre>
+</div>
+<div id="accessing-files-in-subfolders" class="section level3">
+<h3>Accessing Files in Subfolders</h3>
+<p>You can access files in a subfolder in two ways, depending on what you want to do with the file. If you want to display an image or play a sound from the subfolder, concatenate the subfolder name with the file name and then supply the base directory. For example, if you want to display the <code>cat.png</code> file in the <code>images</code> subfolder, do the following:</p>
+<pre class="brush: lua;">local catImage = display.newImage( "images/cat.png", system.DocumentsDirectory, 0, 0 )</pre>
+<p>Note that you don't use <code>system.pathForFile()</code> in API calls that require a <code>baseDirectory</code> parameter, for example <code>display.newImage()</code>, <code>display.newImageRect()</code>, <code>audio.loadSound()</code>, etc.</p>
+<p>If you want to access a file in a subfolder for reading or writing, do the following:</p>
+<pre class="brush: lua;">local path = system.pathForFile( "images/readme.txt", system.DocumentsDirectory )
+local file, errorString = io.open( path )</pre>
+<p>If the file doesn't exist, it returns <code>nil</code> — this leads to the next topic.</p>
+<p><a id="testingexist"></a></p>
+</div>
+<div id="testing-if-files-exist" class="section level3">
+<h3>Testing if Files Exist</h3>
+<p>The following function can be used to test if a file exists in a folder or subfolder. Just remember to append the subfolder name to the file name before calling this function.</p>
+<pre class="brush: lua;">local function doesFileExist( fname, path )
+
+    local results = false
+
+    -- Path for the file
+    local filePath = system.pathForFile( fname, path )
+
+    if ( filePath ) then
+        local file, errorString = io.open( filePath, "r" )
+
+        if not file then
+            -- Error occurred; output the cause
+            print( "File error: " .. errorString )
+        else
+            -- File exists!
+            print( "File found: " .. fname )
+            results = true
+            -- Close the file handle
+            file:close()
+        end
+    end
+
+    return results
+end
+
+-- Check for file in "system.DocumentsDirectory"
+local results = doesFileExist( "images/cat.png", system.DocumentsDirectory )
+
+-- Check for file in "system.ResourceDirectory"
+local results = doesFileExist( "images/cat.png" )</pre>
+</div>
+<div id="copying-files-to-subfolders" class="section level3">
+<h3>Copying Files to Subfolders</h3>
+<p>The following function copies a file from one folder to another. This is useful if you need to copy a file bundled in <code>system.ResourceDirectory</code> to <code>system.DocumentsDirectory</code>. Note that you must create the destination subfolder before using this function.</p>
+<pre class="brush: lua;">function copyFile( srcName, srcPath, dstName, dstPath, overwrite )
+
+    local results = false
+
+    local fileExists = doesFileExist( srcName, srcPath )
+    if ( fileExists == false ) then
+        return nil  -- nil = Source file not found
+    end
+
+    -- Check to see if destination file already exists
+    if not ( overwrite ) then
+        if ( fileLib.doesFileExist( dstName, dstPath ) ) then
+            return 1  -- 1 = File already exists (don't overwrite)
+        end
+    end
+
+    -- Copy the source file to the destination file
+    local rFilePath = system.pathForFile( srcName, srcPath )
+    local wFilePath = system.pathForFile( dstName, dstPath )
+
+    local rfh = io.open( rFilePath, "rb" )
+    local wfh, errorString = io.open( wFilePath, "wb" )
+
+    if not ( wfh ) then
+        -- Error occurred; output the cause
+        print( "File error: " .. errorString )
+        return false
+    else
+        -- Read the file and write to the destination directory
+        local data = rfh:read( "*a" )
+        if not ( data ) then
+            print( "Read error!" )
+            return false
+        else
+            if not ( wfh:write( data ) ) then
+                print( "Write error!" )
+                return false
+            end
+        end
+    end
+
+    results = 2  -- 2 = File copied successfully!
+
+    -- Close file handles
+    rfh:close()
+    wfh:close()
+
+    return results
+end
+
+-- Copy "readme.txt" from "system.ResourceDirectory" to "system.DocumentsDirectory"
+copyFile( "readme.txt", nil, "readme.txt", system.DocumentsDirectory, true )</pre>
+<p><a id="androidrestrict"></a></p>
+</div>
+<div id="android-file-restrictions" class="section level3">
+<h3>Android File Restrictions</h3>
+<p>File access in Corona is based on the underlying operating system which varies by platform. On iOS devices, you can access files in all of the directories described above. On Android, however, there is no literal <code>system.ResourceDirectory</code> because all resource files reside inside a compressed APK file.</p>
+<p>Corona allows direct loading of images and audio files using the appropriate APIs, but it has limited access to resource files on Android using the file I/O APIs. Specifically, the following types can not be read from the resources directory: <code>.html</code>, <code>.htm</code>, <code>.3gp</code>, <code>.lua</code>, <code>.m4v</code>, <code>.mp4</code>, <code>.png</code>, <code>.jpg</code>, and <code>.ttf</code>.</p>
+<p>Because of this limitation, if you have files of these types bundled in the core directory that you need to copy to another directory, you must change the file name so it can be accessed by the file I/O APIs. For example, if you want to move <code>cat.png</code> from the resource directory to the documents directory, it must be renamed <code>cat.png.txt</code> to be copied.</p>
+<p>Here's how to copy <code>cat.png</code> to the documents directory on Android, assuming it's stored as <code>cat.png.txt</code>. This technique works for all platforms, so if you make it work for Android, it will work everywhere.</p>
+<pre class="brush: lua;">copyFile( "cat.png.txt", nil, "cat.png", system.DocumentsDirectory, true )
+local catImage = display.newImage( "cat.png", system.DocumentsDirectory, 0, 100 )</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.data.readWriteFiles.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

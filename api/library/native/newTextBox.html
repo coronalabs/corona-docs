@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries | native | newTextBox</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#native.newtextbox">native.newTextBox()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#gotchas">Gotchas</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#x-required">x <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#y-required">y <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#width-required">width <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#height-required">height <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+<li><a href="#properties-methods">Properties / Methods</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/native/index.html">native</a>  ▸  <a href="../../../api/library/native/newTextBox.html">newTextBox</a>
+</div>
+<div id="native.newtextbox" class="section level1">
+<h1>native.newTextBox()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../../api/library/native/index.html">native.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Return value</strong></td>
+<td align="left"><a href="../../../api/type/TextBox/index.html">TextBox</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">text box, text input, native text</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../api/library/native/newTextField.html">native.newTextField()</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../api/library/native/setKeyboardFocus.html">native.setKeyboardFocus()</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../../api/event/userInput/index.html">userInput</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Creates a scrollable, <strong>multi-line</strong> <a href="../../../api/type/TextBox/index.html">TextBox</a> object for text input. For <nobr>single-line</nobr> text input, see <a href="../../../api/library/native/newTextField.html">native.newTextField()</a>.</p>
+<p>By default, the content of text boxes is not editable. Set the <a href="../../../api/type/TextBox/isEditable.html">object.isEditable</a> property to <code>true</code> to make the content editable.</p>
+<p>Native text boxes can listen for <a href="../../../api/event/userInput/index.html">userInput events</a> (see example).</p>
+</div>
+<div id="gotchas" class="section level2">
+<h2>Gotchas</h2>
+<ul>
+<li><p>Use <code>&quot;\n&quot;</code> to start text on a new line. Text will automatically wrap to the next line if it's too long.</p></li>
+<li><p>Native text boxes are not part of the OpenGL canvas and do not obey the display object hierarchy, so they will always appear in front of normal display objects including images, text, and vector objects. However, native text boxes can be &quot;inserted&quot; (<a href="../../../api/type/GroupObject/insert.html">object:insert()</a>) into Corona <a href="../../../api/type/GroupObject/index.html">display groups</a> and they will move in unison with that group.</p></li>
+<li><p>Presentation of native controls in the Corona Simulator can only be an approximation of the actual device. Always test on a device and assume that the behavior/appearance on devices is correct.</p></li>
+<li><p>To remove a native text box from the display, use <code>object:removeSelf()</code>.</p></li>
+<li><p>The <a href="../../../api/library/native/setKeyboardFocus.html">native.setKeyboardFocus()</a> API is used to show and hide the keyboard used for text input (applies to device and Xcode Simulator only).</p></li>
+<li><p>On Android, due to the fact that Corona runs on multiple threads, getting the <code>.text</code> value of a <a href="../../../api/type/TextBox/index.html">TextBox</a> immediately after setting it will not return the correct value. This action should be performed following a short <a href="../../../api/library/timer/index.html">timer</a> or during the next time step.</p></li>
+</ul>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">native.newTextBox( x, y, width, height )</pre>
+<div id="x-required" class="section level5">
+<h5>x <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The <strong>x</strong> coordinate that corresponds to the center of the text box.</p>
+</div>
+<div id="y-required" class="section level5">
+<h5>y <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The <strong>y</strong> coordinate that corresponds to the center of the text box.</p>
+</div>
+<div id="width-required" class="section level5">
+<h5>width <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> Width of the text box.</p>
+</div>
+<div id="height-required" class="section level5">
+<h5>height <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> Height of the text box.</p>
+</div>
+</div>
+<div id="properties-methods" class="section level2">
+<h2>Properties / Methods</h2>
+<p>See the <a href="../../../api/type/TextBox/index.html">TextBox</a> documentation for a list of functions and properties.</p>
+</div>
+<div id="events" class="section level2">
+<h2>Events</h2>
+<p>See the <a href="../../../api/event/userInput/index.html">userInput</a> event documentation for properties related to various <a href="../../../api/type/TextBox/index.html">TextBox</a> object events.</p>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="brush: lua;">local defaultBox
+
+local function textListener( event )
+
+    if ( event.phase == "began" ) then
+        -- User begins editing "defaultBox"
+
+    elseif ( event.phase == "ended" or event.phase == "submitted" ) then
+        -- Output resulting text from "defaultBox"
+        print( event.target.text )
+
+    elseif ( event.phase == "editing" ) then
+        print( event.newCharacters )
+        print( event.oldText )
+        print( event.startPosition )
+        print( event.text )
+    end
+end
+
+-- Create text box
+defaultBox = native.newTextBox( 200, 200, 280, 140 )
+defaultBox.text = "This is line 1.\nAnd this is line2"
+defaultBox.isEditable = true
+defaultBox:addEventListener( "userInput", textListener )</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.native.newTextBox&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

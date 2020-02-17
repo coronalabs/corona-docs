@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | Appodeal | init</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#appodeal.init">appodeal.init()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#adlistener-required">adListener <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#params-required">params <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+<li><a href="#parameter-reference">Parameter Reference</a><ul>
+<li><a href="#appkey-required">appKey <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#testmode-optional">testMode <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#smartbanners-optional">smartBanners <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#banneranimation-optional">bannerAnimation <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#childdirectedtreatment-optional">childDirectedTreatment <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#customrules-optional">customRules <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#supportedadtypes-optional">supportedAdTypes <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#disablewriteexternalpermissioncheck-optional">disableWriteExternalPermissionCheck <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#disablenetworks-optional">disableNetworks <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#disableautocacheforadtypes-optional">disableAutoCacheForAdTypes <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#hasuserconsent-optional">hasUserConsent <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/appodeal/index.html">Appodeal</a>  ▸  <a href="../../plugin/appodeal/init.html">init</a>
+</div>
+<div id="appodeal.init" class="section level1">
+<h1>appodeal.init()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Return value</strong></td>
+<td align="left">none</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">ads, advertising, Appodeal, init</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../plugin/appodeal/show.html">appodeal.show()</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../plugin/appodeal/index.html">appodeal.*</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p><code>appodeal.init()</code> initializes the Appodeal plugin.</p>
+<p>Once initialized, you can show an ad using <a href="../../plugin/appodeal/show.html">appodeal.show()</a>.</p>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>For Android users, some adapters may work more effectively with <code>android.permission.WRITE_EXTERNAL_STORAGE</code> permission, make sure to include it in your project manually.</p>
+<p>Use <code>disableWriteExternalPermissionCheck</code> init parameter with <code>false</code> value if you want to use that ability for your project.</p>
+</div>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>Now you can disable autocache for specific ad type! Check out new <code>disableAutoCacheForAdTypes</code> init parameter below to know more.</p>
+<p><code>autoCacheAds</code> parameter is deprecated from now on, so make sure that everything is configured correctly.</p>
+</div>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">appodeal.init( adListener, params )</pre>
+<div id="adlistener-required" class="section level5">
+<h5>adListener <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/Listener.html">Listener</a>.</em> Listener function that will receive <a href="../../plugin/appodeal/event/adsRequest/index.html">adsRequest</a> events.</p>
+</div>
+<div id="params-required" class="section level5">
+<h5>params <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> Table containing Appodeal initialization values — see the next section for details.</p>
+</div>
+</div>
+<div id="parameter-reference" class="section level2">
+<h2>Parameter Reference</h2>
+<p>The <code>params</code> table includes initialization properties for the Appodeal plugin.</p>
+<div id="appkey-required" class="section level5">
+<h5>appKey <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> Your Appodeal app key. You can find this ID in the <a href="https://www.appodeal.com/apps">Appodeal developer portal</a>, located under your app's name as &quot;Application Key.&quot;</p>
+</div>
+<div id="testmode-optional" class="section level5">
+<h5>testMode <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> Test mode enables verbose logging to help with debugging and it also serves test ads from networks that support them. To enable test mode, set this value to <code>true</code>. Default is <code>false</code>.</p>
+</div>
+<div id="smartbanners-optional" class="section level5">
+<h5>smartBanners <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> Smart banners will use all screen width to adjust banner width. By default, smart banners are enabled. Set this value to false to disable them.</p>
+</div>
+<div id="banneranimation-optional" class="section level5">
+<h5>bannerAnimation <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> Set to <code>true</code> to animate banner transitions <nobr>(cross-fade when</nobr> switching banners). Default is <code>false</code>.</p>
+</div>
+<div id="childdirectedtreatment-optional" class="section level5">
+<h5>childDirectedTreatment <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> Set to <code>true</code> to flag your app as COPPA compliant. Default is <code>false</code>.</p>
+</div>
+<div id="customrules-optional" class="section level5">
+<h5>customRules <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> Manual Filters allows to groups users by any available characteristics. E.g. you know the sources that directed users to you and you want to track the statistics for such users — group them into a segment . You can read more in <a href="http://faq.appodeal.com/segments">Appodeal Knowledge Base</a>. This is a table with <nobr>key-value</nobr> pairs of data. You can choose key names freely as there are no <nobr>pre-defined</nobr> key names. Valid value types are strings, booleans, or numbers.</p>
+</div>
+<div id="supportedadtypes-optional" class="section level5">
+<h5>supportedAdTypes <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Array.html">Array</a>.</em> Limits the type of ads you want Appodeal to serve. By default, banner, static interstitial, and rewarded video ads will be served. You can limit the type of ads to load by specifying which types to support inside this table array. Valid values include <code>&quot;banner&quot;</code>, <code>&quot;interstitial&quot;</code>, and <code>&quot;rewardedVideo&quot;</code>.</p>
+</div>
+<div id="disablewriteexternalpermissioncheck-optional" class="section level5">
+<h5>disableWriteExternalPermissionCheck <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> You must set this value to <code>true</code> if you don't want to use optional <code>android.permission.WRITE_EXTERNAL_STORAGE</code> permission (for reasons stated above in the description). Default is <code>false</code>.</p>
+</div>
+<div id="disablenetworks-optional" class="section level5">
+<h5>disableNetworks <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Array.html">Array</a>.</em> For advanced use only. Prevent the Appodeal SDK from looking for specified ad network SDKs during initialization. Valid values include <code>&quot;adcolony&quot;</code>, <code>&quot;admob&quot;</code>, <code>&quot;amazon_ads&quot;</code>, <code>&quot;applovin&quot;</code>, <code>&quot;appnext&quot;</code>, <code>&quot;avocarrot&quot;</code>, <code>&quot;chartboost&quot;</code>, <code>&quot;facebook&quot;</code>, <code>&quot;flurry&quot;</code>, <code>&quot;inmobi&quot;</code>, <code>&quot;inner-active&quot;</code>, <code>&quot;ironsource&quot;</code>, <code>&quot;mailru&quot;</code>, <code>&quot;mmedia&quot;</code>, <code>&quot;mopub&quot;</code>, <code>&quot;ogury&quot;</code>, <code>&quot;openx&quot;</code>, <code>&quot;pubnative&quot;</code>, <code>&quot;smaato&quot;</code>, <code>&quot;startapp&quot;</code>, <code>&quot;tapjoy&quot;</code>, <code>&quot;unity_ads&quot;</code>, <code>&quot;vungle&quot;</code>, and <code>&quot;yandex&quot;</code>. If you simply wish to prevent advertising from certain ad networks, you should <strong>not</strong> use this option — instead, you can select preferred ad networks for your app in the Appodeal dashboard.</p>
+</div>
+<div id="disableautocacheforadtypes-optional" class="section level5">
+<h5>disableAutoCacheForAdTypes <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Array.html">Array</a>.</em> For advanced use only. Disable autocache for specified ad types during Appodeal SDK initialization. Valid values include <code>&quot;banner&quot;</code>, <code>&quot;interstitial&quot;</code>, <code>&quot;rewardedVideo&quot;</code>.</p>
+</div>
+<div id="hasuserconsent-optional" class="section level5">
+<h5>hasUserConsent <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> If set to <code>false</code>, Appodeal will enable GDPR data collection restrictions, set to <code>true</code> for opposite. Default is <code>false</code>.</p>
+</div>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="brush: lua;">local appodeal = require( "plugin.appodeal" )
+
+local function adListener( event )
+
+    if ( event.phase == "init" ) then  -- Successful initialization
+        print( event.isError )
+    end
+end
+
+-- Initialize the Appodeal plugin
+appodeal.init( adListener, { appKey="YOUR_APP_KEY" } )</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.appodeal.init&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

@@ -1,0 +1,2416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Graphics/Audio/Animation</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#image-effects-filters-generators-composites">Image Effects — Filters, Generators, Composites</a><ul>
+<li><a href="#filter-effects">Filter Effects</a><ul>
+<li><a href="#filter.bloom">filter.bloom</a></li>
+<li><a href="#filter.blur">filter.blur</a></li>
+<li><a href="#filter.blurgaussian">filter.blurGaussian</a></li>
+<li><a href="#filter.blurhorizontal">filter.blurHorizontal</a></li>
+<li><a href="#filter.blurvertical">filter.blurVertical</a></li>
+<li><a href="#filter.brightness">filter.brightness</a></li>
+<li><a href="#filter.bulge">filter.bulge</a></li>
+<li><a href="#filter.chromakey">filter.chromaKey</a></li>
+<li><a href="#filter.colorchanneloffset">filter.colorChannelOffset</a></li>
+<li><a href="#filter.colormatrix">filter.colorMatrix</a></li>
+<li><a href="#filter.colorpolynomial">filter.colorPolynomial</a></li>
+<li><a href="#filter.contrast">filter.contrast</a></li>
+<li><a href="#filter.crosshatch">filter.crosshatch</a></li>
+<li><a href="#filter.crystallize">filter.crystallize</a></li>
+<li><a href="#filter.desaturate">filter.desaturate</a></li>
+<li><a href="#filter.dissolve">filter.dissolve</a></li>
+<li><a href="#filter.duotone">filter.duotone</a></li>
+<li><a href="#filter.emboss">filter.emboss</a></li>
+<li><a href="#filter.exposure">filter.exposure</a></li>
+<li><a href="#filter.frostedglass">filter.frostedGlass</a></li>
+<li><a href="#filter.grayscale">filter.grayscale</a></li>
+<li><a href="#filter.hue">filter.hue</a></li>
+<li><a href="#filter.invert">filter.invert</a></li>
+<li><a href="#filter.iris">filter.iris</a></li>
+<li><a href="#filter.levels">filter.levels</a></li>
+<li><a href="#filter.linearwipe">filter.linearWipe</a></li>
+<li><a href="#filter.median">filter.median</a></li>
+<li><a href="#filter.monotone">filter.monotone</a></li>
+<li><a href="#filter.optile">filter.opTile</a></li>
+<li><a href="#filter.pixelate">filter.pixelate</a></li>
+<li><a href="#filter.polkadots">filter.polkaDots</a></li>
+<li><a href="#filter.posterize">filter.posterize</a></li>
+<li><a href="#filter.radialwipe">filter.radialWipe</a></li>
+<li><a href="#filter.saturate">filter.saturate</a></li>
+<li><a href="#filter.scatter">filter.scatter</a></li>
+<li><a href="#filter.sepia">filter.sepia</a></li>
+<li><a href="#filter.sharpenluminance">filter.sharpenLuminance</a></li>
+<li><a href="#filter.sobel">filter.sobel</a></li>
+<li><a href="#filter.straighten">filter.straighten</a></li>
+<li><a href="#filter.swirl">filter.swirl</a></li>
+<li><a href="#filter.vignette">filter.vignette</a></li>
+<li><a href="#filter.vignettemask">filter.vignetteMask</a></li>
+<li><a href="#filter.wobble">filter.wobble</a></li>
+<li><a href="#filter.woodcut">filter.woodCut</a></li>
+<li><a href="#filter.zoomblur">filter.zoomBlur</a></li>
+</ul></li>
+<li><a href="#generator-effects">Generator Effects</a><ul>
+<li><a href="#generator.checkerboard">generator.checkerboard</a></li>
+<li><a href="#generator.lenticularhalo">generator.lenticularHalo</a></li>
+<li><a href="#generator.lineargradient">generator.linearGradient</a></li>
+<li><a href="#generator.marchingants">generator.marchingAnts</a></li>
+<li><a href="#generator.perlinnoise">generator.perlinNoise</a></li>
+<li><a href="#generator.radialgradient">generator.radialGradient</a></li>
+<li><a href="#generator.random">generator.random</a></li>
+<li><a href="#generator.stripes">generator.stripes</a></li>
+<li><a href="#generator.sunbeams">generator.sunbeams</a></li>
+</ul></li>
+<li><a href="#composite-effects">Composite Effects</a><ul>
+<li><a href="#composite.add">composite.add</a></li>
+<li><a href="#composite.average">composite.average</a></li>
+<li><a href="#composite.colorburn">composite.colorBurn</a></li>
+<li><a href="#composite.colordodge">composite.colorDodge</a></li>
+<li><a href="#composite.darken">composite.darken</a></li>
+<li><a href="#composite.difference">composite.difference</a></li>
+<li><a href="#composite.exclusion">composite.exclusion</a></li>
+<li><a href="#composite.glow">composite.glow</a></li>
+<li><a href="#composite.hardlight">composite.hardLight</a></li>
+<li><a href="#composite.hardmix">composite.hardMix</a></li>
+<li><a href="#composite.lighten">composite.lighten</a></li>
+<li><a href="#composite.linearlight">composite.linearLight</a></li>
+<li><a href="#composite.multiply">composite.multiply</a></li>
+<li><a href="#composite.negation">composite.negation</a></li>
+<li><a href="#composite.normalmapwith1dirlight">composite.normalMapWith1DirLight</a></li>
+<li><a href="#composite.normalmapwith1pointlight">composite.normalMapWith1PointLight</a></li>
+<li><a href="#composite.overlay">composite.overlay</a></li>
+<li><a href="#composite.phoenix">composite.phoenix</a></li>
+<li><a href="#composite.pinlight">composite.pinLight</a></li>
+<li><a href="#composite.reflect">composite.reflect</a></li>
+<li><a href="#composite.screen">composite.screen</a></li>
+<li><a href="#composite.softlight">composite.softLight</a></li>
+<li><a href="#composite.subtract">composite.subtract</a></li>
+<li><a href="#composite.vividlight">composite.vividLight</a></li>
+</ul></li>
+<li><a href="#device-specific-limitations">Device-Specific Limitations</a><ul>
+<li><a href="#hardware-support">Hardware Support</a></li>
+<li><a href="#rendering-execution">Rendering Execution</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../guide/index.html">Developer Guides</a>  ▸  <a href="../../guide/graphics/index.html">Graphics/Audio/Animation</a>
+</div>
+<div id="image-effects-filters-generators-composites" class="section level1">
+<h1>Image Effects — Filters, Generators, Composites</h1>
+<p>In Corona, visual effects can be applied to display objects with unprecedented ease. This guide contains a list of all <nobr>built-in</nobr> shader effects. Alternatively, to create your own custom effects, please refer to the <a href="../../guide/graphics/customEffects.html">Custom Shader Effects</a> guide.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#filter">Filter Effects</a></li>
+<li><a href="#generator">Generator Effects</a></li>
+<li><a href="#composite">Composite Effects</a></li>
+<li><a href="#support">Device-Specific Limitations</a></li>
+</ul>
+</div>
+<style>
+
+.side-by-side {
+    margin: 12px 0px 20px 20px;
+    font-size: 125%;
+    color: #292929;
+    vertical-align: middle;
+    float: right;
+}
+
+.side-by-side table, .side-by-side td {
+    padding: 0px;
+    margin: 0px;
+    border-collapse: collapse;
+    border: 0px;
+}
+
+.side-by-side img {
+    max-width: 160px;
+}
+
+.side-by-side td {
+    min-width: 32px;
+    text-align: center;
+}
+
+</style>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>In addition to the built-in shader effects below, you can write/implement custom effects. Please see the <a href="../../guide/graphics/customEffects.html">Custom Shader Effects</a> guide for details.</p>
+</div>
+<!--- FILTER EFFECTS -->
+<p><a id="filter"></a></p>
+<div id="filter-effects" class="section level2">
+<h2>Filter Effects</h2>
+<p>Filter effects operate on a single texture/image, specified by the filter name (string) as the <code>effect</code> property of <code>object.fill</code> or <code>object.stroke</code>:</p>
+<pre class="brush: lua;">object.fill.effect = "[filter]"
+object.stroke.effect = "[filter]"</pre>
+<p>Most filters can be adjusted via optional parameters. These parameters, and the acceptable values, vary for each specific filter as defined below.</p>
+<p>Filter parameters can be explicitly set after the filter is applied, or even over the course of a gradual transition. For example:</p>
+<pre class="brush: lua;">-- Set a "sepia" filter with a non-default intensity
+object.fill.effect = "filter.sepia"
+object.fill.effect.intensity = 0.2
+
+-- Transition the filter to full intensity over the course of 2 seconds
+transition.to( object.fill.effect, { time=2000, intensity=1 } )</pre>
+<!--- FILTER.BLOOM -->
+<a id="bloom"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-ocean.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-bloom.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="filter.bloom" class="section level3">
+<h3>filter.bloom</h3>
+<p>Renders fringes of light which extend from the borders of bright areas in an image, giving the illusion of an extremely bright light overwhelming the view.</p>
+<ul>
+<li><code>levels.white</code> — default = <code>0.843</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>levels.black</code> — default = <code>0.565</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>levels.gamma</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>add.alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>blur.horizontal.blurSize</code> — default = <code>8</code> ; min = <code>2</code> ; max = <code>512</code></li>
+<li><code>blur.horizontal.sigma</code> — default = <code>128</code> ; min = <code>2</code> ; max = <code>512</code></li>
+<li><code>blur.vertical.blurSize</code> — default = <code>8</code> ; min = <code>2</code> ; max = <code>512</code></li>
+<li><code>blur.vertical.sigma</code> — default = <code>128</code> ; min = <code>2</code> ; max = <code>512</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.bloom"
+
+object.fill.effect.levels.white = 0.8
+object.fill.effect.levels.black = 0.4
+object.fill.effect.levels.gamma = 1
+object.fill.effect.add.alpha = 0.8
+object.fill.effect.blur.horizontal.blurSize = 20
+object.fill.effect.blur.horizontal.sigma = 140
+object.fill.effect.blur.vertical.blurSize = 20
+object.fill.effect.blur.vertical.sigma = 240</pre>
+<!--- FILTER.BLUR -->
+<a id="blur"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-statue.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-blur.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.blur" class="section level3">
+<h3>filter.blur</h3>
+<pre class="brush: lua;">object.fill.effect = "filter.blur"</pre>
+<!--- FILTER.BLUR-GAUSSIAN -->
+<a id="blurGaussian"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-statue.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-blurgaussian.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.blurgaussian" class="section level3">
+<h3>filter.blurGaussian</h3>
+<ul>
+<li><code>horizontal.blurSize</code> — default = <code>8</code> ; min = <code>2</code> ; max = <code>512</code></li>
+<li><code>horizontal.sigma</code> — default = <code>128</code> ; min = <code>2</code> ; max = <code>512</code></li>
+<li><code>vertical.blurSize</code> — default = <code>8</code> ; min = <code>2</code> ; max = <code>512</code></li>
+<li><code>vertical.sigma</code> — default = <code>128</code> ; min = <code>2</code> ; max = <code>512</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.blurGaussian"
+
+object.fill.effect.horizontal.blurSize = 20
+object.fill.effect.horizontal.sigma = 140
+object.fill.effect.vertical.blurSize = 20
+object.fill.effect.vertical.sigma = 140</pre>
+<!--- FILTER.BLUR-HORIZONTAL -->
+<a id="blurHorizontal"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-cloth.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-blurhorizontal.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.blurhorizontal" class="section level3">
+<h3>filter.blurHorizontal</h3>
+<ul>
+<li><code>blurSize</code> — default = <code>8</code> ; min = <code>2</code> ; max = <code>512</code></li>
+<li><code>sigma</code> — default = <code>128</code> ; min = <code>2</code> ; max = <code>512</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.blurHorizontal"
+
+object.fill.effect.blurSize = 20
+object.fill.effect.sigma = 140</pre>
+<!--- FILTER.BLUR-VERTICAL -->
+<a id="blurVertical"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-cloth.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-blurvertical.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.blurvertical" class="section level3">
+<h3>filter.blurVertical</h3>
+<ul>
+<li><code>blurSize</code> — default = <code>8</code> ; min = <code>2</code> ; max = <code>512</code></li>
+<li><code>sigma</code> — default = <code>128</code> ; min = <code>2</code> ; max = <code>512</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.blurVertical"
+
+object.fill.effect.blurSize = 20
+object.fill.effect.sigma = 140</pre>
+<!--- FILTER.BRIGHTNESS -->
+<a id="brightness"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-ocean.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-brightness.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.brightness" class="section level3">
+<h3>filter.brightness</h3>
+<ul>
+<li><code>intensity</code> — default = <code>0</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.brightness"
+
+object.fill.effect.intensity = 0.4</pre>
+<!--- FILTER.BULGE -->
+<a id="bulge"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-bulge.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.bulge" class="section level3">
+<h3>filter.bulge</h3>
+<p>Provides the illusion of lens bulging by altering eye-ray direction. Intensity of less than <code>1</code> makes the effect bulge inward (concave). Intensity greater than <code>1</code> makes the effect bulge outward (convex).</p>
+<ul>
+<li><code>intensity</code> — default = <code>1</code> ; min = <code>0</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.bulge"
+
+object.fill.effect.intensity = 1.8</pre>
+<!--- FILTER.CHROMA-KEY -->
+<a id="chromaKey"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-cloth.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-chromakey.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.chromakey" class="section level3">
+<h3>filter.chromaKey</h3>
+<ul>
+<li><code>sensitivity</code> — default = <code>0.4</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>smoothing</code> — default = <code>0.1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>color</code> — default = <code>{1,1,1,1}</code> ; min = <code>{0,0,0,0}</code> ; max = <code>{1,1,1,1}</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.chromaKey"
+
+object.fill.effect.sensitivity = 0.1
+object.fill.effect.smoothing = 0.3
+object.fill.effect.color = { 0.2, 0.2, 0.2, 1 }</pre>
+<!--- FILTER.COLOR-CHANNEL-OFFSET -->
+<a id="colorChannelOffset"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-ocean.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-colorchanneloffset.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.colorchanneloffset" class="section level3">
+<h3>filter.colorChannelOffset</h3>
+<ul>
+<li><code>xTexels</code> — default = <code>8</code> ; min = <code>0</code> ; max = (none)</li>
+<li><code>yTexels</code> — default = <code>8</code> ; min = <code>0</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.colorChannelOffset"
+
+object.fill.effect.xTexels = 16
+object.fill.effect.yTexels = 16</pre>
+<!--- FILTER.COLOR-MATRIX -->
+<a id="colorMatrix"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-ocean.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-colormatrix.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.colormatrix" class="section level3">
+<h3>filter.colorMatrix</h3>
+<p>Multiplies a source color and adds an offset (bias) to each color component of an image.</p>
+<ul>
+<li><code>coefficients</code> — a 4×4 matrix of RGB+A coefficients.</li>
+<li><code>bias</code> — default = <code>{0,0,0,0}</code> ; min = <code>{-1,-1,-1,-1}</code> ; max = <code>{1,1,1,1}</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.colorMatrix"
+
+object.fill.effect.coefficients =
+{
+    1, 0, 0, 0,  --red coefficients
+    0, 1, 0, 0,  --green coefficients
+    0, 0, 1, 0,  --blue coefficients
+    0, 0, 0, 1   --alpha coefficients
+}
+object.fill.effect.bias = { 0.6, 0.1, 0, 0 }</pre>
+<!--- FILTER.COLOR-POLYNOMIAL -->
+<a id="colorPolynomial"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-ocean.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-colorpolynomial.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.colorpolynomial" class="section level3">
+<h3>filter.colorPolynomial</h3>
+<p>Applies a set of cubic polynomials to an image.</p>
+<ul>
+<li><code>coefficients</code> — a 4×4 matrix of RGB+A coefficients.</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.colorPolynomial"
+
+object.fill.effect.coefficients =
+{
+    0, 0, 1, 0,  --red coefficients
+    0, 0, 1, 0,  --green coefficients
+    0, 1, 0, 0,  --blue coefficients
+    0, 0, 0, 1   --alpha coefficients
+}</pre>
+<!--- FILTER.CONTRAST -->
+<a id="contrast"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-contrast.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.contrast" class="section level3">
+<h3>filter.contrast</h3>
+<ul>
+<li><code>contrast</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>4</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.contrast"
+
+object.fill.effect.contrast = 2</pre>
+<!--- FILTER.CROSSHATCH -->
+<a id="crosshatch"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-cloth.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-crosshatch.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.crosshatch" class="section level3">
+<h3>filter.crosshatch</h3>
+<ul>
+<li><code>grain</code> — default = <code>0</code> ; min = <code>0</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.crosshatch"
+
+object.fill.effect.grain = 4</pre>
+<!--- FILTER.CRYSTALLIZE -->
+<a id="crystallize"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-statue.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-crystallize.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.crystallize" class="section level3">
+<h3>filter.crystallize</h3>
+<ul>
+<li><code>numTiles</code> — default = <code>16</code> ; min = <code>2</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.crystallize"
+
+object.fill.effect.numTiles = 32</pre>
+<!--- FILTER.DESATURATE -->
+<a id="desaturate"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-ocean.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-desaturate.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.desaturate" class="section level3">
+<h3>filter.desaturate</h3>
+<ul>
+<li><code>intensity</code> — default = <code>0.5</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.desaturate"
+
+object.fill.effect.intensity = 0.5</pre>
+<!--- FILTER.DISSOLVE -->
+<a id="dissolve"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-dissolve.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.dissolve" class="section level3">
+<h3>filter.dissolve</h3>
+<ul>
+<li><code>threshold</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.dissolve"
+
+object.fill.effect.threshold = 0.6</pre>
+<!--- FILTER.DUOTONE -->
+<a id="duotone"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-flower-gray.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-duotone.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.duotone" class="section level3">
+<h3>filter.duotone</h3>
+<p>Increases the tonal range of a grayscale image by using different colors to reproduce distinct gray levels.</p>
+<ul>
+<li><code>darkColor</code> — default = <code>{0,0,0.5,1}</code> ; min = <code>{0,0,0,0}</code> ; max = <code>{1,1,1,1}</code></li>
+<li><code>lightColor</code> — default = <code>{1,0,0,1}</code> ; min = <code>{0,0,0,0}</code> ; max = <code>{1,1,1,1}</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.duotone"
+
+object.fill.effect.darkColor = { 0.7, 0.3, 0.3, 1 }
+object.fill.effect.lightColor = { 1, 0.6, 0.4, 1 }</pre>
+<!--- FILTER.EMBOSS -->
+<a id="emboss"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-cloth.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-emboss.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.emboss" class="section level3">
+<h3>filter.emboss</h3>
+<ul>
+<li><code>intensity</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>4</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.emboss"
+
+object.fill.effect.intensity = 0.2</pre>
+<!--- FILTER.EXPOSURE -->
+<a id="exposure"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-ocean.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-exposure.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.exposure" class="section level3">
+<h3>filter.exposure</h3>
+<ul>
+<li><code>exposure</code> — default = <code>0</code> ; min = <code>-10</code> ; max = <code>10</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.exposure"
+
+object.fill.effect.exposure = 1.2</pre>
+<!--- FILTER.FROSTED-GLASS -->
+<a id="frostedGlass"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-frostedglass.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.frostedglass" class="section level3">
+<h3>filter.frostedGlass</h3>
+<ul>
+<li><code>scale</code> — default = <code>64</code> ; min = <code>1</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.frostedGlass"
+
+object.fill.effect.scale = 140</pre>
+<!--- FILTER.GRAYSCALE -->
+<a id="grayscale"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-flower.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-grayscale.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.grayscale" class="section level3">
+<h3>filter.grayscale</h3>
+<pre class="brush: lua;">object.fill.effect = "filter.grayscale"</pre>
+<!--- FILTER.HUE -->
+<a id="hue"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-ocean.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-hue.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.hue" class="section level3">
+<h3>filter.hue</h3>
+<ul>
+<li><code>angle</code> — default = <code>0</code> ; min = <code>0</code> ; max = <code>360</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.hue"
+
+object.fill.effect.angle = 200</pre>
+<!--- FILTER.INVERT -->
+<a id="invert"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-ocean.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-invert.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.invert" class="section level3">
+<h3>filter.invert</h3>
+<pre class="brush: lua;">object.fill.effect = "filter.invert"</pre>
+<!--- FILTER.IRIS -->
+<a id="iris"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-cloth.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-iris.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.iris" class="section level3">
+<h3>filter.iris</h3>
+<ul>
+<li><code>center</code> — default = <code>{0.5,0.5}</code> ; min = <code>{0,0}</code> ; max = <code>{1,1}</code></li>
+<li><code>aperture</code> — default = <code>0</code> ; min = <code>0</code> (closed) ; max = <code>1</code> (open)</li>
+<li><code>aspectRatio</code> — default = <code>1</code> ; min = <code>0</code> ; max = (none)</li>
+<li><code>smoothness</code> — default = <code>0</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.iris"
+
+object.fill.effect.center = { 0.5, 0.5 }
+object.fill.effect.aperture = 0.5
+object.fill.effect.aspectRatio = ( object.width / object.height )
+object.fill.effect.smoothness = 0.5</pre>
+<!--- FILTER.LEVELS -->
+<a id="levels"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-statue.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-levels.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.levels" class="section level3">
+<h3>filter.levels</h3>
+<ul>
+<li><code>white</code> — default = <code>0.843</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>black</code> — default = <code>0.565</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>gamma</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.levels"
+
+object.fill.effect.white = 0.5
+object.fill.effect.black = 0.1
+object.fill.effect.gamma = 1</pre>
+<!--- FILTER.LINEAR-WIPE -->
+<a id="linearWipe"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-cloth.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-linearwipe.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.linearwipe" class="section level3">
+<h3>filter.linearWipe</h3>
+<ul>
+<li><code>direction</code> — default = <code>{1,0}</code> ; min = <code>{-1,-1}</code> ; max = <code>{1,1}</code></li>
+<li><code>smoothness</code> — default = <code>0</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>progress</code> — default = <code>0</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.linearWipe"
+
+object.fill.effect.direction = { 1, 1 }
+object.fill.effect.smoothness = 1
+object.fill.effect.progress = 0.5</pre>
+<!--- FILTER.MEDIAN -->
+<a id="median"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-ocean.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-median.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.median" class="section level3">
+<h3>filter.median</h3>
+<pre class="brush: lua;">object.fill.effect = "filter.median"</pre>
+<!--- FILTER.MONOTONE -->
+<a id="monotone"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-monotone.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.monotone" class="section level3">
+<h3>filter.monotone</h3>
+<ul>
+<li><code>r</code> — default = <code>0</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>g</code> — default = <code>0</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>b</code> — default = <code>0</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>a</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.monotone"
+
+object.fill.effect.r = 1
+object.fill.effect.g = 0.2
+object.fill.effect.b = 0.5
+object.fill.effect.a = 0.5</pre>
+<!--- FILTER.OP-TILE -->
+<a id="opTile"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-flower.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-optile.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.optile" class="section level3">
+<h3>filter.opTile</h3>
+<ul>
+<li><code>numPixels</code> — default = <code>8</code> ; min = <code>0</code> ; max = (none)</li>
+<li><code>angle</code> — default = <code>0</code> ; min = <code>0</code> ; max = <code>360</code></li>
+<li><code>scale</code> — default = <code>2.8</code> ; min = <code>0</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.opTile"
+
+object.fill.effect.numPixels = 4
+object.fill.effect.angle = 0
+object.fill.effect.scale = 3</pre>
+<!--- FILTER.PIXELATE -->
+<a id="pixelate"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-statue.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-pixelate.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.pixelate" class="section level3">
+<h3>filter.pixelate</h3>
+<ul>
+<li><code>numPixels</code> — default = <code>4</code> ; min = <code>0</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.pixelate"
+
+object.fill.effect.numPixels = 4</pre>
+<!--- FILTER.POLKA-DOTS -->
+<a id="polkaDots"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-ocean.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-polkadots.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.polkadots" class="section level3">
+<h3>filter.polkaDots</h3>
+<ul>
+<li><code>numPixels</code> — default = <code>4</code> ; min = <code>4</code> ; max = (none)</li>
+<li><code>dotRadius</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>aspectRatio</code> — default = <code>1</code> ; min = <code>0</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.polkaDots"
+
+object.fill.effect.numPixels = 16
+object.fill.effect.dotRadius = 1
+object.fill.effect.aspectRatio = ( object.width / object.height )</pre>
+<!--- FILTER.POSTERIZE -->
+<a id="posterize"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-ocean.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-posterize.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.posterize" class="section level3">
+<h3>filter.posterize</h3>
+<ul>
+<li><code>colorsPerChannel</code> — default = <code>4</code> ; min = <code>2</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.posterize"
+
+object.fill.effect.colorsPerChannel = 6</pre>
+<!--- FILTER.RADIAL-WIPE -->
+<a id="radialWipe"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-ocean.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-radialwipe.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.radialwipe" class="section level3">
+<h3>filter.radialWipe</h3>
+<ul>
+<li><code>center</code> — default = <code>{0.5,0.5}</code> ; min = <code>{-1,-1}</code> ; max = <code>{1,1}</code></li>
+<li><code>smoothness</code> — default = <code>0</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>axisOrientation</code> — default = <code>0</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>progress</code> — default = <code>0</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.radialWipe"
+
+object.fill.effect.center = { 0.3, 0.5 }
+object.fill.effect.smoothness = 1
+object.fill.effect.axisOrientation = 0
+object.fill.effect.progress = 0.5</pre>
+<!--- FILTER.SATURATE -->
+<a id="saturate"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-flower.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-saturate.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.saturate" class="section level3">
+<h3>filter.saturate</h3>
+<ul>
+<li><code>intensity</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>8</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.saturate"
+
+object.fill.effect.intensity = 4</pre>
+<!--- FILTER.SCATTER -->
+<a id="scatter"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-scatter.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.scatter" class="section level3">
+<h3>filter.scatter</h3>
+<ul>
+<li><code>intensity</code> — default = <code>0.5</code> ; min = <code>0</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.scatter"
+
+object.fill.effect.intensity = 0.5</pre>
+<!--- FILTER.SEPIA -->
+<a id="sepia"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-statue.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-sepia.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.sepia" class="section level3">
+<h3>filter.sepia</h3>
+<ul>
+<li><code>intensity</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.sepia"
+
+object.fill.effect.intensity = 1</pre>
+<!--- FILTER.SHARPEN-LUMINANCE -->
+<a id="sharpenLuminance"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-cloth.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-sharpenluminance.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.sharpenluminance" class="section level3">
+<h3>filter.sharpenLuminance</h3>
+<ul>
+<li><code>sharpness</code> — default = <code>0</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.sharpenLuminance"
+
+object.fill.effect.sharpness = 1</pre>
+<!--- FILTER.SOBEL -->
+<a id="sobel"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-ocean.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-sobel.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.sobel" class="section level3">
+<h3>filter.sobel</h3>
+<pre class="brush: lua;">object.fill.effect = "filter.sobel"</pre>
+<!--- FILTER.STRAIGHTEN -->
+<a id="straighten"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-cloth.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-straighten.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.straighten" class="section level3">
+<h3>filter.straighten</h3>
+<ul>
+<li><code>width</code> — default = <code>1</code> ; min = <code>1</code> ; max = (none)</li>
+<li><code>height</code> — default = <code>1</code> ; min = <code>1</code> ; max = (none)</li>
+<li><code>angle</code> — default = <code>0</code> ; min = <code>0</code> ; max = <code>360</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.straighten"
+
+object.fill.effect.width = 10
+object.fill.effect.height = 40
+object.fill.effect.angle = 20</pre>
+<!--- FILTER.SWIRL -->
+<a id="swirl"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-statue.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-swirl.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.swirl" class="section level3">
+<h3>filter.swirl</h3>
+<ul>
+<li><code>intensity</code> — default = <code>0</code> ; min = <code>0</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.swirl"
+
+object.fill.effect.intensity = 0.4</pre>
+<!--- FILTER.VIGNETTE -->
+<a id="vignette"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-vignette.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.vignette" class="section level3">
+<h3>filter.vignette</h3>
+<ul>
+<li><code>radius</code> — default = <code>0.1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.vignette"
+
+object.fill.effect.radius = 0.1</pre>
+<!--- FILTER.VIGNETTE-MASK -->
+<a id="vignetteMask"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-vignettemask.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.vignettemask" class="section level3">
+<h3>filter.vignetteMask</h3>
+<ul>
+<li><code>innerRadius</code> — default = <code>0.8</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>outerRadius</code> — default = <code>0.25</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.vignetteMask"
+
+object.fill.effect.innerRadius = 0.7
+object.fill.effect.outerRadius = 0.1</pre>
+<!--- FILTER.WOBBLE -->
+<a id="wobble"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-flower.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-wobble.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.wobble" class="section level3">
+<h3>filter.wobble</h3>
+<ul>
+<li><code>amplitude</code> — default = <code>10</code> ; min = (none) ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.wobble"
+
+object.fill.effect.amplitude = 80</pre>
+<!--- FILTER.WOOD-CUT -->
+<a id="woodCut"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-woodcut.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.woodcut" class="section level3">
+<h3>filter.woodCut</h3>
+<ul>
+<li><code>intensity</code> — default = <code>0.5</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.woodCut"
+
+object.fill.effect.intensity = 0.4</pre>
+<!--- FILTER.ZOOM-BLUR -->
+<a id="zoomBlur"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-cloth.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-zoomblur.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.zoomblur" class="section level3">
+<h3>filter.zoomBlur</h3>
+<ul>
+<li><code>u</code> (horizontal origin) — default = <code>0.5</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>v</code> (vertical origin) — default = <code>0.5</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>intensity</code> — default = <code>0.5</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.zoomBlur"
+
+object.fill.effect.u = 0.5
+object.fill.effect.v = 0.5
+object.fill.effect.intensity = 0.3</pre>
+<!--- GENERATOR EFFECTS -->
+<div class="newline">
+
+</div>
+<p><a id="generator"></a></p>
+</div>
+</div>
+<div id="generator-effects" class="section level2">
+<h2>Generator Effects</h2>
+<p>Generator effects are procedurally-generated effects which don't operate on any textures/images. Instead, they generate textures in the fragment shader.</p>
+<p>Like filters, generators are specified by the effect name (string) as the <code>effect</code> property of <code>object.fill</code> or <code>object.stroke</code>:</p>
+<pre class="brush: lua;">object.fill.effect = "[generator]"
+object.stroke.effect = "[generator]"</pre>
+<p>Most generators can be adjusted via optional parameters. These parameters, and the acceptable values, vary for each specific generator as defined below.</p>
+<pre class="brush: lua;">-- Apply a "sunbeams" generator effect
+object.fill.effect = "generator.sunbeams"
+object.fill.effect.aspectRatio = ( object.width / object.height )</pre>
+<!--- GENERATOR.CHECKERBOARD -->
+<a id="checkerboard"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-checkerboard.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="generator.checkerboard" class="section level3">
+<h3>generator.checkerboard</h3>
+<ul>
+<li><code>color1</code> — default = <code>{1,0,0,1}</code> ; min = <code>{0,0,0,0}</code> ; max = <code>{1,1,1,1}</code></li>
+<li><code>color2</code> — default = <code>{0,0,1,1}</code> ; min = <code>{0,0,0,0}</code> ; max = <code>{1,1,1,1}</code></li>
+<li><code>xStep</code> — default = <code>3</code> ; min = <code>1</code> ; max = (none)</li>
+<li><code>yStep</code> — default = <code>3</code> ; min = <code>1</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "generator.checkerboard"
+
+object.fill.effect.color1 = { 0.8, 0, 0.2, 1 }
+object.fill.effect.color2 = { 0.2, 0.2, 0.2, 1 }
+object.fill.effect.xStep = 8
+object.fill.effect.yStep = 8</pre>
+<!--- GENERATOR.LENTICULAR-HALO -->
+<a id="lenticularHalo"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-lenticularhalo.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="generator.lenticularhalo" class="section level3">
+<h3>generator.lenticularHalo</h3>
+<p>Renders a lenticular halo effect on an object. Although the sample image indicates otherwise, this effect is generated with a transparent alpha background. The <code>seed</code> parameter is used by the random algorithm and is provided as a means to vary the look of the halo.</p>
+<ul>
+<li><code>posX</code> — default = <code>0.5</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>posY</code> — default = <code>0.5</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>aspectRatio</code> — default = <code>1</code> ; min = <code>0</code> ; max = (none)</li>
+<li><code>seed</code> — default = <code>0</code> ; min = <code>0</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "generator.lenticularHalo"
+
+object.fill.effect.posX = 0.5
+object.fill.effect.posY = 0.5
+object.fill.effect.aspectRatio = ( object.width / object.height )
+object.fill.effect.seed = 1</pre>
+<!--- GENERATOR.LINEAR-GRADIENT -->
+<a id="linearGradient"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-lineargradient.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="generator.lineargradient" class="section level3">
+<h3>generator.linearGradient</h3>
+<ul>
+<li><code>color1</code> — default = <code>{1,0,0,1}</code> ; min = <code>{0,0,0,0}</code> ; max = <code>{1,1,1,1}</code></li>
+<li><code>position1</code> — default = <code>{0,0}</code> ; min = <code>{0,0}</code> ; max = <code>{1,1}</code></li>
+<li><code>color2</code> — default = <code>{0,0,1,1}</code> ; min = <code>{0,0,0,0}</code> ; max = <code>{1,1,1,1}</code></li>
+<li><code>position2</code> — default = <code>{1,1}</code> ; min = <code>{0,0}</code> ; max = <code>{1,1}</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "generator.linearGradient"
+
+object.fill.effect.color1 = { 0.8, 0, 0.2, 1 }
+object.fill.effect.position1  = { 0, 0 }
+object.fill.effect.color2 = { 0.2, 0.2, 0.2, 1 }
+object.fill.effect.position2  = { 1, 1 }</pre>
+<!--- GENERATOR.MARCHING-ANTS -->
+<a id="marchingAnts"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-marchingants.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="generator.marchingants" class="section level3">
+<h3>generator.marchingAnts</h3>
+<pre class="brush: lua;">object.strokeWidth = 2
+object.stroke.effect = "generator.marchingAnts"</pre>
+<!--- GENERATOR.PERLIN-NOISE -->
+<a id="perlinNoise"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-perlinnoise.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="generator.perlinnoise" class="section level3">
+<h3>generator.perlinNoise</h3>
+<ul>
+<li><code>color1</code> — default = <code>{1,0,0,1}</code> ; min = <code>{0,0,0,0}</code> ; max = <code>{1,1,1,1}</code></li>
+<li><code>color2</code> — default = <code>{0,0,1,1}</code> ; min = <code>{0,0,0,0}</code> ; max = <code>{1,1,1,1}</code></li>
+<li><code>scale</code> — default = <code>8</code> ; min = <code>0</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "generator.perlinNoise"
+
+object.fill.effect.color1 = { 0.9, 0.1, 0.3, 1 }
+object.fill.effect.color2 = { 0.8, 0.8, 0.8, 1 }
+object.fill.effect.scale = 12</pre>
+<!--- GENERATOR.RADIAL-GRADIENT -->
+<a id="radialGradient"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-radialgradient.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="generator.radialgradient" class="section level3">
+<h3>generator.radialGradient</h3>
+<p>Renders a radial gradient on an object. The <code>center_and_radiuses</code> parameter is a table which specifies, in order, the center <strong>x</strong>, center <strong>y</strong>, inner radius, and outer radius.</p>
+<ul>
+<li><code>color1</code> — default = <code>{1,0,0,1}</code> ; min = <code>{0,0,0,0}</code> ; max = <code>{1,1,1,1}</code></li>
+<li><code>color2</code> — default = <code>{0,0,1,1}</code> ; min = <code>{0,0,0,0}</code> ; max = <code>{1,1,1,1}</code></li>
+<li><code>center_and_radiuses</code> — default = <code>{0.5,0.5,0.125,0.25}</code> ; min = <code>{0,0,0,0}</code> ; max = <code>{1,1,1,1}</code></li>
+<li><code>aspectRatio</code> — default = <code>1</code> ; min = <code>0</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "generator.radialGradient"
+
+object.fill.effect.color1 = { 0.8, 0, 0.2, 1 }
+object.fill.effect.color2 = { 0.2, 0.2, 0.2, 1 }
+object.fill.effect.center_and_radiuses  =  { 0.5, 0.5, 0.25, 0.75 }
+object.fill.effect.aspectRatio  = 1</pre>
+<!--- GENERATOR.RANDOM -->
+<a id="random"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-random.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="generator.random" class="section level3">
+<h3>generator.random</h3>
+<pre class="brush: lua;">object.fill.effect = "generator.random"</pre>
+<!--- GENERATOR.STRIPES -->
+<a id="stripes"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-stripes.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="generator.stripes" class="section level3">
+<h3>generator.stripes</h3>
+<p>Renders a stripe pattern on an object. The <code>periods</code> parameter is a table which specifies, in order, the width of the first stripe, width of the first empty space, width of the second stripe, and width of the second empty space. The <code>translation</code> parameter specifies the offset position of the pattern.</p>
+<ul>
+<li><code>periods</code> — default = <code>{1,1,1,1}</code> ; min = <code>{0,0,0,0}</code></li>
+<li><code>angle</code> — default = <code>0</code> ; min = <code>0</code> ; max = <code>360</code></li>
+<li><code>translation</code> — default = <code>0</code> ; min = <code>0</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "generator.stripes"
+
+object.fill.effect.periods = { 8, 2, 4, 4 }
+object.fill.effect.angle = 45
+object.fill.effect.translation  = 0</pre>
+<!--- GENERATOR.SUNBEAMS -->
+<a id="sunbeams"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-sunbeams.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="generator.sunbeams" class="section level3">
+<h3>generator.sunbeams</h3>
+<p>Renders a sunbeam effect on an object. Although the sample image indicates otherwise, this effect is generated with a transparent alpha background. The <code>seed</code> parameter is used by the random algorithm and is provided as a means to vary the look of the sunbeam.</p>
+<ul>
+<li><code>posX</code> — default = <code>0.5</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>posY</code> — default = <code>0.5</code> ; min = <code>0</code> ; max = <code>1</code></li>
+<li><code>aspectRatio</code> — default = <code>1</code> ; min = <code>0</code> ; max = (none)</li>
+<li><code>seed</code> — default = <code>0</code> ; min = <code>0</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "generator.sunbeams"
+
+object.fill.effect.posX = 0.5
+object.fill.effect.posY = 0.5
+object.fill.effect.aspectRatio = ( object.width / object.height )
+object.fill.effect.seed = 0</pre>
+<!--- COMPOSITE EFFECTS -->
+<div class="newline">
+
+</div>
+<p><a id="composite"></a></p>
+</div>
+</div>
+<div id="composite-effects" class="section level2">
+<h2>Composite Effects</h2>
+<p>Composite effects operate on <strong>two</strong> textures/images, combined together as a composite paint. Once defined, this composite paint can be used to <a href="../../guide/graphics/path.html">fill/stroke</a> an object and apply a composite blend effect. A composite paint can consist of two distinct textures/images or the same texture/image upon itself, depending on the effect you want to achieve.</p>
+<div class="side-by-side" style="margin-top: 3px;">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church.png" /></td>
+<td align="left"> + </td>
+<td align="left"><img src="../../images/simulator/fx-base-texture.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="brush: lua;">-- Create the object
+local object = display.newRect( 100, 100, 160, 160 )
+
+-- Set up the composite paint (distinct images)
+local compositePaint = {
+    type="composite",
+    paint1={ type="image", filename="image01.png" },
+    paint2={ type="image", filename="texture.png" }
+}
+
+-- Apply the composite paint as the object's fill
+object.fill = compositePaint
+
+-- Set a composite blend as the fill effect
+object.fill.effect = "composite.add"</pre>
+<!--- COMPOSITE.ADD -->
+<a id="add"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-add.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="composite.add" class="section level3">
+<h3>composite.add</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.add"
+
+object.fill.alpha = 1</pre>
+<!--- COMPOSITE.AVERAGE -->
+<a id="average"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-average.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.average" class="section level3">
+<h3>composite.average</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.average"
+
+object.fill.alpha = 1</pre>
+<!--- COMPOSITE.COLOR-BURN -->
+<a id="colorBurn"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-colorburn.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.colorburn" class="section level3">
+<h3>composite.colorBurn</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.colorBurn"
+
+object.fill.alpha = 1</pre>
+<!--- COMPOSITE.COLOR-DODGE -->
+<a id="colorDodge"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-colordodge.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.colordodge" class="section level3">
+<h3>composite.colorDodge</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.colorDodge"
+
+object.fill.alpha = 1</pre>
+<!--- COMPOSITE.DARKEN -->
+<a id="darken"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-darken.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.darken" class="section level3">
+<h3>composite.darken</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.darken"
+
+object.fill.alpha = 1</pre>
+<!--- COMPOSITE.DIFFERENCE -->
+<a id="difference"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-difference.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.difference" class="section level3">
+<h3>composite.difference</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.difference"
+
+object.fill.alpha = 1</pre>
+<!--- COMPOSITE.EXCLUSION -->
+<a id="exclusion"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-exclusion.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.exclusion" class="section level3">
+<h3>composite.exclusion</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.exclusion"
+
+object.fill.alpha = 0.4</pre>
+<!--- COMPOSITE.GLOW -->
+<a id="glow"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-glow.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.glow" class="section level3">
+<h3>composite.glow</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.glow"
+
+object.fill.alpha = 1</pre>
+<!--- COMPOSITE.HARD-LIGHT -->
+<a id="hardLight"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-hardlight.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.hardlight" class="section level3">
+<h3>composite.hardLight</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.hardLight"
+
+object.fill.alpha = 1</pre>
+<!--- COMPOSITE.HARD-MIX -->
+<a id="hardMix"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-hardmix.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.hardmix" class="section level3">
+<h3>composite.hardMix</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.hardMix"
+
+object.fill.alpha = 0.2</pre>
+<!--- COMPOSITE.LIGHTEN -->
+<a id="lighten"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-lighten.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.lighten" class="section level3">
+<h3>composite.lighten</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.lighten"
+
+object.fill.alpha = 0.8</pre>
+<!--- COMPOSITE.LINEAR-LIGHT -->
+<a id="linearLight"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-linearlight.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.linearlight" class="section level3">
+<h3>composite.linearLight</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.linearLight"
+
+object.fill.alpha = 0.4</pre>
+<!--- COMPOSITE.MULTIPLY -->
+<a id="multiply"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-multiply.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.multiply" class="section level3">
+<h3>composite.multiply</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.multiply"
+
+object.fill.alpha = 1</pre>
+<!--- COMPOSITE.NEGATION -->
+<a id="negation"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-negation.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.negation" class="section level3">
+<h3>composite.negation</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.negation"
+
+object.fill.alpha = 0.3</pre>
+<!--- COMPOSITE.NORMAL-MAP-WITH-1-DIR-LIGHT -->
+<a id="normalMapWith1DirLight"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-mapdirlight.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.normalmapwith1dirlight" class="section level3">
+<h3>composite.normalMapWith1DirLight</h3>
+<p>This composite effect renders a directional light upon a surface. In this effect, <code>dirLightDirection</code> is a table containing the light direction in texture space. The origin and the growth direction of each axis is the same as described for <code>pointLightPos</code> in <a href="#normalMapWith1PointLight">composite.normalMapWith1PointLight</a>. This direction vector indicates where the light is coming from, not the direction in which it's going. There's no need to normalize this vector as it's already done internally.</p>
+<p>The <code>dirLightColor</code> parameter is a table containing RGB+A values, and <code>ambientLightIntensity</code> specifies the intensity.</p>
+<ul>
+<li><code>dirLightDirection</code> — default = <code>{1,0,0}</code> ; min = <code>{0,0,0}</code> ; max = <code>{1,1,1}</code></li>
+<li><code>dirLightColor</code> — default = <code>{1,1,1,1}</code> ; min = <code>{0,0,0,0}</code> ; max = <code>{1,1,1,1}</code></li>
+<li><code>ambientLightIntensity</code> — default = <code>0</code> ; min = <code>0</code> ; max = (none)</li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.normalMapWith1DirLight"
+
+object.fill.effect.dirLightDirection = { 1, 0, 0 }
+object.fill.effect.dirLightColor = { 0.3, 0.4, 1, 0.8 }
+object.fill.effect.ambientLightIntensity = 1</pre>
+<!--- COMPOSITE.NORMAL-MAP-WITH-1-POINT-LIGHT -->
+<a id="normalMapWith1PointLight"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-mappointlight.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.normalmapwith1pointlight" class="section level3">
+<h3>composite.normalMapWith1PointLight</h3>
+<p>This composite effect renders a point light upon a surface. In this effect, <code>pointLightPos</code> is a table containing the light position in texture space. This <code>{x,y,z}</code> origin is the upper left corner <code>{0,0,0}</code>. Positive <strong>x</strong> moves to the right, positive <strong>y</strong> moves towards the bottom, and positive <strong>z</strong> moves &quot;out of the screen&quot; towards the viewer, representing the distance from the surface. There's no maximum value for <strong>z</strong>, but typically this value will be between <code>0</code> and <code>1</code>.</p>
+<p>The <code>pointLightColor</code> parameter is a table containing RGB+A values, and <code>ambientLightIntensity</code> specifies the intensity from <code>0</code> (dark) to <code>1</code> (full brightness).</p>
+<p>The <code>attenuationFactors</code> parameter is a table containing the diffuse light's distance attenuation factors. In this case, <code>{x,y,z}</code> are the constant, linear, and quadratic attenuation factors. Note that distance attenuation does <strong>not</strong> affect ambient light intensity. For a better understanding of attenuation factors, read about <a href="https://developer.valvesoftware.com/wiki/Constant-Linear-Quadratic_Falloff">Falloff</a> and <a href="http://www.felixgers.de/teaching/jogl/lightAttenuation.html">Attenuation of Light</a>.</p>
+<ul>
+<li><code>pointLightPos</code> — default = <code>{1,0,0}</code> ; min = <code>{0,0,0}</code> ; max = <code>{1,1,1}</code></li>
+<li><code>pointLightColor</code> — default = <code>{1,1,1,1}</code> ; min = <code>{0,0,0,0}</code> ; max = <code>{1,1,1,1}</code></li>
+<li><code>ambientLightIntensity</code> — default = <code>0</code> ; min = <code>0</code> ; max = (none)</li>
+<li><code>attenuationFactors</code> — default = <code>{0.4,3,20}</code> ; min = <code>{0,0,0}</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.normalMapWith1PointLight"
+
+object.fill.effect.pointLightPos = { 0, 1, 1 }
+object.fill.effect.pointLightColor = { 1, 0.4, 0.5, 1 }
+object.fill.effect.ambientLightIntensity = 1.2
+object.fill.effect.attenuationFactors = { 0.4, 3, 0 }</pre>
+<!--- COMPOSITE.OVERLAY -->
+<a id="overlay"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-overlay.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.overlay" class="section level3">
+<h3>composite.overlay</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.overlay"
+
+object.fill.alpha = 1</pre>
+<!--- COMPOSITE.PHOENIX -->
+<a id="phoenix"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-phoenix.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.phoenix" class="section level3">
+<h3>composite.phoenix</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.phoenix"
+
+object.fill.alpha = 0.5</pre>
+<!--- COMPOSITE.PIN-LIGHT -->
+<a id="pinLight"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-pinlight.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.pinlight" class="section level3">
+<h3>composite.pinLight</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.pinLight"
+
+object.fill.alpha = 1</pre>
+<!--- COMPOSITE.REFLECT -->
+<a id="reflect"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-reflect.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.reflect" class="section level3">
+<h3>composite.reflect</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.reflect"
+
+object.fill.alpha = 1</pre>
+<!--- COMPOSITE.SCREEN -->
+<a id="screen"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-screen.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.screen" class="section level3">
+<h3>composite.screen</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.screen"
+
+object.fill.alpha = 1</pre>
+<!--- COMPOSITE.SOFT-LIGHT -->
+<a id="softLight"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-softlight.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.softlight" class="section level3">
+<h3>composite.softLight</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.softLight"
+
+object.fill.alpha = 1</pre>
+<!--- COMPOSITE.SUBTRACT -->
+<a id="subtract"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-subtract.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.subtract" class="section level3">
+<h3>composite.subtract</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.subtract"
+
+object.fill.alpha = 0.8</pre>
+<!--- COMPOSITE.VIVID-LIGHT -->
+<a id="vividLight"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-church-comp.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-vividlight.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="composite.vividlight" class="section level3">
+<h3>composite.vividLight</h3>
+<ul>
+<li><code>alpha</code> — default = <code>1</code> ; min = <code>0</code> ; max = <code>1</code></li>
+</ul>
+<pre class="brush: lua;">object.fill = compositePaint
+object.fill.effect = "composite.vividLight"
+
+object.fill.alpha = 1</pre>
+<div class="newline">
+
+</div>
+<p><br /></p>
+<p><a id="support"></a></p>
+</div>
+</div>
+<div id="device-specific-limitations" class="section level2">
+<h2>Device-Specific Limitations</h2>
+<div id="hardware-support" class="section level3">
+<h3>Hardware Support</h3>
+<p>The following visual effects require modern GPUs (Graphics Processing Units) and they may not function properly on all devices.</p>
+<p><span style="float: left; margin-right: 25px; margin-top: 0px;"></p>
+<ul>
+<li><a href="#crystallize">filter.crystallize</a></li>
+<li><a href="#dissolve">filter.dissolve</a></li>
+<li><a href="#frostedGlass">filter.frostedGlass</a></li>
+<li><a href="#hue">filter.hue</a></li>
+<li><a href="#scatter">filter.scatter</a></li>
+</ul>
+<p></span> <span style="float: left; margin-top: 0px; margin-bottom: 20px;"></p>
+<ul>
+<li><a href="#lenticularHalo">generator.lenticularHalo</a></li>
+<li><a href="#perlinNoise">generator.perlinNoise</a></li>
+<li><a href="#random">generator.random</a></li>
+<li><a href="#sunbeams">generator.sunbeams</a></li>
+</ul>
+</span>
+<div style="clear: both;">
+
+</div>
+<p>To check the GPU capabilities of a device, test it via <code>system.getInfo( &quot;gpuSupportsHighPrecisionFragmentShaders&quot; )</code>:</p>
+<pre class="brush: lua;">if ( system.getInfo( "gpuSupportsHighPrecisionFragmentShaders" ) ) then
+    -- This device should support all effects
+else
+    -- This device may have problems with certain effects
+end</pre>
+<p>If the device supports <nobr>high-precision</nobr> fragment shaders, you can override the default shader precision for all OpenGL ES shaders as outlined <a href="../../guide/basics/configSettings/index.html#shaderPrecision">here</a>.</p>
+<!--- REFERENCE LINK -->
+</div>
+<div id="rendering-execution" class="section level3">
+<h3>Rendering Execution</h3>
+<p>Certain parameters have a direct influence on the execution time of an effect. This applies to both the initial rendering <strong>and</strong> any <nobr>re-execution</nobr> events. For example, if an object is moved/transitioned, the effects applied to it are <nobr>re-executed</nobr>. Thus, you should be careful when setting the parameters of an effect, especially those like <code>&quot;filter.blurGaussian&quot;</code>. If possible, we recommend that you test applicable projects on actual devices.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.graphics.effects&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

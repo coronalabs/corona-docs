@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Tutorials | Gaming/Physics</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#creating-a-countdown-timer">Creating a Countdown Timer</a><ul>
+<li><a href="#initial-setup">Initial Setup</a></li>
+<li><a href="#time-update-function">Time Update Function</a></li>
+<li><a href="#running-the-timer">Running the Timer</a></li>
+<li><a href="#fixing-the-visual-alignment">Fixing the Visual Alignment</a><ul>
+<li><a href="#monospace-font">Monospace Font</a></li>
+<li><a href="#sprite-based-display">Sprite-Based Display</a></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/games/index.html">Gaming/Physics</a>
+</div>
+<div id="creating-a-countdown-timer" class="section level1">
+<h1>Creating a Countdown Timer</h1>
+<p>One challenge which new Corona developers may encounter is how to work with <strong>time</strong>. There are different ways of tracking time — you can read the number of seconds since <nobr>January 1, 1970</nobr> (<a href="../../../api/library/os/time.html">os.time()</a>), you can use a microsecond timer from when the app started (<a href="../../../api/library/system/getTimer.html">system.getTimer()</a>), or you can brave your own path and keep track of app &quot;ticks&quot; using an <a href="../../../api/event/enterFrame/index.html">enterFrame</a> listener. Of course there are also the <a href="../../../api/library/timer/index.html">timer</a> APIs which allow you to fire events at a specific time in the future.</p>
+<p>These topics are discussed in detail within the <a href="../../../tutorial/data/timeDates/index.html">Utilizing Time and Dates</a> tutorial, so we won't go further in depth here — instead, this tutorial will illustrate how to create a visual <strong>countdown timer</strong> which can be used for several types of games.</p>
+<!---
+
+For this tutorial, we'll use [timer.performWithDelay()][api.library.timer.performWithDelay] to update an <nobr>on-screen</nobr> "clock," using whole seconds to track the time. While we briefly mentioned other <nobr>time-based</nobr> calls like [os.time()][api.library.os.time] which would work well for a <nobr>count-__up__</nobr> timer, we simply won't need them for a countdown timer. Instead, we are going to track the total number of seconds for which the timer is going to count down, and also use math to track the time. 
+
+-->
+<div id="initial-setup" class="section level2">
+<h2>Initial Setup</h2>
+<p>Let's begin with some basic setup code:</p>
+<pre class="brush: lua; gutter: true; first-line: 1;">local secondsLeft = 600  -- 10 minutes * 60 seconds
+
+local clockText = display.newText( "10:00", display.contentCenterX, 80, native.systemFont, 72 )
+clockText:setFillColor( 0.7, 0.7, 1 )</pre>
+<p>Basically, we perform two simple tasks:</p>
+<ol style="list-style-type: decimal">
+<li><p>We start by defining a variable, <code>secondsLeft</code>, which will hold the number of seconds left in the countdown. To determine the number of seconds, simply multiply the number of minutes by <code>60</code> and then, optionally, add an additional number of seconds. For instance, a timer of 5 minutes and 45 seconds would require a <code>secondsLeft</code> value of <nobr><code>5*60 + 45</code></nobr>, or <code>345</code>.</p></li>
+<li><p>Next, we create a <a href="../../../api/library/display/newText.html">display.newText()</a> object (<code>clockText</code>) to draw the time remaining on the screen. For each instance when we change the time, we'll update the <code>text</code> property of this object to visually change its readout.</p></li>
+</ol>
+</div>
+<div id="time-update-function" class="section level2">
+<h2>Time Update Function</h2>
+<p>If you run the code above, you'll see a large display of <strong>10:00</strong> on the screen. That's a good start, but it doesn't actually do anything! Let's fix that by first writing a function which updates the visual time display:</p>
+<pre class="brush: lua; gutter: true; highlight: [9,12,13,16,19]; first-line: 6;">local function updateTime( event )
+
+    -- Decrement the number of seconds
+    secondsLeft = secondsLeft - 1
+
+    -- Time is tracked in seconds; convert it to minutes and seconds
+    local minutes = math.floor( secondsLeft / 60 )
+    local seconds = secondsLeft % 60
+
+    -- Make it a formatted string
+    local timeDisplay = string.format( "%02d:%02d", minutes, seconds )
+    
+    -- Update the text object
+    clockText.text = timeDisplay
+end</pre>
+<p>Let's explore this function in greater detail:</p>
+<ol style="list-style-type: decimal">
+<li><p>The first step in this function is critical — subtract <code>1</code> from <code>secondsLeft</code>. If we didn't do this, the timer wouldn't count down! Optionally, we could add a conditional test after this line to see if <code>secondsLeft</code> equals <code>0</code> and, if so, trigger some event indicating that the clock has reached zero.</p></li>
+<li><p>To compute the minutes, we need to reverse the time calculation that we used to convert the time into seconds, so we simply divide the number of remaining seconds by <code>60</code>. This will present us with a fractional value, but we don't need the fractional part for the &quot;minutes&quot; aspect of the display. Thus, we use <a href="../../../api/library/math/floor.html">math.floor()</a> to generate a whole number and then we store the value as the <code>minutes</code> variable. For the <code>seconds</code> variable, we <strong>do</strong> need the fractional part because that will be the visual &quot;seconds&quot; in the display. This is easy to accomplish using the <strong>modulus</strong> <nobr>operator (<code>%</code>) —</nobr> essentially <nobr><code>secondsLeft % 60</code></nobr> will give us the number of seconds without the minutes.</p></li>
+<li><p>To make the time display in a typical time format (<code>MM:SS</code>), we need to format a string. We could use <code>os.date()</code> for this, but <a href="../../../api/library/string/format.html">string.format()</a> will do the job more easily. Using it, we can specify placeholders that have a certain format and then pass in values to fill those placeholders. The string format for our purposes is <code>&quot;%02d:%02d&quot;</code> which might look cryptic, but it's actually pretty basic. The <code>%</code> sign defines the beginning of a placeholder and the <code>02d</code> says that we want a whole number <nobr>(<code>d</code> for <strong>decimal</strong>)</nobr> and use two (<code>2</code>) character spaces to display it. The leading <code>0</code> says that if the number is too small to fit in the two character spaces, prefix it with enough zeros to match the requested format — in other words, if we have a <code>seconds</code> value of <code>7</code>, it will be formatted and displayed as <code>07</code>. Finally, <code>string.format()</code> takes one variable per placeholder, filling in the values from left to right. By passing in <code>minutes</code> first, then <code>seconds</code>, we get the traditional <code>MM:SS</code> type display.</p></li>
+</ol>
+<div class="code-indent">
+<div class="guide-notebox">
+<div class="notebox-title">
+Notes
+</div>
+<ul>
+<li><p>The <code>:</code> is not part of the formatting — it's simply used to place a colon between the minutes and seconds.</p></li>
+<li><p>For further exploration of string formatting, please see the <a href="../../../tutorial/data/formattingStrings/index.html">Formatting String Values</a> tutorial.</p></li>
+</ul>
+</div>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Finally, we take the <code>timeDisplay</code> value associated with the <code>string.format()</code> command and pass it to the display object's <code>text</code> property to visually update its readout.</li>
+</ol>
+</div>
+<div id="running-the-timer" class="section level2">
+<h2>Running the Timer</h2>
+<p>Now that we have an update function, let's call <a href="../../../api/library/timer/performWithDelay.html">timer.performWithDelay()</a> to start it running:</p>
+<pre class="brush: lua; gutter: true; highlight: [23]; first-line: 22;">-- Run the timer
+local countDownTimer = timer.performWithDelay( 1000, updateTime, secondsLeft )</pre>
+<p>For this command, the first parameter is the amount of time to delay before the timer executes for the first time. In this case, we want to fire it every second, but we need to specify that time in milliseconds (<code>1000</code>). Next, upon each execution, we call the <code>updateTime</code> function above. Finally, since we obviously want the timer to execute once every second for the lifespan of the countdown timer, we specify the <code>secondsLeft</code> value calculated earlier.</p>
+</div>
+<div id="fixing-the-visual-alignment" class="section level2">
+<h2>Fixing the Visual Alignment</h2>
+<p>If you run the entire code example above, you'll notice that the time display works properly, but there are problems with the <strong>visual alignment</strong> as it counts down. This is because the default <strong>font</strong> we're using for the text object (<code>native.systemFont</code>) contains numeric characters of varying widths. For instance, the <strong>1</strong> is narrower than the <strong>0</strong> or <strong>8</strong> and this causes the entire text string to shift awkwardly to the left or right as the timer counts down.</p>
+<p>While it might seem that simply setting the <a href="../../../guide/graphics/transform-anchor.html#anchors">anchor point</a> on the text object would solve the problem, <nobr>it won't —</nobr> because either the <nobr>left-most</nobr> or <nobr>right-most</nobr> character in the <code>MM:SS</code> format will change as the timer counts down, the display will always shift around regardless of how you anchor it.</p>
+<p>Fortunately, there are two ways to solve this, each reasonably straightforward.</p>
+<div id="monospace-font" class="section level3">
+<h3>Monospace Font</h3>
+<p>The easiest solution is to use a <strong>monospace font</strong> for the text object. Essentially, all characters (including numbers) in a monospace font occupy the exact same &quot;width&quot; regardless of their visual appearance. This will prevent the timer display from shifting to the left or right because, as far as Corona is concerned, a <strong>1</strong> in a monospace font occupies the same amount of screen space as a <strong>0</strong>, <strong>8</strong>, or anything else.</p>
+<p>Numerous monospace fonts are available from various resources, including <a href="https://fonts.google.com/?category=Monospace">Google Fonts</a>. Once you obtain a monospace font that suits your visual game design, you can utilize it within your Corona project by following the simple steps in the <a href="../../../guide/system/customFont/index.html">Using Custom Fonts</a> guide.</p>
+</div>
+<div id="sprite-based-display" class="section level3">
+<h3>Sprite-Based Display</h3>
+<p>One potential problem with monospace fonts is that, depending on the font design, some characters will appear to have more surrounding horizontal space than other characters. For example, the digit <strong>1</strong> will appear to have too much space between surrounding digits in comparison to a &quot;wider&quot; digit <nobr>like <strong>0</strong> or <strong>8</strong></nobr>, making the timer display look a bit strange.</p>
+<p>This matter can be solved by using <strong>sprites</strong> for each element in the timer display. This allows you to create a more attractive visual readout <strong>and</strong> it lets you dynamically control the position of each digit relative to surrounding digits, effectively making the readout more consistently spaced.</p>
+<p>To implement sprites, the first thing we'll need is an image similar to the following, containing all 10 digits along with a colon to separate the minutes from the seconds:</p>
+<div style="max-width: 360px; margin-top: 12px; margin-bottom: 12px;">
+<div class="figure">
+<img src="../../../images/docs/timer-digits.png" />
+
+</div>
+</div>
+<p>With our image created, let's modify the code example from above:</p>
+<ol style="list-style-type: decimal">
+<li>First, <strong>remove</strong> the <code>clockText</code> text object and set up an image sheet instead:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: true; first-line: 1;">local secondsLeft = 10 * 60  -- 10 minutes * 60 seconds
+
+local sheetOptions = {
+    frames = {
+        { x=0, y=0, width=24, height=48 },    -- 1
+        { x=24, y=0, width=34, height=48 },   -- 2
+        { x=58, y=0, width=28, height=48 },   -- 3
+        { x=86, y=0, width=36, height=48 },   -- 4
+        { x=122, y=0, width=30, height=48 },  -- 5
+        { x=152, y=0, width=38, height=48 },  -- 6
+        { x=190, y=0, width=34, height=48 },  -- 7
+        { x=224, y=0, width=36, height=48 },  -- 8
+        { x=260, y=0, width=38, height=48 },  -- 9
+        { x=298, y=0, width=40, height=48 },  -- 0
+        { x=338, y=0, width=22, height=48 }   -- :
+    },
+    sheetContentWidth = 360,
+    sheetContentHeight = 48
+}
+local sheet = graphics.newImageSheet( "timer-digits.png", sheetOptions )</pre>
+<p>This tutorial won't explain the above configuration <nobr>in detail —</nobr> if you need further understanding on the topic, please see the <a href="../../../guide/media/imageSheets/index.html">Image Sheets</a> guide. Essentially, this new code defines the <strong>frames</strong> of the image sheet <nobr>(11 in total)</nobr> and creates an image sheet (<code>sheet</code>).</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Next, define a basic sprite <strong>sequence</strong> and create/position the colon object on screen:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: true; first-line: 22;">local digitSequence = { name="digits", start=1, count=11 }
+
+local colon = display.newSprite( sheet, digitSequence )
+colon.x, colon.y = display.contentCenterX, 80
+colon:setFrame( 11 )</pre>
+<p>Again, this tutorial will not cover sprite setup, all of which is outlined in the <a href="../../../guide/media/spriteAnimation/index.html">Sprite Animation</a> guide. Basically, we define a simple <nobr>11-frame</nobr> sequence (<code>digitSequence</code>), create our first sprite (<code>colon</code>), position it on screen, and then set its <strong>frame</strong> to <code>11</code> (note that the colon is the 11th frame in the image sheet).</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>In this example, the colon object will remain &quot;locked&quot; in place and all other digits will be positioned around it. We'll need 4 additional digits, so let's create them now:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: true; first-line: 28;">local minutesSingle = display.newSprite( sheet, digitSequence )
+minutesSingle.x, minutesSingle.y = 0, 80
+minutesSingle.anchorX = 1
+
+local minutesDouble = display.newSprite( sheet, digitSequence )
+minutesDouble.x, minutesDouble.y = 0, 80
+minutesDouble.anchorX = 1
+
+local secondsDouble = display.newSprite( sheet, digitSequence )
+secondsDouble.x, secondsDouble.y = 0, 80
+secondsDouble.anchorX = 0
+
+local secondsSingle = display.newSprite( sheet, digitSequence )
+secondsSingle.x, secondsSingle.y = 0, 80
+secondsSingle.anchorX = 0</pre>
+<p>The first two objects represent the <strong>minutes</strong> digits and the second two objects are for the <strong>seconds</strong>. Don't worry about the initial <strong>x</strong> position of <code>0</code> for each object — in this enhanced version, we'll actually use modifications within the existing <code>updateTime()</code> function to set both the frame <strong>and</strong> position of every digit. Note, however, that we do specify <strong>anchors</strong> for these four objects, an important aspect which ensures that each digit remains properly spaced in relation to its surrounding elements.</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Now let's begin modifying the <code>updateTime()</code> function to take advantage of our changes so far. First, surround the <code>secondsLeft</code> calculation with a simple conditional statement — this will prevent <code>secondsLeft</code> from decrementing on the first &quot;initialization&quot; of the timer display performed in step #5.</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: true; highlight: [46,49]; first-line: 44;">local function updateTime( event )
+
+    if ( event ~= "init" ) then
+        -- Decrement the number of seconds
+        secondsLeft = secondsLeft - 1
+    end</pre>
+<p>Next, a bit lower down in the function, <strong>remove</strong> the <nobr><code>clockText.text = timeDisplay</code></nobr> command, since that object no longer exists. In its place, add the following highlighted blocks of code:</p>
+<pre class="brush: lua; gutter: true; highlight: [58,59,60,61,62,63,64,65,66,68,69,70,71,72]; first-line: 51;">    -- Time is tracked in seconds; convert it to minutes and seconds
+    local minutes = math.floor( secondsLeft / 60 )
+    local seconds = secondsLeft % 60
+
+    -- Make it a formatted string
+    local timeDisplay = string.format( "%02d:%02d", minutes, seconds )
+    
+    -- Get the individual new value of each element in time display
+    local md = tonumber( string.sub( timeDisplay, 1, 1 ) )
+    local ms = tonumber( string.sub( timeDisplay, 2, 2 ) )
+    local sd = tonumber( string.sub( timeDisplay, 4, 4 ) )
+    local ss = tonumber( string.sub( timeDisplay, 5, 5 ) )
+    if ( md == 0 ) then minutesDouble:setFrame( 10 ) else minutesDouble:setFrame( md ) end
+    if ( ms == 0 ) then minutesSingle:setFrame( 10 ) else minutesSingle:setFrame( ms ) end
+    if ( sd == 0 ) then secondsDouble:setFrame( 10 ) else secondsDouble:setFrame( sd ) end
+    if ( ss == 0 ) then secondsSingle:setFrame( 10 ) else secondsSingle:setFrame( ss ) end
+
+    -- Reposition digits around central colon
+    minutesSingle.x = colon.contentBounds.xMin
+    minutesDouble.x = minutesSingle.contentBounds.xMin
+    secondsDouble.x = colon.contentBounds.xMax
+    secondsSingle.x = secondsDouble.contentBounds.xMax
+end</pre>
+<p>Essentially, the first block determines the value of each digit in the time readout, setting them to four variables accordingly <nobr>(<code>md</code>, <code>ms</code>, <code>sd</code>, and <code>ss</code>)</nobr>. For example, if the formatted <code>timeDisplay</code> string is <code>05:36</code>, these variables will be <nobr><code>0</code>, <code>5</code>, <code>3</code>, and <code>6</code></nobr> respectively.</p>
+<p>Using those four values, the <strong>frame</strong> of each sprite is then set to the proper value. Note that for each, if the variable is equal to <code>0</code>, we set the frame to <code>10</code> which is actually the <strong>0</strong> digit in the image sheet. Otherwise, we set the frame to the value of the variable which meshes with the image sheet representation accordingly.</p>
+<p>In the second block, we reposition all four digits, working outward from the central colon. Basically, <code>minutesSingle</code> represents the digit directly to the <strong>left</strong> of the colon. That digit is pushed directly against the left side of the colon, then <code>minutesDouble</code> is pushed against the left side of <code>minutesSingle</code>. Similarly, <code>secondsDouble</code> represents the digit directly to the <strong>right</strong> of the colon, so it is pushed against the right side of the colon. Finally, <code>secondsSingle</code> is pushed against the right side of <code>secondsDouble</code>. All of this might seem complicated, but the usage of <code>contentBounds</code> properties and anchors makes it perform nicely, eliminating excess spacing between digits as the timer counts down.</p>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>The final modification is to &quot;initialize&quot; the timer display. While we could have done this in step #3, it would have resulted in duplicate frame setting and positioning code that we just added to the <code>updateTime()</code> function. Thus, we'll use a little trick where we explicity run the <code>updateTime()</code> before the timer begins — however, since we don't want this initialization to subtract <code>1</code> from the <code>secondsLeft</code> variable, we'll pass a string value of <code>&quot;init&quot;</code> to the function:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: true; highlight: [76]; first-line: 75;">-- Initialize timer to set/position the digit sprites
+updateTime( "init" )
+
+-- Run the timer
+local countDownTimer = timer.performWithDelay( 1000, updateTime, secondsLeft )</pre>
+<p>As you recall, we added a conditional blocker for this in step #4 (line 46). This <code>&quot;init&quot;</code> parameter will <strong>only</strong> exist when we call the <code>updateTime()</code> function on line 76, not when that function is called by the <code>countDownTimer</code> timer on line 79. Thus, we make effective use of the <code>updateTime()</code> function for <strong>two</strong> purposes: initializing the timer display to the value set way up on line 1 <strong>and</strong> setting the frame/position of each digit as the timer counts down.</p>
+</div>
+<div class="docs-tip-outer docs-tip-color-action">
+<div class="docs-tip-inner-left">
+<div class="fa fa-video-camera" style="font-size: 29px; padding-top: 4px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>That's it! The final line remains the same and the timer will begin counting down after 1 second. With these modifications, we now have a colorful <nobr>sprite-rendered</nobr> timer display, and better yet, the issues of alignment and inconsistent spacing are both resolved!</p>
+</div>
+</div>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>While working with time may seem difficult at first, in many cases it's a simple matter of integer math and usage of basic <nobr>time-based</nobr> APIs. Hopefully this tutorial has given you a foundation to get started!</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=tutorial.games.countdownTimer.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

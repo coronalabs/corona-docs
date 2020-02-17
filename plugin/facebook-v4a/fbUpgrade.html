@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | Facebook (v4a) | Facebook Versioning/Upgrading</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#facebook-versioningupgrading">Facebook Versioning/Upgrading</a><ul>
+<li><a href="#major-version-history">Major Version History</a></li>
+<li><a href="#upgrade-details">Upgrade Details</a><ul>
+<li><a href="#update-stable-release">3/2016 Update → Stable Release</a></li>
+<li><a href="#update-32016update">11/2015 Update → 3/2016 Update</a></li>
+<li><a href="#ios-beta-112015-update">iOS Beta → 11/2015 Update</a></li>
+<li><a href="#android-beta-ios-beta">Android Beta → iOS Beta</a></li>
+</ul></li>
+<li><a href="#facebook-v4-migration">Facebook v4 Migration</a><ul>
+<li><a href="#additions">Additions</a></li>
+<li><a href="#deletions">Deletions</a></li>
+<li><a href="#differences">Differences</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/facebook-v4a/index.html">Facebook (v4a)</a>  ▸  <a href="../../plugin/facebook-v4a/fbUpgrade.html">Facebook Versioning/Upgrading</a>
+</div>
+<div id="facebook-versioningupgrading" class="section level1">
+<h1>Facebook Versioning/Upgrading</h1>
+<p>The following is an overview of the differences between major versions of the Facebook SDK implemented via the <a href="../../plugin/facebook-v4/index.html">Facebook</a> plugin. Some of these updates will be delivered automatically when a new device build is made, while others may require updating to a later version of Corona. Bug fixes will typically only be delivered to the latest major version available.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#history">Major Version History</a></li>
+<li><a href="#upgrades">Upgrade Details</a></li>
+<li><a href="#migration">Facebook v4 Migration</a></li>
+</ul>
+</div>
+<p><a id="history"></a></p>
+<div id="major-version-history" class="section level2">
+<h2>Major Version History</h2>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Release Name</th>
+<th align="left">Release Date</th>
+<th align="left">Corona Compatibility</th>
+<th align="left"><nobr>Facebook SDK (iOS/Android)</nobr></th>
+<th align="center">Graph API</th>
+<th align="center">Available</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Android Beta</td>
+<td align="left">07/24/2015</td>
+<td align="left">2015.2685 - 2016.2827</td>
+<td align="left">– / 4.4.0 (fork)</td>
+<td align="center">v2.4</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">iOS Beta</td>
+<td align="left">09/01/2015</td>
+<td align="left">2015.2685 - 2016.2827</td>
+<td align="left">4.5.1 / 4.5.0 (fork)</td>
+<td align="center">v2.4</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">11/2015 Update</td>
+<td align="left">11/10/2015</td>
+<td align="left">2015.2685 - 2016.2827</td>
+<td align="left">4.5.1 / 4.5.0 (fork)</td>
+<td align="center">v2.4</td>
+<td align="center">✓</td>
+</tr>
+<tr class="even">
+<td align="left">3/2016 Update</td>
+<td align="left">03/25/2016</td>
+<td align="left">2015.2828 - 2016.2931</td>
+<td align="left">4.10.1 / 4.10.1 (fork)</td>
+<td align="center">v2.5</td>
+<td align="center">✓</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Stable Release</strong></td>
+<td align="left">10/27/2016</td>
+<td align="left">2016.2932 +</td>
+<td align="left">4.16.1 / 4.16.1 (fork)</td>
+<td align="center">v2.8</td>
+<td align="center">✓</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a id="upgrades"></a></p>
+</div>
+<div id="upgrade-details" class="section level2">
+<h2>Upgrade Details</h2>
+<div id="update-stable-release" class="section level3">
+<h3>3/2016 Update → Stable Release</h3>
+<ul>
+<li><p>The Graph API version has been updated from <a href="https://developers.facebook.com/docs/apps/changelog#v2_5">v2.5</a> to <a href="https://developers.facebook.com/docs/apps/changelog#v2_8">v2.8</a>. See Facebook's <a href="https://developers.facebook.com/docs/apps/upgrading">Graph API Upgrade Guide</a> for more information on how this may affect your <a href="../../plugin/facebook-v4/request.html">facebook.request()</a> calls.</p></li>
+<li><p>Previously denied permissions will be <nobr>re-requested</nobr> in the login screen.</p></li>
+<li><p>Facebook Places and Facebook Friends have been deprecated in favor of selecting these in the <a href="https://developers.facebook.com/docs/sharing/reference/share-dialog">Share Dialog</a>. Please migrate to using <nobr><code>facebook.showDialog( &quot;link&quot; )</code></nobr> instead of <nobr><code>facebook.showDialog( &quot;feed&quot; )</code></nobr>, <nobr><code>facebook.showDialog( &quot;place&quot; )</code></nobr>, or <nobr><code>facebook.showDialog( &quot;friends&quot; )</code></nobr>.</p></li>
+<li><p><code>facebook.showDialog( &quot;link&quot; )</code> now requires a <code>link</code> key in the <code>params</code> table. This means that using the <a href="https://developers.facebook.com/docs/sharing/reference/share-dialog">Share Dialog</a> to let users compose a <nobr>plain-text</nobr> status update is no longer possible. For alternate means to do this, see the <a href="../../plugin/CoronaProvider_native_popup_social/index.html">Social Plugin</a>.</p></li>
+<li><p>The Facebook SDK is no longer distributed with Corona Native in the <code>Plugins/sdk-facebook</code> directory. For iOS, the appropriate SDK version can be downloaded <a href="https://developers.facebook.com/docs/ios/downloads">here</a>. For Android, Corona's fork of the Facebook SDK is now provided on <a href="https://github.com/coronalabs/plugins-sdk-facebook-android">GitHub</a>.</p></li>
+<li><p>A new method, <a href="../../plugin/facebook-v4/isFacebookAppEnabled.html">facebook.isFacebookAppEnabled()</a>, will help determine if a native Facebook app is installed and accessible on the device. See the <a href="../../plugin/facebook-v4/isFacebookAppEnabled.html">documentation</a> for more info.</p></li>
+<li><p><a href="../../plugin/facebook-v4/showDialog.html">facebook.showDialog()</a> now supports sharing photos to a user's photo album.</p></li>
+<li><p>For iOS, the Facebook SDK version has been updated from <a href="https://developers.facebook.com/docs/ios/change-log-4.x#4_10_1">4.10.1</a> to <a href="https://developers.facebook.com/docs/ios/change-log-4.x#4_16_1">4.16.1</a> which supports iOS 10. If you're a Corona Native user, see Facebook's <a href="https://developers.facebook.com/docs/ios/upgrading-4.x#4160to4161">upgrade guide</a> for more information.</p></li>
+<li><p>On iOS 9 and above, the <a href="https://developers.facebook.com/docs/sharing/reference/share-dialog">Share Dialog</a> will use a <a href="https://developer.apple.com/reference/safariservices/sfsafariviewcontroller">SFSafariViewController</a>. This is to coincide with the default that began with Facebook SDK <a href="https://developers.facebook.com/docs/ios/change-log-4.x#4_6_0">4.6.0</a>.</p></li>
+<li><p>For Android, the Facebook SDK version has been updated from <a href="https://developers.facebook.com/docs/android/change-log-4.x#4_10_1">4.10.1</a> to <a href="https://developers.facebook.com/docs/android/change-log-4.x#4_16_1">4.16.1</a>. This means that the <a href="https://play.google.com/store/apps/details?id=com.facebook.lite&amp;hl=en">Facebook Lite app</a> will be used for login if the <a href="https://play.google.com/store/apps/details?id=com.facebook.katana&amp;hl=en">Facebook app</a> for Android is not installed. If you're a Corona Native user, see Facebook's <a href="https://developers.facebook.com/docs/android/upgrading-4.x#4160to4161">upgrade guide</a> for more information.</p></li>
+</ul>
+</div>
+<div id="update-32016update" class="section level3">
+<h3>11/2015 Update → 3/2016 Update</h3>
+<ul>
+<li><p>The Graph API version has been updated from <a href="https://developers.facebook.com/docs/apps/changelog#v2_4">v2.4</a> to <a href="https://developers.facebook.com/docs/apps/changelog#v2_5">v2.5</a>. See Facebook's <a href="https://developers.facebook.com/docs/apps/upgrading#v24tov25">Graph API Upgrade Guide</a> for more information on how this may affect your <a href="../../plugin/facebook-v4/request.html">facebook.request()</a> calls.</p></li>
+<li><p>For iOS, the Facebook SDK version has been updated from <a href="https://developers.facebook.com/docs/ios/change-log-4.x#4_5_1">4.5.1</a> to <a href="https://developers.facebook.com/docs/ios/change-log-4.x#4_10_1">4.10.1</a>. This means that devices running iOS 9 and above will use a <a href="https://developer.apple.com/reference/safariservices/sfsafariviewcontroller">SFSafariViewController</a> to log users in. If you're a Corona Native user, see Facebook's <a href="https://developers.facebook.com/docs/ios/upgrading-4.x#490to4100">upgrade guide</a> for more info.</p></li>
+<li><p>For Android, the Facebook SDK version has been updated from <a href="https://developers.facebook.com/docs/android/change-log-4.x#4_5_0">4.5.0</a> to <a href="https://developers.facebook.com/docs/android/change-log-4.x#4_10_1">4.10.1</a>. This means that the target Android SDK version is now <a href="https://developer.android.com/about/versions/marshmallow/index.html">API Level 23</a>. If you're a Corona Native user, see Facebook's <a href="https://developers.facebook.com/docs/android/upgrading-4.x#4100to4101">upgrade guide</a> for more information.</p></li>
+<li><p>For Android, support for API Levels 10-14 has been maintained despite the Facebook SDK <a href="https://developers.facebook.com/docs/android/change-log-4.x#4_7_0">changing</a> the minimum SDK version to API Level 15.</p></li>
+<li><p>On Android, Facebook Places will now prompt users for Location permission if it hasn't been granted on devices running <a href="(https://developer.android.com/about/versions/marshmallow/index.html)">Android 6.0</a> and above.</p></li>
+</ul>
+</div>
+<div id="ios-beta-112015-update" class="section level3">
+<h3>iOS Beta → 11/2015 Update</h3>
+<ul>
+<li><p>For <a href="../../plugin/facebook-v4/request.html">facebook.request()</a>, <code>DELETE</code> is now supported as an <code>httpMethod</code> parameter. <a href="../../plugin/facebook-v4/request.html">facebook.request()</a> can also now be used to post Open Graph stories.</p></li>
+<li><p>For <a href="../../plugin/facebook-v4/showDialog.html">facebook.showDialog()</a>, the Game Request Dialog now supports the <code>actionType</code> and <code>filter</code> parameters.</p></li>
+</ul>
+</div>
+<div id="android-beta-ios-beta" class="section level3">
+<h3>Android Beta → iOS Beta</h3>
+<ul>
+<li><p>The property <a href="../../plugin/facebook-v4/currentAccessToken.html">facebook.currentAccessToken</a> has been deprecated in favor of the <a href="../../plugin/facebook-v4/getCurrentAccessToken.html">facebook.getCurrentAccessToken()</a> function.</p></li>
+<li><p><code>facebook.showDialog( &quot;link&quot; )</code> has been added in favor of <nobr><code>facebook.showDialog( &quot;feed&quot; )</code></nobr> for sharing URL content. With this, the functionality of Facebook Places and Facebook Friends is built in if the Facebook app is installed.</p></li>
+<li><p>For Android, the Facebook SDK version has been updated from <a href="https://developers.facebook.com/docs/android/change-log-4.x#4_4_0">4.4.0</a> to <a href="https://developers.facebook.com/docs/android/change-log-4.x#4_5_0">4.5.0</a>. See Facebook's <a href="https://developers.facebook.com/docs/android/upgrading-4.x#441to450">upgrade guide</a> for more information.</p></li>
+</ul>
+<p><a id="migration"></a></p>
+</div>
+</div>
+<div id="facebook-v4-migration" class="section level2">
+<h2>Facebook v4 Migration</h2>
+<p>If you have an older project which used Corona's <a href="../../plugin/facebook/index.html">legacy</a> Facebook plugin, you'll need to migrate to the current <a href="../../plugin/facebook-v4/index.html">Facebook</a> plugin. The following is an overview of the differences between Facebook SDK v3 and Facebook SDK v4, now fully implemented via the <a href="../../plugin/facebook-v4/index.html">Facebook</a> plugin.</p>
+<p>The updated project settings for the current plugin can be found <a href="index.html#project-settings">here</a>.</p>
+<div id="additions" class="section level3">
+<h3>Additions</h3>
+<ul>
+<li><p><a href="../../plugin/facebook-v4/getCurrentAccessToken.html">facebook.getCurrentAccessToken()</a> — This indicates the access token corresponding to which user logged in to Facebook from your app. This can be used to determine if a user is already logged in when the app starts, know when to refresh an access token, and track which permissions need to be requested.</p></li>
+<li><p><a href="../../plugin/facebook-v4/isActive.html">facebook.isActive</a> — This property lets you know if the <nobr><code>facebook-v4</code></nobr> plugin has been initialized. The initialization begins when you <code>require()</code> the plugin in your project, but it isn't guaranteed to be completed at the time when the next line of code executes.</p></li>
+<li><p><a href="../../plugin/facebook-v4/setFBConnectListener.html">facebook.setFBConnectListener()</a> — This function lets you set the [fbconnect][api.event.fbconnect] event listener which the <nobr><code>facebook-v4</code></nobr> plugin will use. It can be used to change the listener conditionally or simply to set the listener at the beginning of your app.</p></li>
+<li><p>There are new actions available to <a href="../../plugin/facebook-v4/showDialog.html">facebook.showDialog()</a> which have the <nobr>built-in</nobr> ability to tag a place/friends and share a link to Facebook.</p></li>
+</ul>
+</div>
+<div id="deletions" class="section level3">
+<h3>Deletions</h3>
+<ul>
+<li><code>facebook.accessDenied</code> — Since logging in through <strong>Settings</strong> on an iOS device is not supported, this API no longer serves a purpose.</li>
+</ul>
+</div>
+<div id="differences" class="section level3">
+<h3>Differences</h3>
+<ul>
+<li><p>To include the current Facebook plugin, use <nobr><code>require( &quot;plugin.facebook.v4&quot; )</code></nobr>. Do <strong>not</strong> use <nobr><code>require( &quot;facebook&quot; )</code></nobr> as with the <a href="../../plugin/facebook/index.html">legacy</a> plugin.</p></li>
+<li><p>Implementation for iOS 9 and above requires a few additional steps detailed in the <nobr>top-level</nobr> plugin documentation <a href="index.html#ios">here</a>.</p></li>
+<li><p>If you're using Corona Native for iOS, you'll need to add a reference to the <code>CoronaFacebookDelegate</code> in your <code>Info.plist</code> as outlined in the <nobr>top-level</nobr> plugin documentation <a href="index.html#ios-1">here</a>.</p></li>
+<li><p>On Android, you must now include a Facebook App ID in <code>build.settings</code>. Previously, you also needed to specify the <code>android.permission.INTERNET</code> permission in <code>build.settings</code>, but this has been built into the plugin for Corona users. Corona Native users, however, will still need to add the <code>android.permission.INTERNET</code> permission to their <code>AndroidManifest.xml</code>.</p></li>
+<li><p>Passing your Facebook App ID as the first argument to <a href="../../plugin/facebook-v4/login.html">facebook.login()</a> and <a href="../../plugin/facebook-v4/publishInstall.html">facebook.publishInstall()</a> is no longer necessary. Doing so will result in a warning advising you to remove the argument.</p></li>
+<li><p>Passing a listener function reference to <a href="../../plugin/facebook-v4/login.html">facebook.login()</a> is now optional. The listener function for [fbconnect][api.event.fbconnect] events can be set independently of <a href="../../plugin/facebook-v4/login.html">facebook.login()</a> via the <a href="../../plugin/facebook-v4/setFBConnectListener.html">facebook.setFBConnectListener()</a> API.</p></li>
+<li><p><a href="../../plugin/facebook-v4/showDialog.html">facebook.showDialog()</a> is more limited on combinations of valid options. This is due to the new <a href="https://developers.facebook.com/docs/sharing">sharing model</a> introduced in Facebook SDK v4. Currently, only dialog types that are explicitly documented are supported.</p></li>
+<li><p>The <code>&quot;apprequests&quot;</code> action for <a href="../../plugin/facebook-v4/showDialog.html">facebook.showDialog()</a> has been replaced by <code>&quot;requests&quot;</code> which corresponds to the <a href="https://developers.facebook.com/docs/games/services/gamerequests">Game Requests Dialog</a>.</p></li>
+<li><p>The URI responses given from <a href="../../plugin/facebook-v4/showDialog.html">facebook.showDialog()</a> will be different as a result of the new <a href="https://developers.facebook.com/docs/sharing">sharing model</a>. For example, a <code>&quot;link&quot;</code> action will return only the ID of the post made, while a <code>&quot;requests&quot;</code> action will return the request ID and the list of recipients in the request.</p></li>
+<li><p><a href="../../plugin/facebook-v4/showDialog.html">facebook.showDialog()</a> now provides feedback if the user cancelled out of the dialog. If the dialog is cancelled, the [fbconnect][api.event.fbconnect] event will have contain this indication in its [response][api.event.fbconnect.response].</p></li>
+<li><p>On Corona Native for Android, the <nobr><code>facebook-v4</code></nobr> plugin uses a modified version of the Facebook SDK which can be found on <a href="https://github.com/coronalabs/plugins-sdk-facebook-android">GitHub</a>.</p></li>
+</ul>
+<!--- REFERENCE LINKS -->
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.facebook-v4a.fbUpgrade&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

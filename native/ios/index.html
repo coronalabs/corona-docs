@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Corona Native | iOS</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#coronanative-ios">Corona Native — iOS</a><ul>
+<li><a href="#coronanative-setup">Corona Native Setup</a></li>
+<li><a href="#project-templates">Project Templates</a></li>
+<li><a href="#coronanative-development">Corona Native Development</a><ul>
+<li><a href="#bridging-luac">Bridging Lua/C</a></li>
+<li><a href="#native-apis">Native APIs</a></li>
+<li><a href="#using-plugins">Using Plugins</a></li>
+<li><a href="#setting-orientation">Setting Orientation</a></li>
+<li><a href="#sending-events-to-runtime">Sending Events to Runtime</a></li>
+<li><a href="#registering-custom-libraries">Registering Custom Libraries</a></li>
+<li><a href="#custom-lua-error-handling">Custom Lua Error Handling</a></li>
+<li><a href="#opengl-context-mismatch">OpenGL Context Mismatch</a></li>
+</ul></li>
+<li><a href="#building-for-devices">Building for Devices</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../native/index.html">Corona Native</a>  ▸  <a href="../../native/ios/index.html">iOS</a>
+</div>
+<div id="coronanative-ios" class="section level1">
+<h1>Corona Native — iOS</h1>
+<p>The following resources go further in depth on using Corona Native for iOS.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#setup">Corona Native Setup</a></li>
+<li><a href="#templates">Project Templates</a></li>
+<li><a href="#development">Corona Native Development</a></li>
+<li><a href="#building">Building for Devices</a></li>
+</ul>
+</div>
+<p><a id="setup"></a></p>
+<div id="coronanative-setup" class="section level2">
+<h2>Corona Native Setup</h2>
+<p>The following steps will help you set up your native development environment such that it's optimized for integration with Corona Native.</p>
+<ol style="list-style-type: decimal">
+<li><p>Within the <code>/Applications/Corona/Native/</code> folder, double click <strong>Setup Corona Native</strong>. This will create the symbolic link required for the project templates.</p></li>
+<li><p>To develop native iOS applications, you'll need to install <a href="https://developer.apple.com/xcode/">Xcode</a>, available from the Mac App Store or for direct download. If you already have Xcode installed, ensure you've updated to the latest version.</p></li>
+<li><p>You must have an <a href="https://developer.apple.com/">Apple Developer</a> account to install/test apps on iOS devices and publish to the App Store. Once you've established your account, you'll need to integrate it with Xcode. This process is outlined <a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppStoreDistributionTutorial/AddingYourAccounttoXcode/AddingYourAccounttoXcode.html">here</a>.</p></li>
+<li><p>If your iOS development environment is working correctly, you should be able to build a native iOS sample project such as <a href="https://developer.apple.com/library/content/samplecode/MyLife/Introduction/Intro.html#//apple_ref/doc/uid/TP40017272">MyLife</a>. Additionally, you should be able to <a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppStoreDistributionTutorial/LaunchingYourApponDevices/LaunchingYourApponDevices.html">deploy and run</a> the sample on a device.</p></li>
+</ol>
+<p><a id="templates"></a></p>
+</div>
+<div id="project-templates" class="section level2">
+<h2>Project Templates</h2>
+<p>New projects can easily be created by using template files as a starting point. Inside the <nobr><code>/Applications/Corona/Native/Project Template/App/</code></nobr> folder, the following files/directories are of primary concern:</p>
+<div class="tree">
+<ul>
+<li><code>Corona</code> — This folder represents a classic Corona project, containing files like <code>main.lua</code>, app icons, etc. By default, <code>ios/App.xcodeproj</code> is set up to assume that these files reside inside this exact folder (<code>Corona</code>).</li>
+<li><code>ios</code> — Contains all of the <nobr>iOS-specific</nobr> code, projects, etc.
+<ul>
+<li><code>App.xcodeproj</code> — This is the main project for building and running your app within Xcode. We recommend that you use this project template as the starting point for your Xcode project since it contains custom build phases that take care of packaging your Lua sources and resource files <nobr>(images, audio, etc.)</nobr>. It also allows you to structure your native extensions as <a href="../../native/plugin/index.html">plugins</a> that can be <nobr>re-used</nobr> in future projects.</li>
+<li><code>AppCoronaDelegate.h</code> / <code>AppCoronaDelegate.mm</code> — The main application entry points go here. The class conforms to the <a href="../../native/ios/CoronaDelegate/index.html">CoronaDelegate</a> protocol, so you will get notified immediately before and after <code>main.lua</code> is loaded and executed. You can also add <code>UIApplicationDelegate</code> methods. We recommend that you add new Lua libraries via plugins.</li>
+<li><code>Plugin/</code> — For <a href="../../native/plugin/index.html">plugins</a>, this is where the implementation of <code>plugin.library</code> goes.
+<ul>
+<li><code>PluginLibrary.h</code> / <code>PluginLibrary.mm</code> — These implement <code>plugin.library</code>.</li>
+</ul></li>
+<li><code>Plugin.xcodeproj</code> — For <a href="../../native/plugin/index.html">plugins</a>, this is the main project that contains the Lua library that you are exposing to your application. This is a dependency of <code>App.xcodeproj</code>, so it will get built automatically. You only need to open this project if you want to build a plugin separately.</li>
+<li><code>CoronaNative.xcconfig</code> — Configuration file containing common setup elements for Corona Native (paths to Corona and Lua header files, libraries, and linker options).</li>
+<li><code>CoronaApp.xcconfig</code> — Configuration file generated when building &quot;Download Plugins&quot; target. This configuration may include information necessary to use plugins specified in <code>build.settings</code>. It also includes <code>CoronaNative.xcconfig</code>.</li>
+</ul></li>
+</ul>
+</div>
+<div class="guide-notebox">
+<div class="notebox-title">
+Project Flow
+</div>
+<p>The following steps briefly outline the flow of the <nobr><code>/Applications/Corona/Native/Project Template/App/</code></nobr> project for iOS:</p>
+<ol style="list-style-type: decimal">
+<li><p><code>ios/main.mm</code> — At launch time, <code>MyCoronaDelegate</code> is registered as the class implementing the <a href="../../native/ios/CoronaDelegate/index.html">CoronaDelegate</a> interface. Corona will instantiate an instance of this class and assume the designated initializer is <code>init</code>.</p></li>
+<li><p><code>ios/AppCoronaDelegate.mm</code> — Right before <code>Corona/main.lua</code> is invoked, the <a href="../../native/ios/CoronaDelegate/willLoadMain.html">willLoadMain</a> method is invoked. At this point, OpenGL is set up and all Corona frameworks are available.</p></li>
+<li><p><code>Corona/main.lua</code> — In the Lua code, <code>plugin.library</code> is loaded via <code>require()</code>. The Corona engine will then look for a corresponding C function called <code>luaopen_plugin_library</code> and invoke it. The name of this function is dynamic and is constructed using the original library name passed to <code>require()</code>. It takes that name and adds a prefix <code>luaopen_</code> to it, then replaces <code>.</code> with <code>_</code>.</p></li>
+<li><p><code>ios/Plugin/PluginLibrary.mm</code> — When <code>luaopen_plugin_library</code> is invoked, it calls <code>PluginLibrary::Open</code> which does all of the heavy lifting, for example creating the Lua library table, registering the Lua methods like <code>show()</code>, and then leaving the table at the top of the Lua stack.</p></li>
+</ol>
+</div>
+<p><a id="development"></a></p>
+</div>
+<div id="coronanative-development" class="section level2">
+<h2>Corona Native Development</h2>
+<div id="bridging-luac" class="section level3">
+<h3>Bridging Lua/C</h3>
+<p>To bridge Lua and C code, you'll use functionality made available by the <a href="http://www.lua.org/manual/5.1/manual.html#3">Lua C API</a>. This allows you to add libraries and functions in Lua that call directly into C.</p>
+<p>Every function in the Lua C API takes the <code>lua_State</code> pointer <code>L</code> as its first argument. You can get access to the proper <code>lua_State</code> variable via an instance of the <a href="../../native/ios/CoronaRuntime/index.html">CoronaRuntime</a>.</p>
+<p>In order to use the Lua C API successfully, you must understand the Lua stack. This stack is different from a function call stack; it is designed to ease the marshalling of data across the <nobr>Lua-C</nobr> bridge. See <a href="http://www.lua.org/manual/5.1/manual.html#3">here</a> for more information.</p>
+</div>
+<div id="native-apis" class="section level3">
+<h3>Native APIs</h3>
+<p>The following are specific to Corona Native for iOS:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Native API</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="../../native/ios/CoronaDelegate/index.html">CoronaDelegate</a></td>
+<td align="left">Your code <strong>must</strong> implement this protocol if you wish to add your own functions at the Lua layer. You can also intercept <code>UIApplicationDelegate</code> events via your implementation of this protocol.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../native/ios/CoronaRuntime/index.html">CoronaRuntime</a></td>
+<td align="left">Key objects including the Lua state used by the Corona engine are accessible via this protocol. The Corona engine gives you access to this via the <a href="../../native/ios/CoronaDelegate/index.html">CoronaDelegate</a>.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../native/ios/CoronaLuaIOS/index.html">CoronaLuaIOS.h</a></td>
+<td align="left">Contains additional functions to help you bridge between Lua and native <nobr>Obj-C</nobr> code. This is meant to complement the set of <nobr>cross-platform</nobr> functions in <a href="../../native/C/CoronaLua/index.html">CoronaLua.h</a>.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../native/C/index.html">Corona C Functions</a></td>
+<td align="left">This is a collection of C functions offered by the Corona engine which help you interact with Lua for <nobr>Corona-specific</nobr> patterns such as dispatching events.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="using-plugins" class="section level3">
+<h3>Using Plugins</h3>
+<p>For instructions on how to obtain and include Corona plugins within a Corona Native project, please consult the <a href="../../native/ios/usingPlugins.html">Using Plugins in Corona Native — iOS</a> guide.</p>
+<p><a id="orientation"></a></p>
+</div>
+<div id="setting-orientation" class="section level3">
+<h3>Setting Orientation</h3>
+<p>To restrict Corona to specific orientations when using Corona Native on iOS, you can use the <code>orientation</code> table in your project's <code>build.settings</code>. See <a href="../../guide/distribution/buildSettings/index.html">Project Build Settings</a> for more details.</p>
+<p>Alternatively, you can edit the <code>Info.plist</code> file (<code>App-Info.plist</code> in the template app) and add a <code>CoronaViewSupportedInterfaceOrientations</code> array with options similar to <code>UISupportedInterfaceOrientations</code>. For example, to enable all orientations:</p>
+<pre class="brush: xml;">&lt;key>CoronaViewSupportedInterfaceOrientations&lt;/key>
+&lt;array>
+    &lt;string>UIInterfaceOrientationLandscapeLeft&lt;/string>
+    &lt;string>UIInterfaceOrientationLandscapeRight&lt;/string>
+    &lt;string>UIInterfaceOrientationPortrait&lt;/string>
+    &lt;string>UIInterfaceOrientationPortraitUpsideDown&lt;/string>
+&lt;/array></pre>
+</div>
+<div id="sending-events-to-runtime" class="section level3">
+<h3>Sending Events to Runtime</h3>
+<p>All events in Corona are Lua tables. To make sending events to the global <a href="../../api/type/Runtime/index.html">Runtime</a> object, we've added a convenience utility function in <a href="../../native/C/CoronaLua/index.html">CoronaLua.h</a> called <a href="../../native/C/CoronaLua/CoronaLuaRuntimeDispatchEvent.html">CoronaLuaRuntimeDispatchEvent()</a>.</p>
+<p>In the following Lua code, we create a custom event of type <code>&quot;delegate&quot;</code>. In order for Corona to recognize the event as a Lua table, the <code>name</code> property of the Lua table must be set to the type of event:</p>
+<pre class="brush: lua;">local event = { name="delegate" }
+Runtime:dispatchEvent( event )</pre>
+<p>We then translate this call into native code and send the event in the <a href="../../native/ios/CoronaDelegate/didLoadMain.html">didLoadMain</a> method of <a href="../../native/ios/CoronaDelegate/index.html">CoronaDelegate</a>:</p>
+<pre class="brush: lua; c">@implementation MyCoronaDelegate
+
+- (void)didLoadMain:(id&lt;CoronaRuntime>)runtime
+{
+    lua_State *L = runtime.L;
+
+    // DISPATCH CUSTOM EVENT
+    // Create 'delegate' event
+    const char kNameKey[] = "name";
+    const char kValueKey[] = "delegate";
+    lua_newtable( L );
+    lua_pushstring( L, kValueKey );     // All events are Lua tables
+    lua_setfield( L, -2, kNameKey );    // that have a 'name' property
+
+    Corona::Lua::RuntimeDispatchEvent( L, -1 );
+}
+
+@end</pre>
+</div>
+<div id="registering-custom-libraries" class="section level3">
+<h3>Registering Custom Libraries</h3>
+<p>If you want to add your own library in Lua that wraps native C code, you should follow the standard Lua conventions as described in the <a href="../../native/plugin/index.html#native-c">Native C</a> section of the <a href="../../native/plugin/index.html">Plugins</a> guide.</p>
+</div>
+<div id="custom-lua-error-handling" class="section level3">
+<h3>Custom Lua Error Handling</h3>
+<p>You can register a custom Lua error handler by calling <a href="../../native/C/CoronaLua/CoronaLuaSetErrorHandler.html">CoronaLuaSetErrorHandler()</a>. Your handler will override Corona's internal default error handler and it will be called any time a Lua error occurs at runtime.</p>
+<pre class="brush: lua; c">static int MyTraceback( lua_State *L )
+{
+    lua_getfield(L, LUA_GLOBALSINDEX, "debug");
+    if (!lua_istable(L, -1)) {
+        lua_pop(L, 1);
+        return 1;
+    }
+    lua_getfield(L, -1, "traceback");
+    if (!lua_isfunction(L, -1)) {
+        lua_pop(L, 2);
+        return 1;
+    }
+    lua_pushvalue(L, 1);  // pass error message
+    lua_pushinteger(L, 1);  // skip this function and traceback
+    lua_call(L, 2, 1);  // call debug.traceback
+
+    // Log result of calling debug.traceback()
+    NSLog( @"[LUA ERROR]: %s", lua_tostring( L, -1 ) );
+
+    return 1;
+}
+
+@implementation MyCoronaDelegate
+- (void)willLoadMain:(id&lt;CoronaRuntime>)runtime
+{
+    Corona::Lua::SetErrorHandler( MyTraceback );
+}
+@end</pre>
+</div>
+<div id="opengl-context-mismatch" class="section level3">
+<h3>OpenGL Context Mismatch</h3>
+<p>Many third-party graphics libraries that use OpenGL will use their own OpenGL context. However, Corona performs its rendering on the main thread and does not expect the OpenGL context to change. Consequently, if you use certain graphics libraries, you may be inadvertently changing the OpenGL context which may cause issues with Corona rendering/updating properly.</p>
+<p>To ensure your code is dealing with OpenGL properly, you should ensure that the OpenGL context changes are &quot;balanced&quot; as follows:</p>
+<pre class="brush: lua; c">// 1. Save Corona context
+EAGLContext *context = nil;
+context = [EAGLContext currentContext];
+
+// 2. Call third-party library
+
+// 3. Restore Corona context
+[EAGLContext setCurrentContext:context];</pre>
+<p>For example, if the interface for the <nobr>third-party</nobr> library is shown via a modal view controller, you would perform steps 1 and 2 in the <code>presentViewController:animated:completion:</code> call and then perform step 3 in the <code>dismissViewControllerAnimated:completion:</code> call.</p>
+<p><a id="building"></a></p>
+</div>
+</div>
+<div id="building-for-devices" class="section level2">
+<h2>Building for Devices</h2>
+<p>To build a Corona Native project from Xcode, please follow Apple's guidelines <a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppStoreDistributionTutorial/LaunchingYourApponDevices/LaunchingYourApponDevices.html">here</a>.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=native.ios.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

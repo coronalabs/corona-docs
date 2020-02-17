@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries | display | setDefault</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#display.setdefault">display.setDefault()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#key-required">key <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#gray-r-g-b-alpha-optional">gray, r, g, b, alpha <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#display-object-keys">Display Object Keys</a></li>
+<li><a href="#color-keys">Color Keys</a></li>
+<li><a href="#native-keys">Native Keys</a></li>
+<li><a href="#texture-keys">Texture Keys</a></li>
+<li><a href="#camera-source">Camera Source</a></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#default-anchors">Default Anchors</a></li>
+<li><a href="#non-clamped-anchors">Non-Clamped Anchors</a></li>
+<li><a href="#fill-color-and-background">Fill Color and Background</a></li>
+<li><a href="#texture-wrap">Texture Wrap</a></li>
+<li><a href="#camera-source-1">Camera Source</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/display/index.html">display</a>  ▸  <a href="../../../api/library/display/setDefault.html">setDefault</a>
+</div>
+<div id="display.setdefault" class="section level1">
+<h1>display.setDefault()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Return value</strong></td>
+<td align="left">none</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">defaults, set default, color, graphics, vector objects</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../api/library/display/getDefault.html">display.getDefault()</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../guide/graphics/path.html">Shapes — Paths, Fills, Strokes</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../../api/library/display/newLine.html">display.newLine()</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../api/library/display/newText.html">display.newText()</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../../api/type/DisplayObject/anchorX.html">object.anchorX</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../api/type/DisplayObject/anchorY.html">object.anchorY</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Set default display values including default colors for display objects, anchor point defaults, texture wrapping settings, etc.</p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<p>Any of the following are valid:</p>
+<pre class="brush: lua;">display.setDefault( key, value )
+
+display.setDefault( key, r, g, b, alpha )
+
+display.setDefault( key, r, g, b )
+
+display.setDefault( key, gray )
+
+display.setDefault( key, gray, alpha )</pre>
+<div id="key-required" class="section level5">
+<h5>key <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> Specifies the key to set the default value for.</p>
+</div>
+<div id="gray-r-g-b-alpha-optional" class="section level5">
+<h5>gray, r, g, b, alpha <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> Color values between <code>0</code> and <code>1</code>.</p>
+</div>
+</div>
+<div id="display-object-keys" class="section level2">
+<h2>Display Object Keys</h2>
+<p>These keys specify default anchor values and anchor bounds for all display objects.</p>
+<ul>
+<li><p><code>&quot;anchorX&quot;</code> — The anchor alignment along the <strong>x</strong> direction. This value is used for the value of the <a href="../../../api/type/DisplayObject/anchorX.html">anchorX</a> property in new objects. The default is <code>0.5</code> (centered along the <strong>x</strong> direction).</p></li>
+<li><p><code>&quot;anchorY&quot;</code> — The anchor alignment along the <strong>y</strong> direction. This value is used for the value of the <a href="../../../api/type/DisplayObject/anchorY.html">anchorY</a> property in new objects. The default is <code>0.5</code> (centered along the <strong>y</strong> direction).</p></li>
+<li><p><code>&quot;isAnchorClamped&quot;</code> — If set to <code>false</code>, anchor positions along either the <strong>x</strong> or <strong>y</strong> direction are <strong>not</strong> constrained to values between <code>0</code> and <code>1</code>. In this case, setting anchor values outside of this range (negative or positive) will position the anchor outside the bounds of the display object. Default is <code>true</code>.</p></li>
+</ul>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Some display objects are not fully compatible with <nobr>non-center</nobr> anchor points, in particular <a href="../../../api/library/widget/index.html">widgets</a>, so you should be careful which &quot;scope&quot; you set default anchors for. Typically, changing the default anchor values should be used near the beginning of a process — for instance, displaying a series of objects which must be anchored a certain way — and then immediately after they should be <strong>reset</strong> to default (<code>0.5</code>) so that other objects are not affected inadvertently.</p>
+</div>
+</div>
+</div>
+<div id="color-keys" class="section level2">
+<h2>Color Keys</h2>
+<p>A color key specifies which default color value to set.</p>
+<ul>
+<li><p><code>&quot;background&quot;</code> — Corresponds to the default color for that the screen is cleared with. The default is initially black (<code>0,0,0</code>).</p></li>
+<li><p><code>&quot;fillColor&quot;</code> — Corresponds to the default fill color for vector objects like <a href="../../../api/library/display/newRect.html">display.newRect()</a>. The default is initially white (<code>1,1,1</code>).</p></li>
+<li><p><code>&quot;strokeColor&quot;</code> — Corresponds to the default stroke color for vector objects like <a href="../../../api/library/display/newRect.html">display.newRect()</a>. The default is initially white (<code>1,1,1</code>).</p></li>
+<li><p><code>&quot;lineColor&quot;</code> — Corresponds to the default color for line objects like <a href="../../../api/library/display/newLine.html">display.newLine()</a>. The default is initially white (<code>1,1,1</code>).</p></li>
+</ul>
+</div>
+<div id="native-keys" class="section level2">
+<h2>Native Keys</h2>
+<ul>
+<li><p><code>&quot;isNativeTextBoxFontSizeScaled&quot;</code> — Sets the default <a href="../../../api/type/Boolean.html">Boolean</a> value to be assigned to a native text box's <a href="../../../api/type/TextBox/isFontSizeScaled.html">object.isFontSizeScaled</a> property when created via the <a href="../../../api/library/native/newTextBox.html">native.newTextBox()</a> function. This is <code>true</code> by default. Set to <code>false</code> to enable legacy font handling support.</p></li>
+<li><p><code>&quot;isNativeTextFieldFontSizeScaled&quot;</code> — Sets the default <a href="../../../api/type/Boolean.html">Boolean</a> value to be assigned to a native text field's <a href="../../../api/type/TextField/isFontSizeScaled.html">object.isFontSizeScaled</a> property when created via the <a href="../../../api/library/native/newTextField.html">native.newTextField()</a> function. This is <code>true</code> by default. Set to <code>false</code> to enable legacy font handling support.</p></li>
+</ul>
+</div>
+<div id="texture-keys" class="section level2">
+<h2>Texture Keys</h2>
+<ul>
+<li><p><code>&quot;preloadTextures&quot;</code> — The default behavior for texture loading is to load the texture when the display object is created or when the display object uses it. Setting this value to <code>false</code> will delay loading of the texture to when the object appears on screen or to when it becomes visible.</p></li>
+<li><p><code>&quot;isImageSheetSampledInsideFrame&quot;</code> — Affects how <a href="../../../api/type/ImageSheet/index.html">image sheet</a> frames are sampled. If set to <code>true</code>, sampling is intruded by half of the source texture pixel size to avoid border artifacts. Default is <code>false</code>.</p></li>
+<li><p><code>&quot;magTextureFilter&quot;</code> — The default magnification sampling filter applied whenever an image is loaded by Corona. Once an image is loaded the first time, the same sampling filter will be applied for any subsequent loads of the same file. This is because textures are loaded once per file. Default value is <code>&quot;linear&quot;</code>. Alternative value is <code>&quot;nearest&quot;</code>.</p></li>
+<li><p><code>&quot;minTextureFilter&quot;</code> — The default minification sampling filter applied whenever an image is loaded by Corona. Once an image is loaded the first time, the same sampling filter will be applied for any subsequent loads of the same file. This is because textures are loaded once per file. Default value is <code>&quot;linear&quot;</code>. Alternative value is <code>&quot;nearest&quot;</code>.</p></li>
+<li><p><code>&quot;textureWrapX&quot;</code> — The texture wrap mode along the <strong>x</strong> direction. Once an image is loaded the first time, the same wrap mode will be applied for any subsequent loads of the same file. This is because textures are loaded once per file. Default value is <code>&quot;clampToEdge&quot;</code>. Other values are useful for patterns and include <code>&quot;repeat&quot;</code> or <code>&quot;mirroredRepeat&quot;</code>.</p></li>
+<li><p><code>&quot;textureWrapY&quot;</code> — The texture wrap mode along the <strong>y</strong> direction. Once an image is loaded the first time, the same wrap mode will be applied for any subsequent loads of the same file. This is because textures are loaded once per file. Default value is <code>&quot;clampToEdge&quot;</code>. Other values are useful for patterns and include <code>&quot;repeat&quot;</code> or <code>&quot;mirroredRepeat&quot;</code>.</p></li>
+</ul>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<ul>
+<li><p>For texture wrapping (<code>&quot;textureWrapX&quot;</code> and <code>&quot;textureWrapY&quot;</code>), <code>&quot;clampToEdge&quot;</code> is the only valid mode for <a href="http://www.opengl.org/wiki/NPOT_Texture">non-power-of-two textures</a>. To use <code>&quot;repeat&quot;</code> or <code>&quot;mirroredRepeat&quot;</code>, make sure the dimensions of your textures are power of two, for example <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>, <code>256</code>, etc.</p></li>
+<li><p>When using one of the non-default wrap modes (<code>&quot;repeat&quot;</code> or <code>&quot;mirroredRepeat&quot;</code>), you should revert the wrap mode to default (<code>&quot;clampToEdge&quot;</code>) when repeating fills are no longer required. For example, after filling an object with a wrapping texture, revert the wrap mode to default before proceeding with any other <a href="../../../api/type/ShapeObject/fill.html">fill</a> operations.</p></li>
+</ul>
+</div>
+</div>
+<div id="camera-source" class="section level2">
+<h2>Camera Source</h2>
+<ul>
+<li><code>&quot;cameraSource&quot;</code> — The default behavior for a camera object fill is to use the back-facing camera. Setting this value to <code>&quot;front&quot;</code>, will change the behavior to use the <nobr>front-facing</nobr> camera. Note that this is an <nobr>iOS-only</nobr> feature.</li>
+</ul>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<div id="default-anchors" class="section level5">
+<h5>Default Anchors</h5>
+<pre class="brush: lua;">-- Set default anchor point for objects to bottom-left
+display.setDefault( "anchorX", 0 )
+display.setDefault( "anchorY", 1 )</pre>
+</div>
+<div id="non-clamped-anchors" class="section level5">
+<h5>Non-Clamped Anchors</h5>
+<pre class="brush: lua;">display.setDefault( "isAnchorClamped", false )
+--display.setDefault( "isAnchorClamped", true )
+
+local rect = display.newRect( 200, 240, 100, 100 )
+rect.anchorX = -1
+rect.anchorY = 1.5
+
+transition.to( rect, { rotation=135, delay=500 } )</pre>
+</div>
+<div id="fill-color-and-background" class="section level5">
+<h5>Fill Color and Background</h5>
+<pre class="brush: lua;">-- Set default fill color for vector objects to red
+display.setDefault( "fillColor", 1, 0, 0 )
+
+-- Set default screen background color to blue
+display.setDefault( "background", 0, 0, 1 )</pre>
+</div>
+<div id="texture-wrap" class="section level5">
+<h5>Texture Wrap</h5>
+<pre class="brush: lua;">display.setDefault( "textureWrapX", "repeat" )
+display.setDefault( "textureWrapY", "repeat" )
+
+local x,y = display.contentCenterX, display.contentCenterY
+local o = display.newRect( x, y, display.contentWidth, display.contentHeight )
+o.fill = { type="image", filename="fish.small.red.png" }
+o.fill.scaleX = 0.1
+o.fill.scaleY = 0.1</pre>
+</div>
+<div id="camera-source-1" class="section level5">
+<h5>Camera Source</h5>
+<pre class="brush: lua;">if ( system.getInfo( "environment" ) ~= "simulator" ) then
+    display.setDefault( "cameraSource", "front" )   -- Front-facing camera
+    --display.setDefault( "cameraSource", "back" )  -- Back-facing camera
+end</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.display.setDefault&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

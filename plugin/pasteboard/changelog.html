@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | Pasteboard | changelog</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#changelog">Changelog</a><ul>
+<li><a href="#brent-sorrentino">2016-02-17 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-1">2015-11-28 Brent Sorrentino</a></li>
+<li><a href="#ajay-mccaleb">2015-10-26 Ajay McCaleb</a></li>
+<li><a href="#brent-sorrentino-2">2015-09-25 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-3">2015-02-27 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-4">2015-01-09 Brent Sorrentino</a></li>
+<li><a href="#albert-yale">2014-12-02 Albert Yale</a></li>
+<li><a href="#albert-yale-1">2014-11-20 Albert Yale</a></li>
+<li><a href="#brent-sorrentino-5">2014-08-29 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-6">2014-08-27 Brent Sorrentino</a></li>
+<li><a href="#danny-chan">2014-07-22 Danny Chan</a></li>
+<li><a href="#daniel-glover">2014-01-03 Daniel Glover</a></li>
+<li><a href="#daniel-glover-1">2014-01-02 Daniel Glover</a></li>
+<li><a href="#daniel-glover-2">2014-01-02 Daniel Glover</a></li>
+<li><a href="#daniel-glover-3">2013-12-27 Daniel Glover</a></li>
+<li><a href="#daniel-glover-4">2013-12-06 Daniel Glover</a></li>
+<li><a href="#daniel-glover-5">2013-12-06 Daniel Glover</a></li>
+<li><a href="#daniel-glover-6">2013-12-06 Daniel Glover</a></li>
+<li><a href="#daniel-glover-7">2013-12-02 Daniel Glover</a></li>
+<li><a href="#daniel-glover-8">2013-11-28 Daniel Glover</a></li>
+<li><a href="#daniel-glover-9">2013-11-27 Daniel Glover</a></li>
+<li><a href="#daniel-glover-10">2013-11-27 Daniel Glover</a></li>
+<li><a href="#daniel-glover-11">2013-11-27 Daniel Glover</a></li>
+<li><a href="#daniel-glover-12">2013-11-27 Daniel Glover</a></li>
+<li><a href="#daniel-glover-13">2013-11-27 Daniel Glover</a></li>
+<li><a href="#daniel-glover-14">2013-11-27 Daniel Glover</a></li>
+<li><a href="#daniel-glover-15">2013-11-26 Daniel Glover</a></li>
+<li><a href="#daniel-glover-16">2013-10-02 Daniel Glover</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/pasteboard/index.html">Pasteboard</a>  ▸  <a href="../../plugin/pasteboard/changelog.html">changelog</a>
+</div>
+<div id="changelog" class="section level1">
+<h1>Changelog</h1>
+<div id="brent-sorrentino" class="section level5">
+<h5>2016-02-17 Brent Sorrentino</h5>
+<ul>
+<li>copy.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-1" class="section level5">
+<h5>2015-11-28 Brent Sorrentino</h5>
+<ul>
+<li>index.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="ajay-mccaleb" class="section level5">
+<h5>2015-10-26 Ajay McCaleb</h5>
+<ul>
+<li><p>Maintenance</p></li>
+<li>Added &quot;or Android&quot; clause to &quot;Not Supported&quot; message in Mac and Windows Simulators.</li>
+<li><p>New Android binaries that handle all possible data types in Android clipboard.</p></li>
+</ul>
+</div>
+<div id="brent-sorrentino-2" class="section level5">
+<h5>2015-09-25 Brent Sorrentino</h5>
+<ul>
+<li>index.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-3" class="section level5">
+<h5>2015-02-27 Brent Sorrentino</h5>
+<ul>
+<li>index.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-4" class="section level5">
+<h5>2015-01-09 Brent Sorrentino</h5>
+<ul>
+<li>index.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="albert-yale" class="section level5">
+<h5>2014-12-02 Albert Yale</h5>
+<ul>
+<li>64b</li>
+</ul>
+</div>
+<div id="albert-yale-1" class="section level5">
+<h5>2014-11-20 Albert Yale</h5>
+<ul>
+<li>64b</li>
+</ul>
+</div>
+<div id="brent-sorrentino-5" class="section level5">
+<h5>2014-08-29 Brent Sorrentino</h5>
+<ul>
+<li>Doc updates (all functions/properties).</li>
+</ul>
+</div>
+<div id="brent-sorrentino-6" class="section level5">
+<h5>2014-08-27 Brent Sorrentino</h5>
+<ul>
+<li>Doc updates (index only).</li>
+</ul>
+</div>
+<div id="danny-chan" class="section level5">
+<h5>2014-07-22 Danny Chan</h5>
+<ul>
+<li>Forget unneeded files</li>
+</ul>
+</div>
+<div id="daniel-glover" class="section level5">
+<h5>2014-01-03 Daniel Glover</h5>
+<ul>
+<li><ul>
+<li>Updating plugin to reflect latest source</li>
+</ul></li>
+</ul>
+</div>
+<div id="daniel-glover-1" class="section level5">
+<h5>2014-01-02 Daniel Glover</h5>
+<ul>
+<li><ul>
+<li>Updating android plugin to reflect latest source</li>
+</ul></li>
+</ul>
+</div>
+<div id="daniel-glover-2" class="section level5">
+<h5>2014-01-02 Daniel Glover</h5>
+<ul>
+<li><ul>
+<li>Adding android version of Pasteboard plugin.</li>
+</ul></li>
+<li>Updating sample code.</li>
+<li>Updating docs.</li>
+</ul>
+</div>
+<div id="daniel-glover-3" class="section level5">
+<h5>2013-12-27 Daniel Glover</h5>
+<ul>
+<li><ul>
+<li>Correcting setAllowedTypes() documentation</li>
+</ul></li>
+</ul>
+</div>
+<div id="daniel-glover-4" class="section level5">
+<h5>2013-12-06 Daniel Glover</h5>
+<ul>
+<li><ul>
+<li>Adding link to sample code</li>
+</ul></li>
+</ul>
+</div>
+<div id="daniel-glover-5" class="section level5">
+<h5>2013-12-06 Daniel Glover</h5>
+<ul>
+<li><ul>
+<li>Updated build.settings file</li>
+</ul></li>
+</ul>
+</div>
+<div id="daniel-glover-6" class="section level5">
+<h5>2013-12-06 Daniel Glover</h5>
+<ul>
+<li><ul>
+<li>Fixed plugin stubs</li>
+</ul></li>
+</ul>
+</div>
+<div id="daniel-glover-7" class="section level5">
+<h5>2013-12-02 Daniel Glover</h5>
+<ul>
+<li><ul>
+<li>New build</li>
+</ul></li>
+</ul>
+</div>
+<div id="daniel-glover-8" class="section level5">
+<h5>2013-11-28 Daniel Glover</h5>
+<ul>
+<li><ul>
+<li>Updated plugin to reflect latest source</li>
+</ul></li>
+</ul>
+</div>
+<div id="daniel-glover-9" class="section level5">
+<h5>2013-11-27 Daniel Glover</h5>
+<ul>
+<li><ul>
+<li>Fixed memory leak in main.lua</li>
+</ul></li>
+</ul>
+</div>
+<div id="daniel-glover-10" class="section level5">
+<h5>2013-11-27 Daniel Glover</h5>
+<ul>
+<li><ul>
+<li>Updating plugins to reflect latest source</li>
+</ul></li>
+</ul>
+</div>
+<div id="daniel-glover-11" class="section level5">
+<h5>2013-11-27 Daniel Glover</h5>
+<ul>
+<li><ul>
+<li>Fix incorrect doc links</li>
+</ul></li>
+<li>Fix doc folder structure</li>
+<li>Fix stubs</li>
+<li>Fix metadata</li>
+</ul>
+</div>
+<div id="daniel-glover-12" class="section level5">
+<h5>2013-11-27 Daniel Glover</h5>
+<ul>
+<li><ul>
+<li>Fixed sample code typo</li>
+</ul></li>
+</ul>
+</div>
+<div id="daniel-glover-13" class="section level5">
+<h5>2013-11-27 Daniel Glover</h5>
+<ul>
+<li><ul>
+<li>Updated sample code to Graphics 2.0</li>
+</ul></li>
+</ul>
+</div>
+<div id="daniel-glover-14" class="section level5">
+<h5>2013-11-27 Daniel Glover</h5>
+<ul>
+<li><ul>
+<li>Updated to Graphics 2.0</li>
+</ul></li>
+</ul>
+</div>
+<div id="daniel-glover-15" class="section level5">
+<h5>2013-11-26 Daniel Glover</h5>
+<ul>
+<li><ul>
+<li>V1.0 of iOS Pasteboard plugin</li>
+</ul></li>
+</ul>
+</div>
+<div id="daniel-glover-16" class="section level5">
+<h5>2013-10-02 Daniel Glover</h5>
+<ul>
+<li><ul>
+<li>V1.0 (Beta) of iOS clipboard plugin.</li>
+</ul></li>
+</ul>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.pasteboard.changelog&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

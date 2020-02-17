@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Physics</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#physics-setup">Physics Setup</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#physics-setup-1">Physics Setup</a><ul>
+<li><a href="#start-pause-stop">Start / Pause / Stop</a></li>
+<li><a href="#sleeping-bodies">Sleeping Bodies</a></li>
+</ul></li>
+<li><a href="#simulation-options">Simulation Options</a><ul>
+<li><a href="#physics.setgravity">physics.setGravity()</a></li>
+<li><a href="#physics.setscale">physics.setScale()</a></li>
+<li><a href="#physics.setdrawmode">physics.setDrawMode()</a></li>
+<li><a href="#physics.setpositioniterations">physics.setPositionIterations()</a></li>
+<li><a href="#physics.setvelocityiterations">physics.setVelocityIterations()</a></li>
+<li><a href="#physics.setcontinuous">physics.setContinuous()</a></li>
+<li><a href="#physics.setaveragecollisionpositions">physics.setAverageCollisionPositions()</a></li>
+<li><a href="#physics.setreportcollisionsincontentcoordinates">physics.setReportCollisionsInContentCoordinates()</a></li>
+<li><a href="#physics.setdebugerrorsenabled">physics.setDebugErrorsEnabled()</a></li>
+<li><a href="#physics.settimestep">physics.setTimeStep()</a></li>
+<li><a href="#physics.setmks">physics.setMKS()</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/physics/index.html">Physics</a>
+</div>
+<div id="physics-setup" class="section level1">
+<h1>Physics Setup</h1>
+<p>This guide discusses how to set up Box2D physics in your Corona app. Physics are commonly used for apps that involve a simulation of objects that move, collide, and interact under various physical forces like gravity.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#setup">Physics Setup</a></li>
+<li><a href="#options">Simulation Options</a></li>
+</ul>
+</div>
+<p><a id="overview"></a></p>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Corona makes it very easy to add physics to your apps, even if you've never worked with a physics engine before. While the underlying engine is built around the popular Box2D, we've taken a different design approach which eliminates a lot of the coding that is traditionally required.</p>
+<p>To work with the Corona physics engine, just begin with familiar Corona <a href="../../../guide/media/displayObjects/index.html">display objects</a>. Corona treats physical body properties as an extension of its graphics objects: any standard display object including images, vector objects, or animated sprites can be &quot;made physical&quot; and they will automatically interact with other objects in the simulation.</p>
+<p>Note that Corona automatically translates between its familiar onscreen units and the internal metric units of the physical simulation. All position values are exposed in pixels which are converted internally to meters at a default ratio of 30 pixels-per-meter. For further consistency, all angular values are exposed in degrees rather than radians, and position <code>(0,0)</code> remains at the top left corner of the content area.</p>
+<p><a id="setup"></a></p>
+</div>
+<div id="physics-setup-1" class="section level2">
+<h2>Physics Setup</h2>
+<p>To begin using physics, you must require the library. The following line makes the physics engine available under the <code>physics</code> namespace:</p>
+<pre class="brush: lua;">local physics = require( "physics" )</pre>
+<div id="start-pause-stop" class="section level3">
+<h3>Start / Pause / Stop</h3>
+<p>The following functions start, pause, and stop the physics simulation:</p>
+<ul>
+<li><p><a href="../../../api/library/physics/start.html">physics.start()</a> — either instantiates or resumes the simulation (if paused). You <strong>must</strong> start the physics simulation before calling any other physics functions in this guide.</p></li>
+<li><p><a href="../../../api/library/physics/pause.html">physics.pause()</a> — pauses the physics simulation.</p></li>
+<li><p><a href="../../../api/library/physics/stop.html">physics.stop()</a> — this is treated as a request to &quot;destroy&quot; the physics world. If you merely want to pause the physics engine, use <a href="../../../api/library/physics/pause.html">physics.pause()</a>.</p></li>
+</ul>
+<pre class="brush: lua;">physics.start()  -- Do this before any other physics call(s)
+ 
+physics.pause()
+physics.stop()</pre>
+</div>
+<div id="sleeping-bodies" class="section level3">
+<h3>Sleeping Bodies</h3>
+<p>By default, physical bodies not involved in a collision will &quot;sleep&quot; after a few seconds. This reduces performance overhead, but in some cases you may not want this behavior. This is particularly true in apps that use the accelerometer to effect changes in physics gravity — in this case, sleeping bodies will not respond to changes in the direction of gravity.</p>
+<p>You can override this behavior on any given body with the <code>body.isSleepingAllowed = false</code> command (<a href="../../../api/type/Body/isSleepingAllowed.html">reference</a>), or override it globally for <strong>all</strong> bodies in the world by using an optional boolean parameter in <code>physics.start()</code>:</p>
+<pre class="brush: lua;">physics.start( true )   -- Prevent all bodies from sleeping
+
+physics.start( false )  -- Default behavior; bodies may sleep after a few seconds</pre>
+<p><a id="options"></a></p>
+</div>
+</div>
+<div id="simulation-options" class="section level2">
+<h2>Simulation Options</h2>
+<p>The physics engine features several global simulation options. These can be used to fine-tune your physics simulation beyond the default behavior.</p>
+<div id="physics.setgravity" class="section level3">
+<h3>physics.setGravity()</h3>
+<p><a href="../../../api/library/physics/setGravity.html">physics.setGravity()</a> sets the <strong>x</strong> and <strong>y</strong> components of the global gravity vector, in units of m/s². The default is <code>( 0, 9.8 )</code> to simulate standard Earth gravity, pointing downward on the <strong>y</strong> axis.</p>
+<pre class="brush: lua;">physics.setGravity( 0, 6 )</pre>
+</div>
+<div id="physics.setscale" class="section level3">
+<h3>physics.setScale()</h3>
+<p><a href="../../../api/library/physics/setScale.html">physics.setScale()</a> sets the internal pixels-per-meter ratio that is used in converting between on-screen Corona coordinates and simulated physics coordinates. This should be done only once, before any physical objects are instantiated.</p>
+<p>Changing this value has no visual consequences — it simply affects the accuracy of the physical model. The Box2D engine is tuned for simulating medium-sized objects between 0.1m and 10m in size, so it works best when the objects in your game are mapped to physical properties that fall roughly within this range.</p>
+<p>The default scaling value is <code>30</code>, which means that the optimal 0.1m to 10m range corresponds to visible objects between 3 and 300 pixels in size. For larger objects, you may wish to increase this value to <code>60</code> or more.</p>
+<pre class="brush: lua;">physics.setScale( 60 )</pre>
+<p>You may also want to increase this value if the objects you are simulating seem too sluggish or react too slowly. In this case, they are likely too big and heavy for your purposes — try raising the scale value and/or reduce their densities.</p>
+</div>
+<div id="physics.setdrawmode" class="section level3">
+<h3>physics.setDrawMode()</h3>
+<p><a href="../../../api/library/physics/setDrawMode.html">physics.setDrawMode()</a> sets one of three possible &quot;rendering modes&quot; for the physics engine. While this feature will run on devices, it's most useful in the Corona Simulator when debugging unexpected physics engine behavior.</p>
+<pre class="brush: lua;">physics.setDrawMode( "hybrid" )  -- Overlays collision outlines on normal display objects
+physics.setDrawMode( "normal" )  -- The default Corona renderer, with no collision outlines
+physics.setDrawMode( "debug" )   -- Shows collision engine outlines only</pre>
+<p>Physics data is displayed using colored vector graphics which reflect different object types and attributes. See the <a href="../../../guide/physics/physicsBodies/index.html">Physics Bodies</a> guide for details.</p>
+<ul>
+<li>orange — dynamic physics bodies</li>
+<li>dark blue — kinematic physics bodies</li>
+<li>green — static, non-moveable physics bodies</li>
+<li>gray — a body that is &quot;sleeping&quot; due to lack of activity</li>
+<li>light blue — physical joints (see the <a href="../../../guide/physics/physicsJoints/index.html">Physics Joints</a> guide)</li>
+</ul>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>When working with Corona <a href="../../../guide/graphics/group.html">display groups</a> and Box2D, it's important to remember that Box2D expects all physics objects to share a <strong>global coordinate system</strong>. Both grouped and ungrouped display objects will work well since they will share the internal coordinates of that group. However, unexpected results will occur if physical objects are added to different display groups and those groups are moved, scaled, or rotated independently of each other. As a general rule, do <strong>not</strong> alter the position, scale, or rotation of display groups that contain physics objects.</p>
+</div>
+</div>
+<div id="physics.setpositioniterations" class="section level3">
+<h3>physics.setPositionIterations()</h3>
+<p><a href="../../../api/library/physics/setPositionIterations.html">physics.setPositionIterations()</a> sets the accuracy of the engine's position calculations.</p>
+<pre class="brush: lua;">physics.setPositionIterations( 6 )</pre>
+<p>The default value is <code>3</code>, which means that the engine will iterate through eight position approximations per frame for each object. Increasing this number will cause fewer momentary inaccuracies like overlapping objects, but it will increase computational overhead. The default value should work for most general cases.</p>
+</div>
+<div id="physics.setvelocityiterations" class="section level3">
+<h3>physics.setVelocityIterations()</h3>
+<p><a href="../../../api/library/physics/setVelocityIterations.html">physics.setVelocityIterations()</a> sets the accuracy of the engine's velocity calculations.</p>
+<pre class="brush: lua;">physics.setVelocityIterations( 16 )</pre>
+<p>The default value is <code>8</code>, which means that the engine will iterate through three velocity approximations per frame for each object. Increasing this number will cause fewer momentary inaccuracies like overlapping objects, but it will increase computational overhead. The default value should work for most general cases.</p>
+</div>
+<div id="physics.setcontinuous" class="section level3">
+<h3>physics.setContinuous()</h3>
+<p><a href="../../../api/library/physics/setContinuous.html">physics.setContinuous()</a> controls whether continuous physics is enabled or not. By default, Box2D performs continuous collision detection, which prevents objects from &quot;tunneling.&quot; If it were turned off, an object that moves quickly enough could potentially pass through a thin wall.</p>
+<p>In certain complex situations where bodies are connected by pivot joints (ragdolls, for example), instability can occur. One way to solve this is to turn up the number of velocity iterations using <a href="../../../api/library/physics/setVelocityIterations.html">physics.setVelocityIterations()</a>. However, this can be computationally expensive and reduce frame rates. Another solution is to <strong>disable</strong> continuous physics:</p>
+<pre class="brush: lua;">physics.setContinuous( false )</pre>
+<p>Turning it off should prevent the instability without increasing iterations. However, you'll need to make your static bodies extra thick to prevent tunneling effects.</p>
+</div>
+<div id="physics.setaveragecollisionpositions" class="section level3">
+<h3>physics.setAverageCollisionPositions()</h3>
+<p><a href="../../../api/library/physics/setAverageCollisionPositions.html">physics.setAverageCollisionPositions()</a> enables the averaging of all contact points in a <a href="../../../guide/physics/collisionDetection/index.html">collision</a> between physics bodies. Because it's common for Box2D to report multiple collision points during a single frame iteration, this setting is useful to report those points as one averaged point.</p>
+<pre class="brush: lua;">physics.setAverageCollisionPositions( true )</pre>
+</div>
+<div id="physics.setreportcollisionsincontentcoordinates" class="section level3">
+<h3>physics.setReportCollisionsInContentCoordinates()</h3>
+<p><a href="../../../api/library/physics/setReportCollisionsInContentCoordinates.html">physics.setReportCollisionsInContentCoordinates()</a> sets the content origin as the reference point in the <a href="../../../api/event/collision/index.html">collision</a>, <a href="../../../api/event/preCollision/index.html">preCollision</a>, and <a href="../../../api/event/postCollision/index.html">postCollision</a> physics events.</p>
+<pre class="brush: lua;">physics.setReportCollisionsInContentCoordinates( true )</pre>
+</div>
+<div id="physics.setdebugerrorsenabled" class="section level3">
+<h3>physics.setDebugErrorsEnabled()</h3>
+<p><a href="../../../api/library/physics/setDebugErrorsEnabled.html">physics.setDebugErrorsEnabled()</a> allows extra physics errors to be caught by Box2D. Default is <code>true</code> (enabled).</p>
+</div>
+<div id="physics.settimestep" class="section level3">
+<h3>physics.setTimeStep()</h3>
+<p><a href="../../../api/library/physics/setTimeStep.html">physics.setTimeStep()</a> specifies either a frame-based (approximated) physics simulation or a time-based simulation.</p>
+<pre class="brush: lua;">physics.setTimeStep( 0 )  -- Time-based physics simulation</pre>
+</div>
+<div id="physics.setmks" class="section level3">
+<h3>physics.setMKS()</h3>
+<p><a href="../../../api/library/physics/setMKS.html">physics.setMKS()</a> sets the MKS (meters, kilograms, and seconds) value of the physics simulation for specific keys. This is strictly for advanced purposes — the average developer and project will not require this function.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.physics.physicsSetup.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

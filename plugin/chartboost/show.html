@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | Chartboost | show</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#chartboost.show">chartboost.show()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#adtype-required">adType <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#namedlocation-optional">namedLocation <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#predefined-locations">Predefined Locations</a></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/chartboost/index.html">Chartboost</a>  ▸  <a href="../../plugin/chartboost/show.html">show</a>
+</div>
+<div id="chartboost.show" class="section level1">
+<h1>chartboost.show()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left">[Function][api.type.function]</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Return value</strong></td>
+<td align="left">none</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">ads, advertising, Chartboost, show</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../plugin/chartboost/init.html">chartboost.init()</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../plugin/chartboost/load.html">chartboost.load()</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../plugin/chartboost/isLoaded.html">chartboost.isLoaded()</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Shows a Chartboost static interstitial, video interstitial, rewarded video, or the &quot;more apps&quot; screen.</p>
+<div class="guide-notebox">
+<div class="notebox-title">
+Notes
+</div>
+<ul>
+<li><p>An ad should be <nobr>pre-loaded</nobr> before calling this function. Use <a href="../../plugin/chartboost/load.html">chartboost.load()</a>, or enable <nobr>auto-caching</nobr> during <a href="../../plugin/chartboost/init.html">chartboost.init()</a>.</p></li>
+<li><p>Before calling this function, you must call <a href="../../plugin/chartboost/init.html">chartboost.init()</a> and and ensure that the <code>&quot;init&quot;</code> event <a href="../../plugin/chartboost/event/adsRequest/phase.html">phase</a> occurs.</p></li>
+</ul>
+</div>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">chartboost.show( adType [, namedLocation] )</pre>
+<div id="adtype-required" class="section level5">
+<h5>adType <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> One of the following values:</p>
+<ul>
+<li><code>&quot;interstitial&quot;</code></li>
+<li><code>&quot;rewardedVideo&quot;</code></li>
+<li><code>&quot;moreApps&quot;</code> (Deprecated. Will be removed from the Chartboost SDK in July 2017)</li>
+</ul>
+</div>
+<div id="namedlocation-optional" class="section level5">
+<h5>namedLocation <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> The advertisement location. If omitted, the legacy <code>&quot;Default&quot;</code> location will be used. Although you can specify any string, Chartboost recommends using one of their <nobr>pre-defined</nobr> locations to help keep eCPM levels as high as possible. See the <a href="#locations">list</a> below for valid <nobr>pre-defined</nobr> options.</p>
+<p><a id="locations"></a></p>
+</div>
+</div>
+<div id="predefined-locations" class="section level2">
+<h2>Predefined Locations</h2>
+<p>The following list outlines the <nobr>pre-defined</nobr> locations recommended by Chartboost:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Location</th>
+<th align="left">Scene/Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;Default&quot;</code></td>
+<td align="left">Legacy default location</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;Startup&quot;</code></td>
+<td align="left">Initial startup of the game</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;Home Screen&quot;</code></td>
+<td align="left">Home screen which the player first sees</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;Main Menu&quot;</code></td>
+<td align="left">Menu which provides game options</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;Game Screen&quot;</code></td>
+<td align="left">Game screen where the magic happens</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;Achievements&quot;</code></td>
+<td align="left">List of achievements in the game</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;Quests&quot;</code></td>
+<td align="left">Quests, missions, or goals screen</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;Pause&quot;</code></td>
+<td align="left">Pause screen</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;Level Start&quot;</code></td>
+<td align="left">Start of the level</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;Level Complete&quot;</code></td>
+<td align="left">Completion of the level</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;Turn Complete&quot;</code></td>
+<td align="left">When the player finishes a turn in the game</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;IAP Store&quot;</code></td>
+<td align="left">Store where the player uses real money to buy virtual goods</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;Item Store&quot;</code></td>
+<td align="left">Store where the player uses virtual money to buy virtual goods</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;Game Over&quot;</code></td>
+<td align="left">The &quot;game over&quot; screen</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;Leaderboard&quot;</code></td>
+<td align="left">List of statistical leaders in the game</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;Settings&quot;</code></td>
+<td align="left">Screen where player can change game settings</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;Quit&quot;</code></td>
+<td align="left">Screen displayed immediately before the player exits/quits</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="brush: lua;">local chartboost = require( "plugin.chartboost" )
+
+-- Chartboost listener function
+local function adListener( event )
+
+    if ( event.phase == "init" ) then  -- Successful initialization
+        chartboost.load( "interstitial" )
+
+    elseif ( event.phase == "loaded" ) then
+        if ( event.type == "interstitial" ) then
+            chartboost.show( "interstitial" )
+        end
+    end
+end
+
+-- Initialize the Chartboost plugin
+chartboost.init( adListener, { appId="YOUR_CHARTBOOST_APP_ID", appSig="YOUR_CHARTBOOST_APP_SIGNATURE" } )</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.chartboost.show&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

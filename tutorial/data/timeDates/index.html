@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Tutorials | Data/Files/Strings</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#utilizing-time-and-dates">Utilizing Time and Dates</a><ul>
+<li><a href="#microseconds-and-milliseconds">Microseconds and Milliseconds</a></li>
+<li><a href="#longer-periods-of-time">Longer Periods of Time</a></li>
+<li><a href="#working-with-dates">Working With Dates</a><ul>
+<li><a href="#iso-8601">ISO-8601</a></li>
+</ul></li>
+<li><a href="#converting-a-timestamp">Converting a Timestamp</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/data/index.html">Data/Files/Strings</a>
+</div>
+<div id="utilizing-time-and-dates" class="section level1">
+<h1>Utilizing Time and Dates</h1>
+<p>Working with &quot;time&quot; in any programming language can be initially challenging, since it's not always obvious what various time/date functions mean and how they behave. This tutorial discusses some of these issues and shows you how to work with things like date calculations, time zones, and date formatting.</p>
+<div id="microseconds-and-milliseconds" class="section level2">
+<h2>Microseconds and Milliseconds</h2>
+<p>Before we get to code, there are several important concepts to understand. To a computer, the basic unit of time is a <strong>second</strong>. From that one value, we can determine any date, or with fractions, even smaller measures of time.</p>
+<p>While one second is a short period of time to a human, it's actually a very long period of time to a computer. Just as humans break down long periods of time into smaller blocks, computers do as well. Besides <strong>seconds</strong>, many functions work in <strong>milliseconds</strong> <nobr>(1/1000th of a second)</nobr>. Other functions work in <strong>microseconds</strong> <nobr>(1/1,000,000th of a second)</nobr>.</p>
+<p>In Corona, the <a href="../../../api/library/system/getTimer.html">system.getTimer()</a> call returns the amount of time since your app started running, and the value is typically returned in <strong>milliseconds</strong>, where the fractional part represents microseconds if the hardware supports it. Most devices will return a fractional time like:</p>
+<pre class="brush: lua;">1839.3949</pre>
+<p>For Corona apps where we deal with frame rates of 30 or 60 frames per second (1/30th to 1/60th of a second), having resolution more accurate than 1/1000th of a second isn't important. That leaves us with functions that run on <strong>milliseconds</strong>, including:</p>
+<ul>
+<li><a href="../../../api/library/timer/performWithDelay.html">timer.performWithDelay()</a></li>
+<li><a href="../../../api/library/transition/to.html">transition.to()</a> / <a href="../../../api/library/transition/from.html">transition.from()</a></li>
+<li><a href="../../../api/library/audio/play.html">audio.play()</a></li>
+</ul>
+<p>Since each of these accepts time in milliseconds, you would, for example, provide a value of <code>5000</code> to the function for an equivalent of 5 seconds. ½ second would be <code>500</code>, 2½ seconds would be <code>2500</code>, and so on. Basically, just multiply the time you want in seconds by <code>1000</code> to get the time for any of these functions.</p>
+</div>
+<div id="longer-periods-of-time" class="section level2">
+<h2>Longer Periods of Time</h2>
+<p>As stated above, the basic unit of time for a computer is one second. Both iOS and Android, as well as macOS, are based on operating systems derived from Unix, and in those operating systems the standard &quot;time&quot; function returns the number of seconds since <nobr>January 1, 1970</nobr> at midnight. Microsoft uses a different reference point, but since many apps are built using the language C, which had its origins in Unix, their library also uses this <strong>time reference point</strong> or &quot;Epoch.&quot; Under this system, &quot;negative&quot; times are before 1970 and &quot;positive&quot; times are after 1970.</p>
+<p>In Corona, to get the current <strong>number of seconds</strong> since <nobr>January 1, 1970</nobr>, you can use the <a href="../../../api/library/os/time.html">os.time()</a> call:</p>
+<pre class="brush: lua;">print( os.time() )</pre>
+<p>This outputs something like <code>1497577639</code>. That number by itself is somewhat meaningless and you can't really determine the &quot;real world&quot; time that it represents, but it <strong>is</strong> very useful to calculate <strong>date math</strong>. For example, imagine that you're building a <nobr>turn-based</nobr> game and you want to check if the player needs a &quot;nudge&quot; because they're taking too long to play their turn. To begin, you could store the time of their last move:</p>
+<pre class="brush: lua;">player[1].lastMove = os.time()</pre>
+<p>Then, if you want to check if they've made a move in the last hour, you could write:</p>
+<pre class="brush: lua;">local now = os.time()
+
+if ( now > ( player[1].lastMove + 3600 ) ) then
+    -- Nudge the player
+end</pre>
+<p>Where did the <code>3600</code> come from? Simple! <code>3600</code> is 60 seconds multiplied by 60 minutes, thus one hour.</p>
+<p>Essentially, with time in seconds as an integer value, it becomes very easy to do date math:</p>
+<ul>
+<li>Has one day elapsed? Use <code>86400</code> <nobr>( <code>24 * 60 * 60</code> )</nobr>.</li>
+<li>Is your time older than a week? Use <code>604800</code> <nobr>( <code>7 * 24 * 60 * 60</code> )</nobr>.</li>
+<li>Set an alarm in 30 days? Use <code>2592000</code> <nobr>( <code>30 * 24 * 60 * 60</code> )</nobr>.</li>
+</ul>
+</div>
+<div id="working-with-dates" class="section level2">
+<h2>Working With Dates</h2>
+<p>Dates are a bit more challenging because they are <strong>strings</strong> which can be formatted in seemingly infinite ways, including:</p>
+<ul>
+<li><code>April 1, 2010 4:53pm</code></li>
+<li><code>April 1, 2010 4:53 P.M.</code></li>
+<li><code>4/1/10 16:53 MT</code></li>
+<li><code>Sun Jan 13 15:17:32 EST 2013</code></li>
+<li><code>13-JAN-13 15:17</code></li>
+</ul>
+<p>As a developer, you need to parse dates into their <nobr>&quot;component values&quot; — that is,</nobr> you must get each part of the date/time string: <strong>month</strong>, <strong>day</strong>, <strong>year</strong>, <strong>hour</strong>, <strong>minute</strong>, <strong>seconds</strong>, and <strong>time zone</strong>.</p>
+<div id="iso-8601" class="section level3">
+<h3>ISO-8601</h3>
+<p>One common date format is the <nobr><strong>ISO-8601</strong></nobr> time format, a string that looks like this:</p>
+<pre class="brush: lua;">2017-01-12T12:04:35.03-0400</pre>
+<p>This may look a bit menacing, so let's separate out the elements for further inspection:</p>
+<pre class="brush: lua;">2017-01-12    T    12:04:35.03    -0400</pre>
+<p>Much better! Now it's clearer what each element represents:</p>
+<ol style="list-style-type: decimal">
+<li><p>The part before the <code>T</code> is a date in a very predictable and <nobr>easy-to-separate</nobr> format: <strong>year</strong>, <strong>month</strong>, and <strong>day</strong> as positive integers separated by hyphens.</p></li>
+<li><p>The letter <code>T</code> indicates that the <strong>time</strong> part is starting; afterward there's another series of positive integers which indicate <strong>hour</strong>, <strong>minutes</strong>, and <strong>seconds</strong>, separated by colons. Note that the <strong>seconds</strong> value may be a floating point number which represents a whole plus a fractional amount of seconds.</p></li>
+<li><p>Finally, the string may have an optional <strong>time zone</strong> string indicating the zone the time originated in. We'll talk more about the time zone format in a bit.</p></li>
+</ol>
+<p>To convert an <nobr>ISO-8601</nobr> date into a useful <strong>timestamp</strong> which we can use for date math, let's use the <code>string:match()</code> function and, once again, the <code>os.time()</code> function. Above, we simply called <code>os.time()</code> without parameters to retrieve the number of seconds since <nobr>January 1, 1970</nobr>, but <code>os.time()</code> also accepts an optional <a href="../../../api/type/Table.html">table</a> parameter containing values which represent each of the date components.</p>
+<pre class="brush: lua; gutter: false; highlight: [5,7,8,9]; first-line: 1;">local dateString = "2017-01-12T12:04:35.03-0400"
+
+local pattern = "(%d+)%-(%d+)%-(%d+)%a(%d+)%:(%d+)%:([%d%.]+)([Z%p])(%d%d)%:?(%d%d)"
+
+local year, month, day, hour, minute, seconds, tzOffset, offsetHour, offsetMin = dateString:match( pattern )
+
+local timestamp = os.time(
+    { year=year, month=month, day=day, hour=hour, min=minute, sec=seconds }
+)</pre>
+<p>We now have a value that is in seconds since <nobr>January 1, 1970</nobr> and we can use it in date math, but there's one final problem: we haven't adjusted for <strong>time zones</strong>. Fortunately, it's easy to fix since we now have the base time in seconds:</p>
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9,10,11,12,13,14]; first-line: 1;">local timestamp = os.time(
+    { year=year, month=month, day=day, hour=hour, min=minute, sec=seconds }
+)
+
+local offset = 0
+if ( tzOffset ) then
+    if ( tzOffset == "+" or tzOffset == "-" ) then  -- We have a timezone
+        offset = offsetHour * 60 + offsetMin
+        if ( tzOffset == "-" ) then
+            offset = offset * -1
+        end
+        timestamp = timestamp + offset
+    end
+end</pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Notes
+</div>
+<ul>
+<li><p>It's important to consider time zones because, by default, <code>os.time()</code> returns its value local to the time zone you're in. You can easily compare &quot;now&quot; to a timestamp and determine if something is in the past or future, or if a given amount of time has elapsed.</p></li>
+<li><p>In a date string, an ending character <code>Z</code> indicates that the time is in <strong>Coordinated Universal Time</strong> or <strong>UTC</strong>. If it's in UTC or local time, you don't need to make any time zone adjustments.</p></li>
+</ul>
+</div>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Here is a complete function which combines the aspects discussed in this section:</p>
+<pre class="brush: lua;">local function makeTimeStamp( dateString )
+
+    local pattern = "(%d+)%-(%d+)%-(%d+)%a(%d+)%:(%d+)%:([%d%.]+)([Z%p])(%d%d)%:?(%d%d)"
+    local year, month, day, hour, minute, seconds, tzOffset, offsetHour, offsetMin = dateString:match( pattern )
+    local timestamp = os.time(
+        { year=year, month=month, day=day, hour=hour, min=minute, sec=seconds }
+    )
+
+    local offset = 0
+    if ( tzOffset ) then
+        if ( tzOffset == "+" or tzOffset == "-" ) then  -- We have a timezone
+            offset = offsetHour * 60 + offsetMin
+            if ( tzOffset == "-" ) then
+                offset = offset * -1
+            end
+            timestamp = timestamp + offset
+        end
+    end
+    return timestamp
+end</pre>
+</div>
+</div>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Despite its power and convenience, this code does <strong>not</strong> compensate for Daylight Savings Time, a topic that's beyond the scope of this tutorial.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="converting-a-timestamp" class="section level2">
+<h2>Converting a Timestamp</h2>
+<p>At some point, you will probably need to go the &quot;other way&quot; with your time and convert it to a date string in a format that users can understand. This is the purpose of the <a href="../../../api/library/os/date.html">os.date()</a> function.</p>
+<p>The <code>os.date()</code> function takes two optional parameters. Calling it with no parameters will return the current date/time for the time zone you're in (or the zone your device thinks you're in). This will be in a format like:</p>
+<pre class="brush: lua;">Sat Jan 12 14:07:30 2013</pre>
+<p>Fortunately, you can specify various formatting parameters to build dates as you like. These format parameters are based on the Unix/C++ library function <a href="http://strftime.org">strftime</a>, and with that you can format the date/time in many different ways.</p>
+<pre class="brush: lua;">print( os.date("%A") )          -- Outputs a string representing the weekday
+print( os.date("%A %l:%M%p") )  -- Outputs something like "Saturday 2:30PM"</pre>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>By default, the values returned by <a href="../../../api/library/os/date.html">os.date()</a> will be based on your locale or time zone. This is crucial to understand if you want to create the type of date above, possibly for a multiplayer game with players in different time zones. In cases like these, you need to output the time based on <strong>UTC</strong> by placing a single <code>!</code> in front of the <code>format</code> parameter:</p>
+<pre class="brush: lua;">print( os.date("!%Y-%m-%dT%XZ") )  -- In UTC; outputs something like "2017-06-16T19:32:23Z"</pre>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>Dealing with time and dates can be heavy on syntax, but hopefully this tutorial has exhibited that it's not an insurmountable task. With a little effort and the convenient functions/methods above, you can &quot;wield time&quot; in ways that you might not have considered in the past.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=tutorial.data.timeDates.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

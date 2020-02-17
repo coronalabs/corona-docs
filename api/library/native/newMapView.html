@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries | native | newMapView</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#native.newmapview">native.newMapView()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#gotchas">Gotchas</a><ul>
+<li><a href="#general">General</a></li>
+<li><a href="#android">Android</a></li>
+<li><a href="#ios">iOS</a></li>
+</ul></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#x-required">x <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#y-required">y <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#width-required">width <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#height-required">height <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+<li><a href="#properties-methods">Properties / Methods</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/native/index.html">native</a>  ▸  <a href="../../../api/library/native/newMapView.html">newMapView</a>
+</div>
+<div id="native.newmapview" class="section level1">
+<h1>native.newMapView()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../../api/library/native/index.html">native.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Return value</strong></td>
+<td align="left"><a href="../../../api/type/Map/index.html">Map</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">maps, map view, map object</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../api/event/mapAddress/index.html">mapAddress</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../api/event/mapLocation/index.html">mapLocation</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../../api/event/mapMarker/index.html">mapMarker</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Renders a map view within the specified boundaries and returns a display object wrapper. On the map view, touch events are available when you add a <a href="../../../api/event/mapLocation/index.html">mapLocation</a> event listener.</p>
+</div>
+<div id="gotchas" class="section level2">
+<h2>Gotchas</h2>
+<div id="general" class="section level3">
+<h3>General</h3>
+<ul>
+<li><p>This feature is only supported on Android and iOS.</p></li>
+<li><p>Native map views are not part of the OpenGL canvas and do not obey the display object hierarchy, so they will always appear in front of normal display objects including images, text, and vector objects.</p></li>
+</ul>
+</div>
+<div id="android" class="section level3">
+<h3>Android</h3>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-unlock-alt" style="font-size: 36px; margin-top: 2px; margin-left: 1px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Google now requires you to provide an API key to use maps on Android. You can get an <a href="https://developers.google.com/maps/documentation/javascript/get-api-key">API key here</a>.</p>
+<p>You will need Corona <a href="https://developer.coronalabs.com/downloads/daily-builds/">daily build 3387</a> or later to provide the API key.</p>
+</div>
+</div>
+<p>On Android, you must add the <code>INTERNET</code> permission to the <code>build.settings</code> file in order to display a map. You may optionally add location permissions in order to display the current location in a map.</p>
+<pre class="brush: lua;">settings =
+{
+    android =
+    {
+        usesPermissions =
+        {
+            "android.permission.INTERNET",
+
+            --optional permission used to display current location via the GPS
+            "android.permission.ACCESS_FINE_LOCATION",
+
+            --optional permission used to display current location via WiFi or cellular service
+            "android.permission.ACCESS_COARSE_LOCATION",
+        },
+        usesFeatures =
+        {
+            -- If you set permissions "ACCESS_FINE_LOCATION" and "ACCESS_COARSE_LOCATION" above,
+            -- you may want to set up your app to not require location services as follows.
+            -- Otherwise, devices that do not have location sevices (such as a GPS) will be unable
+            -- to purchase this app in the app store.
+            { name = "android.hardware.location", required = false },
+            { name = "android.hardware.location.gps", required = false },
+            { name = "android.hardware.location.network", required = false }
+        },
+    },
+}</pre>
+<p>In addition, you will need to add your API key to your <code>config.lua</code>:</p>
+<pre class="brush: lua; gutter: false; highlight: [3,4,5,6,7,8,9]; first-line: 1;">application =
+{
+    license =
+    {
+        google =
+        {
+            mapsKey = "YOUR_MAPS_API_KEY",
+        },
+    },
+}</pre>
+</div>
+<div id="ios" class="section level3">
+<h3>iOS</h3>
+<p>On iOS, you must include the following keys/descriptions in the <code>plist</code> table of <code>build.settings</code>. When the system prompts the user to allow access, the associated description is displayed as part of the alert. Note that these descriptions can be customized to your preference and they can even be localized (<a href="../../../guide/distribution/localization/index.html">guide</a>).</p>
+<pre class="brush: lua;">settings =
+{
+    iphone =
+    {
+        plist =
+        {
+            NSLocationAlwaysUsageDescription = "This app would like to use location services.",
+            NSLocationWhenInUseUsageDescription = "This app would like to use location services.",
+        },
+    },
+}</pre>
+</div>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">native.newMapView( x, y, width, height )</pre>
+<div id="x-required" class="section level5">
+<h5>x <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The <strong>x</strong> coordinate that corresponds to the center of the map view object.</p>
+</div>
+<div id="y-required" class="section level5">
+<h5>y <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The <strong>y</strong> coordinate that corresponds to the center of the map view object.</p>
+</div>
+<div id="width-required" class="section level5">
+<h5>width <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> Width of the map view object.</p>
+</div>
+<div id="height-required" class="section level5">
+<h5>height <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> Height of the map view object.</p>
+</div>
+</div>
+<div id="properties-methods" class="section level2">
+<h2>Properties / Methods</h2>
+<p>See the <a href="../../../api/type/Map/index.html">Map</a> documentation for a list of methods and properties.</p>
+</div>
+<div id="events" class="section level2">
+<h2>Events</h2>
+<p>See the <a href="../../../api/event/mapAddress/index.html">mapAddress</a>, <a href="../../../api/event/mapLocation/index.html">mapLocation</a>, and <a href="../../../api/event/mapMarker/index.html">mapMarker</a> event documentation for properties related to various <a href="../../../api/type/Map/index.html">Map</a> object events.</p>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="brush: lua;">-- Create a native map view
+local myMap = native.newMapView( 20, 20, 280, 360 )
+myMap.x = display.contentCenterX
+myMap.y = display.contentCenterY
+
+-- Display map as vector drawings of streets (other options are "satellite" and "hybrid")
+myMap.mapType = "standard"
+
+-- Initialize map to a real location
+myMap:setCenter( 37.331692, -122.030456 )</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.native.newMapView&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

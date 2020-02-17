@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Getting Started</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#ready-set-go">Ready, Set, Go!</a><ul>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#demo-projects">Demo Projects</a><ul>
+<li><a href="#flappy-bird---corona-game-template">Flappy Bird - Corona Game Template</a></li>
+<li><a href="#match-3-space-rpg">Match 3 Space RPG</a></li>
+<li><a href="#sticker-knight-platformer">Sticker Knight Platformer</a></li>
+<li><a href="#endless-sk8boarder">Endless Sk8boarder</a></li>
+<li><a href="#corona-cannon">Corona Cannon</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../guide/index.html">Developer Guides</a>  ▸  <a href="../../guide/programming/index.html">Getting Started</a>
+</div>
+<div id="ready-set-go" class="section level1">
+<h1>Ready, Set, Go!</h1>
+<p>These projects are fun and simple ways to get started with Corona. Use them as a foundation to get comfortable with Corona and build your dream app.</p>
+<div id="getting-started" class="section level2">
+<h2>Getting Started</h2>
+<div class="guides-toc">
+<ul>
+<li><a href="../../guide/programming/intro/index.html">Introduction to Corona</a></li>
+<li><a href="../../guide/programming/01/index.html">Chapter 1 — Creating an App</a></li>
+<li><a href="../../guide/programming/02/index.html">Chapter 2 — Upward &amp; Onward</a></li>
+<li><a href="../../guide/programming/03/index.html">Chapter 3 — Bringing it to Life</a></li>
+<li><a href="../../guide/programming/04/index.html">Chapter 4 — Creating Scenes</a></li>
+<li><a href="../../guide/programming/05/index.html">Chapter 5 — Converting the Game to Composer</a></li>
+<li><a href="../../guide/programming/06/index.html">Chapter 6 — Implementing High Scores</a></li>
+<li><a href="../../guide/programming/07/index.html">Chapter 7 — Sounds and Music</a></li>
+<li><a href="../../guide/programming/08/index.html">Chapter 8 — Deployment</a></li>
+</ul>
+</div>
+<style>
+
+.fa-list-element {
+    font-size: 15px;
+    border: 0px;
+    margin-top: 8px;
+}
+.fa-list-element-tile {
+    margin-top: 0px;
+}
+
+</style>
+</div>
+<div id="demo-projects" class="section level2">
+<h2>Demo Projects</h2>
+<!--- Flappy Bird - Corona Game Template -->
+<div id="flappy-bird---corona-game-template" class="section level3">
+<h3>Flappy Bird - Corona Game Template</h3>
+<div class="float-left" style="max-width: 280px; margin-top: 2px; margin-bottom: 14px;">
+<p><a href="https://marketplace.coronalabs.com/app-templates/flappy-bird-corona-game-template"><img src="../../images/docs/flappy-bird-1.png" /></a></p>
+</div>
+<div style="margin-top: 0px; display: table-cell;">
+<p>Flappy bird is a demo project, provides useful examples and best practices for both newbies and experienced developers. The target of this project is to show you how to create an app just in 200 lines.</p>
+<div class="fa-list-element">
+<div class="fa-list-element-tile">
+<div class="fa fa-arrow-circle-down" style="padding-left: 1px;">
+
+</div>
+</div>
+<p><a href="https://marketplace.coronalabs.com/app-templates/flappy-bird-corona-game-template">Download from Corona Marketplace</a></p>
+</div>
+<div class="fa-list-element">
+<div class="fa-list-element-tile" style="background-color: #93b0ec;">
+<div class="fa fa-github" style="padding-left: 1px;">
+
+</div>
+</div>
+<p><a href="https://github.com/PapaBubaDiop/flappy-bird">Download from GitHub</a></p>
+</div>
+</div>
+<div class="clear">
+
+</div>
+<!--- Match 3 Space RPG -->
+</div>
+<div id="match-3-space-rpg" class="section level3">
+<h3>Match 3 Space RPG</h3>
+<div class="float-left" style="max-width: 280px; margin-top: 2px; margin-bottom: 14px;">
+<p><a href="https://marketplace.coronalabs.com/asset/match-3-space-rpg"><img src="../../images/docs/ponywolf-match3-1.png" /></a></p>
+</div>
+<div style="margin-top: 0px; display: table-cell;">
+<p>An open-source prototype of both a &quot;match 3&quot; game and an <nobr>old-school</nobr> RPG with an infinite hallway and items to collect. These templates focus on modular design and project organization.</p>
+<div class="fa-list-element">
+<div class="fa-list-element-tile">
+<div class="fa fa-arrow-circle-down" style="padding-left: 1px;">
+
+</div>
+</div>
+<p><a href="https://marketplace.coronalabs.com/asset/match-3-space-rpg">Download from Corona Marketplace</a></p>
+</div>
+<div class="fa-list-element">
+<div class="fa-list-element-tile" style="background-color: #93b0ec;">
+<div class="fa fa-github" style="padding-left: 1px;">
+
+</div>
+</div>
+<p><a href="https://github.com/coronalabs/Match-Three-Space-RPG">Download from GitHub</a></p>
+</div>
+<div class="fa-list-element">
+<div class="fa-list-element-tile" style="background-color: #a6b0ea;">
+<div class="fa fa-youtube-play" style="font-size: 23px; padding-top: 6px; padding-left: 1px;">
+
+</div>
+</div>
+<p><a href="https://youtu.be/bRHtDJ3b2Jo?list=PLhE_IYaXVf9skwhKXNswj0C9U3RZB3DaD">Watch video tutorials</a></p>
+</div>
+</div>
+<div class="clear">
+
+</div>
+<!--- Sticker Knight Platformer -->
+</div>
+<div id="sticker-knight-platformer" class="section level3">
+<h3>Sticker Knight Platformer</h3>
+<div class="float-left" style="max-width: 280px; margin-top: 2px; margin-bottom: 12px;">
+<p><a href="https://marketplace.coronalabs.com/asset/sticker-knight-platformer"><img src="../../images/docs/ponywolf-platformer-1.png" /></a></p>
+</div>
+<div style="margin-top: 0px; display: table-cell;">
+<p>An open-source prototype of a <nobr>fantasy-themed</nobr> platformer. This is not a complete game, but a starting point for learning modern game programming techniques using Corona and Lua.</p>
+<div class="fa-list-element">
+<div class="fa-list-element-tile">
+<div class="fa fa-arrow-circle-down" style="padding-left: 1px;">
+
+</div>
+</div>
+<p><a href="https://marketplace.coronalabs.com/asset/sticker-knight-platformer">Download from Corona Marketplace</a></p>
+</div>
+<div class="fa-list-element">
+<div class="fa-list-element-tile" style="background-color: #93b0ec;">
+<div class="fa fa-github" style="padding-left: 1px;">
+
+</div>
+</div>
+<p><a href="https://github.com/coronalabs/Sticker-Knight-Platformer/">Download from GitHub</a></p>
+</div>
+</div>
+<div class="clear">
+
+</div>
+<!--- Endless Sk8boarder -->
+</div>
+<div id="endless-sk8boarder" class="section level3">
+<h3>Endless Sk8boarder</h3>
+<div class="float-left" style="max-width: 280px; margin-top: 2px; margin-bottom: 12px;">
+<p><a href="https://marketplace.coronalabs.com/asset/endless-sk8boarder"><img src="../../images/docs/ponywolf-sk8boarder-1.png" /></a></p>
+</div>
+<div style="margin-top: 0px; display: table-cell;">
+<p>An open-source prototype of a <nobr>skateboard-themed</nobr> endless runner game. This is not a complete game, but a starting point for learning modern game programming techniques using Corona and Lua.</p>
+<div class="fa-list-element">
+<div class="fa-list-element-tile">
+<div class="fa fa-arrow-circle-down" style="padding-left: 1px;">
+
+</div>
+</div>
+<p><a href="https://marketplace.coronalabs.com/asset/endless-sk8boarder">Download from Corona Marketplace</a></p>
+</div>
+<div class="fa-list-element">
+<div class="fa-list-element-tile" style="background-color: #93b0ec;">
+<div class="fa fa-github" style="padding-left: 1px;">
+
+</div>
+</div>
+<p><a href="https://github.com/coronalabs/Endless-Skateborder">Download from GitHub</a></p>
+</div>
+<div class="fa-list-element">
+<div class="fa-list-element-tile" style="background-color: #a6b0ea;">
+<div class="fa fa-youtube-play" style="font-size: 23px; padding-top: 6px; padding-left: 1px;">
+
+</div>
+</div>
+<p><a href="https://www.youtube.com/playlist?list=PLhE_IYaXVf9v_g2yO0rqijgvvT3oD2khx">Watch video tutorials</a></p>
+</div>
+</div>
+<div class="clear">
+
+</div>
+<!--- Corona Cannon -->
+</div>
+<div id="corona-cannon" class="section level3">
+<h3>Corona Cannon</h3>
+<div class="float-left" style="max-width: 280px; margin-top: 2px; margin-bottom: 12px;">
+<p><a href="https://github.com/coronalabs-samples/CoronaCannon/"><img src="../../images/docs/corona-cannon-1.png" /></a></p>
+</div>
+<div style="margin-top: 0px; display: table-cell;">
+<p>An open-source game in the spirit of Angry Birds<span style="font-size: 80%;"><sup>™</sup></span>. Take control over the cannon and smash all of the bugs you can find!</p>
+<div class="fa-list-element">
+<div class="fa-list-element-tile">
+<div class="fa fa-arrow-circle-down" style="padding-left: 1px;">
+
+</div>
+</div>
+<p><a href="https://marketplace.coronalabs.com/asset/corona-cannon">Download from Corona Marketplace</a></p>
+</div>
+<div class="fa-list-element">
+<div class="fa-list-element-tile" style="background-color: #93b0ec;">
+<div class="fa fa-github" style="padding-left: 1px;">
+
+</div>
+</div>
+<p><a href="https://github.com/coronalabs-samples/CoronaCannon/">Download from GitHub</a></p>
+</div>
+</div>
+<div class="clear">
+
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.programming.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

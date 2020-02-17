@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Data/Files/Strings</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#lua-file-system-lfs">Lua File System (LFS)</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#directory-scanning">Directory Scanning</a></li>
+<li><a href="#adding-directories">Adding Directories</a></li>
+<li><a href="#deleting-directories">Deleting Directories</a></li>
+<li><a href="#timestamps">Timestamps</a><ul>
+<li><a href="#setting-a-new-timestamp">Setting a New Timestamp</a></li>
+<li><a href="#retrieving-an-existing-timestamp">Retrieving an Existing Timestamp</a></li>
+</ul></li>
+<li><a href="#further-reference">Further Reference</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/data/index.html">Data/Files/Strings</a>
+</div>
+<div id="lua-file-system-lfs" class="section level1">
+<h1>Lua File System (LFS)</h1>
+<p>This guide discusses how to use the <strong>Lua File System</strong> library, often simply referred to as <strong>LFS</strong>.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#directory-scanning">Directory Scanning</a></li>
+<li><a href="#adding-directories">Adding Directories</a></li>
+<li><a href="#deleting-directories">Deleting Directories</a></li>
+<li><a href="#timestamps">Timestamps</a></li>
+<li><a href="#reference">Further Reference</a></li>
+</ul>
+</div>
+<p><a id="overview"></a></p>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p><strong>LFS</strong> is a powerful Lua library which allows developers to perform common file system activities that can't normally be done in plain Lua — things like getting file attributes, creating and removing directories (folders), and iterating over files in a directory.</p>
+<p><a id="directory-scanning"></a></p>
+</div>
+<div id="directory-scanning" class="section level2">
+<h2>Directory Scanning</h2>
+<p>Imagine a &quot;drawing&quot; app that allows users to create and save <nobr>image-based</nobr> files to the device's documents directory (<code>system.DocumentsDirectory</code>). In this instance, it's relatively easy to keep track of what a user does <strong>inside</strong> of the app, for example by maintaining a list/database of the created drawings and updating it whenever an image file is added or removed to/from the app's documents directory.</p>
+<p>However, for more advanced functionality like file sharing, where users can import and export drawings, Lua by itself will not suffice. This is where LFS can be extremely powerful. Essentially, every time the app is launched, LFS can be used to scan the contents of <code>system.DocumentsDirectory</code> and &quot;check&quot; for new drawings. This can be done as often as needed to ensure an accurate account of exactly what's inside the folder.</p>
+<p>Here's a basic example of how to iterate over the contents of an app's documents directory using a <code>for</code> loop:</p>
+<pre class="brush: lua;">local lfs = require( "lfs" )
+local path = system.pathForFile( nil, system.DocumentsDirectory )
+
+for file in lfs.dir( path ) do
+    -- "file" is the current file or directory name
+    print( "Found file or directory: " .. file )
+end</pre>
+<p><a id="adding-directories"></a></p>
+</div>
+<div id="adding-directories" class="section level2">
+<h2>Adding Directories</h2>
+<p>If an app downloads external assets (files) and those files must be organized in a logical manner, adding or removing directories is absolutely essential. Fortunately, LFS makes this task easy:</p>
+<ol style="list-style-type: decimal">
+<li>First, set the destination for the <strong>new</strong> directory using <code>lfs.chdir()</code>:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: false; highlight: [5]; first-line: 1;">local lfs = require( "lfs" )
+local path = system.pathForFile( nil, system.DocumentsDirectory )
+
+-- Change current working directory
+local success = lfs.chdir( path )  -- Returns boolean true on success</pre>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Next, use <code>lfs.mkdir()</code> to actually create the directory:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: false; highlight: [2]; first-line: 1;">if success then
+    lfs.mkdir( "MyNewFolder" )
+end</pre>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Finally, if desired, store the path to the new directory in a variable:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua;">local newFolderPath = lfs.currentdir() .. "/MyNewFolder"</pre>
+</div>
+<p><a id="deleting-directories"></a></p>
+</div>
+<div id="deleting-directories" class="section level2">
+<h2>Deleting Directories</h2>
+<p>If you need to remove (delete) a directory, use the existing <a href="../../../api/library/os/remove.html">os.remove()</a> function, for instance:</p>
+<pre class="brush: lua; gutter: false; highlight: [1]; first-line: 1;">local result, reason = os.remove( system.pathForFile( "MyNewFolder", system.DocumentsDirectory ) )
+
+if result then
+    print( "Directory removed!" )
+else
+    print( "Removal failed: " .. reason )
+end</pre>
+<p><a id="timestamps"></a></p>
+</div>
+<div id="timestamps" class="section level2">
+<h2>Timestamps</h2>
+<p>In some cases, it may be necessary to periodically check the &quot;last modified&quot; timestamp of certain files, especially if the app uses any kind of syncing functionality. Timestamps may also be useful for tracking when the user last <strong>read</strong> a specific file (but didn't necessarily change it).</p>
+<div id="setting-a-new-timestamp" class="section level3">
+<h3>Setting a New Timestamp</h3>
+<p>Imagine a file called <code>mydata.txt</code> resides inside of <code>system.DocumentsDirectory</code>. To set a timestamp for when the user last read the file, use LFS to <strong>touch</strong> the file. In doing so, the timestamp will be set to today/now.</p>
+<pre class="brush: lua; gutter: false; highlight: [5]; first-line: 1;">local lfs = require( "lfs" )
+local filePath = system.pathForFile( "mydata.txt", system.DocumentsDirectory )
+
+-- "Touch" the file
+lfs.touch( filePath )</pre>
+</div>
+<div id="retrieving-an-existing-timestamp" class="section level3">
+<h3>Retrieving an Existing Timestamp</h3>
+<p>To find out when a file was last modified, the <code>access</code> or <code>modification</code> properties of <code>lfs.attributes</code> can be accessed:</p>
+<pre class="brush: lua; gutter: false; highlight: [5,6]; first-line: 1;">local lfs = require( "lfs" )
+local filePath = system.pathForFile( "mydata.txt", system.DocumentsDirectory )
+
+-- Get/print last modified time
+local fileAttributes = lfs.attributes( filePath )
+print( "File last modified: " .. fileAttributes.modification )</pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>The value returned for the timestamp will be the number of seconds since <nobr>January 1, 1970</nobr> at midnight. For more information on time and dates in Corona, see the <a href="../../../tutorial/data/timeDates/index.html#longer-periods-of-time">Utilizing Time and Dates</a> tutorial.</p>
+</div>
+<p><a id="reference"></a></p>
+</div>
+</div>
+<div id="further-reference" class="section level2">
+<h2>Further Reference</h2>
+<p>LFS is very powerful and it can do much more than what is illustrated in this guide. Fortunately, most of the LFS functions are straightforward and easy to use. Please see the <a href="http://keplerproject.github.io/luafilesystem/manual.html#reference">LFS Reference</a> for a complete listing of available functions and syntax details for each one.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.data.LFS.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

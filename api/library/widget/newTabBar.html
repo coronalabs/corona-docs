@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries | widget | newTabBar</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#widget.newtabbar">widget.newTabBar()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#gotchas">Gotchas</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#id-optional">id <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#x-y-optional">x, y <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#left-top-optional">left, top <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#width-height-optional">width, height <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#buttons-required">buttons <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+<li><a href="#methods">Methods</a><ul>
+<li><a href="#objectsetselectedapi.type.tabbarwidget.setselected"><a href="../../../api/type/TabBarWidget/setSelected.html">object:setSelected()</a></a></li>
+</ul></li>
+<li><a href="#configuring-tab-buttons">Configuring Tab Buttons</a><ul>
+<li><a href="#id-optional-1">id <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#label-optional">label <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#labelcolor-optional">labelColor <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#labelxoffset-labelyoffset-optional">labelXOffset, labelYOffset <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#font-optional">font <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#size-optional">size <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#selected-optional">selected <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#onpress-optional">onPress <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#visual-customization-image-files">Visual Customization — Image Files</a><ul>
+<li><a href="#basedir-optional">baseDir <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#backgroundfile-optional">backgroundFile <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#highlight-overlay">Highlight Overlay</a><ul>
+<li><a href="#tabselectedleftfile-required">tabSelectedLeftFile <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#tabselectedmiddlefile-required">tabSelectedMiddleFile <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#tabselectedrightfile-required">tabSelectedRightFile <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#tabselectedframewidth-tabselectedframeheight-required">tabSelectedFrameWidth, tabSelectedFrameHeight <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+<li><a href="#tab-buttons">Tab Buttons</a><ul>
+<li><a href="#basedir-optional-1">baseDir <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#defaultfile-required">defaultFile <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#overfile-required">overFile <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#width-height-required">width, height <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#visual-customization-image-sheet">Visual Customization — Image Sheet</a><ul>
+<li><a href="#sheet-required">sheet <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#backgroundframe-optional">backgroundFrame <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#backgroundframewidth-backgroundframeheight-required">backgroundFrameWidth, backgroundFrameHeight <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#highlight-overlay-1">Highlight Overlay</a><ul>
+<li><a href="#tabselectedleftframe-required">tabSelectedLeftFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#tabselectedmiddleframe-required">tabSelectedMiddleFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#tabselectedrightframe-required">tabSelectedRightFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#tabselectedframewidth-tabselectedframeheight-required-1">tabSelectedFrameWidth, tabSelectedFrameHeight <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+<li><a href="#tab-buttons-1">Tab Buttons</a><ul>
+<li><a href="#defaultframe-required">defaultFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#overframe-required">overFrame <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#default">Default</a></li>
+<li><a href="#image-files">Image Files</a></li>
+<li><a href="#image-sheet">Image Sheet</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/widget/index.html">widget</a>  ▸  <a href="../../../api/library/widget/newTabBar.html">newTabBar</a>
+</div>
+<div id="widget.newtabbar" class="section level1">
+<h1>widget.newTabBar()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../../api/library/widget/index.html">widget.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Return value</strong></td>
+<td align="left"><a href="../../../api/type/TabBarWidget/index.html">TabBarWidget</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">widget, tab bar, tabs, tab buttons</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../api/type/TabBarWidget/index.html">TabBarWidget</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Creates a <a href="../../../api/type/TabBarWidget/index.html">TabBarWidget</a> object.</p>
+</div>
+<div id="gotchas" class="section level2">
+<h2>Gotchas</h2>
+<ul>
+<li><p><a href="../../../api/type/TabBarWidget/index.html">TabBarWidget</a> objects do not support <a href="../../../api/type/DisplayObject/scale.html">scaling</a> nor changing the width/height via <a href="../../../api/type/DisplayObject/width.html">.width</a> or <a href="../../../api/type/DisplayObject/height.html">.height</a>.</p></li>
+<li><p><a href="../../../api/type/TabBarWidget/index.html">TabBarWidget</a> objects do not support changing the <a href="../../../api/type/DisplayObject/anchorX.html">anchorX</a> or <a href="../../../api/type/DisplayObject/anchorY.html">anchorY</a> properties after creation.</p></li>
+</ul>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">widget.newTabBar( options )</pre>
+<p>This function takes a single argument, <code>options</code>, which is a table that accepts the following parameters:</p>
+<div id="id-optional" class="section level5">
+<h5>id <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> An optional identification to assign to the tab bar. Default is <code>widget_tabBar</code>.</p>
+</div>
+<div id="x-y-optional" class="section level5">
+<h5>x, y <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> Coordinates for the widget's <strong>x</strong> and <strong>y</strong> center point. These values will be overridden by <code>left</code> and <code>top</code> if those values are defined.</p>
+</div>
+<div id="left-top-optional" class="section level5">
+<h5>left, top <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The left and top position where the widget will be created. If specified, these values override the <code>x</code> and <code>y</code> parameters.</p>
+</div>
+<div id="width-height-optional" class="section level5">
+<h5>width, height <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The width and height of the tab bar, in pixels. The default height is <code>52</code>.</p>
+</div>
+<div id="buttons-required" class="section level5">
+<h5>buttons <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Table.html">Table</a>.</em> A table that contains sub-tables of parameters/options for the individual tabs that span the bar. Please see <a href="#buttons">Configuring Tab Buttons</a> below.</p>
+</div>
+</div>
+<div id="methods" class="section level2">
+<h2>Methods</h2>
+<div id="objectsetselectedapi.type.tabbarwidget.setselected" class="section level4">
+<h4><a href="../../../api/type/TabBarWidget/setSelected.html">object:setSelected()</a></h4>
+<p><a id="buttons"></a></p>
+</div>
+</div>
+<div id="configuring-tab-buttons" class="section level2">
+<h2>Configuring Tab Buttons</h2>
+<p>Within the <code>options</code> table, the <code>buttons</code> table is required and must be defined. This table should contain <nobr>sub-tables</nobr> of parameters/options for the individual tab buttons that span the bar.</p>
+<div id="id-optional-1" class="section level5">
+<h5>id <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> An optional identification to assign to the tab button. Default is <code>button</code>.</p>
+</div>
+<div id="label-optional" class="section level5">
+<h5>label <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> An optional text label that will appear along the bottom of the tab button area.</p>
+</div>
+<div id="labelcolor-optional" class="section level5">
+<h5>labelColor <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Table.html">Table</a>.</em> Table of two RGB+A color settings, one each for the default and over states.</p>
+<pre class="brush: lua;">labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } }</pre>
+</div>
+<div id="labelxoffset-labelyoffset-optional" class="section level5">
+<h5>labelXOffset, labelYOffset <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> Optional <strong>x</strong> and <strong>y</strong> offsets for the tab button label. For example, <code>labelYOffset = -8</code> will shift the label 8 pixels up from default.</p>
+</div>
+<div id="font-optional" class="section level5">
+<h5>font <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> Font used for the tab button label. Default is <a href="../../../api/library/native/systemFont.html">native.systemFont</a>.</p>
+</div>
+<div id="size-optional" class="section level5">
+<h5>size <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> Font size (in pixels) for the tab button label. Default is <code>8</code>.</p>
+</div>
+<div id="selected-optional" class="section level5">
+<h5>selected <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Boolean.html">Boolean</a>.</em> Set this to <code>true</code> to start the tab button in its selected/on state. Only one tab button should be set to <code>selected = true</code> on initialization.</p>
+</div>
+<div id="onpress-optional" class="section level5">
+<h5>onPress <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Function.html">Function</a>.</em> An optional function to be called when the tab button is pressed. The callback function does not require testing for <code>event.phase</code> since it only honors <code>began</code>.</p>
+</div>
+</div>
+<div id="visual-customization-image-files" class="section level2">
+<h2>Visual Customization — Image Files</h2>
+<p><a href="../../../api/type/TabBarWidget/index.html">TabBarWidget</a> objects can be visually customized using individual image files. These include:</p>
+<ol style="list-style-type: decimal">
+<li>an optional background image that spans the bar width and height (left-side gradient in the diagram)</li>
+<li>three optional, equally-sized image files for tab highlight overlays (red, green, and yellow in the diagram)</li>
+<li>two optional image files for each specified tab button which overlays the bar (ring images in the diagram)</li>
+</ol>
+<div class="float-right" style="float: none; margin: 20px 0px 20px 0px; font-size: 125%; color: #292929; vertical-align: middle;">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../../images/simulator/widget-tabbar-frames.png" /></td>
+<td> → </td>
+<td><img src="../../../images/simulator/widget-tabbar-final.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="basedir-optional" class="section level5">
+<h5>baseDir <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Constant.html">Constant</a>.</em> The base directory where your custom images are located. Default is your project folder (<code>system.ResourceDirectory</code>).</p>
+</div>
+<div id="backgroundfile-optional" class="section level5">
+<h5>backgroundFile <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The background image file for the tab bar. This may be designed to be flexible in width/height.</p>
+</div>
+<div id="highlight-overlay" class="section level3">
+<h3>Highlight Overlay</h3>
+<p>You may configure an optional highlight overlay which will be placed in front of the background but behind the optional button image. Highlight overlays are composed of a left, middle, and right image file, each of which should be designed equal in size. However, if the tab is wider than the collective width of these three image files, the overlay will stretch to fit the width of the tab. In this case, the left and right edge images will remain at their original size, but the middle section will stretch to fill the distance between.</p>
+<div id="tabselectedleftfile-required" class="section level5">
+<h5>tabSelectedLeftFile <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The left edge image file for the tab highlight overlay.</p>
+</div>
+<div id="tabselectedmiddlefile-required" class="section level5">
+<h5>tabSelectedMiddleFile <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The middle image file for the tab highlight overlay. This should be designed to be flexible in width.</p>
+</div>
+<div id="tabselectedrightfile-required" class="section level5">
+<h5>tabSelectedRightFile <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The right edge image file for the tab highlight overlay.</p>
+</div>
+<div id="tabselectedframewidth-tabselectedframeheight-required" class="section level5">
+<h5>tabSelectedFrameWidth, tabSelectedFrameHeight <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The width and height of each highlight overlay image. All three sections should be designed equal in size.</p>
+</div>
+</div>
+<div id="tab-buttons" class="section level3">
+<h3>Tab Buttons</h3>
+<p>Within each sub-table of the <code>buttons</code> table (see <a href="#buttons">Configuring Tab Buttons</a>), you may add additional parameters to visually customize the button. Note that individual buttons can have a unique style according to the specified images.</p>
+<div id="basedir-optional-1" class="section level5">
+<h5>baseDir <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Constant.html">Constant</a>.</em> The base directory where the custom image is located. Default is your project folder (<code>system.ResourceDirectory</code>).</p>
+</div>
+<div id="defaultfile-required" class="section level5">
+<h5>defaultFile <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The file name of the tab button default image (the &quot;un-selected&quot; state).</p>
+</div>
+<div id="overfile-required" class="section level5">
+<h5>overFile <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The file name of the tab button over image (the &quot;selected&quot; state).</p>
+</div>
+<div id="width-height-required" class="section level5">
+<h5>width, height <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The width and height of the <code>defaultFile</code> and <code>overFile</code> images.</p>
+</div>
+</div>
+</div>
+<div id="visual-customization-image-sheet" class="section level2">
+<h2>Visual Customization — Image Sheet</h2>
+<p><a href="../../../api/type/TabBarWidget/index.html">TabBarWidget</a> objects can be visually customized using frames from an <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a>. These include:</p>
+<ol style="list-style-type: decimal">
+<li>an optional background frame that spans the bar width and height (left-side gradient in the diagram)</li>
+<li>three optional, equally-sized image frames for tab highlight overlays (red, green, and yellow in the diagram)</li>
+<li>two optional image frames for each specified tab button which overlays the bar (ring images in the diagram)</li>
+</ol>
+<div class="float-right" style="float: none; margin: 20px 0px 20px 0px; font-size: 125%; color: #292929; vertical-align: middle;">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../../images/simulator/widget-tabbar-sheet.png" /></td>
+<td> → </td>
+<td><img src="../../../images/simulator/widget-tabbar-final.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sheet-required" class="section level5">
+<h5>sheet <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/ImageSheet/index.html">ImageSheet</a>.</em> The <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a> object for the tab bar.</p>
+</div>
+<div id="backgroundframe-optional" class="section level5">
+<h5>backgroundFrame <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The background image frame for the tab bar. This may be designed to be flexible in width/height.</p>
+</div>
+<div id="backgroundframewidth-backgroundframeheight-required" class="section level5">
+<h5>backgroundFrameWidth, backgroundFrameHeight <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The width and height of the background frame.</p>
+</div>
+<div id="highlight-overlay-1" class="section level3">
+<h3>Highlight Overlay</h3>
+<p>You may configure an optional highlight overlay which will be placed in front of the background but behind the optional button image. Highlight overlays are composed of a left, middle, and right image frame, each of which should be designed equal in size. However, if the tab is wider than the collective width of these three image frames, the overlay will stretch to fit the width of the tab. In this case, the left and right edge frames will remain at their original size, but the middle section will stretch to fill the distance between.</p>
+<div id="tabselectedleftframe-required" class="section level5">
+<h5>tabSelectedLeftFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The left edge image frame for the tab highlight overlay.</p>
+</div>
+<div id="tabselectedmiddleframe-required" class="section level5">
+<h5>tabSelectedMiddleFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The middle image frame for the tab highlight overlay. This should be designed to be flexible in width.</p>
+</div>
+<div id="tabselectedrightframe-required" class="section level5">
+<h5>tabSelectedRightFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The right edge image frame for the tab highlight overlay.</p>
+</div>
+<div id="tabselectedframewidth-tabselectedframeheight-required-1" class="section level5">
+<h5>tabSelectedFrameWidth, tabSelectedFrameHeight <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The width and height of each highlight overlay frame. All three sections should be designed equal in size.</p>
+</div>
+</div>
+<div id="tab-buttons-1" class="section level3">
+<h3>Tab Buttons</h3>
+<p>Within each sub-table of the <code>buttons</code> table (see <a href="#buttons">Configuring Tab Buttons</a>), you may add additional parameters to visually customize the button. Note that individual buttons can have a unique style according to the specified frames.</p>
+<div id="defaultframe-required" class="section level5">
+<h5>defaultFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The index number for the default frame of the tab button (the &quot;un-selected&quot; state).</p>
+</div>
+<div id="overframe-required" class="section level5">
+<h5>overFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The index number for the over frame of the tab button (the &quot;selected&quot; state).</p>
+</div>
+</div>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<div id="default" class="section level5">
+<h5>Default</h5>
+<pre class="brush: lua;">local widget = require( "widget" )
+
+-- Function to handle button events
+local function handleTabBarEvent( event )
+    print( event.target.id )  -- Reference to button's 'id' parameter
+end
+
+-- Configure the tab buttons to appear within the bar
+local tabButtons = {
+    {
+        label = "Tab1",
+        id = "tab1",
+        selected = true,
+        onPress = handleTabBarEvent
+    },
+    {
+        label = "Tab2",
+        id = "tab2",
+        onPress = handleTabBarEvent
+    },
+    {
+        label = "Tab3",
+        id = "tab3",
+        onPress = handleTabBarEvent
+    }
+}
+
+-- Create the widget
+local tabBar = widget.newTabBar(
+    {
+        top = display.contentHeight-120,
+        width = display.contentWidth,
+        buttons = tabButtons
+    }
+)</pre>
+</div>
+<div id="image-files" class="section level5">
+<h5>Image Files</h5>
+<pre class="brush: lua;">local widget = require( "widget" )
+
+-- Function to handle button events
+local function handleTabBarEvent( event )
+    print( event.target.id )  -- Reference to button's 'id' parameter
+end
+
+-- Configure the tab buttons to appear within the bar
+local tabButtons = {
+    {
+        width = 72, 
+        height = 120,
+        defaultFile = "tabBarIconDef.png",
+        overFile = "tabBarIconOver.png",
+        label = "Tab1",
+        id = "tab1",
+        selected = true,
+        size = 16,
+        labelYOffset = -8,
+        onPress = handleTabBarEvent
+    },
+    {
+        width = 72, 
+        height = 120,
+        defaultFile = "tabBarIconDef.png",
+        overFile = "tabBarIconOver.png",
+        label = "Tab2",
+        id = "tab2",
+        size = 16,
+        labelYOffset = -8,
+        onPress = handleTabBarEvent
+    },
+    {
+        width = 72, 
+        height = 120,
+        defaultFile = "tabBarIconDef.png",
+        overFile = "tabBarIconOver.png",
+        label = "Tab3",
+        id = "tab3",
+        size = 16,
+        labelYOffset = -8,
+        onPress = handleTabBarEvent
+    }
+}
+
+-- Create the widget
+local tabBar = widget.newTabBar(
+    {
+        left = 0,
+        top = display.contentHeight-120,
+        width = 580,
+        height = 120,
+        backgroundFile = "tabBarBack.png",
+        tabSelectedLeftFile = "tabBarSelL.png",
+        tabSelectedRightFile = "tabBarSelR.png",
+        tabSelectedMiddleFile = "tabBarSelM.png",
+        tabSelectedFrameWidth = 40,
+        tabSelectedFrameHeight = 120,
+        buttons = tabButtons
+    }
+)</pre>
+</div>
+<div id="image-sheet" class="section level5">
+<h5>Image Sheet</h5>
+<pre class="brush: lua;">local widget = require( "widget" )
+
+-- Function to handle button events
+local function handleTabBarEvent( event )
+    print( event.target.id )  -- Reference to button's 'id' parameter
+end
+
+-- Image sheet options and declaration
+-- For testing, you may copy/save the image under "Visual Customization: Image Sheet" above
+local options = {
+    frames =
+    {
+        { x=4, y=0, width=24, height=120 },
+        { x=32, y=0, width=40, height=120 },
+        { x=72, y=0, width=40, height=120 },
+        { x=112, y=0, width=40, height=120 },
+        { x=152, y=0, width=72, height=120 },
+        { x=224, y=0, width=72, height=120 }
+    },
+    sheetContentWidth = 296,
+    sheetContentHeight = 120
+}
+local tabBarSheet = graphics.newImageSheet( "widget-tabbar-sheet.png", options )
+
+-- Configure the tab buttons to appear within the bar
+local tabButtons = {
+    {
+        defaultFrame = 5,
+        overFrame = 6,
+        label = "Tab1",
+        id = "tab1",
+        selected = true,
+        size = 16,
+        labelYOffset = -8,
+        onPress = handleTabBarEvent
+    },
+    {
+        defaultFrame = 5,
+        overFrame = 6,
+        label = "Tab2",
+        id = "tab2",
+        size = 16,
+        labelYOffset = -8,
+        onPress = handleTabBarEvent
+    },
+    {
+        defaultFrame = 5,
+        overFrame = 6,
+        label = "Tab3",
+        id = "tab3",
+        size = 16,
+        labelYOffset = -8,
+        onPress = handleTabBarEvent
+    }
+}
+
+local tabBar = widget.newTabBar(
+    {
+        sheet = tabBarSheet,
+        left = 0,
+        top = display.contentHeight-120,
+        width = 580,
+        height = 120,
+        backgroundFrame = 1,
+        tabSelectedLeftFrame = 2,
+        tabSelectedMiddleFrame = 3,
+        tabSelectedRightFrame = 4,
+        tabSelectedFrameWidth = 40,
+        tabSelectedFrameHeight = 120,
+        buttons = tabButtons
+    }
+)</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.widget.newTabBar&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

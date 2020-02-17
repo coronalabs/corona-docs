@@ -1,0 +1,879 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | Facebook (v4) | changelog</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#changelog">Changelog</a><ul>
+<li><a href="#brent-sorrentino">2017-08-11 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-1">2017-08-10 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-2">2017-06-19 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-3">2017-06-06 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-4">2017-06-06 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-5">2017-04-24 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-6">2017-04-24 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-7">2017-04-07 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-8">2017-03-28 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-9">2017-02-06 Brent Sorrentino</a></li>
+<li><a href="#ajay-mccaleb">2016-12-07 Ajay McCaleb</a></li>
+<li><a href="#ajay-mccaleb-1">2016-11-16 Ajay McCaleb</a></li>
+<li><a href="#ajay-mccaleb-2">2016-11-07 Ajay McCaleb</a></li>
+<li><a href="#alexander-mccaleb">2016-11-03 Alexander McCaleb</a></li>
+<li><a href="#alexander-mccaleb-1">2016-11-03 Alexander McCaleb</a></li>
+<li><a href="#alexander-mccaleb-2">2016-10-28 Alexander McCaleb</a></li>
+<li><a href="#alexander-mccaleb-3">2016-10-28 Alexander McCaleb</a></li>
+<li><a href="#ajay-mccaleb-3">2016-10-27 Ajay McCaleb</a></li>
+<li><a href="#lerg">2016-10-28 Lerg</a></li>
+<li><a href="#lerg-1">2016-10-28 Lerg</a></li>
+<li><a href="#ajay-mccaleb-4">2016-10-27 Ajay McCaleb</a></li>
+<li><a href="#ajay-mccaleb-5">2016-10-27 Ajay McCaleb</a></li>
+<li><a href="#brent-sorrentino-10">2016-10-27 Brent Sorrentino</a></li>
+<li><a href="#ajay-mccaleb-6">2016-10-27 Ajay McCaleb</a></li>
+<li><a href="#ajay-mccaleb-7">2016-10-27 Ajay McCaleb</a></li>
+<li><a href="#brent-sorrentino-11">2016-10-27 Brent Sorrentino</a></li>
+<li><a href="#ajay-mccaleb-8">2016-08-18 Ajay McCaleb</a></li>
+<li><a href="#brent-sorrentino-12">2016-05-17 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-13">2016-05-17 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-14">2016-05-17 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-15">2016-05-17 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-16">2016-05-17 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-17">2016-05-17 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-18">2016-05-17 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-19">2016-05-17 Brent Sorrentino</a></li>
+<li><a href="#danny-glover">2016-03-25 Danny Glover</a></li>
+<li><a href="#ajay-mccaleb-9">2016-01-25 Ajay McCaleb</a></li>
+<li><a href="#ajay-mccaleb-10">2015-12-29 Ajay McCaleb</a></li>
+<li><a href="#brent-sorrentino-20">2015-11-11 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-21">2015-11-11 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-22">2015-11-11 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-23">2015-11-11 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-24">2015-11-11 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-25">2015-11-11 Brent Sorrentino</a></li>
+<li><a href="#ajay-mccaleb-11">2015-11-10 Ajay McCaleb</a></li>
+<li><a href="#ajay-mccaleb-12">2015-11-09 Ajay McCaleb</a></li>
+<li><a href="#ajay-mccaleb-13">2015-11-09 Ajay McCaleb</a></li>
+<li><a href="#brent-sorrentino-26">2015-10-03 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-27">2015-10-03 Brent Sorrentino</a></li>
+<li><a href="#ajay-mccaleb-14">2015-09-01 Ajay McCaleb</a></li>
+<li><a href="#ajay-mccaleb-15">2015-08-26 Ajay McCaleb</a></li>
+<li><a href="#vlad-shcherban">2015-08-24 Vlad Shcherban</a></li>
+<li><a href="#ajay-mccaleb-16">2015-08-20 Ajay McCaleb</a></li>
+<li><a href="#ajay-mccaleb-17">2015-08-18 Ajay McCaleb</a></li>
+<li><a href="#ajay-mccaleb-18">2015-08-18 Ajay McCaleb</a></li>
+<li><a href="#brent-sorrentino-28">2015-08-19 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-29">2015-08-19 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-30">2015-08-19 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-31">2015-08-18 Brent Sorrentino</a></li>
+<li><a href="#ajay-mccaleb-19">2015-08-18 Ajay McCaleb</a></li>
+<li><a href="#ajay-mccaleb-20">2015-08-18 Ajay McCaleb</a></li>
+<li><a href="#ajay-mccaleb-21">2015-08-13 Ajay McCaleb</a></li>
+<li><a href="#brent-sorrentino-32">2015-08-06 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-33">2015-08-06 Brent Sorrentino</a></li>
+<li><a href="#ajay-mccaleb-22">2015-08-05 Ajay McCaleb</a></li>
+<li><a href="#brent-sorrentino-34">2015-08-06 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-35">2015-08-05 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-36">2015-08-05 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-37">2015-08-05 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-38">2015-08-05 Brent Sorrentino</a></li>
+<li><a href="#ajay-mccaleb-23">2015-08-05 Ajay McCaleb</a></li>
+<li><a href="#alexander-mccaleb-4">2015-08-03 Alexander McCaleb</a></li>
+<li><a href="#alexander-mccaleb-5">2015-08-03 Alexander McCaleb</a></li>
+<li><a href="#brent-sorrentino-39">2015-07-28 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-40">2015-07-28 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-41">2015-07-28 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-42">2015-07-28 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-43">2015-07-28 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-44">2015-07-28 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-45">2015-07-28 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-46">2015-07-28 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-47">2015-07-25 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-48">2015-07-25 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-49">2015-07-25 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-50">2015-07-25 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-51">2015-07-25 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-52">2015-07-25 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-53">2015-07-25 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-54">2015-07-25 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-55">2015-07-25 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-56">2015-07-25 Brent Sorrentino</a></li>
+<li><a href="#ajay">2015-07-21 ajay</a></li>
+<li><a href="#ajay-1">2015-07-21 ajay</a></li>
+<li><a href="#ajay-2">2015-07-21 ajay</a></li>
+<li><a href="#albert-yale">2014-11-21 Albert Yale</a></li>
+<li><a href="#albert-yale-1">2014-11-20 Albert Yale</a></li>
+<li><a href="#perry-clarke">2013-07-18 Perry Clarke</a></li>
+<li><a href="#perry-clarke-1">2013-07-12 Perry Clarke</a></li>
+<li><a href="#perry-clarke-2">2013-07-12 Perry Clarke</a></li>
+<li><a href="#walter">2013-05-03 walter</a></li>
+<li><a href="#walter-1">2013-05-01 walter</a></li>
+<li><a href="#walter-2">2013-04-22 walter</a></li>
+<li><a href="#walter-3">2013-04-18 walter</a></li>
+<li><a href="#walter-4">2013-04-18 walter</a></li>
+<li><a href="#walter-5">2013-04-18 walter</a></li>
+<li><a href="#walter-6">2013-04-18 walter</a></li>
+<li><a href="#walter-7">2013-04-18 walter</a></li>
+<li><a href="#walter-8">2013-04-18 walter</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/facebook-v4/index.html">Facebook (v4)</a>  ▸  <a href="../../plugin/facebook-v4/changelog.html">changelog</a>
+</div>
+<div id="changelog" class="section level1">
+<h1>Changelog</h1>
+<div id="brent-sorrentino" class="section level5">
+<h5>2017-08-11 Brent Sorrentino</h5>
+<ul>
+<li>Remove pointless key from docs.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-1" class="section level5">
+<h5>2017-08-10 Brent Sorrentino</h5>
+<ul>
+<li>Updated docs based on v4a release.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-2" class="section level5">
+<h5>2017-06-19 Brent Sorrentino</h5>
+<ul>
+<li>Remove Enterprise instance.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-3" class="section level5">
+<h5>2017-06-06 Brent Sorrentino</h5>
+<ul>
+<li>Minor edits.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-4" class="section level5">
+<h5>2017-06-06 Brent Sorrentino</h5>
+<ul>
+<li>Minor edits.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-5" class="section level5">
+<h5>2017-04-24 Brent Sorrentino</h5>
+<ul>
+<li>Minor edits.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-6" class="section level5">
+<h5>2017-04-24 Brent Sorrentino</h5>
+<ul>
+<li>Minor edits.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-7" class="section level5">
+<h5>2017-04-07 Brent Sorrentino</h5>
+<ul>
+<li>Minor edit.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-8" class="section level5">
+<h5>2017-03-28 Brent Sorrentino</h5>
+<ul>
+<li>Minor edits.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-9" class="section level5">
+<h5>2017-02-06 Brent Sorrentino</h5>
+<ul>
+<li>Docs maintenance.</li>
+</ul>
+</div>
+<div id="ajay-mccaleb" class="section level5">
+<h5>2016-12-07 Ajay McCaleb</h5>
+<ul>
+<li>Facebook-v4: API implementations in the Corona Simulator stub now return values matching the return types advertised in the documentation.</li>
+</ul>
+<p>Reviewed by: Sergey</p>
+</div>
+<div id="ajay-mccaleb-1" class="section level5">
+<h5>2016-11-16 Ajay McCaleb</h5>
+<ul>
+<li>Android: Adding missing Bolts library jars to binaries package.</li>
+</ul>
+</div>
+<div id="ajay-mccaleb-2" class="section level5">
+<h5>2016-11-07 Ajay McCaleb</h5>
+<ul>
+<li>facebook.showDialog(): Added a note that sharing photos requries a Facebook App to be installed.</li>
+</ul>
+</div>
+<div id="alexander-mccaleb" class="section level5">
+<h5>2016-11-03 Alexander McCaleb</h5>
+<ul>
+<li>setFBConnectListener.markdown edited online with Bitbucket</li>
+</ul>
+<p>Added valueInTable() function to permissions example as the accessToken's grantedPermissions Table is treated as an array, i.e. the permissions in it are values, not keys.</p>
+</div>
+<div id="alexander-mccaleb-1" class="section level5">
+<h5>2016-11-03 Alexander McCaleb</h5>
+<ul>
+<li>login.markdown edited online with Bitbucket</li>
+</ul>
+<p>Added valueInTable() function to permissions example as the accessToken's grantedPermissions Table is treated as an array, i.e. the permissions in it are values, not keys.</p>
+</div>
+<div id="alexander-mccaleb-2" class="section level5">
+<h5>2016-10-28 Alexander McCaleb</h5>
+<ul>
+<li><p>index.markdown edited online with Bitbucket</p></li>
+<li><p>Listed more static libraries to link following last minute packaging changes of the iOS version of the Facebook-v4 plugin.</p></li>
+<li><p>Removed reference to Facebook SDKs distributed with Corona Enterprise as we no longer do this.</p></li>
+</ul>
+</div>
+<div id="alexander-mccaleb-3" class="section level5">
+<h5>2016-10-28 Alexander McCaleb</h5>
+<ul>
+<li><p>showDialog.markdown edited online with Bitbucket.</p></li>
+<li><p>Corrected the key used to share photos.</p></li>
+</ul>
+</div>
+<div id="ajay-mccaleb-3" class="section level5">
+<h5>2016-10-27 Ajay McCaleb</h5>
+<ul>
+<li>Facebook-v4: Out of beta binaries and project updates.</li>
+</ul>
+</div>
+<div id="lerg" class="section level5">
+<h5>2016-10-28 Lerg</h5>
+<ul>
+<li>Repacked Facebook libs to exclude framework dependencies.</li>
+</ul>
+</div>
+<div id="lerg-1" class="section level5">
+<h5>2016-10-28 Lerg</h5>
+<ul>
+<li>Bolts.</li>
+</ul>
+</div>
+<div id="ajay-mccaleb-4" class="section level5">
+<h5>2016-10-27 Ajay McCaleb</h5>
+<ul>
+<li>Fix syntax error from last commit.</li>
+</ul>
+</div>
+<div id="ajay-mccaleb-5" class="section level5">
+<h5>2016-10-27 Ajay McCaleb</h5>
+<ul>
+<li>iOS: Iteration on test binaries.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-10" class="section level5">
+<h5>2016-10-27 Brent Sorrentino</h5>
+<ul>
+<li>More updates to Facebook docs.</li>
+</ul>
+</div>
+<div id="ajay-mccaleb-6" class="section level5">
+<h5>2016-10-27 Ajay McCaleb</h5>
+<ul>
+<li><p>Test binaries fixes.</p></li>
+<li>Android: Adding Android Support v7 Appcompat dependency.</li>
+<li><p>iOS: Rebuilt binaries with Xcode 8.0, not 8.1 GM.</p></li>
+</ul>
+</div>
+<div id="ajay-mccaleb-7" class="section level5">
+<h5>2016-10-27 Ajay McCaleb</h5>
+<ul>
+<li>Facebook-v4 out of beta test binaries.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-11" class="section level5">
+<h5>2016-10-27 Brent Sorrentino</h5>
+<ul>
+<li>Facebook v4 docs updates.</li>
+</ul>
+</div>
+<div id="ajay-mccaleb-8" class="section level5">
+<h5>2016-08-18 Ajay McCaleb</h5>
+<ul>
+<li>Make SDK updated to 4.10.1 only available to builds 2828 and greater as this update also included Android 6 permission-related changes.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-12" class="section level5">
+<h5>2016-05-17 Brent Sorrentino</h5>
+<ul>
+<li>showDialog.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-13" class="section level5">
+<h5>2016-05-17 Brent Sorrentino</h5>
+<ul>
+<li>setFBConnectListener.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-14" class="section level5">
+<h5>2016-05-17 Brent Sorrentino</h5>
+<ul>
+<li>request.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-15" class="section level5">
+<h5>2016-05-17 Brent Sorrentino</h5>
+<ul>
+<li>publishInstall.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-16" class="section level5">
+<h5>2016-05-17 Brent Sorrentino</h5>
+<ul>
+<li>logout.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-17" class="section level5">
+<h5>2016-05-17 Brent Sorrentino</h5>
+<ul>
+<li>login.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-18" class="section level5">
+<h5>2016-05-17 Brent Sorrentino</h5>
+<ul>
+<li>getCurrentAccessToken.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-19" class="section level5">
+<h5>2016-05-17 Brent Sorrentino</h5>
+<ul>
+<li>getCurrentAccessToken.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="danny-glover" class="section level5">
+<h5>2016-03-25 Danny Glover</h5>
+<ul>
+<li><p>Update plugins to latest Facebook SDK source code</p></li>
+<li><p>FBv4 now builds against the Facebook (Github) source code for iOS and Android.</p></li>
+</ul>
+</div>
+<div id="ajay-mccaleb-9" class="section level5">
+<h5>2016-01-25 Ajay McCaleb</h5>
+<ul>
+<li>Fixing typo in example; Casenum 44532.</li>
+</ul>
+</div>
+<div id="ajay-mccaleb-10" class="section level5">
+<h5>2015-12-29 Ajay McCaleb</h5>
+<ul>
+<li>iOS: Updated binaries with fix to com.facebook error 123.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-20" class="section level5">
+<h5>2015-11-11 Brent Sorrentino</h5>
+<ul>
+<li>showDialog.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-21" class="section level5">
+<h5>2015-11-11 Brent Sorrentino</h5>
+<ul>
+<li>showDialog.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-22" class="section level5">
+<h5>2015-11-11 Brent Sorrentino</h5>
+<ul>
+<li>request.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-23" class="section level5">
+<h5>2015-11-11 Brent Sorrentino</h5>
+<ul>
+<li>request.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-24" class="section level5">
+<h5>2015-11-11 Brent Sorrentino</h5>
+<ul>
+<li>request.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-25" class="section level5">
+<h5>2015-11-11 Brent Sorrentino</h5>
+<ul>
+<li>getCurrentAccessToken.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="ajay-mccaleb-11" class="section level5">
+<h5>2015-11-10 Ajay McCaleb</h5>
+<ul>
+<li>Updates Binaries that include recent Game Request and Open Graph changes.</li>
+</ul>
+</div>
+<div id="ajay-mccaleb-12" class="section level5">
+<h5>2015-11-09 Ajay McCaleb</h5>
+<ul>
+<li>Adding more generated files and pieces of documentation that shouldn't be public yet to .hgignore.</li>
+</ul>
+</div>
+<div id="ajay-mccaleb-13" class="section level5">
+<h5>2015-11-09 Ajay McCaleb</h5>
+<ul>
+<li>Docs: Updates pertaining to Game Request Dialog parameters and using Open Graph objects.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-26" class="section level5">
+<h5>2015-10-03 Brent Sorrentino</h5>
+<ul>
+<li>showDialog.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-27" class="section level5">
+<h5>2015-10-03 Brent Sorrentino</h5>
+<ul>
+<li>showDialog.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="ajay-mccaleb-14" class="section level5">
+<h5>2015-09-01 Ajay McCaleb</h5>
+<ul>
+<li><p>Docs: Changes for blog post on iOS beta.</p></li>
+<li>Added some anchor tags to link to the correct spots in the blog post.</li>
+<li><p>Added a couple more known issues that have come up in Fogbugz cases and from Tapps's testing.</p></li>
+</ul>
+</div>
+<div id="ajay-mccaleb-15" class="section level5">
+<h5>2015-08-26 Ajay McCaleb</h5>
+<ul>
+<li><p>iOS: Fixing &quot;to&quot; parameter to facebook.showDialog(&quot;request&quot;, {}).</p></li>
+<li><p>Includes correction to docs about this.</p></li>
+</ul>
+</div>
+<div id="vlad-shcherban" class="section level5">
+<h5>2015-08-24 Vlad Shcherban</h5>
+<ul>
+<li>new fuse docs</li>
+</ul>
+</div>
+<div id="ajay-mccaleb-16" class="section level5">
+<h5>2015-08-20 Ajay McCaleb</h5>
+<ul>
+<li>Updated iOS binaries that compile with iOS 8.4 and iOS 9 beta.</li>
+</ul>
+</div>
+<div id="ajay-mccaleb-17" class="section level5">
+<h5>2015-08-18 Ajay McCaleb</h5>
+<ul>
+<li><p>Binaries for iOS beta.</p></li>
+<li>Includes binaries for the iOS simulator.</li>
+<li>Includes updated Android binaries with new features and behavior consistencies with iOS.</li>
+<li>Includes update to Facebook SDK 4.5.0 on Android and 4.5.1 on iOS.</li>
+<li><p>Includes updates to Mac and Windows Simulator stubs.</p></li>
+</ul>
+</div>
+<div id="ajay-mccaleb-18" class="section level5">
+<h5>2015-08-18 Ajay McCaleb</h5>
+<ul>
+<li>Replaced the old and confusing &quot;apprequests&quot; action for facebook.showDialog() with &quot;requests&quot;. Code already treated &quot;requests&quot; and &quot;apprequests&quot; the same.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-28" class="section level5">
+<h5>2015-08-19 Brent Sorrentino</h5>
+<ul>
+<li>showDialog.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-29" class="section level5">
+<h5>2015-08-19 Brent Sorrentino</h5>
+<ul>
+<li>request.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-30" class="section level5">
+<h5>2015-08-19 Brent Sorrentino</h5>
+<ul>
+<li>migration.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-31" class="section level5">
+<h5>2015-08-18 Brent Sorrentino</h5>
+<ul>
+<li>index.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="ajay-mccaleb-19" class="section level5">
+<h5>2015-08-18 Ajay McCaleb</h5>
+<ul>
+<li>Fixed a typo in plist settings.</li>
+</ul>
+</div>
+<div id="ajay-mccaleb-20" class="section level5">
+<h5>2015-08-18 Ajay McCaleb</h5>
+<ul>
+<li><p>Another iteration on docs for iOS beta and Android updates.</p></li>
+<li>Includes more detailed setup instructions for both Corona SDK and Corona Enterprise.</li>
+<li>Some link and format updates.</li>
+<li>Includes some additional resources for facebook.request().</li>
+<li><p>Some tweaks to sample code.</p></li>
+</ul>
+</div>
+<div id="ajay-mccaleb-21" class="section level5">
+<h5>2015-08-13 Ajay McCaleb</h5>
+<ul>
+<li>Fixing plugin name in JSON metadata so simulator stub will download correctly. Casenum 42241.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-32" class="section level5">
+<h5>2015-08-06 Brent Sorrentino</h5>
+<ul>
+<li>showDialog.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-33" class="section level5">
+<h5>2015-08-06 Brent Sorrentino</h5>
+<ul>
+<li>migration.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="ajay-mccaleb-22" class="section level5">
+<h5>2015-08-05 Ajay McCaleb</h5>
+<ul>
+<li>Adding a note about usage with Corona Enterprise on iOS. Fixing examples to use getCurrentAccessToken() vs currentAccessToken.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-34" class="section level5">
+<h5>2015-08-06 Brent Sorrentino</h5>
+<ul>
+<li>getCurrentAccessToken.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-35" class="section level5">
+<h5>2015-08-05 Brent Sorrentino</h5>
+<ul>
+<li>index.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-36" class="section level5">
+<h5>2015-08-05 Brent Sorrentino</h5>
+<ul>
+<li>changelog.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-37" class="section level5">
+<h5>2015-08-05 Brent Sorrentino</h5>
+<ul>
+<li>login.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-38" class="section level5">
+<h5>2015-08-05 Brent Sorrentino</h5>
+<ul>
+<li>index.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="ajay-mccaleb-23" class="section level5">
+<h5>2015-08-05 Ajay McCaleb</h5>
+<ul>
+<li>Doc updates to coincide with iOS beta and Android updates.</li>
+</ul>
+</div>
+<div id="alexander-mccaleb-4" class="section level5">
+<h5>2015-08-03 Alexander McCaleb</h5>
+<ul>
+<li>index.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="alexander-mccaleb-5" class="section level5">
+<h5>2015-08-03 Alexander McCaleb</h5>
+<ul>
+<li>Added note about what minimal daily build is needed for this plugin. Changed support link to the Facebook-v4 beta forum.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-39" class="section level5">
+<h5>2015-07-28 Brent Sorrentino</h5>
+<ul>
+<li>showDialog.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-40" class="section level5">
+<h5>2015-07-28 Brent Sorrentino</h5>
+<ul>
+<li>setFBConnectListener.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-41" class="section level5">
+<h5>2015-07-28 Brent Sorrentino</h5>
+<ul>
+<li>request.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-42" class="section level5">
+<h5>2015-07-28 Brent Sorrentino</h5>
+<ul>
+<li>publishInstall.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-43" class="section level5">
+<h5>2015-07-28 Brent Sorrentino</h5>
+<ul>
+<li>migration.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-44" class="section level5">
+<h5>2015-07-28 Brent Sorrentino</h5>
+<ul>
+<li>login.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-45" class="section level5">
+<h5>2015-07-28 Brent Sorrentino</h5>
+<ul>
+<li>index.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-46" class="section level5">
+<h5>2015-07-28 Brent Sorrentino</h5>
+<ul>
+<li>currentAccessToken.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-47" class="section level5">
+<h5>2015-07-25 Brent Sorrentino</h5>
+<ul>
+<li>showDialog.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-48" class="section level5">
+<h5>2015-07-25 Brent Sorrentino</h5>
+<ul>
+<li>setFBConnectListener.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-49" class="section level5">
+<h5>2015-07-25 Brent Sorrentino</h5>
+<ul>
+<li>request.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-50" class="section level5">
+<h5>2015-07-25 Brent Sorrentino</h5>
+<ul>
+<li>publishInstall.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-51" class="section level5">
+<h5>2015-07-25 Brent Sorrentino</h5>
+<ul>
+<li>logout.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-52" class="section level5">
+<h5>2015-07-25 Brent Sorrentino</h5>
+<ul>
+<li>login.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-53" class="section level5">
+<h5>2015-07-25 Brent Sorrentino</h5>
+<ul>
+<li>isActive.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-54" class="section level5">
+<h5>2015-07-25 Brent Sorrentino</h5>
+<ul>
+<li>index.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-55" class="section level5">
+<h5>2015-07-25 Brent Sorrentino</h5>
+<ul>
+<li>currentAccessToken.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-56" class="section level5">
+<h5>2015-07-25 Brent Sorrentino</h5>
+<ul>
+<li>accessDenied.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="ajay" class="section level5">
+<h5>2015-07-21 ajay</h5>
+<ul>
+<li>Facebook-v4: Removing pages for unfinished APIs. Fixes to index.markdown.</li>
+</ul>
+</div>
+<div id="ajay-1" class="section level5">
+<h5>2015-07-21 ajay</h5>
+<ul>
+<li>Binaries and sample for Android beta 1.0.</li>
+</ul>
+</div>
+<div id="ajay-2" class="section level5">
+<h5>2015-07-21 ajay</h5>
+<ul>
+<li>Adding first draft of docs.</li>
+</ul>
+</div>
+<div id="albert-yale" class="section level5">
+<h5>2014-11-21 Albert Yale</h5>
+<ul>
+<li>Check architectures of plugins</li>
+</ul>
+</div>
+<div id="albert-yale-1" class="section level5">
+<h5>2014-11-20 Albert Yale</h5>
+<ul>
+<li>64b</li>
+</ul>
+</div>
+<div id="perry-clarke" class="section level5">
+<h5>2013-07-18 Perry Clarke</h5>
+<ul>
+<li>Added checks for <strong>Availability</strong> in docs and unexpected architectures in fat binaries.</li>
+</ul>
+<p>Bumped version to 1.1</p>
+</div>
+<div id="perry-clarke-1" class="section level5">
+<h5>2013-07-12 Perry Clarke</h5>
+<ul>
+<li>Added script to sanity check plugin submissions.</li>
+</ul>
+</div>
+<div id="perry-clarke-2" class="section level5">
+<h5>2013-07-12 Perry Clarke</h5>
+<ul>
+<li>Added Corona QA checklist</li>
+</ul>
+</div>
+<div id="walter" class="section level5">
+<h5>2013-05-03 walter</h5>
+<ul>
+<li>Add missing line for Availability in index.markdown</li>
+</ul>
+</div>
+<div id="walter-1" class="section level5">
+<h5>2013-05-01 walter</h5>
+<ul>
+<li>Fix: plugins/ folder needs a VERSION/ subdir</li>
+</ul>
+</div>
+<div id="walter-2" class="section level5">
+<h5>2013-04-22 walter</h5>
+<ul>
+<li>Clean up/clarify replacement strings</li>
+</ul>
+</div>
+<div id="walter-3" class="section level5">
+<h5>2013-04-18 walter</h5>
+<ul>
+<li>Add missing info on per-plugin metadata.lua files for device</li>
+</ul>
+</div>
+<div id="walter-4" class="section level5">
+<h5>2013-04-18 walter</h5>
+<ul>
+<li>Fix typo</li>
+</ul>
+</div>
+<div id="walter-5" class="section level5">
+<h5>2013-04-18 walter</h5>
+<ul>
+<li>Clarification</li>
+</ul>
+</div>
+<div id="walter-6" class="section level5">
+<h5>2013-04-18 walter</h5>
+<ul>
+<li>Update readme for metadata.json</li>
+</ul>
+</div>
+<div id="walter-7" class="section level5">
+<h5>2013-04-18 walter</h5>
+<ul>
+<li>Add metadata.json file</li>
+</ul>
+</div>
+<div id="walter-8" class="section level5">
+<h5>2013-04-18 walter</h5>
+<ul>
+<li>Inital checkin</li>
+</ul>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.facebook-v4.changelog&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

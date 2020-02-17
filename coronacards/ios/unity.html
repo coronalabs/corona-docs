@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — CoronaCards | iOS | unity</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#coronacards-unity-integration-ios">CoronaCards: Unity Integration — iOS</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#xcode-project-setup">Xcode Project Setup</a></li>
+<li><a href="#integrating-coronacards">Integrating CoronaCards</a><ul>
+<li><a href="#example">Example</a></li>
+<li><a href="#transparent-views">Transparent Views</a></li>
+</ul></li>
+<li><a href="#nativelua-communication">Native/Lua Communication</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../coronacards/index.html">CoronaCards</a>  ▸  <a href="../../coronacards/ios/index.html">iOS</a>  ▸  <a href="../../coronacards/ios/unity.html">unity</a>
+</div>
+<div id="coronacards-unity-integration-ios" class="section level1">
+<h1>CoronaCards: Unity Integration — iOS</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Revision</strong></td>
+<td><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Keywords</strong></td>
+<td>CoronaCards, iOS, Unity</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>See also</strong></td>
+<td><a href="../../coronacards/ios/setup.html">Xcode Project Setup — iOS</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td><a href="../../coronacards/ios/communication.html">Native/Lua Communication — iOS</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>This guide explains how to integrate CoronaCards within a Unity project for iOS.</p>
+<div class="guide-notebox">
+<div class="notebox-title">
+Notes
+</div>
+<ul>
+<li>This process has been tested with Unity 4.3, but the same general integration should work with earlier versions.</li>
+<li>Unity is a trademark of Unity Technologies and is in no way associated or affiliated with Corona Labs.</li>
+</ul>
+</div>
+</div>
+<div id="xcode-project-setup" class="section level2">
+<h2>Xcode Project Setup</h2>
+<p>Please refer to <a href="../../coronacards/ios/setup.html">Xcode Project Setup — iOS</a></p>
+</div>
+<div id="integrating-coronacards" class="section level2">
+<h2>Integrating CoronaCards</h2>
+<p>Basic integration of CoronaCards within Unity can be achieved by modifying the <code>UnityViewController</code> that is generated from the Unity project. This <code>UnityViewController</code> becomes the root controller upon which the <code>CoronaViewController</code> will overlay.</p>
+<div id="example" class="section level5">
+<h5>Example</h5>
+<p>To add the <code>CoronaViewController</code> and <code>CoronaView</code> to the view controller hierarchy, add a member in <code>UnityAppController.h</code> via the process outlined below. In this example, we'll add a simple Corona project to the native Xcode Unity project, set to run as an overlay.</p>
+<ol style="list-style-type: decimal">
+<li>Add the following line to the <code>UnityAppController</code> interface:</li>
+</ol>
+<div class="image-indent">
+<pre class="brush: lua;">CoronaViewController* _coronaController;</pre>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Add the following code at the end of the <code>createViewHierarchy</code> method in <code>UnityAppController.mm</code>:</li>
+</ol>
+<div class="image-indent">
+<pre class="brush: lua; c">- (void)createViewHierarchy
+{
+    //Unity Specific code
+    //...
+    //...
+    //...
+
+    //CoronaCards code
+    _coronaController = [[[CoronaViewController alloc] init] autorelease];
+    [_rootController addChildViewController:_coronaController];
+
+    CoronaView *coronaView = (CoronaView *)_coronaController.view;
+
+    //Define the region for CoronaCards - example is 100X100
+    CGRect rect = CGRectMake(0,0,100,100);
+    
+    coronaView.frame = rect;
+    
+    [_rootView addSubview:coronaView];
+
+    // Transparent background
+    coronaView.backgroundColor = [UIColor clearColor];
+    coronaView.opaque = NO;
+
+    [coronaView run];
+}</pre>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Add the following code to the beginning of the repaint method in <code>UnityAppController.mm</code>:</li>
+</ol>
+<div class="image-indent">
+<pre class="brush: lua;">- (void)repaint
+{
+    //Added for OpenGL context
+    [EAGLContext setCurrentContext:_mainDisplay->surface.context];
+
+    //Unity Specific code
+    //...
+    //...
+    //...
+} </pre>
+</div>
+</div>
+<div id="transparent-views" class="section level3">
+<h3>Transparent Views</h3>
+<p>In iOS, a CoronaView can have transparent backgrounds. To accomplish this, two things are required:</p>
+<p>First, instruct iOS to enable transparency in the <code>UIView</code> itself:</p>
+<pre class="brush: lua;">// [Obj-C]
+coronaView.backgroundColor = [UIColor clearColor];
+coronaView.opaque = NO;</pre>
+<p>Second, tell Corona to utilize an transparent OpenGL surface by setting the <code>alpha</code> key to <code>0</code>:</p>
+<pre class="brush: lua;">-- [Lua]
+display.setDefault( "background", 0, 0, 0, 0 )</pre>
+</div>
+</div>
+<div id="nativelua-communication" class="section level2">
+<h2>Native/Lua Communication</h2>
+<p>Once integrated, a Corona-based view can communicate with the native app and <nobr>vice-versa.</nobr> Learn more in the <nobr><a href="../../coronacards/ios/communication.html">Native/Lua Communication</a></nobr> guide.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=coronacards.ios.unity&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

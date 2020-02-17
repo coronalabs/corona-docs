@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="6ec97ea6-f4c7-48bb-a79f-ba22a46f6df1" Title="API Reference" Url="html/R_Project_CoronaLabs_Corona_WindowsPhone.htm">
+    <HelpTOCNode Id="bcf882ef-6232-439c-877a-d2adc1fc5523" Title="CoronaLabs.Corona.WinRT" Url="html/N_CoronaLabs_Corona_WinRT.htm">
+      <HelpTOCNode Id="cdd3092b-df08-474c-9096-edd8416cb463" Title="CoronaBoxedBoolean Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean.htm">
+        <HelpTOCNode Id="cc6935c2-e7c9-4095-8be6-0d37149f6e76" Title="CoronaBoxedBoolean Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean.htm">
+          <HelpTOCNode Id="21c2a8a6-d2fd-4b89-aca7-3c6b839ab6bc" Title="CompareTo Method " Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_CompareTo.htm">
+            <HelpTOCNode Title="CompareTo Method (Boolean)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_CompareTo.htm" />
+            <HelpTOCNode Title="CompareTo Method (Object)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_CompareTo_1.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Id="cb3c3a0a-1bb4-4917-b54e-b2f4ad633275" Title="Equals Method " Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_Equals.htm">
+            <HelpTOCNode Title="Equals Method (Boolean)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_Equals.htm" />
+            <HelpTOCNode Title="Equals Method (Object)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_Equals_1.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Title="From Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_From.htm" />
+          <HelpTOCNode Title="GetHashCode Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_GetHashCode.htm" />
+          <HelpTOCNode Title="PushToLua Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_PushToLua.htm" />
+          <HelpTOCNode Title="ToString Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_ToString.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="a6a3e089-e1a8-4e9c-a963-dcfe1c2bd2af" Title="CoronaBoxedBoolean Properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean.htm">
+          <HelpTOCNode Title="False Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_False.htm" />
+          <HelpTOCNode Title="True Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_True.htm" />
+          <HelpTOCNode Title="Value Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedBoolean_Value.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="47c21bd7-78b0-4dc3-a6f4-3e5343f1121c" Title="CoronaBoxedData Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedData.htm">
+        <HelpTOCNode Id="630c315a-ec84-466a-a044-e92eeadb7968" Title="CoronaBoxedData Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaBoxedData.htm">
+          <HelpTOCNode Title="FromLua Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedData_FromLua.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="e1566616-ba07-434c-91de-8809a1f19a5d" Title="CoronaBoxedList Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedList.htm">
+        <HelpTOCNode Title="CoronaBoxedList Constructor " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedList__ctor.htm" />
+        <HelpTOCNode Id="c97c2704-e6fb-45ca-930f-3730ff537761" Title="CoronaBoxedList Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaBoxedList.htm">
+          <HelpTOCNode Title="Add Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedList_Add.htm" />
+          <HelpTOCNode Title="Clear Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedList_Clear.htm" />
+          <HelpTOCNode Title="First Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedList_First.htm" />
+          <HelpTOCNode Title="PushToLua Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedList_PushToLua.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="53210e40-2f2d-463a-ae04-a65eaa29577d" Title="CoronaBoxedList Properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaBoxedList.htm">
+          <HelpTOCNode Title="Count Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedList_Count.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="b8ff7b09-2d4a-42c5-8090-0fe16cdf31c3" Title="CoronaBoxedNumber Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedNumber.htm">
+        <HelpTOCNode Title="CoronaBoxedNumber Constructor " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedNumber__ctor.htm" />
+        <HelpTOCNode Id="2ac2b8d1-183a-47f4-b046-400a96a5c32b" Title="CoronaBoxedNumber Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaBoxedNumber.htm">
+          <HelpTOCNode Id="7a4b8cfb-2349-4e44-b07c-f7fddb823c69" Title="CompareTo Method " Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_CompareTo.htm">
+            <HelpTOCNode Title="CompareTo Method (Double)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_CompareTo.htm" />
+            <HelpTOCNode Title="CompareTo Method (Object)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_CompareTo_1.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Id="f0a31bb5-1a5f-4acb-832e-30bde2937817" Title="Equals Method " Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_Equals.htm">
+            <HelpTOCNode Title="Equals Method (Double)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_Equals.htm" />
+            <HelpTOCNode Title="Equals Method (Object)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_Equals_1.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Title="GetHashCode Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_GetHashCode.htm" />
+          <HelpTOCNode Title="PushToLua Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_PushToLua.htm" />
+          <HelpTOCNode Title="ToString Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_ToString.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="725b4723-7374-48b1-9014-9af1284e8366" Title="CoronaBoxedNumber Properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaBoxedNumber.htm">
+          <HelpTOCNode Title="Value Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedNumber_Value.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="a3a3a40d-2fb0-459c-8393-7a1dfe35a846" Title="CoronaBoxedString Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedString.htm">
+        <HelpTOCNode Id="dcea6030-9229-4beb-ab00-22348083c5cb" Title="CoronaBoxedString Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaBoxedString.htm">
+          <HelpTOCNode Title="CompareTo Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_CompareTo.htm" />
+          <HelpTOCNode Id="845f9e27-5afd-4398-9e64-f47d4dc8e6d8" Title="Equals Method " Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedString_Equals.htm">
+            <HelpTOCNode Title="Equals Method (Object)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_Equals_1.htm" />
+            <HelpTOCNode Title="Equals Method (String)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_Equals_2.htm" />
+            <HelpTOCNode Title="Equals Method (Utf8String)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_Equals.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Id="a49e91b4-48a8-4fd5-a649-ad6dd2a7e0c6" Title="From Method " Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaBoxedString_From.htm">
+            <HelpTOCNode Title="From Method (String)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_From_1.htm" />
+            <HelpTOCNode Title="From Method (Utf8String)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_From.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Title="GetHashCode Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_GetHashCode.htm" />
+          <HelpTOCNode Title="PushToLua Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_PushToLua.htm" />
+          <HelpTOCNode Title="ToString Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_ToString.htm" />
+          <HelpTOCNode Title="ToUtf16String Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_ToUtf16String.htm" />
+          <HelpTOCNode Title="ToUtf8String Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedString_ToUtf8String.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="6f22ac79-6e2c-4c54-965b-60211b479deb" Title="CoronaBoxedString Properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaBoxedString.htm">
+          <HelpTOCNode Title="Empty Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedString_Empty.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="1ad5503f-e834-4f06-85a1-37a4bddb9a84" Title="CoronaBoxedTable Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaBoxedTable.htm">
+        <HelpTOCNode Title="CoronaBoxedTable Constructor " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable__ctor.htm" />
+        <HelpTOCNode Id="57387b22-d3ef-4b06-9620-51e482402026" Title="CoronaBoxedTable Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaBoxedTable.htm">
+          <HelpTOCNode Title="Clear Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_Clear.htm" />
+          <HelpTOCNode Title="ContainsKey Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_ContainsKey.htm" />
+          <HelpTOCNode Title="First Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_First.htm" />
+          <HelpTOCNode Title="GetValueByKey Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_GetValueByKey.htm" />
+          <HelpTOCNode Title="PushToLua Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_PushToLua.htm" />
+          <HelpTOCNode Title="RemoveByKey Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_RemoveByKey.htm" />
+          <HelpTOCNode Title="Set Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaBoxedTable_Set.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="7867d431-d611-4300-827f-7dc2843da464" Title="CoronaBoxedTable Properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaBoxedTable.htm">
+          <HelpTOCNode Title="Count Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaBoxedTable_Count.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="02612df4-5485-4ff3-97ec-da4c7162f7d7" Title="CoronaLuaEventArgs Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaLuaEventArgs.htm">
+        <HelpTOCNode Title="CoronaLuaEventArgs Constructor " Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventArgs__ctor.htm" />
+        <HelpTOCNode Title="CoronaLuaEventArgs Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaLuaEventArgs.htm" />
+        <HelpTOCNode Id="896188bd-f1dd-4057-ad65-50d6d4c2660f" Title="CoronaLuaEventArgs Properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaLuaEventArgs.htm">
+          <HelpTOCNode Title="EventName Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaLuaEventArgs_EventName.htm" />
+          <HelpTOCNode Title="Properties Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaLuaEventArgs_Properties.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Title="CoronaLuaEventHandler Delegate" Url="html/T_CoronaLabs_Corona_WinRT_CoronaLuaEventHandler.htm" />
+      <HelpTOCNode Id="c79c6477-f37f-4cd1-96de-7a309c01cace" Title="CoronaLuaEventProperties Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties.htm">
+        <HelpTOCNode Id="66c41252-64e7-4b50-833f-661386ecfdfc" Title="CoronaLuaEventProperties Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties.htm">
+          <HelpTOCNode Title="Clear Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Clear.htm" />
+          <HelpTOCNode Title="Contains Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Contains.htm" />
+          <HelpTOCNode Title="CreateWithName Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_CreateWithName.htm" />
+          <HelpTOCNode Title="First Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_First.htm" />
+          <HelpTOCNode Title="Get Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Get.htm" />
+          <HelpTOCNode Title="Remove Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Remove.htm" />
+          <HelpTOCNode Id="7610b4cc-61d0-4a5b-a1c4-f77c8af1e7d4" Title="Set Method " Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Set.htm">
+            <HelpTOCNode Title="Set Method (String, ICoronaBoxedData)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Set.htm" />
+            <HelpTOCNode Title="Set Method (String, Boolean)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Set_1.htm" />
+            <HelpTOCNode Title="Set Method (String, Double)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Set_2.htm" />
+            <HelpTOCNode Title="Set Method (String, Int32)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Set_3.htm" />
+            <HelpTOCNode Title="Set Method (String, String)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Set_4.htm" />
+          </HelpTOCNode>
+        </HelpTOCNode>
+        <HelpTOCNode Id="bbe89322-94af-4ea8-b4aa-f95569b51957" Title="CoronaLuaEventProperties Properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties.htm">
+          <HelpTOCNode Title="Count Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaLuaEventProperties_Count.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="108a2dec-4f8e-40bf-bb8d-d643e0afea2b" Title="CoronaRuntime Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntime.htm">
+        <HelpTOCNode Title="CoronaRuntime Constructor " Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime__ctor.htm" />
+        <HelpTOCNode Id="f46a0b0a-0811-4a57-80f8-7cca326f6775" Title="CoronaRuntime Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaRuntime.htm">
+          <HelpTOCNode Title="Resume Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime_Resume.htm" />
+          <HelpTOCNode Id="2261e2fc-10f3-4f8e-ac61-e3afbcd87814" Title="Run Method " Url="html/Overload_CoronaLabs_Corona_WinRT_CoronaRuntime_Run.htm">
+            <HelpTOCNode Title="Run Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime_Run.htm" />
+            <HelpTOCNode Title="Run Method (String)" Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime_Run_1.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Title="RunInDirectory Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime_RunInDirectory.htm" />
+          <HelpTOCNode Title="RunUsing Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime_RunUsing.htm" />
+          <HelpTOCNode Title="Suspend Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime_Suspend.htm" />
+          <HelpTOCNode Title="Terminate Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntime_Terminate.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="8e5ae078-22cc-4516-a6c1-1587ab3f7b5f" Title="CoronaRuntime Properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaRuntime.htm">
+          <HelpTOCNode Title="State Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntime_State.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="02e3df2f-3353-4b0d-a729-ca20bff11ab3" Title="CoronaRuntime Events" Url="html/Events_T_CoronaLabs_Corona_WinRT_CoronaRuntime.htm">
+          <HelpTOCNode Title="Loaded Event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntime_Loaded.htm" />
+          <HelpTOCNode Title="Resumed Event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntime_Resumed.htm" />
+          <HelpTOCNode Title="Started Event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntime_Started.htm" />
+          <HelpTOCNode Title="Suspended Event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntime_Suspended.htm" />
+          <HelpTOCNode Title="Terminating Event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntime_Terminating.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="622ee01a-3301-4cea-a200-8608fefd4961" Title="CoronaRuntimeEnvironment Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment.htm">
+        <HelpTOCNode Id="0220e14a-6b6b-4d22-8c44-9406d475906b" Title="CoronaRuntimeEnvironment Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment.htm">
+          <HelpTOCNode Title="AddEventListener Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_AddEventListener.htm" />
+          <HelpTOCNode Title="DispatchEvent Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DispatchEvent.htm" />
+          <HelpTOCNode Title="RemoveEventListener Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_RemoveEventListener.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="5ca88379-5001-48c0-88d1-c725e3a694b4" Title="CoronaRuntimeEnvironment Properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment.htm">
+          <HelpTOCNode Title="CachesDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_CachesDirectoryPath.htm" />
+          <HelpTOCNode Title="CoronaControlAdapter Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_CoronaControlAdapter.htm" />
+          <HelpTOCNode Title="DefaultCachesDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DefaultCachesDirectoryPath.htm" />
+          <HelpTOCNode Title="DefaultDocumentsDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DefaultDocumentsDirectoryPath.htm" />
+          <HelpTOCNode Title="DefaultInternalDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DefaultInternalDirectoryPath.htm" />
+          <HelpTOCNode Title="DefaultResourceDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DefaultResourceDirectoryPath.htm" />
+          <HelpTOCNode Title="DefaultTemporaryDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DefaultTemporaryDirectoryPath.htm" />
+          <HelpTOCNode Title="DocumentsDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_DocumentsDirectoryPath.htm" />
+          <HelpTOCNode Title="InternalDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_InternalDirectoryPath.htm" />
+          <HelpTOCNode Title="InteropServices Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_InteropServices.htm" />
+          <HelpTOCNode Title="LaunchFilePath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_LaunchFilePath.htm" />
+          <HelpTOCNode Title="ResourceDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_ResourceDirectoryPath.htm" />
+          <HelpTOCNode Title="RuntimeState Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_RuntimeState.htm" />
+          <HelpTOCNode Title="TemporaryDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_TemporaryDirectoryPath.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="ae071a5a-f2b9-4ebb-8455-9b8164ea70c6" Title="CoronaRuntimeEnvironment Events" Url="html/Events_T_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment.htm">
+          <HelpTOCNode Title="Resumed Event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_Resumed.htm" />
+          <HelpTOCNode Title="Suspended Event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_Suspended.htm" />
+          <HelpTOCNode Title="Terminating Event" Url="html/E_CoronaLabs_Corona_WinRT_CoronaRuntimeEnvironment_Terminating.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="c6e63e1b-da48-441a-a5b4-fce42c21675a" Title="CoronaRuntimeEventArgs Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeEventArgs.htm">
+        <HelpTOCNode Title="CoronaRuntimeEventArgs Constructor " Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeEventArgs__ctor.htm" />
+        <HelpTOCNode Title="CoronaRuntimeEventArgs Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaRuntimeEventArgs.htm" />
+        <HelpTOCNode Id="7ef0995f-4a7a-4e06-971a-f3a071fe85cd" Title="CoronaRuntimeEventArgs Properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaRuntimeEventArgs.htm">
+          <HelpTOCNode Title="CoronaRuntimeEnvironment Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeEventArgs_CoronaRuntimeEnvironment.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="d2581411-3fed-4f4c-9939-0192037b3832" Title="CoronaRuntimeLaunchSettings Class" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings.htm">
+        <HelpTOCNode Title="CoronaRuntimeLaunchSettings Constructor " Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings__ctor.htm" />
+        <HelpTOCNode Id="0dbee609-b3f1-43ed-87af-aba18cb52fe4" Title="CoronaRuntimeLaunchSettings Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings.htm">
+          <HelpTOCNode Title="CopyFrom Method " Url="html/M_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_CopyFrom.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="2083fd10-6ae9-44b5-88f4-03856e3453d0" Title="CoronaRuntimeLaunchSettings Properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings.htm">
+          <HelpTOCNode Title="CachesDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_CachesDirectoryPath.htm" />
+          <HelpTOCNode Title="DocumentsDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_DocumentsDirectoryPath.htm" />
+          <HelpTOCNode Title="InternalDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_InternalDirectoryPath.htm" />
+          <HelpTOCNode Title="LaunchFilePath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_LaunchFilePath.htm" />
+          <HelpTOCNode Title="ResourceDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_ResourceDirectoryPath.htm" />
+          <HelpTOCNode Title="TemporaryDirectoryPath Property " Url="html/P_CoronaLabs_Corona_WinRT_CoronaRuntimeLaunchSettings_TemporaryDirectoryPath.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Title="CoronaRuntimeState Enumeration" Url="html/T_CoronaLabs_Corona_WinRT_CoronaRuntimeState.htm" />
+      <HelpTOCNode Id="d36309af-421a-4694-9e3e-e79a04083075" Title="DispatchCoronaLuaEventResult Class" Url="html/T_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult.htm">
+        <HelpTOCNode Id="aa76a889-c5b8-4383-8f26-6302430a2266" Title="DispatchCoronaLuaEventResult Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult.htm">
+          <HelpTOCNode Title="FailedWith Method " Url="html/M_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_FailedWith.htm" />
+          <HelpTOCNode Title="SucceededWith Method " Url="html/M_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_SucceededWith.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="33441201-9bbc-4aab-8766-566d958d75cc" Title="DispatchCoronaLuaEventResult Properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult.htm">
+          <HelpTOCNode Title="HasFailed Property " Url="html/P_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_HasFailed.htm" />
+          <HelpTOCNode Title="HasSucceeded Property " Url="html/P_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_HasSucceeded.htm" />
+          <HelpTOCNode Title="Message Property " Url="html/P_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_Message.htm" />
+          <HelpTOCNode Title="ReturnedValue Property " Url="html/P_CoronaLabs_Corona_WinRT_DispatchCoronaLuaEventResult_ReturnedValue.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="3d4ecf6e-a43b-4c67-8594-545ddc1d1c1e" Title="ICoronaBoxedComparableData Interface" Url="html/T_CoronaLabs_Corona_WinRT_ICoronaBoxedComparableData.htm">
+        <HelpTOCNode Id="b8f83cba-f8c2-46cb-9e5d-2b9f3a649063" Title="ICoronaBoxedComparableData Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_ICoronaBoxedComparableData.htm">
+          <HelpTOCNode Title="CompareTo Method " Url="html/M_CoronaLabs_Corona_WinRT_ICoronaBoxedComparableData_CompareTo.htm" />
+          <HelpTOCNode Title="Equals Method " Url="html/M_CoronaLabs_Corona_WinRT_ICoronaBoxedComparableData_Equals.htm" />
+          <HelpTOCNode Title="GetHashCode Method " Url="html/M_CoronaLabs_Corona_WinRT_ICoronaBoxedComparableData_GetHashCode.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="9beb0f25-6507-4b88-b201-ffd8f65e1046" Title="ICoronaBoxedData Interface" Url="html/T_CoronaLabs_Corona_WinRT_ICoronaBoxedData.htm">
+        <HelpTOCNode Id="c9827103-554c-413d-8567-46574b29b7e1" Title="ICoronaBoxedData Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_ICoronaBoxedData.htm">
+          <HelpTOCNode Title="PushToLua Method " Url="html/M_CoronaLabs_Corona_WinRT_ICoronaBoxedData_PushToLua.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="649af801-5cfc-4d18-a830-fbefc07f1203" Title="ReadOnlyCoronaLuaEventProperties Class" Url="html/T_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties.htm">
+        <HelpTOCNode Title="ReadOnlyCoronaLuaEventProperties Constructor " Url="html/M_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties__ctor.htm" />
+        <HelpTOCNode Id="511d34ca-e690-4ac2-9c4e-aa6c384becc7" Title="ReadOnlyCoronaLuaEventProperties Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties.htm">
+          <HelpTOCNode Title="Contains Method " Url="html/M_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties_Contains.htm" />
+          <HelpTOCNode Title="First Method " Url="html/M_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties_First.htm" />
+          <HelpTOCNode Title="Get Method " Url="html/M_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties_Get.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="ccf4e89c-2e70-49b4-8a79-d67bf1536e6f" Title="ReadOnlyCoronaLuaEventProperties Properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties.htm">
+          <HelpTOCNode Title="Count Property " Url="html/P_CoronaLabs_Corona_WinRT_ReadOnlyCoronaLuaEventProperties_Count.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="ed74f344-0e50-428f-b7b1-46c88e2f0d28" Title="CoronaLabs.Corona.WinRT.Phone" Url="html/N_CoronaLabs_Corona_WinRT_Phone.htm">
+      <HelpTOCNode Id="fde15576-ba15-422c-b281-1dc248d27930" Title="CoronaMessageBox Class" Url="html/T_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox.htm">
+        <HelpTOCNode Title="CoronaMessageBox Constructor " Url="html/M_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox__ctor.htm" />
+        <HelpTOCNode Id="a46f68fa-fa46-4c42-a6fc-ee61f3897448" Title="CoronaMessageBox Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox.htm">
+          <HelpTOCNode Title="Close Method " Url="html/M_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_Close.htm" />
+          <HelpTOCNode Title="CloseWithButtonIndex Method " Url="html/M_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_CloseWithButtonIndex.htm" />
+          <HelpTOCNode Title="Show Method " Url="html/M_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_Show.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="267f885d-820d-4cab-b698-4ceb031b427b" Title="CoronaMessageBox Properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox.htm">
+          <HelpTOCNode Title="ButtonLabels Property " Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_ButtonLabels.htm" />
+          <HelpTOCNode Title="IsShowing Property " Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_IsShowing.htm" />
+          <HelpTOCNode Title="Message Property " Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_Message.htm" />
+          <HelpTOCNode Title="PressedButtonIndex Property " Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_PressedButtonIndex.htm" />
+          <HelpTOCNode Title="ShownMessagBoxes Property " Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_ShownMessagBoxes.htm" />
+          <HelpTOCNode Title="Title Property " Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_Title.htm" />
+          <HelpTOCNode Title="WasButtonPressed Property " Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_WasButtonPressed.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="cdacf6c5-45bc-4d20-9ee6-e649d3c7148d" Title="CoronaMessageBox Events" Url="html/Events_T_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox.htm">
+          <HelpTOCNode Title="Closed Event" Url="html/E_CoronaLabs_Corona_WinRT_Phone_CoronaMessageBox_Closed.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="6fc5f292-806e-4e40-9513-f5fd02091bfc" Title="CoronaPanel Class" Url="html/T_CoronaLabs_Corona_WinRT_Phone_CoronaPanel.htm">
+        <HelpTOCNode Title="CoronaPanel Constructor " Url="html/M_CoronaLabs_Corona_WinRT_Phone_CoronaPanel__ctor.htm" />
+        <HelpTOCNode Title="CoronaPanel Methods" Url="html/Methods_T_CoronaLabs_Corona_WinRT_Phone_CoronaPanel.htm" />
+        <HelpTOCNode Id="96b0b804-9906-4f00-9cc3-a5e5d3dc25b8" Title="CoronaPanel Properties" Url="html/Properties_T_CoronaLabs_Corona_WinRT_Phone_CoronaPanel.htm">
+          <HelpTOCNode Title="AutoLaunchEnabled Property " Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_AutoLaunchEnabled.htm" />
+          <HelpTOCNode Title="AutoLaunchSettings Property " Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_AutoLaunchSettings.htm" />
+          <HelpTOCNode Title="BackgroundContentProvider Property " Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_BackgroundContentProvider.htm" />
+          <HelpTOCNode Title="BackgroundManipulationHandler Property " Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_BackgroundManipulationHandler.htm" />
+          <HelpTOCNode Title="BackgroundRenderingEnabled Property " Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_BackgroundRenderingEnabled.htm" />
+          <HelpTOCNode Title="Children Property " Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_Children.htm" />
+          <HelpTOCNode Title="RenderSurface Property " Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_RenderSurface.htm" />
+          <HelpTOCNode Title="Runtime Property " Url="html/P_CoronaLabs_Corona_WinRT_Phone_CoronaPanel_Runtime.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="CoronaPanel Events" Url="html/Events_T_CoronaLabs_Corona_WinRT_Phone_CoronaPanel.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="79627109-2fde-415d-bd4e-606f190ab305" Title="CoronaLabs.WinRT" Url="html/N_CoronaLabs_WinRT.htm">
+      <HelpTOCNode Id="4eb5386a-546f-480c-81c3-113c16134ae4" Title="BoxedString Class" Url="html/T_CoronaLabs_WinRT_BoxedString.htm">
+        <HelpTOCNode Title="BoxedString Constructor " Url="html/M_CoronaLabs_WinRT_BoxedString__ctor.htm" />
+        <HelpTOCNode Id="b83d11da-f23f-47cd-8ae5-591576b8758b" Title="BoxedString Methods" Url="html/Methods_T_CoronaLabs_WinRT_BoxedString.htm">
+          <HelpTOCNode Title="ToString Method " Url="html/M_CoronaLabs_WinRT_BoxedString_ToString.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="6e4e70f5-f705-4b05-b99d-76d325599ffd" Title="BoxedString Properties" Url="html/Properties_T_CoronaLabs_WinRT_BoxedString.htm">
+          <HelpTOCNode Title="Value Property " Url="html/P_CoronaLabs_WinRT_BoxedString_Value.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="a7016d5c-4f86-4094-83a4-ab56639036a9" Title="CancelEventArgs Class" Url="html/T_CoronaLabs_WinRT_CancelEventArgs.htm">
+        <HelpTOCNode Title="CancelEventArgs Constructor " Url="html/M_CoronaLabs_WinRT_CancelEventArgs__ctor.htm" />
+        <HelpTOCNode Title="CancelEventArgs Methods" Url="html/Methods_T_CoronaLabs_WinRT_CancelEventArgs.htm" />
+        <HelpTOCNode Id="3606984f-0b94-4ca3-a669-7bb7adc60a17" Title="CancelEventArgs Properties" Url="html/Properties_T_CoronaLabs_WinRT_CancelEventArgs.htm">
+          <HelpTOCNode Title="Cancel Property " Url="html/P_CoronaLabs_WinRT_CancelEventArgs_Cancel.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="b8d5aecf-3b63-444b-ad98-422249266961" Title="EmptyEventArgs Class" Url="html/T_CoronaLabs_WinRT_EmptyEventArgs.htm">
+        <HelpTOCNode Title="EmptyEventArgs Methods" Url="html/Methods_T_CoronaLabs_WinRT_EmptyEventArgs.htm" />
+        <HelpTOCNode Id="6de53b4f-0b42-46f2-9f04-7acd6c969af6" Title="EmptyEventArgs Properties" Url="html/Properties_T_CoronaLabs_WinRT_EmptyEventArgs.htm">
+          <HelpTOCNode Title="Instance Property " Url="html/P_CoronaLabs_WinRT_EmptyEventArgs_Instance.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="ee4007d1-704e-45f3-bab9-2637705f8cb6" Title="HandledEventArgs Class" Url="html/T_CoronaLabs_WinRT_HandledEventArgs.htm">
+        <HelpTOCNode Title="HandledEventArgs Constructor " Url="html/M_CoronaLabs_WinRT_HandledEventArgs__ctor.htm" />
+        <HelpTOCNode Title="HandledEventArgs Methods" Url="html/Methods_T_CoronaLabs_WinRT_HandledEventArgs.htm" />
+        <HelpTOCNode Id="323fb479-2014-4c60-a9ff-0534aae04997" Title="HandledEventArgs Properties" Url="html/Properties_T_CoronaLabs_WinRT_HandledEventArgs.htm">
+          <HelpTOCNode Title="Handled Property " Url="html/P_CoronaLabs_WinRT_HandledEventArgs_Handled.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="a42f5912-cf9a-454f-8a41-2296e608ed8d" Title="ImmutableByteBuffer Class" Url="html/T_CoronaLabs_WinRT_ImmutableByteBuffer.htm">
+        <HelpTOCNode Id="f0d808ad-d4e8-4594-af0b-170e3b16eb2d" Title="ImmutableByteBuffer Methods" Url="html/Methods_T_CoronaLabs_WinRT_ImmutableByteBuffer.htm">
+          <HelpTOCNode Title="First Method " Url="html/M_CoronaLabs_WinRT_ImmutableByteBuffer_First.htm" />
+          <HelpTOCNode Id="95135fdf-1e52-490f-a4c0-44307931e75f" Title="From Method " Url="html/Overload_CoronaLabs_WinRT_ImmutableByteBuffer_From.htm">
+            <HelpTOCNode Title="From Method (Byte[])" Url="html/M_CoronaLabs_WinRT_ImmutableByteBuffer_From.htm" />
+            <HelpTOCNode Title="From Method (IIterable`1(Byte))" Url="html/M_CoronaLabs_WinRT_ImmutableByteBuffer_From_1.htm" />
+            <HelpTOCNode Title="From Method (IVector`1(Byte))" Url="html/M_CoronaLabs_WinRT_ImmutableByteBuffer_From_2.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Title="GetByIndex Method " Url="html/M_CoronaLabs_WinRT_ImmutableByteBuffer_GetByIndex.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="29e3c9bf-e2c5-4ccb-be22-8e2ff35e99b9" Title="ImmutableByteBuffer Properties" Url="html/Properties_T_CoronaLabs_WinRT_ImmutableByteBuffer.htm">
+          <HelpTOCNode Title="Count Property " Url="html/P_CoronaLabs_WinRT_ImmutableByteBuffer_Count.htm" />
+          <HelpTOCNode Title="Empty Property " Url="html/P_CoronaLabs_WinRT_ImmutableByteBuffer_Empty.htm" />
+          <HelpTOCNode Title="IsEmpty Property " Url="html/P_CoronaLabs_WinRT_ImmutableByteBuffer_IsEmpty.htm" />
+          <HelpTOCNode Title="IsNotEmpty Property " Url="html/P_CoronaLabs_WinRT_ImmutableByteBuffer_IsNotEmpty.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="7d727c4a-e20e-4532-8b52-517974d2191a" Title="IOperationResult Interface" Url="html/T_CoronaLabs_WinRT_IOperationResult.htm">
+        <HelpTOCNode Id="e26ff2f8-1b08-45c3-84da-e5840a80eab0" Title="IOperationResult Properties" Url="html/Properties_T_CoronaLabs_WinRT_IOperationResult.htm">
+          <HelpTOCNode Title="HasFailed Property " Url="html/P_CoronaLabs_WinRT_IOperationResult_HasFailed.htm" />
+          <HelpTOCNode Title="HasSucceeded Property " Url="html/P_CoronaLabs_WinRT_IOperationResult_HasSucceeded.htm" />
+          <HelpTOCNode Title="Message Property " Url="html/P_CoronaLabs_WinRT_IOperationResult_Message.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="c121c731-8a25-492c-a494-31ee59f91ee7" Title="MessageEventArgs Class" Url="html/T_CoronaLabs_WinRT_MessageEventArgs.htm">
+        <HelpTOCNode Title="MessageEventArgs Constructor " Url="html/M_CoronaLabs_WinRT_MessageEventArgs__ctor.htm" />
+        <HelpTOCNode Title="MessageEventArgs Methods" Url="html/Methods_T_CoronaLabs_WinRT_MessageEventArgs.htm" />
+        <HelpTOCNode Id="a1f297c3-4a06-4788-95c0-270095238679" Title="MessageEventArgs Properties" Url="html/Properties_T_CoronaLabs_WinRT_MessageEventArgs.htm">
+          <HelpTOCNode Title="Message Property " Url="html/P_CoronaLabs_WinRT_MessageEventArgs_Message.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="65b8f4a5-d478-4df4-a127-d045212b8beb" Title="OperationResult Class" Url="html/T_CoronaLabs_WinRT_OperationResult.htm">
+        <HelpTOCNode Id="556ac19c-e548-4203-aa72-cc81dd200554" Title="OperationResult Methods" Url="html/Methods_T_CoronaLabs_WinRT_OperationResult.htm">
+          <HelpTOCNode Title="FailedWith Method " Url="html/M_CoronaLabs_WinRT_OperationResult_FailedWith.htm" />
+          <HelpTOCNode Title="SucceededWith Method " Url="html/M_CoronaLabs_WinRT_OperationResult_SucceededWith.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="f38b65a2-2b93-40c8-a8b3-b33874801ac9" Title="OperationResult Properties" Url="html/Properties_T_CoronaLabs_WinRT_OperationResult.htm">
+          <HelpTOCNode Title="HasFailed Property " Url="html/P_CoronaLabs_WinRT_OperationResult_HasFailed.htm" />
+          <HelpTOCNode Title="HasSucceeded Property " Url="html/P_CoronaLabs_WinRT_OperationResult_HasSucceeded.htm" />
+          <HelpTOCNode Title="Message Property " Url="html/P_CoronaLabs_WinRT_OperationResult_Message.htm" />
+          <HelpTOCNode Title="Succeeded Property " Url="html/P_CoronaLabs_WinRT_OperationResult_Succeeded.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="61fb7993-58a1-4ec3-b10a-cec364453eaf" Title="Utf8String Class" Url="html/T_CoronaLabs_WinRT_Utf8String.htm">
+        <HelpTOCNode Id="83a17ff9-037d-4c3e-9f9b-ef3a279b6c54" Title="Utf8String Constructor " Url="html/Overload_CoronaLabs_WinRT_Utf8String__ctor.htm">
+          <HelpTOCNode Title="Utf8String Constructor " Url="html/M_CoronaLabs_WinRT_Utf8String__ctor.htm" />
+          <HelpTOCNode Title="Utf8String Constructor (String)" Url="html/M_CoronaLabs_WinRT_Utf8String__ctor_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="898900e3-1bb8-4b8c-b4b3-d0daf65c09d9" Title="Utf8String Methods" Url="html/Methods_T_CoronaLabs_WinRT_Utf8String.htm">
+          <HelpTOCNode Id="fa111f17-fab9-4b4e-a330-a8289a16da98" Title="Equals Method " Url="html/Overload_CoronaLabs_WinRT_Utf8String_Equals.htm">
+            <HelpTOCNode Title="Equals Method (Object)" Url="html/M_CoronaLabs_WinRT_Utf8String_Equals_1.htm" />
+            <HelpTOCNode Title="Equals Method (Utf8String)" Url="html/M_CoronaLabs_WinRT_Utf8String_Equals.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Title="From Method " Url="html/M_CoronaLabs_WinRT_Utf8String_From.htm" />
+          <HelpTOCNode Title="ToLower Method " Url="html/M_CoronaLabs_WinRT_Utf8String_ToLower.htm" />
+          <HelpTOCNode Title="ToString Method " Url="html/M_CoronaLabs_WinRT_Utf8String_ToString.htm" />
+          <HelpTOCNode Title="ToUpper Method " Url="html/M_CoronaLabs_WinRT_Utf8String_ToUpper.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="28a7de1e-c865-41e8-8950-06203b822a58" Title="Utf8String Properties" Url="html/Properties_T_CoronaLabs_WinRT_Utf8String.htm">
+          <HelpTOCNode Title="ByteCount Property " Url="html/P_CoronaLabs_WinRT_Utf8String_ByteCount.htm" />
+          <HelpTOCNode Title="CharacterCount Property " Url="html/P_CoronaLabs_WinRT_Utf8String_CharacterCount.htm" />
+          <HelpTOCNode Title="Empty Property " Url="html/P_CoronaLabs_WinRT_Utf8String_Empty.htm" />
+          <HelpTOCNode Title="IsEmpty Property " Url="html/P_CoronaLabs_WinRT_Utf8String_IsEmpty.htm" />
+          <HelpTOCNode Title="IsNotEmpty Property " Url="html/P_CoronaLabs_WinRT_Utf8String_IsNotEmpty.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>

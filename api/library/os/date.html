@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries | os | date</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#os.date">os.date()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#format-optional">format <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#time-optional">time <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/os/index.html">os</a>  ▸  <a href="../../../api/library/os/date.html">date</a>
+</div>
+<div id="os.date" class="section level1">
+<h1>os.date()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../../api/library/os/index.html">os.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Return value</strong></td>
+<td align="left"><a href="../../../api/type/String.html">String</a> or <a href="../../../api/type/Table.html">Table</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">time, date, format</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../api/library/os/time.html">os.time()</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../api/library/os/clock.html">os.clock()</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../../api/library/system/getTimer.html">system.getTimer()</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Returns a string or a table containing date and time, formatted according to the given string format. When called without arguments, <code>os.date()</code> returns a reasonable date and time representation that depends on the host system and on the current locale (that is, <code>os.date()</code> is equivalent to <code>os.date(&quot;%c&quot;)</code>).</p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">os.date( [format [, time] ] )</pre>
+<div id="format-optional" class="section level5">
+<h5>format <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> If format starts with <code>!</code>, the date is formatted in Coordinated Universal Time. After this optional character, if format is the string <code>*t</code>, then date returns a table with the following fields:</p>
+<ul>
+<li><code>year</code> (four digits)</li>
+<li><code>month</code> (1-12)</li>
+<li><code>day</code> (1-31)</li>
+<li><code>hour</code> (0-23)</li>
+<li><code>min</code> (0-59)</li>
+<li><code>sec</code> (0-61)</li>
+<li><code>wday</code> <nobr>(weekday; Sunday is 1)</nobr></li>
+<li><code>yday</code> <nobr>(day of the year)</nobr></li>
+<li><code>isdst</code> (daylight saving flag, a boolean).</li>
+</ul>
+<p>If format is not <code>*t</code>, then <code>os.date()</code> returns the date as a string, formatted according to similar rules as the C function <code>strftime(3)</code>.</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Code</th>
+<th align="left">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>%a</code></td>
+<td align="left">Abbreviated weekday name</td>
+</tr>
+<tr class="even">
+<td align="left"><code>%A</code></td>
+<td align="left">Full weekday name</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>%b</code></td>
+<td align="left">Abbreviated month name</td>
+</tr>
+<tr class="even">
+<td align="left"><code>%B</code></td>
+<td align="left">Full month name</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>%c</code></td>
+<td align="left">Date and time representation appropriate for locale</td>
+</tr>
+<tr class="even">
+<td align="left"><code>%d</code></td>
+<td align="left">Day of month as decimal number (01 – 31)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>%H</code></td>
+<td align="left">Hour in 24-hour format (00 – 23)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>%I</code></td>
+<td align="left">Hour in 12-hour format (01 – 12)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>%j</code></td>
+<td align="left">Day of year as decimal number (001 – 366)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>%m</code></td>
+<td align="left">Month as decimal number (01 – 12)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>%M</code></td>
+<td align="left">Minute as decimal number (00 – 59)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>%p</code></td>
+<td align="left">Current locale's A.M./P.M. indicator for 12-hour clock</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>%S</code></td>
+<td align="left">Second as decimal number (00 – 59)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>%U</code></td>
+<td align="left">Week of year as decimal number, with Sunday as first day of week (00 – 53)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>%w</code></td>
+<td align="left">Weekday as decimal number (0 – 6; Sunday is 0)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>%W</code></td>
+<td align="left">Week of year as decimal number, with Monday as first day of week (00 – 53)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>%x</code></td>
+<td align="left">Date representation for current locale</td>
+</tr>
+<tr class="even">
+<td align="left"><code>%X</code></td>
+<td align="left">Time representation for current locale</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>%y</code></td>
+<td align="left">Year without century, as decimal number (00 – 99)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>%Y</code></td>
+<td align="left">Year with century, as decimal number</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>%z</code>, <code>%Z</code></td>
+<td align="left">The time-zone name or time zone abbreviation</td>
+</tr>
+<tr class="even">
+<td align="left"><code>%%</code></td>
+<td align="left">Percent sign</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note that this list is somewhat dependent on the operating system, so don't rely on any additional format items when working on all platforms.</p>
+</div>
+<div id="time-optional" class="section level5">
+<h5>time <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> If the <code>time</code> argument is present, this is the time to be formatted (see the <a href="../../../api/library/os/time.html">os.time()</a> function for a description of this value). Otherwise, <code>os.date()</code> formats the current time.</p>
+</div>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="brush: lua;">local date = os.date( "*t" )    -- Returns table of date & time values in local time
+print( date.year, date.month )  -- Print year and month
+print( date.hour, date.min )    -- Print hour and minutes
+print( os.date( "%c" ) )        -- Print time/date string, for example "Thu Oct 23 14:55:02 2010"
+
+local date = os.date( "!*t" )    -- Returns table of date & time values in UTC
+print( date.year, date.month )  -- Print year and month
+print( date.hour, date.min )    -- Print hour and minutes</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.os.date&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

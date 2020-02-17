@@ -1,0 +1,717 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Ads/Monetization</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#in-app-purchasing-iap">In-App Purchasing (IAP)</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#product-types">Product Types</a><ul>
+<li><a href="#product-identifiers">Product Identifiers</a></li>
+</ul></li>
+<li><a href="#setup-configuration">Setup / Configuration</a></li>
+<li><a href="#initializing-iap">Initializing IAP</a><ul>
+<li><a href="#module-inclusion">Module Inclusion</a></li>
+<li><a href="#initialization">Initialization</a></li>
+</ul></li>
+<li><a href="#loading-products">Loading Products</a><ul>
+<li><a href="#product-properties">Product Properties</a></li>
+</ul></li>
+<li><a href="#handling-transactions">Handling Transactions</a><ul>
+<li><a href="#transaction-properties">Transaction Properties</a></li>
+</ul></li>
+<li><a href="#purchasing-products">Purchasing Products</a></li>
+<li><a href="#restoring-purchased-items">Restoring Purchased Items</a></li>
+<li><a href="#store-specific-functionality">Store-Specific Functionality</a><ul>
+<li><a href="#purchasing-disabled-apple">Purchasing Disabled (Apple)</a></li>
+<li><a href="#consuming-items-google">Consuming Items (Google)</a></li>
+<li><a href="#handling-refunds-google">Handling Refunds (Google)</a></li>
+<li><a href="#sandbox-mode-amazon">Sandbox Mode (Amazon)</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/monetization/index.html">Ads/Monetization</a>
+</div>
+<style>
+
+.icon-box-border {
+    border-top: 2px solid #6cb3ef;
+    margin-top: 24px;
+    margin-bottom: 32px;
+}
+.icon-box-border p {
+    margin-top: 16px;
+}
+.icon-box-right {
+    float: right;
+    width: 86px;
+    min-height: 84px;
+    max-width: 86px;
+    max-height: 84px;
+    background-color: #6cb3ef;
+    color: #fff;
+    text-align: center;
+    margin-left: 25px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.icon-box-right .fa {
+    font-size: 66px;
+}
+
+</style>
+<div id="in-app-purchasing-iap" class="section level1">
+<h1>In-App Purchasing (IAP)</h1>
+<p>This guide discusses how to implement <nobr>in-app</nobr> purchasing (IAP) within Corona apps.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#products">Product Types</a></li>
+<li><a href="#setup">Setup / Configuration</a></li>
+<li><a href="#initialization">Initializing IAP</a></li>
+<li><a href="#products">Loading Products</a></li>
+<li><a href="#transactions">Handling Transactions</a></li>
+<li><a href="#purchasing">Purchasing Products</a></li>
+<li><a href="#restoring">Restoring Purchased Items</a></li>
+<li><a href="#store-specific">Store-Specific Functionality</a></li>
+</ul>
+</div>
+<p><a id="overview"></a></p>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>In-app purchasing (IAP) allows users to purchase additional content from within an app. However, this content cannot be delivered through a marketplace as if it were physical inventory — you must either bundle the content with your app when you build it, anticipating that it will be unlocked/enabled upon purchase, or you must download additional content into the app using the <a href="../../../api/library/network/index.html">network</a> APIs.</p>
+<p><a id="products"></a></p>
+</div>
+<div id="product-types" class="section level2">
+<h2>Product Types</h2>
+<p>There are four basic product types supported for <nobr>in-app</nobr> purchasing:</p>
+<ol style="list-style-type: decimal">
+<li>Items which the user can only buy once, for instance paying to unlock the full game, activate a special player ability, unlock levels <nobr>20-40</nobr>, etc.</li>
+<li>Items which the user can buy multiple times, for example gem/coin packs, extra lives, etc. Note that for Google IAP, these items must be <a href="#consuming-items-google">consumed</a> before they can be purchased again.</li>
+<li>Items that can be purchased on a subscription basis that <nobr>auto-renews</nobr>, such as a monthly service fee to play a multiplayer game.</li>
+<li>Items that can be purchased on a subscription basis that does not <nobr>auto-renew</nobr>, for instance an annual fee to see premium content within an informational app.</li>
+</ol>
+<p>Each store names these differently. Consider this chart:</p>
+<div class="inner-table nobr">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Product Type</th>
+<th align="left">Apple</th>
+<th align="left">Google</th>
+<th align="left">Amazon</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>one-time purchase</strong></td>
+<td align="left">non-consumable</td>
+<td align="left">managed</td>
+<td align="left">entitlement</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>multiple-time purchase</strong></td>
+<td align="left">consumable</td>
+<td align="left">managed with consumption</td>
+<td align="left">consumable</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>auto-renewing subscription</strong></td>
+<td align="left">auto-renewable subscription</td>
+<td align="left">subscriptions</td>
+<td align="left">subscription</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>non-renewing subscription</strong></td>
+<td align="left">non-renewing subscription</td>
+<td align="left"> </td>
+<td align="left"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="product-identifiers" class="section level3">
+<h3>Product Identifiers</h3>
+<p>Products are individually identified by a unique string known as a <strong>product identifier</strong>. Each store may use a different term, but in all cases it's a string value which must be unique for your app. It's recommended that you follow the <nobr>reverse-domain</nobr> naming convention across all stores, for example:</p>
+<pre class="brush: lua;">com.acmegames.SuperRunner.UnlockFullGame</pre>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>When configuring products within a store's portal, product identifiers should be named clearly and accurately since you'll need to use them within your Corona code to load products, submit purchase requests, and identify the item after a completed transaction. In addition, if you intend to support multiple stores/platforms, you should use a consistent name for each product across all of them — this will prevent the need for extra conditional code throughout your IAP implementation.</p>
+</div>
+</div>
+<p><a id="setup"></a></p>
+</div>
+</div>
+<div id="setup-configuration" class="section level2">
+<h2>Setup / Configuration</h2>
+<p>Each marketplace — the Apple App Store, Google Play, and the Amazon Appstore — has different requirements and setup procedures for configuring <nobr>in-app</nobr> purchasing. Please follow the steps below for each marketplace you intend to target.</p>
+<!--- iOS -->
+<a id="setup-ios"></a>
+<div class="icon-box-border" style="border-color: #a5aec9;">
+<div class="icon-box-right" style="background-color: #a5aec9;">
+<div class="fa fa-apple" style="font-size: 60px; padding-top: 8px;">
+
+</div>
+</div>
+<p>The following steps pertain to <nobr>in-app</nobr> purchasing on <strong>iOS</strong>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Start by configuring your banking and tax information within <a href="https://itunesconnect.apple.com/">iTunes Connect</a>. <nobr>In-app</nobr> purchases will <strong>not</strong> work until these steps are cleared, and you won't get an error message reporting so.</p></li>
+<li><p>In the <a href="https://developer.apple.com/">Apple Developer</a> portal, create a new App ID that is unique and fully qualified <nobr>(you can <strong>not</strong> use</nobr> a wildcard App ID for apps that utilize <nobr>in-app purchasing)</nobr>. If you need guidance on this process, please see <a href="../../../guide/distribution/iOSBuild/index.html#creating-app-ids">here</a>.</p></li>
+<li><p>Back in <a href="https://itunesconnect.apple.com/">iTunes Connect</a>, create a new app with the same <strong>Bundle ID</strong> as your app in the Apple Developer portal.</p></li>
+<li><p>Finally, configure your <nobr>in-app</nobr> purchases (products) within <a href="https://itunesconnect.apple.com/">iTunes Connect</a>. This task is beyond the scope of this guide, so please see Apple's <a href="https://developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnectInAppPurchase_Guide/Chapters/Introduction.html">In-App Purchase Configuration Guide</a> for further assistance.</p></li>
+</ol>
+</div>
+<!--- Android -->
+<a id="setup-android"></a>
+<div class="icon-box-border">
+<div class="icon-box-right">
+<div class="fa fa-android" style="padding-top: 4px;">
+
+</div>
+</div>
+<p>The following steps pertain to in-app purchasing on <strong>Android</strong>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Start by setting up your Google merchant account and link it to the <a href="https://play.google.com/apps/publish/">Google Play Developer Console</a>. <nobr>In-app</nobr> purchases will <strong>not</strong> work until these steps are cleared, and you won't get an error message reporting so. Please see <a href="https://support.google.com/payments/merchant/answer/7161426">here</a> for detailed instructions.</p></li>
+<li><p>While still in console, create a new app and fill out all of the information needed for publishing the app — note, however, that some details don't need to be final for simply testing <nobr>in-app</nobr> purchasing.</p></li>
+<li><p>Configure your <nobr>in-app</nobr> purchases (products). This task is beyond the scope of this guide, so please see Google's <a href="https://developer.android.com/google/play/billing/billing_admin.html">Administering In-App Billing</a> guide for further assistance.</p></li>
+<li><p>On the Corona side, integrate the <a href="../../../plugin/google-iap-v3/index.html">Google IAP</a> plugin by adding an entry into the <code>plugins</code> table of the project's <code>build.settings</code> file:</p></li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
+{
+    plugins =
+    {
+        ["plugin.google.iap.v3"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+    },
+}</pre>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>Enable the <code>BILLING</code> permission within the <nobr><code>android</code> → <code>usesPermissions</code></nobr> table of <code>build.settings</code>:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: false; highlight: [7]; first-line: 1;">settings =
+{
+    android =
+    {
+        usesPermissions =
+        {
+            "com.android.vending.BILLING",
+        },
+    },
+}</pre>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>Add a <code>license</code> table to the project's <code>config.lua</code> file. Inside this table, the <code>key</code> value should be set to the corresponding <nobr>per-app</nobr> key obtained from the <a href="https://play.google.com/apps/publish/">Google Play Developer Console</a>. This key is indicated in the <nobr><strong>Licensing &amp; In-App Billing</strong></nobr> section of <nobr><strong>Services &amp; APIs</strong></nobr>.</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: false; highlight: [3,4,5,6,7,8,9]; first-line: 1;">application = 
+{
+    license =
+    {
+        google =
+        {
+            key = "YOUR_KEY",
+        },
+    },
+}</pre>
+</div>
+<ol start="7" style="list-style-type: decimal">
+<li>When you're ready to test <nobr>in-app</nobr> purchasing, <a href="../../../guide/distribution/androidBuild/index.html">build</a> your app to create a <code>.apk</code> file which can be uploaded to the <a href="https://play.google.com/apps/publish/">Google Play Developer Console</a>. Then, proceed to Google's <a href="https://developer.android.com/google/play/billing/billing_testing.html">Testing In-App Billing</a> guide.</li>
+</ol>
+</div>
+<!--- Amazon -->
+<a id="setup-amazon"></a>
+<div class="icon-box-border" style="border-color: #fd9827; margin-bottom: 16px;">
+<div class="icon-box-right" style="background-color: #fd9827;">
+<div class="fa fa-amazon" style="font-size: 58px; padding-top: 12px;">
+
+</div>
+</div>
+<p>The following steps pertain to in-app purchasing on <strong>Amazon</strong>.</p>
+<ol style="list-style-type: decimal">
+<li><p>If you haven't already, register for an <a href="http://developer.amazon.com">Amazon Developer</a> account.</p></li>
+<li><p>If you're new to <nobr>Amazon in-app purchasing</nobr>, read Amazon's <a href="https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs-v2/understanding-in-app-purchasing">Understanding In-App Purchasing</a> guide.</p></li>
+<li><p>Configure your <nobr>in-app</nobr> purchases (products). This task is beyond the scope of this guide, so please see Amazon's <a href="https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs-v2/submitting-iap-items">Submitting IAP Items</a> guide for further assistance.</p></li>
+<li><p>On the Corona side, integrate the <a href="../../../plugin/amazon-iap-v2/index.html">Amazon IAP</a> plugin by adding an entry into the <code>plugins</code> table of the project's <code>build.settings</code> file:</p></li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
+{
+    plugins =
+    {
+        ["plugin.amazon.iap"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+    },
+}</pre>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>Finally, install the <a href="https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs-v2/installing-and-configuring-app-tester">Amazon App Tester</a> or publish your app in the Amazon Appstore. Details on testing can be found <a href="https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs-v2/testing-iap-2.0">here</a>.</li>
+</ol>
+</div>
+<!---
+
+Now you should [build][guide.distribution.androidBuild] your app — even if it's still in development — to create a `.apk` file which can be uploaded to the [Google&nbsp;Play&nbsp;Developer&nbsp;Console](https://play.google.com/apps/publish/). Upload your `.apk` to either the &ldquo;Alpha&rdquo; or &ldquo;Beta&nbsp;Testing&rdquo; channels, provide all of the required infomation about your app for distribution, and publish it in that channel. Be sure that you do __not__ publish it to the &ldquo;Production&rdquo; channel, or else your untested app might go public!
+
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">Important</div>
+
+When you set up test accounts, be sure they're added to the &ldquo;Gmail accounts with testing access&rdquo; list. Otherwise, anyone testing your app will be charged for the <nobr>in-app</nobr> product.
+
+</div>
+
+-->
+<p><a id="initialization"></a></p>
+</div>
+<div id="initializing-iap" class="section level2">
+<h2>Initializing IAP</h2>
+<div id="module-inclusion" class="section level3">
+<h3>Module Inclusion</h3>
+<p>Because each IAP provider utilizes a different module/plugin on the Corona side, you must load the proper one.</p>
+<p>If you are only supporting one store, you can simply <code>require()</code> the proper module as follows:</p>
+<div class="docs-tip-outer" style="background-color: #a5aec9;">
+<div class="docs-tip-inner-left">
+<div class="fa fa-apple" style="font-size: 36px; margin-left: 1px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<pre class="brush: lua;">local store = require( "store" )  -- iOS</pre>
+</div>
+</div>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-android" style="font-size: 39px; padding-top: 2px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<pre class="brush: lua;">local store = require( "plugin.google.iap.v3" )  -- Android</pre>
+</div>
+</div>
+<div class="docs-tip-outer" style="background-color: #fd9827;">
+<div class="docs-tip-inner-left">
+<div class="fa fa-amazon" style="padding-top: 6px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<pre class="brush: lua;">local store = require( "plugin.amazon.iap" )  -- Amazon</pre>
+</div>
+</div>
+<p>Alternatively, if you want to support multiple platforms, a conditional routine can be implemented. In the following example, the <a href="../../../api/library/system/getInfo.html#targetappstore">system.getInfo()</a> call is used to detect which store the built app will target, and that property is used to load the proper module.</p>
+<pre class="brush: lua;">local store
+
+local targetAppStore = system.getInfo( "targetAppStore" )
+
+if ( "apple" == targetAppStore ) then  -- iOS
+    store = require( "store" )
+elseif ( "google" == targetAppStore ) then  -- Android
+    store = require( "plugin.google.iap.v3" )
+elseif ( "amazon" == targetAppStore ) then  -- Amazon
+    store = require( "plugin.amazon.iap" )
+else
+    print( "In-app purchases are not available for this platform." )
+end</pre>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>When building your app for <nobr>Android-based</nobr> devices, including Amazon's Kindle Fire devices, remember to select the correct <strong>Target App Store</strong> from the Corona build dialog window (<a href="../../../guide/distribution/androidBuild/index.html">guide</a>).</p>
+</div>
+</div>
+</div>
+<div id="initialization" class="section level3">
+<h3>Initialization</h3>
+<p>Once the proper module is loaded, you must initialize it using the <code>store.init()</code> call:</p>
+<pre class="brush: lua;">store.init( transactionListener )</pre>
+<p>The only required argument, <code>transactionListener</code>, is the function you intend to use to handle store <strong>transaction</strong> requests, including purchases and potential refunds. For example:</p>
+<pre class="brush: lua; gutter: false; highlight: [1,2,3,4,5,6,7,8,9,10,11]; first-line: 1;">local function transactionListener( event )
+
+    local transaction = event.transaction
+
+    if ( transaction.isError ) then
+        print( transaction.errorType )
+        print( transaction.errorString )
+    else
+        -- No errors; proceed
+    end
+end
+
+-- Initialize store
+store.init( transactionListener )</pre>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>The <code>store.init()</code> call is required and must be executed before you attempt to call any other <nobr>store-related</nobr> functions.</p>
+</div>
+</div>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>For Google IAP, this same transaction listener function also handles initialization (<a href="../../../plugin/google-iap-v3/event/init/index.html">init</a>) events. Thus, if you're using Google IAP, you should differentiate store transaction events from initialization events by conditionally checking the value of <a href="../../../plugin/google-iap-v3/event/storeTransaction/name.html">event.name</a>. Please see the Google IAP <a href="../../../plugin/google-iap-v3/init.html">store.init()</a> documentation for an example of doing so.</p>
+</div>
+</div>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Sometime after calling <code>store.init()</code>, you may check the <code>store.isActive</code> property to confirm that the store has successfully initialized (value of <code>true</code>).</p>
+</div>
+</div>
+<p><a id="products"></a></p>
+</div>
+</div>
+<div id="loading-products" class="section level2">
+<h2>Loading Products</h2>
+<p>In your Corona app, you can use the <code>store.loadProducts()</code> function to load product information which you've entered into the respective stores:</p>
+<pre class="brush: lua;">store.loadProducts( productIdentifiers, productListener )</pre>
+<p>This function requires the following two arguments:</p>
+<ul>
+<li><code>productIdentifiers</code> — A Lua <a href="../../../api/type/Table.html">table</a> (array) where each element is a <a href="../../../api/type/String.html">string</a> representing the product identifier of the item. Product identifiers must match those you entered within <a href="https://itunesconnect.apple.com/">iTunes Connect</a>, the <a href="https://play.google.com/apps/publish/">Google Play Developer Console</a>, and/or the <a href="http://developer.amazon.com">Amazon Developer</a> portal. For example:</li>
+</ul>
+<div class="code-indent">
+<pre class="brush: lua;">local productIdentifiers = {
+    "com.domainname.testProduct1",
+    "com.domainname.testProduct2",
+    "com.domainname.testProduct3",
+}</pre>
+</div>
+<ul>
+<li><code>productListener</code> — The listener function which will be invoked when the store finishes retrieving the product information. For instance:</li>
+</ul>
+<div class="code-indent">
+<pre class="brush: lua; gutter: false; highlight: [7,8,9]; first-line: 1;">local productIdentifiers = {
+    "com.domainname.testProduct1",
+    "com.domainname.testProduct2",
+    "com.domainname.testProduct3",
+}
+
+local function productListener( event )
+
+end
+
+-- Load store products; store must be properly initialized by this point!
+store.loadProducts( productIdentifiers, productListener )</pre>
+</div>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>If you kept your product identifiers consistent for all platforms, you can use one product array, but if your identifiers vary between stores, you'll need to use separate arrays and conditional logic with <nobr><code>system.getInfo( &quot;targetAppStore&quot; )</code></nobr> to load the appropriate products for the respective store.</p>
+</div>
+</div>
+<div id="product-properties" class="section level3">
+<h3>Product Properties</h3>
+<p>When products are loaded, the product listener function (<code>productListener</code> argument for <code>store.loadProducts()</code>) will receive an <code>event</code> table as its sole argument. The properties/keys associated with this table will differ slightly because of core variances in store functionality, but at the very minimum, these two properties will be available:</p>
+<ul>
+<li><p><code>event.products</code> — A table in which each element is another table containing detailed product information. This is primarily the table you'll need to inspect to get detailed information about the loaded products.</p></li>
+<li><p><code>event.invalidProducts</code> — A table in which each element is a string representing a product identifier. This table will only be populated by products that don't exist or aren't available.</p></li>
+</ul>
+<p>Typically, you should iterate (loop) through <code>event.products</code> to determine which products are available. For example:</p>
+<pre class="brush: lua; gutter: false; highlight: [9,10,11]; first-line: 1;">local productIdentifiers = {
+    "com.domainname.testProduct1",
+    "com.domainname.testProduct2",
+    "com.domainname.testProduct3",
+}
+
+local function productListener( event )
+
+    for i = 1,#event.products do
+        print( event.products[i].productIdentifier )
+    end
+end
+
+-- Load store products; store must be properly initialized by this point!
+store.loadProducts( productIdentifiers, productListener )</pre>
+<p>For each instance within <code>event.products</code>, various properties will be available and these properties can be used to create an interface (store scene) or display available products in some other manner. Because of core variances in store functionality, these properties will differ for each store, but the following common properties will be available for products in <strong>all</strong> stores:</p>
+<ul>
+<li><code>productIdentifier</code> — A <a href="../../../api/type/String.html">string</a> representing the product identifier.</li>
+<li><code>title</code> — A <a href="../../../api/type/String.html">string</a> representing the product title.</li>
+<li><code>description</code> — A <a href="../../../api/type/String.html">string</a> representing the product description.</li>
+<li><code>localizedPrice</code> — The product price as a localized currency <a href="../../../api/type/String.html">string</a>, for example <code>$0.99</code>.</li>
+</ul>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Together, the above properties should be sufficient to display an informative product listing to the user/player, but you may want to consult the documentation for <a href="../../../api/library/store/event/productList/products.html">iOS</a>, <a href="../../../plugin/google-iap-v3/event/productList/products.html">Android</a>, and <a href="../../../plugin/amazon-iap-v2/event/productList/products.html">Amazon</a> to inspect additional properties.</p>
+</div>
+</div>
+<p><a id="transactions"></a></p>
+</div>
+</div>
+<div id="handling-transactions" class="section level2">
+<h2>Handling Transactions</h2>
+<p>When a user/player chooses to buy a product within your app, a connection will be made with the store's servers to initiate a <strong>transaction</strong>. The store will then process the transaction and send data back to your app with the results. As outlined above, this event is handled by the transaction listener function <nobr>(<code>transactionListener</code> argument within <code>store.init()</code>)</nobr>.</p>
+<p>Your transaction listener function should handle all of the following circumstances:</p>
+<ul>
+<li>An item was just <strong>purchased</strong> via <code>store.purchase()</code>.</li>
+<li>A purchase transaction was <strong>cancelled</strong> by the user after <code>store.purchase()</code> was called.</li>
+<li>A purchase transaction <strong>failed</strong> for various reasons.</li>
+<li>A <strong>restore purchased items</strong> request was initiated via <code>store.restore()</code>.</li>
+</ul>
+<div id="transaction-properties" class="section level3">
+<h3>Transaction Properties</h3>
+<p>When a transaction occurs, various properties will be available within the <code>event.transaction</code> table which is dispatched to the transaction listener function. Because of core variances in store functionality, these properties will differ for each store, but the following common properties will be available for transactions in <strong>all</strong> stores:</p>
+<ul>
+<li><code>state</code> — A <a href="../../../api/type/String.html">string</a> indicating the state of the transaction, for example <code>&quot;purchased&quot;</code>, <code>&quot;cancelled&quot;</code>, or <code>&quot;failed&quot;</code>.</li>
+<li><code>identifier</code> — The unique <a href="../../../api/type/String.html">string</a> identifier for the transaction.</li>
+<li><code>productIdentifier</code> — A <a href="../../../api/type/String.html">string</a> representing the product identifier associated with the transaction.</li>
+<li><code>receipt</code> — A JSON-formatted <a href="../../../api/type/String.html">string</a> representation of the transaction receipt.</li>
+<li><code>date</code> — A <a href="../../../api/type/String.html">string</a> representing the date when the transaction occurred.</li>
+<li><code>isError</code> — <a href="../../../api/type/Boolean.html">Boolean</a> value indicating whether an error occurred. If this is <code>true</code>, <code>errorType</code> and <code>errorString</code> will be <a href="../../../api/type/String.html">strings</a> stating the reason.</li>
+<li><code>errorType</code> — A <a href="../../../api/type/String.html">string</a> representing the type of error that occurred if <code>isError</code> is <code>true</code>.</li>
+<li><code>errorString</code> — A more descriptive error message (<a href="../../../api/type/String.html">string</a>) if <code>isError</code> is <code>true</code>.</li>
+</ul>
+<p>After you receive a transaction event, you should take the appropriate action. For example, if the user successfully purchased an item, you might save this information to a file or local database and unlock the ability to use the item. This file can then be referenced in future sessions so you know that the item has been purchased.</p>
+<p>The following is an example framework for the transaction listener function:</p>
+<pre class="brush: lua;">local function transactionListener( event )
+
+    local transaction = event.transaction
+
+    if ( transaction.isError ) then
+        print( transaction.errorType )
+        print( transaction.errorString )
+    else
+        -- No errors; proceed
+        if ( transaction.state == "purchased" or transaction.state == "restored" ) then
+            -- Handle a normal purchase or restored purchase here
+            print( transaction.state )
+            print( transaction.productIdentifier )
+            print( transaction.date )
+
+        elseif ( transaction.state == "cancelled" ) then
+            -- Handle a cancelled transaction here
+
+        elseif ( transaction.state == "failed" ) then
+            -- Handle a failed transaction here
+        end
+
+        -- Tell the store that the transaction is complete
+        -- If you're providing downloadable content, do not call this until the download has completed
+        store.finishTransaction( transaction )
+    end
+end
+
+-- Initialize store
+store.init( transactionListener )</pre>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>For Google IAP, this same transaction listener function also handles initialization (<a href="../../../plugin/google-iap-v3/event/init/index.html">init</a>) events. Thus, if you're using Google IAP, you should differentiate store transaction events from initialization events by conditionally checking the value of <a href="../../../plugin/google-iap-v3/event/storeTransaction/name.html">event.name</a>. Please see the Google IAP <a href="../../../plugin/google-iap-v3/init.html">store.init()</a> documentation for an example of doing so.</p>
+</div>
+</div>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>As indicated, you must call <code>store.finishTransaction()</code> on the transaction object when the transaction is complete. If you don't, the store will think that the transaction was interrupted and will attempt to resume it on the next application launch.</p>
+<pre class="brush: lua; gutter: false; highlight: [5]; first-line: 1;">        end
+
+        -- Tell the store that the transaction is complete
+        -- If you're providing downloadable content, do not call this until the download has completed
+        store.finishTransaction( transaction )
+    end
+end</pre>
+</div>
+</div>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>As noted above, the properties and values returned will vary slightly because of core variances in store functionality. For example, Apple will return <code>&quot;restored&quot;</code> for the <code>state</code> property of restored purchases, but Google Play and Amazon will group normal purchases and restored purchases collectively under the <code>&quot;purchased&quot;</code> state. In addition, each store returns an assortment of unique properties which you may need to inspect, so please consult the documentation for <a href="../../../api/library/store/event/storeTransaction/transaction.html">iOS</a>, <a href="../../../plugin/google-iap-v3/event/storeTransaction/transaction.html">Android</a>, and <a href="../../../plugin/amazon-iap-v2/event/storeTransaction/transaction.html">Amazon</a> respectively.</p>
+</div>
+</div>
+<p><a id="purchasing"></a></p>
+</div>
+</div>
+<div id="purchasing-products" class="section level2">
+<h2>Purchasing Products</h2>
+<p>To initiate a purchase, use the <code>store.purchase()</code> function. When called, this will submit a purchase request to the store and, when the store finishes processing the transaction, the listener function you specified in <code>store.init()</code> will be invoked.</p>
+<pre class="brush: lua;">store.purchase( productIdentifier )</pre>
+<p>As noted in <a href="#transaction-properties">Transaction Properties</a> above, <code>event.transaction</code> within the transaction listener function will receive a <code>state</code> property of <code>&quot;purchased&quot;</code> for a successfully processed purchase.</p>
+<p><a id="restoring"></a></p>
+</div>
+<div id="restoring-purchased-items" class="section level2">
+<h2>Restoring Purchased Items</h2>
+<p>If a user wipes clean the information on a device or buys a new device, he/she needs a way to restore items previously purchased from your app (without paying for them again). The <code>store.restore()</code> function initiates this process:</p>
+<pre class="brush: lua;">store.restore()</pre>
+<p>When called, a restore process will be initiated and, during this process, the transaction listener function may be called multiple times <nobr>(once for each item)</nobr>. Using each product identifier (<code>event.transaction.productIdentifier</code>), you can then reset those products to &quot;owned&quot; or &quot;unlocked&quot; using whatever integration is suitable for your app.</p>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>As noted above, Apple will return <code>&quot;restored&quot;</code> for the <code>state</code> property of restored purchases, but Google Play and Amazon will group normal purchases and restored purchases collectively under the <code>&quot;purchased&quot;</code> state. Typically, you can simply handle both conditions using an <code>or</code> operator as in the example shown under <a href="#transaction-properties">Transaction Properties</a> above.</p>
+<pre class="brush: lua; gutter: false; highlight: [3]; first-line: 1;">local transaction = event.transaction
+
+if ( transaction.state == "purchased" or transaction.state == "restored" ) then
+    -- Handle a normal purchase or restored purchase here</pre>
+</div>
+</div>
+<p><a id="store-specific"></a></p>
+</div>
+<div id="store-specific-functionality" class="section level2">
+<h2>Store-Specific Functionality</h2>
+<p>Each marketplace offers some unique and potentially critical functionality which you must be aware of. The following list summarizes these, but you should always consult the documentation for <a href="../../../api/library/store/index.html">iOS</a>, <a href="../../../plugin/google-iap-v3/index.html">Android</a>, and <a href="../../../plugin/amazon-iap-v2/index.html">Amazon</a> to inspect <nobr>platform-specific</nobr> functionality in detail.</p>
+<div id="purchasing-disabled-apple" class="section level3">
+<h3>Purchasing Disabled (Apple)</h3>
+<p>iOS devices have a setting which can disable <nobr>in-app</nobr> purchasing entirely. This is commonly used to prevent children from accidentally purchasing items without permission. For Apple IAP, Corona provides the <a href="../../../api/library/store/canMakePurchases.html">store.canMakePurchases</a> property to check whether purchasing is enabled or disabled. You should use this to check in advance if purchasing is allowed and notify the user if it's forbidden.</p>
+</div>
+<div id="consuming-items-google" class="section level3">
+<h3>Consuming Items (Google)</h3>
+<p>Google IAP requires that you <strong>consume</strong> purchases to make item(s) available for purchase again. Essentially, once a product is purchased, it is considered &quot;owned&quot; and it cannot be purchased again. However, since you'll almost certainly want to encourage players to buy certain items again — gem/coin packs, extra lives, etc. — you must send a consumption request to revert &quot;owned&quot; products to &quot;unowned&quot; products so that they become available for purchase again. Consuming products also discards their previous purchase data.</p>
+<p>To consume items, call <a href="../../../plugin/google-iap-v3/consumePurchase.html">store.consumePurchase()</a> with the associated product identifier:</p>
+<pre class="brush: lua;">store.consumePurchase( productIdentifier )</pre>
+<p>When invoked, and upon receipt of a successful consumption event, the value of <code>event.transaction.state</code> within the transaction listener function will be <code>&quot;consumed&quot;</code>. At this point, you may <nobr>re-enable</nobr> the product for purchase within your user interface or store scene.</p>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Note that some items are designed to be purchased only once and you should <strong>not</strong> consume them. For example, if a purchase unlocks a new world within a game or grants a permanent <nobr>power-up</nobr> to a character, it should be ineligible for future purchase.</p>
+</div>
+</div>
+</div>
+<div id="handling-refunds-google" class="section level3">
+<h3>Handling Refunds (Google)</h3>
+<p>Google IAP allows for transactions to be refunded (<a href="https://support.google.com/payments/merchant/answer/7162697">instructions</a>). Upon receipt of a successful refund event, the value of <code>event.transaction.state</code> within the transaction listener function will be <code>&quot;refunded&quot;</code> and, in this case, you can disable the content that was refunded and/or delete it from the app locally if it was downloaded.</p>
+</div>
+<div id="sandbox-mode-amazon" class="section level3">
+<h3>Sandbox Mode (Amazon)</h3>
+<p>Amazon lets you test <nobr>in-app</nobr> purchasing via a &quot;sandbox&quot; mode in which no real purchases are made. If you want to implement some form of debugging in your Corona app, you can use the <a href="../../../plugin/amazon-iap-v2/isSandboxMode.html">store.isSandboxMode()</a> API to check if the app is currently in testing mode.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.monetization.IAP.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

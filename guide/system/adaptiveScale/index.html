@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | UI/Scenes</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#adaptive-scaling-resolutionindependence">Adaptive Scaling (Resolution Independence)</a><ul>
+<li><a href="#simple-content-scaling">Simple Content Scaling</a></li>
+<li><a href="#limitations-of-simple-scaling">Limitations of Simple Scaling</a></li>
+<li><a href="#adaptive-content-scaling">Adaptive Content Scaling</a><ul>
+<li><a href="#core-principles">Core Principles</a></li>
+<li><a href="#simple-vs.-adaptive">Simple vs. Adaptive</a></li>
+<li><a href="#retina-imaging">Retina Imaging</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/system/index.html">UI/Scenes</a>
+</div>
+<div id="adaptive-scaling-resolutionindependence" class="section level1">
+<h1>Adaptive Scaling (Resolution Independence)</h1>
+<p>This guide outlines <strong>virtual pixels</strong> in Corona and explains how they can be made to behave like native iOS/Android virtual pixels using <strong>adaptive</strong> scaling.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#simple">Simple Content Scaling</a></li>
+<li><a href="#limitations">Limitations of Simple Scaling</a></li>
+<li><a href="#adaptive">Adaptive Content Scaling</a></li>
+</ul>
+</div>
+<p><a id="simple"></a></p>
+<div id="simple-content-scaling" class="section level2">
+<h2>Simple Content Scaling</h2>
+<p>Corona offers its own scheme for virtual pixels known as <strong>content scaling</strong>. This allows developers to specify a common set of screen coordinates while Corona automatically scales text, vector objects, and images to different resolutions depending on the device.</p>
+<p>There are actually multiple ways to approach content scaling. The easiest way is to just choose a single <nobr>fixed-size</nobr> virtual screen as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p>Define a content area <strong>width</strong> and <strong>height</strong> in virtual pixels <nobr>(Corona content units)</nobr>. This implicitly defines the virtual coordinate system to code around.</p></li>
+<li><p>Specify a <strong>scale</strong> mode such as <code>&quot;letterbox&quot;</code> or <code>&quot;zoomEven&quot;</code> — this determines how Corona fills the screen.</p></li>
+<li><p>If using <code>&quot;letterbox&quot;</code> mode, design for the empty letterbox regions which occur when the aspect ratio of the virtual screen and the actual device differs — these are like the black bars on a TV when the show is letterboxed, except that in Corona, these regions can (and should) have visual content drawn into them. Alternatively, if using <code>&quot;zoomEven&quot;</code> mode, understand that some visual content may bleed off the screen when the aspect ratio differs.</p></li>
+</ol>
+<p>In practice, a simple <code>config.lua</code> may include values like these:</p>
+<pre class="brush: lua; gutter: false; highlight: [5,6,7]; first-line: 1;">application =
+{
+    content =
+    {
+        width = 320,
+        height = 480,
+        scale = "letterbox",
+    }
+}</pre>
+<p>In this guide, this approach will be referenced as <strong>simple content scaling</strong>, so named because a <nobr>fixed-sized</nobr> screen simplifies development. The fixed virtual content width and height, represented by <a href="../../../api/library/display/contentWidth.html">display.contentWidth</a> and <a href="../../../api/library/display/contentHeight.html">display.contentHeight</a>, make it easier to code an app because it provides a static content size to design around.</p>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>For more details on content scaling and how to configure it, please see the <a href="../../../guide/basics/configSettings/index.html#contentscaling">Project Configuration</a> guide.</p>
+</div>
+</div>
+<p><a id="limitations"></a></p>
+</div>
+<div id="limitations-of-simple-scaling" class="section level2">
+<h2>Limitations of Simple Scaling</h2>
+<p>Although simple content scaling works well in most cases, it's not a panacea. In certain apps, particularly <nobr>UI-centric</nobr> apps, it suffers from various drawbacks including:</p>
+<ul>
+<li><p>If the app design is locked into a particular aspect ratio, managing the letterbox regions or allowing for bleed isn't ideal. In this instance, it would be better if the entire <strong>virtual</strong> screen had the same aspect ratio as the <strong>device</strong> screen.</p></li>
+<li><p>Interface elements like buttons and other <a href="../../../api/library/widget/index.html">widgets</a> scale proportionally larger on tablets compared to phones — in other words, UI elements that look reasonable (size) on phones typically appear abnormally large on tablet screens.</p></li>
+</ul>
+<p><a id="adaptive"></a></p>
+</div>
+<div id="adaptive-content-scaling" class="section level2">
+<h2>Adaptive Content Scaling</h2>
+<p>Given the various drawbacks of simple content scaling, especially in <nobr>UI-centric</nobr> apps, it would be convenient if interface elements could be approximately the same size across all devices. Fortunately, Corona's <strong>adaptive</strong> content scaling addresses this while still providing nice pixel scales and eliminating letterbox regions.</p>
+<p>To set adaptive content scaling, simply set the <code>scale</code> key within <code>config.lua</code> to <code>&quot;adaptive&quot;</code>:</p>
+<pre class="brush: lua; gutter: false; highlight: [5]; first-line: 1;">application =
+{
+    content =
+    {
+        scale = "adaptive",
+    }
+}</pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>Because adaptive scaling calculates the content area size as outlined in the next section, it is <strong>not</strong> necessary to define <code>width</code> and <code>height</code> values when using <code>&quot;adaptive&quot;</code> scale mode.</p>
+</div>
+<div id="core-principles" class="section level3">
+<h3>Core Principles</h3>
+<p>For adaptive scaling, Corona uses heuristics to determine an appropriate content width and height. There are three primary goals:</p>
+<ol style="list-style-type: decimal">
+<li><p>The aspect ratio of the virtual screen should match the actual device screen, meaning that there are no letterbox regions.</p></li>
+<li><p>The preferred pixel scales should be whole numbers (or simple fractions) whenever possible.</p></li>
+<li><p>The virtual pixel density should be roughly the same across devices.</p></li>
+</ol>
+<p>For iOS, this is achieved by setting the content width and height to match the width and height of the device in iOS points. This works out nicely because iOS points are roughly the same physical size.</p>
+<p>For Android, the content width and height is set to match the <strong>dp</strong> <nobr>(device-independent pixel)</nobr> units, using the approximate PPI of the general screen type <nobr>(<code>hdpi</code>, <code>xhdpi</code>, etc.)</nobr> and actual screen pixel width/height to calculate the content screen size. This similarly works out because Android <strong>dp</strong> values are approximately the same physical length.</p>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Whenever the virtual screen size is allowed to change, there's a tradeoff and the complexity increases slightly. Specifically, the code should be aware that the content width and height can change depending on the device. Thus, rather than using static width and height values for certain interface elements, those values should be defined <strong>dynamically</strong> via <code>display.contentWidth</code>, <code>display.contentHeight</code>, and various calculations around these properties, for instance <nobr><code>display.contentWidth * 0.5</code></nobr> to set the width of an object to half the screen width. These properties should also be used for positioning, for example setting an object's <strong>y</strong> position to <code>display.contentHeight</code> to position its vertical center point at the bottom of the screen.</p>
+</div>
+</div>
+</div>
+<div id="simple-vs.-adaptive" class="section level3">
+<h3>Simple vs. Adaptive</h3>
+<p>The difference between simple content scaling and adaptive content scaling is essentially this:</p>
+<ul>
+<li><p>In a simple scaling scenario, the <strong>visual size</strong> of content is scaled. Thus, on larger screens, objects actually get larger in ruler length (for example inches or centimeters).</p></li>
+<li><p>In an adaptive scaling scenario, the visual size of content is approximately equal across different screen sizes, meaning that there's more available screen space on larger devices.</p></li>
+</ul>
+<p>Another way to understand the difference is to inspect what happens to pixel scales. Using simple content scaling, the pixel scales differ across various devices, but they stay the same in adaptive scaling. Consider this comparison:</p>
+<ul>
+<li><p>In a simple scaling scenario, assume that the content width is set to <code>320</code>. On an iPhone 7 which has a screen resolution width of 750, the pixel scale is about <nobr>2.3 (<code>750/320</code>)</nobr>, meaning ~2.3 actual pixels for a single virtual pixel. On the larger iPhone 7 Plus with a screen resolution width of 1242, the pixel scale becomes approximately <nobr>3.9 (<code>1242/320</code>)</nobr>.</p></li>
+<li><p>Using adaptive content scaling, the pixel scale is 2 on both devices because Apple designed the point widths and heights for each device to make the math work: <nobr>a 375 point width</nobr> and 750 pixel width on the iPhone 7 compared to a 621 point width and 1242 pixel width on the iPhone 7 Plus.</p></li>
+</ul>
+</div>
+<div id="retina-imaging" class="section level3">
+<h3>Retina Imaging</h3>
+<p>Adaptive scaling also affects the choice of scaling thresholds for Retina/HD image selection <nobr>(see <a href="../../../guide/basics/configSettings/index.html#dynamic-image-selection">Dynamic Image Selection</a> for details)</nobr>.</p>
+<p>In a simple scaling scenario, it may be necessary to go as high as <nobr><code>@4x</code>-suffixed</nobr> images because the content sometimes needs to be scaled to 400% or higher, particularly on Retina/HD tablets. In an adaptive scaling scenario, however, it's usually sufficient to include <code>@2x</code> and <nobr><code>@3x</code>-suffixed</nobr> versions of images.</p>
+<p>In terms of choosing actual threshold values for the <code>imageSuffix</code> table of <code>config.lua</code>, it may seem logical that the scaling thresholds for <code>@2x</code> and <nobr><code>@3x</code>-suffixed</nobr> images would be <code>2.0</code> and <code>3.0</code> respectively, as in:</p>
+<pre class="brush: lua; gutter: false; highlight: [8,9]; first-line: 1;">application =
+{
+    content =
+    {
+        scale = "adaptive",
+        imageSuffix =
+        {
+            ["@2x"] = 2.0,
+            ["@3x"] = 3.0,
+        },
+    }
+}</pre>
+<p>However, there are two specific reasons why the thresholds should be lowered:</p>
+<ol style="list-style-type: decimal">
+<li><p>On Android, <code>hdpi</code> devices have a fractional scale of 1.5×. In this case, the <code>@2x</code> images should be chosen by lowering the associated threshold to <code>1.5</code>.</p></li>
+<li><p>The iPhone 7 Plus is one device where the pixel scale is a little weird. Here, <nobr>UIKit-based</nobr> apps are made to believe that the scale is 3×, but in reality it's actually 2.6× after downscaling; for <nobr>OpenGL-based</nobr> and <nobr>Metal-based</nobr> games, it's directly 2.6×. In this case, the <code>@3x</code> images should probably be used, otherwise the <code>@2x</code> images will be chosen and scaled up which might not appear optimal. This can be achieved by lowering the associated threshold to <code>2.5</code>.</p></li>
+</ol>
+<p>With these considerations in mind, an <strong>adaptive</strong> <code>config.lua</code> should include threshold values like these:</p>
+<pre class="brush: lua; gutter: false; highlight: [8,9]; first-line: 1;">application =
+{
+    content =
+    {
+        scale = "adaptive",
+        imageSuffix =
+        {
+            ["@2x"] = 1.5,
+            ["@3x"] = 2.5,
+        },
+    }
+}</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.system.adaptiveScale.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

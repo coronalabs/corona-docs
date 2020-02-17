@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Corona Native | Android | Android Studio Integration | gradle</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#android-studio-integration">Android Studio Integration</a><ul>
+<li><a href="#editing-gradle-scripts">Editing Gradle Scripts</a><ul>
+<li><a href="#plugin-module">Plugin Module</a></li>
+<li><a href="#app-module">App Module</a></li>
+</ul></li>
+<li><a href="#section"></a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../native/index.html">Corona Native</a>  ▸  <a href="../../../native/android/index.html">Android</a>  ▸  <a href="../../../native/android/androidStudio/index.html">Android Studio Integration</a>  ▸  <a href="../../../native/android/androidStudio/gradle.html">gradle</a>
+</div>
+<div id="android-studio-integration" class="section level1">
+<h1>Android Studio Integration</h1>
+<div id="editing-gradle-scripts" class="section level2">
+<h2>Editing Gradle Scripts</h2>
+<div id="plugin-module" class="section level3">
+<h3>Plugin Module</h3>
+<ol style="list-style-type: decimal">
+<li>From the <code>Project</code> sidebar in Android Studio, open <code>LuaLoader.java</code>. You will see errors about missing libraries:</li>
+</ol>
+<div class="image-indent" style="width:90%;">
+<div class="figure">
+<img src="../../../images/enterprise/as-pluginBuild1.png" />
+
+</div>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>From within the <strong>Gradle Scripts</strong> tree, open <nobr><code>build.gradle</code> (<code>Module: plugin</code>)</nobr></li>
+</ol>
+<div class="image-indent" style="width:90%;">
+<div class="figure">
+<img src="../../../images/enterprise/as-pluginBuild2.png" />
+
+</div>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Between the <code>android</code> and <code>dependencies</code> blocks, add a variable defining where the <code>CoronaEnterprise</code> directory is. This variable points to the symbolic link, which points to the real <code>CoronaEnterprise</code> directory.</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gradle">def coronaEnterpriseDir = "$rootDir/CoronaEnterprise"</pre>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Replace everything inside the <code>dependencies</code> block with the following lines. These tell Android Studio to look for extra libraries inside CORONA_ENTERPRISE_PRODUCT and inside the <code>libs</code> directory of the <code>plugin</code> module.</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gradle">compile fileTree(dir: "$coronaEnterpriseDir/Corona/android/lib/Corona/libs", include: '*.jar')
+compile fileTree(dir: 'libs', include: '*.jar')</pre>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Remove the entire <code>buildTypes</code> block.</p></li>
+<li><p>To finish the plugin section of <code>build.gradle</code>, you need to add an extra task to create a <code>plugin.library.jar</code> that can later be submitted to the Corona Marketplace or included in another project. Add this code before the <code>dependencies</code> block:</p></li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gradle">task exportPluginJar (type: Copy, description: 'place the plugin JAR file in the outputs directory and give it a name from the AndroidManifest.xml') {
+    def pluginName = new XmlSlurper().parse(file('src/main/AndroidManifest.xml')).@package.text()
+    from "$buildDir/intermediates/bundles/release/"
+    into "$buildDir/outputs/jar"
+    include 'classes.jar'
+    rename 'classes.jar', "${pluginName}.jar"
+
+    doFirst {
+        println '== exportPluginJar =='
+    }
+}
+
+tasks.withType(JavaCompile) {
+    compileTask -> compileTask.dependsOn('exportPluginJar')
+}</pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>The defined task gets the name of the plugin from the <code>AndroidManifest.xml</code> file inside the <code>plugin</code> module and it creates the <code>.jar</code> file (<code>plugin.library.jar</code>) inside the <code>plugin/build/output/jar/</code> directory after the project has been built.</p>
+</div>
+</div>
+<ol start="7" style="list-style-type: decimal">
+<li>Click the <strong>Sync Now</strong> button in the <nobr>upper-right</nobr> corner. Your <code>build.gradle</code> for the plugin should now look like this (and <code>LuaLoader.java</code> should not have import errors):</li>
+</ol>
+<div class="image-indent" style="width:90%;">
+<div class="figure">
+<img src="../../../images/enterprise/as-pluginBuild3.png" />
+
+</div>
+</div>
+<ol start="8" style="list-style-type: decimal">
+<li>At this point, you can close this <code>build.gradle</code> and proceed to the next section. You can also fix the JavaDocs and remove unused imports so Android Studio will stop complaining about them in <code>LuaLoader.java</code>.</li>
+</ol>
+<div class="code-indent">
+<div class="guide-notebox" style="margin-bottom: 30px;">
+<div class="notebox-title">
+Notes
+</div>
+<ul>
+<li><p>If your plugin has additional dependencies, they should be added inside the <code>dependencies</code> block of <nobr><code>build.gradle</code> (<code>Module: plugin</code>)</nobr>. You can also put <nobr>stand-alone</nobr> <code>.jar</code> libraries inside <code>plugin/libs/</code> or <code>app/libs/</code>.</p></li>
+<li><p>If your Enterprise project does not use a separate plugin module, be sure that the CORONA_ENTERPRISE_PRODUCT libraries are compiled into you main app module by adding this line to the <code>dependencies</code> block of your main app module:</p>
+<div style="margin-top: 12px; margin-bottom: 8px;">
+<p><code>compile fileTree(dir: &quot;$coronaEnterpriseDir/Corona/android/lib/Corona/libs&quot;, include: '*.jar')</code></p>
+</div></li>
+<li><p>In <code>build.gradle</code> files, you must always check what versions of Android tools, Android APIs, and other libraries are used. Android SDK evolves and these version numbers will increase. Note that some plugins may require older versions of specific libraries as they might be incompatible with new ones. Thus, you should always take proper care of versions.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="app-module" class="section level3">
+<h3>App Module</h3>
+<ol style="list-style-type: decimal">
+<li>From within the <strong>Gradle Scripts</strong> tree, open <nobr><code>build.gradle</code> (<code>Module: app</code>)</nobr></li>
+</ol>
+<div class="image-indent" style="width:90%;">
+<div class="figure">
+<img src="../../../images/enterprise/as-appBuild1.png" />
+
+</div>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Remove the entire <code>buildTypes</code> block.</p></li>
+<li><p>Now you must modify this script to make a healthy <code>.apk</code> on build. In the <code>dependencies</code> block, remove the <code>junit</code> line and add the following line. This tells Android Studio to compile the <code>plugin</code> module first and include it into the <code>.apk</code>.</p></li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gradle">compile project(':plugin')</pre>
+</div>
+<div class="image-indent" style="width:90%;">
+<div class="figure">
+<img src="../../../images/enterprise/as-appBuild2.png" />
+
+</div>
+</div>
+<div class="code-indent">
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>If you have a plugin module, compile it into your app with <nobr><code>compile project(':plugin')</code></nobr>. Otherwise, ensure that Corona's Java binaries are included in your app module via the following (we'll define <code>$coronaEnterpriseAndroidLibDir</code> in the next step).</p>
+<p><code>compile fileTree(dir: &quot;$coronaEnterpriseAndroidLibDir/libs&quot;, include: '*.jar')</code></p>
+</div>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Now add the following variable definitions before the <code>android</code> block. The first two extract the application name and <code>.apk</code> filenames from the <code>AndroidManifest.xml</code> file, while the last six define the locations of various project and CORONA_ENTERPRISE_PRODUCT directories needed to build the project correctly.</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gradle">// Application name variables
+def appName = new XmlSlurper().parse(file('src/main/AndroidManifest.xml')).@package.text()
+def apkName = appName.toString().split('\\.').last()
+
+// Paths used throughout the build process
+def coronaEnterpriseDir = "$rootDir/CoronaEnterprise"
+def assetsDir = "$projectDir/src/main/assets"
+def jniLibsDir = "$projectDir/src/main/jniLibs"
+def coronaEnterpriseMacBinDir = "$coronaEnterpriseDir/Corona/mac/bin"
+def coronaEnterpriseSharedDir = "$coronaEnterpriseDir/Corona/shared"
+def coronaEnterpriseAndroidLibDir = "$coronaEnterpriseDir/Corona/android/lib/Corona"</pre>
+</div>
+<div class="image-indent" style="width:90%;">
+<div class="figure">
+<img src="../../../images/enterprise/as-appBuild3.png" />
+
+</div>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>Now, before the <code>dependencies</code> block, we begin adding all of the crucial tasks for building the <code>.apk</code>. First, add the <code>cleanAssets</code> task below.</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gradle">task cleanAssets(type: Delete, description: 'remove Corona assets and libcorona.so') {
+    delete "$assetsDir"
+    delete "$jniLibsDir"
+
+    doFirst {
+        println "== cleanAssets =="
+    }
+
+    doLast {
+        new File("$assetsDir").mkdirs()
+    }
+}</pre>
+</div>
+<div class="code-indent">
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>The <code>cleanAssets</code> task cleans up the files that are created during execution of the tasks which follow. This needs to be executed every time so that updates to your lua project can be picked up and resigning of the app can occur.</p>
+</div>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>With the ability to clean the Corona-specific portions of the project, now add the <code>compileLua</code> task below.</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gradle">task compileLua(type: Exec, description: 'compile Lua source code') {
+    executable = "$coronaEnterpriseMacBinDir/lua"
+    workingDir = "$coronaEnterpriseMacBinDir"
+    args = [
+            '-e',
+            "package.path='$coronaEnterpriseSharedDir/bin/?.lua;$coronaEnterpriseSharedDir/bin/?/init.lua;'..package.path",
+            "$coronaEnterpriseSharedDir/bin/Compile.lua",
+            'mac',
+            "$coronaEnterpriseDir"
+    ]
+
+    environment = [
+            LUA_CPATH                   : "$coronaEnterpriseMacBinDir/?.so",
+            TARGET_PLATFORM             : 'android',
+            PROJECT_DIR                 : "$rootDir",
+            CORONA_COPY_PNG_PRESERVE    : '--preserve',
+            CONFIGURATION               : 'release',
+            CORONA_ASSETS_DIR           : "[RELATIVE_PATH_TO_CORONA_PROJECT]",  // Default is: "$rootDir/../Corona"
+            CORONA_TARGET_RESOURCES_DIR : "$assetsDir",
+            CORONA_TARGET_EXECUTABLE_DIR: "$assetsDir"
+    ]
+
+    dependsOn 'cleanAssets'
+
+    doFirst {
+        println '== compileLua =='
+    }
+}</pre>
+</div>
+<div class="code-indent">
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>The <code>compileLua</code> task compiles your Lua source code from the <code>Corona</code> directory into bytecode stored inside the <code>resources.car</code> file. It also places all other assets from that directory into the <code>app/src/main/assets/</code> directory so they get bundled into the <code>.apk</code>.</p>
+</div>
+</div>
+<ol start="7" style="list-style-type: decimal">
+<li>Now that the script can compile your Lua code, add the two copy tasks below.</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gradle">task copyCoronaResources(type: Copy, description: 'include resources') {
+    from fileTree(dir: "$coronaEnterpriseAndroidLibDir/res", include: '**/*')
+    into "$projectDir/src/main/res"
+
+    dependsOn 'compileLua'
+
+    doFirst {
+        println '== copyCoronaResources =='
+    }
+}
+
+task copyCoronaNativeLibs(type: Copy, description: 'include precompiled libraries') {
+    from fileTree(dir: "$coronaEnterpriseAndroidLibDir/libs", include: '**/*.so')
+    into "$jniLibsDir"
+
+    dependsOn 'copyCoronaResources'
+
+    doFirst {
+        println '== copyCoronaNativeLibs =='
+    }
+}</pre>
+</div>
+<div class="code-indent">
+<div class="guide-notebox">
+<div class="notebox-title">
+Notes
+</div>
+<ul>
+<li><p>The <code>copyCoronaResources</code> task takes Android resource files from CORONA_ENTERPRISE_PRODUCT (widgets and image sheets for example) and copies them to the <code>app/src/main/res/</code> directory so they also end up inside the <code>.apk</code>.</p></li>
+<li><p>The <code>copyCoronaNativeLibs</code> task takes <code>.so</code> libraries from CORONA_ENTERPRISE_PRODUCT and copies them into the project's <code>app/src/main/jniLibs</code> directory. Unlike Ant build where <code>.jar</code> and <code>.so</code> files would sit in the same root <code>libs</code> directory, Android Studio expects <code>.so</code> files in the <code>app/src/main/jniLibs</code> directory for inclusion inside the <code>.apk</code>.</p></li>
+</ul>
+</div>
+</div>
+<ol start="8" style="list-style-type: decimal">
+<li>Since all the Corona assets and libraries are in place, now we add a task to sign the build defined below.</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gradle">task certifyBuild(type: Exec, description: 'certify libcorona.so with resource.car hash and developerkey.cert') {
+    executable = "$coronaEnterpriseMacBinDir/CoronaBuilder.app/Contents/MacOS/CoronaBuilder"
+    workingDir = "$coronaEnterpriseMacBinDir"
+    args = [
+            'app_sign',
+            'sign',
+            "$coronaEnterpriseSharedDir/resource/developerkey.cert",
+            "$assetsDir/resource.car",
+            "$jniLibsDir/armeabi-v7a/libcorona.so",
+            'little'
+    ]
+
+    dependsOn 'copyCoronaNativeLibs'
+
+    doFirst {
+        println '== certifyBuild =='
+    }
+}</pre>
+</div>
+<div class="code-indent">
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>The <code>certifyBuild</code> task digitally signs <code>libcorona.so</code> <nobr>(inside <code>app/src/main/jniLibs</code>)</nobr> with a fingerprint generated from the <code>resources.car</code> file. Without this task, the Corona application will fail to start on the device and yield a message about not being able to find/load <code>main.lua</code>.</p>
+</div>
+</div>
+<ol start="9" style="list-style-type: decimal">
+<li>To kick off all the tasks we've added, we need to make them all dependent on the standard Android build process. This is done by adding a <code>dependsOn</code> to the standard pre-build tasks shown below.</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gradle">tasks.preBuild.dependsOn('certifyBuild')</pre>
+</div>
+<!---
+
+Once completed, your <nobr>`build.gradle` (`Module: app`)</nobr> should look like this.
+
+<div class="image-indent" style="width:90%;">
+
+![][images.enterprise.as-appBuild4]
+
+![][images.enterprise.as-appBuild5]
+
+![][images.enterprise.as-appBuild6]
+
+</div>
+
+-->
+<div class="code-indent">
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>You will notice that all tasks are executed in order defined by a <code>dependsOn</code> directive. You also tell Android Studio that its first task (<code>preBuild</code>) should also depend on them with this line:</p>
+<div style="margin-top: 12px; margin-bottom: 8px;">
+<p><code>tasks.preBuild.dependsOn('certifyBuild')</code></p>
+</div>
+<p>If you update CORONA_ENTERPRISE_PRODUCT, these tasks will pick up the most recent files the next time you build the project, making the update process painless.</p>
+</div>
+</div>
+<ol start="10" style="list-style-type: decimal">
+<li>For release builds, place your keystore file into the <code>[PATH_TO_PROJECT_TEMPLATE]/App/android/</code> directory and add the following <code>signingConfigs</code> block inside the <code>android</code> block, directly before the <code>defaultConfig</code> block. If you need assistance on creating a keystore, please see the <a href="../../../guide/distribution/androidBuild/index.html">Signing and Building — Android</a> guide.</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gradle">signingConfigs {
+    release {
+        storeFile file("$rootDir/apptemplate.keystore")
+        storePassword 'apptemplate'
+        keyAlias 'apptemplate'
+        keyPassword 'apptemplate'
+    }
+}</pre>
+</div>
+<ol start="11" style="list-style-type: decimal">
+<li>Within the <code>android</code> block, replace the <code>applicationId</code> value in the <code>defaultConfig</code> block with <code>&quot;$appName&quot;</code>. Additionally, add this line at the bottom of the <code>defaultConfig</code> block:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gradle">signingConfig signingConfigs.release</pre>
+</div>
+<ol start="12" style="list-style-type: decimal">
+<li>Finally, for the <code>.apk</code> file to be properly named, add this code at the end of the <code>android</code> block, directly following the <code>defaultConfig</code> block:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gradle">applicationVariants.all { variant ->
+    variant.outputs.each { output ->
+        output.outputFile = file(output.outputFile.getPath().replace('/app-', "/${apkName}-"))
+    }
+}</pre>
+</div>
+<div class="image-indent" style="width:90%;">
+<div class="figure">
+<img src="../../../images/enterprise/as-appBuild7.png" />
+
+</div>
+</div>
+<ol start="13" style="list-style-type: decimal">
+<li>Click the <strong>Sync Now</strong> button in the <nobr>upper-right</nobr> corner. Once this finishes and there are no errors to resolve, you can close this <code>build.gradle</code>.</li>
+</ol>
+</div>
+</div>
+<div id="section" class="section level2">
+<h2></h2>
+<div class="walkthrough-nav">
+<p><strong>⟨</strong> <a href="../../../native/android/androidStudio/setup.html">Setup and Configuration</a> <em>|</em> <a href="../../../native/android/androidStudio/manifest.html">Editing the Manifest</a> <strong>⟩</strong></p>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=native.android.androidStudio.gradle&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

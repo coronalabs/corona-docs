@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | Facebook (v4)</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#facebook.-v4">facebook.* (v4)</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#registration">Registration</a></li>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#functions">Functions</a><ul>
+<li><a href="#facebook.getcurrentaccesstokenplugin.facebook-v4.getcurrentaccesstoken"><a href="../../plugin/facebook-v4/getCurrentAccessToken.html">facebook.getCurrentAccessToken()</a></a></li>
+<li><a href="#facebook.isfacebookappenabledplugin.facebook-v4.isfacebookappenabled"><a href="../../plugin/facebook-v4/isFacebookAppEnabled.html">facebook.isFacebookAppEnabled()</a></a></li>
+<li><a href="#facebook.loginplugin.facebook-v4.login"><a href="../../plugin/facebook-v4/login.html">facebook.login()</a></a></li>
+<li><a href="#facebook.logoutplugin.facebook-v4.logout"><a href="../../plugin/facebook-v4/logout.html">facebook.logout()</a></a></li>
+<li><a href="#facebook.publishinstallplugin.facebook-v4.publishinstall"><a href="../../plugin/facebook-v4/publishInstall.html">facebook.publishInstall()</a></a></li>
+<li><a href="#facebook.requestplugin.facebook-v4.request"><a href="../../plugin/facebook-v4/request.html">facebook.request()</a></a></li>
+<li><a href="#facebook.setfbconnectlistenerplugin.facebook-v4.setfbconnectlistener"><a href="../../plugin/facebook-v4/setFBConnectListener.html">facebook.setFBConnectListener()</a></a></li>
+<li><a href="#facebook.showdialogplugin.facebook-v4.showdialog"><a href="../../plugin/facebook-v4/showDialog.html">facebook.showDialog()</a></a></li>
+</ul></li>
+<li><a href="#properties">Properties</a><ul>
+<li><a href="#facebook.isactiveplugin.facebook-v4.isactive"><a href="../../plugin/facebook-v4/isActive.html">facebook.isActive</a></a></li>
+</ul></li>
+<li><a href="#events">Events</a><ul>
+<li><a href="#fbconnectplugin.facebook-v4.event.fbconnect"><a href="../../plugin/facebook-v4/event/fbconnect/index.html">fbconnect</a></a></li>
+</ul></li>
+<li><a href="#project-settings">Project Settings</a><ul>
+<li><a href="#ios">iOS</a></li>
+<li><a href="#android">Android</a></li>
+</ul></li>
+<li><a href="#coronanative">Corona Native</a><ul>
+<li><a href="#ios-1">iOS</a></li>
+<li><a href="#android-1">Android</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/facebook-v4/index.html">Facebook (v4)</a>
+</div>
+<div id="facebook.-v4" class="section level1">
+<h1>facebook.* (v4)</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left">[Library][api.type.library]</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">Facebook</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Platforms</strong></td>
+<td align="left">Android, iOS</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../guide/social/setupFacebook/index.html">Facebook Portal Setup</a> <em>(guide)</em></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../guide/social/usingFacebook/index.html">Implementing Facebook</a> <em>(guide)</em></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>This documentation is for the Facebook <strong>v4</strong> plugin. We strongly recommend that you modify your code to use the <a href="../../plugin/facebook-v4a/index.html">Facebook v4a</a> plugin, an updated asynchronous version which includes a new <code>facebook.init()</code> API.</p>
+</div>
+</div>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>The Facebook plugin provides a set of APIs for accessing the Facebook social network. The functions allow a user to login/logout, post messages and images, retrieve the status of users, send game invites, and more.</p>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>Your app must work properly with <nobr>single-sign-on</nobr> (SSO). Please read the <a href="../../guide/social/setupFacebook/index.html">Facebook Portal Setup</a> guide for more information on how to implement <nobr>single-sign-on</nobr> in your <nobr>Facebook-enabled</nobr> apps.</p>
+</div>
+<!---
+
+## Changes / Updates 
+
+The Facebook platform evolves very quickly and changes frequently. Because of this, the Facebook plugin must also evolve, and sometimes these changes will alter the behavior of your apps. Consult our [Facebook Versioning/Upgrading][plugin.facebook-v4a.fbUpgrade] guide for more info on moving between different versions of the Facebook plugin.
+
+-->
+</div>
+<div id="registration" class="section level2">
+<h2>Registration</h2>
+<p>Developing for Facebook requires that you register in the <a href="https://developers.facebook.com/">Facebook Developer Portal</a>.</p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">local facebook = require( "plugin.facebook.v4" )</pre>
+</div>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<div id="facebook.getcurrentaccesstokenplugin.facebook-v4.getcurrentaccesstoken" class="section level4">
+<h4><a href="../../plugin/facebook-v4/getCurrentAccessToken.html">facebook.getCurrentAccessToken()</a></h4>
+</div>
+<div id="facebook.isfacebookappenabledplugin.facebook-v4.isfacebookappenabled" class="section level4">
+<h4><a href="../../plugin/facebook-v4/isFacebookAppEnabled.html">facebook.isFacebookAppEnabled()</a></h4>
+</div>
+<div id="facebook.loginplugin.facebook-v4.login" class="section level4">
+<h4><a href="../../plugin/facebook-v4/login.html">facebook.login()</a></h4>
+</div>
+<div id="facebook.logoutplugin.facebook-v4.logout" class="section level4">
+<h4><a href="../../plugin/facebook-v4/logout.html">facebook.logout()</a></h4>
+</div>
+<div id="facebook.publishinstallplugin.facebook-v4.publishinstall" class="section level4">
+<h4><a href="../../plugin/facebook-v4/publishInstall.html">facebook.publishInstall()</a></h4>
+</div>
+<div id="facebook.requestplugin.facebook-v4.request" class="section level4">
+<h4><a href="../../plugin/facebook-v4/request.html">facebook.request()</a></h4>
+</div>
+<div id="facebook.setfbconnectlistenerplugin.facebook-v4.setfbconnectlistener" class="section level4">
+<h4><a href="../../plugin/facebook-v4/setFBConnectListener.html">facebook.setFBConnectListener()</a></h4>
+</div>
+<div id="facebook.showdialogplugin.facebook-v4.showdialog" class="section level4">
+<h4><a href="../../plugin/facebook-v4/showDialog.html">facebook.showDialog()</a></h4>
+</div>
+</div>
+<div id="properties" class="section level2">
+<h2>Properties</h2>
+<div id="facebook.isactiveplugin.facebook-v4.isactive" class="section level4">
+<h4><a href="../../plugin/facebook-v4/isActive.html">facebook.isActive</a></h4>
+</div>
+</div>
+<div id="events" class="section level2">
+<h2>Events</h2>
+<div id="fbconnectplugin.facebook-v4.event.fbconnect" class="section level4">
+<h4><a href="../../plugin/facebook-v4/event/fbconnect/index.html">fbconnect</a></h4>
+<p><a name="settings"></a></p>
+</div>
+</div>
+<div id="project-settings" class="section level2">
+<h2>Project Settings</h2>
+<p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings = {
+
+    plugins =
+    {
+        ["plugin.facebook.v4"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+    },
+}</pre>
+<div id="ios" class="section level3">
+<h3>iOS</h3>
+<p>If your app is for iOS, you must also include the following code in <code>build.settings</code> to ensure that the native Facebook app functions properly:</p>
+<pre class="brush: lua;">settings = {
+
+    iphone =
+    {
+        plist =
+        {
+            UIApplicationExitsOnSuspend = false,
+            FacebookAppID = "XXXXXXXXXX",  -- Replace XXXXXXXXXX with your Facebook App ID
+            CFBundleURLTypes =
+            {
+                { CFBundleURLSchemes = { "fbXXXXXXXXXX", } }  -- Replace XXXXXXXXXX with your Facebook App ID
+            },
+            -- Whitelist Facebook apps
+            LSApplicationQueriesSchemes =
+            {
+                "fb",  -- Needed for the facebook-v4.isFacebookAppEnabled() API
+                "fbapi",
+                "fbauth2",
+                "fb-messenger-api",
+                "fbshareextension"
+            },
+        },
+    },
+}</pre>
+<p>Notice that there are several critical parts which must be specified:</p>
+<ul>
+<li><p><code>UIApplicationExitsOnSuspend</code> — To ensure that Facebook can resume your app properly, you must include <code>UIApplicationExitsOnSuspend = false</code>. If you've set this parameter to <code>true</code> for some other reason, you must revert it to <code>false</code> (default).</p></li>
+<li><p><code>FacebookAppID</code> — Set this key to <code>FacebookAppID = &quot;XXXXXXXXXX&quot;</code> and replace <code>XXXXXXXXXX</code> with your unique Facebook App ID.</p></li>
+<li><p><code>CFBundleURLTypes</code> — The <code>CFBundleURLTypes</code> table must be declared exactly as shown and it must include a table named <code>CFBundleURLSchemes</code>. Inside this, include your Facebook App ID and prefix it with <code>fb</code>. Thus, if your App ID is <strong>1234567890</strong>, you should specify: <code>&quot;fb1234567890&quot;</code>.</p></li>
+<li><p><code>LSApplicationQueriesSchemes</code> — This table of whitelisted URL schemes ensures that your app and the Facebook SDK run properly together.</p></li>
+</ul>
+</div>
+<div id="android" class="section level3">
+<h3>Android</h3>
+<p>If your app is for Android, you must also include a <nobr>Facebook App ID</nobr> in <code>build.settings</code>:</p>
+<pre class="brush: lua;">settings = 
+{
+    android =
+    {
+        facebookAppId = "XXXXXXXXXX",  -- Replace XXXXXXXXXX with your Facebook App ID
+    },
+}</pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>For Android, the following permissions/features are automatically added when using this plugin:</p>
+<ul>
+<li><code>&quot;android.permission.INTERNET&quot;</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="coronanative" class="section level2">
+<h2>Corona Native</h2>
+<div id="ios-1" class="section level3">
+<h3>iOS</h3>
+<p>If you're using Corona Native for iOS, you should ensure that the following static libraries are linked:</p>
+<ul>
+<li><p><code>libBolts.a</code></p></li>
+<li><p><code>libFBSDKCoreKit.a</code></p></li>
+<li><p><code>libFBSDKLoginKit.a</code></p></li>
+<li><p><code>libFBSDKShareKit.a</code></p></li>
+<li><p><code>libfacebook.a</code></p></li>
+</ul>
+<p>In addition, you'll need to add several properties to your <code>Info.plist</code>. Open the file in an external text editor and add the following XML code into it:</p>
+<pre class="brush: xml;">&lt;key>UIApplicationExitsOnSuspend&lt;/key>
+&lt;false/>
+&lt;key>FacebookAppID&lt;/key>
+&lt;!-- Replace XXXXXXXXXX with your Facebook App ID -->
+&lt;string>XXXXXXXXXX&lt;/string>
+&lt;key>CFBundleURLTypes&lt;/key>
+&lt;array>
+    &lt;dict>
+        &lt;key>CFBundleURLSchemes&lt;/key>
+        &lt;array>
+            &lt;!-- Replace XXXXXXXXXX with your Facebook App ID -->
+            &lt;string>fbXXXXXXXXXX&lt;/string>
+        &lt;/array>
+    &lt;/dict>
+&lt;/array>
+&lt;key>LSApplicationQueriesSchemes&lt;/key>
+&lt;array>
+    &lt;string>fb&lt;/string>
+    &lt;string>fbapi&lt;/string>
+    &lt;string>fbauth2&lt;/string>
+    &lt;string>fb-messenger-api&lt;/string>
+    &lt;string>fbshareextension&lt;/string>
+&lt;/array>
+&lt;key>CoronaDelegates&lt;/key>
+&lt;array>
+    &lt;string>CoronaFacebookDelegate&lt;/string>
+&lt;/array></pre>
+<p>This has all of the same critical pieces as the <code>build.settings</code> additions for <nobr>non-Corona Native</nobr> implementation, plus the addition of the <code>CoronaDelegates</code> key with <code>CoronaFacebookDelegate</code> in its array. This allows Facebook login to work as well as suspending/resuming your app while Facebook is active.</p>
+</div>
+<div id="android-1" class="section level3">
+<h3>Android</h3>
+<!-- TODO: REWRITE WITH LINKING IN SOURCE CODE OPTIONAL -->
+<p>If you're using Corona Native for Android, there are several configuration changes you'll need to make to your Android Studio project. Be sure to follow this procedure carefully as even minor mistakes can result in debugging headaches.</p>
+<ol style="list-style-type: decimal">
+<li>Locate the plugin binaries package that accommodates your build of Corona Native and copy <strong>only</strong> the <code>&quot;plugin.facebook.v4.jar&quot;</code> file into your project's <code>&quot;libs&quot;</code> directory.</li>
+</ol>
+<div class="code-indent">
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>The rest of the binaries in the Facebook plugin package will be copied/rebuilt for you later when the Facebook SDK is linked to your Android Studio project.</p>
+</div>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Add the following permission to your <code>AndroidManifest.xml</code>:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: xml;">&lt;uses-permission android:name="android.permission.INTERNET"/></pre>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>In the <code>application</code> element of your <code>AndroidManifest.xml</code>, add a <nobr><code>meta-data</code></nobr> tag containing your Facebook App ID.</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: xml;">&lt;!-- Replace XXXXXXXXXX with your Facebook App ID -->
+&lt;meta-data android:name="com.facebook.sdk.ApplicationId" android:value="\ XXXXXXXXXX"/></pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>Since your Facebook App ID is a number that needs to be converted to a string for Android, the <nobr><code>\</code></nobr> in the assignment of <code>android:value</code> is required.</p>
+</div>
+</div>
+<p><a id="displayname"></a></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Similarly, add a <nobr><code>meta-data</code></nobr> tag containing the <strong>Display Name</strong> as posted in the <a href="https://developers.facebook.com/">Facebook Developer Portal</a>. This can be found under <nobr><strong>Settings</strong> → <strong>Basic</strong> → <strong>Display Name</strong></nobr>.</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: xml;">&lt;!-- Replace XXXXXXXXXX with your Facebook Display Name from the Facebook Developer Portal -->
+&lt;meta-data android:name="com.facebook.sdk.ApplicationName" android:value="XXXXXXXXXX"/></pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>The <code>ApplicationName</code> <nobr><code>meta-data</code></nobr> tag is required for using the <a href="https://developers.facebook.com/docs/sharing/reference/share-dialog">Share Dialog</a>.</p>
+</div>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>Next, add the following activities to your <code>AndroidManifest.xml</code>:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: xml;">&lt;activity android:name="com.facebook.FacebookActivity"
+        android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+&lt;activity android:name="plugin.facebook.v4.FacebookFragmentActivity"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+        android:configChanges="keyboardHidden|screenSize|orientation"/></pre>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>Download Corona's fork of the Facebook SDK for Android available <a href="https://github.com/coronalabs/plugins-sdk-facebook-android">here</a>.</li>
+</ol>
+<div class="code-indent">
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>Since Facebook v4 uses a modified version of the Facebook SDK on Android, it's important that you make a library reference to the version of the Facebook SDK that is provided on GitHub.</p>
+</div>
+</div>
+<!-- TODO: MAKE LINKING IN THE SOURCE CODE OPTIONAL! -->
+<ol start="7" style="list-style-type: decimal">
+<li><p>Link in the source code for the Facebook SDK via <nobr><strong>File</strong> → <strong>New</strong> → <strong>Import Module</strong></nobr> in Android Studio. Once you're at the <strong>New Module</strong> screen, select the [<strong>...</strong>] button next to the <strong>Source Directory</strong> field and browse to the downloaded Facebook SDK noted in the step above.</p></li>
+<li><p>Find the <code>facebook</code> directory in the downloaded Facebook SDK. Confirm selection of that Gradle project and then click <strong>Finish</strong> on the <strong>New Module</strong> screen to import the Facebook SDK as a module for your Corona Native project.</p></li>
+<li><p>In the downloaded Facebook SDK, locate the <code>gradle.properties</code> file in the root directory and copy its contents to your Android Studio project's <code>gradle.properties</code> file.</p></li>
+<li><p>Back in Android Studio, open the <nobr><code>build.gradle (Module: app)</code></nobr> file and add this line to the bottom of the <code>dependencies</code> block:</p></li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gradle">compile project(':facebook')</pre>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.facebook-v4.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

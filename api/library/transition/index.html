@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries | transition</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#transition.">transition.*</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#functions">Functions</a><ul>
+<li><a href="#transition.cancelapi.library.transition.cancel"><a href="../../../api/library/transition/cancel.html">transition.cancel()</a></a></li>
+<li><a href="#transition.fromapi.library.transition.from"><a href="../../../api/library/transition/from.html">transition.from()</a></a></li>
+<li><a href="#transition.pauseapi.library.transition.pause"><a href="../../../api/library/transition/pause.html">transition.pause()</a></a></li>
+<li><a href="#transition.resumeapi.library.transition.resume"><a href="../../../api/library/transition/resume.html">transition.resume()</a></a></li>
+<li><a href="#transition.toapi.library.transition.to"><a href="../../../api/library/transition/to.html">transition.to()</a></a></li>
+</ul></li>
+<li><a href="#convenience-methods">Convenience Methods</a><ul>
+<li><a href="#transition.blinkapi.library.transition.blink"><a href="../../../api/library/transition/blink.html">transition.blink()</a></a></li>
+<li><a href="#transition.dissolveapi.library.transition.dissolve"><a href="../../../api/library/transition/dissolve.html">transition.dissolve()</a></a></li>
+<li><a href="#transition.fadeinapi.library.transition.fadein"><a href="../../../api/library/transition/fadeIn.html">transition.fadeIn()</a></a></li>
+<li><a href="#transition.fadeoutapi.library.transition.fadeout"><a href="../../../api/library/transition/fadeOut.html">transition.fadeOut()</a></a></li>
+<li><a href="#transition.movebyapi.library.transition.moveby"><a href="../../../api/library/transition/moveBy.html">transition.moveBy()</a></a></li>
+<li><a href="#transition.movetoapi.library.transition.moveto"><a href="../../../api/library/transition/moveTo.html">transition.moveTo()</a></a></li>
+<li><a href="#transition.scalebyapi.library.transition.scaleby"><a href="../../../api/library/transition/scaleBy.html">transition.scaleBy()</a></a></li>
+<li><a href="#transition.scaletoapi.library.transition.scaleto"><a href="../../../api/library/transition/scaleTo.html">transition.scaleTo()</a></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/transition/index.html">transition</a>
+</div>
+<div id="transition." class="section level1">
+<h1>transition.*</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Library.html">Library</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">easing, animation, transition, tween, interpolation</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../guide/media/transitionLib/index.html">Transitions</a> <em>(guide)</em></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../api/library/easing/index.html">easing</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>The transition library provides functions and methods to transition/tween display objects or display groups over a specific period of time. Library features include:</p>
+<ul>
+<li><p>Ability to <strong>pause</strong>, <strong>resume</strong>, or <strong>cancel</strong> a transition (or all transitions).</p></li>
+<li><p>Ability to <strong>tag</strong> several transitions by name and then pause, resume, or cancel all transitions sharing the same tag.</p></li>
+<li><p>Ability to pause, resume, or cancel all transitions on an object-wide basis. For example, if you have applied a separate movement and fade transition to an object, this allows you to control both transitions at once.</p></li>
+<li><p>41 <a href="../../../api/library/easing/index.html">easing</a> methods which allow you to interpolate tweens across the transition time using methods such as quadratic, exponential, elastic, bounce, etc.</p></li>
+<li><p>Various convenience methods such as <code>blink()</code>, <code>fadeIn()</code>, <code>fadeOut()</code>, <code>moveTo()</code>, <code>moveBy()</code>, etc.</p></li>
+</ul>
+</div>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<div id="transition.cancelapi.library.transition.cancel" class="section level4">
+<h4><a href="../../../api/library/transition/cancel.html">transition.cancel()</a></h4>
+</div>
+<div id="transition.fromapi.library.transition.from" class="section level4">
+<h4><a href="../../../api/library/transition/from.html">transition.from()</a></h4>
+</div>
+<div id="transition.pauseapi.library.transition.pause" class="section level4">
+<h4><a href="../../../api/library/transition/pause.html">transition.pause()</a></h4>
+</div>
+<div id="transition.resumeapi.library.transition.resume" class="section level4">
+<h4><a href="../../../api/library/transition/resume.html">transition.resume()</a></h4>
+</div>
+<div id="transition.toapi.library.transition.to" class="section level4">
+<h4><a href="../../../api/library/transition/to.html">transition.to()</a></h4>
+</div>
+</div>
+<div id="convenience-methods" class="section level2">
+<h2>Convenience Methods</h2>
+<div id="transition.blinkapi.library.transition.blink" class="section level4">
+<h4><a href="../../../api/library/transition/blink.html">transition.blink()</a></h4>
+</div>
+<div id="transition.dissolveapi.library.transition.dissolve" class="section level4">
+<h4><a href="../../../api/library/transition/dissolve.html">transition.dissolve()</a></h4>
+</div>
+<div id="transition.fadeinapi.library.transition.fadein" class="section level4">
+<h4><a href="../../../api/library/transition/fadeIn.html">transition.fadeIn()</a></h4>
+</div>
+<div id="transition.fadeoutapi.library.transition.fadeout" class="section level4">
+<h4><a href="../../../api/library/transition/fadeOut.html">transition.fadeOut()</a></h4>
+</div>
+<div id="transition.movebyapi.library.transition.moveby" class="section level4">
+<h4><a href="../../../api/library/transition/moveBy.html">transition.moveBy()</a></h4>
+</div>
+<div id="transition.movetoapi.library.transition.moveto" class="section level4">
+<h4><a href="../../../api/library/transition/moveTo.html">transition.moveTo()</a></h4>
+</div>
+<div id="transition.scalebyapi.library.transition.scaleby" class="section level4">
+<h4><a href="../../../api/library/transition/scaleBy.html">transition.scaleBy()</a></h4>
+</div>
+<div id="transition.scaletoapi.library.transition.scaleto" class="section level4">
+<h4><a href="../../../api/library/transition/scaleTo.html">transition.scaleTo()</a></h4>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.transition.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

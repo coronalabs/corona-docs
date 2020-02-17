@@ -1,0 +1,544 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries | widget | newSwitch</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#widget.newswitch">widget.newSwitch()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#gotchas">Gotchas</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#id-optional">id <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#x-y-optional">x, y <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#left-top-optional">left, top <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#initialswitchstate-optional">initialSwitchState <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#style-optional">style <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#onpress-optional">onPress <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#onrelease-optional">onRelease <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#onevent-optional">onEvent <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#methods">Methods</a><ul>
+<li><a href="#objectsetstateapi.type.switchwidget.setstate"><a href="../../../api/type/SwitchWidget/setState.html">object:setState()</a></a></li>
+</ul></li>
+<li><a href="#properties">Properties</a><ul>
+<li><a href="#object.isonapi.type.switchwidget.ison"><a href="../../../api/type/SwitchWidget/isOn.html">object.isOn</a></a></li>
+</ul></li>
+<li><a href="#visual-customization">Visual Customization</a><ul>
+<li><a href="#sheet-required">sheet <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#radio-or-checkbox-switch">Radio or Checkbox Switch</a><ul>
+<li><a href="#frameon-required">frameOn <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#frameoff-required">frameOff <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#width-height-required">width, height (required)</a></li>
+</ul></li>
+<li><a href="#onoff-switch">On/Off Switch</a><ul>
+<li><a href="#onoffbackgroundframe-required">onOffBackgroundFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#onoffbackgroundwidth-onoffbackgroundheight-required">onOffBackgroundWidth, onOffBackgroundHeight <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#onoffmask-required">onOffMask <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#onoffhandledefaultframe-required">onOffHandleDefaultFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#onoffhandleoverframe-required">onOffHandleOverFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#onoffoverlayframe-required">onOffOverlayFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#onoffoverlaywidth-onoffoverlayheight-required">onOffOverlayWidth, onOffOverlayHeight <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#offdirection-optional">offDirection <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#grouping-radio-buttons">Grouping Radio Buttons</a></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#radio-buttons">Radio Buttons</a></li>
+<li><a href="#checkboxes">Checkboxes</a></li>
+<li><a href="#on-off-switch">On-Off Switch</a></li>
+<li><a href="#image-sheet-radio-buttons">Image Sheet — Radio Buttons</a></li>
+<li><a href="#image-sheet-checkboxes">Image Sheet — Checkboxes</a></li>
+<li><a href="#image-sheet-on-off-switch">Image Sheet — On-Off Switch</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/widget/index.html">widget</a>  ▸  <a href="../../../api/library/widget/newSwitch.html">newSwitch</a>
+</div>
+<div id="widget.newswitch" class="section level1">
+<h1>widget.newSwitch()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../../api/library/widget/index.html">widget.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Return value</strong></td>
+<td align="left"><a href="../../../api/type/SwitchWidget/index.html">SwitchWidget</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">widget, switch, radio, onoff, checkbox, control</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../api/type/SwitchWidget/index.html">SwitchWidget</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Creates a <a href="../../../api/type/SwitchWidget/index.html">SwitchWidget</a> object.</p>
+</div>
+<div id="gotchas" class="section level2">
+<h2>Gotchas</h2>
+<ul>
+<li><p>To conserve texture memory, a <a href="../../../api/type/SwitchWidget/index.html">SwitchWidget</a> object can only be created from an <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a>.</p></li>
+<li><p><a href="../../../api/type/SwitchWidget/index.html">SwitchWidget</a> objects do not support <a href="../../../api/type/DisplayObject/scale.html">scaling</a> nor changing the width/height via <a href="../../../api/type/DisplayObject/width.html">.width</a> or <a href="../../../api/type/DisplayObject/height.html">.height</a>.</p></li>
+</ul>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">widget.newSwitch( options )</pre>
+<p>This function takes a single argument, <code>options</code>, which is a table that accepts the following parameters:</p>
+<div id="id-optional" class="section level5">
+<h5>id <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> An optional identification to assign to the switch. Default is <code>&quot;widget_switch&quot;</code>.</p>
+</div>
+<div id="x-y-optional" class="section level5">
+<h5>x, y <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> Coordinates for the widget's <strong>x</strong> and <strong>y</strong> center point. These values will be overridden by <code>left</code> and <code>top</code> if those values are defined.</p>
+</div>
+<div id="left-top-optional" class="section level5">
+<h5>left, top <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The left and top position where the widget will be created. If specified, these values override the <code>x</code> and <code>y</code> parameters.</p>
+</div>
+<div id="initialswitchstate-optional" class="section level5">
+<h5>initialSwitchState <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Boolean.html">Boolean</a>.</em> The initial state of the switch — <code>true</code> for on/selected or <code>false</code> for off/deselected. Default is <code>false</code>.</p>
+</div>
+<div id="style-optional" class="section level5">
+<h5>style <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The switch style. Valid options are <code>&quot;radio&quot;</code>, <code>&quot;checkbox&quot;</code> and <code>&quot;onOff&quot;</code>. Default is <code>&quot;onOff&quot;</code>.</p>
+</div>
+<div id="onpress-optional" class="section level5">
+<h5>onPress <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Listener.html">Listener</a>.</em> An optional function to be called when the switch is pressed. The callback function does not require testing for <code>event.phase</code> since it only honors <code>&quot;began&quot;</code>. When reading the <a href="../../../api/type/SwitchWidget/isOn.html">object.isOn</a> property via this listener type, the current state of the switch is reported, meaning its <code>.isOn</code> state <strong>before</strong> the actual switch state change occurs.</p>
+</div>
+<div id="onrelease-optional" class="section level5">
+<h5>onRelease <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Listener.html">Listener</a>.</em> An optional function to be called when the user releases the switch (assuming the touch is still over the switch). The callback function does not require testing for <code>event.phase</code> since it only honors <code>&quot;ended&quot;</code>. When reading the <a href="../../../api/type/SwitchWidget/isOn.html">object.isOn</a> property via this listener type, the resulting state of the switch is reported, meaning its <code>.isOn</code> state <strong>after</strong> the switch state change occurs.</p>
+</div>
+<div id="onevent-optional" class="section level5">
+<h5>onEvent <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Listener.html">Listener</a>.</em> An optional function that should only be specified if <code>onPress</code> and <code>onRelease</code> are not set. This callback function allows you to test for the <code>event.phase</code> of <code>&quot;began&quot;</code>, <code>&quot;moved&quot;</code>, or <code>&quot;ended&quot;</code>.</p>
+</div>
+</div>
+<div id="methods" class="section level2">
+<h2>Methods</h2>
+<div id="objectsetstateapi.type.switchwidget.setstate" class="section level4">
+<h4><a href="../../../api/type/SwitchWidget/setState.html">object:setState()</a></h4>
+</div>
+</div>
+<div id="properties" class="section level2">
+<h2>Properties</h2>
+<div id="object.isonapi.type.switchwidget.ison" class="section level4">
+<h4><a href="../../../api/type/SwitchWidget/isOn.html">object.isOn</a></h4>
+</div>
+</div>
+<div id="visual-customization" class="section level2">
+<h2>Visual Customization</h2>
+<div id="sheet-required" class="section level5">
+<h5>sheet <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/ImageSheet/index.html">ImageSheet</a>.</em> The <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a> object for the switch.</p>
+</div>
+<div id="radio-or-checkbox-switch" class="section level3">
+<h3>Radio or Checkbox Switch</h3>
+<p>Radio and checkbox switches can be visually customized using two frames of equal size from an <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a>. Just declare the image sheet and specify the two frames as <code>frameOn</code> and <code>frameOff</code> in the widget constructor.</p>
+<div class="figure">
+<img src="../../../images/simulator/widget-radio-checkbox.png" />
+
+</div>
+<div id="frameon-required" class="section level5">
+<h5>frameOn <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The index number for the &quot;on&quot; frame of the radio/checkbox switch.</p>
+</div>
+<div id="frameoff-required" class="section level5">
+<h5>frameOff <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The index number for the &quot;off&quot; frame of the radio/checkbox switch.</p>
+</div>
+<div id="width-height-required" class="section level5">
+<h5>width, height (required)</h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The width/height of each frame.</p>
+</div>
+</div>
+<div id="onoff-switch" class="section level3">
+<h3>On/Off Switch</h3>
+<p>The on/off switch can be visually customized using 4 frames from an <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a> (left), plus a <a href="../../../guide/media/imageMask/index.html">mask</a> image (middle), resulting in an assembled switch (right).</p>
+<div class="float-right" style="float: none; margin: 20px 0px 20px 0px; font-size: 125%; color: #292929; vertical-align: middle;">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../../images/simulator/widget-on-off-sheet.png" /></td>
+<td align="center">+</td>
+<td align="left"><img src="../../../images/simulator/widget-on-off-mask.png" /></td>
+<td> → </td>
+<td><img src="../../../images/simulator/widget-on-off-final.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The <code>onOffBackgroundFrame</code> frame (upper left) slides behind the masked region of the widget. This frame is typically a combination of the &quot;on&quot; side of the switch and the &quot;off&quot; side. The handle will be positioned in the horizontal center of this frame, so depending on your design, you can create two distinct sides for the switch, separated by the handle.</p>
+<p>The actual handle can have both a &quot;default&quot; and &quot;over&quot; frame — the latter being visually distinct in some way as to indicate that the user is manipulating the handle. If you don't want to indicate any visual difference, you can specify the same frame number for <code>onOffHandleDefaultFrame</code> and <code>onOffHandleOverFrame</code>.</p>
+<p>The overlay border (<code>onOffOverlayFrame</code>) resides behind the handle but in front of the masked background slider. Remember that when designing the <a href="../../../guide/media/imageMask/index.html">mask</a> image, the visible (white) region of the mask should generally be the same size as the interior open area of the overlay border. Also, the mask must adhere to the requirements of all masks outlined <a href="../../../api/library/graphics/newMask.html">here</a>.</p>
+<div id="onoffbackgroundframe-required" class="section level5">
+<h5>onOffBackgroundFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame index for the sliding background frame. This will be masked by the image defined for <code>onOffMask</code>.</p>
+</div>
+<div id="onoffbackgroundwidth-onoffbackgroundheight-required" class="section level5">
+<h5>onOffBackgroundWidth, onOffBackgroundHeight <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The width/height of the background frame.</p>
+</div>
+<div id="onoffmask-required" class="section level5">
+<h5>onOffMask <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The file name (including the extension and any subfolder path) of the mask image, for example <code>&quot;myWidgetAssets/switchMask.png&quot;</code>. This image must adhere to the mask requirements outlined <a href="../../../api/library/graphics/newMask.html">here</a>.</p>
+</div>
+<div id="onoffhandledefaultframe-required" class="section level5">
+<h5>onOffHandleDefaultFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame index for the handle &quot;default&quot; (un-pressed) appearance.</p>
+</div>
+<div id="onoffhandleoverframe-required" class="section level5">
+<h5>onOffHandleOverFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame index for the handle &quot;over&quot; (pressed) appearance.</p>
+</div>
+<div id="onoffoverlayframe-required" class="section level5">
+<h5>onOffOverlayFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame index for the overlay border.</p>
+</div>
+<div id="onoffoverlaywidth-onoffoverlayheight-required" class="section level5">
+<h5>onOffOverlayWidth, onOffOverlayHeight <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The width/height of the overlay border.</p>
+</div>
+<div id="offdirection-optional" class="section level5">
+<h5>offDirection <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The side of the <code>onOffBackgroundFrame</code> frame that is considered &quot;off&quot; from a visual standpoint. Default is <code>&quot;right&quot;</code> but this value can be set to <code>&quot;left&quot;</code>. Change this value only if you wish to reverse the &quot;on&quot; and &quot;off&quot; sides of the switch.</p>
+</div>
+</div>
+</div>
+<div id="grouping-radio-buttons" class="section level2">
+<h2>Grouping Radio Buttons</h2>
+<p>Radio buttons can be grouped (associated) by placing multiple buttons in the same display group. Buttons in the same group will behave as <nobr>HTML-based</nobr> radio buttons, in which only one button can be selected at a given time. When another button in the group is selected, the others will be automatically switched off. See the usage example below.</p>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<div id="radio-buttons" class="section level5">
+<h5>Radio Buttons</h5>
+<pre class="brush: lua;">local widget = require( "widget" )
+
+-- Handle press events for the buttons
+local function onSwitchPress( event )
+    local switch = event.target
+    print( "Switch with ID '"..switch.id.."' is on: "..tostring(switch.isOn) )
+end
+
+-- Create a group for the radio button set
+local radioGroup = display.newGroup()
+
+-- Create two associated radio buttons (inserted into the same display group)
+local radioButton1 = widget.newSwitch(
+    {
+        left = 150,
+        top = 200,
+        style = "radio",
+        id = "RadioButton1",
+        initialSwitchState = true,
+        onPress = onSwitchPress
+    }
+)
+radioGroup:insert( radioButton1 )
+
+local radioButton2 = widget.newSwitch(
+    {
+        left = 250,
+        top = 200,
+        style = "radio",
+        id = "RadioButton2",
+        onPress = onSwitchPress
+    }
+)
+radioGroup:insert( radioButton2 )</pre>
+</div>
+<div id="checkboxes" class="section level5">
+<h5>Checkboxes</h5>
+<pre class="brush: lua;">local widget = require( "widget" )
+
+-- Handle press events for the checkbox
+local function onSwitchPress( event )
+    local switch = event.target
+    print( "Switch with ID '"..switch.id.."' is on: "..tostring(switch.isOn) )
+end
+
+-- Create the widget
+local checkboxButton = widget.newSwitch(
+    {
+        left = 250,
+        top = 200,
+        style = "checkbox",
+        id = "Checkbox",
+        onPress = onSwitchPress
+    }
+)</pre>
+</div>
+<div id="on-off-switch" class="section level5">
+<h5>On-Off Switch</h5>
+<pre class="brush: lua;">local widget = require( "widget" )
+
+-- Handle press events for the checkbox
+local function onSwitchPress( event )
+    local switch = event.target
+    print( "Switch with ID '"..switch.id.."' is on: "..tostring(switch.isOn) )
+end
+
+-- Create the widget
+local onOffSwitch = widget.newSwitch(
+    {
+        left = 250,
+        top = 200,
+        style = "onOff",
+        id = "onOffSwitch",
+        onPress = onSwitchPress
+    }
+)</pre>
+</div>
+<div id="image-sheet-radio-buttons" class="section level5">
+<h5>Image Sheet — Radio Buttons</h5>
+<pre class="brush: lua;">local widget = require( "widget" )
+
+-- Handle press events for the buttons
+local function onSwitchPress( event )
+    local switch = event.target
+    print( "Switch with ID '"..switch.id.."' is on: "..tostring(switch.isOn) )
+end
+
+-- Image sheet options and declaration
+local options = {
+    width = 100,
+    height = 100,
+    numFrames = 2,
+    sheetContentWidth = 200,
+    sheetContentHeight = 100
+}
+local radioButtonSheet = graphics.newImageSheet( "radioButtonSheet.png", options )
+
+-- Create a group for the radio button set
+local radioGroup = display.newGroup()
+
+-- Create two associated radio buttons (inserted into the same display group)
+local radioButton1 = widget.newSwitch(
+    {
+        left = 150,
+        top = 200,
+        style = "radio",
+        id = "RadioButton1",
+        width = 100,
+        height = 100,
+        initialSwitchState = true,
+        onPress = onSwitchPress,
+        sheet = radioButtonSheet,
+        frameOff = 1,
+        frameOn = 2
+    }
+)
+radioGroup:insert( radioButton1 )
+
+local radioButton2 = widget.newSwitch(
+    {
+        left = 250,
+        top = 200,
+        style = "radio",
+        id = "RadioButton2",
+        width = 100,
+        height = 100,
+        onPress = onSwitchPress,
+        sheet = radioButtonSheet,
+        frameOff = 1,
+        frameOn = 2
+    }
+)
+radioGroup:insert( radioButton2 )</pre>
+</div>
+<div id="image-sheet-checkboxes" class="section level5">
+<h5>Image Sheet — Checkboxes</h5>
+<pre class="brush: lua;">local widget = require( "widget" )
+
+-- Handle press events for the checkbox
+local function onSwitchPress( event )
+    local switch = event.target
+    print( "Switch with ID '"..switch.id.."' is on: "..tostring(switch.isOn) )
+end
+
+-- Image sheet options and declaration
+local options = {
+    width = 100,
+    height = 100,
+    numFrames = 2,
+    sheetContentWidth = 200,
+    sheetContentHeight = 100
+}
+local checkboxSheet = graphics.newImageSheet( "checkboxSheet.png", options )
+
+-- Create the widget
+local checkbox = widget.newSwitch(
+    {
+        left = 250,
+        top = 200,
+        style = "checkbox",
+        id = "Checkbox",
+        width = 100,
+        height = 100,
+        onPress = onSwitchPress,
+        sheet = checkboxSheet,
+        frameOff = 1,
+        frameOn = 2
+    }
+)</pre>
+</div>
+<div id="image-sheet-on-off-switch" class="section level5">
+<h5>Image Sheet — On-Off Switch</h5>
+<pre class="brush: lua;">local widget = require( "widget" )
+
+-- Handle press events for the checkbox
+local function onSwitchPress( event )
+    local switch = event.target
+    print( "Switch with ID '"..switch.id.."' is on: "..tostring(switch.isOn) )
+end
+
+-- Image sheet options and declaration
+-- For testing, you may copy/save the image under "Visual Customization: On/Off Switch" above
+local options = {
+    frames = {
+        { x=0, y=0, width=160, height=44 },
+        { x=0, y=45, width=42, height=42 },
+        { x=44, y=45, width=42, height=42 },
+        { x=88, y=44, width=96, height=44 }
+    },
+    sheetContentWidth = 184,
+    sheetContentHeight = 88
+}
+local onOffSwitchSheet = graphics.newImageSheet( "widget-on-off-sheet.png", options )
+
+-- Create the widget
+local onOffSwitch = widget.newSwitch(
+    {
+        left = 250,
+        top = 200,
+        style = "onOff",
+        id = "OnOffSwitch",
+        onPress = onSwitchPress,
+
+        sheet = onOffSwitchSheet,
+    
+        onOffBackgroundFrame = 1,
+        onOffBackgroundWidth = 160,
+        onOffBackgroundHeight = 44,
+        onOffMask = "widget-on-off-mask.png",
+
+        onOffHandleDefaultFrame = 2,
+        onOffHandleOverFrame = 3,
+
+        onOffOverlayFrame = 4,
+        onOffOverlayWidth = 96,
+        onOffOverlayHeight = 44
+    }
+)</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.widget.newSwitch&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

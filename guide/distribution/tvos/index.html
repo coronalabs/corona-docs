@@ -1,0 +1,528 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Building/Distribution</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#apple-tv-tvos">Apple TV / tvOS</a><ul>
+<li><a href="#developing-for-tvos">Developing for tvOS</a><ul>
+<li><a href="#sample-project">Sample Project</a></li>
+<li><a href="#orientation">Orientation</a></li>
+<li><a href="#icons-launch-image-top-shelf">Icons / Launch Image / Top Shelf</a></li>
+<li><a href="#interaction-model">Interaction Model</a></li>
+<li><a href="#idle-timer">Idle Timer</a></li>
+<li><a href="#widget-focus">Widget Focus</a></li>
+<li><a href="#native-display-objects">Native Display Objects</a></li>
+<li><a href="#checklist-for-tvos">Checklist for tvOS</a></li>
+</ul></li>
+<li><a href="#build-process">Build Process</a></li>
+<li><a href="#installation">Installation</a><ul>
+<li><a href="#copy-to-device">Copy to Device</a></li>
+<li><a href="#xcode">Xcode</a></li>
+</ul></li>
+<li><a href="#feature-comparison">Feature Comparison</a><ul>
+<li><a href="#libraries">Libraries</a></li>
+<li><a href="#events">Events</a></li>
+</ul></li>
+<li><a href="#coronanative">Corona Native</a><ul>
+<li><a href="#plugins-frameworks">Plugins / Frameworks</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/distribution/index.html">Building/Distribution</a>
+</div>
+<div id="apple-tv-tvos" class="section level1">
+<h1>Apple TV / tvOS</h1>
+<p>This guide discusses setup, features, and development for Apple TV and tvOS in Corona.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#developing">Developing for tvOS</a></li>
+<li><a href="#building">Build Process</a></li>
+<li><a href="#installapp">Installation</a></li>
+<li><a href="#comparison">Feature Comparison</a></li>
+<li><a href="#native">Corona Native</a></li>
+</ul>
+</div>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>Before you proceed with experimentation and tvOS development, remember to evaluate various design aspects including deployment to a much larger screen and a pure <nobr>controller-based</nobr> interaction model. Converting an existing mobile app to tvOS will typically require thorough consideration of how the layout, UI, and controls will be affected.</p>
+</div>
+<p><a id="developing"></a></p>
+<div id="developing-for-tvos" class="section level2">
+<h2>Developing for tvOS</h2>
+<div id="sample-project" class="section level3">
+<h3>Sample Project</h3>
+<p>We recommend that you start with the <a href="https://github.com/coronalabs/PewPew">Pew Pew!</a> demo because the primary interaction model requires controllers (there is no touch interface on a TV). This sample is available in our <a href="https://github.com/coronalabs/PewPew">GitHub</a> repository.</p>
+</div>
+<div id="orientation" class="section level3">
+<h3>Orientation</h3>
+<p>Apple TV does not have the concept of portrait versus landscape orientation. All Corona tvOS projects are run in the <code>&quot;landscapeRight&quot;</code> orientation. An app must support landscape orientation to be built through the Corona Simulator.</p>
+<p><a id="tvOS-icons"></a></p>
+</div>
+<div id="icons-launch-image-top-shelf" class="section level3">
+<h3>Icons / Launch Image / Top Shelf</h3>
+<p>Apple's Human Interface Guidelines on <a href="https://developer.apple.com/tvos/human-interface-guidelines/icons-and-images/">Icons and Images</a> defines how your app should present itself on the Apple TV. This means that you'll need a new type of icon, at least one static Top Shelf image, and a launch image.</p>
+<p>All assets provided must be <code>.png</code> files of specific sizes. The Top Shelf image, displayed when your app is one of the first on the user's home screen, is a 1920×720 static <code>.png</code> file, and the launch image is a 1920×1080 static <code>.png</code> file.</p>
+<p>App icons are not simply one image file, but multiple images stacked as layers. Additionally, you must provide both small (home screen) and large (app store) assets. Small assets are 400×240, while large assets are 1280×768. The <nobr>bottom-most</nobr> image in the stack must not have any transparency and it should serve as a background for the icon.</p>
+<p>By editing your <code>build.settings</code> file, Corona will create the required bundles for you. Below is an example of what the <code>tvos</code> section of <code>build.settings</code> should look like:</p>
+<pre class="brush: lua;">settings =
+{
+    tvos =
+    {
+        -- Apple TV app icons consist of multiple "layers" in both small and large sizes
+        icon =
+        {
+            -- A collection of 400x240 images, in order from top to bottom
+            small =
+            {
+                "Icon-tvOS-Small-4.png",
+                "Icon-tvOS-Small-3.png",
+                "Icon-tvOS-Small-2.png",
+                "Icon-tvOS-Small-1.png",
+            },
+            -- A collection of 1280x768 images, in order from top to bottom
+            large =
+            {
+                "Icon-tvOS-Large-4.png",
+                "Icon-tvOS-Large-3.png",
+                "Icon-tvOS-Large-2.png",
+                "Icon-tvOS-Large-1.png",
+            }
+        },
+
+        -- A 1920x720 image file, displayed when your app is on the "top shelf"
+        topShelfImage = "Icon-tvOS-TopShelf.png",
+
+        -- A 2320x720 image file, displayed when your app is on the "top shelf" of a widescreen TV
+        topShelfImageWide = "Icon-tvOS-TopShelfWide.png",
+
+        -- A 1920x1080 image file, displayed briefly as your app loads
+        launchImage = "Icon-tvOS-Launch.png",
+    },
+}</pre>
+</div>
+<div id="interaction-model" class="section level3">
+<h3>Interaction Model</h3>
+<p>The interaction model for Apple TV is centered around the Apple TV Remote. This remote operates like a game controller but in the &quot;micro gamepad&quot; profile, meaning that it has a limited set of buttons. In contrast, traditional game controllers like those for Xbox or PlayStation offer more buttons and thus have a more extended profile.</p>
+<p>For more information on interaction, see the <a href="../../../guide/hardware/gameControllers/index.html">Game Controllers</a> and <a href="../../../guide/hardware/mfiControllers/index.html">MFi Controllers</a> guides.</p>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<ul>
+<li><p>Touch events don't apply to tvOS — this platform revolves around <a href="../../../api/event/relativeTouch/index.html">relativeTouch</a>, <a href="../../../api/event/axis/index.html">axis</a>, and <a href="../../../api/event/key/index.html">key</a> events. Adapt your game accordingly!</p></li>
+<li><p>All tvOS games are expected to work with the Apple TV Remote's &quot;micro gamepad&quot; profile.</p></li>
+<li><p>You can connect a <a href="../../../guide/hardware/mfiControllers/index.html">MFi Controller</a> to your Mac to send controller events to your app running in the Corona Simulator.</p></li>
+</ul>
+</div>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>The menu button on controllers <nobr>(<code>keyName</code> of <code>&quot;menu&quot;</code>)</nobr> is expected to pause the app or move the user to the previous screen. Once the user is at the main menu, the app must use <nobr><code>system.activate( &quot;controllerUserInteraction&quot; )</code></nobr> (<a href="../../../api/library/system/activate.html">documentation</a>) and <nobr><code>system.deactivate( &quot;controllerUserInteraction&quot; )</code></nobr> (<a href="../../../api/library/system/deactivate.html">documentation</a>) to tell the operating system that a menu button press should back out of the app.</p>
+<p>Note that a long press of the menu button will always exit your app, and is the default method to exit the app unless changed as described above.</p>
+</div>
+</div>
+<div id="idle-timer" class="section level3">
+<h3>Idle Timer</h3>
+<p>Your tvOS app should <strong>disable</strong> the screen idle timer via <a href="../../../api/library/system/setIdleTimer.html">system.setIdleTimer()</a>:</p>
+<pre class="brush: lua;">system.setIdleTimer( false )</pre>
+</div>
+<div id="widget-focus" class="section level3">
+<h3>Widget Focus</h3>
+<p>Corona <a href="../../../api/library/widget/index.html">widgets</a> do not have <nobr>built-in</nobr> support for focus. In order to interact with widgets on Apple TV, you will need to write custom code to handle focus. See the <a href="https://github.com/coronalabs/PewPew">Pew Pew!</a> sample for a demonstration of how to control widgets when they receive focus and how game controller events change focus.</p>
+</div>
+<div id="native-display-objects" class="section level3">
+<h3>Native Display Objects</h3>
+<p>The following native object functions are supported and, unlike widgets, these objects automatically support both focus and controller interaction:</p>
+<ul>
+<li><a href="../../../api/library/native/showAlert.html">native.showAlert()</a></li>
+<li><a href="../../../api/library/native/cancelAlert.html">native.cancelAlert()</a></li>
+<li><a href="../../../api/library/native/newTextField.html">native.newTextField()</a></li>
+<li><a href="../../../api/library/native/newTextBox.html">native.newTextBox()</a></li>
+<li><a href="../../../api/library/native/newVideo.html">native.newVideo()</a></li>
+</ul>
+</div>
+<div id="checklist-for-tvos" class="section level3">
+<h3>Checklist for tvOS</h3>
+<p>Apple provides a <a href="https://developer.apple.com/library/tvos/documentation/ServicesDiscovery/Conceptual/GameControllerPG/Appendix/Appendix.html#//apple_ref/doc/uid/TP40013276-CH6-DontLinkElementID_1">checklist</a> for games on tvOS. Please consult it to make sure your game adheres to their requirements.</p>
+<p><a id="building"></a></p>
+</div>
+</div>
+<div id="build-process" class="section level2">
+<h2>Build Process</h2>
+<p>Building your tvOS app is a simple process once you have your certificate and provisioning profiles installed.</p>
+<ol style="list-style-type: decimal">
+<li><p>From the Corona Simulator, select <strong>File</strong> → <strong>Open...</strong> to load the project you wish to build.</p></li>
+<li><p>Select <strong>File</strong> → <strong>Build</strong> → <strong>tvOS...</strong></p></li>
+<li><p>Fill in the information:</p>
+<ul>
+<li><p><strong>Application Name</strong> — by default, this will match your project folder; keep this name or specify another.</p></li>
+<li><p><strong>Version</strong> — specify a version name for your app.</p></li>
+<li><p><strong>Provisioning Profile</strong> — select the appropriate provisioning profile for either <strong>development</strong> or <strong>distribution</strong>.</p></li>
+<li><p><strong>tvOS SDK</strong> — select the version of tvOS to build for.</p></li>
+<li><p><strong>Save to Folder</strong> — specify where to save the compiled app.</p></li>
+<li><p><strong>After Build</strong> — select which action should be performed after the app is successfully built.</p></li>
+</ul></li>
+<li><p>Click <strong>Build</strong> and Corona will compile the app. You will then have an application file that can be loaded on an Apple TV or submitted to the App Store, depending on which provisioning profile you selected.</p></li>
+</ol>
+<p><a id="installapp"></a></p>
+</div>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<p>There are two methods to install your app on an Apple TV, as outlined below.</p>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>You can <strong>not</strong> test an app built for <strong>App Store Distribution</strong> on an Apple TV. Apps built for distribution are intended for submission to Apple.</p>
+</div>
+</div>
+<div id="copy-to-device" class="section level3">
+<h3>Copy to Device</h3>
+<ol style="list-style-type: decimal">
+<li><p>Connect the Apple TV to your computer.</p></li>
+<li><p>Follow the steps outlined in <a href="#building">Build Process</a> above, ensuring that you select <nobr><strong>Copy to device</strong></nobr> for the <strong>After Build</strong> option.</p></li>
+</ol>
+</div>
+<div id="xcode" class="section level3">
+<h3>Xcode</h3>
+<ol style="list-style-type: decimal">
+<li><p>Connect your Apple TV, open <strong>Xcode</strong>, and then open the <strong>Devices</strong> window by selecting <nobr><strong>Window</strong> → <strong>Devices</strong></nobr>.</p></li>
+<li><p>In the left column, select the Apple TV.</p></li>
+<li><p>In the main pane, look for the <strong>Installed Apps</strong> section which shows the currently installed apps (this list may be empty initially). Below the list, click the [<strong>+</strong>] button and navigate to the location of the <code>.app</code> file which was generated by Corona. Select the file and click <strong>Open</strong>. Assuming there are no provisioning/certificate errors, the app should install on the device.</p></li>
+</ol>
+<p><a id="comparison"></a></p>
+</div>
+</div>
+<div id="feature-comparison" class="section level2">
+<h2>Feature Comparison</h2>
+<p>In general, tvOS contains a subset of the APIs available for iOS. See <a href="https://developer.apple.com/library/prerelease/tvos/releasenotes/General/tvOS90APIDiffs/">here</a> for more details.</p>
+<div id="libraries" class="section level3">
+<h3>Libraries</h3>
+<div class="inner-table vert-compact percent33">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Supported</th>
+<th align="left">Unsupported</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/audio/index.html">audio.*</a></td>
+<td align="left"><a href="../../../api/library/ads/index.html">ads.*</a></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/composer/index.html">composer.*</a></td>
+<td align="left"><a href="../../../api/library/facebook/index.html">facebook.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/crypto/index.html">crypto.*</a></td>
+<td align="left"><a href="../../../api/library/licensing/index.html">licensing.*</a></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+<td align="left"><a href="../../../api/library/native/index.html">native.*</a>, except as noted above</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/easing/index.html">easing.*</a></td>
+<td align="left"><a href="../../../api/library/media/index.html">media.*</a></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/global/index.html">(globals)</a></td>
+<td align="left"><a href="../../../api/library/store/index.html">store.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/graphics/index.html">graphics.*</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/io/index.html">io.*</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/json/index.html">json.*</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/lfs/index.html">lfs.*</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/math/index.html">math.*</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/network/index.html">network.*</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/os/index.html">os.*</a>, except <code>os.exit</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/package/index.html">package.*</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/physics/index.html">physics.*</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/socket/index.html">socket.*</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/sqlite3/index.html">sqlite3.*</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/string/index.html">string.*</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/system/index.html">system.*</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/table/index.html">table.*</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/timer/index.html">timer.*</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/transition/index.html">transition.*</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/widget/index.html">widget.*</a></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="events" class="section level3">
+<h3>Events</h3>
+<div class="inner-table vert-compact percent33">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Supported</th>
+<th align="left">Unsupported</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="../../../api/event/accelerometer/index.html">accelerometer</a></td>
+<td align="left"><a href="../../../api/event/colorSample/index.html">colorSample</a></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/event/audio/index.html">audio</a></td>
+<td align="left"><a href="../../../api/event/gyroscope/index.html">gyroscope</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/event/axis/index.html">axis</a></td>
+<td align="left"><a href="../../../api/event/heading/index.html">heading (compass)</a></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/event/collision/index.html">collision</a></td>
+<td align="left"><a href="../../../api/event/inputDeviceStatus/index.html">inputDeviceStatus</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/event/completion/index.html">completion</a></td>
+<td align="left"><a href="../../../api/event/licensing/index.html">licensing</a></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/event/enterFrame/index.html">enterFrame</a></td>
+<td align="left"><a href="../../../api/event/location/index.html">location (GPS)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/event/finalize/index.html">finalize</a></td>
+<td align="left"><a href="../../../api/event/mapAddress/index.html">mapAddress</a></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/event/memoryWarning/index.html">memoryWarning</a></td>
+<td align="left"><a href="../../../api/event/mapLocation/index.html">mapLocation</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/event/networkRequest/index.html">networkRequest</a></td>
+<td align="left"><a href="../../../api/event/mapMarker/index.html">mapMarker</a></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/event/networkStatus/index.html">networkStatus</a></td>
+<td align="left"><a href="../../../api/event/mouse/index.html">mouse</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/event/particleCollision/index.html">particleCollision</a></td>
+<td align="left"><a href="../../../api/event/notification/index.html">notification</a></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/event/postCollision/index.html">postCollision</a></td>
+<td align="left"><a href="../../../api/event/orientation/index.html">orientation</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/event/preCollision/index.html">preCollision</a></td>
+<td align="left"><a href="../../../api/event/popup/index.html">popup</a></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/event/relativeTouch/index.html">relativeTouch</a></td>
+<td align="left"><a href="../../../api/event/resize/index.html">resize</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/event/scene/index.html">scene</a></td>
+<td align="left"><a href="../../../api/event/tap/index.html">tap</a></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/event/sprite/index.html">sprite</a></td>
+<td align="left"><a href="../../../api/event/touch/index.html">touch</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/event/system/index.html">system</a></td>
+<td align="left"><a href="../../../api/event/userInput/index.html">userInput</a></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/event/timer/index.html">timer</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/event/unhandledError/index.html">unhandledError</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/event/urlRequest/index.html">urlRequest</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/event/video/index.html">video</a></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a id="native"></a></p>
+</div>
+</div>
+<div id="coronanative" class="section level2">
+<h2>Corona Native</h2>
+<p>The <code>App</code> project template contains Xcode projects under the <code>tvOS</code> subdirectory. Note that the plugin itself doesn't do much.</p>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>The virtual remote in the tvOS/Xcode Simulator can not be used to send controller events. Please test on a device or connect a <a href="../../../guide/hardware/mfiControllers/index.html">MFi Controller</a>.</p>
+</div>
+<div id="plugins-frameworks" class="section level3">
+<h3>Plugins / Frameworks</h3>
+<p>Plugins on tvOS are packaged as dynamic frameworks. Dynamic frameworks provide more flexibility, allowing code and resource files to be packaged together.</p>
+<p>The <code>App</code> project template for tvOS contains an embedded <code>Plugin</code> project that you can modify. This project contains two targets:</p>
+<ol style="list-style-type: decimal">
+<li><code>Corona_plugin_library</code> — This is the target where you should add additional source files and frameworks that the plugin depends on (this is different from iOS plugins where dependencies are specified in <code>metadata.lua</code>).</li>
+<li><code>Corona_plugin_library.framework</code> — This is the target to use if you want to publish/distribute your plugins to the Corona Store. It builds a universal framework (Apple TV device and tvOS/Xcode simulator).</li>
+</ol>
+<p>When renaming your plugin frameworks, be sure to follow these conventions:</p>
+<ul>
+<li>All frameworks must begin with the prefix <code>Corona_</code> followed by the name of the library (the string passed to <code>require()</code>).</li>
+<li>Change each dot (<code>.</code>) to an underscore (<code>_</code>).</li>
+</ul>
+<p>For example:</p>
+<p><code>require &quot;plugin.myCoolLibrary&quot;</code> → <code>Corona_plugin_myCoolLibrary.framework</code></p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.distribution.tvos.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

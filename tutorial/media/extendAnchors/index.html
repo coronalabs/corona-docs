@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Tutorials | Graphics/Audio/Animation</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#extending-anchor-points">Extending Anchor Points</a><ul>
+<li><a href="#anchor-overview">Anchor Overview</a></li>
+<li><a href="#extending-anchor-points-1">Extending Anchor Points</a></li>
+<li><a href="#pixels-vs.-range">Pixels vs. Range</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/media/index.html">Graphics/Audio/Animation</a>
+</div>
+<div id="extending-anchor-points" class="section level1">
+<h1>Extending Anchor Points</h1>
+<p>In Corona, all display objects have an <strong>anchor point</strong>. Essentially, this can be imagined as a &quot;pin&quot; point within the object's bounds around which all transforms occur — <strong>x</strong>/<strong>y</strong> positioning, rotation, scaling, etc. For example, if an object's anchor point is set at the <nobr>top-left</nobr> corner, rotation of the object will cause it to rotate around that point.</p>
+<div id="anchor-overview" class="section level2">
+<h2>Anchor Overview</h2>
+<div class="float-right" style="max-width: 244px; margin-bottom: 16px; clear: both;">
+<div class="figure">
+<img src="../../../images/docs/anchor-diagram.png" />
+
+</div>
+</div>
+<p>By default, anchor points are set via the object properties of <code>anchorX</code> and <code>anchorY</code>. The value of these are typically decimal values between <code>0.0</code> and <code>1.0</code>, with this basic representation:</p>
+<ul>
+<li><code>0.0</code> represents the <strong>top</strong> or <strong>left</strong> edge.</li>
+<li><code>0.5</code> (default) represents the <strong>center</strong>.</li>
+<li><code>1.0</code> represents the <strong>bottom</strong> or <strong>right</strong> edge.</li>
+</ul>
+<p>Naturally, values between <nobr>(<code>0.1</code>, <code>0.25</code>, <code>0.84</code>, etc.)</nobr> are also valid — these three representations simply serve as a basic reference and you're not constrained to them.</p>
+<p>As an example, to set an anchor point at the <nobr>top-left</nobr> corner of an object, set both anchor points to <code>0.0</code> <nobr>(or simply <code>0</code>)</nobr>:</p>
+<pre class="brush: lua; gutter: false; highlight: [4,5]; first-line: 1;">local object = display.newRect( 150, 150, 100, 100 )
+
+-- Set anchor to top-left
+object.anchorX = 0
+object.anchorY = 0
+
+-- Transition the object to test anchor point
+transition.to( object, { time=2000, rotation=45, delay=500 } )</pre>
+<p>Similarly, to set the anchor at the <nobr>bottom-right</nobr> of an object, set both anchor values to <code>1.0</code> <nobr>(or simply <code>1</code>)</nobr>:</p>
+<pre class="brush: lua; gutter: false; highlight: [4,5]; first-line: 1;">local object = display.newRect( 150, 150, 100, 100 )
+
+-- Set anchor to bottom-right
+object.anchorX = 1
+object.anchorY = 1
+
+-- Transition the object to test anchor point
+transition.to( object, { time=2000, rotation=45, delay=500 } )</pre>
+<p>Anchor points can also be set to some interior point as well, for example 25% from the left edge:</p>
+<pre class="brush: lua; gutter: false; highlight: [3,4]; first-line: 1;">local object = display.newRect( 150, 150, 100, 100 )
+
+object.anchorX = 0.25
+object.anchorY = 0.25
+
+-- Transition the object to test anchor point
+transition.to( object, { time=2000, rotation=45, delay=500 } )</pre>
+</div>
+<div id="extending-anchor-points-1" class="section level2">
+<h2>Extending Anchor Points</h2>
+<p>The default &quot;clamped&quot; values of <code>0.0</code> to <code>1.0</code> accomodate the majority of usage cases, from any point along an object's outer edge to any point within it — but what if we wanted to set the anchor point to some theoretical point <strong>outside</strong> of the object's bounds?</p>
+<p>The first mandatory step in <strong>extending anchor points</strong> is to disable the <code>&quot;isAnchorClamped&quot;</code> setting of <a href="../../../api/library/display/setDefault.html">display.setDefault()</a>:</p>
+<pre class="brush: lua;">display.setDefault( "isAnchorClamped", false )</pre>
+<p>Now, anchor points set to values <strong>outside</strong> the <nobr><code>0.0</code>–<code>1.0</code></nobr> range will be honored:</p>
+<pre class="brush: lua; gutter: false; highlight: [3,4]; first-line: 1;">local object = display.newRect( 150, 150, 100, 100 )
+
+object.anchorX = -1
+object.anchorY = 1.5
+
+-- Transition the object to test anchor point
+transition.to( object, { time=2000, rotation=45, delay=500 } )</pre>
+<p>One specific example where this approach is useful is rotating one object around another object, like a planet orbiting the sun. If the anchor point was clamped to points inside or along the object's edge, it could only rotate in a limited perspective, but with <code>&quot;isAnchorClamped&quot;</code> set to <code>false</code>, we can easily make the planet orbit the sun:</p>
+<pre class="brush: lua;">display.setDefault( "isAnchorClamped", false )
+
+local sun = display.newCircle( display.contentCenterX, display.contentCenterY, 24 )
+sun:setFillColor( 1.0, 0.78, 0 )
+
+local earth = display.newCircle( display.contentCenterX, display.contentCenterY, 6 )
+earth:setFillColor( 0, 0.5, 0.7 )
+earth.anchorX = -10.0
+
+transition.to( earth, { time=8000, rotation=-360, iterations=0 } )</pre>
+</div>
+<div id="pixels-vs.-range" class="section level2">
+<h2>Pixels vs. Range</h2>
+<p>As illustrated above, setting an anchor point is based on a <strong>range</strong> relative to the object's bounds: <code>0</code> is top/left, <code>0.5</code> is center, <code>1</code> is bottom/right, etc. Similarly, assuming anchor clamping is disabled, a value of <code>2.0</code> extends the anchor 200% right or down from the <nobr>top-left</nobr> corner an object, while <code>-0.5</code> extends it 50% above or left of the <nobr>top-left</nobr> corner.</p>
+<p>This is logical enough, but what if we needed to set the anchor at a specific <strong>pixel</strong> point within an object or a specific pixel distance outside its bounds? For example, what if an object was 86×90 pixels in size and we wanted to set its anchor at 12 pixels in from the <nobr>top-left</nobr> point?</p>
+<p>Doing so is easily accomplished with some basic math. Simply take the pixel inset (12) and divide it by the width of the example object (86), setting that as the object's <code>anchorX</code> value. Then do the same for the <strong>y</strong> anchor, dividing 12 by 90 and setting that value as <code>anchorY</code>:</p>
+<pre class="brush: lua; gutter: false; highlight: [3,4]; first-line: 1;">local object = display.newRect( 150, 150, 86, 90 )
+
+object.anchorX = 12 / object.contentWidth   -- 0.13953488372093
+object.anchorY = 12 / object.contentHeight  -- 0.133333333333333</pre>
+<p>Note that if you're extending an anchor point outside of an object's bounds, you may need to factor in half of the object's width. For instance, assuming the orange circle below is 100×100 pixels in size, and you want its anchor point to be far to the left (end of the blue line), the proper calculation would be <code>-400/100</code> and thus <code>-4</code> for <code>anchorX</code>.</p>
+<div style="max-width: 530px; margin-top: 16px; margin-bottom: 16px;">
+<div class="figure">
+<img src="../../../images/docs/anchor-extend.png" />
+
+</div>
+</div>
+<p>Why <code>-4</code> instead of <code>-4.5</code>? Because, as you can see in the diagram, the desired anchor point is 400 pixels outside the <strong>left</strong> edge of the circle, and since <code>0</code> represents the circle's left edge, the portion of the blue line that extends into the center of the circle (50 pixels) can be disregarded.</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>With this optional setting, you have access to virtually any anchor point inside <strong>or</strong> outside an object's bounds, and with some simple math, you can even pinpoint an anchor point at a pixel location relative to an object's bounds.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=tutorial.media.extendAnchors.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

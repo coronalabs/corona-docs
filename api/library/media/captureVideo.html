@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries | media | captureVideo</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#media.capturevideo">media.captureVideo()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#gotchas">Gotchas</a><ul>
+<li><a href="#general">General</a></li>
+<li><a href="#android">Android</a></li>
+<li><a href="#ios">iOS</a></li>
+</ul></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#listener-required">listener <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#preferredquality-optional">preferredQuality <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#preferredmaxduration-optional">preferredMaxDuration <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/media/index.html">media</a>  ▸  <a href="../../../api/library/media/captureVideo.html">captureVideo</a>
+</div>
+<div id="media.capturevideo" class="section level1">
+<h1>media.captureVideo()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../../api/library/media/index.html">media.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Return value</strong></td>
+<td align="left">none</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">media, camera, video</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../api/library/media/hasSource.html">media.hasSource()</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Opens a platform-specific interface to the device's camera. This function is asynchronous, meaning that it returns immediately so the calling code will continue to execute until the end of its scope; after that, the application will be suspended until the session is complete. A listener is required to handle the captured object (URL) which can be used in <a href="../../../api/library/native/newVideo.html">native.newVideo()</a> and <a href="../../../api/library/media/playVideo.html">media.playVideo()</a>.</p>
+</div>
+<div id="gotchas" class="section level2">
+<h2>Gotchas</h2>
+<div id="general" class="section level3">
+<h3>General</h3>
+<p>This API is not supported on Windows, macOS, or tvOS.</p>
+</div>
+<div id="android" class="section level3">
+<h3>Android</h3>
+<ul>
+<li>In order to use the camera, you must set the following permissions in your <code>build.settings</code> file. The external storage permission is required even if your app is not writing the camera shot to file, because Android's camera app needs permission to save its camera shot to public storage to make it available to your app.</li>
+</ul>
+<div class="code-indent">
+<pre class="brush: lua;">settings =
+{
+    android =
+    {
+        usesPermissions =
+        {
+            "android.permission.CAMERA",
+            "android.permission.WRITE_EXTERNAL_STORAGE",
+        },
+    },
+}</pre>
+</div>
+<ul>
+<li><p>The <code>preferredMaxDuration</code> setting might not work on all devices. In that case, the user can take a video for as long as they want. You can check the value of the video length to get the actual length and size of the recorded video.</p></li>
+<li><p>This function does not work on the internal Corona camera activty and will have to launch an external camera activity instead.</p></li>
+</ul>
+</div>
+<div id="ios" class="section level3">
+<h3>iOS</h3>
+<p>On iOS, in order to use the camera, you must include the following keys/descriptions in the <code>plist</code> table of <code>build.settings</code>. When the system prompts the user to allow access, the associated description is displayed as part of the alert. Note that these descriptions can be customized to your preference and they can even be localized (<a href="../../../guide/distribution/localization/index.html">guide</a>).</p>
+<pre class="brush: lua;">settings =
+{
+    iphone =
+    {
+        plist =
+        {
+            NSCameraUsageDescription = "This app would like to access the camera.",
+            NSPhotoLibraryUsageDescription = "This app would like to access the photo library.",
+            NSPhotoLibraryAddUsageDescription = "This app would like to add the photo library.",
+        },
+    },
+}</pre>
+</div>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">media.captureVideo ( { listener [, preferredQuality] [, preferredMaxDuration] } )</pre>
+<div id="listener-required" class="section level5">
+<h5>listener <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Listener.html">Listener</a>.</em> Can be either a function listener or a table listener. If a table, it must have a completion method. The event dispatched to the listener will be a completion event with the following additional properties:</p>
+<ul>
+<li><code>event.url</code> is a <a href="../../../api/type/String.html">String</a> which is the URL of the video. If the operation was cancelled, this value will be <code>nil</code>.</li>
+<li><code>event.completed</code> will be <code>true</code> if the user captured a video; <code>false</code> if the user cancelled the video capture.</li>
+<li><code>event.duration</code> will be the number of seconds of the video if the user captured a video; <code>nil</code> if the user cancelled the video capture or the value could not be obtained.</li>
+<li><code>event.fileSize</code> will be the number of bytes of the user captured a video; <code>nil</code> if the user cancelled the video capture or the value could not be obtained.</li>
+</ul>
+</div>
+<div id="preferredquality-optional" class="section level5">
+<h5>preferredQuality <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> A string indicating the quality of the video you want to take. The acceptable values are <code>&quot;high&quot;</code>, <code>&quot;medium&quot;</code>, or <code>&quot;low&quot;</code>. Default value is <code>&quot;low&quot;</code>. On Android, there is no <code>&quot;medium&quot;</code> quality level and if that value is passed, <code>&quot;low&quot;</code> will be used instead.</p>
+</div>
+<div id="preferredmaxduration-optional" class="section level5">
+<h5>preferredMaxDuration <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The maximum duration of the taken video in seconds. This setting may not work on all devices and it is advised to check against the event to verify.</p>
+</div>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="brush: lua;">-- Video completion listener
+local onVideoComplete = function( event )
+    print( "video session ended" )
+end
+
+-- Capture completion listener
+local function onComplete( event )
+    if event.completed then
+        media.playVideo( event.url, media.RemoteSource, true, onVideoComplete )
+        print( event.duration )
+        print( event.fileSize )
+    end
+end
+
+if media.hasSource( media.Camera ) then
+    media.captureVideo( { listener=onComplete } )
+else
+    native.showAlert( "Corona", "This device does not have a camera.", { "OK" } )
+end</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.media.captureVideo&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

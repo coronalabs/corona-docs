@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries | display | newImage</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#display.newimage">display.newImage()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#image-file">Image File</a><ul>
+<li><a href="#parent-optional">parent <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#filename-required">filename <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#basedir-optional">baseDir <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#x-optional">x <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#y-optional">y <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#image-sheet">Image Sheet</a><ul>
+<li><a href="#parent-optional-1">parent <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#imagesheet-required">imageSheet <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#frameindex-required">frameIndex <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#x-optional-1">x <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#y-optional-1">y <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#texture-sampling">Texture Sampling</a></li>
+<li><a href="#gotchas">Gotchas</a></li>
+<li><a href="#image-guidelines">Image Guidelines</a></li>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#example">Example</a><ul>
+<li><a href="#image-file-usage">Image File Usage</a></li>
+<li><a href="#image-sheet-usage">Image Sheet Usage</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/display/index.html">display</a>  ▸  <a href="../../../api/library/display/newImage.html">newImage</a>
+</div>
+<div id="display.newimage" class="section level1">
+<h1>display.newImage()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Return value</strong></td>
+<td align="left"><a href="../../../api/type/DisplayObject/index.html">DisplayObject</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">images, objects, display object, graphics</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../api/library/display/newImageRect.html">display.newImageRect()</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../api/library/display/loadRemoteImage.html">display.loadRemoteImage()</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../../guide/media/displayObjects/index.html">Display Objects</a> <em>(guide)</em></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../guide/media/imageSheets/index.html">Image Sheets</a> <em>(guide)</em></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Displays an image on the screen from a file (supports tinting via <a href="../../../api/type/ShapeObject/setFillColor.html">object:setFillColor</a>). The local origin is at the center of the image and the <a href="../../../guide/graphics/transform-anchor.html">anchor point</a> is initialized to this local origin.</p>
+<p>Note that <a href="../../../api/library/display/newImageRect.html">display.newImageRect()</a> should be used instead to load images when content scaling is enabled.</p>
+<p>Image objects are the same as <a href="../../../api/library/display/newRect.html">rectangle objects</a> in which the <code>object.fill</code> property is set to be an image.</p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<div id="image-file" class="section level3">
+<h3>Image File</h3>
+<pre class="brush: lua;">display.newImage( [parent,] filename [, baseDir] [, x, y] )</pre>
+<div id="parent-optional" class="section level5">
+<h5>parent <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/GroupObject/index.html">GroupObject</a>.</em> An optional display group in which to insert the image object.</p>
+</div>
+<div id="filename-required" class="section level5">
+<h5>filename <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The name of the image file to load, relative to <code>baseDir</code> (or <code>system.ResourceDirectory</code> by default).</p>
+</div>
+<div id="basedir-optional" class="section level5">
+<h5>baseDir <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Constant.html">Constant</a>.</em> Specifies the base directory where <code>filename</code> is located. Options include <code>system.ResourceDirectory</code>, <code>system.DocumentsDirectory</code>, <code>system.ApplicationSupportDirectory</code>, <code>system.TemporaryDirectory</code> and <code>system.CachesDirectory</code>. Default is <code>system.ResourceDirectory</code>.</p>
+</div>
+<div id="x-optional" class="section level5">
+<h5>x <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The <strong>x</strong> coordinate of the image.</p>
+</div>
+<div id="y-optional" class="section level5">
+<h5>y <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The <strong>y</strong> coordinate of the image.</p>
+</div>
+</div>
+<div id="image-sheet" class="section level3">
+<h3>Image Sheet</h3>
+<pre class="brush: lua;">display.newImage( [parent,] imageSheet, frameIndex [, x, y] )</pre>
+<div id="parent-optional-1" class="section level5">
+<h5>parent <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/GroupObject/index.html">GroupObject</a>.</em> An optional display group in which to insert the image object.</p>
+</div>
+<div id="imagesheet-required" class="section level5">
+<h5>imageSheet <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/ImageSheet/index.html">ImageSheet</a>.</em> Reference to an image sheet object created with <a href="../../../api/library/graphics/newImageSheet.html">graphics.newImageSheet()</a>. This is only required if you intend to create an object from an image sheet.</p>
+</div>
+<div id="frameindex-required" class="section level5">
+<h5>frameIndex <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> Represents the frame index number within the <a href="../../../api/type/ImageSheet/index.html">ImageSheet</a> to create the object from. This is only required if <code>imageSheet</code> is specified.</p>
+</div>
+<div id="x-optional-1" class="section level5">
+<h5>x <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The <strong>x</strong> coordinate of the image.</p>
+</div>
+<div id="y-optional-1" class="section level5">
+<h5>y <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The <strong>y</strong> coordinate of the image.</p>
+</div>
+</div>
+</div>
+<div id="texture-sampling" class="section level2">
+<h2>Texture Sampling</h2>
+<p>By default, new image sheets will use a linear sampling filter, so that the image will look smooth when the actual rendered region is larger or smaller than the pixel dimensions of the loaded texture.</p>
+<p>You can change the default texture filter by calling <a href="../../../api/library/display/setDefault.html">display.setDefault()</a>. Once an image is loaded the first time, the same sampling filter will be applied for any subsequent loads of the same file. This is because textures are loaded once per file.</p>
+</div>
+<div id="gotchas" class="section level2">
+<h2>Gotchas</h2>
+<ul>
+<li><p>All loaded images are cached. To save texture memory, the image in the cache memory is used when it detects an image with the same file name is displayed. This means that loading the same image multiple times doesn't increase the amount of texture memory used on the device. A negative <nobr>side-effect</nobr> to the image caching is that the comparison is based on the file name and not the file content. This means if an image file is displayed and then deleted from the directory, any file loaded after that with the same file name will still display the previous cached image. To avoid this problem, use a different file name.</p></li>
+<li><p>There is a difference between Mac/iOS and Windows/Android when displaying images with <code>display.newImage()</code>. If the image to be loaded exceeds the resolution of the device, it will be autoscaled to fit on Mac and iOS. On Windows and Android, it will load full resolution (up to the maximum texture size of the device). This can cause apps to display differently between the platforms. If you know the image size before loading, use <a href="../../../api/library/display/newImageRect.html">display.newImageRect()</a> instead — this API also handles loading the proper image resolution based on the device's resolution.</p></li>
+</ul>
+</div>
+<div id="image-guidelines" class="section level2">
+<h2>Image Guidelines</h2>
+<ul>
+<li>Corona supports PNG and JPG format.</li>
+<li>Images should not contain an embedded ICC profile.</li>
+<li>Avoid progressive JPG files since they will take much longer to load.</li>
+</ul>
+</div>
+<div id="properties" class="section level2">
+<h2>Properties</h2>
+<p><em>(Inherits properties from <a href="../../../api/type/ShapeObject/index.html">ShapeObject</a> and <a href="../../../api/library/display/newRect.html">display.newRect()</a>)</em></p>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<div id="image-file-usage" class="section level5">
+<h5>Image File Usage</h5>
+<pre class="brush: lua;">local myImage = display.newImage( "image.png" )
+
+-- Position the image
+myImage:translate( 100, 100 )
+
+-- Tint the image red
+myImage:setFillColor( 1, 0, 0 )
+
+-- Hide the image
+myImage.isVisible = false
+
+-- Remove the image
+myImage:removeSelf()
+myImage = nil</pre>
+</div>
+<div id="image-sheet-usage" class="section level5">
+<h5>Image Sheet Usage</h5>
+<pre class="brush: lua;">-- Create the image sheet object
+local options =
+{
+    -- The params below are required
+    width = 70,
+    height = 41,
+    numFrames = 2,
+
+    -- The params below are optional (used for dynamic image selection)
+    sheetContentWidth = 70,  -- width of original 1x size of entire sheet
+    sheetContentHeight = 82  -- height of original 1x size of entire sheet
+}
+local imageSheet = graphics.newImageSheet( "fishies.png", options )
+
+local myImage = display.newImage( imageSheet, 1 )</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.display.newImage&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

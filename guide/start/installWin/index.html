@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Start</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#installing-corona-windows">Installing Corona — Windows</a><ul>
+<li><a href="#installing-corona">Installing Corona</a></li>
+<li><a href="#product-activation">Product Activation</a></li>
+<li><a href="#java-development-kit">Java Development Kit</a></li>
+<li><a href="#text-editors">Text Editors</a></li>
+<li><a href="#development-environment">Development Environment</a></li>
+<li><a href="#simulator-options">Simulator Options</a></li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#command-line-usage">Command Line Usage</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/start/index.html">Start</a>
+</div>
+<div id="installing-corona-windows" class="section level1">
+<h1>Installing Corona — Windows</h1>
+<p>This guide will help you get up and running with Corona for Windows.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#install">Installing Corona</a></li>
+<li><a href="#activate">Product Activation</a></li>
+<li><a href="#jdk">Java Development Kit</a></li>
+<li><a href="#editor">Text Editors</a></li>
+<li><a href="#environment">Development Environment</a></li>
+<li><a href="#simoptions">Simulator Options</a></li>
+</ul>
+</div>
+<p><a id="install"></a></p>
+<div id="installing-corona" class="section level2">
+<h2>Installing Corona</h2>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>You do not need to install the Android SDK to use Corona. However, to create device builds to test on actual Android devices, you will need the <strong>Java Development Kit</strong>. The installation process is described below.</p>
+</div>
+</div>
+<p>We'll assume you've already <a href="http://developer.coronalabs.com/downloads/coronasdk/">downloaded</a> Corona. Now, double click the <code>.msi</code> installer file and follow the steps in the installation wizard.</p>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>There are two ways to stay current with releases/builds of Corona:</p>
+<ul>
+<li><p><a href="https://developer.coronalabs.com/downloads/coronasdk">Public Release</a> — The latest stable release of Corona, providing maximum reliability for your projects. This is updated several times a year.</p></li>
+<li><p><a href="https://developer.coronalabs.com/downloads/daily-builds/">Daily Builds</a> — The bleeding edge. Daily builds contain the latest features as they are integrated into Corona.</p></li>
+</ul>
+</div>
+<p><a id="activate"></a></p>
+</div>
+<div id="product-activation" class="section level2">
+<h2>Product Activation</h2>
+<p>In order to use Corona, you must be connected to the Internet and perform a simple <nobr>one-time</nobr> authorization process.</p>
+<ol style="list-style-type: decimal">
+<li><p>Open the <strong>Corona Simulator</strong> from the folder where you installed it. The first time you launch, you will be presented with a <nobr>License Agreement (EULA)</nobr>. Read the license terms and click <strong>Agree</strong>.</p></li>
+<li><p>If you've already registered for a Corona account, simply enter your account <nobr>e-mail</nobr> and password to activate the product. Otherwise, click <strong>Register</strong> to create an account.</p></li>
+</ol>
+<!---
+
+<div class="code-indent">
+
+![][images.simulator.install-win-login1]
+
+</div>
+
+-->
+<ol start="3" style="list-style-type: decimal">
+<li>Upon successful login, you will receive a confirmation dialog. You're ready to get started!</li>
+</ol>
+<!---
+
+<div class="code-indent">
+
+![][images.simulator.install-win-login2]
+
+</div>
+
+-->
+<p><a id="jdk"></a></p>
+</div>
+<div id="java-development-kit" class="section level2">
+<h2>Java Development Kit</h2>
+<p>Installing Corona lets you create and test apps locally on your PC. If you intend to build apps for testing on Android devices, you will need to install the <nobr><strong>Java Development Kit</strong></nobr> (JDK). We suggest that you follow these instructions:</p>
+<ol style="list-style-type: decimal">
+<li>Go to the <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">JDK download</a> page.</li>
+<li>Click the <strong>JDK</strong> download link to obtain the current <nobr>Java Platform (JDK)</nobr>.</li>
+<li>On the next page, read the license agreement and click the option to accept it if you agree.</li>
+<li>Locate the <nobr><strong>Windows x86</strong></nobr> link and click it to download the file. This file will be named approximately <nobr><code>jdk-8u131-windows-i586.exe</code></nobr>.</li>
+<li>When the download is complete, run the installer. Be sure to install the <nobr>Java Runtime Environment</nobr> (JRE) as part of the installation.</li>
+</ol>
+<!---
+
+<a id="coronaeditor"></a>
+
+## Corona Editor (IDE)
+
+[Corona Editor](http://coronalabs.com/products/editor/) offers developers a very capable and lightweight IDE. Corona Editor streamlines development and includes the following:
+
+* __Debugger__ &mdash; set breakpoints and inspect variables.
+* __Snippets__ &mdash; get help with syntax and coding conventions.
+* __Code completion__ &mdash; save time for all APIs and constants.
+* __Docs__ &mdash; bring up APIs directly from your code.
+* __Launch__ &mdash; run the current app in the Corona Simulator from [Sublime Text](http://www.sublimetext.com).
+
+For more information, please see the [Corona Editor](http://coronalabs.com/products/editor/) page.
+
+-->
+<p><a id="editor"></a></p>
+</div>
+<div id="text-editors" class="section level2">
+<h2>Text Editors</h2>
+<p>You'll need a text editor or IDE to write code for your Corona projects. If you don't already have a favorite text editor, the following options are recommended:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Editor</th>
+<th align="left">Add-On Package</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://atom.io">Atom</a></td>
+<td align="left"><a href="http://bit.ly/1SA5cXv">autocomplete-corona</a></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://code.visualstudio.com/">Visual Studio Code</a></td>
+<td align="left"><a href="http://bit.ly/1SHiqgK">Corona Tools</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="http://www.sublimetext.com">Sublime Text</a></td>
+<td align="left"><a href="http://bit.ly/1QGh44H">Corona Editor</a></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="http://notepad-plus-plus.org">Notepad++</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://studio.zerobrane.com">ZeroBrane Studio</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="http://www.vim.org">Vim</a></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a id="environment"></a></p>
+</div>
+<div id="development-environment" class="section level2">
+<h2>Development Environment</h2>
+<p>The Corona development environment consists of two aspects: the <strong>Corona Simulator</strong> and the <strong>Corona Simulator Console</strong> window.</p>
+<ul>
+<li><p>The <strong>Corona Simulator</strong> is a visual representation and test environment for your app. What you see in the Simulator is generally what your app will look like — and how it will function — when deployed to an actual device. The Corona Simulator is an essential tool because it allows you to view changes to your code instantly in an active, responsive environment that closely mimics the device.</p></li>
+<li><p>The <strong>Corona Simulator Console</strong> is where you can view diagnostic messages about what's happening in your program. This window is automatically displayed when you launch the Corona Simulator.</p></li>
+</ul>
+<p><a id="simoptions"></a></p>
+</div>
+<div id="simulator-options" class="section level2">
+<h2>Simulator Options</h2>
+<p>The Corona Simulator for Windows features the following basic menu items:</p>
+<ul>
+<li><p>The <strong>File</strong> menu is where projects (applications) are created or opened. This is also where you <strong>build</strong> your apps for distribution or testing on devices. Finally, this menu provides access to the Simulator <strong>Preferences</strong>.</p></li>
+<li><p>The <strong>Hardware</strong> menu is used to simulate physical device actions such as rotating the screen.</p></li>
+<li><p>The <strong>View</strong> menu lets you open the <strong>Welcome Screen</strong> which provides quick access to recent projects, Corona developer resources, and more. This menu also lets you access the Corona Simulator Console (<strong>Console</strong>). Finally, this menu includes options to manipulate the Simulator window or change the skin <nobr>(<strong>View</strong> → <strong>View As</strong>)</nobr>.</p></li>
+</ul>
+<!---
+
+### Building Apps
+
+When you want to build your app for distribution or to test on a device, choose __File__&nbsp;&rarr;&nbsp;__Build__ and select the desired build option. The entire process for each OS is outlined in the following guides:
+
+* [Signing and Building — Android][guide.distribution.androidBuild]
+* [Creating Win32 Desktop Apps][guide.distribution.win32Build]
+
+-->
+</div>
+<div id="getting-started" class="section level2">
+<h2>Getting Started</h2>
+<p>If you're new to Corona, the most fun way to learn is to <a href="../../../guide/programming/01/index.html">create a simple game</a>. Don't worry if you've never created a mobile app or programmed before — the chapters in the guide will walk you through the entire process from start to finish!</p>
+<div class="walkthrough-nav">
+<p><a href="../../../guide/programming/01/index.html">Chapter 1 — Creating an App</a> <strong>⟩</strong></p>
+</div>
+</div>
+<div id="command-line-usage" class="section level2">
+<h2>Command Line Usage</h2>
+<p>To start a particular app in the Corona Simulator without double-clicking it, use a command like this:</p>
+<pre class="brush: lua;">"C:\Program Files\Corona Labs\Corona\Corona Simulator.exe" "C:\Documents and Settings\MyAccount\My Documents\Corona Apps\My App\main.lua"</pre>
+<p>If you don't want the Corona Simulator Console window to automatically appear, use the <code>/no-console</code> option:</p>
+<pre class="brush: lua;">"C:\Program Files\Corona Labs\Corona\Corona Simulator.exe" /no-console</pre>
+<p>After using the <code>/no-console</code> option above, all Lua <code>print()</code> functions and Corona log messages can be received via the standard output stream (<code>stdout</code>).</p>
+<p>One additional flag is allowed (<code>/debug</code>) which allows an IDE to connect a debugger to the Simulator session. It should come immediately after the <code>.exe</code>.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.start.installWin.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

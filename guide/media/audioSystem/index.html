@@ -1,0 +1,409 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Graphics/Audio/Animation</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#audio-usagefunctions">Audio Usage/Functions</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#sound-vs.-stream">Sound vs. Stream</a></li>
+<li><a href="#audio-formats">Audio Formats</a><ul>
+<li><a href="#format-notes">Format Notes</a></li>
+</ul></li>
+<li><a href="#channels-and-volume">Channels and Volume</a><ul>
+<li><a href="#controlling-volume">Controlling Volume</a></li>
+</ul></li>
+<li><a href="#audio-handles">Audio Handles</a></li>
+<li><a href="#playing-audio">Playing Audio</a><ul>
+<li><a href="#sound">Sound</a></li>
+<li><a href="#stream">Stream</a></li>
+</ul></li>
+<li><a href="#audio-events">Audio Events</a></li>
+<li><a href="#controlling-audio">Controlling Audio</a></li>
+<li><a href="#disposing-audio">Disposing Audio</a></li>
+<li><a href="#performance-tips">Performance Tips</a><ul>
+<li><a href="#play-frequency">Play Frequency</a></li>
+<li><a href="#mono-vs.-stereo">Mono vs. Stereo</a></li>
+<li><a href="#linear-pcm">Linear PCM</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/media/index.html">Graphics/Audio/Animation</a>
+</div>
+<div id="audio-usagefunctions" class="section level1">
+<h1>Audio Usage/Functions</h1>
+<p>This guide discusses how to use the Corona <a href="../../../api/library/audio/index.html">audio</a> library to play sound effects and streaming audio.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#soundstream">Sound vs. Stream</a></li>
+<li><a href="#formats">Audio Formats</a></li>
+<li><a href="#channelvolume">Channels and Volume</a></li>
+<li><a href="#handles">Audio Handles</a></li>
+<li><a href="#playing">Playing Audio</a></li>
+<li><a href="#events">Audio Events</a></li>
+<li><a href="#controlling">Controlling Audio</a></li>
+<li><a href="#disposing">Disposing Audio</a></li>
+<li><a href="#performance">Performance Tips</a></li>
+</ul>
+</div>
+<p><a id="overview"></a></p>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>The Corona <a href="../../../api/library/audio/index.html">audio</a> system gives you access to advanced <strong>OpenAL</strong> features. It features 32 distinct channels on which you can play sound effects or streaming audio files. The system offers a unique volume setting for each channel plus a master volume level for all channels.</p>
+<p>The audio system is a &quot;best effort&quot; system. Requested sounds will play as quickly as possible, but there is no guarantee that they'll start or end at exact times. If you are streaming a song and there's a buffer underrun due to CPU stress, the audio system will continue playing as soon as it can, but the song may finish playing later than anticipated.</p>
+<p>Please read further to learn about audio API functions and methods, acceptable file formats, and performance tips.</p>
+<p><a id="soundstream"></a></p>
+</div>
+<div id="sound-vs.-stream" class="section level2">
+<h2>Sound vs. Stream</h2>
+<p>The audio system offers two functions for loading: <a href="../../../api/library/audio/loadSound.html">audio.loadSound()</a> and <a href="../../../api/library/audio/loadStream.html">audio.loadStream()</a>. There is no mandated distinction between the file you provide to either function, but the proper method should be used according to these general guidelines:</p>
+<ul>
+<li><p><code>audio.loadSound()</code> — loads an entire sound into memory. It should be used for shorter audio files that may be used repeatedly throughout the app.</p></li>
+<li><p><code>audio.loadStream()</code> — reads in small chunks of an audio file over the course of its duration. It should be used for longer audio tracks like background music. Note that streamed files may have a slightly higher latency cost and CPU cost than files loaded with <code>audio.loadSound()</code>.</p></li>
+</ul>
+<p>All of the <a href="../../../api/library/audio/index.html">audio</a> APIs can be applied to files loaded via either method. However, in some cases, the differences are not entirely transparent.</p>
+<p><a id="formats"></a></p>
+</div>
+<div id="audio-formats" class="section level2">
+<h2>Audio Formats</h2>
+<p>The Corona audio system supports different formats depending on the environment/platform:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Platform</th>
+<th align="center">.wav</th>
+<th align="center">.mp3</th>
+<th align="center">.ogg</th>
+<th align="center">.aac</th>
+<th align="center">.caf</th>
+<th align="center">.aif</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">iOS</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center"></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+</tr>
+<tr class="even">
+<td align="left">Android</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">macOS</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+</tr>
+<tr class="even">
+<td align="left">Windows Desktop</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<div class="tiny-copy">
+<p>Note that Windows Desktop only supports .aac if the system has the DirectX Media Foundation installed.</p>
+</div>
+</div>
+<div id="format-notes" class="section level3">
+<h3>Format Notes</h3>
+<ul>
+<li><p>Cross-platform <code>.wav</code> files must be 16-bit uncompressed.</p></li>
+<li><p>For highly-compressed formats such as <code>.mp3</code> and <code>.aac</code> (<code>.mp4</code>), the latter is a better option. <code>.aac</code> is the official successor to <code>.mp3</code> by the MPEG Group. <code>.mp3</code> had various patent and royalty issues that expired in 2017, but when <code>.aac</code> was ratified, it was agreed that there would be no royalties required for distribution.</p></li>
+<li><p>Ogg Vorbis (<code>.ogg</code>) is royalty-free and <nobr>patent-free</nobr>, but it is not supported on iOS.</p></li>
+<li><p>Be aware that certain formats — particularly highly-compressed, lossy formats like <code>.mp3</code>, <code>.aac</code>, and <code>.ogg</code> — can pad/remove samples at the end of an audio sample and potentially break a <nobr>&quot;perfect-looping&quot;</nobr> music clip. If you are experiencing gaps in looping playback, try using <code>.wav</code> and make sure that your starting and ending points are clean.</p></li>
+<li><p>Depending on the format — <code>.mp3</code> in particular — the <a href="../../../api/library/audio/getDuration.html">audio.getDuration()</a> call may return inaccurate information, particularly for files loaded via <code>audio.loadStream()</code>.</p></li>
+</ul>
+<p><a id="channelvolume"></a></p>
+</div>
+</div>
+<div id="channels-and-volume" class="section level2">
+<h2>Channels and Volume</h2>
+<p>As stated in the overview, there are 32 audio channels available. Each sound effect or streaming audio track must play on a distinct channel. If you don't explicitly set the channel on which you want to play audio, Corona will attempt to locate a free channel on which to play the audio file.</p>
+<p>In some cases, it's useful to <strong>reserve</strong> certain channels for different purposes. For example, you may want to set different volume levels for music, speech, and sound effects. In this case, you can reserve a few channels toward the lower end of the range and effectively prevent <nobr>auto-assignment</nobr> on those channels. This is done via the <a href="../../../api/library/audio/reserveChannels.html">audio.reserveChannels()</a> API, wherein you block off channels 1 to <code>x</code> via <nobr><code>audio.reserveChannels( x )</code></nobr>. Then, assuming you reserve a few channels for music and speech, the remaining channels can be used for <nobr>auto-assigned</nobr> sound effects.</p>
+<p>Corona also provides various functions to check the status of a channel. These include <a href="../../../api/library/audio/isChannelActive.html">audio.isChannelActive()</a>, <a href="../../../api/library/audio/isChannelPlaying.html">audio.isChannelPlaying()</a>, and <a href="../../../api/library/audio/isChannelPaused.html">audio.isChannelPaused()</a>.</p>
+<div id="controlling-volume" class="section level3">
+<h3>Controlling Volume</h3>
+<p>The Corona audio system has both a &quot;master&quot; volume level and a volume level for each channel. Both the master volume and individual channel volumes can be controlled by passing a decimal representation of 0%-100% to the <a href="../../../api/library/audio/setVolume.html">audio.setVolume()</a> API. Note that the master volume is not necessarily the same as the device's internal volume, but all volume levels are scaled proportionally to that internal volume.</p>
+<p>If you wish to set the master volume for <strong>all</strong> channels, simply pass a volume level without a channel specification as follows:</p>
+<pre class="brush: lua;">audio.setVolume( 0.5 )  --set the master volume to 50%</pre>
+<p>Or, to set the volume on a specific channel, pass an optional table with a <code>channel</code> key as follows:</p>
+<pre class="brush: lua;">audio.setVolume( 0.5, { channel=1 } )  --set the volume level of channel 1 to 50%</pre>
+<p>Finally, the following functions are provided to set the minimum and maximum volume:</p>
+<ul>
+<li><p><code>audio.setMinVolume( volume )</code> — clamps the minimum volume to a value. Any volumes that fall below the value will be played at the minimum volume level.</p></li>
+<li><p><code>audio.setMaxVolume( volume )</code> — clamps the maximum volume to a value. Any volumes that exceed the value will be played at the maximum volume level.</p></li>
+</ul>
+<div class="guide-notebox">
+<div class="notebox-title">
+Notes
+</div>
+<ul>
+<li><p>The master volume proportionally controls the volume of all other channels. If you set the master volume to 40% and later set the volume of channel 2 to <code>1.0</code>, channel 2 will play at 100% of the master volume (40%). Similarly, if you set the master volume to 50% and then set the volume of channel 2 to <code>0.2</code>, channel 2 will play at 20% of the master volume (50%) for an effective volume of 10%.</p></li>
+<li><p>When you set the volume, that level is persistent until you set it again. If you change the volume of channel 4, that channel will remain at that volume level even after sound finishes playing on that channel.</p></li>
+<li><p>If you're playing audio on <nobr>auto-assigned</nobr> channels, remember that those channels will also retain the specific volume setting that you declared. Thus, you may consider manual channel assignment for audio that requires a specific volume level.</p></li>
+</ul>
+</div>
+<p><a id="handles"></a></p>
+</div>
+</div>
+<div id="audio-handles" class="section level2">
+<h2>Audio Handles</h2>
+<p>When you load an audio file using either <a href="../../../api/library/audio/loadSound.html">audio.loadSound()</a> or <a href="../../../api/library/audio/loadStream.html">audio.loadStream()</a>, Corona returns a <strong>handle</strong> for that audio file. This handle can then be used to reference and play the audio file, assuming the handle remains in memory.</p>
+<p>The following example shows how to load a basic sound file into a handle <code>soundEffect</code> and play it immediately.</p>
+<pre class="brush: lua;">local soundEffect = audio.loadSound( "chime.wav" )
+audio.play( soundEffect )</pre>
+<p>Note that audio handles are only used when you need to play, dispose, seek/rewind, or check the duration of an audio file. Once an audio file is playing, you cannot pause, stop, or control the volume of it by referencing its handle. Instead, you must reference the <strong>channel</strong> on which it's playing, since the same file (handle) may be playing on multiple channels.</p>
+<p><a id="playing"></a></p>
+</div>
+<div id="playing-audio" class="section level2">
+<h2>Playing Audio</h2>
+<div id="sound" class="section level3">
+<h3>Sound</h3>
+<p>As stated earlier, the <code>audio.loadSound()</code> function loads an entire sound into memory. It should be used for shorter audio files that may be used repeatedly throughout the app. While you can load each sound into a local handle, it's often better to organize your sounds inside a Lua table using named keys for the handles:</p>
+<pre class="brush: lua;">local soundTable = {
+
+    chimeSound = audio.loadSound( "chime.wav" ),
+    bellSound = audio.loadSound( "bell.wav" ),
+    buzzSound = audio.loadSound( "buzz.aac" ),
+    clickSound = audio.loadSound( "click.aac" )
+}</pre>
+<p>Then, with this structure in place, playing a sound effect is simple:</p>
+<pre class="brush: lua;">audio.play( soundTable["chimeSound"] )</pre>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>Audio files loaded via the <code>audio.loadSound()</code> function should almost always be <strong>preloaded</strong> at the launch of your app or the start of a new level/scene. Loading sounds during a time-critical period may cause the app to skip while the system loads the audio file into memory.</p>
+</div>
+</div>
+<div id="stream" class="section level3">
+<h3>Stream</h3>
+<p>Since the <code>audio.loadStream()</code> function reads in small chunks of an audio file over the course of its duration, audio loaded with this method does not need to be loaded in advance. Simply load and play the file as follows:</p>
+<pre class="brush: lua;">local backgroundMusic = audio.loadStream( "backgroundMusic.wav" )
+audio.play( backgroundMusic )</pre>
+<p><a id="events"></a></p>
+</div>
+</div>
+<div id="audio-events" class="section level2">
+<h2>Audio Events</h2>
+<p>The audio system offers a completion event for <code>audio.play()</code> which can be used to perform an action related to the sound. For example, if you have a ticking time bomb object, you may use the <code>onComplete</code> callback to trigger an animated bomb explosion and a separate explosion sound.</p>
+<p>To listen for the completion event of a sound, just specify the listener function in the <code>onComplete</code> value of the options table:</p>
+<pre class="brush: lua;">local function bombExplode( event )
+    --bomb has exploded!
+end
+
+local tickSound = audio.loadSound( "tick.wav" )
+audio.play( tickSound, { onComplete=bombExplode } )</pre>
+<p>In turn, when the listener function is called, the following <code>event</code> parameters are available:</p>
+<ul>
+<li><code>event.name</code> — string with the value <code>&quot;soundCompletion&quot;</code>.</li>
+<li><code>event.channel</code> — the channel number associated with the completed sound.</li>
+<li><code>event.handle</code> — the audio handle associated with the completed sound.</li>
+<li><code>event.completed</code> — boolean value which will be <code>true</code> if the audio file completed by itself or <code>false</code> if it was prematurely stopped.</li>
+</ul>
+<p><a id="controlling"></a></p>
+</div>
+<div id="controlling-audio" class="section level2">
+<h2>Controlling Audio</h2>
+<p>In addition to the <a href="#channelvolume">volume</a> control methods described above, Corona provides the following audio control functions:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Function</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/audio/pause.html">audio.pause()</a></td>
+<td align="left">Pauses playback on one playing channel or all playing channels.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/audio/resume.html">audio.resume()</a></td>
+<td align="left">Resumes playback on one paused channel or all paused channels.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/audio/rewind.html">audio.rewind()</a></td>
+<td align="left">Rewinds audio to the beginning position on one active channel/handle or all active channels.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/audio/seek.html">audio.seek()</a></td>
+<td align="left">Seeks to a time position on an active channel or specific audio handle.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/audio/stop.html">audio.stop()</a></td>
+<td align="left">Stops playback on one channel or all channels and clears the channel(s) so they can be played on again.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/audio/stopWithDelay.html">audio.stopWithDelay()</a></td>
+<td align="left">Stops playback on one channel or all channels after a specified amount of time.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/audio/fade.html">audio.fade()</a></td>
+<td align="left">Fades one channel or all channels to a specified volume over the specified amount of time.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/audio/fadeOut.html">audio.fadeOut()</a></td>
+<td align="left">Fades one channel or all channels to the minimum volume over the specified amount of time.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a id="disposing"></a></p>
+</div>
+<div id="disposing-audio" class="section level2">
+<h2>Disposing Audio</h2>
+<p>Disposing audio files is essential if you're finished using them. This frees the memory allocated to the audio file. To dispose of an audio file, call the <a href="../../../api/library/audio/dispose.html">audio.dispose()</a> function and pass the <strong>handle</strong> of the audio file as its sole parameter.</p>
+<pre class="brush: lua;">audio.dispose( audioHandle )</pre>
+<p>If you've organized your audio handles into a table as illustrated in <a href="#playing">Playing Audio</a>, a simple <code>pairs</code> loop can be used to dispose of each audio file:</p>
+<pre class="brush: lua;">audio.stop()
+
+for s,v in pairs( soundTable ) do
+    audio.dispose( soundTable[s] )
+    soundTable[s] = nil
+end</pre>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>The audio should <strong>not</strong> be active (playing/paused) on any channel when you try to dispose it. Consider calling <code>audio.stop()</code> before <code>audio.dispose()</code> to ensure that the channel is freed. Also, do not attempt to use the handle after the audio file has been disposed and the memory freed.</p>
+</div>
+<p><a id="performance"></a></p>
+</div>
+<div id="performance-tips" class="section level2">
+<h2>Performance Tips</h2>
+<div id="play-frequency" class="section level3">
+<h3>Play Frequency</h3>
+<p>In the project <code>config.lua</code> file, you may specify the <code>audioPlayFrequency</code> parameter. This optimization hint prompts OpenAL to mix/play at a specific frequency.</p>
+<pre class="brush: lua;">application =
+{
+    content =
+    {
+        width = 320,
+        height = 480,
+        scale = "letterbox",
+        audioPlayFrequency = 22050
+    },
+}</pre>
+<p>For best results, set this value no higher than you actually need. If you require high quality, set the value to <code>44100</code>. Otherwise, <code>22050</code> should suffice. Note that this value is only a &quot;hint&quot; and the underlying audio system is free to ignore it, although iOS seems to consistently respect it. In addition, for best performance, encode all audio files at the same frequency as this setting. For example, if you set this to <code>22050</code>, your audio files should be encoded at 22050 Hz.</p>
+<p>Supported values are <code>11025</code>, <code>22050</code>, and <code>44100</code>. Other values are not tested.</p>
+</div>
+<div id="mono-vs.-stereo" class="section level3">
+<h3>Mono vs. Stereo</h3>
+<p>Mono sounds take half the amount of memory as stereo sounds and, on mobile devices, the difference is often negligible unless the user is listening through headphones.</p>
+</div>
+<div id="linear-pcm" class="section level3">
+<h3>Linear PCM</h3>
+<p>For fastest loading/decoding time, use linear <nobr>16-bit</nobr> signed integer <nobr>little-endian</nobr> raw PCM samples. Commonly, <code>.wav</code> files use this format but you may need to confirm this depending on the source of the audio files.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.media.audioSystem.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

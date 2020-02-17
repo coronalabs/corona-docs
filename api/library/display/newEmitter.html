@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries | display | newEmitter</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#display.newemitter">display.newEmitter()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#emitterparams-required">emitterParams <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#basedir-optional">baseDir <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#key-value-parameters">Key-Value Parameters</a></li>
+<li><a href="#particle-designer">Particle Designer</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/display/index.html">display</a>  ▸  <a href="../../../api/library/display/newEmitter.html">newEmitter</a>
+</div>
+<div id="display.newemitter" class="section level1">
+<h1>display.newEmitter()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Return value</strong></td>
+<td align="left"><a href="../../../api/type/EmitterObject/index.html">EmitterObject</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">newEmitter</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../api/type/EmitterObject/start.html">EmitterObject:start()</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../api/type/EmitterObject/stop.html">EmitterObject:stop()</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../../api/type/EmitterObject/pause.html">EmitterObject:pause()</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>This function creates an <a href="../../../api/type/EmitterObject/index.html">EmitterObject</a>, used to display particle effects.</p>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>Particles emitted by an emitter are <strong>not</strong> automatically removed unless their lifespan completes, nor are they destroyed if they move off screen. If you're using <a href="../../../api/library/composer/index.html">Composer</a> for scene management, emitters created with <code>display.newEmitter()</code> should be inserted into the Composer scene view (or a child group of the scene view) so that they will be removed when the scene is exited. If you're not using Composer, you can manually destroy the emitter with <a href="../../../api/type/Joint/removeSelf.html">object:removeSelf()</a> or <a href="../../../api/library/display/remove.html">display.remove()</a> to remove all particles it generated.</p>
+</div>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>On macOS, <a href="http://71squared.com/particledesigner">Particle Designer</a> can be used to design and output emitters as <nobr>JSON-encoded</nobr> files. Otherwise, emitter properties can simply be passed to this function as <nobr>key-value</nobr> pairs in a Lua table. See the examples below for usage details.</p>
+</div>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">display.newEmitter( emitterParams [, baseDir] )</pre>
+<div id="emitterparams-required" class="section level5">
+<h5>emitterParams <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Table.html">Table</a>.</em> A table of parameters for the emitter. See the <a href="../../../api/type/EmitterObject/index.html">EmitterObject</a> documentation for a list of valid properties.</p>
+</div>
+<div id="basedir-optional" class="section level5">
+<h5>baseDir <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Constant.html">Constant</a>.</em> Specifies the base directory where the particle emitter image file is located. Options include <code>system.ResourceDirectory</code>, <code>system.DocumentsDirectory</code>, <code>system.ApplicationSupportDirectory</code>, <code>system.TemporaryDirectory</code> and <code>system.CachesDirectory</code>. Default is <code>system.ResourceDirectory</code>.</p>
+</div>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<div id="key-value-parameters" class="section level5">
+<h5>Key-Value Parameters</h5>
+<pre class="brush: lua;">-- Table of emitter parameters
+local emitterParams = {
+    startColorAlpha = 1,
+    startParticleSizeVariance = 53.47,
+    startColorGreen = 0.3031555,
+    yCoordFlipped = -1,
+    blendFuncSource = 770,
+    rotatePerSecondVariance = 153.95,
+    particleLifespan = 0.7237,
+    tangentialAcceleration = -144.74,
+    finishColorBlue = 0.3699196,
+    finishColorGreen = 0.5443883,
+    blendFuncDestination = 1,
+    startParticleSize = 50.95,
+    startColorRed = 0.8373094,
+    textureFileName = "fire.png",
+    startColorVarianceAlpha = 1,
+    maxParticles = 256,
+    finishParticleSize = 64,
+    duration = -1,
+    finishColorRed = 1,
+    maxRadiusVariance = 72.63,
+    finishParticleSizeVariance = 64,
+    gravityy = -671.05,
+    speedVariance = 90.79,
+    tangentialAccelVariance = -92.11,
+    angleVariance = -142.62,
+    angle = -244.11
+}
+
+-- Create the emitter
+local emitter = display.newEmitter( emitterParams )
+
+-- Center the emitter within the content area
+emitter.x = display.contentCenterX
+emitter.y = display.contentCenterY</pre>
+</div>
+<div id="particle-designer" class="section level5">
+<h5>Particle Designer</h5>
+<pre class="brush: lua;">-- Require the JSON library for decoding purposes
+local json = require( "json" )
+
+-- Read the exported Particle Designer file (JSON) into a string
+local filePath = system.pathForFile( "fire.json" )
+local f = io.open( filePath, "r" )
+local emitterData = f:read( "*a" )
+f:close()
+
+-- Decode the string
+local emitterParams = json.decode( emitterData )
+
+-- Create the emitter with the decoded parameters
+local emitter = display.newEmitter( emitterParams )
+
+-- Center the emitter within the content area
+emitter.x = display.contentCenterX
+emitter.y = display.contentCenterY</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.display.newEmitter&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

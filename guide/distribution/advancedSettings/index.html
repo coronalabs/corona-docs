@@ -1,0 +1,498 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Building/Distribution</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#advanced-build-settings">Advanced Build Settings</a><ul>
+<li><a href="#advanced-settings-ios">Advanced Settings — iOS</a><ul>
+<li><a href="#device-capabilities">Device Capabilities</a></li>
+<li><a href="#png-processing">PNG Processing</a></li>
+</ul></li>
+<li><a href="#advanced-settings-android">Advanced Settings — Android</a><ul>
+<li><a href="#minimum-sdk-version">Minimum SDK Version</a></li>
+<li><a href="#android-tv">Android TV</a></li>
+<li><a href="#screen-support">Screen Support</a></li>
+<li><a href="#disabling-file-access">Disabling File Access</a></li>
+<li><a href="#large-heap">Large Heap</a></li>
+<li><a href="#android-directives">Android Directives</a></li>
+</ul></li>
+<li><a href="#plugins-supported-platforms">Plugins — Supported Platforms</a></li>
+<li><a href="#build-control">Build Control</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/distribution/index.html">Building/Distribution</a>
+</div>
+<div id="advanced-build-settings" class="section level1">
+<h1>Advanced Build Settings</h1>
+<p>This guide outlines various advanced build options for Corona apps.</p>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>This guide is intended for those who require more specialized configuration options and customized app settings. If you're looking for general/basic build settings and options, please consult the <a href="../../../guide/distribution/buildSettings/index.html">Project Build Settings</a> guide.</p>
+</div>
+</div>
+<div class="guides-toc">
+<ul>
+<li><a href="#ios">Advanced Settings — iOS</a></li>
+<li><a href="#android">Advanced Settings — Android</a></li>
+<li><a href="#plugins">Plugins — Supported Platforms</a></li>
+<li><a href="#buildcontrol">Build Control</a></li>
+</ul>
+</div>
+<p><a id="ios"></a></p>
+<div id="advanced-settings-ios" class="section level2">
+<h2>Advanced Settings — iOS</h2>
+<div id="device-capabilities" class="section level3">
+<h3>Device Capabilities</h3>
+<p>If you wish to limit your iOS app to devices with specific capabilities, you can include the optional <code>UIRequiredDeviceCapabilities</code> key within the <nobr><code>iphone</code> → <code>plist</code></nobr> table. The value of this key should be a table containing specific keys matching Apple's <a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html#//apple_ref/doc/uid/TP40009252-SW3">documentation</a>. For example:</p>
+<pre class="brush: lua; gutter: false; highlight: [7,8,9,10]; first-line: 1;">settings =
+{
+    iphone =
+    {
+        plist =
+        {
+            UIRequiredDeviceCapabilities =
+            {
+                ["gyroscope"] = true,
+            },
+        },
+    },
+}</pre>
+<p>When including a specific key within the <code>UIRequiredDeviceCapabilities</code> table, its value is expected to be a boolean with this logic:</p>
+<ul>
+<li><code>true</code> — Devices <strong>must</strong> have the associated feature in order to run the app.</li>
+<li><code>false</code> — Devices must <strong>not</strong> have the associated feature in order to run the app.</li>
+</ul>
+<div class="guide-notebox">
+<div class="notebox-title">
+Notes
+</div>
+<ul>
+<li><p>You should only include a specific key if you absolutely <strong>must</strong> limit the app's target devices — if it doesn't matter whether a device supports a certain capability, omit its key.</p></li>
+<li><p>Omitting a key's <strong>value</strong> will yield the same result as setting it to <code>true</code>. For instance, the following are equivalent:</p></li>
+</ul>
+<div class="code-indent">
+<p><code>UIRequiredDeviceCapabilities = { &quot;gyroscope&quot; }</code></p>
+<p><code>UIRequiredDeviceCapabilities = { [&quot;gyroscope&quot;] = true }</code></p>
+</div>
+</div>
+</div>
+<div id="png-processing" class="section level3">
+<h3>PNG Processing</h3>
+<p>If you need to circumvent PNG file processing (<code>pngcrush</code>) at build time, you can include the <code>skipPNGCrush</code> key with a value of <code>true</code>. This key should be specified outside of the <code>plist</code> table but inside the <code>iphone</code> table:</p>
+<pre class="brush: lua; gutter: false; highlight: [9]; first-line: 1;">settings =
+{
+    iphone =
+    {
+        plist =
+        {
+
+        },
+        skipPNGCrush = true,
+    },
+}</pre>
+<p><a id="android"></a></p>
+</div>
+</div>
+<div id="advanced-settings-android" class="section level2">
+<h2>Advanced Settings — Android</h2>
+<div id="minimum-sdk-version" class="section level3">
+<h3>Minimum SDK Version</h3>
+<p>Providing a minimum SDK version with the <code>minSdkVersion</code> key value allows you to exclude your app from being installed on devices with older versions of the Android OS. It corresponds to the <code>minSdkVersion</code> item detailed <a href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html">here</a>. This setting is invisible to users.</p>
+<pre class="brush: lua; gutter: false; highlight: [5]; first-line: 1;">settings =
+{
+    android =
+    {
+        minSdkVersion = "16",
+    },
+}</pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Notes
+</div>
+<ul>
+<li><p>The minimum SDK version must be specified as an <strong>integer</strong> — it cannot contain any decimal points.</p></li>
+<li><p>Corona only allows values as low as <code>&quot;15&quot;</code> for Android <strong>4.0.3</strong> (the oldest version supported by Corona). For details on the various Android SDK versions and API levels, see <a href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">here</a>.</p></li>
+<li><p>The minimum SDK version defaults to <code>&quot;15&quot;</code> if not specified otherwise.</p></li>
+</ul>
+</div>
+</div>
+<div id="android-tv" class="section level3">
+<h3>Android TV</h3>
+<p>If you are deploying an app to Android TV, you should include the <code>supportsTV</code> key with a value of <code>true</code>. This will make the app available to Android TV devices via purchase through Google Play.</p>
+<p>In addition, you can set the <code>isGame</code> key with a value of <code>true</code> to categorize the app under the <strong>games</strong> section of Google Play. If this key is omitted or set to <code>false</code>, the app will be categorized under the <strong>apps</strong> section.</p>
+<pre class="brush: lua; gutter: false; highlight: [5,6]; first-line: 1;">settings =
+{
+    android =
+    {
+        supportsTV = true,
+        isGame = true,
+    },
+}</pre>
+</div>
+<div id="screen-support" class="section level3">
+<h3>Screen Support</h3>
+<p>The optional <code>supportsScreens</code> table specifies/limits which screens an Android app supports. See the Android <a href="http://developer.android.com/guide/topics/manifest/supports-screens-element.html">documentation</a> for detailed descriptions and more options.</p>
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9,10,11,12]; first-line: 1;">settings =
+{
+    android =
+    {
+        supportsScreens =
+        {
+            smallScreens  = true,
+            normalScreens = true,
+            largeScreens  = true,
+            xlargeScreens = false,
+            requiresSmallestWidthDp = 320,
+        },
+    },
+}</pre>
+</div>
+<div id="disabling-file-access" class="section level3">
+<h3>Disabling File Access</h3>
+<p>By default, other apps are granted <nobr>read-only</nobr> access to your app's files via an Android <code>content://</code> URL. This is required to attach your app's files to <nobr>e-mails</nobr>, post photos via the <a href="../../../plugin/CoronaProvider_native_popup_social/index.html">social</a> plugin, or open your files via the <a href="../../../api/library/system/openURL.html">system.openURL()</a> function. If you want to block all access to your app's files, set the following in the <code>build.settings</code> file:</p>
+<pre class="brush: lua; gutter: false; highlight: [5]; first-line: 1;">settings =
+{
+    android =
+    {
+        allowAppsReadOnlyAccessToFiles = false,
+    },
+}</pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>You cannot block file access on Android devices which have been rooted. This applies to all Android apps, including those not built with Corona. Thus, if your app's files contain any sensitive information, it's recommended that you encrypt this information yourself.</p>
+</div>
+</div>
+<div id="large-heap" class="section level3">
+<h3>Large Heap</h3>
+<p>You can request that the Android OS provides your app with more heap memory in Java by adding the <code>largeHeap</code> key with a value of <code>true</code>. For example, it may raise the max heap size on a particular device from 32 MB to 256 MB. This parameter might be a viable option if your app is triggering <nobr>out-of-memory</nobr> exceptions on <nobr>low-end</nobr> devices.</p>
+<pre class="brush: lua; gutter: false; highlight: [5]; first-line: 1;">settings =
+{
+    android =
+    {
+        largeHeap = true,
+    },
+}</pre>
+</div>
+<div id="android-directives" class="section level3">
+<h3>Android Directives</h3>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>This section details additional directives which can be used to <nobr>fine-tune</nobr> the <code>AndroidManifest.xml</code> in your application. They are rarely needed and if you don't understand what they do, you can break your application or cause unexpected behavior. Essentially, use of these directives is <strong>not</strong> recommended unless you're familiar with the concepts involved.</p>
+</div>
+<p>The following specialized directives are available for <nobr>Corona-built</nobr> Android apps:</p>
+<ul>
+<li><code>strings</code> — This directive enables the creation of a <code>strings.xml</code> file in the <code>.apk</code>.</li>
+</ul>
+<div class="code-indent" style="margin-bottom: 20px;">
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9]; first-line: 1;">settings =
+{
+    android =
+    {
+        strings =
+        {
+            permdesc = "Custom permission description",
+            permlabel = "custom-permission-Label",
+        },
+    },
+}</pre>
+</div>
+<ul>
+<li><code>permissions</code> — This directive enables the creation of custom Android permissions.</li>
+</ul>
+<div class="code-indent" style="margin-bottom: 20px;">
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9,10,11,12,13,14,15]; first-line: 1;">settings =
+{
+    android =
+    {
+        permissions =
+        {
+            {
+                name = ".PERMISSION1",
+                description = "@string/permdesc",
+                icon = "@mipmap/icon",
+                label = "@string/permlabel",
+                permissionGroup = "android.permission-group.COST_MONEY",
+                protectionLevel = "normal",
+            },
+        },
+    },
+}</pre>
+</div>
+<ul>
+<li><code>manifestChildElements</code> — This directive adds XML elements to the <code>manifest</code> element of <code>AndroidManifest.xml</code>.</li>
+</ul>
+<div class="code-indent" style="margin-bottom: 20px;">
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9,10,11]; first-line: 1;">settings =
+{
+    android =
+    {
+        manifestChildElements = 
+        {
+            -- Array of strings
+            [[
+            &lt;uses-configuration android:reqFiveWayNav="true" />
+            ]],
+        },
+    },
+}</pre>
+</div>
+<ul>
+<li><code>applicationChildElements</code> — This directive adds XML elements to the <code>application</code> element of <code>AndroidManifest.xml</code>.</li>
+</ul>
+<div class="code-indent" style="margin-bottom: 20px;">
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9,10,11,12]; first-line: 1;">settings =
+{
+    android =
+    {
+        applicationChildElements =
+        {
+            -- Array of strings
+            [[
+            &lt;activity android:name="com.example.MyActivity"
+                android:configChanges="keyboard|keyboardHidden"/>
+            ]],
+        },
+    },
+}</pre>
+</div>
+<ul>
+<li><code>apkFiles</code> — This directive causes files to be copied from the project directory to the root of the <code>.apk</code> file, preserving any directory hierarchy. In the following example, <nobr><code>google-play-services.json</code></nobr> is copied to the root of the <code>.apk</code> and <code>res/raw/mypage.html</code> is copied to <code>res/raw</code>. The file paths are always relative to the base directory of the project.</li>
+</ul>
+<div class="code-indent">
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9]; first-line: 1;">settings =
+{
+    android =
+    {
+        apkFiles =
+        {
+            "google-play-services.json",
+            "res/raw/mypage.html",
+        },
+    },
+}</pre>
+</div>
+<ul>
+<li><code>coronaActivityFlags</code> — This directive allows attributes to be added to the <code>com.ansca.corona.CoronaActivity</code> activity definition in the app's <code>AndroidManifest.xml</code>. Activity attributes are documented <a href="https://developer.android.com/guide/topics/manifest/activity-element.html">here</a>.</li>
+</ul>
+<div class="code-indent">
+<p>Corona uses the following attributes for its own purposes and they cannot be overridden:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Attribute</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>android:configChanges</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="left"><code>android:label</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>android:launchMode</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="left"><code>android:name</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>android:screenOrientation</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="left"><code>android:theme</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9]; first-line: 1;">settings =
+{
+    android =
+    {
+        coronaActivityFlags =
+        {
+            resizeableActivity = true,
+            persistableMode = "persistRootOnly",
+        },
+    },
+}</pre>
+</div>
+<p><a id="plugins"></a></p>
+</div>
+</div>
+<div id="plugins-supported-platforms" class="section level2">
+<h2>Plugins — Supported Platforms</h2>
+<p>If necessary, you may fine-tune a plugin to be supported only on specific platforms. This is done by including a <code>supportedPlatforms</code> table with <nobr>key-value</nobr> pairs <nobr>(value of <code>true</code>)</nobr> which indicate the platform(s) that a plugin should be supported on. For example:</p>
+<pre class="brush: lua;">["plugin.gpgs"] =
+{
+    publisherId = "com.coronalabs",
+    supportedPlatforms = { android=true },
+},</pre>
+<p>Inside this table, the following keys are allowed:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Key</th>
+<th align="left">Platform(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>iphone</code></td>
+<td align="left">all iOS devices</td>
+</tr>
+<tr class="even">
+<td align="left"><code>android</code></td>
+<td align="left">all Android devices</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>appletvos</code></td>
+<td align="left">Apple TV</td>
+</tr>
+<tr class="even">
+<td align="left"><code>macos</code></td>
+<td align="left">macOS desktop</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>win32</code></td>
+<td align="left">Windows desktop</td>
+</tr>
+<tr class="even">
+<td align="left"><code>[&quot;android-kindle&quot;]</code></td>
+<td align="left">Amazon Kindle</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>[&quot;iphone-sim&quot;]</code></td>
+<td align="left">Xcode iOS Simulator</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>Omitting the <code>supportedPlatforms</code> table effectively includes the plugin on all platforms that it inherently supports.</p>
+</div>
+<p><a id="buildcontrol"></a></p>
+</div>
+<div id="build-control" class="section level2">
+<h2>Build Control</h2>
+<p>Normally, distribution builds of an app (those intended for app stores) have Lua debug info stripped from the compiled code, while development builds are not stripped. Generally, stripping debug symbols is preferred for distribution because it reduces app size and provides a small performance gain, but this entirely depends on the type of app and how you prefer to do error reporting.</p>
+<p>In iOS, distribution builds are made by using a provisioning profile whose name contains <strong>iPhone Distribution:</strong> and on Android they are made by using a keystore with any name except <strong>Debug</strong>.</p>
+<p>Sometimes it can be useful to have debug symbols available in distribution builds of your app. This means that you get more detail in stack traces and runtime error messages. Depending on your needs, the <code>neverStripDebugInfo</code> setting can be used to turn off debug symbol stripping altogether. In theory, there's no reason why an app built with this setting could not be submitted to an app store, but policies vary and there are no guarantees — just be aware that the debug info may reveal details of your app that you may prefer remain proprietary.</p>
+<pre class="brush: lua; gutter: false; highlight: [3,4,5,6]; first-line: 1;">settings =
+{
+    build =
+    {
+        neverStripDebugInfo = true,
+    },
+}</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.distribution.advancedSettings.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

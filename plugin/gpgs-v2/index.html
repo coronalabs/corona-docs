@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | gpgs-v2</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#google-play-games-services">Google Play Games Services</a><ul>
+<li><a href="#beta-version">Beta version</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#backward-compatipility">Backward compatipility</a></li>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#project-settings">Project Settings</a></li>
+<li><a href="#nodes">Nodes</a><ul>
+<li><a href="#gpgs-v2.achievementsplugin.gpgs-v2.achievements"><a href="../../plugin/gpgs-v2/achievements/index.html">gpgs-v2.achievements</a></a></li>
+<li><a href="#gpgs-v2.leaderboardsplugin.gpgs-v2.leaderboards"><a href="../../plugin/gpgs-v2/leaderboards/index.html">gpgs-v2.leaderboards</a></a></li>
+<li><a href="#gpgs-v2.playersplugin.gpgs-v2.players"><a href="../../plugin/gpgs-v2/players/index.html">gpgs-v2.players</a></a></li>
+<li><a href="#gpgs-v2.eventsplugin.gpgs-v2.events"><a href="../../plugin/gpgs-v2/events/index.html">gpgs-v2.events</a></a></li>
+<li><a href="#gpgs-v2.snapshotsplugin.gpgs-v2.snapshots"><a href="../../plugin/gpgs-v2/snapshots/index.html">gpgs-v2.snapshots</a></a></li>
+<li><a href="#gpgs-v2.videosplugin.gpgs-v2.videos"><a href="../../plugin/gpgs-v2/videos/index.html">gpgs-v2.videos</a></a></li>
+<li><a href="#gpgs-v2.multiplayerplugin.gpgs-v2.multiplayer"><a href="../../plugin/gpgs-v2/multiplayer/index.html">gpgs-v2.multiplayer</a></a></li>
+<li><a href="#gpgs-v2.multiplayer.invitationsplugin.gpgs-v2.multiplayer.invitations"><a href="../../plugin/gpgs-v2/multiplayer/invitations/index.html">gpgs-v2.multiplayer.invitations</a></a></li>
+<li><a href="#gpgs-v2.multiplayer.realtimeplugin.gpgs-v2.multiplayer.realtime"><a href="../../plugin/gpgs-v2/multiplayer/realtime/index.html">gpgs-v2.multiplayer.realtime</a></a></li>
+<li><a href="#gpgs-v2.multiplayer.turnbasedplugin.gpgs-v2.multiplayer.turnbased"><a href="../../plugin/gpgs-v2/multiplayer/turnbased/index.html">gpgs-v2.multiplayer.turnbased</a></a></li>
+</ul></li>
+<li><a href="#gpgs.">gpgs.*</a></li>
+<li><a href="#overview-1">Overview</a></li>
+<li><a href="#functions">Functions</a><ul>
+<li><a href="#gpgs-v2.enabledebugplugin.gpgs-v2.enabledebug"><a href="../../plugin/gpgs-v2/enableDebug.html">gpgs-v2.enableDebug()</a></a></li>
+<li><a href="#gpgs-v2.initlistenerplugin.gpgs-v2.init"><a href="../../plugin/gpgs-v2/init.html">gpgs-v2.init(listener)</a></a></li>
+<li><a href="#gpgs-v2.isconnectedplugin.gpgs-v2.isconnected"><a href="../../plugin/gpgs-v2/isConnected.html">gpgs-v2.isConnected()</a></a></li>
+<li><a href="#gpgs-v2.loginparamsplugin.gpgs-v2.login"><a href="../../plugin/gpgs-v2/login.html">gpgs-v2.login(params)</a></a></li>
+<li><a href="#gpgs-v2.logoutplugin.gpgs-v2.logout"><a href="../../plugin/gpgs-v2/logout.html">gpgs-v2.logout()</a></a></li>
+<li><a href="#gpgs-v2.getaccountnamelistenerplugin.gpgs-v2.getaccountname"><a href="../../plugin/gpgs-v2/getAccountName.html">gpgs-v2.getAccountName(listener)</a></a></li>
+<li><a href="#gpgs-v2.getserverauthcodeparamsplugin.gpgs-v2.getserverauthcode"><a href="../../plugin/gpgs-v2/getServerAuthCode.html">gpgs-v2.getServerAuthCode(params)</a></a></li>
+<li><a href="#gpgs-v2.setpopuppositionpositionplugin.gpgs-v2.setpopupposition"><a href="../../plugin/gpgs-v2/setPopupPosition.html">gpgs-v2.setPopupPosition(position)</a></a></li>
+<li><a href="#gpgs-v2.loadgamelistenerplugin.gpgs-v2.loadgame"><a href="../../plugin/gpgs-v2/loadGame.html">gpgs-v2.loadGame(listener)</a></a></li>
+<li><a href="#gpgs-v2.clearnotificationsnotificationtypesplugin.gpgs-v2.clearnotifications"><a href="../../plugin/gpgs-v2/clearNotifications.html">gpgs-v2.clearNotifications(notificationTypes)</a></a></li>
+<li><a href="#gpgs-v2.loadimageparamsplugin.gpgs-v2.loadimage"><a href="../../plugin/gpgs-v2/loadImage.html">gpgs-v2.loadImage(params)</a></a></li>
+<li><a href="#gpgs-v2.showsettingslistenerplugin.gpgs-v2.showsettings"><a href="../../plugin/gpgs-v2/showSettings.html">gpgs-v2.showSettings(listener)</a></a></li>
+</ul></li>
+<li><a href="#events">Events</a><ul>
+<li><a href="#initplugin.gpgs-v2.event.init"><a href="../../plugin/gpgs-v2/event/init/index.html">init</a></a></li>
+<li><a href="#loginplugin.gpgs-v2.event.login"><a href="../../plugin/gpgs-v2/event/login/index.html">login</a></a></li>
+<li><a href="#getaccountnameplugin.gpgs-v2.event.getaccountname"><a href="../../plugin/gpgs-v2/event/getAccountName/index.html">getAccountName</a></a></li>
+<li><a href="#getserverauthcodeplugin.gpgs-v2.event.getserverauthcode"><a href="../../plugin/gpgs-v2/event/getServerAuthCode/index.html">getServerAuthCode</a></a></li>
+<li><a href="#loadgameplugin.gpgs-v2.event.loadgame"><a href="../../plugin/gpgs-v2/event/loadGame/index.html">loadGame</a></a></li>
+<li><a href="#loadimageplugin.gpgs-v2.event.loadimage"><a href="../../plugin/gpgs-v2/event/loadImage/index.html">loadImage</a></a></li>
+</ul></li>
+<li><a href="#types">Types</a><ul>
+<li><a href="#gameplugin.gpgs-v2.type.game"><a href="../../plugin/gpgs-v2/type/Game/index.html">Game</a></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/gpgs-v2/index.html">gpgs-v2</a>
+</div>
+<div id="google-play-games-services" class="section level1">
+<h1>Google Play Games Services</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left">[Library][api.type.library]</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">google, google play games services, achievements, leaderboards, multiplayer</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Platforms</strong></td>
+<td align="left">Android</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Sample</strong></td>
+<td align="left"><a href="https://github.com/coronalabs/gpgs-sample" class="uri">https://github.com/coronalabs/gpgs-sample</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="beta-version" class="section level2">
+<h2>Beta version</h2>
+<p>This plugin is currently in beta. API may change without notice. iOS version will be available later.</p>
+</div>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>This plugin enables access to Google Play Games Services API, such as achievements, leaderboards and multiplayer.</p>
+</div>
+<div id="backward-compatipility" class="section level2">
+<h2>Backward compatipility</h2>
+<p>This plugin has full backward compatibility with the <code>gameNetwork.*</code> API. To use it, however, you have to require <code>&quot;plugin.gpgs.v2&quot;</code> before using <code>gameNetwork</code>.</p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">local gpgs = require( "plugin.gpgs.v2" )</pre>
+</div>
+<div id="project-settings" class="section level2">
+<h2>Project Settings</h2>
+<p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
+<pre class="brush: lua;">settings = {
+    plugins = {
+        ["plugin.gpgs.v2"] = {
+            publisherId = "com.coronalabs",
+            supportedPlatforms = {["android"] = true, ["android-kindle"] = true}
+        }
+    }
+}</pre>
+</div>
+<div id="nodes" class="section level2">
+<h2>Nodes</h2>
+<p>The plugin is divided into API nodes for better organization.</p>
+<div id="gpgs-v2.achievementsplugin.gpgs-v2.achievements" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/achievements/index.html">gpgs-v2.achievements</a></h4>
+</div>
+<div id="gpgs-v2.leaderboardsplugin.gpgs-v2.leaderboards" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/leaderboards/index.html">gpgs-v2.leaderboards</a></h4>
+</div>
+<div id="gpgs-v2.playersplugin.gpgs-v2.players" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/players/index.html">gpgs-v2.players</a></h4>
+</div>
+<div id="gpgs-v2.eventsplugin.gpgs-v2.events" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/events/index.html">gpgs-v2.events</a></h4>
+</div>
+<div id="gpgs-v2.snapshotsplugin.gpgs-v2.snapshots" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/snapshots/index.html">gpgs-v2.snapshots</a></h4>
+</div>
+<div id="gpgs-v2.videosplugin.gpgs-v2.videos" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/videos/index.html">gpgs-v2.videos</a></h4>
+</div>
+<div id="gpgs-v2.multiplayerplugin.gpgs-v2.multiplayer" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/multiplayer/index.html">gpgs-v2.multiplayer</a></h4>
+</div>
+<div id="gpgs-v2.multiplayer.invitationsplugin.gpgs-v2.multiplayer.invitations" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/multiplayer/invitations/index.html">gpgs-v2.multiplayer.invitations</a></h4>
+</div>
+<div id="gpgs-v2.multiplayer.realtimeplugin.gpgs-v2.multiplayer.realtime" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/multiplayer/realtime/index.html">gpgs-v2.multiplayer.realtime</a></h4>
+</div>
+<div id="gpgs-v2.multiplayer.turnbasedplugin.gpgs-v2.multiplayer.turnbased" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/multiplayer/turnbased/index.html">gpgs-v2.multiplayer.turnbased</a></h4>
+</div>
+</div>
+<div id="gpgs." class="section level2">
+<h2>gpgs.*</h2>
+</div>
+<div id="overview-1" class="section level2">
+<h2>Overview</h2>
+<p>This is the base API node for the plugin. It manages connection to the Google's servers, authentication and general SDK tasks.</p>
+</div>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<div id="gpgs-v2.enabledebugplugin.gpgs-v2.enabledebug" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/enableDebug.html">gpgs-v2.enableDebug()</a></h4>
+</div>
+<div id="gpgs-v2.initlistenerplugin.gpgs-v2.init" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/init.html">gpgs-v2.init(listener)</a></h4>
+</div>
+<div id="gpgs-v2.isconnectedplugin.gpgs-v2.isconnected" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/isConnected.html">gpgs-v2.isConnected()</a></h4>
+</div>
+<div id="gpgs-v2.loginparamsplugin.gpgs-v2.login" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/login.html">gpgs-v2.login(params)</a></h4>
+</div>
+<div id="gpgs-v2.logoutplugin.gpgs-v2.logout" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/logout.html">gpgs-v2.logout()</a></h4>
+</div>
+<div id="gpgs-v2.getaccountnamelistenerplugin.gpgs-v2.getaccountname" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/getAccountName.html">gpgs-v2.getAccountName(listener)</a></h4>
+</div>
+<div id="gpgs-v2.getserverauthcodeparamsplugin.gpgs-v2.getserverauthcode" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/getServerAuthCode.html">gpgs-v2.getServerAuthCode(params)</a></h4>
+</div>
+<div id="gpgs-v2.setpopuppositionpositionplugin.gpgs-v2.setpopupposition" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/setPopupPosition.html">gpgs-v2.setPopupPosition(position)</a></h4>
+</div>
+<div id="gpgs-v2.loadgamelistenerplugin.gpgs-v2.loadgame" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/loadGame.html">gpgs-v2.loadGame(listener)</a></h4>
+</div>
+<div id="gpgs-v2.clearnotificationsnotificationtypesplugin.gpgs-v2.clearnotifications" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/clearNotifications.html">gpgs-v2.clearNotifications(notificationTypes)</a></h4>
+</div>
+<div id="gpgs-v2.loadimageparamsplugin.gpgs-v2.loadimage" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/loadImage.html">gpgs-v2.loadImage(params)</a></h4>
+</div>
+<div id="gpgs-v2.showsettingslistenerplugin.gpgs-v2.showsettings" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/showSettings.html">gpgs-v2.showSettings(listener)</a></h4>
+</div>
+</div>
+<div id="events" class="section level2">
+<h2>Events</h2>
+<div id="initplugin.gpgs-v2.event.init" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/event/init/index.html">init</a></h4>
+</div>
+<div id="loginplugin.gpgs-v2.event.login" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/event/login/index.html">login</a></h4>
+</div>
+<div id="getaccountnameplugin.gpgs-v2.event.getaccountname" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/event/getAccountName/index.html">getAccountName</a></h4>
+</div>
+<div id="getserverauthcodeplugin.gpgs-v2.event.getserverauthcode" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/event/getServerAuthCode/index.html">getServerAuthCode</a></h4>
+</div>
+<div id="loadgameplugin.gpgs-v2.event.loadgame" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/event/loadGame/index.html">loadGame</a></h4>
+</div>
+<div id="loadimageplugin.gpgs-v2.event.loadimage" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/event/loadImage/index.html">loadImage</a></h4>
+</div>
+</div>
+<div id="types" class="section level2">
+<h2>Types</h2>
+<div id="gameplugin.gpgs-v2.type.game" class="section level4">
+<h4><a href="../../plugin/gpgs-v2/type/Game/index.html">Game</a></h4>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.gpgs-v2.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

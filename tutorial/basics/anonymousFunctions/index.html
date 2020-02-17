@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Tutorials | Basics</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#anonymous-functions-and-closures">Anonymous Functions and Closures</a><ul>
+<li><a href="#anonymous-functions">Anonymous Functions</a></li>
+<li><a href="#when-to-use-them">When to Use Them</a></li>
+<li><a href="#lua-closures">Lua Closures</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/basics/index.html">Basics</a>
+</div>
+<div id="anonymous-functions-and-closures" class="section level1">
+<h1>Anonymous Functions and Closures</h1>
+<p>This tutorial discusses the basics behind <strong>anonymous functions</strong> and <strong>closures</strong> in Lua. To begin, let's inspect how a typical Lua function looks:</p>
+<pre class="brush: lua;">local function myFunction( parameters )
+    -- Function content
+end</pre>
+<p>Under the hood, this creates a variable called <code>myFunction</code> that is scoped locally to this code block and is stored where the code block exists in memory. For instance, if you execute <nobr><code>print( myFunction )</code></nobr>, the console will print something like <code>0x4a8cd834</code>. Basically, this is the location in memory where Lua will jump when the function is called.</p>
+<p>Lua also permits you to define a function like this:</p>
+<pre class="brush: lua;">local myFunction = function( parameters )
+    -- Function content
+end</pre>
+<p>In this notation, it's more clear that you're assigning a variable to a code block, or more specifically the memory address of that code block. In the end, both notations accomplish the same thing, but the second notation allows some additional flexibility. When written in this form, you are effectively taking an unnamed block of code and giving it a name.</p>
+<div id="anonymous-functions" class="section level2">
+<h2>Anonymous Functions</h2>
+<p>As yet another option, Lua permits you to write a function without a name. This is called an <strong>anonymous function</strong>. To understand the difference between regular functions and anonymous functions, let's look at some examples:</p>
+<pre class="brush: lua;">local function myFunction( parameters )
+    -- Function content
+end
+
+timer.performWithDelay( 1000, myFunction, 10 )</pre>
+<p>In this case, the <code>timer.performWithDelay()</code> function is given a time interval of 1000 milliseconds, a function to execute, and an integer count to repeat. Effectively, <code>myFunction()</code> will fire 10 times at an interval of 1000 milliseconds, but what's internally happening is that Lua is passing the <strong>memory address</strong> of the <code>myFunction()</code> function to the <code>timer.performWithDelay()</code> function.</p>
+<p>This means that you could also write either of these commands:</p>
+<pre class="brush: lua;">timer.performWithDelay( 1000,
+    function()
+        print( "Hello World" )
+    end,
+10 )</pre>
+<pre class="brush: lua;">timer.performWithDelay( 1000, function() print( "Hello World" ); end, 10 )</pre>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>In the second example, notice the <strong>semicolon</strong> (<code>;</code>) following the <nobr><code>print( &quot;Hello World&quot; )</code></nobr> command. If you write an anonymous function with multiple commands on one line, each command <strong>must</strong> be followed by a semicolon, indicating to Lua where each new command begins.</p>
+</div>
+</div>
+<p>In both cases, instead of using a variable which references a function's memory address, you simply create an unnamed <strong>anonymous function</strong> that will execute when the timer fires.</p>
+</div>
+<div id="when-to-use-them" class="section level2">
+<h2>When to Use Them</h2>
+<p>Anonymous functions are most useful when you need to code an <code>onComplete</code> or callback listener function, for example in <code>timer.performWithDelay()</code>, <code>transition.to()</code>, or <code>audio.play()</code> — but how often should you use them? From the perspective of code readability and sustainability, perhaps not very often, but if the function will only be used in that <strong>specific</strong> scope of your code, and it's relatively short, anonymous functions are a perfectly valid coding technique.</p>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Note that there are times when you can <strong>not</strong> use anonymous functions. One specific instance is when you assign functions to event listeners. Because the event listener system in Corona is based around storing the address of functions that are specified to handle events, the address that you pass in when removing an event listener via <code>object:removeEventListener()</code> must match the address that was passed in to <code>object:addEventListener()</code>.</p>
+</div>
+</div>
+</div>
+<div id="lua-closures" class="section level2">
+<h2>Lua Closures</h2>
+<p>Lua closures are another useful technique. Where they truly shine is in passing parameters to function handlers that are not looking for extra parameters. To illustrate this, let's look at a <code>transition.to()</code> example:</p>
+<pre class="brush: lua;">local function myFunction( parameters )
+    -- Function content
+end
+
+transition.to( playerObject, { time=1000, alpha=0, onComplete=myFunction } )</pre>
+<p>In this example, <code>myFunction()</code> will be passed a single parameter, <code>target</code>, which is the object that is transitioning. But let's assume that the display object is a member of an array and you need to know more about the object itself in the function that gets called. This can be accomplished via a <strong>Lua closure</strong>:</p>
+<pre class="brush: lua;">local function myFunction( parameters )
+    -- Function content
+end
+
+local balls = {}
+balls[1].ball = display.newImageRect( "greenball.png", 64, 64 )
+balls[1].color = "green"
+balls[2].ball = display.newImageRect( "redball.png", 64, 64 )
+balls[2].color = "red"
+
+for i = 1,#balls do
+    transition.to( balls[i].ball,
+        { time=250, x=200,
+            onComplete=function( target )
+                myFunction( target, balls[i].color )
+            end
+        }
+    )
+end</pre>
+<p>In this example, instead of calling <code>myFunction()</code> as part of the callback, you call an anonymous function instead. That anonymous function takes the received <code>target</code> parameter that <code>transition.to()</code> provides and, inside it, you call your <strong>named</strong> function, passing along the <code>target</code> object reference and the <code>color</code> property of the ball.</p>
+<p>Closures are more than just anonymous functions. When you have a function inside of a function, the child function has access to all of its parent's local objects, or <strong>upvalues</strong>. Normally, when a function ends, any <nobr>locally-scoped</nobr> variables go out of scope, so when you call the function again, you begin anew. Consider this example:</p>
+<pre class="brush: lua; gutter: true; first-line: 1;">local function counter()
+
+    local i = 0
+    while i &lt; 10 do
+        i = i + 1
+    end
+    return i
+end
+
+print( counter() )</pre>
+<p>In this case, when you call the <code>counter()</code> function, it will print the value of <code>10</code> because when the function's scope ends, so do its local variables.</p>
+<p>Now let's modify the function to actually return a function that does the counting:</p>
+<pre class="brush: lua; gutter: true; first-line: 1;">local function counter()
+
+    local i = 0
+    return function ()
+        i = i + 1
+        return i
+    end
+end
+
+local counter1 = counter()
+
+print( counter1() )  --> 1
+print( counter1() )  --> 2</pre>
+<p>Following line 10, we have a new function in the <code>counter1</code> variable, and when we run it multiple times, Lua realizes that the anonymous function may still get used and that it should hold on to the current value of <code>i</code> in its current scope. This is what a Lua closure can do for you.</p>
+<p>To expand on this concept, if you were to create another counter, the following results will occur:</p>
+<pre class="brush: lua;">local counter2 = counter()
+
+print( counter1() )  --> 3
+print( counter2() )  --> 1
+print( counter1() )  --> 4
+print( counter2() )  --> 2</pre>
+<p>Essentially, each version of the anonymous function holds its own <code>i</code> and keeps it scoped within itself. So, when you create a second counter, <code>i</code> resets to <code>0</code> for that instance.</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>As you can see, anonymous functions and closures provide a powerful way to keep track of variable instances on a <nobr>per-function</nobr> basis. In the context of Corona, this allows you to pass parameters to functions in which you normally don't control the <nobr>passed-in</nobr> content.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=tutorial.basics.anonymousFunctions.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

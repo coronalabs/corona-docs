@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Corona Native</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../guide/index.html">Guides</a></li>
+<li><a href="../api/index.html">API Reference</a></li>
+<li><a href="../tutorial/index.html">Tutorials</a></li>
+<li><a href="../plugin/index.html">Plugins</a></li>
+<li><a href="../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#coronanative">Corona Native</a><ul>
+<li><a href="#system-requirements">System Requirements</a><ul>
+<li><a href="#desktop-operating-system">Desktop Operating System</a></li>
+<li><a href="#development-tools">Development Tools</a></li>
+</ul></li>
+<li><a href="#getting-started">Getting Started</a><ul>
+<li><a href="#ios">iOS</a></li>
+<li><a href="#android">Android</a></li>
+</ul></li>
+<li><a href="#plugin-development">Plugin Development</a></li>
+<li><a href="#self-hosted-plugins">Self-Hosted Plugins</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../native/index.html">Corona Native</a>
+</div>
+<div id="coronanative" class="section level1">
+<h1>Corona Native</h1>
+<p>Corona Native lets you extend Corona beyond the functionality provided by the Corona Lua APIs (<a href="../api/index.html">reference</a>). For instance, you can use native languages like <nobr>Objective-C</nobr> or Java and pass information between the native code and Lua code. You can also <a href="../native/plugin/index.html">create plugins</a> that make it even easier to get native platform features into apps built with Corona.</p>
+<p>If you don't need to include custom native code in your app, the Corona Simulator is the best tool to use. Get started <a href="../guide/programming/01/index.html">here</a>.</p>
+<div id="system-requirements" class="section level2">
+<h2>System Requirements</h2>
+<div id="desktop-operating-system" class="section level3">
+<h3>Desktop Operating System</h3>
+<ul>
+<li>macOS 10.11 or later for iOS and Android target platforms</li>
+<li>Windows 7 or later for Android target platform</li>
+</ul>
+</div>
+<div id="development-tools" class="section level3">
+<h3>Development Tools</h3>
+<ul>
+<li>iOS — Xcode (minimum version allowed by Apple to submit apps to the App Store)</li>
+<li>Android — Android SDK 24.4.1 or higher, supporting Android platform 6.0 (API Level 23) or above</li>
+</ul>
+</div>
+</div>
+<div id="getting-started" class="section level2">
+<h2>Getting Started</h2>
+<div id="ios" class="section level3">
+<h3>iOS</h3>
+<p>To get started with Corona Native for iOS, please proceed to <a href="../native/ios/index.html">Corona Native — iOS</a>.</p>
+</div>
+<div id="android" class="section level3">
+<h3>Android</h3>
+<p>To get started with Corona Native for Android, please proceed to <a href="../native/android/index.html">Corona Native — Android</a>.</p>
+</div>
+</div>
+<div id="plugin-development" class="section level2">
+<h2>Plugin Development</h2>
+<p>Plugins let you extend Corona functionality, leveraging <nobr>pre-built</nobr> components. You can create plugins that can be <nobr>re-used</nobr> across projects and submit a plugin for availability in the <a href="https://marketplace.coronalabs.com">Corona Marketplace</a>.</p>
+<p>Learn more in our <a href="../native/plugin/index.html">Plugins</a> guide or in our <a href="../native/plugin/submission.html">Plugin Submission Guide</a>.</p>
+</div>
+<div id="self-hosted-plugins" class="section level2">
+<h2>Self-Hosted Plugins</h2>
+<p>Corona Native users who have purchased a <a href="https://marketplace.coronalabs.com/support/priority-plus-support">Priority Plus</a> support plan can enable plugins hosted on <nobr>3rd-party</nobr> servers. Learn more in our <a href="../native/hostedPlugin.html">Self-Hosted Plugins</a> guide.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=native.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

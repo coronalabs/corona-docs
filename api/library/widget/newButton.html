@@ -1,0 +1,648 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries | widget | newButton</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#widget.newbutton">widget.newButton()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#id-optional">id <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#x-y-optional">x, y <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#left-top-optional">left, top <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#isenabled-optional">isEnabled <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#onpress-optional">onPress <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#onrelease-optional">onRelease <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#onevent-optional">onEvent <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#methods">Methods</a><ul>
+<li><a href="#objectsetlabelapi.type.buttonwidget.setlabel"><a href="../../../api/type/ButtonWidget/setLabel.html">object:setLabel()</a></a></li>
+<li><a href="#objectgetlabelapi.type.buttonwidget.getlabel"><a href="../../../api/type/ButtonWidget/getLabel.html">object:getLabel()</a></a></li>
+<li><a href="#objectsetenabledapi.type.buttonwidget.setenabled"><a href="../../../api/type/ButtonWidget/setEnabled.html">object:setEnabled()</a></a></li>
+</ul></li>
+<li><a href="#basic-visual-options">Basic Visual Options</a><ul>
+<li><a href="#label-optional">label <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#labelalign-optional">labelAlign <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#labelcolor-optional">labelColor <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#labelxoffset-labelyoffset-optional">labelXOffset, labelYOffset <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#font-optional">font <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#fontsize-optional">fontSize <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#emboss-optional">emboss <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#textonly-optional">textOnly <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#image-construction">2-Image Construction</a><ul>
+<li><a href="#width-height-required">width, height <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#basedir-optional">baseDir <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#defaultfile-required">defaultFile <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#overfile-optional">overFile <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#frame-construction">2-Frame Construction</a><ul>
+<li><a href="#sheet-required">sheet <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#defaultframe-required">defaultFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#overframe-required">overFrame <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+<li><a href="#shape-construction">Shape Construction</a><ul>
+<li><a href="#shape-required">shape <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#fillcolor-optional">fillColor <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#strokecolor-optional">strokeColor <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#strokewidth-optional">strokeWidth <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#width-height-optional">width, height <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#cornerradius-optional">cornerRadius <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#radius-optional">radius <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#vertices-optional">vertices <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#slice-construction">9-Slice Construction</a><ul>
+<li><a href="#width-height-required-1">width, height <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#sheet-required-1">sheet <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#middleframe-middleframeover-required">middleFrame, middleFrameOver <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#topleftframe-topleftoverframe-required">topLeftFrame, topLeftOverFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#topmiddleframe-topmiddleoverframe-required">topMiddleFrame, topMiddleOverFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#toprightframe-toprightoverframe-required">topRightFrame, topRightOverFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#middlerightframe-middlerightoverframe-required">middleRightFrame, middleRightOverFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#bottomrightframe-bottomrightoverframe-required">bottomRightFrame, bottomRightOverFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#bottommiddleframe-bottommiddleoverframe-required">bottomMiddleFrame, bottomMiddleOverFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#bottomleftframe-bottomleftoverframe-required">bottomLeftFrame, bottomLeftOverFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#middleleftframe-middleleftoverframe-required">middleLeftFrame, middleLeftOverFrame <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#default">Default</a></li>
+<li><a href="#image">2-Image</a></li>
+<li><a href="#frame">2-Frame</a></li>
+<li><a href="#shape">Shape</a></li>
+<li><a href="#slice">9-Slice</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/widget/index.html">widget</a>  ▸  <a href="../../../api/library/widget/newButton.html">newButton</a>
+</div>
+<div id="widget.newbutton" class="section level1">
+<h1>widget.newButton()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../../api/library/widget/index.html">widget.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Return value</strong></td>
+<td align="left"><a href="../../../api/type/ButtonWidget/index.html">ButtonWidget</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">widget, button</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../api/type/ButtonWidget/index.html">ButtonWidget</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Creates a <a href="../../../api/type/ButtonWidget/index.html">ButtonWidget</a> object.</p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">widget.newButton( options )</pre>
+<p>This function takes a single argument, <code>options</code>, which is a table that accepts the following basic parameters:</p>
+<div id="id-optional" class="section level5">
+<h5>id <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> An optional identification string to assign for the button. Default is <code>widget_button</code>.</p>
+</div>
+<div id="x-y-optional" class="section level5">
+<h5>x, y <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> Coordinates for the widget's <strong>x</strong> and <strong>y</strong> center point. These values will be overridden by <code>left</code> and <code>top</code> if those values are defined.</p>
+</div>
+<div id="left-top-optional" class="section level5">
+<h5>left, top <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The left and top position where the widget will be created. If specified, these values override the <code>x</code> and <code>y</code> parameters.</p>
+</div>
+<div id="isenabled-optional" class="section level5">
+<h5>isEnabled <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Boolean.html">Boolean</a>.</em> If <code>false</code>, the button will not respond to touch events. Use <a href="../../../api/type/ButtonWidget/setEnabled.html">button:setEnabled()</a> to enable or disable touch events on a button after creation. Default is <code>true</code> (button is enabled).</p>
+</div>
+<div id="onpress-optional" class="section level5">
+<h5>onPress <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Listener.html">Listener</a>.</em> An optional function to be called when the button is pressed. The callback function does not require testing for <code>event.phase</code> since it only honors <code>&quot;began&quot;</code>.</p>
+</div>
+<div id="onrelease-optional" class="section level5">
+<h5>onRelease <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Listener.html">Listener</a>.</em> An optional function to be called when the user releases the button (assuming the touch is still over the button). The callback function does not require testing for <code>event.phase</code> since it only honors <code>&quot;ended&quot;</code>.</p>
+</div>
+<div id="onevent-optional" class="section level5">
+<h5>onEvent <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Listener.html">Listener</a>.</em> An optional function that should only be specified if <code>onPress</code> and <code>onRelease</code> are not set. This callback function allows you to test for the <code>event.phase</code> of <code>&quot;began&quot;</code>, <code>&quot;moved&quot;</code>, or <code>&quot;ended&quot;</code>.</p>
+</div>
+</div>
+<div id="methods" class="section level2">
+<h2>Methods</h2>
+<div id="objectsetlabelapi.type.buttonwidget.setlabel" class="section level4">
+<h4><a href="../../../api/type/ButtonWidget/setLabel.html">object:setLabel()</a></h4>
+</div>
+<div id="objectgetlabelapi.type.buttonwidget.getlabel" class="section level4">
+<h4><a href="../../../api/type/ButtonWidget/getLabel.html">object:getLabel()</a></h4>
+</div>
+<div id="objectsetenabledapi.type.buttonwidget.setenabled" class="section level4">
+<h4><a href="../../../api/type/ButtonWidget/setEnabled.html">object:setEnabled()</a></h4>
+</div>
+</div>
+<div id="basic-visual-options" class="section level2">
+<h2>Basic Visual Options</h2>
+<p>All buttons accept the following visual parameters in the <code>options</code> table, plus specific parameters for <a href="#2image">2-Image</a>, <a href="#2frame">2-Frame</a>, or <a href="#9slice">9-Slice</a> button type construction.</p>
+<!---
+
+##### width, height
+_[Numbers][api.type.Number]._ These values vary depending on the construction type &mdash; see the appropriate construction section below.
+
+-->
+<div id="label-optional" class="section level5">
+<h5>label <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> Text label that will appear on top of the button.</p>
+</div>
+<div id="labelalign-optional" class="section level5">
+<h5>labelAlign <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> Alignment of the button label. Valid values are <code>left</code>, <code>right</code>, or <code>center</code>. Default is <code>center</code>.</p>
+</div>
+<div id="labelcolor-optional" class="section level5">
+<h5>labelColor <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Table.html">Table</a>.</em> Table of two RGB+A color settings, one each for the <strong>default</strong> and <strong>over</strong> states.</p>
+<pre class="brush: lua;">labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } }</pre>
+</div>
+<div id="labelxoffset-labelyoffset-optional" class="section level5">
+<h5>labelXOffset, labelYOffset <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> Optional <strong>x</strong> and <strong>y</strong> offsets for the button label. For example, <nobr><code>labelYOffset = -8</code></nobr> will shift the label 8 pixels up from default.</p>
+</div>
+<div id="font-optional" class="section level5">
+<h5>font <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> Font used for the button label. Default is <a href="../../../api/library/native/systemFont.html">native.systemFont</a>.</p>
+</div>
+<div id="fontsize-optional" class="section level5">
+<h5>fontSize <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> Font size (in pixels) for the button label. Default is <code>14</code>.</p>
+</div>
+<div id="emboss-optional" class="section level5">
+<h5>emboss <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Boolean.html">Boolean</a>.</em> If set to <code>true</code>, the button label will appear embossed (inset effect).</p>
+</div>
+<div id="textonly-optional" class="section level5">
+<h5>textOnly <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Boolean.html">Boolean</a>.</em> If set to <code>true</code>, the button will be constructed via a text object only <nobr>(no background element)</nobr>. Default is <code>false</code>.</p>
+<p><a id="2image"></a></p>
+</div>
+</div>
+<div id="image-construction" class="section level2">
+<h2>2-Image Construction</h2>
+<p>This is the easiest button to construct — just create two image files, one for the <strong>default</strong> state and another for the <strong>over</strong> state.</p>
+<div class="figure">
+<img src="../../../images/simulator/widget-button-file.png" />
+
+</div>
+<div id="width-height-required" class="section level5">
+<h5>width, height <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The width and height of the image files.</p>
+</div>
+<div id="basedir-optional" class="section level5">
+<h5>baseDir <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Constant.html">Constant</a>.</em> The base directory where your custom images are located. Default is your project folder (<code>system.ResourceDirectory</code>).</p>
+</div>
+<div id="defaultfile-required" class="section level5">
+<h5>defaultFile <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The file name of the button <strong>default</strong> image <nobr>(the un-pressed state)</nobr>.</p>
+</div>
+<div id="overfile-optional" class="section level5">
+<h5>overFile <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The file name of the button <strong>over</strong> image <nobr>(the pressed state)</nobr>.</p>
+<p><a id="2frame"></a></p>
+</div>
+</div>
+<div id="frame-construction" class="section level2">
+<h2>2-Frame Construction</h2>
+<p>This method uses two frames from an <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a> — one frame each for the <strong>default</strong> and <strong>over</strong> states. For this method, include a reference to the image sheet as the <code>sheet</code> parameter. Then specify the frame numbers from the image sheet as <code>defaultFrame</code> and <code>overFrame</code> respectively.</p>
+<div class="figure">
+<img src="../../../images/simulator/widget-button-file.png" />
+
+</div>
+<div id="sheet-required" class="section level5">
+<h5>sheet <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/ImageSheet/index.html">ImageSheet</a>.</em> The <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a> object for the button.</p>
+</div>
+<div id="defaultframe-required" class="section level5">
+<h5>defaultFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The index number for the <strong>default</strong> frame of the button <nobr>(the un-pressed state)</nobr>.</p>
+</div>
+<div id="overframe-required" class="section level5">
+<h5>overFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The index number for the <strong>over</strong> frame of the button <nobr>(the pressed state)</nobr>.</p>
+<p><a id="vector"></a></p>
+</div>
+</div>
+<div id="shape-construction" class="section level2">
+<h2>Shape Construction</h2>
+<p>This method allows you to create buttons using the following built-in Corona shape objects:</p>
+<ul>
+<li><a href="../../../api/library/display/newRect.html">display.newRect()</a></li>
+<li><a href="../../../api/library/display/newRoundedRect.html">display.newRoundedRect()</a></li>
+<li><a href="../../../api/library/display/newCircle.html">display.newCircle()</a></li>
+<li><a href="../../../api/library/display/newPolygon.html">display.newPolygon()</a></li>
+</ul>
+<div class="figure">
+<img src="../../../images/simulator/widget-button-shapes.png" />
+
+</div>
+<div id="shape-required" class="section level5">
+<h5>shape <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> Defines which shape to use for the button body (background). Valid options are <code>&quot;rect&quot;</code>, <code>&quot;roundedRect&quot;</code>, <code>&quot;circle&quot;</code>, or <code>&quot;polygon&quot;</code>.</p>
+</div>
+<div id="fillcolor-optional" class="section level5">
+<h5>fillColor <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Table.html">Table</a>.</em> Table of two RGB+A color settings, one each for the default and over states. These colors define the fill color of the shape.</p>
+<pre class="brush: lua;">fillColor = { default={ 1, 0.2, 0.5, 0.7 }, over={ 1, 0.2, 0.5, 1 } }</pre>
+</div>
+<div id="strokecolor-optional" class="section level5">
+<h5>strokeColor <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Table.html">Table</a>.</em> Table of two RGB+A color settings, one each for the default and over states. These colors define the stroke color of the shape.</p>
+<pre class="brush: lua;">strokeColor = { default={ 0, 0, 0 }, over={ 0.4, 0.1, 0.2 } }</pre>
+</div>
+<div id="strokewidth-optional" class="section level5">
+<h5>strokeWidth <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The width of the stroke around the shape object. Applies only if <code>strokeColor</code> is defined.</p>
+</div>
+<div id="width-height-optional" class="section level5">
+<h5>width, height <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The width and height of the button shape. Only applies to <code>&quot;rect&quot;</code> or <code>&quot;roundedRect&quot;</code> shapes.</p>
+</div>
+<div id="cornerradius-optional" class="section level5">
+<h5>cornerRadius <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> Radius of the curved corners for a <code>&quot;roundedRect&quot;</code> shape. This value is ignored for all other shapes.</p>
+</div>
+<div id="radius-optional" class="section level5">
+<h5>radius <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> Radius for a <code>&quot;circle&quot;</code> shape. This value is ignored for all other shapes.</p>
+</div>
+<div id="vertices-optional" class="section level5">
+<h5>vertices <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Array.html">Array</a>.</em> An array of <strong>x</strong> and <strong>y</strong> coordinates to define a <code>&quot;polygon&quot;</code> shape. These coordinates will automatically be <nobr>re-centered</nobr> about the center of the polygon, and the polygon will be centered in relation to the button label. This property is ignored for all other shapes.</p>
+<pre class="brush: lua;">vertices = { -20, -25, 40, 0, -20, 25 }</pre>
+<p><a id="9slice"></a></p>
+</div>
+</div>
+<div id="slice-construction" class="section level2">
+<h2>9-Slice Construction</h2>
+<p>This method uses 9 slices from an <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a> which are assembled internally to create <nobr>flexible-sized</nobr> buttons. As indicated in the following image, the 9 slices consist of the 4 corners (red), the 2 horizontal sides (green), the 2 vertical sides (yellow), and the middle fill. Depending on the size of the button, the corners will remain at the size stated in the image sheet, but the sides and middle will stretch to fill the entire width and height. Note that 18 slices are necessary to construct the entire button: 9 slices each for the <strong>default</strong> and <strong>over</strong> states.</p>
+<div class="figure">
+<img src="../../../images/simulator/widget-button-9slice.png" />
+
+</div>
+<div id="width-height-required-1" class="section level5">
+<h5>width, height <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The flexible width and height of the 9-slice button.</p>
+</div>
+<div id="sheet-required-1" class="section level5">
+<h5>sheet <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/ImageSheet/index.html">ImageSheet</a>.</em> The <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a> object for the button.</p>
+</div>
+<div id="middleframe-middleframeover-required" class="section level5">
+<h5>middleFrame, middleFrameOver <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The <strong>default</strong> <nobr>(un-pressed)</nobr> and <strong>over</strong> (pressed) frames of the middle fill region.</p>
+</div>
+<div id="topleftframe-topleftoverframe-required" class="section level5">
+<h5>topLeftFrame, topLeftOverFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The <strong>default</strong> <nobr>(un-pressed)</nobr> and <strong>over</strong> (pressed) frames of the <nobr>top-left</nobr> corner.</p>
+</div>
+<div id="topmiddleframe-topmiddleoverframe-required" class="section level5">
+<h5>topMiddleFrame, topMiddleOverFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The <strong>default</strong> <nobr>(un-pressed)</nobr> and <strong>over</strong> (pressed) frames of the <nobr>top-middle</nobr> side.</p>
+</div>
+<div id="toprightframe-toprightoverframe-required" class="section level5">
+<h5>topRightFrame, topRightOverFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The <strong>default</strong> <nobr>(un-pressed)</nobr> and <strong>over</strong> (pressed) frames of the <nobr>top-right</nobr> corner.</p>
+</div>
+<div id="middlerightframe-middlerightoverframe-required" class="section level5">
+<h5>middleRightFrame, middleRightOverFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The <strong>default</strong> <nobr>(un-pressed)</nobr> and <strong>over</strong> (pressed) frames of the <nobr>middle-right</nobr> side.</p>
+</div>
+<div id="bottomrightframe-bottomrightoverframe-required" class="section level5">
+<h5>bottomRightFrame, bottomRightOverFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The <strong>default</strong> <nobr>(un-pressed)</nobr> and <strong>over</strong> (pressed) frames of the <nobr>bottom-right</nobr> corner.</p>
+</div>
+<div id="bottommiddleframe-bottommiddleoverframe-required" class="section level5">
+<h5>bottomMiddleFrame, bottomMiddleOverFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The <strong>default</strong> <nobr>(un-pressed)</nobr> and <strong>over</strong> (pressed) frames of the <nobr>bottom-middle</nobr> side.</p>
+</div>
+<div id="bottomleftframe-bottomleftoverframe-required" class="section level5">
+<h5>bottomLeftFrame, bottomLeftOverFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The <strong>default</strong> <nobr>(un-pressed)</nobr> and <strong>over</strong> (pressed) frames of the <nobr>bottom-left</nobr> corner.</p>
+</div>
+<div id="middleleftframe-middleleftoverframe-required" class="section level5">
+<h5>middleLeftFrame, middleLeftOverFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The <strong>default</strong> <nobr>(un-pressed)</nobr> and <strong>over</strong> (pressed) frames of the <nobr>middle-left</nobr> side.</p>
+</div>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<div id="default" class="section level5">
+<h5>Default</h5>
+<pre class="brush: lua;">local widget = require( "widget" )
+
+-- Function to handle button events
+local function handleButtonEvent( event )
+
+    if ( "ended" == event.phase ) then
+        print( "Button was pressed and released" )
+    end
+end
+
+-- Create the widget
+local button1 = widget.newButton(
+    {
+        left = 100,
+        top = 200,
+        id = "button1",
+        label = "Default",
+        onEvent = handleButtonEvent
+    }
+)</pre>
+</div>
+<div id="image" class="section level5">
+<h5>2-Image</h5>
+<pre class="brush: lua;">local widget = require( "widget" )
+
+-- Function to handle button events
+local function handleButtonEvent( event )
+
+    if ( "ended" == event.phase ) then
+        print( "Button was pressed and released" )
+    end
+end
+
+local button1 = widget.newButton(
+    {
+        width = 240,
+        height = 120,
+        defaultFile = "buttonDefault.png",
+        overFile = "buttonOver.png",
+        label = "button",
+        onEvent = handleButtonEvent
+    }
+)
+
+-- Center the button
+button1.x = display.contentCenterX
+button1.y = display.contentCenterY
+
+-- Change the button's label text
+button1:setLabel( "2-Image" )</pre>
+</div>
+<div id="frame" class="section level5">
+<h5>2-Frame</h5>
+<pre class="brush: lua;">local widget = require( "widget" )
+
+-- Function to handle button events
+local function handleButtonEvent( event )
+
+    if ( "ended" == event.phase ) then
+        print( "Button was pressed and released" )
+    end
+end
+
+-- Image sheet options and declaration
+-- For testing, you may copy/save the image under "2-Frame Construction" above
+local options = {
+    width = 240,
+    height = 120,
+    numFrames = 2,
+    sheetContentWidth = 480,
+    sheetContentHeight = 120
+}
+local buttonSheet = graphics.newImageSheet( "widget-button-file.png", options )
+
+-- Create the widget
+local button1 = widget.newButton(
+    {
+        sheet = buttonSheet,
+        defaultFrame = 1,
+        overFrame = 2,
+        label = "button",
+        onEvent = handleButtonEvent
+    }
+)
+
+-- Center the button
+button1.x = display.contentCenterX
+button1.y = display.contentCenterY
+
+-- Change the button's label text
+button1:setLabel( "2-Frame" )</pre>
+</div>
+<div id="shape" class="section level5">
+<h5>Shape</h5>
+<pre class="brush: lua;">local widget = require( "widget" )
+
+-- Function to handle button events
+local function handleButtonEvent( event )
+
+    if ( "ended" == event.phase ) then
+        print( "Button was pressed and released" )
+    end
+end
+
+-- Create the widget
+local button1 = widget.newButton(
+    {
+        label = "button",
+        onEvent = handleButtonEvent,
+        emboss = false,
+        -- Properties for a rounded rectangle button
+        shape = "roundedRect",
+        width = 200,
+        height = 40,
+        cornerRadius = 2,
+        fillColor = { default={1,0,0,1}, over={1,0.1,0.7,0.4} },
+        strokeColor = { default={1,0.4,0,1}, over={0.8,0.8,1,1} },
+        strokeWidth = 4
+    }
+)
+
+-- Center the button
+button1.x = display.contentCenterX
+button1.y = display.contentCenterY
+
+-- Change the button's label text
+button1:setLabel( "Shape" )</pre>
+</div>
+<div id="slice" class="section level5">
+<h5>9-Slice</h5>
+<pre class="brush: lua;">local widget = require( "widget" )
+
+-- Function to handle button events
+local function handleButtonEvent( event )
+
+    if ( "ended" == event.phase ) then
+        print( "Button was pressed and released" )
+    end
+end
+
+-- Image sheet options and declaration
+-- For testing, you may copy/save the image under "9-Slice Construction" above
+local options = {
+    frames =
+    {
+        { x=0, y=0, width=21, height=21 },
+        { x=21, y=0, width=198, height=21 },
+        { x=219, y=0, width=21, height=21 },
+        { x=0, y=21, width=21, height=78 },
+        { x=21, y=21, width=198, height=78 },
+        { x=219, y=21, width=21, height=78 },
+        { x=0, y=99, width=21, height=21 },
+        { x=21, y=99, width=198, height=21 },
+        { x=219, y=99, width=21, height=21 },
+        { x=240, y=0, width=21, height=21 },
+        { x=261, y=0, width=198, height=21 },
+        { x=459, y=0, width=21, height=21 },
+        { x=240, y=21, width=21, height=78 },
+        { x=261, y=21, width=198, height=78 },
+        { x=459, y=21, width=21, height=78 },
+        { x=240, y=99, width=21, height=21 },
+        { x=261, y=99, width=198, height=21 },
+        { x=459, y=99, width=21, height=21 }
+    },
+    sheetContentWidth = 480,
+    sheetContentHeight = 120
+}
+local buttonSheet = graphics.newImageSheet( "widget-button-9slice.png", options )
+
+-- Create the widget
+local button1 = widget.newButton(
+    {
+        width = 340,
+        height = 100,
+        sheet = buttonSheet,
+        topLeftFrame = 1,
+        topMiddleFrame = 2,
+        topRightFrame = 3,
+        middleLeftFrame = 4,
+        middleFrame = 5,
+        middleRightFrame = 6,
+        bottomLeftFrame = 7,
+        bottomMiddleFrame = 8,
+        bottomRightFrame = 9,
+        topLeftOverFrame = 10,
+        topMiddleOverFrame = 11,
+        topRightOverFrame = 12,
+        middleLeftOverFrame = 13,
+        middleOverFrame = 14,
+        middleRightOverFrame = 15,
+        bottomLeftOverFrame = 16,
+        bottomMiddleOverFrame = 17,
+        bottomRightOverFrame = 18,
+        label = "button"
+    }
+)
+
+-- Center the button
+button1.x = display.contentCenterX
+button1.y = display.contentCenterY
+
+-- Change the button's label text
+button1:setLabel( "9-Slice" )</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.widget.newButton&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

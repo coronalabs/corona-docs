@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Getting Started</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#chapter-4-creating-scenes">Chapter 4 — Creating Scenes</a><ul>
+<li><a href="#game-flow">Game Flow</a></li>
+<li><a href="#scene-management">Scene Management</a></li>
+<li><a href="#menu-scene">Menu Scene</a><ul>
+<li><a href="#including-images">Including Images</a></li>
+<li><a href="#scene-setup">Scene Setup</a></li>
+<li><a href="#accessible-code">Accessible Code</a></li>
+<li><a href="#scene-events">Scene Events</a></li>
+<li><a href="#scene-creation">Scene Creation</a></li>
+</ul></li>
+<li><a href="#chapter-concepts">Chapter Concepts</a></li>
+<li><a href="#section"></a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/programming/index.html">Getting Started</a>
+</div>
+<div id="chapter-4-creating-scenes" class="section level1">
+<h1>Chapter 4 — Creating Scenes</h1>
+<div class="walkthrough-nav">
+<div class="walkthrough-nav-upper-right">
+<p><strong>⟨</strong> <a href="../../../guide/programming/03/index.html">Previous</a> <em>|</em> <a href="../../../guide/programming/05/index.html">Next</a> <strong>⟩</strong></p>
+</div>
+</div>
+<p>Just as movies, television shows, and plays are organized into scenes for the telling of a story, apps are similarly arranged. In this chapter, you'll learn the basics of <strong>scene management</strong> in Corona.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#scenes">Game Flow</a></li>
+<li><a href="#composer">Scene Management</a></li>
+<li><a href="#menu">Menu Scene</a></li>
+<li><a href="#concepts">Chapter Concepts</a></li>
+</ul>
+</div>
+<p><a id="scenes"></a></p>
+<div id="game-flow" class="section level2">
+<h2>Game Flow</h2>
+<p>A <strong>scene</strong> is an isolated view or &quot;page&quot; of the app and everything that the player sees is contained in that scene. When an app starts, you're usually presented with a title/intro scene. From there, you may be able to navigate to a settings scene or proceed to a tutorial. Each level in a game might also be a dedicated scene, depending on the design goals.</p>
+<p>This game will have three core scenes:</p>
+<div class="float-right" style="max-width: 240px; clear: left;">
+<div class="figure">
+<img src="../../../images/docs/sbs-scene-diagram.png" />
+
+</div>
+</div>
+<ol style="list-style-type: decimal">
+<li><strong>Menu</strong> — Title/intro scene containing various options.</li>
+<li><strong>Game</strong> — The actual game scene.</li>
+<li><strong>High Scores</strong> — A list of high scores.</li>
+</ol>
+<p><a id="composer"></a></p>
+</div>
+<div id="scene-management" class="section level2">
+<h2>Scene Management</h2>
+<p>Corona uses a system called <strong>Composer</strong> to handle moving from scene to scene. To make development easier, each Composer scene is a separate Lua file — this helps keep your game more organized.</p>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>In this chapter, we're going to make changes to your previous code that will <strong>temporarily</strong> create errors in the Simulator. For now, you can either ignore the errors or exit the Simulator until you're ready to see the results.</p>
+</div>
+</div>
+<p>Let's modify the existing project to use Composer:</p>
+<ol style="list-style-type: decimal">
+<li><p>Within your project folder, make a <strong>copy</strong> of the <code>main.lua</code> file and rename it to <code>main_original.lua</code>. We will need this original code in the next chapter, so it's important to keep a copy for reference.</p></li>
+<li><p>Using your chosen text editor, open the <code>main.lua</code> file (not the copy). In this file, erase <strong>all</strong> of your previous code — remember, you still have the copy to work with later.</p></li>
+<li><p>In its place, add the following commands:</p></li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: true; first-line: 7;">local composer = require( "composer" )
+
+-- Hide status bar
+display.setStatusBar( display.HiddenStatusBar )
+
+-- Seed the random number generator
+math.randomseed( os.time() )
+
+-- Go to the menu screen
+composer.gotoScene( "menu" )</pre>
+</div>
+<p>Let's inspect these commands in a little more detail:</p>
+<ul>
+<li><p>The first line, <nobr><code>local composer = require( &quot;composer&quot; )</code></nobr>, creates a local variable called <code>composer</code>, and the <code>require()</code> command tells Corona to load all of the information about the Composer scene management library into the app.</p></li>
+<li><p>The next command hides the status bar at the top of the device. Although you included this line in the previous chapter's code, it's logical to hide the status bar within <code>main.lua</code> of any <nobr>Composer-enabled</nobr> app so that it never appears in any scene.</p></li>
+<li><p>Next, we set the &quot;seed&quot; for the <nobr>pseudo-random</nobr> number generator (recall that this command was included in our original project). Essentially, if you're using <a href="../../../api/library/math/random.html">math.random()</a> anywhere in an app, it's a good idea to call <a href="../../../api/library/math/randomseed.html">math.randomseed()</a> inside <code>main.lua</code> so that the seed is reset each and every time the app runs.</p></li>
+<li><p>Just one more command and we're finished with <code>main.lua</code>. The <nobr><code>composer.gotoScene( &quot;menu&quot; )</code></nobr> command takes advantage of the first line where we loaded Composer into the app. By doing so, we can now use this <code>composer.gotoScene()</code> command to tell Corona to load a different scene. As mentioned earlier, each of our scenes will be contained in their own Lua files: <code>menu.lua</code>, <code>game.lua</code>, and <code>highscores.lua</code>.</p></li>
+</ul>
+<div class="code-indent">
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>For this command, you don't need to include <code>.lua</code> in the quotation marks because Corona already expects the file to have the <code>.lua</code> extension. Thus, you can simply use <code>&quot;menu&quot;</code> to go to the scene that will be contained in <code>menu.lua</code>.</p>
+<pre class="brush: lua;">composer.gotoScene( "menu" )</pre>
+</div>
+</div>
+</div>
+<p>That's it for <code>main.lua</code> — remember to save your changes! Unlike the previous project, this <code>main.lua</code> file is very short because we're only using it to initialize Composer, hide the status bar, seed the random number generator, and move to the menu scene where the action starts.</p>
+<p><a id="menu"></a></p>
+</div>
+<div id="menu-scene" class="section level2">
+<h2>Menu Scene</h2>
+<p>It's time to create our first scene! The menu scene will consist of a background, title image, and two text objects which will behave as buttons.</p>
+<div class="docs-tip-outer" style="background-color: #ffa752;">
+<div class="docs-tip-inner-left">
+<div class="fa fa-check-square" style="font-size: 34px; padding-left: 1px; padding-top: 4px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>When using Composer for scene management, we suggest that you begin with our standard <strong>scene template</strong> <nobr>(<code>scene-template.lua</code>)</nobr>, included with this chapter's <a href="https://github.com/coronalabs/GettingStarted04/archive/master.zip">source files</a>. Please obtain this template file before you proceed further.</p>
+</div>
+</div>
+<div id="including-images" class="section level3">
+<h3>Including Images</h3>
+<p>For this scene, you'll need to copy or create one additional image file and place it within your <code>StarExplorer</code> project folder. The default image is available for download as part of this chapter's <a href="https://github.com/coronalabs/GettingStarted04/archive/master.zip">source files</a>.</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">File</th>
+<th align="left">Size (w×h)</th>
+<th align="left">Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>title.png</code></td>
+<td align="left">500 × 80</td>
+<td align="left">The game title image; will overlay our existing stars background.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="scene-setup" class="section level3">
+<h3>Scene Setup</h3>
+<p>Once you have the <nobr><code>scene-template.lua</code></nobr> file, make a copy of it. Rename this <strong>copy</strong> to <code>menu.lua</code> and place it inside your <code>StarExplorer</code> project folder. Using your text editor, open this <code>menu.lua</code> file and briefly inspect it. It may look overwhelming, but don't worry, we'll step through it together.</p>
+<p>To begin, inspect these initial two commands:</p>
+<pre class="brush: lua; gutter: true; highlight: [2,4]; first-line: 2;">local composer = require( "composer" )
+
+local scene = composer.newScene()</pre>
+<p>The first line, <nobr><code>local composer = require( &quot;composer&quot; )</code></nobr>, tells Corona to utilize the Composer library in this Lua file. This line must be included in every Composer scene.</p>
+<p>The second line, <nobr><code>local scene = composer.newScene()</code></nobr>, essentially creates a new variable named <code>scene</code> that holds a Composer scene object. This variable (<code>scene</code>) will become important later in the file, as you'll see shortly.</p>
+</div>
+<div id="accessible-code" class="section level3">
+<h3>Accessible Code</h3>
+<p>Next, you'll see a comment block talking about the execution of <strong>scene event functions</strong>, followed by a few blank lines. This is where you should usually write your functions which pertain to scene behavior, declare variables which the scene must have persistent access to, etc. Don't worry too much about this now — you'll learn how it all works as we go along.</p>
+<p>For this menu screen, we only need two simple functions:</p>
+<ol style="list-style-type: decimal">
+<li>The <code>gotoGame()</code> function which tells Composer to move to the game scene (we'll create this scene in the next chapter).</li>
+<li>The <code>gotoHighScores()</code> function that will show the high scores scene (we'll create this scene in a later chapter).</li>
+</ol>
+<p>Let's write these functions in this <nobr>scene-accessible</nobr> space:</p>
+<pre class="brush: lua; gutter: true; highlight: [11,12,13,15,16,17]; first-line: 6;">-- -----------------------------------------------------------------------------------
+-- Code outside of the scene event functions below will only be executed ONCE unless
+-- the scene is removed entirely (not recycled) via "composer.removeScene()"
+-- -----------------------------------------------------------------------------------
+
+local function gotoGame()
+    composer.gotoScene( "game" )
+end
+
+local function gotoHighScores()
+    composer.gotoScene( "highscores" )
+end</pre>
+<p>These functions are about as basic as they come — each contains just one command, <nobr><code>composer.gotoScene()</code></nobr> , which you'll recognize from earlier as the Composer command to change scenes.</p>
+</div>
+<div id="scene-events" class="section level3">
+<h3>Scene Events</h3>
+<p>Following this, you'll see a section reserved for <strong>scene event functions</strong>. Composer scenes can utilize four (4) life cycle events, each triggered at different points in the scene's life:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Scene Event</th>
+<th align="left">Life Cycle Point</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>create</strong></td>
+<td align="left">Occurs when the scene is first created but has not yet appeared on screen.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>show</strong></td>
+<td align="left">Occurs twice, immediately before and immediately after the scene appears on screen.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>hide</strong></td>
+<td align="left">Occurs twice, immediately before and immediately after the scene exits the screen.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>destroy</strong></td>
+<td align="left">Occurs if the scene is destroyed.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Our standard template can handle all four events, but the <strong>create</strong> event is what we'll focus on in this scene. A bit further down in the file, inspect the following highlighted code:</p>
+<pre class="brush: lua; gutter: true; highlight: [25,26,27,28,29,30]; first-line: 20;">-- -----------------------------------------------------------------------------------
+-- Scene event functions
+-- -----------------------------------------------------------------------------------
+
+-- create()
+function scene:create( event )
+
+    local sceneGroup = self.view
+    -- Code here runs when the scene is first created but has not yet appeared on screen
+
+end</pre>
+<p>As you recall, the keyword <code>function</code> tells Corona that this block of code is a function. However, this declaration varies slightly — instead of prefacing <code>function</code> with the <code>local</code> keyword, we use the Lua <strong>object method</strong> discussed in the first chapter to associate this function with the <code>scene</code> variable created near the top of the file <nobr>(<code>local scene = composer.newScene()</code>)</nobr>.</p>
+<p>Essentially, <nobr><code>:create( event )</code></nobr> indicates that this function will be associated with the Composer <strong>create</strong> scene event and that a table of data that we reference with <code>event</code> will be passed to the function.</p>
+</div>
+<div id="scene-creation" class="section level3">
+<h3>Scene Creation</h3>
+<p>The <code>scene:create()</code> function is already set up for you, but it doesn't really do anything yet. Let's start modifying it to create the actual scene.</p>
+<p>First, inspect the initial line already inside the function, <code>local sceneGroup = self.view</code>:</p>
+<pre class="brush: lua; gutter: true; highlight: [27]; first-line: 25;">function scene:create( event )
+
+    local sceneGroup = self.view
+    -- Code here runs when the scene is first created but has not yet appeared on screen
+
+end</pre>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>This important line creates a local reference to the scene's <strong>view</strong> group, automatically created by Composer, which should contain all of the display objects used in the scene. Essentially, any display object which should be part of the scene <strong>must</strong> be inserted into the scene's view group, and that group is referenced by <code>sceneGroup</code> inside each of the template's default <code>scene:</code> functions.</p>
+</div>
+</div>
+<p>Following the <nobr><code>local sceneGroup = self.view</code></nobr> command, enter the following highlighted lines to add a background image to the scene. For this project, we'll simply use the same background image (<code>background.png</code>) that we used for the actual game in the previous chapter, although you're free to use a different image.</p>
+<pre class="brush: lua; gutter: true; highlight: [30,31,32]; first-line: 25;">function scene:create( event )
+
+    local sceneGroup = self.view
+    -- Code here runs when the scene is first created but has not yet appeared on screen
+
+    local background = display.newImageRect( sceneGroup, "background.png", 800, 1400 )
+    background.x = display.contentCenterX
+    background.y = display.contentCenterY
+end</pre>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Pertaining directly to the important note above, we insert this background image into <code>sceneGroup</code> so that it will be automatically managed by Composer as part of this scene.</p>
+</div>
+</div>
+<p>Next, let's add the title image to the scene with these commands:</p>
+<pre class="brush: lua; gutter: true; highlight: [34,35,36]; first-line: 30;">    local background = display.newImageRect( sceneGroup, "background.png", 800, 1400 )
+    background.x = display.contentCenterX
+    background.y = display.contentCenterY
+
+    local title = display.newImageRect( sceneGroup, "title.png", 500, 80 )
+    title.x = display.contentCenterX
+    title.y = 200
+end</pre>
+<p>Finally, let's create two objects which will become menu choices for the player. One will prompt the player to start the game and the other will load the high scores scene. For simplicity at this point, we'll use text objects instead of graphical buttons:</p>
+<pre class="brush: lua; gutter: true; highlight: [38,39,41,42]; first-line: 34;">    local title = display.newImageRect( sceneGroup, "title.png", 500, 80 )
+    title.x = display.contentCenterX
+    title.y = 200
+    
+    local playButton = display.newText( sceneGroup, "Play", display.contentCenterX, 700, native.systemFont, 44 )
+    playButton:setFillColor( 0.82, 0.86, 1 )
+
+    local highScoresButton = display.newText( sceneGroup, "High Scores", display.contentCenterX, 810, native.systemFont, 44 )
+    highScoresButton:setFillColor( 0.75, 0.78, 1 )
+end</pre>
+<div class="float-right" style="max-width: 240px; margin-top: 16px; margin-bottom: 16px; clear: both;">
+<div class="figure">
+<img src="../../../images/docs/sbs-starexplorer-10.png" />
+
+</div>
+</div>
+<div class="docs-tip-outer docs-tip-color-action">
+<div class="docs-tip-inner-left">
+<div class="fa fa-video-camera" style="font-size: 29px; padding-top: 4px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Let's check the result of our code so far. Save your modified <code>menu.lua</code> file and then relaunch/restart the Simulator. If all went well, the menu background and text buttons should now be showing.</p>
+</div>
+</div>
+<p>Finally, now that we have our visual objects in place, let's tie together the scene functionality. This will be similar to the previous project where we made the balloon detect the player's taps. Each text object will have its own tap handler which will call the <code>gotoGame()</code> and <code>gotoHighScores()</code> functions respectively.</p>
+<p>Following the previous commands, add the following highlighted lines:</p>
+<pre class="brush: lua; gutter: true; highlight: [44,45]; first-line: 38;">    local playButton = display.newText( sceneGroup, "Play", display.contentCenterX, 700, native.systemFont, 44 )
+    playButton:setFillColor( 0.82, 0.86, 1 )
+
+    local highScoresButton = display.newText( sceneGroup, "High Scores", display.contentCenterX, 810, native.systemFont, 44 )
+    highScoresButton:setFillColor( 0.75, 0.78, 1 )
+
+    playButton:addEventListener( "tap", gotoGame )
+    highScoresButton:addEventListener( "tap", gotoHighScores )
+end</pre>
+<p>This should be clear — each command simply adds a <code>&quot;tap&quot;</code> event listener to the appropriate text object. With these in place, the <code>gotoGame()</code> function that we wrote earlier will be called when the player taps anywhere on the <code>playButton</code> text, and likewise for <code>gotoHighScores()</code> when the <code>highScoresButton</code> text is tapped.</p>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Tapping either of the buttons now will result in an error because we haven't yet created the target scenes. In the next chapter, we will convert our previous game code into the <code>game.lua</code> Composer scene, and later create the <code>highscores.lua</code> scene as well.</p>
+</div>
+</div>
+<div class="docs-tip-outer" style="background-color: #ffa752;">
+<div class="docs-tip-inner-left">
+<div class="fa fa-check-square" style="font-size: 34px; padding-left: 1px; padding-top: 4px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>If your code isn't working as expected, please compare it to the <code>menu.lua</code> file bundled with this chapter's <a href="https://github.com/coronalabs/GettingStarted04/archive/master.zip">source files</a>. Fortunately, this scene is relatively easy because we only need to account for its <code>scene:create()</code> function.</p>
+</div>
+</div>
+<p><a id="concepts"></a></p>
+</div>
+</div>
+<div id="chapter-concepts" class="section level2">
+<h2>Chapter Concepts</h2>
+<p>We've introduced just a couple more concepts in this chapter, both related to Composer:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Command/Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/composer/newScene.html">composer.newScene()</a></td>
+<td align="left">Creates a new scene object which can be used with the Composer library.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a></td>
+<td align="left">Transitions to a specific Composer scene.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section" class="section level2">
+<h2></h2>
+<div class="walkthrough-nav">
+<p><strong>⟨</strong> <a href="../../../guide/programming/03/index.html">Chapter 3 — Bringing it to Life</a> <em>|</em> <a href="../../../guide/programming/05/index.html">Chapter 5 — Converting the Game to Composer</a> <strong>⟩</strong></p>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.programming.04.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

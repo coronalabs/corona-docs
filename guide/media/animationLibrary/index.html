@@ -1,0 +1,743 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Graphics/Audio/Animation</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#animation-tweens-and-timelines">Animation — Tweens and Timelines</a><ul>
+<li><a href="#plugin-features">Plugin Features</a></li>
+<li><a href="#tweens">Tweens</a><ul>
+<li><a href="#tween-target">Tween Target</a></li>
+<li><a href="#object-properties">Object Properties</a></li>
+<li><a href="#control-parameters">Control Parameters</a></li>
+<li><a href="#easing-functions">Easing Functions</a></li>
+<li><a href="#tween-events">Tween Events</a></li>
+</ul></li>
+<li><a href="#timelines">Timelines</a><ul>
+<li><a href="#timeline-tweens">Timeline Tweens</a></li>
+<li><a href="#timeline-markers">Timeline Markers</a></li>
+<li><a href="#other-parameters">Other Parameters</a></li>
+<li><a href="#timeline-events">Timeline Events</a></li>
+</ul></li>
+<li><a href="#controlling-tweenstimelines">Controlling Tweens/Timelines</a></li>
+<li><a href="#tweentimeline-status">Tween/Timeline Status</a></li>
+<li><a href="#custom-easing-functions">Custom Easing Functions</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/media/index.html">Graphics/Audio/Animation</a>
+</div>
+<div id="animation-tweens-and-timelines" class="section level1">
+<h1>Animation — Tweens and Timelines</h1>
+<p>This guide discusses how to use the Corona <a href="../../../plugin/animation/index.html">animation</a> plugin to move, rotate, fade, or scale a display object/group over a specific period of time. It also outlines how to use <a href="#timelines">timelines</a> to construct intricate <nobr>multi-interpolation</nobr> animations across one or more display objects/groups.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#features">Plugin Features</a></li>
+<li><a href="#tweens">Tweens</a></li>
+<li><a href="#timelines">Timelines</a></li>
+<li><a href="#control">Controlling Tweens/Timelines</a></li>
+<li><a href="#status">Tween/Timeline Status</a></li>
+<li><a href="#custom-easing">Custom Easing Functions</a></li>
+</ul>
+</div>
+<p><a id="features"></a></p>
+<div id="plugin-features" class="section level2">
+<h2>Plugin Features</h2>
+<ul>
+<li><p>Ability to move, rotate, fade, or scale a display object/group over a specific period of time.</p></li>
+<li><p>Ability to construct and control <a href="#timelines">timelines</a> for intricate <nobr>multi-interpolation</nobr> animations.</p></li>
+<li><p>Over 40 <a href="../../../api/library/easing/index.html">easing</a> methods. These allow you to adjust the interpolation using methods such as quadratic, exponential, elastic, bounce, etc.</p></li>
+<li><p>Programmatically move/set the playback position within a tween or timeline.</p></li>
+<li><p>Programmatically adjust the playback speed scale of any tween or timeline.</p></li>
+<li><p>Repeat (iterate) a tween any number of times (or indefinitely) with the option to reflect alternating iterations in reverse.</p></li>
+<li><p>Ability to interpolate multiple objects at a constant rate, even if they don't share the same initial/final position, rotation, alpha, or scale.</p></li>
+<li><p>Multiple event triggers to detect when a tween/timeline starts, completes, pauses, resumes, etc.</p></li>
+<li><p>Ability to tag multiple tweens/timelines by name and then pause, resume, or cancel all of them with one command.</p></li>
+<li><p>Ability to pause, resume, or cancel all tweens on an <nobr>object-wide</nobr> basis.</p></li>
+</ul>
+<p><a id="tweens"></a></p>
+</div>
+<div id="tweens" class="section level2">
+<h2>Tweens</h2>
+<p>A basic <strong>tween</strong> can be initiated using one of these functions:</p>
+<ul>
+<li><p><a href="../../../plugin/animation/to.html">animation.to()</a> — This function animates (interpolates) properties of an object using an optional easing function. This is the most common animation call for basic tweens.</p></li>
+<li><p><a href="../../../plugin/animation/from.html">animation.from()</a> — This is similar to <code>animation.to()</code> except that the starting property values are specified in the parameters table and the final values are the corresponding property values of the object prior to the call.</p></li>
+</ul>
+<p>The basic syntax for these functions is:</p>
+<pre class="brush: lua;">animation.to( target, properties, params )</pre>
+<pre class="brush: lua;">animation.from( target, properties, params )</pre>
+<div id="tween-target" class="section level3">
+<h3>Tween Target</h3>
+<p>The first argument in either function, <code>target</code>, will most often be a <a href="../../../guide/media/displayObjects/index.html">display object</a> or <a href="../../../api/library/display/newGroup.html">display group</a> that you wish to animate. However, for more specialized cases, it can also be a <a href="../../../api/type/RectPath/index.html">RectPath</a> point for <a href="../../../guide/graphics/3D.html#quadrilateral-distortion">quadrilateral distortion</a>, a table of <nobr>RGB+A</nobr> color channels for a <a href="../../../api/type/Paint/index.html">Paint</a> fill, or a <a href="../../../api/type/Paint/effect.html">fill.effect</a> property.</p>
+</div>
+<div id="object-properties" class="section level3">
+<h3>Object Properties</h3>
+<p>The second argument, <code>properties</code>, is a table of <nobr>key-value</nobr> pairs. Inside this table, specify each desired <strong>property</strong> to change along with its final value (starting value if using <code>animation.from()</code>).</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Interpolation</th>
+<th align="left">Properties (Keys)</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">movement</td>
+<td align="left"><code>x</code>, <code>y</code></td>
+<td align="left">Moves an object to/from a specific <strong>x</strong> or <strong>y</strong> coordinate.</td>
+</tr>
+<tr class="even">
+<td align="left">rotation</td>
+<td align="left"><code>rotation</code></td>
+<td align="left">Rotates an object to/from an angle to another.</td>
+</tr>
+<tr class="odd">
+<td align="left">fading in/out</td>
+<td align="left"><code>alpha</code></td>
+<td align="left">Fades an object to/from an alpha value to another.</td>
+</tr>
+<tr class="even">
+<td align="left">scaling up/down</td>
+<td align="left"><code>xScale</code>, <code>yScale</code></td>
+<td align="left">Scales an object to/from a specific <strong>x</strong> ratio or <strong>y</strong> ratio.</td>
+</tr>
+<tr class="odd">
+<td align="left">font size</td>
+<td align="left"><code>size</code></td>
+<td align="left">Applies only if <code>target</code> is a <a href="../../../api/type/TextObject/index.html">TextObject</a>. This will tween the font size of the text object.</td>
+</tr>
+<tr class="even">
+<td align="left">resizing</td>
+<td align="left"><code>width</code>, <code>height</code></td>
+<td align="left">Resizes an object to/from a specific width/height to another.</td>
+</tr>
+<tr class="odd">
+<td align="left">distortion</td>
+<td align="left"><nobr><code>x1</code>, <code>y1</code>, <code>x2</code>, <code>y2</code>, <code>x3</code>, <code>y3</code>, <code>x4</code>, <code>y4</code></nobr></td>
+<td align="left">Applies only if <code>target</code> is a <a href="../../../api/type/RectPath/index.html">RectPath</a>, applicable to a <a href="../../../api/type/ShapeObject/index.html">ShapeObject</a>. See <a href="../../../guide/graphics/3D.html#quadrilateral-distortion">here</a> for more information.</td>
+</tr>
+<tr class="even">
+<td align="left">color channels</td>
+<td align="left"><nobr><code>r</code>, <code>g</code>, <code>b</code>, <code>a</code></nobr></td>
+<td align="left">Applies only if <code>target</code> is the <code>.fill</code> table of a <a href="../../../api/type/ShapeObject/index.html">ShapeObject</a>.</td>
+</tr>
+<tr class="odd">
+<td align="left">fill effect</td>
+<td align="left">(various)</td>
+<td align="left">Applies only if <code>target</code> is an object's <a href="../../../api/type/Paint/effect.html">fill.effect</a> property. In this case, the property (key) indicates an effect property associated with the specific filter effect. See <a href="../../../guide/graphics/effects.html#filter">here</a> for details on which filter parameters apply to each filter effect.</td>
+</tr>
+<tr class="even">
+<td align="left">anchor point</td>
+<td align="left"><code>anchorX</code>, <code>anchorY</code></td>
+<td align="left">Shifts the object's <strong>x</strong> or <strong>y</strong> <a href="../../../guide/graphics/transform-anchor.html">anchor point</a>.</td>
+</tr>
+<tr class="odd">
+<td align="left">mask position</td>
+<td align="left"><code>maskX</code>, <code>maskY</code></td>
+<td align="left">For a <a href="../../../guide/media/imageMask/index.html">masked image/group</a>, shifts the mask's <strong>x</strong> or <strong>y</strong> position.</td>
+</tr>
+<tr class="even">
+<td align="left">mask scale</td>
+<td align="left"><code>maskScaleX</code>, <code>maskScaleY</code></td>
+<td align="left">For a <a href="../../../guide/media/imageMask/index.html">masked image/group</a>, shifts the mask's <strong>x</strong> or <strong>y</strong> scale ratio.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Some objects will not behave as you may expect during or following a tween. For instance, many <a href="../../../api/library/widget/index.html">widgets</a> do not support scaling or <nobr>post-declaration</nobr> resizing, so you should not attempt to perform an <code>xScale</code>, <code>yScale</code>, <code>width</code>, or <code>height</code> tween upon them. Another example is <a href="../../../api/library/physics/addBody.html">physics</a> bodies — if you scale or resize the physics object using a tween, the actual physics body will <strong>not</strong> scale along with that tween.</p>
+<p>If in doubt, check the <a href="../../../api/index.html">documentation</a> associated with the object or library to confirm that it doesn't have any property restrictions related to tweens.</p>
+</div>
+</div>
+</div>
+<div id="control-parameters" class="section level3">
+<h3>Control Parameters</h3>
+<p>The third argument, <code>params</code>, is also a table of <nobr>key-value</nobr> pairs. Inside this table, specify the appropriate <strong>control parameters</strong> for the tween:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Control</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>time</code></td>
+<td align="left">Specifies the duration of the tween in milliseconds.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>delay</code></td>
+<td align="left">Specifies the delay, in milliseconds, before the tween begins. Default is <code>0</code> (none).</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>easing</code></td>
+<td align="left">Specifies the <a href="../../../api/library/easing/index.html">easing</a> function used for the tween. See <a href="#easing">Easing Functions</a> for details.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>speedScale</code></td>
+<td align="left">Adjusts the relative speed scale for the tween. This must be a positive number greater than <code>0</code>. By default, the speed scale is <code>1</code> (normal speed). Values greater than <code>1</code> will increase the speed while values lower than <code>1</code> will decrease it.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>tag</code></td>
+<td align="left">String value which allows you to categorize tweens and control them together.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>id</code></td>
+<td align="left">Optional identification string to assign to the tween. This can be retrieved as <code>obj.id</code> from any of the tween event listener functions (<a href="#tween-events">see below</a>).</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>iterations</code></td>
+<td align="left">The number of times (integer) that the tween should repeat. Use <code>0</code> or <code>-1</code> to make it repeat indefinitely.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>reflect</code></td>
+<td align="left">For tweens with multiple iterations, specifies whether alternate iterations are reflected (played in reverse). Default is <code>false</code>.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>delta</code></td>
+<td align="left">Specifies whether <nobr>non-control</nobr> parameters are interpreted as final ending values or as changes in value. The default is <code>false</code>.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>constantRate</code> + <code>constantRateProperty</code></td>
+<td align="left">If used, these two parameters must be specified together. See the <a href="../../../plugin/animation/to.html#constantrate">documentation</a> for details.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a id="easing"></a></p>
+</div>
+<div id="easing-functions" class="section level3">
+<h3>Easing Functions</h3>
+<p>By default, tweens occur at a consistent, linear rate of change from start to end. However, you may wish to use an easing effect to achieve a different result, for example, to make an object move quickly at the start and gradually slow down as it reaches its destination. This behavior can be achieved using an <a href="../../../api/library/easing/index.html">easing</a> function in conjunction with the animation call.</p>
+<p>To set an easing effect on a tween, simply provide the <code>easing</code> key in the <code>params</code> table with a value equal to one of the <a href="../../../api/library/easing/index.html">easing</a> library functions. For example:</p>
+<pre class="brush: lua; gutter: false; highlight: [6]; first-line: 1;">-- Tween the object using outward quadratic interpolation
+animation.to( myObject,
+    { y=100 },
+    {
+        time = 2000,
+        easing = easing.outQuad
+    }
+)</pre>
+<pre class="brush: lua; gutter: false; highlight: [6]; first-line: 1;">-- Tween the object using inward and then outward exponential interpolation
+animation.to( myObject,
+    { y=100 },
+    {
+        time = 2000,
+        easing = easing.inOutExpo
+    }
+)</pre>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Although the 40+ <nobr>built-in</nobr> <a href="../../../api/library/easing/index.html">easing</a> functions will meet most developers' needs, it's possible to create custom easing functions and utilize them within tweens. See <a href="#custom-easing">Custom Easing Functions</a> below for details.</p>
+</div>
+</div>
+<p><a id="tween-events"></a></p>
+</div>
+<div id="tween-events" class="section level3">
+<h3>Tween Events</h3>
+<p>Tweens also support a full range of <strong>tween events</strong> as listed below. These should be specified as <nobr>key-value</nobr> pairs within the <code>params</code> table. When the event occurs, the associated listener function will receive a reference to the <a href="../../../plugin/animation/type/Tween/index.html">Tween</a> object.</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Event</th>
+<th align="left">Parameter (Key)</th>
+<th align="left">Description (Value)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">start</td>
+<td align="left"><code>onStart</code></td>
+<td align="left">Listener function to be called before the tween begins.</td>
+</tr>
+<tr class="even">
+<td align="left">complete</td>
+<td align="left"><code>onComplete</code></td>
+<td align="left">Listener function to be called after the tween completes.</td>
+</tr>
+<tr class="odd">
+<td align="left">pause</td>
+<td align="left"><code>onPause</code></td>
+<td align="left">Listener function to be called when the tween is paused.</td>
+</tr>
+<tr class="even">
+<td align="left">resume</td>
+<td align="left"><code>onResume</code></td>
+<td align="left">Listener function to be called when the tween is resumed.</td>
+</tr>
+<tr class="odd">
+<td align="left">cancel</td>
+<td align="left"><code>onCancel</code></td>
+<td align="left">Listener function to be called when the tween is cancelled.</td>
+</tr>
+<tr class="even">
+<td align="left">repeat</td>
+<td align="left"><code>onRepeat</code></td>
+<td align="left">Listener function to be called when the tween completes an iteration in a repeat cycle.</td>
+</tr>
+<tr class="odd">
+<td align="left">position change</td>
+<td align="left"><code>onPositionChange</code></td>
+<td align="left">Listener function to be called when the tween has its playback position changed manually via <a href="../../../plugin/animation/type/Tween/setPosition.html">object:setPosition()</a> or <a href="../../../plugin/animation/setPosition.html">animation.setPosition()</a>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In the following example, the <code>tweenListener()</code> function will be called when the tween completes:</p>
+<pre class="brush: lua; first-line: 1; highlight: [3,4,5,12];">local myObject = display.newRect( 0, 0, 100, 100 )
+
+local function tweenListener( obj )
+    print( "Tween completed; ID: " .. obj.id )
+end
+
+animation.to( myObject,
+    { alpha=0 },
+    {
+        time = 2000,
+        id = "tween1",
+        onComplete = tweenListener
+    }
+)</pre>
+<p><a id="timelines"></a></p>
+</div>
+</div>
+<div id="timelines" class="section level2">
+<h2>Timelines</h2>
+<p>A <strong>timeline</strong> is a powerful way to construct intricate <nobr>multi-interpolation</nobr> animations across one or more display objects/groups. They are constructed with the <a href="../../../plugin/animation/newTimeline.html">animation.newTimeline()</a> command:</p>
+<pre class="brush: lua;">animation.newTimeline( timelineParams )</pre>
+<p>For this function, the <code>timelineParams</code> argument is a <a href="../../../api/type/Table.html">table</a> which specifies the tweens, markers, and other parameters for the timeline.</p>
+<div id="timeline-tweens" class="section level3">
+<h3>Timeline Tweens</h3>
+<p>At the minimum, the <code>timelineParams</code> table must contain a child table, <code>tweens</code>, which contains all of the tweens that will be involved in the timeline:</p>
+<pre class="brush: lua; gutter: false; highlight: [3]; first-line: 1;">local newTimeline = animation.newTimeline(
+{
+    tweens = {},
+})</pre>
+<p>Inside the <code>tweens</code> table, individual tweens are configured via basic Lua tables that accept the following <nobr>key-value</nobr> pairs:</p>
+<ul>
+<li><code>startTime</code> — Optional <a href="../../../api/type/Number.html">number</a> of milliseconds into the timeline progression at which the tween should start. Default is <code>0</code> (start of the timeline).</li>
+<li><code>tween</code> — Required <a href="../../../api/type/Table.html">table</a> which configures the tween. This should be configured similarly to any basic tween <nobr>(see <a href="#tweens">Tweens</a> above)</nobr>.</li>
+<li><code>useFrom</code> — Optional <a href="../../../api/type/Boolean.html">boolean</a> property which, if set to <code>true</code>, will make the tween behave as if it were declared by <a href="../../../plugin/animation/from.html">animation.from()</a> instead of <a href="../../../plugin/animation/to.html">animation.to()</a>.</li>
+</ul>
+<p>For example, this <code>tweens</code> table configures two individual tweens for a timeline:</p>
+<pre class="brush: lua; gutter: false; highlight: [3,4,5,6]; first-line: 1;">local newTimeline = animation.newTimeline(
+{
+    tweens = {
+        { startTime=0, tween={ object1, { x=400 }, { time=4000, iterations=5, reflect=true } } },
+        { startTime=1000, tween={ object1, { y=400 }, { time=4000, easing=easing.outQuad } } }
+    },
+})</pre>
+</div>
+<div id="timeline-markers" class="section level3">
+<h3>Timeline Markers</h3>
+<p>For an added level of control, you can specify any number of <strong>markers</strong> within the timeline duration. These markers, specified within the optional <code>markers</code> table, allow you to specify <nobr>jump-to</nobr> points within the timeline. Each marker should be defined as a <a href="../../../api/type/Table.html">table</a> containing the following properties:</p>
+<ul>
+<li><code>name</code> — A <a href="../../../api/type/String.html">string</a> name to associate with the marker. This name should be <strong>unique</strong> (you should not use duplicate marker names within the same timeline).</li>
+<li><code>time</code> — The <a href="../../../api/type/Number.html">number</a> of milliseconds into the timeline progression at which to set the marker.</li>
+<li><code>params</code> — An optional <a href="../../../api/type/Table.html">table</a> which can contain custom information; this table will be passed to the <code>onMarkerPass</code> listener function (<a href="#timeline-events">details</a>).</li>
+</ul>
+<p>For example, this <code>markers</code> table configures three time markers for the timeline:</p>
+<pre class="brush: lua; gutter: false; highlight: [7,8,9,10,11]; first-line: 1;">local newTimeline = animation.newTimeline(
+{
+    tweens = {
+        { startTime=0, tween={ object1, { x=400 }, { time=4000, iterations=5, reflect=true } } },
+        { startTime=1000, tween={ object1, { y=400 }, { time=4000, easing=easing.outQuad } } }
+    },
+    markers = {
+        { name="marker_start", time=0 },    -- Start of the timeline
+        { name="marker_2000", time=2000 },  -- 2 seconds into the timeline
+        { name="marker_3000", time=3000 }   -- 3 seconds into the timeline
+    },
+})</pre>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Once configured, you can use a marker name to jump to its associated position. See <a href="../../../plugin/animation/type/Timeline/setPosition.html">object:setPosition()</a> or <a href="../../../plugin/animation/setPosition.html">animation.setPosition()</a> for details.</p>
+</div>
+</div>
+</div>
+<div id="other-parameters" class="section level3">
+<h3>Other Parameters</h3>
+<p>Timelines accept a variety of additional parameters (optional) which can be used for <nobr>fine-tuned</nobr> setup and control. These should be specified as <nobr>key-value</nobr> pairs within the <code>timelineParams</code> table.</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Parameter (Key)</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>autoPlay</code></td>
+<td align="left"><a href="../../../api/type/Boolean.html">Boolean</a> value which, if <code>true</code>, makes the timeline play immediately. Default is <code>false</code>.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>tag</code></td>
+<td align="left"><a href="../../../api/type/String.html">String</a> indicating the timeline tag. The animation plugin can pause, resume, cancel, set the position, or change the speed scale of timelines sharing the same tag.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>id</code></td>
+<td align="left">Optional identification string to assign to the timeline. This can be retrieved as <code>obj.id</code> from any of the timeline event listener functions (<a href="#timeline-events">see below</a>).</td>
+</tr>
+<tr class="even">
+<td align="left"><code>delay</code></td>
+<td align="left"><a href="../../../api/type/Number.html">Number</a> indicating the delay, in milliseconds, before the timeline begins playing. Default is <code>0</code>.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>speedScale</code></td>
+<td align="left">Adjusts the relative speed scale for the timeline. This must be a positive <a href="../../../api/type/Number.html">number</a> greater than <code>0</code>. By default, the speed scale is <code>1</code> (normal speed). Values greater than <code>1</code> will increase the speed while values lower than <code>1</code> will decrease it.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>autoCancel</code></td>
+<td align="left"><a href="../../../api/type/Boolean.html">Boolean</a> value which, if <code>true</code>, causes all child tweens to be cancelled upon completion of the timeline. This should only be done if you don't intend to replay the timeline again after its first play through. Default is <code>false</code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a id="timeline-events"></a></p>
+</div>
+<div id="timeline-events" class="section level3">
+<h3>Timeline Events</h3>
+<p>Timelines also support a full range of <strong>timeline events</strong> as listed below. These should be specified as <nobr>key-value</nobr> pairs within the <code>timelineParams</code> table. When the event occurs, the associated listener function will receive a reference to the <a href="../../../plugin/animation/type/Timeline/index.html">Timeline</a> object.</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Event</th>
+<th align="left">Parameter (Key)</th>
+<th align="left">Description (Value)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">start</td>
+<td align="left"><code>onStart</code></td>
+<td align="left">Listener function to be called directly before the timeline begins.</td>
+</tr>
+<tr class="even">
+<td align="left">complete</td>
+<td align="left"><code>onComplete</code></td>
+<td align="left">Listener function to be called after all tweens in the timeline complete <strong>or</strong> after the final marker in the timeline, whichever occurs first.</td>
+</tr>
+<tr class="odd">
+<td align="left">pause</td>
+<td align="left"><code>onPause</code></td>
+<td align="left">Listener function to be called when the timeline is paused.</td>
+</tr>
+<tr class="even">
+<td align="left">resume</td>
+<td align="left"><code>onResume</code></td>
+<td align="left">Listener function to be called when the timeline is resumed.</td>
+</tr>
+<tr class="odd">
+<td align="left">cancel</td>
+<td align="left"><code>onCancel</code></td>
+<td align="left">Listener function to be called when the timeline is cancelled.</td>
+</tr>
+<tr class="even">
+<td align="left">position change</td>
+<td align="left"><code>onPositionChange</code></td>
+<td align="left">Listener function to be called when the timeline has its playback position changed manually via <a href="../../../plugin/animation/type/Timeline/setPosition.html">object:setPosition()</a> or <a href="../../../plugin/animation/setPosition.html">animation.setPosition()</a>.</td>
+</tr>
+<tr class="odd">
+<td align="left">marker passed</td>
+<td align="left"><code>onMarkerPass</code></td>
+<td align="left">Listener function to be called when a marker within the timeline is reached/passed. Instead of simply receiving a reference to the <a href="../../../plugin/animation/type/Timeline/index.html">Timeline</a> object, this function will receive a <a href="../../../api/type/Table.html">table</a> containing a reference to the associated <a href="../../../plugin/animation/type/Timeline/index.html">Timeline</a> object (<code>timeline</code>), along with the <code>name</code> property and optional <code>params</code> table that was assigned to the specific marker.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In the following example, the <code>timelineListener()</code> function will be called when every iteration of every tween in the timeline completes:</p>
+<pre class="brush: lua; gutter: false; highlight: [3,4,5,15]; first-line: 1;">local object1 = display.newRect( 50, 50, 100, 100 )
+
+local function timelineListener( obj )
+    print( "Timeline completed; ID: " .. obj.id )
+end
+
+-- Create a timeline object
+local newTimeline = animation.newTimeline(
+{
+    tweens = {
+        { startTime=0, tween={ object1, { x=400 }, { time=4000, iterations=5, reflect=true } } },
+        { startTime=1000, tween={ object1, { y=400 }, { time=4000, easing=easing.outQuad } } }
+    },
+    id = "timeline1",
+    onComplete = timelineListener
+})
+
+-- Set the timeline playing
+newTimeline:resume()</pre>
+<p><a id="control"></a></p>
+</div>
+</div>
+<div id="controlling-tweenstimelines" class="section level2">
+<h2>Controlling Tweens/Timelines</h2>
+<p>Tweens and timelines can be controlled through various methods. You can either use a <strong>library command</strong> (through the <a href="../../../plugin/animation/index.html">animation</a> plugin) or an <strong>object command</strong> on a <a href="../../../plugin/animation/type/Tween/index.html">Tween</a> object or <a href="../../../plugin/animation/type/Timeline/index.html">Timeline</a> object.</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Control</th>
+<th align="left">Library Command</th>
+<th>Object Commands</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">pause</td>
+<td align="left"><a href="../../../plugin/animation/pause.html">animation.pause()</a></td>
+<td><a href="../../../plugin/animation/type/Tween/pause.html">Tween:pause()</a>  /  <a href="../../../plugin/animation/type/Timeline/pause.html">Timeline:pause()</a></td>
+</tr>
+<tr class="even">
+<td align="left">resume</td>
+<td align="left"><a href="../../../plugin/animation/resume.html">animation.resume()</a></td>
+<td><a href="../../../plugin/animation/type/Tween/resume.html">Tween:resume()</a>  /  <a href="../../../plugin/animation/type/Timeline/resume.html">Timeline:resume()</a></td>
+</tr>
+<tr class="odd">
+<td align="left">cancel</td>
+<td align="left"><a href="../../../plugin/animation/cancel.html">animation.cancel()</a></td>
+<td><a href="../../../plugin/animation/type/Tween/cancel.html">Tween:cancel()</a>  /  <a href="../../../plugin/animation/type/Timeline/cancel.html">Timeline:cancel()</a></td>
+</tr>
+<tr class="even">
+<td align="left">set position</td>
+<td align="left"><a href="../../../plugin/animation/setPosition.html">animation.setPosition()</a></td>
+<td><a href="../../../plugin/animation/type/Tween/setPosition.html">Tween:setPosition()</a>  /  <a href="../../../plugin/animation/type/Timeline/setPosition.html">Timeline:setPosition()</a></td>
+</tr>
+<tr class="odd">
+<td align="left">set speed scale</td>
+<td align="left"><a href="../../../plugin/animation/setSpeedScale.html">animation.setSpeedScale()</a></td>
+<td><a href="../../../plugin/animation/type/Tween/setSpeedScale.html">Tween:setSpeedScale()</a>  /  <a href="../../../plugin/animation/type/Timeline/setSpeedScale.html">Timeline:setSpeedScale()</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>One benefit of the library commands is that, depending on the parameter passed, you can affect multiple tweens and/or timelines with just one call (here, <code>*</code> indicates either <code>pause</code>, <code>resume</code>, <code>cancel</code>, <code>setPosition</code>, or <code>setSpeedScale</code>).</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Parameter</th>
+<th align="left">Syntax</th>
+<th align="left">Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(none)</td>
+<td align="left"><code>animation.*()</code></td>
+<td align="left">Affects all tweens/timelines.</td>
+</tr>
+<tr class="even">
+<td align="left">tween reference (<a href="../../../plugin/animation/type/Tween/index.html">Tween</a>)</td>
+<td align="left"><code>animation.*( tweenObject )</code></td>
+<td align="left">Affects the specified referenced tween (<code>tweenObject</code>).</td>
+</tr>
+<tr class="odd">
+<td align="left">timeline reference (<a href="../../../plugin/animation/type/Timeline/index.html">Timeline</a>)</td>
+<td align="left"><code>animation.*( timelineObject )</code></td>
+<td align="left">Affects the specified referenced timeline (<code>timelineObject</code>).</td>
+</tr>
+<tr class="even">
+<td align="left">tag name (<a href="../../../api/type/String.html">String</a>)</td>
+<td align="left"><code>animation.*( &quot;tagName&quot; )</code></td>
+<td align="left">Affects all tweens/timelines sharing the same tag name.</td>
+</tr>
+<tr class="odd">
+<td align="left">object reference (<a href="../../../api/type/DisplayObject/index.html">DisplayObject</a>)</td>
+<td align="left"><nobr><code>animation.*( DisplayObject )</code></nobr></td>
+<td align="left">Affects all tweens on the specified display object/group.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Any control method that targets a specific child tween within a <a href="../../../plugin/animation/type/Timeline/index.html">Timeline</a> is ignored. Timeline tweens are controlled by the parent timeline, so you should control the timeline itself. For instance, if a tween within a timeline is affecting an object named <code>object1</code>, you can <strong>not</strong> pause that specific tween by calling <nobr><code>animation.pause( object1 )</code> —</nobr> this is because the timeline owns all of its child tweens and it should be treated as a collective animated sequence.</p>
+</div>
+</div>
+<p><a id="status"></a></p>
+</div>
+<div id="tweentimeline-status" class="section level2">
+<h2>Tween/Timeline Status</h2>
+<p>If needed, you can get the <strong>status</strong> of a specific tween or timeline via the following calls:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Status</th>
+<th>Object Commands</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">paused/unpaused</td>
+<td><a href="../../../plugin/animation/type/Tween/getIsPaused.html">Tween:getIsPaused()</a>  /  <a href="../../../plugin/animation/type/Timeline/getIsPaused.html">Timeline:getIsPaused()</a></td>
+</tr>
+<tr class="even">
+<td align="left">current position</td>
+<td><a href="../../../plugin/animation/type/Tween/getPosition.html">Tween:getPosition()</a>  /  <a href="../../../plugin/animation/type/Timeline/getPosition.html">Timeline:getPosition()</a></td>
+</tr>
+<tr class="odd">
+<td align="left">current speed scale</td>
+<td><a href="../../../plugin/animation/type/Tween/getSpeedScale.html">Tween:getSpeedScale()</a>  /  <a href="../../../plugin/animation/type/Timeline/getSpeedScale.html">Timeline:getSpeedScale()</a></td>
+</tr>
+<tr class="even">
+<td align="left">duration</td>
+<td><a href="../../../plugin/animation/type/Tween/getDuration.html">Tween:getDuration()</a>  /  <a href="../../../plugin/animation/type/Timeline/getDuration.html">Timeline:getDuration()</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a id="custom-easing"></a></p>
+</div>
+<div id="custom-easing-functions" class="section level2">
+<h2>Custom Easing Functions</h2>
+<p>If the built-in <a href="../../../api/library/easing/index.html">easing</a> functions do not include a very specific interpolation pattern necessary for your project, it's possible to create custom easing functions and utilize them as the <code>easing</code> property for a tween.</p>
+<p>Custom easing functions should follow the pattern of other easing functions, such as that for <code>easing.linear</code>:</p>
+<pre class="brush: lua;">easing.linear = function( t, tMax, start, delta )
+    return delta * t / tMax + start
+end</pre>
+<p>Essentially, as long as the custom easing function can accept the <code>t</code>, <code>tMax</code>, <code>start</code>, and <code>delta</code> properties, any number which is output at the other end is valid (although usually it should return a number <nobr>between <code>0</code> and <code>1</code>)</nobr>.</p>
+<p>Once you've written your easing function, simply reference it as the <code>easing</code> parameter for the tween. For example:</p>
+<pre class="brush: lua; gutter: false; highlight: [3,4,5,11]; first-line: 1;">local myObject = display.newRect( 0, 0, 100, 100 )
+
+local function myLinearEasing( t, tMax, start, delta )
+    return delta * t / tMax + start
+end
+
+animation.to( myObject,
+    { x=500 },
+    {
+        time = 2000,
+        easing = myLinearEasing
+    }
+)</pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>Most easing functions are designed to return <code>0</code> when <code>t=0</code>, and <code>1</code> when <code>t=1</code>. However, this may not always be desirable. For instance, <nobr>out-and-back</nobr> easing functions such as <code>easing.continuousLoop</code> return <code>0</code> when <code>t=0</code> but also return <code>0</code> when <code>t=1</code>. In other words, the end value is the same as the start value. If your custom easing function is like this, you must set <nobr><code>easingEndIsStart = true</code></nobr> as a parameter for the tween or it will misbehave upon completion and repeated iterations. For instance:</p>
+<pre class="brush: lua; gutter: false; highlight: [5,6]; first-line: 1;">animation.to( myObject,
+    { x=500 },
+    {
+        time = 2000,
+        easing = myContinuousEasing,
+        easingEndIsStart = true
+    }
+)</pre>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.media.animationLibrary.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

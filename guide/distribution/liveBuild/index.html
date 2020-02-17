@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Building/Distribution</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#generating-live-builds">Generating Live Builds</a><ul>
+<li><a href="#live-build-creation">Live Build Creation</a></li>
+<li><a href="#corona-live-server">Corona Live Server</a></li>
+<li><a href="#live-build-file">Live Build File</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/distribution/index.html">Building/Distribution</a>
+</div>
+<div id="generating-live-builds" class="section level1">
+<h1>Generating Live Builds</h1>
+<div class="guide-intro">
+<p>Corona <strong>live builds</strong> are a powerful and efficient way to see exactly how your <nobr>in-development</nobr> Corona app will appear on real devices. Benefits include:</p>
+</div>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-bolt" style="margin-left: 1px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Build and deploy your app just once and then see code/assets update almost instantly on your devices.</p>
+</div>
+</div>
+<div class="docs-tip-outer" style="background-color: #93b0ec;">
+<div class="docs-tip-inner-left">
+<div class="fa fa-arrows-alt" style="font-size: 31px; margin-top: 2px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Improve your workflow by testing on multiple devices and different platforms concurrently, all from a single Corona code base.</p>
+</div>
+</div>
+<div class="docs-tip-outer" style="background-color: #a6b0ea;">
+<div class="docs-tip-inner-left">
+<div class="fa fa-clock-o" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Iterate on projects faster without rebuilding them to see the final result, even if they use native plugins like <a href="../../../plugin/index.html#ads-monetization">ad providers</a> or <a href="../../../plugin/index.html#gaming">game networking</a>.</p>
+</div>
+</div>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>To use Corona live builds on Windows, you must install <a href="https://www.apple.com/itunes/download/">iTunes</a>.</p>
+</div>
+<div class="guides-toc">
+<ul>
+<li><a href="#create">Live Build Creation</a></li>
+<li><a href="#cls">Corona Live Server</a></li>
+<li><a href="#live-build-file">Live Build File</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</div>
+<p><a id="create"></a></p>
+<div id="live-build-creation" class="section level2">
+<h2>Live Build Creation</h2>
+<p>To create a live build, simply follow these steps:</p>
+<ol style="list-style-type: decimal">
+<li>In the Corona Simulator, open the <strong>Build</strong> dialog window <nobr>(<strong>File</strong> → <strong>Build</strong>)</nobr> for either iOS, Android, or tvOS.</li>
+</ol>
+<!---
+
+<div class="code-indent">
+<div style="max-width: 568px;">
+
+![][images.docs.sim-build-menu-mac]
+
+</div>
+</div>
+
+-->
+<ol start="2" style="list-style-type: decimal">
+<li><p>Confirm that the first several settings are correct in terms of how you typically build an app from the Corona Simulator. If you're not familiar with preparing/building apps for devices, please see the following guides:</p>
+<ul>
+<li><a href="../../../guide/distribution/iOSBuild/index.html">Provisioning and Building — iOS</a></li>
+<li><a href="../../../guide/distribution/androidBuild/index.html">Signing and Building — Android</a></li>
+<li><a href="../../../guide/distribution/kindleBuild/index.html">Signing and Building — Kindle Fire</a></li>
+<li><a href="../../../guide/distribution/tvos/index.html">Apple TV / tvOS</a></li>
+</ul></li>
+</ol>
+<div class="code-indent">
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>Only <strong>Development</strong> provisioning profiles <nobr>(iOS or tvOS)</nobr> or <strong>Debug</strong> keystores <nobr>(Android or Kindle Fire)</nobr> can be used to produce live builds.</p>
+</div>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Check the <strong>Create Live Build</strong> option and, when you're ready, click the <strong>Build</strong> button.</li>
+</ol>
+<style>.inner-table img{ max-width: 450px; }</style>
+<div class="code-indent">
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="center">macOS</th>
+<th align="center">Windows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><img src="../../../images/docs/live-build-mac.png" /></td>
+<td align="center"><img src="../../../images/docs/live-build-windows.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li><p>After the build is successfully completed, a <code>.CoronaLiveBuild</code> file will be created in the project's root directory and the project will be added to <a href="#cls">Corona Live Server</a>.</p></li>
+<li><p>Install the app on your desired device(s) as usual. If you're not familiar with this process, please see the documentation for <a href="../../../guide/distribution/iOSBuild/index.html#device-installation">iOS</a>, <a href="../../../guide/distribution/androidBuild/index.html#device-installation">Android</a>, <a href="../../../guide/distribution/kindleBuild/index.html#installation-and-debugging">Kindle Fire</a>, or <a href="../../../guide/distribution/tvos/index.html#installation">tvOS</a>.</p></li>
+</ol>
+<div class="code-indent">
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>You can install the same compiled/built app on multiple devices. For example, if you generate a standard <code>.apk</code> for Android, you can install it on multiple <nobr>Android-powered</nobr> devices — you don't need to create a new live build for every device you intend to test on.</p>
+</div>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>Run the app on the device as usual. Assuming everything is running as expected, code/asset changes that you make in your local project should be reflected almost instantly on the device.</li>
+</ol>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<ul>
+<li><p>When you run the app, make sure that the device(s) you're using are on the same local network as the computer where <a href="#cls">Corona Live Server</a> is running.</p></li>
+<li><p>Modifications to project configuration/setup files like <code>build.settings</code> and <code>config.lua</code> will not typically be reflected when the live build updates. Thus, you should generate a new live build and <nobr>re-install</nobr> it on the target device(s) after modifying these project files.</p></li>
+<li><p>If you experience any issues with project syncing, please consult the <a href="#troubleshooting">Troubleshooting</a> section below.</p></li>
+</ul>
+</div>
+<!--- REFERENCE LINKS -->
+<p><a id="cls"></a></p>
+</div>
+<div id="corona-live-server" class="section level2">
+<h2>Corona Live Server</h2>
+<p><strong>Corona Live Server</strong> is an application which syncs project changes over your local network. Every time you <a href="#create">create a live build</a>, the Corona Simulator will initiate it and automatically add the built project to the Corona Live Server project list.</p>
+<div class="guide-notebox">
+<div class="notebox-title">
+Notes
+</div>
+<ul>
+<li><p>In order to sync a project, Corona Live Server must find a valid <code>.CoronaLiveBuild</code> file. As outlined above, this will be created when doing a live build for the project.</p></li>
+<li><p>To start Corona Live Server manually, select <nobr><strong>Corona Simulator</strong> → <strong>Corona Live Server</strong></nobr>.</p></li>
+<li><p>You can add a project by pressing [<strong>+</strong>] and selecting the folder containing the project, or by simply dragging and dropping a folder onto the Corona Live Server dock icon (macOS) or shortcut (Windows).</p></li>
+<li><p>Clicking the &quot;close&quot; button on the Corona Live Server window does <strong>not</strong> shut it down. To exit/quit entirely, do so from its main application menu or, alternatively, from the <nobr>right-click</nobr> context menu of the dock icon (macOS) or system tray icon (Windows).</p></li>
+<li><p>Closing the project list window will not stop Corona Live Server. You can <nobr>re-open</nobr> the window from the <strong>Window</strong> menu or by clicking on the Corona Live Server dock icon (macOS) or system tray icon (Windows).</p></li>
+</ul>
+</div>
+<p><a id="live-build-file"></a></p>
+</div>
+<div id="live-build-file" class="section level2">
+<h2>Live Build File</h2>
+<p>Once a live build is successfully created, the source project will contain a hidden <code>.CoronaLiveBuild</code> file in its root directory. This file contains the information required to synchronize the project between the device and the development machine.</p>
+<p>Typically, you will <strong>not</strong> need to edit the contents of this file. However, in very specific cases, it can be modified to customize the behavior of live builds and Corona Live Server:</p>
+<pre class="brush: lua;">key = XXXXXXXX-YYYY-ZZZZ-WWWW-AAA0987654321
+#ip =
+#port =</pre>
+<ul>
+<li><code>key</code> — Do <strong>not</strong> modify this property. This <nobr>auto-generated</nobr> key allows the live build and Corona Live Server to properly communicate.</li>
+<li><code>ip</code>/<code>port</code> — Remove the <code>#</code> from each and specify these two values to use a static address and disable automatic discovery. This will enable live builds to work on older Android devices and, potentially, resolve some network issues. The <code>port</code> value should be a number between <code>1025</code> and <code>65534</code>.</li>
+</ul>
+<p><a id="troubleshooting"></a></p>
+</div>
+<div id="troubleshooting" class="section level2">
+<h2>Troubleshooting</h2>
+<p>If the live build doesn't update/refresh, please proceed through the following instructions. If functionality returns to normal at any step along the way, do not proceed further.</p>
+<ol style="list-style-type: decimal">
+<li>Ensure that both your computer and the device are connected to the same local network.</li>
+<li>Make sure your computer is running Corona Live Server with the same project you're running on the device.</li>
+<li>Turn off Wi-Fi on the device, wait several seconds, and turn it back on.</li>
+<li>Wait for &quot;discoverability&quot; to take effect. Depending on the network, this may take up to a minute.</li>
+<li>Quit Corona Live Server, then completely close/exit your app on the device. Note that merely closing the window does not quit Corona Live Server — you must explicitly exit/quit the application.</li>
+<li>Restart Corona Live Server and manually add your project to the list of synced projects as outlined in the <a href="#cls">Corona Live Server</a> section above.</li>
+<li>Remove/uninstall the live build from the device.</li>
+<li>Rebuild the app and make sure that <strong>Create Live Build</strong> is selected from the build dialog window. Also, remember that only <strong>Development</strong> provisioning profiles <nobr>(iOS or tvOS)</nobr> or <strong>Debug</strong> keystores <nobr>(Android or Kindle Fire)</nobr> can be used to produce live builds.</li>
+<li>Start your app on the device and test for proper functionality. If the live build still doesn't update, experiment with modifying the <code>.CoronaLiveBuild</code> file as outlined in the <a href="#live-build-file">Live Build File</a> section above.</li>
+<li>If you need further assistance beyond this, please consult the <a href="https://forums.coronalabs.com/forum/658-corona-live-server/">Corona Forums</a>.</li>
+</ol>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.distribution.liveBuild.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | Facebook (v4a) | showDialog</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#facebook.showdialog">facebook.showDialog()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#action-required">action <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#params-required">params <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+<li><a href="#share-dialog">Share Dialog</a></li>
+<li><a href="#game-request-dialog">Game Request Dialog</a></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#share-dialog-1">Share Dialog</a></li>
+<li><a href="#game-request">Game Request</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/facebook-v4a/index.html">Facebook (v4a)</a>  ▸  <a href="../../plugin/facebook-v4a/showDialog.html">showDialog</a>
+</div>
+<div id="facebook.showdialog" class="section level1">
+<h1>facebook.showDialog()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Return value</strong></td>
+<td align="left"><a href="../../api/type/Event.html">Event</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">Facebook, showDialog</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../plugin/facebook-v4a/login.html">facebook.login()</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../plugin/facebook-v4a/index.html">facebook.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../plugin/facebook-v4a/event/fbconnect/index.html">fbconnect</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Displays an interactive Facebook UI dialog for publishing posts to a user's stream, inviting friends to your app, etc. Use <a href="../../plugin/facebook-v4a/request.html">facebook.request()</a> if you need the application itself to do the posting.</p>
+<p>The response from the dialog comes back in the form of a <a href="../../plugin/facebook-v4a/event/fbconnect/index.html">fbconnect</a> event that is sent to the listener specified within <a href="../../plugin/facebook-v4a/init.html">facebook.init()</a> or <a href="../../plugin/facebook-v4a/setFBConnectListener.html">facebook.setFBConnectListener()</a>.</p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">facebook.showDialog( action, params )</pre>
+<div id="action-required" class="section level5">
+<h5>action <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> The dialog you want to show. Valid options include:</p>
+<ul>
+<li><code>&quot;feed&quot;</code> — Opens the <a href="https://developers.facebook.com/docs/sharing/reference/share-dialog">Share Dialog</a> in Feed mode.</li>
+<li><code>&quot;link&quot;</code> — Corresponds to the <a href="#sharedialog">Share Dialog</a>.</li>
+<li><code>&quot;photo&quot;</code> — Corresponds to the <a href="#sharedialog">Share Dialog</a>.</li>
+<li><code>&quot;requests&quot;</code> — Corresponds to the <a href="#gamerequestdialog">Game Requests Dialog</a>.</li>
+</ul>
+</div>
+<div id="params-required" class="section level5">
+<h5>params <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> Lua table of <nobr>key-value</nobr> pairs that is passed as arguments to the Facebook API call. The keys you pass here correspond to specific parameters which are available for the dialog that you want to show — see <a href="#sharedialog">Share Dialog</a> and <a href="#gamerequestdialog">Game Requests Dialog</a> below for details.</p>
+<p><a id="sharedialog"></a></p>
+</div>
+</div>
+<div id="share-dialog" class="section level2">
+<h2>Share Dialog</h2>
+<p>Displays the Facebook dialog for sharing content. For this dialog, <code>action</code> should be either <code>&quot;link&quot;</code> or <code>&quot;photo&quot;</code>.</p>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<ul>
+<li><p>On Android, for a shared link to be posted from your app, you must ensure that <strong>Application Name</strong> provided when building the app from the Corona Simulator matches the <strong>Display Name</strong> field in the <a href="https://developers.facebook.com/">Facebook Developer Portal</a>. For Corona Native developers, this requirement is outlined <a href="../../plugin/facebook-v4a/index.html#displayname">here</a>.</p></li>
+<li><p>To share photos with the Share Dialog, version 7.0 or higher of a Facebook app <strong>must</strong> be installed on the device.</p></li>
+</ul>
+</div>
+<p>For this dialog, the <code>params</code> table can contain the following <nobr>key-value</nobr> pairs. Note that some keys are required while others are not.</p>
+<ul>
+<li><code>link</code> — Required if <code>action</code> is <code>&quot;link&quot;</code>; <a href="../../api/type/String.html">string</a> value for a URL for the content being shared.</li>
+<li><code>peopleIds</code> — Optional <a href="../../api/type/Table.html">table</a> containing the list of IDs for taggable people to tag with this content.</li>
+<li><code>placeId</code> — Optional <a href="../../api/type/String.html">string</a> value for the ID for a place to tag with this content.</li>
+<li><code>ref</code> — Optional <a href="../../api/type/String.html">string</a> value to be added to the referrer URL when a person follows a link from this shared content on their feed.</li>
+<li><code>title</code> — Optional if <code>action</code> is <code>&quot;link&quot;</code>; <a href="../../api/type/String.html">string</a> value for the title to display for this link.</li>
+<li><code>description</code> — Optional if <code>action</code> is <code>&quot;link&quot;</code>; <a href="../../api/type/String.html">string</a> value with the description of the link.</li>
+<li><code>picture</code> — Optional if <code>action</code> is <code>&quot;link&quot;</code>; <a href="../../api/type/String.html">string</a> value for a URL of a picture to attach to this content.</li>
+<li><code>photos</code> — Required if <code>action</code> is <code>&quot;photo&quot;</code>; <a href="../../api/type/Array.html">array</a> of Lua tables containing info about the photos to share. Each table inside this array should include a <code>url</code> key with a <a href="../../api/type/String.html">string</a> value representing a URL for the photo.</li>
+</ul>
+<p><a id="gamerequestdialog"></a></p>
+</div>
+<div id="game-request-dialog" class="section level2">
+<h2>Game Request Dialog</h2>
+<p>Displays a native view which allows the user to send game requests to their choice of friends. For this dialog, <code>action</code> should be <code>&quot;requests&quot;</code>.</p>
+<div class="guide-notebox">
+<div class="notebox-title">
+Notes
+</div>
+<ul>
+<li><p>To use this, be sure that your app is categorized as a game in the <a href="https://developers.facebook.com/">Facebook Developer Portal</a>.</p></li>
+<li><p>On iOS, for a game request to go through to the desired recipient, you must ensure that <strong>iPhone</strong> and/or <strong>iPad Store ID</strong> fields in the <a href="https://developers.facebook.com/">Facebook Developer Portal</a> are filled out. See the <a href="../../guide/social/setupFacebook/index.html">Facebook Portal Setup</a> guide for more info.</p></li>
+</ul>
+</div>
+<p>For this dialog, the <code>params</code> table can contain the following <nobr>key-value</nobr> pairs.</p>
+<ul>
+<li><code>to</code> — <a href="../../api/type/String.html">String</a> value for the user ID of the person to send this request to.</li>
+<li><code>title</code> — <a href="../../api/type/String.html">String</a> value for the title of the dialog.</li>
+<li><code>message</code> — <a href="../../api/type/String.html">String</a> value for a message to be sent along with the game request.</li>
+<li><code>suggestions</code> — <a href="../../api/type/Table.html">Table</a> containing the user IDs of suggested friends for this game request.</li>
+<li><code>data</code> — <a href="../../api/type/String.html">String</a> value for additional data to attach to the post.</li>
+<li><code>objectId</code> — <a href="../../api/type/String.html">String</a> value for the Open Graph object ID of the object being sent.</li>
+<li><code>actionType</code> — <a href="../../api/type/String.html">String</a> value for defining additional context about the nature of the request. By default, no action type is used. Supported <code>actionType</code> values include:
+<ul>
+<li><code>&quot;SEND&quot;</code> — The user is sending an object to friends. Requires an <code>objectId</code> to also be provided. Maps to the <a href="https://developers.facebook.com/docs/games/services/gamerequests#gifting">gifting and social trading</a> scenario.</li>
+<li><code>&quot;ASKFOR&quot;</code> — The user is asking for an object from friends. Requires an <code>objectId</code> to also be provided. Maps to the <a href="https://developers.facebook.com/docs/games/services/gamerequests#askforhelp">asking for help</a> scenario.</li>
+<li><code>&quot;TURN&quot;</code> — It is the turn of the friends to play against the user in a match. An <code>objectId</code> should <strong>not</strong> be provided in this case. Maps to the <a href="https://developers.facebook.com/docs/games/services/gamerequests#turnbased">turn-based games</a> scenario.</li>
+</ul></li>
+<li><code>filter</code> — <a href="../../api/type/String.html">String</a> value for a filter on who can be displayed in the <nobr>multi-friend</nobr> selector. By default, all friends will be displayed in the selector. Supported <code>filter</code> values include:
+<ul>
+<li><code>&quot;APP_USERS&quot;</code> — Only friends who use the app will be displayed.</li>
+<li><code>&quot;APP_NON_USERS&quot;</code> — Only friends who do <strong>not</strong> use the app will be displayed. Maps to the <a href="https://developers.facebook.com/docs/games/services/gamerequests#invites">invites</a> scenario.</li>
+</ul></li>
+</ul>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<div id="share-dialog-1" class="section level5">
+<h5>Share Dialog</h5>
+<pre class="brush: lua;">local facebook = require( "plugin.facebook.v4a" )
+
+local function facebookListener( event )
+
+    if ( "fbinit" == event.name ) then
+
+        print( "Facebook initialized" )
+        facebook.login()
+
+    elseif ( "fbconnect" == event.name ) then
+
+        if ( "session" == event.type ) then
+            -- Handle login event
+            if ( "login" == event.phase ) then
+                local shareParams = {
+                    link = "https://www.coronalabs.com/",
+                    title = "Corona Labs"
+                }
+                facebook.showDialog( "link", shareParams )
+            end
+
+        elseif ( "dialog" == event.type ) then
+            -- Handle dialog event
+            print( event.response )
+        end
+    end
+end
+
+-- Set the "fbinit" listener to be triggered when initialization is complete
+facebook.init( facebookListener )</pre>
+</div>
+<div id="game-request" class="section level5">
+<h5>Game Request</h5>
+<pre class="brush: lua;">local facebook = require( "plugin.facebook.v4a" )
+
+local function facebookListener( event )
+
+    if ( "fbinit" == event.name ) then
+
+        print( "Facebook initialized" )
+        facebook.login()
+
+    elseif ( "fbconnect" == event.name ) then
+
+        if ( "session" == event.type ) then
+            -- Handle login event
+            if ( "login" == event.phase ) then
+                facebook.showDialog( "requests", 
+                { 
+                    message = "You should download this game!",
+                    filter = "APP_NON_USERS"
+                })
+            end
+
+        elseif ( "dialog" == event.type ) then
+            -- Handle dialog event
+            print( event.response )
+        end
+    end
+end
+
+-- Set the "fbinit" listener to be triggered when initialization is complete
+facebook.init( facebookListener )</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.facebook-v4a.showDialog&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

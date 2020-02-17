@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Building/Distribution</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#app-localization-ios">App Localization — iOS</a><ul>
+<li><a href="#bundle-localizations">Bundle Localizations</a></li>
+<li><a href="#localized-project-folders">Localized Project Folders</a></li>
+<li><a href="#language-testing">Language Testing</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/distribution/index.html">Building/Distribution</a>
+</div>
+<div id="app-localization-ios" class="section level1">
+<h1>App Localization — iOS</h1>
+<p>This guide explains how to localize an iOS app for multiple languages/marketplaces.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#bundlelocalizations">Bundle Localizations</a></li>
+<li><a href="#lproj">Localized Project Folders</a></li>
+<li><a href="#testing">Language Testing</a></li>
+</ul>
+</div>
+<p><a id="bundlelocalizations"></a></p>
+<div id="bundle-localizations" class="section level2">
+<h2>Bundle Localizations</h2>
+<p>The first step in localizing an app is determining which languages you wish to support. Once this is determined:</p>
+<ol style="list-style-type: decimal">
+<li><p>Locate the appropriate <nobr>2-character</nobr> <nobr><strong>ISO 639-1</strong></nobr> <a href="http://www.loc.gov/standards/iso639-2/php/code_list.php">language code</a> for each.</p></li>
+<li><p>In the project <code>build.settings</code> file, add these language codes to a <code>CFBundleLocalizations</code> table within the <nobr><code>settings</code> → <code>iphone</code> → <code>plist</code></nobr> table. The order is not important, but make sure that each entry is the <nobr>2-character</nobr> string value appropriate to the language, for example:</p></li>
+</ol>
+<div class="image-indent">
+<pre class="brush: lua;">settings =
+{
+    iphone =
+    {
+        plist =
+        {
+            CFBundleLocalizations =
+            {
+                "en",  --English
+                "es",  --Spanish
+                "it",  --Italian
+                "de",  --German
+                "fr",  --French
+                "ja",  --Japanese
+                "ko",  --Korean
+            },
+        },
+    },
+}</pre>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Add the <code>CFBundleDisplayName</code> and <code>CFBundleName</code> keys as the app defaults (see <a href="../../../guide/distribution/buildSettings/index.html">Project Build Settings</a> for details). Note that these should reside inside the <code>plist</code> table but outside the <code>CFBundleLocalizations</code> table.</li>
+</ol>
+<div class="image-indent">
+<pre class="brush: lua;">settings =
+{
+    iphone =
+    {
+        plist =
+        {
+            CFBundleLocalizations =
+            {
+                "en",  --English
+                "es",  --Spanish
+                "it",  --Italian
+                "de",  --German
+                "fr",  --French
+                "ja",  --Japanese
+                "ko",  --Korean
+            },
+            CFBundleDisplayName = "Princess",
+            CFBundleName = "Princess",
+        },
+    },
+}</pre>
+</div>
+<p><a id="lproj"></a></p>
+</div>
+<div id="localized-project-folders" class="section level2">
+<h2>Localized Project Folders</h2>
+<p>The second step involves creating a <strong>localized project folder</strong> for each language in the root project directory alongside <code>main.lua</code>.</p>
+<ol style="list-style-type: decimal">
+<li>For each language that you specified in the <code>CFBundleLocalizations</code> table within <code>build.settings</code>, create a new <code>xx.lproj</code> folder in the app's root directory, where <code>xx</code> represents the <nobr>2-character</nobr> language code.</li>
+</ol>
+<div class="image-indent">
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<ul>
+<li><p>Each folder must be appended with <code>.lproj</code>. For instance, the proper folder name for English is <code>en.lproj</code>, not merely <code>en</code>.</p></li>
+<li><p>Each folder must follow <nobr>case-sensitive</nobr> naming. For instance, the proper folder name for English is <code>en.lproj</code>, not <code>EN.lproj</code>.</p></li>
+</ul>
+</div>
+<div class="figure">
+<img src="../../../images/simulator/localizedfolders1.png" />
+
+</div>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Within each of these localized project folders, create a new text file titled <code>InfoPlist.strings</code>:</li>
+</ol>
+<div class="image-indent">
+<div class="figure">
+<img src="../../../images/simulator/localizedfolders2.png" />
+
+</div>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>As the contents for each <code>InfoPlist.strings</code> file, specify both a <code>CFBundleDisplayName</code> and <code>CFBundleName</code> line with the proper title for that language, for example:</li>
+</ol>
+<div class="image-indent" style="width: 500px;">
+<p><strong>English</strong>  (<code>en.lproj/InfoPlist.strings</code>)</p>
+<pre class="brush: lua;">CFBundleDisplayName = "Princess";
+CFBundleName = "Princess";</pre>
+<p><strong>Spanish</strong>  (<code>es.lproj/InfoPlist.strings</code>)</p>
+<pre class="brush: lua;">CFBundleDisplayName = "La princesa";
+CFBundleName = "La princesa";</pre>
+<p><strong>Korean</strong>  (<code>ko.lproj/InfoPlist.strings</code>)</p>
+<pre class="brush: lua;">CFBundleDisplayName = "공주 패션쇼";
+CFBundleName = "공주 패션쇼";</pre>
+</div>
+<p><a id="testing"></a></p>
+</div>
+<div id="language-testing" class="section level2">
+<h2>Language Testing</h2>
+<p>Once the above steps are complete, you can test the bundle names locally to ensure that the localized names appear.</p>
+<ol style="list-style-type: decimal">
+<li><p>Build the app as outlined in the <strong>Build Process</strong> section of the <a href="../../../guide/distribution/iOSBuild/index.html">Provisioning and Building</a> guide.</p></li>
+<li><p>Install the app as described under <strong>Device Installation</strong> in the <a href="../../../guide/distribution/iOSBuild/index.html">Provisioning and Building</a> guide.</p></li>
+<li><p>Change the device language setting via <strong>Settings</strong> → <strong>General</strong> → <nobr><strong>Language &amp; Region</strong></nobr> and choose one of the languages within your localization setup. If you configured everything as outlined, the app name should appear as the name you defined for <code>CFBundleDisplayName</code> in the respective <code>InfoPlist.strings</code> file.</p></li>
+</ol>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Disclaimer
+</div>
+<p>Changing the device settings must be done entirely at your own risk, especially in regards to language settings. If you change the device language, ensure that you understand the options and menus that will allow you to revert the device to your native language. Corona Labs cannot be held responsible for any settings changes that are conducted without reasonable caution.</p>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.distribution.localization.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

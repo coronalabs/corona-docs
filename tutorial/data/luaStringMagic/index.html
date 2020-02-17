@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Tutorials | Data/Files/Strings</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#lua-string-magic">Lua String Magic</a><ul>
+<li><a href="#splitting-strings">Splitting Strings</a></li>
+<li><a href="#trimming-strings">Trimming Strings</a></li>
+<li><a href="#formatting-as-title-case">Formatting as Title Case</a></li>
+<li><a href="#strict-line-wrapping">Strict Line Wrapping</a></li>
+<li><a href="#confirm-email-format">Confirm Email Format</a></li>
+<li><a href="#stripping-emoticons">Stripping Emoticons</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/data/index.html">Data/Files/Strings</a>
+</div>
+<div id="lua-string-magic" class="section level1">
+<h1>Lua String Magic</h1>
+<p>This tutorial features Lua string manipulation and parsing techniques which can be useful in several applications, especially business or <nobr>database-powered</nobr> apps where you need to check and confirm that text is formatted properly.</p>
+<div id="splitting-strings" class="section level2">
+<h2>Splitting Strings</h2>
+<p>Do you have some data that's in the form of a long string and you need to break it up into smaller strings based on a custom pattern? A common example is street addresses:</p>
+<pre class="brush: lua;">Flintstone, Fred, 101 Rockledge, Bedrock, 98775, 555-555-1212
+Rubble, Barney, 103 Rockledge, Bedrock, 98775, 555-555-1313</pre>
+<p>Now, let's assume you want to parse out each piece of data separated by a comma. Lua does not have a &quot;split&quot; function native to its string library, but with a small function, you can implement the same functionality. Inspect the following code:</p>
+<pre class="brush: lua;">function string:split( inSplitPattern )
+
+    local outResults = {}
+    local theStart = 1
+    local theSplitStart, theSplitEnd = string.find( self, inSplitPattern, theStart )
+
+    while theSplitStart do
+        table.insert( outResults, string.sub( self, theStart, theSplitStart-1 ) )
+        theStart = theSplitEnd + 1
+        theSplitStart, theSplitEnd = string.find( self, inSplitPattern, theStart )
+    end
+
+    table.insert( outResults, string.sub( self, theStart ) )
+    return outResults
+end</pre>
+<p>This function accomplishes the desired task gracefully, providing a <nobr>user-defined</nobr> pattern to split on, and it returns a table with the split elements.</p>
+<p>Calling the function can be done in two ways with equal results:</p>
+<pre class="brush: lua; gutter: false; highlight: [3]; first-line: 1;">local myString = "Flintstone, Fred, 101 Rockledge, Bedrock, 98775, 555-555-1212"
+
+local myTable = myString:split( ", " )
+
+for i = 1,#myTable do
+    print( myTable[i] )
+end</pre>
+<pre class="brush: lua; gutter: false; highlight: [3]; first-line: 1;">local myString = "Flintstone, Fred, 101 Rockledge, Bedrock, 98775, 555-555-1212"
+
+local myTable = string.split( myString, ", " )
+
+for i = 1,#myTable do
+    print( myTable[i] )
+end</pre>
+</div>
+<div id="trimming-strings" class="section level2">
+<h2>Trimming Strings</h2>
+<p>Trimming strings can be useful in several cases, especially if you're working with data from an external source, or data that is input by the user via the device's keyboard. As with the &quot;split&quot; functionality, string trimming is not native to Lua's string library, but it can be accomplished easily enough. Inspect the following function:</p>
+<pre class="brush: lua;">local function trimString( s )
+
+    return string.match( s, "^()%s*$" ) and "" or string.match( s, "^%s*(.*%S)" )
+end</pre>
+<p>Using it is as simple as passing an untrimmed string as the sole parameter:</p>
+<pre class="brush: lua;">local trimmedString = trimString( "   Some untrimmed string here.     " )
+
+print( "[" .. trimmedString .. "]" )  --> [Some untrimmed string here.]</pre>
+</div>
+<div id="formatting-as-title-case" class="section level2">
+<h2>Formatting as Title Case</h2>
+<p>Occasionally it's useful to convert a string into &quot;title case&quot; in which the first letter of each word is converted to uppercase while the remaining letters are set as lowercase. As an example, let's assume that a name was entered in a very sloppy format like:</p>
+<pre class="brush: lua;">Obi-waN kEnObi</pre>
+<p>Of course, you probably want to correct this, and doing so requires just one simple function:</p>
+<pre class="brush: lua;">local function titleCase( s )
+
+    local result = string.gsub( s, "(%a)([%w_']*)",
+        function( first, rest )
+            return first:upper() .. rest:lower()
+        end
+    )
+    return result
+end</pre>
+<p>If you pass the unformatted string to this function as the sole parameter, the result is exactly as expected: <nobr><code>Obi-Wan Kenobi</code></nobr>.</p>
+<pre class="brush: lua;">local characterName = titleCase( "Obi-waN kEnObi" )
+
+print( characterName )  --> Obi-Wan Kenobi</pre>
+</div>
+<div id="strict-line-wrapping" class="section level2">
+<h2>Strict Line Wrapping</h2>
+<p>Sometimes you'll have a long string (paragraph) of text which needs to be <nobr>line-wrapped</nobr> at a specific character interval, not a pixel distance. Corona's <a href="../../../api/library/display/newText.html">display.newText()</a> API handles line wrapping if you provide the <code>width</code> parameter, but if you want <nobr>interval-specific</nobr> control, you may prefer the following function which allows you to set a maximum number of characters per line as the <code>limit</code> argument. In addition, it allows you to set indent values — as optional strings, not integers — for both the start of the paragraph and/or each following line.</p>
+<pre class="brush: lua;">local function textWrap( str, limit, indent, indentFirst )
+
+    limit = limit or 72
+    indent = indent or ""
+    indentFirst = indentFirst or indent
+
+    local here = 1 - #indentFirst
+    return indentFirst .. str:gsub( "(%s+)()(%S+)()",
+        function( sp, st, word, fi )
+            if fi - here > limit then
+                here = st - #indent
+                return "\n" .. indent .. word
+            end
+        end
+    )
+end</pre>
+<p>Let's examine the function arguments in order:</p>
+<pre class="brush: lua;">textWrap( str, limit, indent, indentFirst )</pre>
+<ul>
+<li><code>str</code> (required <a href="../../../api/type/String.html">string</a>) — The string of text which you want to <nobr>line-wrap</nobr>.</li>
+<li><code>limit</code> (optional <a href="../../../api/type/Number.html">integer</a>) — The maximum character interval at which to wrap the lines.</li>
+<li><code>indent</code> (optional <a href="../../../api/type/String.html">string</a>) — Indention string for each line.</li>
+<li><code>indentFirst</code> (optional <a href="../../../api/type/String.html">string</a>) — Indention string for the first line only.</li>
+</ul>
+<p>With this in mind, we could call the function like this and get the following output:</p>
+<pre class="brush: lua;">local initialText = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+
+local wrappedText = textWrap( initialText, 36, nil, "    " )
+
+print( wrappedText )</pre>
+<pre class="brush: lua;">    Lorem ipsum dolor sit amet,
+consetetur sadipscing elitr, sed
+diam nonumy eirmod tempor invidunt
+ut labore et dolore magna aliquyam
+erat, sed diam voluptua. At vero eos
+et accusam et justo duo dolores et
+ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem
+ipsum dolor sit amet.</pre>
+</div>
+<div id="confirm-email-format" class="section level2">
+<h2>Confirm Email Format</h2>
+<p>Another useful string check is confirming that a user has entered an email address in the proper format. Of course, this function can't check if the actual address is valid and functional, but at least it confirms that the format is basically correct.</p>
+<pre class="brush: lua;">local function confirmEmail( s )
+
+    if ( s:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?") ) then
+        return true
+    else
+        return false
+    end
+end</pre>
+<p>If you pass the email address as the sole parameter, you can see that the function simply returns a boolean <code>true</code> or <code>false</code>, depending on whether the email address is formatted correctly.</p>
+<pre class="brush: lua;">local isEmailFormat = confirmEmail( "username@domain.com" )
+
+print( isEmailFormat )  --> true</pre>
+</div>
+<div id="stripping-emoticons" class="section level2">
+<h2>Stripping Emoticons</h2>
+<p>Emoticons, or &quot;emojis,&quot; are visual symbols which let people easily express a thought or feeling via text. Unfortunately, these characters can wreak havoc if you need to save strings containing emoticons to a SQLite database, encode/decode strings using JSON, etc.</p>
+<p>If your app accepts user text input <nobr>(custom player names, etc.)</nobr> in which players may include emoticons, but you need to strip them out for data storage/conversion purposes, the following function accomplishes the task:</p>
+<pre class="brush: lua;">local function stripNonStandardCharacters( s )
+
+    local res = ""
+    for i = 1, utf8.len(s) do
+        local c = utf8.sub( s, i, i )
+        if utf8.codepoint( c ) &lt;= 65535 then
+            res = res .. c
+        end
+    end
+    return res
+end</pre>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Note that this function requires usage of the free Corona <a href="../../../plugin/utf8/index.html">UTF-8</a> plugin, so you'll need to include it in your project and <code>require()</code> it in the module which includes this <nobr>emoticon-stripping</nobr> function. See the plugin <a href="../../../plugin/utf8/index.html">documentation</a> for details.</p>
+</div>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>This wraps up our tutorial on Lua string &quot;magic.&quot; Hopefully you can find a place for these convenient functions in your apps!</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=tutorial.data.luaStringMagic.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

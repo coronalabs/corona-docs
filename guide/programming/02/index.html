@@ -1,0 +1,701 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Getting Started</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#chapter-2-upward-onward">Chapter 2 — Upward &amp; Onward</a><ul>
+<li><a href="#design-document">Design Document</a><ul>
+<li><a href="#project-setup">Project Setup</a></li>
+</ul></li>
+<li><a href="#settings-and-configuration">Settings and Configuration</a><ul>
+<li><a href="#build-settings">Build Settings</a></li>
+<li><a href="#configuration-options">Configuration Options</a></li>
+</ul></li>
+<li><a href="#game-foundation">Game Foundation</a><ul>
+<li><a href="#physics-setup">Physics Setup</a></li>
+<li><a href="#random-seed">Random Seed</a></li>
+<li><a href="#including-images">Including Images</a></li>
+<li><a href="#loading-image-sheets">Loading Image Sheets</a></li>
+<li><a href="#initializing-variables">Initializing Variables</a></li>
+<li><a href="#using-display-groups">Using Display Groups</a></li>
+<li><a href="#loading-the-background">Loading the Background</a></li>
+<li><a href="#loading-the-ship">Loading the Ship</a></li>
+<li><a href="#lives-and-score">Lives and Score</a></li>
+</ul></li>
+<li><a href="#chapter-concepts">Chapter Concepts</a></li>
+<li><a href="#section"></a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/programming/index.html">Getting Started</a>
+</div>
+<div id="chapter-2-upward-onward" class="section level1">
+<h1>Chapter 2 — Upward &amp; Onward</h1>
+<div class="walkthrough-nav">
+<div class="walkthrough-nav-upper-right">
+<p><strong>⟨</strong> <a href="../../../guide/programming/01/index.html">Previous</a> <em>|</em> <a href="../../../guide/programming/03/index.html">Next</a> <strong>⟩</strong></p>
+</div>
+</div>
+<p>Now that we have some experience developing a game, let's develop something a little more complex!</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#planning">Design Document</a></li>
+<li><a href="#settings">Settings and Configuration</a></li>
+<li><a href="#gamesetup">Game Foundation</a></li>
+<li><a href="#concepts">Chapter Concepts</a></li>
+</ul>
+</div>
+<p><a id="planning"></a></p>
+<div id="design-document" class="section level2">
+<h2>Design Document</h2>
+<div class="float-right" style="max-width: 240px; margin-bottom: 16px; clear: both;">
+<div class="figure">
+<img src="../../../images/docs/sbs-starexplorer-0.png" />
+
+</div>
+</div>
+<p>Before we jump into designing and programming our next game, we need to think about the features and other aspects. This usually begins with a <strong>design document</strong> for any major project. In the interest of moving along quickly, here's a simple example:</p>
+<div class="inner-table" style="margin-top: -22px;">
+<table>
+<thead>
+<tr class="header">
+<th align="left"> </th>
+<th align="left"> </th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Game Title</strong></td>
+<td align="left">Star Explorer — a space shooter game.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Description</strong></td>
+<td align="left">Maneuver your starship through an asteroid field, destroying asteroids as you progress.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Controls</strong></td>
+<td align="left">Tap on the ship to fire; drag the ship to move left and right.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Sounds</strong></td>
+<td align="left">Shooting sound and explosion sound when the ship collides with an asteroid.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Now we have a very basic outline for our game. Once the design document is created, you'll be surprised at how quickly it grows!</p>
+<div id="project-setup" class="section level3">
+<h3>Project Setup</h3>
+<p>With these basic design goals in mind, start a new project just like you did in the previous chapter:</p>
+<ol style="list-style-type: decimal">
+<li>From the <strong>Corona Simulator</strong>, select <strong>New Project...</strong> from the <strong>File</strong> menu.</li>
+</ol>
+<!--- TODO: Fix the platform-different citation below -->
+<ol start="2" style="list-style-type: decimal">
+<li><p>For the project/application name, type <code>StarExplorer</code> and ensure that the <strong>Blank</strong> template option is selected.</p></li>
+<li><p>This time, under the section where you can select a screen size, choose <strong>Tablet Preset</strong>. Notice that the width and height values change to <code>768</code> and <code>1024</code> respectively.</p></li>
+<li><p>Leave the other settings at default and click <strong>OK</strong> (Windows) or <strong>Next</strong> (Mac).</p></li>
+<li><p>Locate and open the project folder.</p></li>
+</ol>
+<p><a id="settings"></a></p>
+</div>
+</div>
+<div id="settings-and-configuration" class="section level2">
+<h2>Settings and Configuration</h2>
+<p>In addition to <code>main.lua</code>, Corona projects include two important files which configure your app to work correctly on multiple types of devices: <code>build.settings</code> and <code>config.lua</code>.</p>
+<div id="build-settings" class="section level3">
+<h3>Build Settings</h3>
+<p>The <code>build.settings</code> file provides real devices <nobr>(phones, tablets, etc.)</nobr> with details they need regarding your app. This includes the supported orientations for the app, names of icon files, plugins to include, special information required by devices, and more.</p>
+<p>Using your text editor, locate and open the <code>build.settings</code> file within your project folder. It will contain a lot of information, but let's focus on the highlighted block of code:</p>
+<pre class="brush: lua; gutter: true; highlight: [8,9,10,11,12,13,14,15]; first-line: 6;">settings =
+{
+    orientation =
+    {
+        -- Supported values for orientation:
+        -- portrait, portraitUpsideDown, landscapeLeft, landscapeRight
+
+        default = "portrait",
+        supported = { "portrait", },
+    },</pre>
+<p>Our <code>StarExplorer</code> app will only be available to play in <strong>portrait</strong> mode, so we set this on the following two lines:</p>
+<ul>
+<li><p><nobr><code>default = &quot;portrait&quot;,</code></nobr> — This line tells Corona that the game should <strong>begin</strong> in portrait orientation (when the user first loads the app).</p></li>
+<li><p><nobr><code>supported = { &quot;portrait&quot;, },</code></nobr> — This line tells Corona that the only <strong>supported</strong> orientation is also portrait. That means that even if the user turns (orients) the physical device around in their hands, your app will remain locked in portrait orientation.</p></li>
+</ul>
+<div class="code-indent">
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>As you learned in the previous chapter, curly brackets indicate a <strong>table</strong> in the Lua programming language, and tables can contain multiple items. We could include up to four supported orientations inside this table, but since this app will support just one orientation, <code>&quot;portrait&quot;</code> is all that we need to include.</p>
+</div>
+</div>
+</div>
+<p>There are several additional things which can be included inside the <code>build.settings</code> file, but in the interest of keeping this guide as straightforward as possible, let's move on.</p>
+</div>
+<div id="configuration-options" class="section level3">
+<h3>Configuration Options</h3>
+<p>The <code>config.lua</code> file contains all of the <nobr>Corona-specific</nobr> app configuration settings. This is where we specify what content resolution the app will run at, the content scale mode, how Corona should handle <nobr>high-resolution</nobr> devices, etc.</p>
+<p>Using your text editor, locate and open the <code>config.lua</code> file within your project folder and inspect the following highlighted lines:</p>
+<pre class="brush: lua; gutter: true; highlight: [8,9,10,11,12]; first-line: 6;">application =
+{
+    content =
+    {
+        width = 768,
+        height = 1024, 
+        scale = "letterbox",</pre>
+<p>Notice that this <code>content</code> table contains a series of configuration settings, including:</p>
+<ul>
+<li><code>width</code> and <code>height</code> — These values specify the <strong>content area</strong> size for the app. In Corona, your base content area can be whatever you wish, but often it's based around a common screen width/height aspect ratio like 3:4, set here by <code>768</code> and <code>1024</code>.</li>
+</ul>
+<div class="code-indent">
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>It's important to understand that these values do <strong>not</strong> indicate an exact number of pixels, but rather a relative number of content &quot;units&quot; for the app. The content area will be scaled to fit any device's screen, with subtle differences dictated by the <code>scale</code> definition <nobr>(see the next point)</nobr>.</p>
+</div>
+</div>
+</div>
+<ul>
+<li><code>scale</code> — This important setting tells Corona how to handle the content area for screens which do not match the aspect ratio defined by the <code>width</code> and <code>height</code> settings, for example 3:4 in this case. The two most common options are <code>&quot;letterbox&quot;</code> and <code>&quot;zoomEven&quot;</code>.</li>
+</ul>
+<div class="code-indent">
+<p><code>&quot;letterbox&quot;</code> scales the content area to fill the screen while preserving the same aspect ratio. The entire content area will reside on the screen, but this might result in &quot;black bars&quot; on devices with aspect ratios that differ from your content aspect ratio. Note, however, that you can still utilize this &quot;blank&quot; area and fill it with visual elements by positioning them or extending them outside the content area bounds. Essentially, <code>&quot;letterbox&quot;</code> is an ideal scale mode if you want to ensure that everything in your content area appears within the screen bounds on all devices.</p>
+<p><code>&quot;zoomEven&quot;</code> scales the content area to fill the screen while preserving the same aspect ratio. Some content may &quot;bleed&quot; off the screen edges on devices with aspect ratios that differ from your content aspect ratio. Basically, <code>&quot;zoomEven&quot;</code> is a good option to ensure that the entire screen is filled by the content area on all devices (and content clipping near the outer edges is acceptable).</p>
+</div>
+<div class="code-indent" style="max-width: 70%;">
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="center">letterbox</th>
+<th align="center">zoomEven</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><img src="../../../images/simulator/content-letterbox.png" /></td>
+<td align="center"><img src="../../../images/simulator/content-zoomeven.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="code-indent">
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>For this game, let's use <code>&quot;zoomEven&quot;</code> scale mode. Change <nobr><code>scale = &quot;letterbox&quot;,</code></nobr> to the following and remember to save your <code>config.lua</code> file afterward!</p>
+<pre class="brush: lua; gutter: true; highlight: [12]; first-line: 6;">application =
+{
+    content =
+    {
+        width = 768,
+        height = 1024, 
+        scale = "zoomEven",</pre>
+</div>
+</div>
+</div>
+<p><a id="gamesetup"></a></p>
+</div>
+</div>
+<div id="game-foundation" class="section level2">
+<h2>Game Foundation</h2>
+<p>Now that you understand basic settings and configuration, let's continue with creating the game.</p>
+<div id="physics-setup" class="section level3">
+<h3>Physics Setup</h3>
+<p>Like the <code>BalloonTap</code> project, this game will use the physics engine, so let's configure it right from the beginning. If you're using physics, it's often best to include your basic physics setup code early in the program.</p>
+<p>Using your chosen text editor, open the <code>main.lua</code> file within your project folder and type these commands:</p>
+<pre class="brush: lua; gutter: true; highlight: [7,8,9]; first-line: 7;">local physics = require( "physics" )
+physics.start()
+physics.setGravity( 0, 0 )</pre>
+<p>As you can see, after loading and starting the physics engine, we set <strong>gravity</strong> values. By default, the physics engine simulates standard Earth gravity which causes objects to fall toward the bottom of the screen. To change this, we use the <code>physics.setGravity()</code> command which can simulate gravity in both the horizontal (<strong>x</strong>) or vertical (<strong>y</strong>) directions. Since this game takes place in outer space, we are going to assume that gravity does not apply. Thus, we set both values to <code>0</code>.</p>
+</div>
+<div id="random-seed" class="section level3">
+<h3>Random Seed</h3>
+<p>Our game will randomly spawn asteroids outside of the screen edges, so we'll be implementing random number generation further along in this project. First, though, we need to set the &quot;seed&quot; for the <nobr>pseudo-random</nobr> number generator. On some operating systems, this generator begins with the same initial value which causes random numbers to repeat in a predictable pattern. The following addition to our code ensures that the generator always starts with a different seed.</p>
+<pre class="brush: lua; gutter: true; highlight: [11,12]; first-line: 7;">local physics = require( "physics" )
+physics.start()
+physics.setGravity( 0, 0 )
+
+-- Seed the random number generator
+math.randomseed( os.time() )</pre>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>On the first of these two lines, observe the double minus signs (<code>--</code>). These are used to tell Lua that it should ignore everything else on the line. This is so that you can leave yourself <strong>comments</strong> (notes) in the code. While it might not seem important when you are initially writing the program, the more complex the app gets, or the more time that goes by before you return to work on the app again, the more important it is to include comments for reference.</p>
+</div>
+</div>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>When you intend to generate random numbers in an app, seed the <nobr>pseudo-random</nobr> number generator just once, typically within <code>main.lua</code>. Doing so multiple times is redundant and unnecessary.</p>
+</div>
+</div>
+</div>
+<div id="including-images" class="section level3">
+<h3>Including Images</h3>
+<p>Initially we'll need just two visual assets for this project. As before, they should be placed within your <code>StarExplorer</code> project folder.</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">File</th>
+<th align="left">Size (w×h)</th>
+<th align="left">Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>background.png</code></td>
+<td align="left">800 × 1400</td>
+<td align="left">The background image (stars).</td>
+</tr>
+<tr class="even">
+<td align="left"><code>gameObjects.png</code></td>
+<td align="left">112 × 334</td>
+<td align="left">The image sheet containing our game objects.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>You can use our images as a starting point, available along with this chapter's <a href="https://github.com/coronalabs/GettingStarted02/archive/master.zip">source files</a>.</p>
+</div>
+</div>
+</div>
+<div id="loading-image-sheets" class="section level3">
+<h3>Loading Image Sheets</h3>
+<p>If you've used another game development platform, you may be familiar with the term &quot;sprite sheet&quot; or &quot;texture atlas.&quot; In Corona terminology, this is known as an <strong>image sheet</strong> and it allows you to load multiple images/frames from a single larger image file. Image sheets are also used for animated sprites, where frames for the sprite are pulled from the sheet and assembled into an animated sequence.</p>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>Image sheets are most easily created using a tool such as <a href="http://www.codeandweb.com/texturepacker">TexturePacker</a> which collects, organizes, and packs multiple images into a <nobr>Corona-compatible</nobr> image sheet. While this software isn't a requirement, it does save you time and energy.</p>
+</div>
+<p>Following your existing code, create a <code>sheetOptions</code> table as shown below. Note that it should contain a child table, <code>frames</code>, which will contain an array of Lua tables defining each frame in the sheet.</p>
+<pre class="brush: lua; gutter: true; highlight: [14,15,16,17,18,19,20,21]; first-line: 11;">-- Seed the random number generator
+math.randomseed( os.time() )
+
+-- Configure image sheet
+local sheetOptions =
+{
+    frames =
+    {
+
+    },
+}</pre>
+<div class="float-right" style="max-width: 262px; margin-top: 20px; margin-bottom: 12px; clear: both;">
+<div class="figure">
+<img src="../../../images/docs/sbs-starexplorer-11.png" />
+
+</div>
+</div>
+<p>When configuring an image sheet, you must tell Corona where the images are located within the sheet. For this game, every image is different in size, so we must provide four specific properties which define the theoretical &quot;bounding box&quot; for the portion of the image sheet to utilize:</p>
+<ol style="list-style-type: decimal">
+<li><code>x</code> — the <nobr>upper-left</nobr> corner point of the image in <strong>x</strong> coordinates, relative to the overall sheet width.</li>
+<li><code>y</code> — the <nobr>upper-left</nobr> corner point of the image in <strong>y</strong> coordinates, relative to the overall sheet height.</li>
+<li><code>width</code> — the total width of the image.</li>
+<li><code>height</code> — the total height of the image.</li>
+</ol>
+<p>With this concept in mind, add five Lua tables inside the <code>frames</code> table to declare the position and size of each image within the sheet:</p>
+<div class="float-right" style="max-width: 113px; margin-top: 14px; margin-left: 10px; clear: both;">
+<div class="figure">
+<img src="../../../images/docs/sbs-starexplorer-1.png" />
+
+</div>
+</div>
+<pre class="brush: lua; gutter: true; highlight: [19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48]; first-line: 14;">-- Configure image sheet
+local sheetOptions =
+{
+    frames =
+    {
+        {   -- 1) asteroid 1
+            x = 0,
+            y = 0,
+            width = 102,
+            height = 85
+        },
+        {   -- 2) asteroid 2
+            x = 0,
+            y = 85,
+            width = 90,
+            height = 83
+        },
+        {   -- 3) asteroid 3
+            x = 0,
+            y = 168,
+            width = 100,
+            height = 97
+        },
+        {   -- 4) ship
+            x = 0,
+            y = 265,
+            width = 98,
+            height = 79
+        },
+        {   -- 5) laser
+            x = 98,
+            y = 265,
+            width = 14,
+            height = 40
+        },
+    },
+}</pre>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>The <strong>order</strong> in which you declare each image within a sheet is very important — later, when you load an image from a sheet using a command such as <code>display.newImageRect()</code>, you'll need to specify the <strong>number</strong> of the frame based on the order in which it was declared in the sheet configuration.</p>
+</div>
+</div>
+<p>With this table of information, we can now load the image sheet into memory with the <code>graphics.newImageSheet()</code> command. This accepts the name of the image file for the image sheet (<code>gameObjects.png</code>) and a reference to the <code>sheetOptions</code> table which we just created:</p>
+<pre class="brush: lua; gutter: true; highlight: [51]; first-line: 49;">    },
+}
+local objectSheet = graphics.newImageSheet( "gameObjects.png", sheetOptions )</pre>
+</div>
+<div id="initializing-variables" class="section level3">
+<h3>Initializing Variables</h3>
+<p>In larger programs, it's a good idea to declare all of the variables that are used throughout the file near the beginning. This helps us stay organized and provides a quick reference if we forget what the name of a variable was and/or if the variable had an initial value.</p>
+<p>Following the image sheet options and setup, add these lines:</p>
+<pre class="brush: lua; gutter: true; first-line: 53;">-- Initialize variables
+local lives = 3
+local score = 0
+local died = false
+
+local asteroidsTable = {}
+
+local ship
+local gameLoopTimer
+local livesText
+local scoreText</pre>
+<p>Let's examine each set of additions in detail:</p>
+<ul>
+<li><p>First we declare variables to keep track of the number of lives remaining <nobr>(initial value of <code>3</code>)</nobr>, the current score <nobr>(initial value of <code>0</code>)</nobr>, and whether the player has died <nobr>(initially <code>false</code>)</nobr>.</p></li>
+<li><p>Next we declare the variable <code>asteroidsTable</code> which will be used for a very specific purpose throughout the game. As you recall from the previous chapter, the curly brackets (<code>{}</code>) indicate a Lua <a href="../../../api/type/Table.html">table</a> (array). Among other things, tables are used to keep track of similar types of information. Since there will be many asteroids on the screen in this game, it's impractical to declare each as a unique variable such as <code>asteroid1</code>, <code>asteroid2</code>, <code>asteroid15</code>, etc. We need a more efficient method and that's where tables can help — essentially, tables can contain a large amount of object references and other data, growing and shrinking as needed throughout the game's life.</p></li>
+<li><p>On the next few lines, we declare a variable placeholder for the ship object (<code>ship</code>), a placeholder for a timer we'll implement later, and two variables for the text objects which will display the player's remaining lives and score.</p></li>
+</ul>
+<div class="code-indent">
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Notice that these last four declarations do not begin with any initial value or type. In Lua, this is a perfectly valid way of making a <strong>forward declaration</strong>, sometimes referred to as an <strong>upvalue</strong>. Effectively, we are telling Lua about a variable's existence, even if we don't intend to use it until later in the program.</p>
+</div>
+</div>
+</div>
+<p>Great! With our initial variables set, we can begin loading objects onto the screen.</p>
+</div>
+<div id="using-display-groups" class="section level3">
+<h3>Using Display Groups</h3>
+<p>In the previous chapter, we simply placed objects on the <strong>stage</strong> — this is essentially the core layer/group in which all display objects exist. In this game, we'll insert objects into distinct <strong>display groups</strong> for more controlled layering and organization. Basically, a display group is a special kind of display object which can contain other display objects and even other display groups. Imagine it as a blank sheet of paper on which you &quot;draw&quot; images, text, shapes, and animated sprites.</p>
+<p>With this in mind, let's create three initial display groups. Following the lines you've already entered, add these commands:</p>
+<pre class="brush: lua; gutter: true; first-line: 65;">-- Set up display groups
+local backGroup = display.newGroup()  -- Display group for the background image
+local mainGroup = display.newGroup()  -- Display group for the ship, asteroids, lasers, etc.
+local uiGroup = display.newGroup()    -- Display group for UI objects like the score</pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>The most important aspect here is the <strong>order</strong> in which the groups are created. In the previous chapter, you learned that images loaded in succession will stack from back to front in terms of visual layering. This same principle applies to display groups — not only will display objects inserted into a display group stack/layer in this <nobr>back-to-front</nobr> manner, but you can also layer display groups one atop the other by creating them in similar succession.</p>
+</div>
+</div>
+<div id="loading-the-background" class="section level3">
+<h3>Loading the Background</h3>
+<p>As in the previous project, we'll load the background image first:</p>
+<div class="float-right" style="max-width: 240px; margin-top: 14px; margin-bottom: 16px; clear: both;">
+<div class="figure">
+<img src="../../../images/docs/sbs-starexplorer-12.png" />
+
+</div>
+</div>
+<pre class="brush: lua; gutter: true; first-line: 70;">-- Load the background
+local background = display.newImageRect( backGroup, "background.png", 800, 1400 )
+background.x = display.contentCenterX
+background.y = display.contentCenterY</pre>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>These commands should appear straightforward at this point, but there is one very important difference! Inspect the first parameter to <a href="../../../api/library/display/newImageRect.html">display.newImageRect()</a> — before the image file name (now the second parameter), we indicate the <strong>display group</strong> (<code>backGroup</code>) in which to place the object. This is a convenient inline shortcut which tells Corona that the background image, once loaded, should be inserted into that group.</p>
+</div>
+</div>
+</div>
+<div id="loading-the-ship" class="section level3">
+<h3>Loading the Ship</h3>
+<p>As mentioned earlier, image sheets can be used as a source for an animated sequence of images (sprite) <strong>or</strong> they can be used to organize a collection of static images that will be used within your app. For this project, we'll use the second method.</p>
+<p>Loading an individual image from an image sheet is similar to loading it from a file. Instead of supplying an image name, however, we specify a reference to the image sheet along with a frame number. Add the following highlighted line to your project code:</p>
+<pre class="brush: lua; gutter: true; highlight: [75]; first-line: 71;">local background = display.newImageRect( backGroup, "background.png", 800, 1400 )
+background.x = display.contentCenterX
+background.y = display.contentCenterY
+
+ship = display.newImageRect( mainGroup, objectSheet, 4, 98, 79 )</pre>
+<p>Let's inspect this command in more detail:</p>
+<ul>
+<li><p>The first parameter tells Corona to place the ship into the <code>mainGroup</code> display group (not simply on the stage).</p></li>
+<li><p>The second parameter is the reference to the image sheet we loaded earlier (<code>objectSheet</code>).</p></li>
+<li><p>Since the ship is the 4th frame in our image sheet configuration, we specify <code>4</code> as the frame number (third parameter).</p></li>
+<li><p>Finally, as usual, we set the width and height to <code>98</code> and <code>79</code>, matching the frame's <code>width</code> and <code>height</code> values in the image sheet configuration.</p></li>
+</ul>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Remember that we declared a <strong>forward reference</strong> for the ship object earlier in the program:</p>
+<div style="margin-bottom: 14px;">
+<pre class="brush: lua; gutter: true; highlight: [60]; first-line: 60;">local ship
+local gameLoopTimer
+local livesText</pre>
+</div>
+<p>Because of this, we don't need to preface the new <nobr><code>ship = display.newImageRect()</code></nobr> command with <code>local</code>. Essentially, we are now just setting the <code>ship</code> variable declared earlier to an actual value <nobr>(an image object)</nobr>.</p>
+</div>
+</div>
+<p>Let's continue configuring the ship with the following highlighted commands:</p>
+<div class="float-right" style="max-width: 240px; margin-top: 14px; margin-bottom: 16px; clear: both;">
+<div class="figure">
+<img src="../../../images/docs/sbs-starexplorer-13.png" />
+
+</div>
+</div>
+<pre class="brush: lua; gutter: true; highlight: [76,77,78,79]; first-line: 75;">ship = display.newImageRect( mainGroup, objectSheet, 4, 98, 79 )
+ship.x = display.contentCenterX
+ship.y = display.contentHeight - 100
+physics.addBody( ship, { radius=30, isSensor=true } )
+ship.myName = "ship"</pre>
+<p>With the first two commands, we position the ship at the <nobr>bottom-center</nobr> of the screen. You'll recognize <code>display.contentCenterX</code> from the previous chapter, but this time we utilize a new command, <code>display.contentHeight</code>. This convenient property indicates the maximum <strong>y</strong> coordinate of the content area (bottom edge of the screen). Since the ship should be positioned slightly above this point, however, we subtract <code>100</code> from this value.</p>
+<p>Next, we add the ship to the physics engine with a <code>radius</code> property of <code>30</code>. In addition, we specify an important <nobr>property: <code>isSensor=true</code>.</nobr> This tells Corona that the object should be a <strong>sensor</strong> object. Essentially, sensor objects detect collisions with other physical objects but they do <strong>not</strong> produce a physical response. For example, if a normal body collides with a sensor body, the two bodies will not bounce off each other or cause any other physical reaction. This is ideal for our ship object, because we only want it to detect collisions with asteroids, not bounce off them.</p>
+<p>Lastly, we give the ship object a <code>myName</code> property of <code>&quot;ship&quot;</code>. This property will be used later to help determine what types of collisions are happening in the game.</p>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>Although the ship image clearly isn't circular, we added a circular physics body (<code>radius=30</code>) to the ship object. For this game, we're just being somewhat &quot;lazy&quot; by using this approximate body shape — once you get more comfortable with Corona, you'll learn how to add a perfect <nobr>shape-based</nobr> physics body to the ship which accurately matches the ship image's outline.</p>
+</div>
+</div>
+<div id="lives-and-score" class="section level3">
+<h3>Lives and Score</h3>
+<p>Now let's place UI labels for the player's lives and score on the screen:</p>
+<pre class="brush: lua; gutter: true; first-line: 81;">-- Display lives and score
+livesText = display.newText( uiGroup, "Lives: " .. lives, 200, 80, native.systemFont, 36 )
+scoreText = display.newText( uiGroup, "Score: " .. score, 400, 80, native.systemFont, 36 )</pre>
+<p>To keep things simple, we use a special Lua method with the labels to show our lives and score. Placing two periods together in Lua (<code>..</code>) is called <strong>concatenation</strong>. Concatenation joins two strings into one. Thus, in the <nobr><code>livesText = display.newText()</code></nobr> command above, we are joining the string <code>Lives:</code> and the variable <code>lives</code> for a result of <nobr><code>Lives: 3</code></nobr> being displayed on the screen (remember that we set the initial value of <code>lives</code> to <code>3</code> earlier). Similarly, for <code>scoreText</code>, we join the string <code>Score:</code> and the variable <code>score</code> for a result of <nobr><code>Score: 0</code></nobr>.</p>
+<div class="float-right" style="max-width: 240px; margin-top: 16px; margin-bottom: 16px; clear: both;">
+<div class="figure">
+<img src="../../../images/docs/sbs-starexplorer-2.png" />
+
+</div>
+</div>
+<div class="docs-tip-outer docs-tip-color-action">
+<div class="docs-tip-inner-left">
+<div class="fa fa-video-camera" style="font-size: 29px; padding-top: 4px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Let's check the result of our code so far. Save your modified <code>main.lua</code> file and relaunch the Simulator. If all went well, the background, ship, and text labels should now be showing on the screen.</p>
+</div>
+</div>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Everything looks good so far except for the slightly distracting <strong>status bar</strong> at the top of the screen. On mobile devices, this <nobr>system-generated</nobr> element usually displays various information like the strength of the cellular/WiFi connection, the time, the remaining battery life, etc. While this information is valuable for general usage of the device, it can be distracting when the user is playing a game. To hide the status bar, add the following:</p>
+<pre class="brush: lua; gutter: true; highlight: [86]; first-line: 85;">-- Hide the status bar
+display.setStatusBar( display.HiddenStatusBar )</pre>
+</div>
+</div>
+<p>Finally, let's write a function to update the <code>text</code> property of both <code>livesText</code> and <code>scoreText</code>. This will be similar to the function we wrote in the previous chapter. As you recall, any time you create a new label or object with <a href="../../../api/library/display/newText.html">display.newText()</a>, the text's label/value is stored in the <code>text</code> property of the object, so we update that property with the <strong>concatenated</strong> string value of the label and its associated variable.</p>
+<pre class="brush: lua; gutter: true; first-line: 89;">local function updateText()
+    livesText.text = "Lives: " .. lives
+    scoreText.text = "Score: " .. score
+end</pre>
+<p>Now that we have the basic visual objects in place, can load images from the image sheet, and update the UI labels for both lives and score, we're ready to get started on the game logic and events!</p>
+<div class="docs-tip-outer" style="background-color: #ffa752;">
+<div class="docs-tip-inner-left">
+<div class="fa fa-check-square" style="font-size: 34px; padding-left: 1px; padding-top: 4px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>For reference purposes, the program up to this point is available <a href="https://github.com/coronalabs/GettingStarted02/archive/master.zip">here</a>. If your project doesn't behave as expected, please compare this source code with your own.</p>
+</div>
+</div>
+<p><a id="concepts"></a></p>
+</div>
+</div>
+<div id="chapter-concepts" class="section level2">
+<h2>Chapter Concepts</h2>
+<p>We've covered several more concepts in this chapter. Here's a quick overview:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Command/Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/physics/setGravity.html">physics.setGravity()</a></td>
+<td align="left">Sets the <strong>x</strong> and <strong>y</strong> components of the global gravity vector in units of m/s².</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/math/randomseed.html">math.randomseed()</a></td>
+<td align="left">Sets the &quot;seed&quot; for the <nobr>pseudo-random</nobr> number generator.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/graphics/newImageSheet.html">graphics.newImageSheet()</a></td>
+<td align="left">Creates an <a href="../../../api/type/ImageSheet/index.html">ImageSheet</a> object for loading multiple images/frames from a single larger image file.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/display/newGroup.html">display.newGroup()</a></td>
+<td align="left">Creates a display group for organizing/layering display objects.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../api/library/display/contentHeight.html">display.contentHeight</a></td>
+<td align="left">Shortcut for the height of the content area.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../api/library/display/setStatusBar.html">display.setStatusBar()</a></td>
+<td align="left">Hides or changes the appearance of the status bar on most devices.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section" class="section level2">
+<h2></h2>
+<div class="walkthrough-nav">
+<p><strong>⟨</strong> <a href="../../../guide/programming/01/index.html">Chapter 1 — Creating an App</a> <em>|</em> <a href="../../../guide/programming/03/index.html">Chapter 3 — Bringing it to Life</a> <strong>⟩</strong></p>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.programming.02.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

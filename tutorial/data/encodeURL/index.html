@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Tutorials | Data/Files/Strings</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#encoding-urls-for-network-usage">Encoding URLs for Network Usage</a><ul>
+<li><a href="#encoding-rules">Encoding Rules</a></li>
+<li><a href="#encoding-function">Encoding Function</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/data/index.html">Data/Files/Strings</a>
+</div>
+<div id="encoding-urls-for-network-usage" class="section level1">
+<h1>Encoding URLs for Network Usage</h1>
+<p>One aspect which sometimes challenges users of Corona's <a href="../../../api/library/network/index.html">network</a> library is how to properly encode URLs. Let's look at an example:</p>
+<p><code>https://www.google.com/search?q=coronalabs&amp;ie=utf-8&amp;client=firefox-a&amp;channel=sb</code></p>
+<p>This URL can initially be dissected into the following aspects:</p>
+<ul>
+<li>The schema, in this case <code>https://</code>.</li>
+<li>The domain name, in this case <code>www.google.com</code>.</li>
+<li>The script to run, in this case <code>/search</code>.</li>
+</ul>
+<p>Following this, there is a series of <nobr>key-value</nobr> pairs which is started by a question mark (<code>?</code>) and where each additional pair is separated by an ampersand (<code>&amp;</code>). Each actual key and associated value is separated by an equal sign (<code>=</code>). In this example, we have the following <nobr>key-value</nobr> pairs:</p>
+<ul>
+<li><code>q</code> = <code>coronalabs</code></li>
+<li><code>ie</code> = <code>utf-8</code></li>
+<li><code>client</code> = <code>firefox-a</code></li>
+<li><code>channel</code> = <code>sb</code></li>
+</ul>
+<div id="encoding-rules" class="section level2">
+<h2>Encoding Rules</h2>
+<p>It's important to understand the components of URLs and the usage of the <nobr>symbols <code>/</code>, <code>.</code>, <code>?</code>, and <code>&amp;</code></nobr>. URLs can <strong>not</strong> contain spaces, nor can the keys/values contain spaces or symbols, including <nobr>UTF-8</nobr> characters. In your browser, when you enter a URL which has spaces or special characters, the browser safely converts them for you. Some people test a URL in the browser, assume that it works, and attempt to use it internally with <a href="../../../api/library/network/request.html">network.request()</a> only to discover that it fails.</p>
+<p>Some basic rules for a <nobr><strong>properly-encoded</strong></nobr> URL are:</p>
+<ul>
+<li>Spaces are converted to plus signs (<code>+</code>).</li>
+<li>Other symbols are converted to a hexadecimal value that is prefixed by a percent sign (<code>%</code>).</li>
+</ul>
+<p>To illustrate this concept, let's consider another URL:</p>
+<p><code>http://www.google.com/search?q=Corona tutorials &amp; guides</code></p>
+<p>When encoded properly, the URL looks like this:</p>
+<p><code>http://www.google.com/search?q=Corona+tutorials+%26+guides</code></p>
+</div>
+<div id="encoding-function" class="section level2">
+<h2>Encoding Function</h2>
+<p>When using a URL with Corona's <a href="../../../api/library/network/index.html">network</a> library, it's your responsibility to encode it properly so that it can be safely transported across the Internet. Fortunately, a small Lua function can do the work for us:</p>
+<pre class="brush: lua;">function string.urlEncode( str )
+
+    if ( str ) then
+        str = string.gsub( str, "\n", "\r\n" )
+        str = string.gsub( str, "([^%w ])",
+            function( c )
+                return string.format( "%%%02X", string.byte(c) )
+            end
+        )
+        str = string.gsub( str, " ", "+" )
+    end
+    return str
+end</pre>
+<p>Using this function, we can then encode URLs like this:</p>
+<pre class="brush: lua;">local searchQuery = "Corona tutorials & guides"
+local URL = "http://google.com/q=" .. string.urlEncode( searchQuery )</pre>
+<p>Alternatively, since we added this function to Corona's <nobr>built-in</nobr> <a href="../../../api/library/string/index.html">string</a> library, it can also be used in the colon operator syntax:</p>
+<pre class="brush: lua;">local searchQuery = "Corona tutorials & guides"
+local URL = "http://google.com/q=" .. searchQuery:urlEncode()</pre>
+<p>That's it! Once the URL is properly encoded, we can use it within Corona's <a href="../../../api/library/network/index.html">network</a> functions to make network requests, pass the URL to a <a href="../../../api/library/native/newWebView.html">native.newWebView()</a>, or use it with any other API/function that requires a URL.</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>In summary, remember that URLs <strong>must</strong> be encoded if they contain spaces, symbols, or binary data like <nobr>UTF-8</nobr> <nobr>multi-byte</nobr> characters. The handy function in this tutorial simplifies the encoding process and can help you build better <nobr>network-based</nobr> apps.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=tutorial.data.encodeURL.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries | composer</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#composer.">composer.*</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#functions">Functions</a><ul>
+<li><a href="#composer.getsceneapi.library.composer.getscene"><a href="../../../api/library/composer/getScene.html">composer.getScene()</a></a></li>
+<li><a href="#composer.getscenenameapi.library.composer.getscenename"><a href="../../../api/library/composer/getSceneName.html">composer.getSceneName()</a></a></li>
+<li><a href="#composer.getvariableapi.library.composer.getvariable"><a href="../../../api/library/composer/getVariable.html">composer.getVariable()</a></a></li>
+<li><a href="#composer.gotosceneapi.library.composer.gotoscene"><a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a></a></li>
+<li><a href="#composer.hideoverlayapi.library.composer.hideoverlay"><a href="../../../api/library/composer/hideOverlay.html">composer.hideOverlay()</a></a></li>
+<li><a href="#composer.loadsceneapi.library.composer.loadscene"><a href="../../../api/library/composer/loadScene.html">composer.loadScene()</a></a></li>
+<li><a href="#composer.newsceneapi.library.composer.newscene"><a href="../../../api/library/composer/newScene.html">composer.newScene()</a></a></li>
+<li><a href="#composer.removehiddenapi.library.composer.removehidden"><a href="../../../api/library/composer/removeHidden.html">composer.removeHidden()</a></a></li>
+<li><a href="#composer.removesceneapi.library.composer.removescene"><a href="../../../api/library/composer/removeScene.html">composer.removeScene()</a></a></li>
+<li><a href="#composer.setvariableapi.library.composer.setvariable"><a href="../../../api/library/composer/setVariable.html">composer.setVariable()</a></a></li>
+<li><a href="#composer.showoverlayapi.library.composer.showoverlay"><a href="../../../api/library/composer/showOverlay.html">composer.showOverlay()</a></a></li>
+</ul></li>
+<li><a href="#properties">Properties</a><ul>
+<li><a href="#composer.isdebugapi.library.composer.isdebug"><a href="../../../api/library/composer/isDebug.html">composer.isDebug</a></a></li>
+<li><a href="#composer.recycleonlowmemoryapi.library.composer.recycleonlowmemory"><a href="../../../api/library/composer/recycleOnLowMemory.html">composer.recycleOnLowMemory</a></a></li>
+<li><a href="#composer.recycleonscenechangeapi.library.composer.recycleonscenechange"><a href="../../../api/library/composer/recycleOnSceneChange.html">composer.recycleOnSceneChange</a></a></li>
+<li><a href="#composer.stageapi.library.composer.stage"><a href="../../../api/library/composer/stage.html">composer.stage</a></a></li>
+</ul></li>
+<li><a href="#scene-template">Scene Template</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/composer/index.html">composer</a>
+</div>
+<div id="composer." class="section level1">
+<h1>composer.*</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Library.html">Library</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">composer, scene</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../guide/system/composer/index.html">Composer Library</a> <em>(guide)</em></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Composer is the official scene (screen) creation and management library in Corona. This library provides developers with an easy way to create and transition between individual scenes.</p>
+<p>The primary object in the Composer library is the <code>scene</code> object. This is an event listener that responds to specific events, and it contains a unique <code>self.view</code> property which is a reference to the <a href="../../../api/type/GroupObject/index.html">display group</a> associated with the scene. This <code>self.view</code> is where you should insert visual elements pertaining to the scene.</p>
+<p>See the <a href="#template">Scene Template</a> section below for an example of how a scene file might be structured. For more information on scene events, including names and dispatch order, see the <a href="../../../api/event/scene/index.html">scene events</a> documentation.</p>
+</div>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<div id="composer.getsceneapi.library.composer.getscene" class="section level4">
+<h4><a href="../../../api/library/composer/getScene.html">composer.getScene()</a></h4>
+</div>
+<div id="composer.getscenenameapi.library.composer.getscenename" class="section level4">
+<h4><a href="../../../api/library/composer/getSceneName.html">composer.getSceneName()</a></h4>
+</div>
+<div id="composer.getvariableapi.library.composer.getvariable" class="section level4">
+<h4><a href="../../../api/library/composer/getVariable.html">composer.getVariable()</a></h4>
+</div>
+<div id="composer.gotosceneapi.library.composer.gotoscene" class="section level4">
+<h4><a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a></h4>
+</div>
+<div id="composer.hideoverlayapi.library.composer.hideoverlay" class="section level4">
+<h4><a href="../../../api/library/composer/hideOverlay.html">composer.hideOverlay()</a></h4>
+</div>
+<div id="composer.loadsceneapi.library.composer.loadscene" class="section level4">
+<h4><a href="../../../api/library/composer/loadScene.html">composer.loadScene()</a></h4>
+</div>
+<div id="composer.newsceneapi.library.composer.newscene" class="section level4">
+<h4><a href="../../../api/library/composer/newScene.html">composer.newScene()</a></h4>
+</div>
+<div id="composer.removehiddenapi.library.composer.removehidden" class="section level4">
+<h4><a href="../../../api/library/composer/removeHidden.html">composer.removeHidden()</a></h4>
+</div>
+<div id="composer.removesceneapi.library.composer.removescene" class="section level4">
+<h4><a href="../../../api/library/composer/removeScene.html">composer.removeScene()</a></h4>
+</div>
+<div id="composer.setvariableapi.library.composer.setvariable" class="section level4">
+<h4><a href="../../../api/library/composer/setVariable.html">composer.setVariable()</a></h4>
+</div>
+<div id="composer.showoverlayapi.library.composer.showoverlay" class="section level4">
+<h4><a href="../../../api/library/composer/showOverlay.html">composer.showOverlay()</a></h4>
+</div>
+</div>
+<div id="properties" class="section level2">
+<h2>Properties</h2>
+<div id="composer.isdebugapi.library.composer.isdebug" class="section level4">
+<h4><a href="../../../api/library/composer/isDebug.html">composer.isDebug</a></h4>
+</div>
+<div id="composer.recycleonlowmemoryapi.library.composer.recycleonlowmemory" class="section level4">
+<h4><a href="../../../api/library/composer/recycleOnLowMemory.html">composer.recycleOnLowMemory</a></h4>
+</div>
+<div id="composer.recycleonscenechangeapi.library.composer.recycleonscenechange" class="section level4">
+<h4><a href="../../../api/library/composer/recycleOnSceneChange.html">composer.recycleOnSceneChange</a></h4>
+</div>
+<div id="composer.stageapi.library.composer.stage" class="section level4">
+<h4><a href="../../../api/library/composer/stage.html">composer.stage</a></h4>
+<p><a id="template"></a></p>
+</div>
+</div>
+<div id="scene-template" class="section level2">
+<h2>Scene Template</h2>
+<p>The following template can be used to create new scene files. Note that this template includes listener functions for all potential events in the scene, but you only need to include listeners for the events that you want to handle.</p>
+<pre class="brush: lua;">local composer = require( "composer" )
+
+local scene = composer.newScene()
+
+-- -----------------------------------------------------------------------------------
+-- Code outside of the scene event functions below will only be executed ONCE unless
+-- the scene is removed entirely (not recycled) via "composer.removeScene()"
+-- -----------------------------------------------------------------------------------
+
+
+
+
+-- -----------------------------------------------------------------------------------
+-- Scene event functions
+-- -----------------------------------------------------------------------------------
+
+-- create()
+function scene:create( event )
+
+    local sceneGroup = self.view
+    -- Code here runs when the scene is first created but has not yet appeared on screen
+
+end
+
+
+-- show()
+function scene:show( event )
+
+    local sceneGroup = self.view
+    local phase = event.phase
+
+    if ( phase == "will" ) then
+        -- Code here runs when the scene is still off screen (but is about to come on screen)
+
+    elseif ( phase == "did" ) then
+        -- Code here runs when the scene is entirely on screen
+
+    end
+end
+
+
+-- hide()
+function scene:hide( event )
+
+    local sceneGroup = self.view
+    local phase = event.phase
+
+    if ( phase == "will" ) then
+        -- Code here runs when the scene is on screen (but is about to go off screen)
+
+    elseif ( phase == "did" ) then
+        -- Code here runs immediately after the scene goes entirely off screen
+
+    end
+end
+
+
+-- destroy()
+function scene:destroy( event )
+
+    local sceneGroup = self.view
+    -- Code here runs prior to the removal of scene's view
+
+end
+
+
+-- -----------------------------------------------------------------------------------
+-- Scene event function listeners
+-- -----------------------------------------------------------------------------------
+scene:addEventListener( "create", scene )
+scene:addEventListener( "show", scene )
+scene:addEventListener( "hide", scene )
+scene:addEventListener( "destroy", scene )
+-- -----------------------------------------------------------------------------------
+
+return scene</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.composer.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

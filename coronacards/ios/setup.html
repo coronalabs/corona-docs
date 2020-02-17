@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — CoronaCards | iOS | setup</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#coronacards-ios">CoronaCards — iOS</a><ul>
+<li><a href="#xcode-project-setup">Xcode Project Setup</a></li>
+<li><a href="#section"></a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../coronacards/index.html">CoronaCards</a>  ▸  <a href="../../coronacards/ios/index.html">iOS</a>  ▸  <a href="../../coronacards/ios/setup.html">setup</a>
+</div>
+<div id="coronacards-ios" class="section level1">
+<h1>CoronaCards — iOS</h1>
+<div id="xcode-project-setup" class="section level2">
+<h2>Xcode Project Setup</h2>
+<p>This guide outlines how to configure CoronaCards for usage with an existing <nobr>iOS-based</nobr> Xcode project.</p>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>If you're creating a <strong>new</strong> <nobr>CoronaCards-based</nobr> project, you can use <a href="https://github.com/CoronaCards/project-templates-ios">CoronaCards Xcode project templates</a>. Simply follow the instructions in the <code>README</code>.</p>
+</div>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>In order for any CoronaCards project to work, you must put a valid <code>license.ccdata</code> file near <code>main.lua</code>, otherwise you'll get a black screen and corresponding error message in the console.</p>
+</div>
+<ol style="list-style-type: decimal">
+<li><p>First, link your app to the C++ library. The easiest way is to rename your <code>main.m</code> file to <code>main.mm</code> within the <strong>Supporting Files</strong> branch of the Xcode project tree.</p></li>
+<li><p>Include the CoronaCards framework in your project's frameworks by dragging <code>/Users/Shared/CoronaLabs/ios/CoronaCards.framework</code> to the <strong>Frameworks</strong> group in your Xcode project.</p>
+<p>In addition, CoronaCards depends on several other frameworks. These can be added from the <strong>General</strong> properties view. In this viewport, scroll down to <strong>Linked Frameworks and Libraries</strong>, then press the <strong>+</strong> button to link the frameworks listed below. Note that <code>CoronaCards.framework</code> is already on the list because you copied it to your <strong>Frameworks</strong> group.</p></li>
+</ol>
+<div class="code-indent">
+<div class="inner-table vert-compact">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Framework</th>
+<th align="left"> </th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>AdSupport.framework</code> (may be skipped if your app doesn't use ads)</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>AudioToolbox.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>AVFoundation.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>CFNetwork.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>CoreGraphics.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>CoreLocation.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>CoreMedia.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>CoreMotion.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>CoreVideo.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Foundation.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>GameController.framework</code> (with status <code>optional</code>)</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>GLKit.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>ImageIO.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>MediaPlayer.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>MobileCoreServices.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>OpenAL.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>OpenGLES.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>QuartzCore.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Security.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>SystemConfiguration.framework</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>UIKit.framework</code>  </td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Also, link the following libraries in the same way:</p>
+<div class="inner-table vert-compact">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Library</th>
+<th align="left"> </th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>libsqlite3</code>  </td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>libobjc</code>  </td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Click the <strong>Build Settings</strong> tab to configure build settings. Ensure that the <strong>All</strong> <nobr>sub-tab</nobr> is selected and then set the following:</li>
+</ol>
+<div class="code-indent">
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Section</th>
+<th align="left">Setting</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Search Paths</td>
+<td align="left">Framework Search Paths</td>
+<td align="left"><code>/Users/Shared/CoronaLabs/ios/</code></td>
+</tr>
+<tr class="even">
+<td align="left">Build Options</td>
+<td align="left">Enable Bitcode</td>
+<td align="left">No</td>
+</tr>
+<tr class="odd">
+<td align="left">Deployment</td>
+<td align="left">iOS Deployment Target</td>
+<td align="left"><code>iOS 8.0</code> or higher</td>
+</tr>
+<tr class="even">
+<td align="left">Deployment</td>
+<td align="left">Strip Style</td>
+<td align="left">Non-Global Symbols</td>
+</tr>
+<tr class="odd">
+<td align="left">Linking</td>
+<td align="left">Other Linker Flags</td>
+<td align="left"><code>-ObjC</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Lua code and assets for CoronaCards must be copied to the app bundle before deployment, so you must configure the run script. The best method is to create a <code>Corona</code> folder in your project via the Finder and place your assets within it. Then, configure a <strong>Run Script Build Phase</strong> to copy the assets upon building the project:</li>
+</ol>
+<div class="code-indent">
+<ul>
+<li>Click on the <strong>Build Phases</strong> tab.</li>
+<li>From the Xcode main menu, select <strong>Editor</strong> → <strong>Add Build Phase</strong> → <strong>Add Run Script Build Phase</strong>.</li>
+<li>In the viewport, notice the <strong>Run Script</strong> entry. Expand this tree if necessary and, in the code editor box just below the input field containing <code>/bin/sh</code>, enter these two lines of code:</li>
+</ul>
+<div class="image-indent">
+<pre class="brush: lua;">echo "Copying Corona assets"
+ditto -V $PROJECT_DIR/Corona "$TARGET_BUILD_DIR"/"$EXECUTABLE_FOLDER_PATH"</pre>
+</div>
+</div>
+</div>
+<div id="section" class="section level2">
+<h2></h2>
+<div class="walkthrough-nav">
+<p><strong>⟨</strong> <a href="../../coronacards/ios/index.html">Guide Index</a> <em>|</em> <a href="../../coronacards/ios/uikit.html">Obj-C/UIKit Integration</a> <strong>⟩</strong></p>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=coronacards.ios.setup&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

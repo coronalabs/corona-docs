@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Graphics/Audio/Animation</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#snapshots-render-to-texture">Snapshots (Render to Texture)</a><ul>
+<li><a href="#creating-snapshots">Creating Snapshots</a></li>
+<li><a href="#rectangles-vs.-snapshots">Rectangles vs. Snapshots</a></li>
+<li><a href="#groups-vs.-snapshots">Groups vs. Snapshots</a><ul>
+<li><a href="#bounds">Bounds</a></li>
+<li><a href="#blending">Blending</a></li>
+<li><a href="#managing-children">Managing Children</a></li>
+<li><a href="#invalidation-of-children">Invalidation of Children</a></li>
+<li><a href="#anchors">Anchors</a></li>
+</ul></li>
+<li><a href="#snapshot-canvas">Snapshot Canvas</a></li>
+<li><a href="#performance">Performance</a><ul>
+<li><a href="#overhead">Overhead</a></li>
+<li><a href="#device-dependencies">Device Dependencies</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../guide/index.html">Developer Guides</a>  ▸  <a href="../../guide/graphics/index.html">Graphics/Audio/Animation</a>
+</div>
+<div id="snapshots-render-to-texture" class="section level1">
+<h1>Snapshots (Render to Texture)</h1>
+<p><a href="../../api/type/SnapshotObject/index.html">Snapshot</a> objects let you take a snapshot of a group of objects as a single image. You can then modify the objects and update the snapshot image. This provides an extra dimension of flexibility compared to screen capture APIs like <a href="../../api/library/display/capture.html">display.capture()</a> which generates a new static display object containing the captured result.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#creating">Creating Snapshots</a></li>
+<li><a href="#diff1">Rectangles vs. Snapshots</a></li>
+<li><a href="#diff2">Groups vs. Snapshots</a></li>
+<li><a href="#canvas">Snapshot Canvas</a></li>
+<li><a href="#performance">Performance</a></li>
+</ul>
+</div>
+<p><a id="creating"></a></p>
+<div id="creating-snapshots" class="section level2">
+<h2>Creating Snapshots</h2>
+<p>Snapshot objects are easily created using Corona's <a href="../../api/library/display/newSnapshot.html">display.newSnapshot()</a> method. You can add children objects to snapshots by accessing the snapshot's <a href="../../api/type/SnapshotObject/group.html">group</a>. This property is like a normal <a href="../../api/type/GroupObject/index.html">GroupObject</a> but it does not directly affect the scene. Instead, these objects are rendered to a texture offscreen, and the texture determines what the snapshot renders.</p>
+<p>Snapshot objects operate by capturing the children into a single cached image. When you first create a snapshot object, the object is initialized to update this cached image on the next render pass. Later, however, you may need to explicitly instruct the snapshot to update the cached image. For example, if you make modifications to the children of a snapshot, you must call <a href="../../api/type/SnapshotObject/invalidate.html">snapshot:invalidate()</a> to update the snapshot on the next render pass.</p>
+<p>Here is a basic example which sets up a snapshot and inserts children into its group:</p>
+<pre class="brush: lua;">local snapshot = display.newSnapshot( 200, 200 )
+
+math.randomseed( 0 )
+
+-- Add 4 fish images to the screen
+for i = 1,4 do
+
+    -- Create a fish
+    local fish = display.newImage( "fish-small-red.png" )
+
+    -- Move it to a random position relative to the snapshot's origin
+    fish:translate( math.random( -100, 100 ), math.random( -100, 100 ) )
+
+    -- Insert the fish into the snapshot
+    snapshot.group:insert( fish )
+end
+
+snapshot:translate( display.contentCenterX, display.contentCenterY )  -- Center the snapshot on the screen
+snapshot:invalidate()                                                 -- Invalidate the snapshot
+transition.to( snapshot, { alpha=0, time=2000 } )                     -- Fade the snapshot out</pre>
+<p><a id="diff1"></a></p>
+</div>
+<div id="rectangles-vs.-snapshots" class="section level2">
+<h2>Rectangles vs. Snapshots</h2>
+<p>Snapshots inherit all functionality of rectangles. For example, all <a href="../../guide/graphics/3D.html">2.5D effects</a> are available to snapshot objects.</p>
+<p><a id="diff2"></a></p>
+</div>
+<div id="groups-vs.-snapshots" class="section level2">
+<h2>Groups vs. Snapshots</h2>
+<p>Snapshots have several major differences compared to <a href="../../api/library/display/newGroup.html">display groups</a>:</p>
+<div id="bounds" class="section level3">
+<h3>Bounds</h3>
+<p>A display group's width and height are determined by its children, specifically the union of the children bounds. In contrast, snapshots have a <nobr>pre-defined</nobr> width and height, so children which reside outside those bounds will not render.</p>
+</div>
+<div id="blending" class="section level3">
+<h3>Blending</h3>
+<p>Display groups render each of the children separately and this affects how the alpha is propagated. In groups, the alpha is propagated to each child and because each child renders separately, blending occurs when they overlap. In contrast, snapshots render as a single object, so the alpha only applies after the children are rendered into the snapshot's image.</p>
+<div class="figure">
+<img src="../../images/sdk/graphics/Snapshot-vs-Group-alpha.png" />
+
+</div>
+</div>
+<div id="managing-children" class="section level3">
+<h3>Managing Children</h3>
+<p>Children of snapshots are normally contained in a special <a href="../../api/type/SnapshotObject/group.html">snapshot group</a>. Consequently, you don't add children directly to the snapshot object but rather to its group property.</p>
+</div>
+<div id="invalidation-of-children" class="section level3">
+<h3>Invalidation of Children</h3>
+<p>Display groups automatically detect when properties of children have changed, for example a child's position. Thus, on the next render pass, the child will <nobr>re-render</nobr>. In contrast, snapshots do <strong>not</strong> automatically detect when a child's properties have changed. Thus, you must clear the snapshot's cached image when you modify a child by calling <a href="../../api/type/SnapshotObject/invalidate.html">snapshot:invalidate()</a>. This invalidates the snapshot's image so it can be updated on the next render pass.</p>
+</div>
+<div id="anchors" class="section level3">
+<h3>Anchors</h3>
+<p>By default, groups do not respect <a href="../../guide/graphics/transform-anchor.html">anchor points</a> because they do not have a <nobr>pre-defined</nobr> boundary. However, snapshots are <a href="../../api/type/ShapeObject/index.html">shape objects</a> and they have controllable anchors.</p>
+<p><a id="canvas"></a></p>
+</div>
+</div>
+<div id="snapshot-canvas" class="section level2">
+<h2>Snapshot Canvas</h2>
+<p>Normally, <a href="../../api/type/SnapshotObject/invalidate.html">snapshot:invalidate()</a> causes the texture to be cleared prior to rendering the snapshot group's children to a texture. In contrast, when the snapshot <a href="../../api/type/SnapshotObject/canvas.html">canvas</a> is invalidated, children render to the texture without clearing the texture first.</p>
+<p>The following are the relevant APIs to support <nobr>canvas-style</nobr> operations on the snapshot:</p>
+<ul>
+<li><a href="../../api/type/SnapshotObject/canvas.html">snapshot.canvas</a> — This is the group you should add children to for <nobr>canvas-style</nobr> operations.</li>
+<li><a href="../../api/type/SnapshotObject/canvasMode.html">snapshot.canvasMode</a> — This controls what happens to the children of the canvas group when the canvas is invalidated.</li>
+<li><a href="../../api/type/SnapshotObject/invalidate.html">snapshot:invalidate( &quot;canvas&quot; )</a> — You must invalidate the canvas in order for the children of the canvas group to be rendered to the texture.</li>
+</ul>
+<p><a id="performance"></a></p>
+</div>
+<div id="performance" class="section level2">
+<h2>Performance</h2>
+<div id="overhead" class="section level3">
+<h3>Overhead</h3>
+<p>Snapshot objects rely on a feature in OpenGL known as framebuffer objects that allow you to &quot;render to texture.&quot; This works by performing an additional render pass which occurs offscreen. In other words, there is an additional render pass that draws into a texture, and these additional render passes are triggered whenever the snapshot is invalidated via <a href="../../api/type/SnapshotObject/invalidate.html">snapshot:invalidate()</a>. Because these additional passes have some performance penalty, you should avoid calling too many invalidations at once.</p>
+</div>
+<div id="device-dependencies" class="section level3">
+<h3>Device Dependencies</h3>
+<p>The performance of frame buffer objects depends on the device, so your mileage may vary. Generally, iOS devices have optimized their OpenGL pipeline for framebuffer objects, so you can expect decent performance.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.graphics.snapshot&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

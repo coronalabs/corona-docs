@@ -1,0 +1,615 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Graphics/Audio/Animation</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#custom-shader-effects">Custom Shader Effects</a><ul>
+<li><a href="#gpu-rendering-pipeline">GPU Rendering Pipeline</a></li>
+<li><a href="#programmable-effects">Programmable Effects</a></li>
+<li><a href="#creating-custom-effects">Creating Custom Effects</a><ul>
+<li><a href="#naming-effects">Naming Effects</a></li>
+<li><a href="#defining-kernels">Defining Kernels</a></li>
+</ul></li>
+<li><a href="#vertex-kernels">Vertex Kernels</a><ul>
+<li><a href="#time">Time</a></li>
+<li><a href="#size">Size</a></li>
+<li><a href="#coordinate">Coordinate</a></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+<li><a href="#fragment-kernels">Fragment Kernels</a><ul>
+<li><a href="#time-1">Time</a></li>
+<li><a href="#size-1">Size</a></li>
+<li><a href="#samplers">Samplers</a></li>
+<li><a href="#alphatint">Alpha/Tint</a></li>
+<li><a href="#example-1">Example</a></li>
+</ul></li>
+<li><a href="#custom-varying-variables">Custom Varying Variables</a><ul>
+<li><a href="#example-2">Example</a></li>
+</ul></li>
+<li><a href="#effect-parameters">Effect Parameters</a><ul>
+<li><a href="#vertex-userdata">Vertex Userdata</a></li>
+<li><a href="#uniform-userdata">Uniform Userdata</a></li>
+</ul></li>
+<li><a href="#glsl-conventions-and-best-practices">GLSL Conventions and Best Practices</a><ul>
+<li><a href="#corona-simulator-vs-device">Corona Simulator vs Device</a><ul>
+<li><a href="#performance">Performance</a></li>
+<li><a href="#syntax">Syntax</a></li>
+</ul></li>
+<li><a href="#precision-qualifier-macros">Precision Qualifier Macros</a></li>
+<li><a href="#high-precision-devices">High-Precision Devices</a></li>
+<li><a href="#pre-multiplied-alpha">Pre-Multiplied Alpha</a></li>
+<li><a href="#vector-calculations">Vector Calculations</a><ul>
+<li><a href="#consolidate-scalar-calculations">Consolidate Scalar Calculations</a></li>
+<li><a href="#use-write-masks">Use Write Masks</a></li>
+</ul></li>
+<li><a href="#avoid-dynamic-texture-lookups">Avoid Dynamic Texture Lookups</a></li>
+<li><a href="#avoid-branching-and-loops">Avoid Branching and Loops</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../guide/index.html">Developer Guides</a>  ▸  <a href="../../guide/graphics/index.html">Graphics/Audio/Animation</a>
+</div>
+<div id="custom-shader-effects" class="section level1">
+<h1>Custom Shader Effects</h1>
+<p>While Corona has an extensive list of <a href="../../guide/graphics/effects.html">built-in shader effects</a>, there are times when you may need to create custom effects. This guide outlines how to create custom effects using custom shader code, structured in the same way that Corona's <nobr>built-in</nobr> shader effects are implemented.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#pipeline">GPU Rendering Pipeline</a></li>
+<li><a href="#programmable">Programmable Effects</a></li>
+<li><a href="#creating">Creating Custom Effects</a></li>
+<li><a href="#vertexkernels">Vertex Kernels</a></li>
+<li><a href="#fragmentkernels">Fragment Kernels</a></li>
+<li><a href="#varyingvariables">Custom Varying Variables</a></li>
+<li><a href="#effectparameters">Effect Parameters</a></li>
+<li><a href="#bestpractices">GLSL Conventions and Best Practices</a></li>
+</ul>
+</div>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Notes
+</div>
+<ul>
+<li><p>Writing custom effects is an advanced developer feature. If you want to take advantage of this feature, this guide assumes that you are already familiar with and fluent in GLSL ES <nobr>(OpenGL ES 2.0)</nobr>.</p></li>
+<li><p>Custom effects are supported on iOS, Android, macOS desktop, and Win32 desktop.</p></li>
+</ul>
+</div>
+<p><a id="pipeline"></a></p>
+<div id="gpu-rendering-pipeline" class="section level2">
+<h2>GPU Rendering Pipeline</h2>
+<p>In a programmable graphics pipeline, the GPU is treated as a stream processor. Data flows through multiple processing units and each unit is capable of running a (shader) program.</p>
+<p>In OpenGL-ES 2.0, data flows from (<strong>1</strong>) the application to (<strong>2</strong>) the vertex processor to (<strong>3</strong>) the fragment processor and finally to (<strong>4</strong>) the framebuffer/screen.</p>
+<div class="figure">
+<img src="../../images/sdk/graphics/GPU-pipeline.png" />
+
+</div>
+<p>In Corona, rather than write complete shader programs, custom shader effects are exposed in the form of vertex and fragment <strong>kernels</strong> which allow you to create powerful programmable effects.</p>
+<p><a id="programmable"></a></p>
+</div>
+<div id="programmable-effects" class="section level2">
+<h2>Programmable Effects</h2>
+<p>Corona allows you to extend its pipeline to create several types of custom programmable effects, organized based on the number of input textures:</p>
+<ul>
+<li><strong>Generators</strong> — Procedurally-generated effects which don't operate on any textures/images.</li>
+<li><strong>Filters</strong> — Effects which operate on a single texture/image (<a href="../../api/type/BitmapPaint/index.html">BitmapPaint</a>).</li>
+<li><strong>Composites</strong> — Effects which operate on two textures/images, combined together as a <a href="../../api/type/CompositePaint/index.html">CompositePaint</a>.</li>
+</ul>
+<p><a id="creating"></a></p>
+</div>
+<div id="creating-custom-effects" class="section level2">
+<h2>Creating Custom Effects</h2>
+<p>To define a new effect, call <a href="../../api/library/graphics/defineEffect.html">graphics.defineEffect()</a>, passing in a Lua table which defines the effect. In order for this table to be a valid effect definition, it must contain several properties:</p>
+<ul>
+<li><code>category</code> — The type of effect.</li>
+<li><code>name</code> — The name within a given category.</li>
+<li><code>vertex</code> and/or <code>fragment</code> — Defines where your shader code goes, as described in the <a href="#kernels">Defining Kernels</a> section below.</li>
+</ul>
+<p>A complete and detailed description of all properties is available in the <a href="../../api/library/graphics/defineEffect.html">graphics.defineEffect()</a> documentation.</p>
+<div id="naming-effects" class="section level3">
+<h3>Naming Effects</h3>
+<p>The name of an effect is determined by the following properties:</p>
+<ul>
+<li><code>category</code> — The type of effect.</li>
+<li><code>group</code> — The group of effect. If not provided, Corona will assume <code>custom</code>.</li>
+<li><code>name</code> — The name within a given category.</li>
+</ul>
+<p>When you set an effect on a display object, you must provide a <nobr>fully-qualified</nobr> string by concatenating the above values and separating each by a <code>.</code> as follows:</p>
+<pre class="brush: lua;">local effectName = "[category].[group].[name]"</pre>
+<p><a id="kernels"></a></p>
+</div>
+<div id="defining-kernels" class="section level3">
+<h3>Defining Kernels</h3>
+<p>Corona packages snippets of shader code in the form of <strong>kernels</strong>. By structuring specific vertex and fragment processing tasks in kernels, the creation of custom effects is dramatically simplified.</p>
+<p>Essentially, a kernel is shader code which the main shader program relies upon to handle specific processing tasks. Corona supports both <a href="#vertexkernels">vertex kernels</a> and <a href="#fragmentkernels">fragment kernels</a>. You must specify at least one kernel type in your effect (or both). If a vertex/fragment kernel is not specified, Corona inserts the default vertex/fragment kernel respectively.</p>
+<p><a id="vertexkernels"></a></p>
+</div>
+</div>
+<div id="vertex-kernels" class="section level2">
+<h2>Vertex Kernels</h2>
+<p>Vertex kernels operate on a per-vertex basis, enabling you to modify vertex positions before they are used in the next stage of the pipeline. They must define the following function which accepts an incoming position and can modify that vertex position.</p>
+<p>Corona's default vertex kernel simply returns the incoming position:</p>
+<pre class="brush: lua;">P_POSITION vec2 VertexKernel( P_POSITION vec2 position )
+{
+    return position;
+}</pre>
+<p><a id="vertextime"></a></p>
+<div id="time" class="section level3">
+<h3>Time</h3>
+<p>The following time uniforms can be accessed by the vertex kernel:</p>
+<ul>
+<li><code>P_DEFAULT float CoronaTotalTime</code> — Running time of the app in seconds.</li>
+<li><code>P_DEFAULT float CoronaDeltaTime</code> — Time in seconds since previous frame.</li>
+</ul>
+<p>If you use these variables in your kernel's shader code, your kernel is implicitly <nobr>time-dependent</nobr>. In other words, your kernel will output different results and evolve as time progresses.</p>
+<p>When using these variables, you need to tell Corona that your shader requires the GPU to <nobr>re-render</nobr> the scene, even if there are no other changes to the display objects in the scene. You can do this by setting the <code>kernel.isTimeDependent</code> property in your kernel definition as indicated below. Note that you should only set this if your shader code is truly <nobr>time-dependent</nobr>, since it effectively forces the GPU to <nobr>re-render</nobr> every frame.</p>
+<pre class="brush: lua;">kernel.isTimeDependent = true</pre>
+<p><a id="vertexsize"></a></p>
+</div>
+<div id="size" class="section level3">
+<h3>Size</h3>
+<p>The following size uniforms can be accessed by the vertex kernel:</p>
+<ul>
+<li><p><code>P_POSITION vec2 CoronaContentScale</code> — The number of content pixels per screen pixels along the <strong>x</strong> and <strong>y</strong> axes. Content pixels refer to Corona's coordinate system and are determined by the <a href="../../guide/basics/configSettings/index.html">content scaling</a> settings for your project.</p></li>
+<li><p><code>P_UV vec4 CoronaTexelSize</code> — These values help you understand normalized texture pixels (texels) as they relate to actual pixels. This is useful because texture coordinates are normalized <nobr>(<code>0</code> to <code>1</code>)</nobr> and normally you only have information about proportion (the percentage of the width or height of the texture). Effectively, these values help you create effects based on actual screen/content pixel distances.</p></li>
+</ul>
+<div class="code-indent">
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Value</th>
+<th align="left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>CoronaTexelSize.xy</code></td>
+<td align="left">The number of texels per <strong>screen</strong> pixel along the <strong>x</strong> and <strong>y</strong> axes.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>CoronaTexelSize.zw</code></td>
+<td align="left">The number of texels per <strong>content</strong> pixel along the <strong>x</strong> and <strong>y</strong> axes, initially the same as <code>CoronaTexelSize.xy</code>. This is useful in creating <nobr>resolution-independent</nobr> effects that account for the additional pixel density due to <a href="../../guide/basics/configSettings/index.html">dynamic image selection</a>. Essentially, when a retina/HD image is selected, these components are divided by <code>CoronaContentScale</code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="coordinate" class="section level3">
+<h3>Coordinate</h3>
+<ul>
+<li><code>P_UV vec2 CoronaTexCoord</code> — The texture coordinate for the vertex.</li>
+</ul>
+</div>
+<div id="example" class="section level3">
+<h3>Example</h3>
+<p>The following example causes the bottom edge of an image to wobble by a fixed amplitude:</p>
+<pre class="brush: lua;">local kernel = {}
+
+-- "filter.custom.myWobble"
+kernel.category = "filter"
+kernel.name = "myWobble"
+
+-- Shader code uses time environment variable CoronaTotalTime
+kernel.isTimeDependent = true
+
+kernel.vertex =
+[[
+P_POSITION vec2 VertexKernel( P_POSITION vec2 position )
+{
+    P_POSITION float amplitude = 10;
+    position.y += sin( 3.0 * CoronaTotalTime + CoronaTexCoord.x ) * amplitude * CoronaTexCoord.y;
+
+    return position;
+}
+]]</pre>
+<p><a id="fragmentkernels"></a></p>
+</div>
+</div>
+<div id="fragment-kernels" class="section level2">
+<h2>Fragment Kernels</h2>
+<p>Fragment kernels operate on a per-pixel basis, enabling you to modify each pixel <nobr>(i.e. image processing)</nobr> before it is drawn to the framebuffer. They must define the following function which accepts an incoming texture coordinate and returns a color vector, for example the pixel color to be used in the next stage of the pipeline.</p>
+<p>Corona's default fragment kernel simply samples a single texture (<code>CoronaSampler0</code>) and, using <code>CoronaColorScale()</code>, modulates it by the display object's alpha/tint:</p>
+<pre class="brush: lua;">P_COLOR vec4 FragmentKernel( P_UV vec2 texCoord )
+{
+    P_COLOR texColor = texture2D( CoronaSampler0, texCoord );
+    return CoronaColorScale( texColor );
+}</pre>
+<div id="time-1" class="section level3">
+<h3>Time</h3>
+<p>The same vertex kernel <a href="#vertextime">time</a> uniforms can be accessed by the fragment kernel.</p>
+</div>
+<div id="size-1" class="section level3">
+<h3>Size</h3>
+<p>The same vertex kernel <a href="#vertexsize">size</a> uniforms can be accessed by the fragment kernel.</p>
+</div>
+<div id="samplers" class="section level3">
+<h3>Samplers</h3>
+<ul>
+<li><code>P_COLOR sampler2D CoronaSampler0</code> — The texture sampler for the first texture.</li>
+<li><code>P_COLOR sampler2D CoronaSampler1</code> — The texture sampler for the second texture (requires a <a href="../../api/type/CompositePaint/index.html">composite paint</a>).</li>
+</ul>
+</div>
+<div id="alphatint" class="section level3">
+<h3>Alpha/Tint</h3>
+<p>All display objects have an <a href="../../api/type/DisplayObject/alpha.html">alpha</a> property. In addition, <a href="../../api/type/ShapeObject/index.html">shape</a> objects have a tint which is set either via <a href="../../api/type/ShapeObject/setFillColor.html">object:setFillColor()</a> or the color channel properties <nobr>(<a href="../../api/type/Paint/r.html">r</a>, <a href="../../api/type/Paint/g.html">g</a>, <a href="../../api/type/Paint/b.html">b</a>, <a href="../../api/type/Paint/a.html">a</a>)</nobr> of the object's <a href="../../api/type/ShapeObject/fill.html">fill</a> property.</p>
+<p>Generally, your shader should incorporate the effect of these properties into the color that your fragment kernel returns. You can do this by calling the following function to calculate the correct color:</p>
+<pre class="brush: lua;">P_COLOR vec4 CoronaColorScale( P_COLOR vec4 color );</pre>
+<p>This function takes an input color vector (red, green, blue, and alpha channels) and returns a color vector modulated by the display object's tint and alpha, as shown in the fragment kernel examples. Generally, you should call this function at the end of the fragment kernel so that you can properly calculate the color vector your fragment kernel should return.</p>
+</div>
+<div id="example-1" class="section level3">
+<h3>Example</h3>
+<p>The following example brightens an image by a fixed amount per color component:</p>
+<pre class="brush: lua;">local kernel = {}
+
+-- "filter.custom.myBrighten"
+kernel.category = "filter"
+kernel.name = "myBrighten"
+
+kernel.fragment =
+[[
+P_COLOR vec4 FragmentKernel( P_UV vec2 texCoord )
+{
+    P_COLOR float brightness = 0.5;
+    P_COLOR vec4 texColor = texture2D( CoronaSampler0, texCoord );
+
+    // Pre-multiply the alpha to brightness
+    brightness = brightness * texColor.a;
+
+    // Add the brightness
+    texColor.rgb += brightness;
+
+    // Modulate by the display object's combined alpha/tint.
+    return CoronaColorScale( texColor );
+}
+]]</pre>
+<p><a id="varyingvariables"></a></p>
+</div>
+</div>
+<div id="custom-varying-variables" class="section level2">
+<h2>Custom Varying Variables</h2>
+<p>A &quot;varying&quot; variable enables data to be passed from a vertex shader to the fragment shader. The vertex shader outputs this value which corresponds to the positions of the primitive's vertices. In turn, the fragment shader linearly interpolates this value across the primitive during rasterization.</p>
+<p>In Corona, you can declare your own varying variables in the shader code. You should put them at the beginning of both your vertex and fragment code.</p>
+<div id="example-2" class="section level3">
+<h3>Example</h3>
+<p>The following example combines the wobble vertex and brighten fragment kernels. Unlike the <code>&quot;myBrighten&quot;</code> fragment example above, this version does not use a fixed value for brightness. Instead, the vertex shader calculates an oscillating brightness value for each vertex and the fragment shader linearly interpolates the brightness value according to the pixel it's shading.</p>
+<pre class="brush: lua;">local kernel = {}
+kernel.category = "filter"
+kernel.name = "wobbleAndBrighten"
+
+-- Shader code uses time environment variable CoronaTotalTime
+kernel.isTimeDependent = true
+
+kernel.vertex =
+[[
+varying P_COLOR float delta; // Custom varying variable
+
+P_POSITION vec2 VertexKernel( P_POSITION vec2 position )
+{
+    P_POSITION float amplitude = 10;
+
+    position.y += sin( 3.0 * CoronaTotalTime + CoronaTexCoord.x ) * amplitude * CoronaTexCoord.y;
+
+    // Calculate value for varying
+    delta = 0.4*(CoronaTexCoord.y + sin( 3.0 * CoronaTotalTime + 2.0 * CoronaTexCoord.x ));
+
+    return position;
+}
+]]
+
+kernel.fragment =
+[[
+varying P_COLOR float delta; // Matches declaration in vertex shader
+
+P_COLOR vec4 FragmentKernel( P_UV vec2 texCoord )
+{
+    // Brightness changes based on interpolated value of custom varying variable
+    P_COLOR float brightness = delta;
+
+    P_COLOR vec4 texColor = texture2D( CoronaSampler0, texCoord );
+
+    // Pre-multiply the alpha to brightness
+    brightness *= texColor.a;
+
+    // Add the brightness
+    texColor.rgb += brightness;
+
+    // Modulate by the display object's combined alpha/tint.
+    return CoronaColorScale( texColor );
+}
+</pre>
+<p><a id="effectparameters"></a></p>
+</div>
+</div>
+<div id="effect-parameters" class="section level2">
+<h2>Effect Parameters</h2>
+<p>In Corona, you can pass effect parameters by setting appropriate properties on the <a href="../../api/type/Paint/effect.html">effect</a> of a <a href="../../api/type/ShapeObject/index.html">ShapeObject</a>. These properties depend on the effect. For example, the <nobr>built-in</nobr> brightness filter has an <code>intensity</code> parameter that can be propagated to the shader code:</p>
+<pre class="brush: lua;">object.fill.effect = "filter.brightness"
+object.fill.effect.intensity = 0.4</pre>
+<p>Corona supports two methods for adding parameters to custom shader effects. These are mutually exclusive, so you must choose one or the other.</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Method</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="#vertexuserdata">vertex userdata</a></td>
+<td align="left">Parameters are passed on a <nobr>per-vertex</nobr> basis. This generally performs better because changes to vertex data does not require OpenGL state changes. However, it's limited to 4 (scalar) values.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="#uniformuserdata">uniform userdata</a></td>
+<td align="left">Parameters are passed as uniforms. This is for effects which require more parameters than can be passed via vertex userdata.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="guide-notebox">
+<div class="notebox-title">
+Vertex Versus Uniform
+</div>
+<p>On devices, OpenGL performs best when you are able to minimize state changes. This is because multiple objects can be batched into a single draw call if there are no state changes required between display objects.</p>
+<p>Typically, it's best to use vertex userdata when you need to pass in effect parameters, because the parameter data can be passed in a vertex array. This maximizes the chance that Corona can batch draw calls together. This is especially true if you have numerous consecutive display objects with the same effect applied.</p>
+</div>
+<p><a id="vertexuserdata"></a></p>
+<div id="vertex-userdata" class="section level3">
+<h3>Vertex Userdata</h3>
+<p>When using vertex userdata to pass effect parameters, the effect parameters are copied for each vertex. To minimize the data size impact, the effect parameters are limited to a <code>vec4</code> <nobr>(vector of 4 floats)</nobr>. This is available as the following <nobr>read-only</nobr> vector variable in both the vertex and fragment kernels:</p>
+<p><code>P_DEFAULT vec4 CoronaVertexUserData</code></p>
+<p>For example, suppose you want to modify the above <code>&quot;filter.custom.myBrighten&quot;</code> effect example so that, in Lua, there is a <code>&quot;brightness&quot;</code> parameter for the effect:</p>
+<pre class="brush: lua;">object.fill.effect = "filter.custom.myBrighten"
+object.fill.effect.brightness = 0.3</pre>
+<p>To accomplish this, you must instruct Corona to map the parameter name in Lua with the corresponding component in the vector returned by <code>CoronaVertexUserData</code>. The following code tells Corona that the <code>&quot;brightness&quot;</code> parameter is the first component <nobr>(<code>index = 0</code>)</nobr> of the <code>CoronaVertexUserData</code> vector.</p>
+<pre class="brush: lua;">kernel.vertexData =
+{
+    {
+        name = "brightness",
+        default = 0, 
+        min = 0,
+        max = 1,
+        index = 0,  -- This corresponds to "CoronaVertexUserData.x"
+    },
+}</pre>
+<p>In the above array (<code>kernel.vertexData</code>), each element is a table and each table specifies:</p>
+<ul>
+<li><code>name</code> — The <a href="../../api/type/String.html">string</a> name for the parameter exposed in Lua.</li>
+<li><code>default</code> — The default value.</li>
+<li><code>min</code> — The minimum value.</li>
+<li><code>max</code> — The maximum value.</li>
+<li><p><code>index</code> — The index for the corresponding vector component in <code>CoronaVertexUserData</code>:</p>
+<p><code>index = 0</code> → <code>CoronaVertexUserData.x</code><br />
+<code>index = 1</code> → <code>CoronaVertexUserData.y</code><br />
+<code>index = 2</code> → <code>CoronaVertexUserData.z</code><br />
+<code>index = 3</code> → <code>CoronaVertexUserData.w</code></p></li>
+</ul>
+<p>Finally, modify the <code>FragmentKernel</code> to read the parameter value, accessing the parameter value via <code>CoronaVertexUserData</code>:</p>
+<pre class="brush: lua;">kernel.fragment =
+[[
+P_COLOR vec4 FragmentKernel( P_UV vec2 texCoord )
+{
+    P_COLOR float brightness = CoronaVertexUserData.x;
+
+    ...
+}
+]]</pre>
+<p><a id="uniformuserdata"></a></p>
+</div>
+<div id="uniform-userdata" class="section level3">
+<h3>Uniform Userdata</h3>
+<p>(forthcoming feature)</p>
+<p><a id="bestpractices"></a></p>
+</div>
+</div>
+<div id="glsl-conventions-and-best-practices" class="section level2">
+<h2>GLSL Conventions and Best Practices</h2>
+<p>GLSL has many flavors across mobile and desktop. Corona assumes the use of GLSL ES <nobr>(OpenGL ES 2.0)</nobr>. To maximize compatibility and performance, you should follow the following conventions and best practices.</p>
+<div id="corona-simulator-vs-device" class="section level3">
+<h3>Corona Simulator vs Device</h3>
+<div id="performance" class="section level6">
+<h6>Performance</h6>
+<p>Shader performance on desktop GPUs will <strong>not</strong> be the same as on devices. Therefore, if you run your shader under the Corona Simulator or in the <a href="https://shader.coronalabs.com/">Corona Shader Playground</a>, you should run it on actual devices to be sure that you are getting the desired performance.</p>
+<p>Also note that if you are supporting devices from different manufacturers, the performance between them could vary significantly. On Android in particular, some <nobr>high-end</nobr> devices actually have underpowered GPUs, so you should <strong>not</strong> assume that you will get equal performance across different <nobr>high-end</nobr> Android devices.</p>
+</div>
+<div id="syntax" class="section level6">
+<h6>Syntax</h6>
+<p>The Corona Simulator compiles your shader using <strong>desktop</strong> GLSL. Consequently, if you run your shader in the Corona Simulator, your shader may still contain GLSL ES errors that will not appear until you attempt to run your shader on a device.</p>
+<p>If you have a fragment-only kernel shader effect, you can test out your shader code in the <a href="https://shader.coronalabs.com/">Corona Shader Playground</a>. This playground verifies against GLSL ES in a <nobr>WebGL-enabled</nobr> browser.</p>
+</div>
+</div>
+<div id="precision-qualifier-macros" class="section level3">
+<h3>Precision Qualifier Macros</h3>
+<p>Unlike other flavors of GLSL, GLSL ES <nobr>(OpenGL ES 2.0)</nobr> generally requires precision qualifiers to be specified in variable declarations. Thus, it's a good practice to be explicit about precision.</p>
+<p>Instead of using raw precision qualifiers like <code>lowp</code>, you should use one of the following precision qualifier macros. The defaults are optimized for the type of data:</p>
+<ul>
+<li><code>P_DEFAULT</code> — For generic values; default is <code>highp</code>.</li>
+<li><code>P_RANDOM</code> — For random values; default is <code>highp</code>.</li>
+<li><code>P_POSITION</code> — For positions; default is <code>mediump</code>.</li>
+<li><code>P_NORMAL</code> — For normals; default is <code>mediump</code>.</li>
+<li><code>P_UV</code> — For texture coordinates; default is <code>mediump</code>.</li>
+<li><code>P_COLOR</code> — For pixel colors; default is <code>lowp</code>.</li>
+</ul>
+<p>We strongly recommend you use Corona's defaults for shader precision, all of which have been optimized to balance performance and fidelity. However, your project can override these settings in <code>config.lua</code> (<a href="../../guide/basics/configSettings/index.html">guide</a>).</p>
+</div>
+<div id="high-precision-devices" class="section level3">
+<h3>High-Precision Devices</h3>
+<p>Not all devices support high precision. Therefore, if your kernel requires high precision, you should use the <code>GL_FRAGMENT_PRECISION_HIGH</code> macro. This is <code>1</code> if high precision is supported on the device, or undefined otherwise.</p>
+<p>If the device does not support <code>highp</code>, your kernel can gracefully degrade by writing two implementations:</p>
+<pre class="brush: lua;">P_COLOR vec4 FragmentKernel( P_UV vec2 texCoord )
+{
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+    // Code path for high precision calculations
+#else
+    // Code path for fallback
+#endif
+}</pre>
+</div>
+<div id="pre-multiplied-alpha" class="section level3">
+<h3>Pre-Multiplied Alpha</h3>
+<p>Corona provides textures with <a href="http://en.wikipedia.org/wiki/Alpha_compositing">pre-multiplied alpha</a>. Therefore, you may need to divide by the alpha to recover the original RGB values. However, for performance reasons, you should try to perform calculations to avoid the divide. Compare the following two kernels that brighten an image:</p>
+<ol style="list-style-type: decimal">
+<li>In the following, the original RGB values are recovered by undoing the <nobr>pre-multiplied</nobr> alpha, and later, the alpha is <nobr>re-applied</nobr>. This is not ideal because it generates a lot of additional operations on the GPU for every pixel.</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua;">// Non-optimal Version
+P_COLOR vec4 FragmentKernel( P_UV vec2 texCoord )
+{
+    P_COLOR float brightness = 0.5;
+    P_COLOR vec4 texColor = texture2D( CoronaSampler0, texCoord );
+
+    // BAD: Recover original RGBs via divide
+    texColor.rgb /= texColor.a;
+
+    // Add the brightness
+    texColor.rgb += brightness;
+
+    // BAD: Re-apply the pre-multiplied alpha
+    texColor.rgb *= texColor.a;
+
+    return CoronaColorScale( texColor );
+}</pre>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>This version pre-multiplies the alpha of the texture to the <code>brightness</code> variable so that it can be added directly to the texture's RGB values. This circumvents the deficiencies of the above implementation.</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua;">// Optimal Version
+P_COLOR vec4 FragmentKernel( P_UV vec2 texCoord )
+{
+    P_COLOR float brightness = 0.5;
+    P_COLOR vec4 texColor = texture2D( CoronaSampler0, texCoord );
+
+    // GOOD: Pre-multiply the alpha to brightness
+    brightness = brightness * texColor.a;
+
+    // Add the brightness
+    texColor.rgb += brightness;
+
+    return CoronaColorScale( texColor );
+}</pre>
+</div>
+</div>
+<div id="vector-calculations" class="section level3">
+<h3>Vector Calculations</h3>
+<p>Some devices do not have GPUs with vector processors. In those cases, vector calculations may be performed on a scalar processor. Generally, you should carefully consider the order of operations in your shader to ensure that unnecessary calculations can be avoided on a scalar processor.</p>
+<div id="consolidate-scalar-calculations" class="section level6">
+<h6>Consolidate Scalar Calculations</h6>
+<p>In the following example, a vector processor would execute each multiplication in parallel. However, because of the order of operations, a scalar processor would perform 8 multiplications, even though only one of the three parameters is a scalar value.</p>
+<pre class="brush: lua;">P_DEFAULT float f0, f1;
+P_DEFAULT vec4 v0, v1;
+v0 = (v1 * f0) * f1; // BAD: Multiply each scalar to a vector</pre>
+<p>A better ordering would be to multiply the two scalars first, then multiply the result against the vector. This reduces the calculation to 5 multiplies.</p>
+<pre class="brush: lua;">highp float f0, f1;
+highp vec4 v0, v1;
+v0 = v1 * (f0 * f1); // GOOD: Multiply scalars first</pre>
+</div>
+<div id="use-write-masks" class="section level6">
+<h6>Use Write Masks</h6>
+<p>Similar logic applies when your vector calculation does not use all components. A &quot;write mask&quot; allows you to limit the calculations to only the components specified in the mask. The following runs twice as fast on a scalar processor because the write mask is used to specify that only two of the four components are needed.</p>
+<pre class="brush: lua;">highp vec4 v0;
+highp vec4 v1;
+highp vec4 v2;
+v2.xz = v0 * v1; // GOOD: Write mask limits calculations</pre>
+</div>
+</div>
+<div id="avoid-dynamic-texture-lookups" class="section level3">
+<h3>Avoid Dynamic Texture Lookups</h3>
+<p>When a fragment shader samples textures at a location different from the texture coordinate passed to the shader, it causes a dynamic texture lookup, also known as <nobr>&quot;dependent texture reads.&quot;</nobr> In <nobr>OpenGL-ES 2.0</nobr>, dependent texture reads can delay texel data loading and reduce performance. This is why certain effects that sample a region of texels, for instance blur effects, are slower.</p>
+<p>In contrast, effects that have no dependent texture reads enable the GPU to <nobr>pre-fetch</nobr> texel data before the shader executes, reducing I/O latency.</p>
+</div>
+<div id="avoid-branching-and-loops" class="section level3">
+<h3>Avoid Branching and Loops</h3>
+<p>Branching instructions (<code>if</code> conditions) are expensive. When possible, <code>for</code> loops should be unrolled or replaced by vector operations.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.graphics.customEffects&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

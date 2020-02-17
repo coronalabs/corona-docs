@@ -1,0 +1,571 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Tutorials | Corona Native</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#introduction-to-coronanative-ios">Introduction to Corona Native — iOS</a><ul>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#plugin-project">Plugin Project</a></li>
+<li><a href="#methods-file">Methods File</a></li>
+<li><a href="#header-file">Header File</a></li>
+<li><a href="#building-the-project">Building the Project</a></li>
+<li><a href="#app-project">App Project</a></li>
+<li><a href="#lua-project-code">Lua Project Code</a></li>
+<li><a href="#test-run">Test Run</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/native/index.html">Corona Native</a>
+</div>
+<div id="introduction-to-coronanative-ios" class="section level1">
+<h1>Introduction to Corona Native — iOS</h1>
+<p>This tutorial will help you get started with <a href="../../../native/index.html">Corona Native</a> builds for iOS.</p>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Before you begin, we recommend that you update to the latest version of Xcode.</p>
+</div>
+</div>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<p>To set up Corona Native, follow these steps:</p>
+<ol style="list-style-type: decimal">
+<li>Install Corona as outlined in <a href="../../../guide/start/installMac/index.html">Installing Corona — macOS</a>.</li>
+</ol>
+<!---
+
+2. Also, ensure that Corona is installed in your macOS `Applications` directory.
+
+-->
+<ol start="2" style="list-style-type: decimal">
+<li><p>Once you have Corona installed, locate its core application folder. Open the <strong>Native</strong> folder within and run the <strong>Setup Corona Native</strong> application.</p></li>
+<li><p>Corona Native projects should generally use the provided <code>App</code> template as a foundation, so <strong>copy</strong> the <code>App</code> folder <nobr>(<code>/Native/Project Template/App</code>)</nobr> to another convenient location such as a working project folder. Do <strong>not</strong> modify the original template because you'll likely need a clean copy for future projects.</p></li>
+<li><p>Once copied, rename the folder to whatever you want. In this tutorial, we'll build a sample <strong>plugin</strong> which activates/deactivates the device's &quot;flashlight&quot; and then we'll integrate it into a test app. Thus, <code>Flashlight</code> is an appropriate folder name.</p></li>
+</ol>
+</div>
+<div id="plugin-project" class="section level2">
+<h2>Plugin Project</h2>
+<p>Let's get started! First, we'll address the plugin side of the project:</p>
+<ol style="list-style-type: decimal">
+<li><p>Open your <code>Flashlight</code> folder — a copy of the <code>App</code> template as described above — and then open the <code>ios</code> folder.</p></li>
+<li><p>Inside this <code>ios</code> folder you'll see several files, two of which should be noted at this point:</p>
+<ul>
+<li><code>App.xcodeproj</code></li>
+<li><code>Plugin.xcodeproj</code></li>
+</ul></li>
+</ol>
+<div class="code-indent">
+<p>Basically, these are <strong>Xcode Project</strong> files which contain various project files and settings.</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Double click the <code>Plugin.xcodeproj</code> file to load the project in Xcode. Once loaded, inspect the <nobr>left-side</nobr> <strong>Navigator</strong> column. From here, expand the <nobr><strong>Plugin</strong> → <strong>Source</strong></nobr> folder tree:</li>
+</ol>
+<div class="code-indent" style="max-width: 750px; margin-bottom: -10px;">
+<div class="figure">
+<img src="../../../images/docs/native-ios-1.png" />
+
+</div>
+</div>
+<div class="code-indent">
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>If the Navigator is not visible, reveal it via <nobr><strong>View</strong> → <strong>Navigators</strong> →</nobr> <strong>Show Navigator</strong> <nobr>(⌘-0)</nobr>.</p>
+</div>
+</div>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Inside, you'll see the <code>PluginLibrary.h</code> and <code>PluginLibrary.mm</code> files — these are the files which we'll modify to build the plugin.</li>
+</ol>
+<div class="code-indent" style="max-width: 750px; margin-bottom: -10px;">
+<div class="figure">
+<img src="../../../images/docs/native-ios-2.png" />
+
+</div>
+</div>
+<div class="code-indent">
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>For those with a background in C programming, the <code>.mm</code> extension may seem a bit odd. In Xcode, a <code>.m</code> file is really a <code>.c</code> file, but it stands for <strong>Methods</strong>. This <code>.mm</code> file allows Xcode to mix <nobr>Obj-C</nobr> with C++ and it's where you'll put your methods and objects. As for the <code>.h</code> file, this is the traditional C &quot;header&quot; file where you'll place the definitions for the objects.</p>
+</div>
+</div>
+</div>
+<div id="methods-file" class="section level2">
+<h2>Methods File</h2>
+<p>Now let's proceed with modifying the <strong>methods</strong> file (<code>PluginLibrary.mm</code>):</p>
+<ol style="list-style-type: decimal">
+<li><p>Within Xcode, select <code>PluginLibrary.mm</code> from the <nobr>left-side</nobr> Navigator column to reveal its contents (or alternatively open the file in your preferred text editor).</p></li>
+<li><p>For this tutorial, the plugin will need access to the <code>AVFoundation</code> framework. As such, we must import the appropriate <strong>header</strong> file just after the <code>UIKit</code> import by adding the indicated highlighted line:</p></li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: true; highlight: [13]; first-line: 8;">#import "PluginLibrary.h"
+
+#include &lt;CoronaRuntime.h>
+#import &lt;UIKit/UIKit.h>
+
+#import &lt;AVFoundation/AVFoundation.h></pre>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Following this, observe that the <code>PluginLibrary</code> class is declared. This is the interface for binding your plugin to Lua:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: true; first-line: 17;">class PluginLibrary
+{
+    public:
+        typedef PluginLibrary Self;
+
+    public:
+        static const char kName[];
+        static const char kEvent[];
+
+    protected:
+        PluginLibrary();
+
+    public:
+        bool Initialize( CoronaLuaRef listener );
+
+    public:
+        CoronaLuaRef GetListener() const { return fListener; }
+
+    public:
+        static int Open( lua_State *L );
+
+    protected:
+        static int Finalizer( lua_State *L );
+
+    public:
+        static Self *ToLibrary( lua_State *L );
+
+    public:
+        static int init( lua_State *L );
+        static int show( lua_State *L );
+
+    private:
+        CoronaLuaRef fListener;
+};</pre>
+<p>Most of this requires no modification except for the final <code>public:</code> block where two methods are defined:</p>
+<pre class="brush: lua; gutter: true; highlight: [44,45,46]; first-line: 44;">    public:
+        static int init( lua_State *L );
+        static int show( lua_State *L );
+
+    private:
+        CoronaLuaRef fListener;
+};</pre>
+<p>For our flashlight plugin, <code>show()</code> doesn't make much semantic sense. Instead, methods of <code>on()</code> and <code>off()</code> are more logical since the plugin will turn the flashlight on or off. Thus, let's <strong>remove</strong> the <code>show()</code> method and <strong>add</strong> both an <code>on()</code> and <code>off()</code> method instead:</p>
+<pre class="brush: lua; gutter: true; highlight: [46,47]; first-line: 44;">    public:
+        static int init( lua_State *L );
+        static int on( lua_State *L );
+        static int off( lua_State *L );
+
+    private:
+        CoronaLuaRef fListener;
+};</pre>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Now let's update some values to better represent the actual project on the Lua side and provide proper linking. Essentially, change <code>&quot;plugin.library&quot;</code> to <code>&quot;plugin.flashlight&quot;</code> and, a few lines after, <code>&quot;pluginlibraryevent&quot;</code> to <code>&quot;Flashlight&quot;</code>:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: true; highlight: [56,59]; first-line: 55;">// This corresponds to the name of the library, e.g. [Lua] require "plugin.library"
+const char PluginLibrary::kName[] = "plugin.flashlight";
+
+// This corresponds to the event name, e.g. [Lua] event.name
+const char PluginLibrary::kEvent[] = "Flashlight";</pre>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Next, the <code>PluginLibrary::Open()</code> method needs updating to remove the <code>show()</code> method and add the <code>on()</code> and <code>off()</code> methods we specified earlier:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: true; highlight: [91,92]; first-line: 80;">int
+PluginLibrary::Open( lua_State *L )
+{
+    // Register __gc callback
+    const char kMetatableName[] = __FILE__; // Globally unique string to prevent collision
+    CoronaLuaInitializeGCMetatable( L, kMetatableName, Finalizer );
+
+    // Functions in library
+    const luaL_Reg kVTable[] =
+    {
+        { "init", init },
+        { "on", on },
+        { "off", off },
+
+        { NULL, NULL }
+    };
+
+    // Set library as upvalue for each library function
+    Self *library = new Self;
+    CoronaLuaPushUserdata( L, library, kMetatableName );
+
+    luaL_openlib( L, kName, kVTable, 1 ); // leave "library" on top of stack
+
+    return 1;
+}</pre>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>Now, scroll down until you see the <code>show()</code> method. Since we don't need this method for our flashlight plugin, <strong>remove</strong> it and replace it with two <strong>new</strong> methods for <code>on()</code> and <code>off()</code>:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: true; highlight: [143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209]; first-line: 143;">// [Lua] library.on( word )
+int
+PluginLibrary::on( lua_State *L )
+{
+    NSString *message = @"Device does not appear to have a camera light.";
+
+    // check if flashlight available
+    Class captureDeviceClass = NSClassFromString(@"AVCaptureDevice");
+    if (captureDeviceClass != nil) {
+        AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        if ([device hasTorch] && [device hasFlash]){
+                message = @"Device light should be on.";
+            [device lockForConfiguration:nil];
+            if (device.torchMode == AVCaptureTorchModeOff) {
+                [device setTorchMode:AVCaptureTorchModeOn];
+                [device setFlashMode:AVCaptureFlashModeOn];
+            }
+            [device unlockForConfiguration];
+        }
+    }
+
+    Self *library = ToLibrary( L );
+
+    // Create event and add message to it
+    CoronaLuaNewEvent( L, kEvent );
+    lua_pushstring( L, [message UTF8String] );
+    lua_setfield( L, -2, "message" );
+
+    // Dispatch event to library listener
+    CoronaLuaDispatchEvent( L, library->GetListener(), 0 );
+
+    return 0;
+}
+
+// [Lua] library.off( word )
+int
+PluginLibrary::off( lua_State *L )
+{
+    NSString *message = @"Device does not appear to have a camera light."; ;
+
+    // check if flashlight available
+    Class captureDeviceClass = NSClassFromString(@"AVCaptureDevice");
+    if (captureDeviceClass != nil) {
+        AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        if ([device hasTorch] && [device hasFlash]){
+                message = @"Device light should be off.";
+            [device lockForConfiguration:nil];
+            if (device.torchMode == AVCaptureTorchModeOn) {
+                [device setTorchMode:AVCaptureTorchModeOff];
+                [device setFlashMode:AVCaptureFlashModeOff];
+            }
+            [device unlockForConfiguration];
+        }
+    }
+
+    Self *library = ToLibrary( L );
+
+    // Create event and add message to it
+    CoronaLuaNewEvent( L, kEvent );
+    lua_pushstring( L, [message UTF8String] );
+    lua_setfield( L, -2, "message" );
+
+    // Dispatch event to library listener
+    CoronaLuaDispatchEvent( L, library->GetListener(), 0 );
+
+    return 0;
+}</pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>Within each new method, following the <nobr>Obj-C</nobr> code which manages the device's lamp, there's some Corona Native code that constructs an event and dispatches it to Lua. Let's examine that code:</p>
+<pre class="brush: lua;">    Self *library = ToLibrary( L );
+
+    // Create event and add message to it
+    CoronaLuaNewEvent( L, kEvent );
+    lua_pushstring( L, [message UTF8String] );
+    lua_setfield( L, -2, "message" );
+
+    // Dispatch event to library listener
+    CoronaLuaDispatchEvent( L, library->GetListener(), 0 );
+
+    return 0;
+}</pre>
+<p>Basically, this code creates a C object called <code>library</code> which is the pathway to the Lua app. Next, it calls <code>CoronaLuaNewEvent()</code> and passes it the <code>kEvent</code> object. It then adds the string <code>message</code> and tells Lua that it's the second entry in the table. Finally, it dispatches the event to the library (further on in this tutorial we'll discuss the Lua code for handling this event).</p>
+</div>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>The last block of code in the <code>PluginLibrary.mm</code> file is this:</li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: true; first-line: 213;">CORONA_EXPORT int luaopen_plugin_library( lua_State *L )
+{
+    return PluginLibrary::Open( L );
+}</pre>
+<p>Because of the &quot;suffix&quot; of <code>_library</code>, the name of the plugin on the Corona side will be <code>library</code>. That name is vague if you decide to build several plugins, so let's rename the plugin <code>flashlight</code> by changing the code to <code>luaopen_plugin_flashlight</code>:</p>
+<pre class="brush: lua; gutter: true; highlight: [213]; first-line: 213;">CORONA_EXPORT int luaopen_plugin_flashlight( lua_State *L )
+{
+    return PluginLibrary::Open( L );
+}</pre>
+</div>
+<ol start="7" style="list-style-type: decimal">
+<li>At this point, save your <code>PluginLibrary.mm</code> file and proceed to the next section.</li>
+</ol>
+</div>
+<div id="header-file" class="section level2">
+<h2>Header File</h2>
+<p>Now let's proceed with modifying the <strong>header</strong> file (<code>PluginLibrary.h</code>):</p>
+<ol style="list-style-type: decimal">
+<li><p>Within Xcode, select <code>PluginLibrary.h</code> from the <nobr>left-side</nobr> Navigator column to reveal its contents (or alternatively open the file in your preferred text editor).</p></li>
+<li><p>Change the <code>CORONA_EXPORT</code> line to the following:</p></li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: true; highlight: [16]; first-line: 14;">// This corresponds to the name of the library, e.g. [Lua] require "plugin.library"
+// where the '.' is replaced with '_'
+CORONA_EXPORT int luaopen_plugin_flashlight( lua_State *L );
+
+#endif // _PluginLibrary_H__</pre>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>At this point, save your <code>PluginLibrary.h</code> file and proceed to the next section.</li>
+</ol>
+</div>
+<div id="building-the-project" class="section level2">
+<h2>Building the Project</h2>
+<p>Xcode projects need to be <strong>built</strong> to verify the code and test for any errors. Confirm that you saved all changes to both <code>PluginLibrary.mm</code> and <code>PluginLibrary.h</code>, then select <nobr><strong>Product</strong> → <strong>Build</strong> (⌘-B)</nobr> from within Xcode. If the process completes without errors, you can close the project file at this point.</p>
+</div>
+<div id="app-project" class="section level2">
+<h2>App Project</h2>
+<p>Now, from within your core <code>Flashlight</code> folder, open the <code>App.xcodeproj</code> project and proceed with the following steps:</p>
+<ol style="list-style-type: decimal">
+<li>First, rename the project to something more sensible by clicking and hovering over the project name (<code>App</code>) in the <nobr>left-side</nobr> Navigator column. Change the name from <code>App</code> to <code>Flashlight</code>. Upon entry, Xcode will analyze the project and show a dialog box indicating all of the names it will change. Click <strong>Rename</strong> to confirm.</li>
+</ol>
+<div class="code-indent" style="max-width: 750px;">
+<div class="figure">
+<img src="../../../images/docs/native-ios-3.png" />
+
+</div>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>In the middle pane, with <strong>General</strong> selected along the upper tab bar, look for the <strong>Identity</strong> section. For <strong>Bundle Identifier</strong>, change the value to a valid app bundle ID which you set up in the <a href="https://developer.apple.com/">Apple Developer</a> portal. If you need assistance on Apple provisioning, please see our <a href="../../../guide/distribution/iOSBuild/index.html">guide</a>.</li>
+</ol>
+<div class="code-indent" style="max-width: 750px;">
+<div class="figure">
+<img src="../../../images/docs/native-ios-4.png" />
+
+</div>
+</div>
+<!---
+
+In the **Deployment Info** section below, go through and edit the options such as **Deployment Target**, **Devices**, **Device Orientation**, etc.
+
+-->
+<ol start="3" style="list-style-type: decimal">
+<li>Next, scroll down to the <nobr><strong>Linked Frameworks and Libraries</strong></nobr> section and look for <code>AVFoundation.framework</code>. If you do not see it, click the [<strong>+</strong>] button below the list, select <code>AVFoundation.framework</code>, and click <strong>Add</strong>.</li>
+</ol>
+</div>
+<div id="lua-project-code" class="section level2">
+<h2>Lua Project Code</h2>
+<p>The final step is to implement our plugin into a standard Corona (Lua) project. Within Xcode, from the <nobr>left-side</nobr> Navigator column, expand the <nobr><strong>Flashlight</strong> → <strong>Corona</strong></nobr> tree:</p>
+<div style="max-width: 750px;">
+<div class="figure">
+<img src="../../../images/docs/native-ios-5.png" />
+
+</div>
+</div>
+<p>Here you'll see typical Corona project files like <code>main.lua</code>, <code>build.settings</code>, and <code>config.lua</code>. For Corona Native, the latter two files are typically not used, so we can ignore them for this tutorial.</p>
+<p>Select <code>main.lua</code> to reveal its contents (or alternatively open the file in your preferred text editor) and then <strong>replace</strong> the existing file code with the following:</p>
+<pre class="brush: lua; gutter: true; first-line: 1;">local flashlight = require( "plugin.flashlight" )
+local widget = require( "widget" )
+
+-- This event is dispatched to the global Runtime object by "didLoadMain:" in MyCoronaDelegate.mm
+local function delegateListener( event )
+    native.showAlert(
+        "Event dispatched from 'didLoadMain:'",
+        "of type: " .. tostring( event.name ),
+        { "OK" } )
+end
+Runtime:addEventListener( "delegate", delegateListener )
+
+local function listener( event )
+    print( "Received event from Flashlight plugin (" .. event.name .. "): ", event.message )
+end
+
+local lightState = "off"
+
+local function handleButtonEvent( event )
+
+    if ( lightState == "off" ) then
+        flashlight.on()
+        lightState = "on"
+        event.target:setLabel( "Turn Off" )
+    else
+        flashlight.off()
+        lightState = "off"
+        event.target:setLabel( "Turn On" )
+    end
+    return true
+end
+
+local onOffSwitch = widget.newButton(
+{
+    x = display.contentCenterX,
+    y = display.contentCenterY,
+    label = "Turn On",
+    onRelease = handleButtonEvent
+})
+
+flashlight.init( listener )</pre>
+<p>Let's inspect this code step by step:</p>
+<ul>
+<li><p>The first line loads our plugin into a Corona variable called <code>flashlight</code>, similar to how you'd include any typical Corona plugin. The second line includes the Corona <a href="../../../api/library/widget/index.html">widget</a> library which we'll use to create a standard button.</p></li>
+<li><p>Next is the function called <code>delegateListener()</code>. This function will be attached to the Runtime event <code>&quot;delegate&quot;</code> and it will receive events dispatched from the native side. Basically, this lets you know when the app has been loaded, but this sample won't use it in any meaningful way (in this case, it just shows an alert).</p></li>
+<li><p>The next function is the listener that the app uses to receive events from various plugin methods. Like the previous function, this won't be used in any meaningful way within this sample.</p></li>
+<li><p>The rest of the code does the main work from the Corona side. Among other things, we create a widget button that uses the listener function named <code>handleButtonEvent()</code>. Most importantly, notice that the <code>handleButtonEvent()</code> function calls <code>flashlight.on()</code> and <code>flashlight.off()</code>, the functions that we wrote in <nobr>Obj-C</nobr> within <code>PluginLibrary.mm</code>.</p></li>
+</ul>
+<div class="code-indent">
+<pre class="brush: lua; gutter: true; highlight: [22,26]; first-line: 19;">local function handleButtonEvent( event )
+
+    if ( lightState == "off" ) then
+        flashlight.on()
+        lightState = "on"
+        event.target:setLabel( "Turn Off" )
+    else
+        flashlight.off()
+        lightState = "off"
+        event.target:setLabel( "Turn On" )
+    end
+    return true
+end</pre>
+</div>
+</div>
+<div id="test-run" class="section level2">
+<h2>Test Run</h2>
+<p>And now for the fun — testing on an actual device!</p>
+<ol style="list-style-type: decimal">
+<li><p>Assuming you've enabled your iOS device as a development device, connect it to your computer with the sync cable.</p></li>
+<li><p>In the Xcode tool bar, click on the <strong>active scheme</strong> button and confirm that <strong>App</strong> is the selected scheme:</p></li>
+</ol>
+<div class="code-indent" style="max-width: 375px;">
+<div class="figure">
+<img src="../../../images/docs/native-ios-6.png" />
+
+</div>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>In the same scheme button region, click to the <strong>right</strong> of the thin arrow (<strong>⟩</strong>). You should find a list of connected device(s) under the grey <strong>Device</strong> subheader. Select the device that you wish to test on.</li>
+</ol>
+<div class="code-indent" style="max-width: 375px;">
+<div class="figure">
+<img src="../../../images/docs/native-ios-7.png" />
+
+</div>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li><p>To the left of the scheme button, you'll see a <strong>Run</strong> button. Click this and Xcode will install the app onto the device and start it. Because it's in development mode, it may take a couple seconds longer to start up.</p></li>
+<li><p>If everything is working correctly, you'll see a &quot;Turn On&quot; button in the center of the screen. Tap it and the device's flashlight should turn on. Tap the button again to turn off the flashlight.</p></li>
+<li><p>When you're finished testing, click the <strong>Stop</strong> button in Xcode.</p></li>
+</ol>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>Clearly this tutorial is just a basic example of what can be done with Corona Native, but hopefully it has shown you what <strong>can</strong> be accomplished when you combine the nearly unlimited power of native programming with the ease and simplicity of Corona!</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=tutorial.native.iosIntro.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

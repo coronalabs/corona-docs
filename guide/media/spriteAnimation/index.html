@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Graphics/Audio/Animation</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#sprite-animation">Sprite Animation</a><ul>
+<li><a href="#image-sheets">Image Sheets</a></li>
+<li><a href="#animation-sequences">Animation Sequences</a><ul>
+<li><a href="#consecutive-frames">Consecutive Frames</a></li>
+<li><a href="#non-consecutive-frames">Non-Consecutive Frames</a></li>
+<li><a href="#multiple-sequences">Multiple Sequences</a></li>
+</ul></li>
+<li><a href="#sprite-objects">Sprite Objects</a></li>
+<li><a href="#sprite-control-methods">Sprite Control Methods</a></li>
+<li><a href="#sprite-properties">Sprite Properties</a></li>
+<li><a href="#sprite-events">Sprite Events</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/media/index.html">Graphics/Audio/Animation</a>
+</div>
+<div id="sprite-animation" class="section level1">
+<h1>Sprite Animation</h1>
+<p>This guide discusses how to implement animated sprites and use the related APIs.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#sheet">Image Sheets</a></li>
+<li><a href="#sequences">Animation Sequences</a></li>
+<li><a href="#spriteobjects">Sprite Objects</a></li>
+<li><a href="#controlmethods">Sprite Control Methods</a></li>
+<li><a href="#spriteproperties">Sprite Properties</a></li>
+<li><a href="#spriteevents">Sprite Events</a></li>
+</ul>
+</div>
+<p><a id="sheet"></a></p>
+<div id="image-sheets" class="section level2">
+<h2>Image Sheets</h2>
+<p>The foundation of all animated sprites in Corona is the <strong>image sheet</strong>. This can be compared to a sheet of paper on which you draw the individual frames for animated object(s). Depending on the framework, this may also be known as a sprite sheet, texture atlas, or image map. Corona uses the <strong>image sheet</strong> terminology — and objects created via <a href="../../../api/library/graphics/newImageSheet.html">graphics.newImageSheet()</a> — because their usage is not limited to animated sprites. In fact, you can also use image sheets (and usually should) for static images picked from a portion of an image sheet. For more information on image sheets, see the <a href="../../../guide/media/imageSheets/index.html">Image Sheets</a> guide.</p>
+<p>Pictured below is a sample image sheet for a running cat, titled <code>sprites-cat-running.png</code>. This sheet consists of eight &quot;frames&quot; in a specifically ordered sequence. Conceptually, the animation begins at the <nobr>top-left</nobr> frame, proceeds to the next frame (to its right), wraps to the next row when it reaches the end of the current row, and finally stops (or repeats) when the entire sequence is complete.</p>
+<div class="float-right" style="float: none; margin: 10px 0px 22px 0px; color: #666; vertical-align: middle;">
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td align="left"><span style="line-height:30px;">2048</span></td>
+</tr>
+<tr class="even">
+<td><span style="margin-right:8px;">512</span></td>
+<td align="left"><img src="../../../images/simulator/sprites-cat-running.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>To configure this image sheet in Corona, first set up an indexed table with various properties. The following example uses <nobr>uniform-sized</nobr> frames, although sprites can also use image sheets with frames packed in a tight, optimized arrangement (see the documentation for <a href="../../../api/library/graphics/newImageSheet.html">graphics.newImageSheet()</a>).</p>
+<pre class="brush: lua;">local sheetOptions =
+{
+    width = 512,
+    height = 256,
+    numFrames = 8
+}</pre>
+<p>In this table, <code>width</code> and <code>height</code> specify the pixel dimensions of each individual frame. Since there are 4 frames across and the image sheet is <code>2048</code> pixels in overall width, each frame is <code>512</code> pixels wide. Similarly, since there are 2 rows and the sheet is <code>512</code> pixels in overall height, each frame is <code>256</code> pixels tall.</p>
+<p>The next parameter, <code>numFrames</code>, specifies how many total frames exist on the image sheet. Since there are clearly 8 frames of animation for the running cat, this value should be set to <code>8</code>.</p>
+<p>Once this table of options is declared, creating the image sheet is accomplished via the <a href="../../../api/library/graphics/newImageSheet.html">graphics.newImageSheet()</a> API. The image sheet file name should be passed as the first parameter and the <code>options</code> table as the second parameter:</p>
+<pre class="brush: lua;">local sheet_runningCat = graphics.newImageSheet( "sprites-cat-running.png", sheetOptions )</pre>
+<p><a id="sequences"></a></p>
+</div>
+<div id="animation-sequences" class="section level2">
+<h2>Animation Sequences</h2>
+<p>All animated sprites require at least one named <strong>sequence</strong> declared as either consecutive frames or <nobr>non-consecutive</nobr> frames.</p>
+<div id="consecutive-frames" class="section level3">
+<h3>Consecutive Frames</h3>
+<p>The most basic sequence is consecutive frames. This accepts a sequence name, the starting frame index, the frame count, an optional time duration for the animation, and two optional looping parameters.</p>
+<pre class="brush: lua;">-- sequences table
+local sequences_runningCat = {
+    -- consecutive frames sequence
+    {
+        name = "normalRun",
+        start = 1,
+        count = 8,
+        time = 800,
+        loopCount = 0,
+        loopDirection = "forward"
+    }
+}</pre>
+<p>The <code>name</code> parameter is required and can be used to set the sprite to this sequence. The <code>start</code> and <code>count</code> parameters are also required — since the running cat has 8 total frames, the start frame can be set to <code>1</code> and the count to <code>8</code>. This tells the sequence to begin at the first frame and animate consecutively through all frames until the end.</p>
+<p>Following this, the optional <code>time</code> parameter defines the total duration of the sequence in milliseconds. This parameter can be omitted, in which case the animation will animate at the frame rate of the application (one frame for each time step).</p>
+<p>The <code>loopCount</code> parameter defines how many times the sequence should loop (repeat). Set this to any positive integer to loop the sequence that number of times. Alternatively, to loop the sequence indefinitely, set <code>loopCount</code> to <code>0</code>. If looping is set, you can also include the <code>loopDirection</code> parameter. A setting of <code>&quot;forward&quot;</code> will loop the sequence from start to end, while a setting of <code>&quot;bounce&quot;</code> will animate the sequence from start to end, then animate back to the starting frame in reverse.</p>
+</div>
+<div id="non-consecutive-frames" class="section level3">
+<h3>Non-Consecutive Frames</h3>
+<p>Sequences can also be defined with <nobr>non-consecutive</nobr> frames. This model accepts most of the same parameters as above, but instead of a starting frame and frame count, it requires a <code>frames</code> table. This table is a <nobr>comma-delimited</nobr> list of frame indices representing frames from the image sheet.</p>
+<pre class="brush: lua;">-- sequences table
+local sequences_runningCat = {
+    -- non-consecutive frames sequence
+    {
+        name = "fastRun",
+        frames = { 1,3,5,7 },
+        time = 400,
+        loopCount = 0,
+        loopDirection = "forward"
+    }
+}</pre>
+</div>
+<div id="multiple-sequences" class="section level3">
+<h3>Multiple Sequences</h3>
+<p>A sequences data table can (and often will) contain multiple sequences. This allows you to define all of the sequences for a sprite in one place, and later, set or change the sequence for the sprite based on the sequence <code>name</code> parameter.</p>
+<p>To declare multiple sequences, just include multiple sequence tables separated by commas:</p>
+<pre class="brush: lua;">-- sequences table
+local sequences_runningCat = {
+    -- first sequence (consecutive frames)
+    {
+        name = "normalRun",
+        start = 1,
+        count = 8,
+        time = 800,
+        loopCount = 0
+    },
+    -- next sequence (non-consecutive frames)
+    {
+        name = "fastRun",
+        frames = { 1,3,5,7 },
+        time = 400,
+        loopCount = 0
+    },
+}</pre>
+<div class="guide-notebox">
+<div class="notebox-title title-nomargin">
+Notes
+</div>
+<ul>
+<li><p>The first sequence in a multi-sequence setup is considered the default. When you create a sprite object, the default sequence will be used unless you change the sequence explicitly (see the <a href="#controlmethods">sprite control methods</a> section below).</p></li>
+<li><p>For a multi-sequence setup, you are not limited to using frames from one image sheet — each sequence can, in fact, access a unique image sheet. To accomplish this, simply add the <code>sheet</code> parameter to any sequence and set its value to any <nobr>pre-declared</nobr> <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a>. For a complete example, please refer to <a href="../../../api/library/display/newSprite.html">display.newSprite()</a>.</p></li>
+</ul>
+</div>
+<p><a id="spriteobject"></a></p>
+</div>
+</div>
+<div id="sprite-objects" class="section level2">
+<h2>Sprite Objects</h2>
+<p>Once the image sheet(s) and sequences are set up, a new <a href="../../../api/type/SpriteObject/index.html">sprite object</a> can be created with the <a href="../../../api/library/display/newSprite.html">display.newSprite()</a> API:</p>
+<pre class="brush: lua;">display.newSprite( [parent,] imageSheet, sequenceData )</pre>
+<p>For this API, the <code>parent</code> parameter is optional and represents the display group in which to insert the sprite. The <code>imageSheet</code> parameter defines the default image sheet for the sprite, and <code>sequenceData</code> is the table that contains all of the sequences for the sprite.</p>
+<p>In context of this guide, the sprite declaration would look like this:</p>
+<pre class="brush: lua;">local runningCat = display.newSprite( sheet_runningCat, sequences_runningCat )</pre>
+<p>This line will create a <a href="../../../api/type/DisplayObject/index.html">display object</a> named <code>runningCat</code> which can be moved, rotated, <a href="../../../api/library/transition/index.html">transitioned</a>, linked to a <a href="../../../api/library/physics/addBody.html">physics</a> body, etc. — and because it's also a <a href="../../../api/type/SpriteObject/index.html">sprite object</a>, it gains all of the sprite <a href="#controlmethods">control methods</a> and <a href="#spriteproperties">sprite properties</a> outlined below.</p>
+<p><a id="controlmethods"></a></p>
+</div>
+<div id="sprite-control-methods" class="section level2">
+<h2>Sprite Control Methods</h2>
+<p>The sprite library provides four primary control methods which can be used to control the playback of sprites:</p>
+<ul>
+<li><p><a href="../../../api/type/SpriteObject/play.html">object:play()</a> — Starts the animation using the default or set sequence. Sprites do not automatically begin playing when you create them, so you must start them with this command.</p></li>
+<li><p><a href="../../../api/type/SpriteObject/pause.html">object:pause()</a> — Pauses the animation. There is no &quot;stop&quot; control method, so this method serves both purposes.</p></li>
+<li><p><a href="../../../api/type/SpriteObject/setFrame.html">object:setFrame()</a> — Immediately set or skip to an indicated frame index within the current sequence. If you want to &quot;stop and reset&quot; an animation after it has started playing, use the <a href="../../../api/type/SpriteObject/pause.html">pause()</a> and <a href="../../../api/type/SpriteObject/setFrame.html">setFrame()</a> commands consecutively, setting the frame back to the beginning of the sequence.</p></li>
+<li><p><a href="../../../api/type/SpriteObject/setSequence.html">object:setSequence()</a> — Set the sprite to a specific sequence. For example, to change the <code>runningCat</code> sprite animation from <code>normalRun</code> to <code>fastRun</code> (assuming both sequences are declared in the <code>sequences_runningCat</code> table), call <code>runningCat:setSequence( &quot;fastRun&quot; )</code>. Then, call <code>runningCat:play()</code> to begin playing the animation, since sprites do not automatically begin playing after a sequence is set/changed.</p></li>
+</ul>
+<p><a id="spriteproperties"></a></p>
+</div>
+<div id="sprite-properties" class="section level2">
+<h2>Sprite Properties</h2>
+<p>All sprite objects have various properties. You can even modify the relative animation speed of a particular sprite. These properties are as follows:</p>
+<ul>
+<li><p><a href="../../../api/type/SpriteObject/frame.html">object.frame</a> — Read-only integer that represents the currently shown index of the loaded sequence. This property does not set the frame; use the <a href="../../../api/type/SpriteObject/setFrame.html">setFrame()</a> function to explicitly set an animation frame.</p></li>
+<li><p><a href="../../../api/type/SpriteObject/isPlaying.html">object.isPlaying</a> — This property is <code>true</code> if the animation is playing, <code>false</code> if not.</p></li>
+<li><p><a href="../../../api/type/SpriteObject/numFrames.html">object.numFrames</a> — Read-only property that represents the number of frames in the current animation sequence.</p></li>
+<li><p><a href="../../../api/type/SpriteObject/sequence.html">object.sequence</a> — Read-only property indicating the name of the current animation sequence.</p></li>
+<li><p><a href="../../../api/type/SpriteObject/timeScale.html">object.timeScale</a> — Gets or sets the scale (ratio) applied to the animation time, allowing you to adjust the animation speed of a sprite dynamically.</p></li>
+</ul>
+<p><a id="spriteevents"></a></p>
+</div>
+<div id="sprite-events" class="section level2">
+<h2>Sprite Events</h2>
+<p>The sprite system can check for <a href="../../../api/event/sprite/index.html">sprite events</a> via the implementation of a sprite listener function. This allows you to detect when an animation begins playing, when the animation ends, when it loops, etc.</p>
+<p>To add a sprite event listener to a particular sprite, use the standard <a href="../../../api/type/EventDispatcher/addEventListener.html">object:addEventListener()</a> method with the <code>eventName</code> property of <code>&quot;sprite&quot;</code> and a reference to the listener function:</p>
+<pre class="brush: lua;">object:addEventListener( "sprite", spriteListener )</pre>
+<p>Once the event listener is added, the <code>spriteListener</code> function will be called at specific <a href="../../../api/event/sprite/phase.html">phases</a> during the animation:</p>
+<ul>
+<li><code>began</code> — The animation began playing.</li>
+<li><code>ended</code> — The animation showed its final frame.</li>
+<li><code>bounce</code> — The animation bounced from forward to backward while playing.</li>
+<li><code>loop</code> — The animation looped from the beginning of the sequence.</li>
+<li><code>next</code> — The animation played a subsequent frame that's <strong>not</strong> one of the above phases.</li>
+</ul>
+<p>Using these phases, assume that you want the <code>runningCat</code> sprite to loop through 4 cycles of the <code>normalRun</code> sequence, then change to the <code>fastRun</code> sequence and loop indefinitely. First, the <code>normalRun</code> sequence must be modified by changing the <code>loopCount</code> to <code>4</code>. This allows you to detect an <code>ended</code> phase when all 4 loops are complete.</p>
+<pre class="brush: lua;">local sequences_runningCat = {
+    {
+        name = "normalRun",
+        start = 1,
+        count = 8,
+        time = 800,
+        loopCount = 4
+    },
+    {
+        name = "fastRun",
+        frames = { 1,3,5,7 },
+        time = 400,
+        loopCount = 0
+    },
+}</pre>
+<p>Next, write the listener function and add the event listener to the <code>runningCat</code> object. You can include this code after the sprite object is created, since the event listener is added via a separate command instead of being declared during the sprite instantiation.</p>
+<pre class="brush: lua;">-- sprite listener function
+local function spriteListener( event )
+
+    local thisSprite = event.target  -- "event.target" references the sprite
+
+    if ( event.phase == "ended" ) then  
+        thisSprite:setSequence( "fastRun" )  -- switch to "fastRun" sequence
+        thisSprite:play()  -- play the new sequence
+    end
+end
+
+-- add the event listener to the sprite
+runningCat:addEventListener( "sprite", spriteListener )</pre>
+<p>Notice that the sprite listener transmits <strong>all</strong> phases to the listener function, so it's your responsibility to use conditional clauses and perform an appropriate action when a specific phase occurs in the animation sequence. In the above example, only the <code>ended</code> phase is detected, which occurs after 4 complete loops of the <code>normalRun</code> sequence. When that sequence ends, the <code>fastRun</code> sequence is set and played, and because it loops indefinitely, no additional <code>ended</code> phase will ever occur.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.media.spriteAnimation.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Tutorials | Basics</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#goodbye-globals">Goodbye Globals!</a><ul>
+<li><a href="#convenience-of-globals">Convenience of Globals</a></li>
+<li><a href="#no-harm-no-foul">No Harm, No Foul?</a></li>
+<li><a href="#avoiding-globals">Avoiding Globals</a><ul>
+<li><a href="#forward-declarations">Forward Declarations</a></li>
+<li><a href="#data-module">Data Module</a></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/basics/index.html">Basics</a>
+</div>
+<div id="goodbye-globals" class="section level1">
+<h1>Goodbye Globals!</h1>
+<p>In Lua, <strong>global</strong> variables and functions are risky and there are a few crucial things you should understand before you consider creating/adding one to the <code>_G</code> table <nobr>(Lua's &quot;global table&quot;)</nobr>.</p>
+<p>First, let's quickly discuss the <code>_G</code> table. In Lua, variables which are all uppercase and prefixed by an <strong>underscore</strong> (<code>_</code>) are considered private variables for Lua's use, for instance <code>_VERSION</code>. You should <strong>not</strong> attempt to use these in your program under any circumstances. With that in mind, notice that <code>_G</code> is also uppercase and prefixed by an underscore! This means that it's a reserved structure for system use.</p>
+<div id="convenience-of-globals" class="section level2">
+<h2>Convenience of Globals</h2>
+<p>It's true that global variables and functions are convenient. In using them, you can create an object that's accessible from both <code>main.lua</code> and any other Lua module, for example a Composer scene. However, it's important to understand that the following two variables are exactly the same:</p>
+<pre class="brush: lua;">myVariable = 10
+_G.myVariable = 10</pre>
+<p>In other words, Lua puts every global variable into the <code>_G</code> table, and everything you explicitly put in <code>_G</code> is available by its variable name. For instance:</p>
+<pre class="brush: lua;">_G.myVariable = 20
+print( myVariable )  --> Prints 20 to the console</pre>
+<p>So why should you explicity put global variables in the <code>_G</code> table as in the example directly above? One reason is to clearly identify that you're declaring a global variable, as opposed to a variable that you <strong>meant</strong> to be local but simply forgot to prefix with <code>local</code>. Essentially, prefixing a global declaration with <code>_G.</code> clearly indicates your intentions when you go back to inspect/modify code.</p>
+</div>
+<div id="no-harm-no-foul" class="section level2">
+<h2>No Harm, No Foul?</h2>
+<p>Some developers have reported that when they <code>print()</code> variables to the console, Corona's error and warning messages have stopped functioning. The likely cause is that the developer created a global variable named <code>debug</code>, meaning <code>_G.debug</code>, and doing so inadvertently &quot;trashed&quot; access to a critical internal library that Corona uses to output debug messages.</p>
+<p>To inspect this concept further, you can <code>print()</code> the entire <code>_G</code> table using the following method:</p>
+<pre class="brush: lua;">for k,v in pairs( _G ) do
+    print( k .. " : ", v )
+end</pre>
+<p>Running this will output the full contents of <code>_G</code>, including:</p>
+<pre class="brush: lua;">_G :        table: 0x610000468580
+_VERSION :  Lua 5.1
+package :   table: 0x600000870300
+tostring :  function: 0x60000024d290
+print :     function: 0x60000024c870
+lpeg :      table: 0x610000463180
+os :        table: 0x600000a6c240
+unpack :    function: 0x60000024cf00
+lfs :       table: 0x610000469e80
+require :   function: 0x60000067af00
+debug :     table: 0x600000270a80</pre>
+<p>All of the APIs listed in the <a href="../../../api/index.html">API Reference</a> under the <a href="../../../api/library/global/index.html">(globals)</a> entry are contained, as well as some undocumented items like <code>debug</code> and several core API groups like <code>math</code>, <code>string</code>, and <code>audio</code>. With this in mind, you might assume that you can write code like this:</p>
+<pre class="brush: lua;">_G.audio = true  -- Play audio if true, don't play if false
+_G.type = "Gold"
+_G.timer = timer.performWithDelay( 1000, doSomething )</pre>
+<p>However, all this does is &quot;trash&quot; these internal Corona libraries, meaning you won't be able to play audio or use the <code>type()</code> function — and that timer isn't going to time anything!</p>
+<p>You may think that the solution is to simply avoid <strong>those</strong> global names. Not so fast! The list output by the loop above indicates the libraries that you shouldn't overwrite today, based on an otherwise empty <code>main.lua</code> file. That list also assumes that you haven't <nobr><code>require()</code>-d</nobr> any additional libraries or modules, whether they be Corona libraries like <a href="../../../api/library/physics/index.html">physics</a>, your own modules, or <nobr>third-party</nobr> libraries/plugins. In addition, other things may slip into the global space that you're simply not aware of.</p>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Another reason why globals are dangerous is that — because they have no visibility limits — they can be expensive to use in regards to performance. In fact, if a global variable is accessed in a <nobr>time-critical</nobr> loop, it may perform as much as 30% worse than a local variable in the same loop.</p>
+</div>
+</div>
+</div>
+<div id="avoiding-globals" class="section level2">
+<h2>Avoiding Globals</h2>
+<p>Some developers use — and sometimes abuse — globals as a way to access something they haven't declared yet, or access variables/functions between modules. Fortunately, both of these tasks are easy to accomplish <strong>without</strong> using globals!</p>
+<div id="forward-declarations" class="section level3">
+<h3>Forward Declarations</h3>
+<p>The first case — accessing something you haven't declared yet — can be solved by the <strong>forward declaration</strong> method. As a Lua/Corona programmer, understanding <strong>scope</strong> is essential. If you need to use a variable (usually a function) before you declare it, simply <nobr>forward-declare</nobr> a variable and use the alternate function declaration syntax like this:</p>
+<pre class="brush: lua; gutter: true; first-line: 1;">local doSomething  -- Forward declaration
+
+local function makeSomethingHappen()
+    local count = 10
+    doSomething( count )
+end
+
+doSomething = function( count )  -- Assign function to forward declaration
+    print( count )
+end
+
+makeSomethingHappen()</pre>
+<p>On line 8, we simply assign the function which will do the work to the variable <code>doSomething</code> which was <nobr>forward-declared</nobr> on line 1. In this way, the <code>makeSomethingHappen()</code> function <nobr>(lines 3-6)</nobr> becomes aware of the <code>doSomething()</code> function since it was declared &quot;above&quot; the code block which requests it.</p>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>To learn more about Lua scope and the importance of obeying scope rules, please see the <a href="../../../tutorial/basics/scope/index.html">Scope for Beginners</a> tutorial.</p>
+</div>
+</div>
+</div>
+<div id="data-module" class="section level3">
+<h3>Data Module</h3>
+<p>To solve the second case — accessing variables between modules — you can simply create a Lua file named <code>globalData.lua</code> (or similar) with the following contents:</p>
+<pre class="brush: lua;">-- Pseudo-global space
+local M = {}
+
+return M</pre>
+<p>Then, in each of your Lua modules, simply <code>require()</code> the module as follows:</p>
+<pre class="brush: lua;">local globalData = require( "globalData" )</pre>
+<p>From there, setting a &quot;global&quot; variable is as easy as this:</p>
+<pre class="brush: lua;">globalData.playerName = "John Smith"</pre>
+<p>And reading a value from any module — assuming you included <nobr><code>local globalData = require( &quot;globalData&quot; )</code> —</nobr> is as simple as this:</p>
+<pre class="brush: lua;">local currentPlayer = globalData.playerName</pre>
+<p>As you can see, this method lets you use the <code>globalData</code> table just like you would <code>_G</code> and circumvent the risk of overwriting things in the <code>_G</code> table, as well as avoid the general issues and pitfalls that come along with globals.</p>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>We've always emphasized the &quot;avoid globals!&quot; stance and, as you can see by the methods above, there is essentially no further need for global variables or functions. With careful scoping and use of a <nobr>pseudo-global</nobr> module, you can accomplish everything you need without them.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=tutorial.basics.globals.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

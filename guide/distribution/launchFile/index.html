@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Building/Distribution</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#building-launch-screens-ios">Building Launch Screens — iOS</a><ul>
+<li><a href="#xcode-configuration">Xcode Configuration</a></li>
+<li><a href="#build-settings">Build Settings</a></li>
+<li><a href="#static-method">Static Method</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/distribution/index.html">Building/Distribution</a>
+</div>
+<div id="building-launch-screens-ios" class="section level1">
+<h1>Building Launch Screens — iOS</h1>
+<p>This guide outlines how to customize a <nobr>storyboard-based</nobr> document for displaying a <strong>launch screen</strong> when an iOS app starts.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#xcode">Xcode Configuration</a></li>
+<li><a href="#buildsettings">Build Settings</a></li>
+</ul>
+</div>
+<p><a id="xcode"></a></p>
+<div id="xcode-configuration" class="section level2">
+<h2>Xcode Configuration</h2>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>As the foundation for this guide, please use our <a href="https://github.com/coronalabs/launchimage/archive/master.zip">project template</a> which contains the basic required files.</p>
+<ol style="list-style-type: decimal">
+<li><p>Download the <a href="https://github.com/coronalabs/launchimage/archive/master.zip">project template</a> <nobr>(<code>launchimage-master.zip</code>)</nobr> from our GitHub repository and unzip it.</p></li>
+<li><p>Double click on the <code>LaunchImage.xcodeproj</code> file to launch Xcode.</p></li>
+</ol>
+</div>
+</div>
+<p>Xcode is a powerful and comprehensive development tool which may seem overwhelming. Fortunately, our project template considerably streamlines the configuration process. Assuming you've downloaded and opened the <a href="https://github.com/coronalabs/launchimage/archive/master.zip">template</a> as outlined above, simply follow these steps:</p>
+<ol style="list-style-type: decimal">
+<li>In Xcode, within the left-side Navigator column, expand the <nobr><strong>LaunchImage</strong> → <strong>LaunchImage</strong></nobr> folder tree:</li>
+</ol>
+<div class="code-indent" style="max-width: 750px; margin-bottom: -10px;">
+<div class="figure">
+<img src="../../../images/docs/launchimage-ios-1.png" />
+
+</div>
+</div>
+<div class="code-indent">
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>If the Navigator is not visible, reveal it via <nobr><strong>View</strong> → <strong>Navigators</strong> →</nobr> <strong>Show Navigator</strong> <nobr>(⌘-0)</nobr>.</p>
+</div>
+</div>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>In the Navigator folder tree, select the <code>Assets.xcassets</code> entry:</li>
+</ol>
+<div class="code-indent" style="max-width: 750px;">
+<div class="figure">
+<img src="../../../images/docs/launchimage-ios-2.png" />
+
+</div>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>In your desired image editing application, create three images. You'll need a &quot;base&quot; version plus one version doubled in size and another tripled in size. These don't need to adhere to specific pixel sizes since they will be scaled to fit the <code>UIImageView</code> while maintaining the original aspect ratio.</li>
+</ol>
+<div class="code-indent">
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>We include three sample images within the project template package which you can use for testing.</p>
+</div>
+</div>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Save/copy the three images to your Corona project's root folder <nobr>(alongside <code>main.lua</code>)</nobr> with an <nobr>iOS-style</nobr> suffix scheme of <code>Launch.png</code>, <code>Launch@2x.png</code>, and <code>Launch@3x.png</code> respectively.</p></li>
+<li><p>Back in Xcode, in the central pane, select the <code>Launch</code> entry:</p></li>
+</ol>
+<div class="code-indent" style="max-width: 750px;">
+<div class="figure">
+<img src="../../../images/docs/launchimage-ios-3.png" />
+
+</div>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>Directly to its right, you'll notice three &quot;slots&quot; labeled as <strong>1x</strong>, <strong>2x</strong>, and <strong>3x</strong>. From the Finder, drag the images you created earlier into their respective slots: <code>Launch.png</code> into the <strong>1x</strong> slot, <code>Launch@2x.png</code> into the <strong>2x</strong> slot, and <code>Launch@3x.png</code> into the <strong>3x</strong> slot:</li>
+</ol>
+<div class="code-indent" style="max-width: 750px;">
+<div class="figure">
+<img src="../../../images/docs/launchimage-ios-4.png" />
+
+</div>
+<div class="figure">
+<img src="../../../images/docs/launchimage-ios-5.png" />
+
+</div>
+</div>
+<ol start="7" style="list-style-type: decimal">
+<li>Now, in the left-side Navigator column, select the <code>LaunchScreen.storyboard</code> file:</li>
+</ol>
+<div class="code-indent" style="max-width: 750px;">
+<div class="figure">
+<img src="../../../images/docs/launchimage-ios-6.png" />
+
+</div>
+</div>
+<div class="code-indent">
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>In the center pane, if you select <nobr><strong>View Controller Scene</strong></nobr>, you should see an approximate preview of what the launch screen will look like. Further adjustments and design of this storyboard are beyond the scope of this guide — we simply outline how to generate a basic launch screen with an image in the center.</p>
+</div>
+</div>
+</div>
+<ol start="8" style="list-style-type: decimal">
+<li>Save your project now, then select <nobr><strong>File</strong> → <strong>Export...</strong></nobr> from the main Xcode application menu.</li>
+</ol>
+<div class="code-indent">
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>Before exporting, ensure that <code>LaunchScreen.storyboard</code> is still selected in the <nobr>left-side</nobr> Navigator column — this is essential to generate the proper file type.</p>
+</div>
+</div>
+<ol start="9" style="list-style-type: decimal">
+<li>In the export dialog panel, navigate to your Corona project's root folder. Then, near the bottom, locate the <strong>File Format</strong> selection box and change the selection to <nobr><strong>Interface Builder Storyboard Package</strong></nobr>.</li>
+</ol>
+<div class="code-indent" style="max-width: 530px; margin-bottom: -10px;">
+<div class="figure">
+<img src="../../../images/docs/launchimage-ios-7.png" />
+
+</div>
+</div>
+<div class="code-indent">
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>It's critical that you select <nobr><strong>Interface Builder Storyboard Package</strong></nobr> for this step — do <strong>not</strong> use the default option.</p>
+</div>
+</div>
+</div>
+<ol start="10" style="list-style-type: decimal">
+<li>When you're ready, click <strong>Save</strong> to create a <code>LaunchScreen.storyboardc</code> folder for your project.</li>
+</ol>
+<div class="docs-tip-outer" style="background-color: #ffa752; margin-top: 24px;">
+<div class="docs-tip-inner-left">
+<div class="fa fa-check-square" style="font-size: 34px; padding-left: 1px; padding-top: 4px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>To ensure that you did everything properly, please follow this checklist:</p>
+<ol style="list-style-type: decimal">
+<li><p>In the Finder, navigate to your Corona project's root folder.</p></li>
+<li><p>Inside, check for a <code>LaunchScreen.storyboardc</code> file. If it doesn't exist, you may have forgotten to choose the proper location <nobr>(the project's root folder)</nobr> when exporting the file. If necessary, repeat steps <nobr>8-10</nobr> above.</p></li>
+<li><p>Get further information on the <code>LaunchScreen.storyboardc</code> file <nobr>(⌘-I)</nobr>. Its kind should be an <nobr><strong>Interface Builder Compiled Storyboard Document</strong></nobr>. If it's not, you may have forgotten to choose the correct <strong>file format</strong> when exporting the file. If necessary, repeat steps <nobr>8-10</nobr> above.</p></li>
+<li><p>Check that the folder contains the three images which will be used for the launch screen: <code>Launch.png</code>, <code>Launch@2x.png</code>, and <code>Launch@3x.png</code>. If these files don't exist, you may have forgotten to save/copy them to the root folder.</p></li>
+</ol>
+</div>
+</div>
+<p><a id="buildsettings"></a></p>
+</div>
+<div id="build-settings" class="section level2">
+<h2>Build Settings</h2>
+<p>One final aspect is required to link up your new compiled storyboard package with the Corona project:</p>
+<ol style="list-style-type: decimal">
+<li><p>Open the Corona project's <code>build.settings</code> file.</p></li>
+<li><p>Within the <code>iphone</code> → <code>plist</code> table, add a <code>UILaunchStoryboardName</code> key with a value of <code>&quot;LaunchScreen&quot;</code>:</p></li>
+</ol>
+<div class="code-indent">
+<pre class="brush: lua; gutter: false; highlight: [8]; first-line: 1;">settings =
+{
+    iphone =
+    {
+        plist =
+        {
+            CFBundleIconFiles = {},  -- Required!
+            UILaunchStoryboardName = "LaunchScreen",  -- Required!
+        },
+    },
+}</pre>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Save your <code>build.settings</code> file.</li>
+</ol>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>If you have a <code>UILaunchImages</code> key and associated <nobr>sub-tables</nobr> in your <code>plist</code> table <nobr>(see below)</nobr>, you <strong>must</strong> remove it, along with all of the image files associated with that setup. The <code>UILaunchStoryboardName</code> key supersedes it and the <code>LaunchScreen.storyboardc</code> file will control all of your launch screens.</p>
+</div>
+<p><a id="alternative"></a></p>
+</div>
+<div id="static-method" class="section level2">
+<h2>Static Method</h2>
+<p>An alternative method to creating a <code>LaunchScreen.storyboardc</code> file is to include a set of static images within your project folder, then link them up within the project's <code>build.settings</code> file. These images must adhere to the names/sizes indicated below and they must be placed in the project's root directory alongside <code>main.lua</code>.</p>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>If you have followed the steps above to create a <nobr>storyboard-based</nobr> launch screen, you can ignore this section entirely. The following information is only provided for those developers who want to use a wide array of static image files for launch screens.</p>
+</div>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">File</th>
+<th align="left">Size (w×h)</th>
+<th align="left">Orientation</th>
+<th align="left">Target Devices</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>Default@2x.png</code></td>
+<td align="left">640 × 960</td>
+<td align="left">portrait</td>
+<td align="left">iPhone 4s</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Default-568h@2x.png</code></td>
+<td align="left">640 × 1136</td>
+<td align="left">portrait</td>
+<td align="left">iPhone 5 / 5s</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Default-Landscape-568h@2x.png</code></td>
+<td align="left">1136 × 640</td>
+<td align="left">landscape</td>
+<td align="left">iPhone 5 / 5s</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Default-667h@2x.png</code></td>
+<td align="left">750 × 1334</td>
+<td align="left">portrait</td>
+<td align="left">iPhone 6 / 6s / 7</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Default-Landscape-667h@2x.png</code></td>
+<td align="left">1334 × 750</td>
+<td align="left">landscape</td>
+<td align="left">iPhone 6 / 6s / 7</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Default-736h@3x.png</code></td>
+<td align="left">1242 × 2208</td>
+<td align="left">portrait</td>
+<td align="left">iPhone 6 Plus / 6s Plus / 7 Plus</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Default-Landscape-736h@3x.png</code></td>
+<td align="left">2208 × 1242</td>
+<td align="left">landscape</td>
+<td align="left">iPhone 6 Plus / 6s Plus / 7 Plus</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Default-Portrait.png</code></td>
+<td align="left">768 × 1024</td>
+<td align="left">portrait</td>
+<td align="left">iPad 2 / 3, iPad Mini 1</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Default-Landscape.png</code></td>
+<td align="left">1024 × 768</td>
+<td align="left">landscape</td>
+<td align="left">iPad 2 / 3, iPad Mini 1</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Default-Portrait@2x.png</code></td>
+<td align="left">1536 × 2048</td>
+<td align="left">portrait</td>
+<td align="left"><nobr>iPad 4, iPad Air, iPad Mini 2 / 3 / 4, iPad Pro 9.7&quot;</nobr></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Default-Landscape@2x.png</code></td>
+<td align="left">2048 × 1536</td>
+<td align="left">landscape</td>
+<td align="left"><nobr>iPad 4, iPad Air, iPad Mini 2 / 3 / 4, iPad Pro 9.7&quot;</nobr></td>
+</tr>
+<tr class="even">
+<td align="left"><code>Default-Portrait-1366@2x.png</code></td>
+<td align="left">2048 × 2732</td>
+<td align="left">portrait</td>
+<td align="left">iPad Pro 12&quot;</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Default-Landscape-1366@2x.png</code></td>
+<td align="left">2732 × 2048</td>
+<td align="left">landscape</td>
+<td align="left">iPad Pro 12&quot;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Once you've added these files to your project folder, you must specify their existence and other definitions in the <code>UILaunchImages</code> table of <code>build.settings</code>:</p>
+<pre class="brush: lua;">settings =
+{
+    iphone =
+    {
+        plist =
+        {
+            -- Required launch image files/definitions table
+            UILaunchImages = {
+                {  -- iPhone 4 Portrait
+                    ["UILaunchImageMinimumOSVersion"] = "7.0",
+                    ["UILaunchImageName"] = "Default",
+                    ["UILaunchImageOrientation"] = "Portrait",
+                    ["UILaunchImageSize"] = "{320, 480}"
+                },
+                {  -- iPhone 4 LandscapeLeft
+                    ["UILaunchImageMinimumOSVersion"] = "7.0",
+                    ["UILaunchImageName"] = "Default",
+                    ["UILaunchImageOrientation"] = "LandscapeLeft",
+                    ["UILaunchImageSize"] = "{320, 480}"
+                },
+                {  -- iPhone 4 LandscapeRight
+                    ["UILaunchImageMinimumOSVersion"] = "7.0",
+                    ["UILaunchImageName"] = "Default",
+                    ["UILaunchImageOrientation"] = "LandscapeRight",
+                    ["UILaunchImageSize"] = "{320, 480}"
+                },
+                {  -- iPhone 5 Portrait
+                    ["UILaunchImageMinimumOSVersion"] = "7.0",
+                    ["UILaunchImageName"] = "Default-568h",
+                    ["UILaunchImageOrientation"] = "Portrait",
+                    ["UILaunchImageSize"] = "{320, 568}"
+                },
+                {  -- iPhone 5 LandscapeLeft
+                    ["UILaunchImageMinimumOSVersion"] = "7.0",
+                    ["UILaunchImageName"] = "Default-568h",
+                    ["UILaunchImageOrientation"] = "LandscapeLeft",
+                    ["UILaunchImageSize"] = "{320, 568}"
+                },
+                {  -- iPhone 5 LandscapeRight
+                    ["UILaunchImageMinimumOSVersion"] = "7.0",
+                    ["UILaunchImageName"] = "Default-568h",
+                    ["UILaunchImageOrientation"] = "LandscapeRight",
+                    ["UILaunchImageSize"] = "{320, 568}"
+                },
+                {  -- iPad Portrait
+                    ["UILaunchImageMinimumOSVersion"] = "7.0",
+                    ["UILaunchImageName"] = "Default-Portrait",
+                    ["UILaunchImageOrientation"] = "Portrait",
+                    ["UILaunchImageSize"] = "{768, 1024}"
+                },
+                {  -- iPad LandscapeLeft
+                    ["UILaunchImageMinimumOSVersion"] = "7.0",
+                    ["UILaunchImageName"] = "Default-Landscape",
+                    ["UILaunchImageOrientation"] = "LandscapeLeft",
+                    ["UILaunchImageSize"] = "{768, 1024}"
+                },
+                {  -- iPad LandscapeRight
+                    ["UILaunchImageMinimumOSVersion"] = "7.0",
+                    ["UILaunchImageName"] = "Default-Landscape",
+                    ["UILaunchImageOrientation"] = "LandscapeRight",
+                    ["UILaunchImageSize"] = "{768, 1024}"
+                },
+                {  -- iPhone 6 Portrait
+                    ["UILaunchImageMinimumOSVersion"] = "8.0",
+                    ["UILaunchImageName"] = "Default-667h",
+                    ["UILaunchImageOrientation"] = "Portrait",
+                    ["UILaunchImageSize"] = "{375, 667}"
+                },
+                {  -- iPhone 6 LandscapeLeft
+                    ["UILaunchImageMinimumOSVersion"] = "8.0",
+                    ["UILaunchImageName"] = "Default-667h",
+                    ["UILaunchImageOrientation"] = "LandscapeLeft",
+                    ["UILaunchImageSize"] = "{375, 667}"
+                },
+                {  -- iPhone 6 LandscapeRight
+                    ["UILaunchImageMinimumOSVersion"] = "8.0",
+                    ["UILaunchImageName"] = "Default-667h",
+                    ["UILaunchImageOrientation"] = "LandscapeRight",
+                    ["UILaunchImageSize"] = "{375, 667}"
+                },
+                {  -- iPhone 6 Plus Portrait
+                    ["UILaunchImageMinimumOSVersion"] = "8.0",
+                    ["UILaunchImageName"] = "Default-736h",
+                    ["UILaunchImageOrientation"] = "Portrait",
+                    ["UILaunchImageSize"] = "{414, 736}"
+                },
+                {  -- iPhone 6 Plus LandscapeLeft
+                    ["UILaunchImageMinimumOSVersion"] = "8.0",
+                    ["UILaunchImageName"] = "Default-Landscape-736h",
+                    ["UILaunchImageOrientation"] = "LandscapeLeft",
+                    ["UILaunchImageSize"] = "{414, 736}"
+                },
+                {  -- iPhone 6 Plus LandscapeRight
+                    ["UILaunchImageMinimumOSVersion"] = "8.0",
+                    ["UILaunchImageName"] = "Default-Landscape-736h",
+                    ["UILaunchImageOrientation"] = "LandscapeRight",
+                    ["UILaunchImageSize"] = "{414, 736}"
+                },
+                {  -- iPad Pro Portrait
+                    ["UILaunchImageMinimumOSVersion"] = "9.0",
+                    ["UILaunchImageName"] = "Default-Portrait-1366",
+                    ["UILaunchImageOrientation"] = "Portrait",
+                    ["UILaunchImageSize"] = "{1024, 1366}"
+                },
+                {  -- iPad Pro Landscape Right
+                    ["UILaunchImageMinimumOSVersion"] = "9.0",
+                    ["UILaunchImageName"] = "Default-Landscape-1366",
+                    ["UILaunchImageOrientation"] = "LandscapeRight",
+                    ["UILaunchImageSize"] = "{1024, 1366}"
+                },
+                {  -- iPad Pro Landscape Left
+                    ["UILaunchImageMinimumOSVersion"] = "9.0",
+                    ["UILaunchImageName"] = "Default-Landscape-1366",
+                    ["UILaunchImageOrientation"] = "LandscapeLeft",
+                    ["UILaunchImageSize"] = "{1024, 1366}"
+                },
+            },
+        },
+    },
+}</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.distribution.launchFile.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries | display | newText</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#display.newtext">display.newText()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#parent-optional">parent <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#text-required">text <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#x-optional">x <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#y-optional">y <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#width-optional">width <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#height-optional">height <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#font-required">font <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#fontsize-optional">fontSize <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#align-optional">align <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#syntax-legacy">Syntax (Legacy)</a><ul>
+<li><a href="#parent-optional-1">parent <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#text-required-1">text <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#x-required">x <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#y-required">y <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#width-optional-1">width <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#height-optional-1">height <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#font-required-1">font <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#fontsize-optional-1">fontSize <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#gotchas">Gotchas</a></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#single-line-text">Single-Line Text</a></li>
+<li><a href="#multi-line-text">Multi-Line Text</a></li>
+<li><a href="#updating-text-post-creation">Updating Text Post-Creation</a></li>
+<li><a href="#multi-line-text-right-aligned">Multi-Line Text Right-Aligned</a></li>
+<li><a href="#multi-line-text-top-aligned">Multi-Line Text Top-Aligned</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/display/index.html">display</a>  ▸  <a href="../../../api/library/display/newText.html">newText</a>
+</div>
+<div id="display.newtext" class="section level1">
+<h1>display.newText()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Return value</strong></td>
+<td align="left"><a href="../../../api/type/TextObject/index.html">TextObject</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">text, text object</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../guide/system/customFont/index.html">Using Custom Fonts</a> <em>(guide)</em></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../guide/media/displayObjects/index.html">Display Objects</a> <em>(guide)</em></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../../api/library/display/newEmbossedText.html">display.newEmbossedText()</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../api/type/ShapeObject/setFillColor.html">object:setFillColor()</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Creates a <a href="../../../api/type/TextObject/index.html">text object</a>. The local origin is at the center of the text and the <a href="../../../guide/graphics/transform-anchor.html">anchor point</a> is initialized to this local origin.</p>
+<p>Text is wrapped either at newlines or by specifying a <code>width</code> and <code>height</code> when the object is created.</p>
+<p>By default, the text color is white <nobr><code>( 1, 1, 1 )</code></nobr>. See <a href="../../../api/type/ShapeObject/setFillColor.html">object:setFillColor()</a> for more information.</p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">display.newText( options )</pre>
+<p>This function takes a single argument, <code>options</code>, which is a table that accepts the following parameters:</p>
+<div id="parent-optional" class="section level5">
+<h5>parent <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/GroupObject/index.html">GroupObject</a>.</em> Display group in which to insert the text object.</p>
+</div>
+<div id="text-required" class="section level5">
+<h5>text <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The text to display. Similarly, to change the displayed text for a text object after it has been created, set the <a href="../../../api/type/TextObject/text.html">object.text</a> property.</p>
+</div>
+<div id="x-optional" class="section level5">
+<h5>x <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The <strong>x</strong> coordinate of the text object.</p>
+</div>
+<div id="y-optional" class="section level5">
+<h5>y <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The <strong>y</strong> coordinate of the text object.</p>
+</div>
+<div id="width-optional" class="section level5">
+<h5>width <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> If supplied, text will be wrapped at this width.</p>
+</div>
+<div id="height-optional" class="section level5">
+<h5>height <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> If supplied, text will be cropped at this height. Set this to <code>0</code> and the text box height will adjust to the amount of text, but never exceed the maximum texture height for the device.</p>
+</div>
+<div id="font-required" class="section level5">
+<h5>font <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>, <a href="../../../api/type/Userdata.html">Userdata</a>, or <a href="../../../api/type/Constant.html">Constant</a>.</em> This can be one of the following:</p>
+<ul>
+<li>The font family name (typeface name). You may obtain an array of available font names via <a href="../../../api/library/native/getFontNames.html">native.getFontNames()</a>.</li>
+<li>Name of the font file in the Corona project's main resource directory (alongside <code>main.lua</code>).</li>
+<li>A font object returned by <a href="../../../api/library/native/newFont.html">native.newFont()</a>.</li>
+<li>A font constant such as <a href="../../../api/library/native/systemFont.html">native.systemFont</a> or <a href="../../../api/library/native/systemFontBold.html">native.systemFontBold</a>.</li>
+</ul>
+</div>
+<div id="fontsize-optional" class="section level5">
+<h5>fontSize <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The size of the text in Corona content points. The system's default font size will be used if this parameter is omitted or if it's set to <code>nil</code> or <code>0</code>.</p>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>To change the font size of a text object <strong>after</strong> it has been created, set the <a href="../../../api/type/TextObject/size.html">object.size</a> property, <strong>not</strong> <code>object.fontSize</code>.</p>
+</div>
+</div>
+<div id="align-optional" class="section level5">
+<h5>align <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> This specifies the alignment of the text when the width is known, meaning it either contains a newline or the <code>width</code> parameter is supplied. Default value is <code>&quot;left&quot;</code>. Valid values are <code>&quot;left&quot;</code>, <code>&quot;center&quot;</code>, or <code>&quot;right&quot;</code>.</p>
+</div>
+</div>
+<div id="syntax-legacy" class="section level2">
+<h2>Syntax (Legacy)</h2>
+<p>Note that text alignment, for example <code>&quot;center&quot;</code> or <code>&quot;right&quot;</code>, only works with the <strong>modern</strong> syntax (see above).</p>
+<pre class="brush: lua;">display.newText( [parent,] text, x, y [, width, height], font [, fontSize] )</pre>
+<div id="parent-optional-1" class="section level5">
+<h5>parent <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/GroupObject/index.html">GroupObject</a>.</em> Display group in which to insert the text object.</p>
+</div>
+<div id="text-required-1" class="section level5">
+<h5>text <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The text to display. Similarly, to change the displayed text for a text object after it has been created, set the <a href="../../../api/type/TextObject/text.html">object.text</a> property.</p>
+</div>
+<div id="x-required" class="section level5">
+<h5>x <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The <strong>x</strong> coordinate of the text object.</p>
+</div>
+<div id="y-required" class="section level5">
+<h5>y <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The <strong>y</strong> coordinate of the text object.</p>
+</div>
+<div id="width-optional-1" class="section level5">
+<h5>width <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> If supplied, text will be wrapped at this width.</p>
+</div>
+<div id="height-optional-1" class="section level5">
+<h5>height <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> If supplied, text will be cropped at this height. Set this to <code>0</code> and the text box height will adjust to the amount of text, but never exceed the maximum texture height for the device.</p>
+</div>
+<div id="font-required-1" class="section level5">
+<h5>font <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>, <a href="../../../api/type/Userdata.html">Userdata</a>, or <a href="../../../api/type/Constant.html">Constant</a>.</em> This can be one of the following:</p>
+<ul>
+<li>The font family name (typeface name). You may obtain an array of available font names via <a href="../../../api/library/native/getFontNames.html">native.getFontNames()</a>.</li>
+<li>Name of the font file in the Corona project's main resource directory (alongside <code>main.lua</code>).</li>
+<li>A font object returned by <a href="../../../api/library/native/newFont.html">native.newFont()</a>.</li>
+<li>A font constant such as <a href="../../../api/library/native/systemFont.html">native.systemFont</a> or <a href="../../../api/library/native/systemFontBold.html">native.systemFontBold</a>.</li>
+</ul>
+</div>
+<div id="fontsize-optional-1" class="section level5">
+<h5>fontSize <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The size of the text in Corona content points. The system's default font size will be used if this parameter is omitted or if it's set to <code>nil</code> or <code>0</code>.</p>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>To change the font size of a text object <strong>after</strong> it has been created, set the <a href="../../../api/type/TextObject/size.html">object.size</a> property, <strong>not</strong> <code>object.fontSize</code>.</p>
+</div>
+</div>
+</div>
+<div id="gotchas" class="section level2">
+<h2>Gotchas</h2>
+<ul>
+<li><p>The <code>newText()</code> object uses a mask when the object is created. There is a nested masking limit of 3, so care must be taken when inserting masked objects into other masked objects which act as containers, including <a href="../../../api/library/display/newContainer.html">display.newContainer</a>, <a href="../../../api/library/widget/newScrollView.html">widget.newScrollView</a>, <a href="../../../api/library/widget/newTableView.html">widget.newTableView</a>, or a masked <a href="../../../api/type/GroupObject/index.html">display group</a>. Other display objects that utilize masks include <a href="../../../api/library/display/newEmbossedText.html">display.newEmbossedText</a> and any other <a href="../../../api/type/Mask/index.html">masked</a> display object. If you exceed the mask nesting limit, the text may appear as a solid white block. For example, a text object (one mask) inside a container (one mask) inside yet another container (one mask) would reach but not exceed the limit of 3 nested masks.</p></li>
+<li><p>When rendering a multi-line box of text, be careful that the final display object does not exceed any target device's maximum texture size limit. If you need to render text objects with a large number of lines, you should create multiple text objects and position them one after the next.</p></li>
+</ul>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<div id="single-line-text" class="section level5">
+<h5>Single-Line Text</h5>
+<pre class="brush: lua;">local myText = display.newText( "Hello World!", 100, 200, native.systemFont, 16 )
+myText:setFillColor( 1, 0, 0 )</pre>
+</div>
+<div id="multi-line-text" class="section level5">
+<h5>Multi-Line Text</h5>
+<pre class="brush: lua;">local myText = display.newText( "Hello World!", 30, 100, 240, 300, native.systemFont, 16 )
+myText:setFillColor( 0, 0.5, 1 )</pre>
+</div>
+<div id="updating-text-post-creation" class="section level5">
+<h5>Updating Text Post-Creation</h5>
+<pre class="brush: lua;">local myText = display.newText( "hello", 100, 200, native.systemFont, 12 )
+myText:setFillColor( 1, 0, 0.5 )
+
+-- Change the displayed text
+myText.text = "Hello World!"
+
+-- Increase the font size
+myText.size = 16</pre>
+</div>
+<div id="multi-line-text-right-aligned" class="section level5">
+<h5>Multi-Line Text Right-Aligned</h5>
+<pre class="brush: lua;">local options = 
+{
+    text = "Hello World",     
+    x = 100,
+    y = 200,
+    width = 128,
+    font = native.systemFont,   
+    fontSize = 18,
+    align = "right"  -- Alignment parameter
+}
+
+local myText = display.newText( options )
+myText:setFillColor( 1, 0, 0 )</pre>
+</div>
+<div id="multi-line-text-top-aligned" class="section level5">
+<h5>Multi-Line Text Top-Aligned</h5>
+<pre class="brush: lua;">-- Variable for top alignment axis
+local topAlignAxis = 200
+
+-- Create first multi-line text object
+local options1 = 
+{
+    text = "The quick brown fox jumped over the lazy dog.",
+    x = 90,
+    width = 120,
+    font = native.systemFont,
+    fontSize = 18
+}
+local myText1 = display.newText( options1 )
+myText1:setFillColor( 1, 0, 0 )
+
+-- Set vertical anchor on object to 0 (top)
+myText1.anchorY = 0
+-- Align object to top alignment axis
+myText1.y = topAlignAxis
+
+-- Create second multi-line text object
+local options2 = 
+{
+    text = "The quick brown fox jumped over the lazy dog, then jumped back again.",
+    x = 230,
+    width = 120,
+    font = native.systemFont,
+    fontSize = 18
+}
+local myText2 = display.newText( options2 )
+myText2:setFillColor( 0.6, 0.4, 0.8 )
+
+-- Set vertical anchor on object to 0 (top)
+myText2.anchorY = 0
+-- Align object to top alignment axis
+myText2.y = topAlignAxis</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.display.newText&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

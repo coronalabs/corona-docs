@@ -1,0 +1,737 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Building/Distribution</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#project-build-settings">Project Build Settings</a><ul>
+<li><a href="#basic-structure">Basic Structure</a></li>
+<li><a href="#app-orientation">App Orientation</a><ul>
+<li><a href="#auto-orientation">Auto-Orientation</a></li>
+</ul></li>
+<li><a href="#ios-build-settings">iOS Build Settings</a><ul>
+<li><a href="#permissions">Permissions</a></li>
+<li><a href="#advanced-build-settings">Advanced Build Settings</a></li>
+</ul></li>
+<li><a href="#android-build-settings">Android Build Settings</a><ul>
+<li><a href="#version-code">Version Code</a></li>
+<li><a href="#permissions-1">Permissions</a></li>
+<li><a href="#app-features">App Features</a></li>
+<li><a href="#expansion-files">Expansion Files</a></li>
+<li><a href="#advanced-build-settings-1">Advanced Build Settings</a></li>
+</ul></li>
+<li><a href="#desktop-build-settings">Desktop Build Settings</a></li>
+<li><a href="#plugins">Plugins</a></li>
+<li><a href="#custom-app-icons">Custom App Icons</a><ul>
+<li><a href="#ios">iOS</a></li>
+<li><a href="#android">Android</a></li>
+<li><a href="#desktop">Desktop</a></li>
+<li><a href="#tvos-android-tv">tvOS / Android TV</a></li>
+</ul></li>
+<li><a href="#splashlaunch-screen">Splash/Launch Screen</a><ul>
+<li><a href="#corona-splash-screen">Corona Splash Screen</a></li>
+<li><a href="#ios-launch-screen">iOS Launch Screen</a></li>
+</ul></li>
+<li><a href="#excluding-files">Excluding Files</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/distribution/index.html">Building/Distribution</a>
+</div>
+<div id="project-build-settings" class="section level1">
+<h1>Project Build Settings</h1>
+<p>Build-time properties for an app are defined using a optional <code>build.settings</code> file written in Lua syntax. It should be placed in the project's base directory.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#basicstruct">Basic Structure</a></li>
+<li><a href="#orientation">App Orientation</a></li>
+<li><a href="#iOSsettings">iOS Build Settings</a></li>
+<li><a href="#androidsettings">Android Build Settings</a></li>
+<li><a href="#desktopsettings">Desktop Build Settings</a></li>
+<li><a href="#plugins">Plugins</a></li>
+<li><a href="#appicons">Custom App Icons</a></li>
+<li><a href="#launchimage">Splash/Launch Screen</a></li>
+<li><a href="#excludingfiles">Excluding Files</a></li>
+</ul>
+</div>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>This guide outlines the most common build settings for apps across the various platforms that Corona supports. For those developers who require more advanced settings, please consult the <a href="../../../guide/distribution/advancedSettings/index.html">Advanced Build Settings</a> guide for which options are available.</p>
+</div>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<ul>
+<li><p>For Corona Native builds on iOS, only the <code>orientation</code> (<a href="#orientation">details</a>) and <nobr><code>iphone</code> → <code>plist</code></nobr> settings (<a href="#iOSsettings">details</a>) are respected.</p></li>
+<li><p>For Corona Native builds on Android, the <code>build.settings</code> file is ignored entirely.</p></li>
+</ul>
+</div>
+<p><a id="basicstruct"></a></p>
+<div id="basic-structure" class="section level2">
+<h2>Basic Structure</h2>
+<p>At the minimum, the <code>build.settings</code> file should contain a <code>settings</code> table which will contain various child tables to dictate <nobr>build-time</nobr> options.</p>
+<pre class="brush: lua; gutter: false; highlight: [1,2,3,4]; first-line: 1;">settings =
+{
+    -- Child tables here
+}</pre>
+<p><a id="orientation"></a></p>
+</div>
+<div id="app-orientation" class="section level2">
+<h2>App Orientation</h2>
+<p>The <code>build.settings</code> file can be used to set app orientation in relation to the device's physical orientation in space — this includes <nobr>auto-orientation</nobr> triggered by the accelerometer if the device is rotated or flipped during runtime.</p>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>Please note that there are three different things which are subject to orientation:</p>
+<ol style="list-style-type: decimal">
+<li>The splash screen (see <a href="#launchimage">Splash Screen</a> below).</li>
+<li>Native UI elements such as alerts and the visual keyboard.</li>
+<li>The Corona display stage itself.</li>
+</ol>
+</div>
+<p>All orientation settings must be contained in the <code>orientation</code> table within <code>settings</code>:</p>
+<pre class="brush: lua; gutter: false; highlight: [3,4,5,6]; first-line: 1;">settings =
+{
+    orientation =
+    {
+        -- Parameters
+    },
+}</pre>
+<p>Within the <code>orientation</code> table, there are two optional key values: <code>default</code> and <code>supported</code>:</p>
+<pre class="brush: lua; gutter: false; highlight: [5,6]; first-line: 1;">settings =
+{
+    orientation =
+    {
+        default = "",    -- Initial launch orientation
+        supported = {},  -- Table of allowed options for auto-orientation
+    },
+}</pre>
+<p>Each of these accepts the following <strong>orientation conventions</strong>:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Orientation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;portrait&quot;</code></td>
+<td align="left">Device in the vertical position with the home button at the bottom</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;portraitUpsideDown&quot;</code></td>
+<td align="left">Device in the vertical position with the home button at the top</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;landscapeLeft&quot;</code></td>
+<td align="left">Device in the horizontal position with the home button at the left</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;landscapeRight&quot;</code></td>
+<td align="left">Device in the horizontal position with the home button at the right</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="auto-orientation" class="section level3">
+<h3>Auto-Orientation</h3>
+<p>On most devices, <strong>auto-orientation</strong> is triggered by the accelerometer if the device is rotated or flipped during runtime. If you want to limit an app to either landscape orientation, specify both <code>&quot;landscapeLeft&quot;</code> and <code>&quot;landscapeRight&quot;</code> in the <code>supported</code> table.</p>
+<pre class="brush: lua;">supported = { "landscapeLeft", "landscapeRight" },</pre>
+<p>Similarly, to limit an app to either portrait orientation, specify both <code>&quot;portrait&quot;</code> and <code>&quot;portraitUpsideDown&quot;</code>:</p>
+<pre class="brush: lua;">supported = { "portrait", "portraitUpsideDown" },</pre>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp title-nomargin">
+Important
+</div>
+<ol style="list-style-type: decimal">
+<li><p>When the device orientation changes, the <strong>coordinate position</strong> <code>(0,0)</code> on the Corona display stage will correspond to the top-left corner of the current orientation.</p></li>
+<li><p>The <strong>iPad</strong> ignores the <code>default</code> setting and attempts to launch in the current physical orientation of the device, assuming that orientation is specified in the supported list.</p></li>
+<li><p>If you ever need to detect the current device orientation, it can be read from the <a href="../../../api/library/system/orientation.html">system.orientation</a> property. This will provide a value from the four standard conventions listed above. In addition, iOS devices may report either the <code>&quot;faceUp&quot;</code> or <code>&quot;faceDown&quot;</code> orientation.</p></li>
+</ol>
+</div>
+<p><a id="iOSsettings"></a></p>
+</div>
+</div>
+<div id="ios-build-settings" class="section level2">
+<h2>iOS Build Settings</h2>
+<p>Within the <code>settings</code> table, you can include a <code>plist</code> table nested within an <code>iphone</code> table. This <code>plist</code> table is used to set values for the compiled app's <code>Info.plist</code> file.</p>
+<pre class="brush: lua; gutter: false; highlight: [3,4,5,6,7,8,9,10,11,12,13]; first-line: 1;">settings =
+{
+    iphone =
+    {
+        plist =
+        {
+            CFBundleIconFiles = {},  -- Required!
+            UILaunchStoryboardName = "LaunchScreen",  -- Required!
+            UIStatusBarHidden = true,
+            CFBundleDisplayName = "Corona App",
+            CFBundleName = "Corona App",
+        },
+    },
+}</pre>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<ul>
+<li><p>The <code>iphone</code> table encompasses <strong>all</strong> iOS devices, not just iPhone devices.</p></li>
+<li><p>For boolean values in <code>plist</code> keys, use <nobr>Lua-style</nobr> booleans <nobr>(<code>true</code> or <code>false</code> )</nobr> rather than <nobr>Objective-C</nobr> booleans <nobr>(<code>YES</code> or <code>NO</code>)</nobr>.</p></li>
+</ul>
+</div>
+<p>In the example above, a few common <code>plist</code> keys are shown:</p>
+<ul>
+<li><p><code>CFBundleIconFiles</code> (<a href="../../../api/type/Table.html">table</a>) — a <strong>required</strong> table of app icon image files to associate with the app. See <a href="#appicons">Custom App Icons</a> below for details.</p></li>
+<li><p><code>UILaunchStoryboardName</code> — a <strong>required</strong> string pointing to a valid <code>.storyboardc</code> file. See <a href="#ios-launch">iOS Launch Screen</a> below for important details.</p></li>
+<li><p><code>UIStatusBarHidden</code> (<a href="../../../api/type/Boolean.html">boolean</a>) — specifies if the status bar should initially be hidden when the app launches.</p></li>
+<li><p><code>CFBundleDisplayName</code> (<a href="../../../api/type/String.html">string</a>) — the display name of the bundle. If you do <strong>not</strong> need to localize the app and the bundle name contains only ASCII characters, omit this key and specify the bundle name as <strong>Application Name</strong> in the Simulator <strong>Build for iOS</strong> window. If you localize the app (<a href="../../../guide/distribution/localization/index.html">guide</a>), include this key in both the <code>plist</code> table and in the <code>InfoPlist.strings</code> files of your language <nobr>sub-directories</nobr> alongside the localized <code>CFBundleName</code> keys.</p></li>
+<li><p><code>CFBundleName</code> (<a href="../../../api/type/String.html">string</a>) — a short app name of 16 characters or less. If the bundle name contains only ASCII characters, omit this key and specify the bundle name as <strong>Application Name</strong> in the Simulator <strong>Build for iOS</strong> window. If you localize the app (<a href="../../../guide/distribution/localization/index.html">guide</a>), this key should be included in the <code>plist</code> table and also alongside <code>CFBundleDisplayName</code> in the <code>InfoPlist.strings</code> files of your language <nobr>sub-directories</nobr>. If you do <strong>not</strong> localize the app, you may include this <code>CFBundleName</code> key in the <code>plist</code> table, but do not include the <code>CFBundleDisplayName</code> key.</p></li>
+</ul>
+<p>Please see Apple's <a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Introduction/Introduction.html">documentation</a> for more information on supported values and what you can do with them.</p>
+<p><a id="permissions-ios"></a></p>
+<div id="permissions" class="section level3">
+<h3>Permissions</h3>
+<p>On iOS, when accessing certain hardware or <nobr>OS-level</nobr> functionality, you must notify the user why you're doing so. This is accomplished by including specific keys/descriptions in the <code>plist</code> table of <code>build.settings</code>. For example:</p>
+<pre class="brush: lua; gutter: false; highlight: [7,8]; first-line: 1;">settings =
+{
+    iphone =
+    {
+        plist =
+        {
+            NSCameraUsageDescription = "This app would like to access the camera.",
+            NSPhotoLibraryUsageDescription = "This app would like to access the photo library.",
+            NSPhotoLibraryAddUsageDescription = "This app would like to add the photo library.",
+        },
+    },
+}</pre>
+<p>When the system prompts the user to allow access, the associated description is displayed as part of the alert. Note that the descriptions can be customized to your preference and they can even be localized (<a href="../../../guide/distribution/localization/index.html">guide</a>).</p>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>In Corona, the following APIs are affected by iOS permissions, so you should include the permission key(s) noted in the associated API documentation if you're using any of these commands:</p>
+<ul>
+<li><a href="../../../api/library/display/capture.html">display.capture()</a> when <code>saveToPhotoLibrary</code> is <code>true</code></li>
+<li><a href="../../../api/library/display/captureBounds.html">display.captureBounds()</a> when <code>saveToPhotoLibrary</code> is <code>true</code></li>
+<li><a href="../../../api/library/display/captureScreen.html">display.captureScreen()</a> when <code>saveToPhotoLibrary</code> is <code>true</code></li>
+<li><a href="../../../api/type/EventDispatcher/addEventListener.html">object:addEventListener()</a> with an <code>eventName</code> of <code>&quot;accelerometer&quot;</code></li>
+<li><a href="../../../api/library/system/setAccelerometerInterval.html">system:setAccelerometerInterval()</a></li>
+<li><a href="../../../api/library/native/newMapView.html">native.newMapView()</a></li>
+<li><a href="../../../api/library/media/newRecording.html">media.newRecording()</a></li>
+<li><a href="../../../api/library/media/capturePhoto.html">media.capturePhoto()</a></li>
+<li><a href="../../../api/library/media/captureVideo.html">media.captureVideo()</a></li>
+<li><a href="../../../api/library/media/selectPhoto.html">media.selectPhoto()</a></li>
+<li><a href="../../../api/library/media/selectVideo.html">media.selectVideo()</a></li>
+</ul>
+</div>
+</div>
+<div id="advanced-build-settings" class="section level3">
+<h3>Advanced Build Settings</h3>
+<p>In addition to the iOS settings mentioned above, the following build options are available as outlined in the <a href="../../../guide/distribution/advancedSettings/index.html">Advanced Build Settings</a> guide:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Setting/Feature</th>
+<th align="left">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="../../../guide/distribution/advancedSettings/index.html#device-capabilities">Device Capabilities</a></td>
+<td align="left">Used to restrict your app to installation on devices with specific capabilities.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../guide/distribution/advancedSettings/index.html#png-processing">PNG Processing</a></td>
+<td align="left">Used to circumvent PNG file processing (<code>pngcrush</code>) at build time.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a id="androidsettings"></a></p>
+</div>
+</div>
+<div id="android-build-settings" class="section level2">
+<h2>Android Build Settings</h2>
+<p>Within the <code>settings</code> table, you can include an <code>android</code> table to control build settings for Android devices.</p>
+<pre class="brush: lua; gutter: false; highlight: [3,4,5,6]; first-line: 1;">settings =
+{
+    android =
+    {
+
+    },
+}</pre>
+<div id="version-code" class="section level3">
+<h3>Version Code</h3>
+<p>You can override the <strong>version code</strong> entered into the Corona Simulator <strong>Build for Android</strong> box with an optional <code>versionCode</code> <nobr>key-value</nobr> pair in the <code>build.settings</code> file. This is an internal number used to distinguish application releases for the Android app store, corresponding to the <code>versionCode</code> item detailed <a href="http://developer.android.com/guide/topics/manifest/manifest-element.html">here</a>. This setting is invisible to users.</p>
+<pre class="brush: lua; gutter: false; highlight: [5]; first-line: 1;">settings
+{
+    android =
+    {
+        versionCode = "11",
+    },
+}</pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>The version code must be specified as an <strong>integer</strong> — it cannot contain any decimal points. One possible scheme is to set <code>versionCode</code> to <code>&quot;10&quot;</code> for version <strong>1.0</strong>. The next update would be <code>&quot;11&quot;</code> for version <strong>1.1</strong>, and so forth.</p>
+</div>
+<p><a id="permissions-android"></a></p>
+</div>
+<div id="permissions-1" class="section level3">
+<h3>Permissions</h3>
+<p>The <code>usesPermissions</code> table creates <nobr><code>&lt;uses-permission&gt;</code></nobr> tags in the <code>AndroidManifest.xml</code> file:</p>
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9,10,11]; first-line: 1;">settings
+{
+    android =
+    {
+        usesPermissions =
+        {
+            "android.permission.INTERNET",
+            "android.permission.WRITE_EXTERNAL_STORAGE",
+            "android.permission.ACCESS_FINE_LOCATION",
+            "android.permission.ACCESS_COARSE_LOCATION",
+        },
+    },
+}</pre>
+<p>In the example above, a few useful <code>android.permission</code> keys are exhibited:</p>
+<ul>
+<li><code>&quot;android.permission.INTERNET&quot;</code> — permits a Corona app to access the Internet.</li>
+<li><code>&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</code> — allows <code>media.save()</code> and camera support.</li>
+<li><code>&quot;android.permission.ACCESS_FINE_LOCATION&quot;</code> — allows access to GPS.</li>
+<li><code>&quot;android.permission.ACCESS_COARSE_LOCATION&quot;</code> — allows getting the location from WiFi/cellular.</li>
+</ul>
+<p>See the Android <a href="http://developer.android.com/reference/android/Manifest.permission.html">documentation</a> for more information on supported values and what you can do with them.</p>
+</div>
+<div id="app-features" class="section level3">
+<h3>App Features</h3>
+<p>The <code>usesFeatures</code> table creates <nobr><code>&lt;uses-feature&gt;</code></nobr> tags in the <code>AndroidManifest.xml</code> file. These parameters tell the Android app store which hardware/software capabilities the app does or doesn't require. See the Android <a href="http://developer.android.com/guide/topics/manifest/uses-feature-element.html#features-reference">features reference</a> for a list of supported values.</p>
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9,10]; first-line: 1;">settings
+{
+    android =
+    {
+        usesFeatures =
+        {
+            { name="android.hardware.camera", required=true },
+            { name="android.hardware.location", required=false },
+            { name="android.hardware.location.gps", required=false },
+        },
+    },
+}</pre>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>If you <strong>require</strong> a feature (<code>required=true</code>), devices lacking the feature will not be able to download or purchase the app. As a precaution, if your app uses the feature for some aspects but does not require it for &quot;basic functionality,&quot; you should include the feature within the <code>usesFeatures</code> table but set its <code>required</code> key to <code>false</code>:</p>
+<p><code>{ name=&quot;android.hardware.camera&quot;, required=false },</code></p>
+</div>
+</div>
+<div id="expansion-files" class="section level3">
+<h3>Expansion Files</h3>
+<p>The <code>usesExpansionFile</code> boolean indicates if the app should be built with expansion files. If it's set to <code>true</code> and the build target is Google Play, everything in the project directory except the Lua scripts are put into the expansion file. See the Android <a href="http://developer.android.com/google/play/expansion-files.html">documentation</a> for more information.</p>
+<pre class="brush: lua; gutter: false; highlight: [6,11,12,13]; first-line: 1;">settings =
+{
+    android =
+    {
+        -- This tells the Corona Simulator to create an expansion file
+        usesExpansionFile = true,
+
+        -- The following permissions are required to download expansion files
+        usesPermissions =
+        {
+            "android.permission.INTERNET",
+            "com.android.vending.CHECK_LICENSE",
+            "android.permission.WRITE_EXTERNAL_STORAGE",
+        },
+    },
+}</pre>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Using expansion files requires setup of Google licensing. Please see <a href="../../../guide/basics/configSettings/index.html#app-licensing">here</a> for details.</p>
+</div>
+</div>
+</div>
+<div id="advanced-build-settings-1" class="section level3">
+<h3>Advanced Build Settings</h3>
+<p>In addition to the Android settings mentioned above, the following build options are available as outlined in the <a href="../../../guide/distribution/advancedSettings/index.html">Advanced Build Settings</a> guide:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Setting/Feature</th>
+<th align="left">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="../../../guide/distribution/advancedSettings/index.html#minimum-sdk-version">Minimum SDK Version</a></td>
+<td align="left">Allows you to exclude your app from being installed on devices with older versions of Android.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../guide/distribution/advancedSettings/index.html#android-tv">Android TV</a></td>
+<td align="left">Required if you are deploying an app to Android TV.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../guide/distribution/advancedSettings/index.html#screen-support">Screen Support</a></td>
+<td align="left">Specifies/limits which screens an Android app supports.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../guide/distribution/advancedSettings/index.html#disabling-file-access">Disabling File Access</a></td>
+<td align="left">Used to block all access to your app's files.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="../../../guide/distribution/advancedSettings/index.html#large-heap">Large Heap</a></td>
+<td align="left">Requests that the Android OS provides your app with more heap memory.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="../../../guide/distribution/advancedSettings/index.html#android-directives">Android Directives</a></td>
+<td align="left">Used to <nobr>fine-tune</nobr> the <code>AndroidManifest.xml</code> in your application.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a id="desktopsettings"></a></p>
+</div>
+</div>
+<div id="desktop-build-settings" class="section level2">
+<h2>Desktop Build Settings</h2>
+<p>For macOS desktop or Win32 desktop apps, the Corona <code>build.settings</code> file supports a <code>window</code> table for customizing the app's desktop window:</p>
+<pre class="brush: lua; gutter: false; highlight: [3,4,5,6]; first-line: 1;">settings =
+{
+    window =
+    {
+
+    },
+}</pre>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Please see the example within <a href="../../../guide/distribution/macOSBuild/index.html">Creating macOS Desktop Apps</a> or <a href="../../../guide/distribution/win32Build/index.html">Creating Win32 Desktop Apps</a> for details and a complete list of acceptable <code>window</code> parameters.</p>
+</div>
+</div>
+<p><a id="plugins"></a></p>
+</div>
+<div id="plugins" class="section level2">
+<h2>Plugins</h2>
+<p>Corona offers several <a href="../../../plugin/index.html">plugins</a> which can be used in your projects. These plugins can be included via the <code>plugins</code> table nested within the <code>settings</code> table:</p>
+<pre class="brush: lua; gutter: false; highlight: [3,4,5,6]; first-line: 1;">settings =
+{
+    plugins =
+    {
+
+    }, 
+}</pre>
+<p>For example, the <a href="../../../plugin/gpgs/index.html">Google Play Games Services</a> plugin may be included as follows:</p>
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
+{
+    plugins =
+    {
+        ["plugin.gpgs"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+    }, 
+}</pre>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>Plugin key names often include punctuation, for example <code>plugin.gpgs</code>. In these cases, you must use the &quot;brackets and quotes&quot; method of defining the key (<code>[&quot;plugin.gpgs&quot;]</code>).</p>
+</div>
+<p><a id="appicons"></a></p>
+</div>
+<div id="custom-app-icons" class="section level2">
+<h2>Custom App Icons</h2>
+<p>Before deploying an app, you should design the proper <strong>app icons</strong> for the targeted platforms.</p>
+<div id="ios" class="section level3">
+<h3>iOS</h3>
+<p>For iOS, several icon files are required. Please see the <a href="../../../guide/distribution/xcAssets/index.html">Managing Xcode Assets</a> guide for a reference on the <code>Images.xcassets</code> folder and how to include/reference it within your app.</p>
+</div>
+<div id="android" class="section level3">
+<h3>Android</h3>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>Google has changed how Android icons are managed with Android 8 and later, using Adaptive Icons. Starting with Corona Daily Build 2019.3504 and later, icons are now handled using the <code>AndroidResources</code> folder. See our guide on <a href="../../../guide/distribution/androidResources/index.html">Adaptive Icons</a> for more information.</p>
+</div>
+<p>For Android, icon files will be copied into the <code>.apk</code> during the build, assuming they are available in your root project folder <nobr>(alongside <code>main.lua</code>)</nobr>. These icons should adhere to the standard Android icon names and sizes listed below. For detailed information on creating icons, please refer to the <a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design.html">Android Icon Design Guidelines</a>.</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">File</th>
+<th align="left">Size (w×h)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>Icon-xxxhdpi.png</code></td>
+<td align="left">192 × 192</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Icon-xxhdpi.png</code></td>
+<td align="left">144 × 144</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Icon-xhdpi.png</code></td>
+<td align="left">96 × 96</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Icon-hdpi.png</code></td>
+<td align="left">72 × 72</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Icon-mdpi.png</code></td>
+<td align="left">48 × 48</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Icon-ldpi.png</code></td>
+<td align="left">36 × 36</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="desktop" class="section level3">
+<h3>Desktop</h3>
+<p>Desktop apps — applications built for macOS or Windows — require additional icons as follows:</p>
+<ul>
+<li><p>For macOS desktop apps, you must add a <nobr><code>Icon-osx.icns</code></nobr> file to your project folder before performing a macOS build via the Corona Simulator. This file should contain multiple images at different resolutions, bundled into a single <code>.icns</code> file (<a href="https://en.wikipedia.org/wiki/Apple_Icon_Image_format">details</a>). See the <a href="../../../guide/distribution/macOSBuild/index.html">Creating macOS Desktop Apps</a> guide for more information.</p></li>
+<li><p>For Windows desktop apps, you must add a <nobr><code>Icon-win32.ico</code></nobr> file to your project folder before performing a Win32 build via the Corona Simulator. This file should contain multiple images at different resolutions, bundled into a single <code>.ico</code> file (<a href="https://en.wikipedia.org/wiki/ICO_(file_format)">details</a>). See the <a href="../../../guide/distribution/win32Build/index.html">Creating Win32 Desktop Apps</a> guide for more information.</p></li>
+</ul>
+</div>
+<div id="tvos-android-tv" class="section level3">
+<h3>tvOS / Android TV</h3>
+<p>Apps designed for TV systems require additional icons:</p>
+<ul>
+<li><p>For Apple's tvOS, several unique icons and assets are required. Please see the <a href="../../../guide/distribution/xcAssets/index.html">Managing Xcode Assets</a> guide for a reference on the <code>Images.xcassets</code> folder and how to include/reference it within your app.</p></li>
+<li><p>For Android TV, you should include a <nobr><code>Banner-xhdpi.png</code></nobr> image inside your project folder. This image should be 320×180 pixels in size.</p></li>
+</ul>
+<p><a id="launchimage"></a></p>
+</div>
+</div>
+<div id="splashlaunch-screen" class="section level2">
+<h2>Splash/Launch Screen</h2>
+<div id="corona-splash-screen" class="section level3">
+<h3>Corona Splash Screen</h3>
+<p>By default, a Corona-branded splash screen will appear when the app opens. This splash screen can be customized or disabled with purchase of the <a href="https://marketplace.coronalabs.com/plugin/com.coronalabs/plugin.CoronaSplashControl">Splash Screen Control</a> plugin. Please see the <a href="../../../plugin/CoronaSplashControl/index.html">documentation</a> for details on configuring the splash screen via <code>build.settings</code>, assuming you've purchased the plugin.</p>
+<!---
+
+<div class="guide-notebox">
+<div class="notebox-title">Note</div>
+
+On iOS, the Corona splash screen will appear after the iOS launch screen (see&nbsp;below), assuming the splash screen is not disabled. If the Corona splash screen is disabled, the iOS launch screen will appear until the app is fully loaded, then your first screen/scene will appear.
+
+</div>
+
+-->
+<p><a id="ios-launch"></a></p>
+</div>
+<div id="ios-launch-screen" class="section level3">
+<h3>iOS Launch Screen</h3>
+<p>For iOS, you must include some form of <strong>launch screen</strong> support. Apple recommends that you utilize an <nobr>Xcode-generated</nobr> storyboard for this, since a single storyboard is flexible and adaptable for all launch screens across all devices.</p>
+<div class="docs-tip-outer" style="background-color: #ffa752;">
+<div class="docs-tip-inner-left">
+<div class="fa fa-check-square" style="font-size: 34px; padding-left: 1px; padding-top: 4px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>For your convenience, a default (blank) <code>LaunchScreen.storyboardc</code> document is automatically added to all new project templates. The same file is also bundled with the Corona application itself, in case you need to copy it over to existing projects. It can be found within the Corona application folder here:</p>
+<p><nobr><code>/Applications/Corona/Resources/Resource Library/iOS/LaunchScreen.storyboardc</code></nobr></p>
+</div>
+</div>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>The Xcode storyboard document can be customized with your own images/layout — see our <a href="../../../guide/distribution/launchFile/index.html">guide</a> for instructions.</p>
+</div>
+</div>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>If you use the default <code>LaunchScreen.storyboardc</code> file in an existing project, you <strong>must</strong> include the <code>UILaunchStoryboardName</code> key within the <code>plist</code> table so that iOS recognizes the existence of the file. Notice that the key's value (<code>&quot;LaunchScreen&quot;</code>) matches the name of the file itself, minus the file extension:</p>
+<pre class="brush: lua; gutter: false; highlight: [7]; first-line: 1;">settings =
+{
+    iphone =
+    {
+        plist =
+        {
+            UILaunchStoryboardName = "LaunchScreen",  -- Required!
+        },
+    },
+}</pre>
+</div>
+<p><a id="excludingfiles"></a></p>
+</div>
+</div>
+<div id="excluding-files" class="section level2">
+<h2>Excluding Files</h2>
+<p>More sophisticated apps may have files which are needed on one platform but not another. For example, the icon files for each platform are different and you might want to include only the appropriate files on each platform. This is not something Corona handles automatically, since file naming may vary and unique situations can't be predicted. Most developers will not need to specify files which should be excluded from builds, but the option is available if necessary.</p>
+<p>Files to be excluded are specified <nobr>per-platform —</nobr> <code>ios</code>, <code>android</code>, <code>macos</code>, <code>win32</code>, <code>tvos</code>, <nobr>or <code>all</code> —</nobr> using simple pattern matching where <code>*</code> means any string of characters, sometimes including <code>/</code>. In other words, these patterns match the path names of files in the app bundle as strings. This generally only matters if you have an elaborate directory structure with multiple instances of directories with the same name at different levels, for example <code>a/music</code>, <code>a/b/music</code>, <code>a/b/c/music</code>, etc. Note that the directory separator character is always a forward slash <code>/</code>, even if building on Windows.</p>
+<p>File exclusion is a powerful facility and it's possible to corrupt your app bundle if you use this procedure unwisely and accidentally exclude files critical to its operation. After making any changes to the <code>excludeFiles</code> setup, monitor the console carefully during the next build and watch for any issues. You should also examine the contents of your app bundle carefully and check exactly which files are included.</p>
+<p>Consider these examples on how to exclude various file names and types:</p>
+<pre class="brush: lua; gutter: false; highlight: [6]; first-line: 1;">settings =
+{
+    excludeFiles =
+    {
+        -- Exclude unnecessary icon assets from all builds
+        all = { "Icon*.png", "Images.xcassets", "Icon*.ico", "Icon*.icns" },
+    },
+}</pre>
+<pre class="brush: lua; gutter: false; highlight: [6]; first-line: 1;">settings =
+{
+    excludeFiles =
+    {
+        -- Exclude iOS launch screen bundle on Android devices
+        android = { "LaunchScreen.storyboardc" },
+    },
+}</pre>
+<pre class="brush: lua; gutter: false; highlight: [6]; first-line: 1;">settings =
+{
+    excludeFiles =
+    {
+        -- Exclude all files at all paths which end with "secret.txt"
+        all = { "*secret.txt" },
+    },
+}</pre>
+<pre class="brush: lua; gutter: false; highlight: [6,8]; first-line: 1;">settings =
+{
+    excludeFiles =
+    {
+        -- Exclude all .aac files in the "music" directory on Android devices
+        android = { "music/*.aac" },
+        -- Exclude all .ogg files in the "music" directory on iOS devices
+        ios = { "music/*.ogg" },
+    },
+}</pre>
+<pre class="brush: lua; gutter: false; highlight: [6,8]; first-line: 1;">settings =
+{
+    excludeFiles =
+    {
+        -- Exclude unnecessary assets from macOS desktop apps
+        macos = { "Icon*.ico" },
+        -- Exclude unnecessary assets from Win32 desktop apps
+        win32 = { "Icon*.icns" },
+    },
+}</pre>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Excluding files is a feature of Corona — it does not work for Corona Native builds.</p>
+</div>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.distribution.buildSettings.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

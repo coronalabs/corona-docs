@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | type</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#types">Types</a><ul>
+<li><a href="#overview">Overview</a><ul>
+<li><a href="#arrayapi.type.array"><a href="../../api/type/Array.html">Array</a></a></li>
+<li><a href="#bitmappaintapi.type.bitmappaint"><a href="../../api/type/BitmapPaint/index.html">BitmapPaint</a></a></li>
+<li><a href="#bodyapi.type.body"><a href="../../api/type/Body/index.html">Body</a></a></li>
+<li><a href="#booleanapi.type.boolean"><a href="../../api/type/Boolean.html">Boolean</a></a></li>
+<li><a href="#buttonwidgetapi.type.buttonwidget"><a href="../../api/type/ButtonWidget/index.html">ButtonWidget</a></a></li>
+<li><a href="#circlepathapi.type.circlepath"><a href="../../api/type/CirclePath/index.html">CirclePath</a></a></li>
+<li><a href="#compositepaintapi.type.compositepaint"><a href="../../api/type/CompositePaint/index.html">CompositePaint</a></a></li>
+<li><a href="#constantapi.type.constant"><a href="../../api/type/Constant.html">Constant</a></a></li>
+<li><a href="#coronaclassapi.type.coronaclass"><a href="../../api/type/CoronaClass.html">CoronaClass</a></a></li>
+<li><a href="#coronalibraryapi.type.coronalibrary"><a href="../../api/type/CoronaLibrary/index.html">CoronaLibrary</a></a></li>
+<li><a href="#coronaprototypeapi.type.coronaprototype"><a href="../../api/type/CoronaPrototype/index.html">CoronaPrototype</a></a></li>
+<li><a href="#coronaproviderapi.type.coronaprovider"><a href="../../api/type/CoronaProvider/index.html">CoronaProvider</a></a></li>
+<li><a href="#displayobjectapi.type.displayobject"><a href="../../api/type/DisplayObject/index.html">DisplayObject</a></a></li>
+<li><a href="#emitterobjectapi.type.emitterobject"><a href="../../api/type/EmitterObject/index.html">EmitterObject</a></a></li>
+<li><a href="#eventapi.type.event"><a href="../../api/type/Event.html">Event</a></a></li>
+<li><a href="#eventdispatcherapi.type.eventdispatcher"><a href="../../api/type/EventDispatcher/index.html">EventDispatcher</a></a></li>
+<li><a href="#fileapi.type.file"><a href="../../api/type/File/index.html">File</a></a></li>
+<li><a href="#functionapi.type.function"><a href="../../api/type/Function.html">Function</a></a></li>
+<li><a href="#gamenetworkapi.type.gamenetwork"><a href="../../api/type/GameNetwork/index.html">GameNetwork</a></a></li>
+<li><a href="#gradientpaintapi.type.gradientpaint"><a href="../../api/type/GradientPaint/index.html">GradientPaint</a></a></li>
+<li><a href="#groupobjectapi.type.groupobject"><a href="../../api/type/GroupObject/index.html">GroupObject</a></a></li>
+<li><a href="#imagesheetapi.type.imagesheet"><a href="../../api/type/ImageSheet/index.html">ImageSheet</a></a></li>
+<li><a href="#imagesheetpaintapi.type.imagesheetpaint"><a href="../../api/type/ImageSheetPaint/index.html">ImageSheetPaint</a></a></li>
+<li><a href="#inputaxisapi.type.inputaxis"><a href="../../api/type/InputAxis/index.html">InputAxis</a></a></li>
+<li><a href="#inputdeviceapi.type.inputdevice"><a href="../../api/type/InputDevice/index.html">InputDevice</a></a></li>
+<li><a href="#jointapi.type.joint"><a href="../../api/type/Joint/index.html">Joint</a></a></li>
+<li><a href="#libraryapi.type.library"><a href="../../api/type/Library.html">Library</a></a></li>
+<li><a href="#lineobjectapi.type.lineobject"><a href="../../api/type/LineObject/index.html">LineObject</a></a></li>
+<li><a href="#listenerapi.type.listener"><a href="../../api/type/Listener.html">Listener</a></a></li>
+<li><a href="#mapapi.type.map"><a href="../../api/type/Map/index.html">Map</a></a></li>
+<li><a href="#maskapi.type.mask"><a href="../../api/type/Mask/index.html">Mask</a></a></li>
+<li><a href="#moduleapi.type.module"><a href="../../api/type/Module.html">Module</a></a></li>
+<li><a href="#nativedisplayobjectapi.type.nativedisplayobject"><a href="../../api/type/NativeDisplayObject/index.html">NativeDisplayObject</a></a></li>
+<li><a href="#numberapi.type.number"><a href="../../api/type/Number.html">Number</a></a></li>
+<li><a href="#paintapi.type.paint"><a href="../../api/type/Paint/index.html">Paint</a></a></li>
+<li><a href="#particlesystemapi.type.particlesystem"><a href="../../api/type/ParticleSystem/index.html">ParticleSystem</a></a></li>
+<li><a href="#pathapi.type.path"><a href="../../api/type/Path/index.html">Path</a></a></li>
+<li><a href="#physicscontactapi.type.physicscontact"><a href="../../api/type/PhysicsContact/index.html">PhysicsContact</a></a></li>
+<li><a href="#pickerwheelwidgetapi.type.pickerwheelwidget"><a href="../../api/type/PickerWheelWidget/index.html">PickerWheelWidget</a></a></li>
+<li><a href="#progressviewwidgetapi.type.progressviewwidget"><a href="../../api/type/ProgressViewWidget/index.html">ProgressViewWidget</a></a></li>
+<li><a href="#recordingapi.type.recording"><a href="../../api/type/Recording/index.html">Recording</a></a></li>
+<li><a href="#rectpathapi.type.rectpath"><a href="../../api/type/RectPath/index.html">RectPath</a></a></li>
+<li><a href="#roundedrectpathapi.type.roundedrectpath"><a href="../../api/type/RoundedRectPath/index.html">RoundedRectPath</a></a></li>
+<li><a href="#runtimeapi.type.runtime"><a href="../../api/type/Runtime/index.html">Runtime</a></a></li>
+<li><a href="#sceneapi.type.scene"><a href="../../api/type/Scene/index.html">Scene</a></a></li>
+<li><a href="#scrollviewwidgetapi.type.scrollviewwidget"><a href="../../api/type/ScrollViewWidget/index.html">ScrollViewWidget</a></a></li>
+<li><a href="#segmentedcontrolwidgetapi.type.segmentedcontrolwidget"><a href="../../api/type/SegmentedControlWidget/index.html">SegmentedControlWidget</a></a></li>
+<li><a href="#shapeobjectapi.type.shapeobject"><a href="../../api/type/ShapeObject/index.html">ShapeObject</a></a></li>
+<li><a href="#sliderwidgetapi.type.sliderwidget"><a href="../../api/type/SliderWidget/index.html">SliderWidget</a></a></li>
+<li><a href="#snapshotobjectapi.type.snapshotobject"><a href="../../api/type/SnapshotObject/index.html">SnapshotObject</a></a></li>
+<li><a href="#spinnerwidgetapi.type.spinnerwidget"><a href="../../api/type/SpinnerWidget/index.html">SpinnerWidget</a></a></li>
+<li><a href="#spriteobjectapi.type.spriteobject"><a href="../../api/type/SpriteObject/index.html">SpriteObject</a></a></li>
+<li><a href="#stageobjectapi.type.stageobject"><a href="../../api/type/StageObject/index.html">StageObject</a></a></li>
+<li><a href="#stepperwidgetapi.type.stepperwidget"><a href="../../api/type/StepperWidget/index.html">StepperWidget</a></a></li>
+<li><a href="#stringapi.type.string"><a href="../../api/type/String.html">String</a></a></li>
+<li><a href="#switchwidgetapi.type.switchwidget"><a href="../../api/type/SwitchWidget/index.html">SwitchWidget</a></a></li>
+<li><a href="#tabbarwidgetapi.type.tabbarwidget"><a href="../../api/type/TabBarWidget/index.html">TabBarWidget</a></a></li>
+<li><a href="#tableapi.type.table"><a href="../../api/type/Table.html">Table</a></a></li>
+<li><a href="#tableviewwidgetapi.type.tableviewwidget"><a href="../../api/type/TableViewWidget/index.html">TableViewWidget</a></a></li>
+<li><a href="#textboxapi.type.textbox"><a href="../../api/type/TextBox/index.html">TextBox</a></a></li>
+<li><a href="#textfieldapi.type.textfield"><a href="../../api/type/TextField/index.html">TextField</a></a></li>
+<li><a href="#textobjectapi.type.textobject"><a href="../../api/type/TextObject/index.html">TextObject</a></a></li>
+<li><a href="#textureresourceapi.type.textureresource"><a href="../../api/type/TextureResource/index.html">TextureResource</a></a></li>
+<li><a href="#textureresourcebitmapapi.type.textureresourcebitmap"><a href="../../api/type/TextureResourceBitmap/index.html">TextureResourceBitmap</a></a></li>
+<li><a href="#textureresourcecanvasapi.type.textureresourcecanvas"><a href="../../api/type/TextureResourceCanvas/index.html">TextureResourceCanvas</a></a></li>
+<li><a href="#textureresourceexternalapi.type.textureresourceexternal"><a href="../../api/type/TextureResourceExternal/index.html">TextureResourceExternal</a></a></li>
+<li><a href="#userdataapi.type.userdata"><a href="../../api/type/Userdata.html">Userdata</a></a></li>
+<li><a href="#videoapi.type.video"><a href="../../api/type/Video/index.html">Video</a></a></li>
+<li><a href="#webviewapi.type.webview"><a href="../../api/type/WebView/index.html">WebView</a></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../api/index.html">API Reference</a>  ▸  <a href="../../api/type/index.html">type</a>
+</div>
+<div id="types" class="section level1">
+<h1>Types</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Availability</strong></td>
+<td><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Keywords</strong></td>
+<td>type, types</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<div id="arrayapi.type.array" class="section level4">
+<h4><a href="../../api/type/Array.html">Array</a></h4>
+</div>
+<div id="bitmappaintapi.type.bitmappaint" class="section level4">
+<h4><a href="../../api/type/BitmapPaint/index.html">BitmapPaint</a></h4>
+</div>
+<div id="bodyapi.type.body" class="section level4">
+<h4><a href="../../api/type/Body/index.html">Body</a></h4>
+</div>
+<div id="booleanapi.type.boolean" class="section level4">
+<h4><a href="../../api/type/Boolean.html">Boolean</a></h4>
+</div>
+<div id="buttonwidgetapi.type.buttonwidget" class="section level4">
+<h4><a href="../../api/type/ButtonWidget/index.html">ButtonWidget</a></h4>
+</div>
+<div id="circlepathapi.type.circlepath" class="section level4">
+<h4><a href="../../api/type/CirclePath/index.html">CirclePath</a></h4>
+</div>
+<div id="compositepaintapi.type.compositepaint" class="section level4">
+<h4><a href="../../api/type/CompositePaint/index.html">CompositePaint</a></h4>
+</div>
+<div id="constantapi.type.constant" class="section level4">
+<h4><a href="../../api/type/Constant.html">Constant</a></h4>
+</div>
+<div id="coronaclassapi.type.coronaclass" class="section level4">
+<h4><a href="../../api/type/CoronaClass.html">CoronaClass</a></h4>
+</div>
+<div id="coronalibraryapi.type.coronalibrary" class="section level4">
+<h4><a href="../../api/type/CoronaLibrary/index.html">CoronaLibrary</a></h4>
+</div>
+<div id="coronaprototypeapi.type.coronaprototype" class="section level4">
+<h4><a href="../../api/type/CoronaPrototype/index.html">CoronaPrototype</a></h4>
+</div>
+<div id="coronaproviderapi.type.coronaprovider" class="section level4">
+<h4><a href="../../api/type/CoronaProvider/index.html">CoronaProvider</a></h4>
+</div>
+<div id="displayobjectapi.type.displayobject" class="section level4">
+<h4><a href="../../api/type/DisplayObject/index.html">DisplayObject</a></h4>
+</div>
+<div id="emitterobjectapi.type.emitterobject" class="section level4">
+<h4><a href="../../api/type/EmitterObject/index.html">EmitterObject</a></h4>
+</div>
+<div id="eventapi.type.event" class="section level4">
+<h4><a href="../../api/type/Event.html">Event</a></h4>
+</div>
+<div id="eventdispatcherapi.type.eventdispatcher" class="section level4">
+<h4><a href="../../api/type/EventDispatcher/index.html">EventDispatcher</a></h4>
+</div>
+<div id="fileapi.type.file" class="section level4">
+<h4><a href="../../api/type/File/index.html">File</a></h4>
+</div>
+<div id="functionapi.type.function" class="section level4">
+<h4><a href="../../api/type/Function.html">Function</a></h4>
+</div>
+<div id="gamenetworkapi.type.gamenetwork" class="section level4">
+<h4><a href="../../api/type/GameNetwork/index.html">GameNetwork</a></h4>
+</div>
+<div id="gradientpaintapi.type.gradientpaint" class="section level4">
+<h4><a href="../../api/type/GradientPaint/index.html">GradientPaint</a></h4>
+</div>
+<div id="groupobjectapi.type.groupobject" class="section level4">
+<h4><a href="../../api/type/GroupObject/index.html">GroupObject</a></h4>
+</div>
+<div id="imagesheetapi.type.imagesheet" class="section level4">
+<h4><a href="../../api/type/ImageSheet/index.html">ImageSheet</a></h4>
+</div>
+<div id="imagesheetpaintapi.type.imagesheetpaint" class="section level4">
+<h4><a href="../../api/type/ImageSheetPaint/index.html">ImageSheetPaint</a></h4>
+</div>
+<div id="inputaxisapi.type.inputaxis" class="section level4">
+<h4><a href="../../api/type/InputAxis/index.html">InputAxis</a></h4>
+</div>
+<div id="inputdeviceapi.type.inputdevice" class="section level4">
+<h4><a href="../../api/type/InputDevice/index.html">InputDevice</a></h4>
+</div>
+<div id="jointapi.type.joint" class="section level4">
+<h4><a href="../../api/type/Joint/index.html">Joint</a></h4>
+</div>
+<div id="libraryapi.type.library" class="section level4">
+<h4><a href="../../api/type/Library.html">Library</a></h4>
+</div>
+<div id="lineobjectapi.type.lineobject" class="section level4">
+<h4><a href="../../api/type/LineObject/index.html">LineObject</a></h4>
+</div>
+<div id="listenerapi.type.listener" class="section level4">
+<h4><a href="../../api/type/Listener.html">Listener</a></h4>
+</div>
+<div id="mapapi.type.map" class="section level4">
+<h4><a href="../../api/type/Map/index.html">Map</a></h4>
+</div>
+<div id="maskapi.type.mask" class="section level4">
+<h4><a href="../../api/type/Mask/index.html">Mask</a></h4>
+</div>
+<div id="moduleapi.type.module" class="section level4">
+<h4><a href="../../api/type/Module.html">Module</a></h4>
+</div>
+<div id="nativedisplayobjectapi.type.nativedisplayobject" class="section level4">
+<h4><a href="../../api/type/NativeDisplayObject/index.html">NativeDisplayObject</a></h4>
+</div>
+<div id="numberapi.type.number" class="section level4">
+<h4><a href="../../api/type/Number.html">Number</a></h4>
+</div>
+<div id="paintapi.type.paint" class="section level4">
+<h4><a href="../../api/type/Paint/index.html">Paint</a></h4>
+</div>
+<div id="particlesystemapi.type.particlesystem" class="section level4">
+<h4><a href="../../api/type/ParticleSystem/index.html">ParticleSystem</a></h4>
+</div>
+<div id="pathapi.type.path" class="section level4">
+<h4><a href="../../api/type/Path/index.html">Path</a></h4>
+</div>
+<div id="physicscontactapi.type.physicscontact" class="section level4">
+<h4><a href="../../api/type/PhysicsContact/index.html">PhysicsContact</a></h4>
+</div>
+<div id="pickerwheelwidgetapi.type.pickerwheelwidget" class="section level4">
+<h4><a href="../../api/type/PickerWheelWidget/index.html">PickerWheelWidget</a></h4>
+</div>
+<div id="progressviewwidgetapi.type.progressviewwidget" class="section level4">
+<h4><a href="../../api/type/ProgressViewWidget/index.html">ProgressViewWidget</a></h4>
+</div>
+<div id="recordingapi.type.recording" class="section level4">
+<h4><a href="../../api/type/Recording/index.html">Recording</a></h4>
+</div>
+<div id="rectpathapi.type.rectpath" class="section level4">
+<h4><a href="../../api/type/RectPath/index.html">RectPath</a></h4>
+</div>
+<div id="roundedrectpathapi.type.roundedrectpath" class="section level4">
+<h4><a href="../../api/type/RoundedRectPath/index.html">RoundedRectPath</a></h4>
+</div>
+<div id="runtimeapi.type.runtime" class="section level4">
+<h4><a href="../../api/type/Runtime/index.html">Runtime</a></h4>
+</div>
+<div id="sceneapi.type.scene" class="section level4">
+<h4><a href="../../api/type/Scene/index.html">Scene</a></h4>
+</div>
+<div id="scrollviewwidgetapi.type.scrollviewwidget" class="section level4">
+<h4><a href="../../api/type/ScrollViewWidget/index.html">ScrollViewWidget</a></h4>
+</div>
+<div id="segmentedcontrolwidgetapi.type.segmentedcontrolwidget" class="section level4">
+<h4><a href="../../api/type/SegmentedControlWidget/index.html">SegmentedControlWidget</a></h4>
+</div>
+<div id="shapeobjectapi.type.shapeobject" class="section level4">
+<h4><a href="../../api/type/ShapeObject/index.html">ShapeObject</a></h4>
+</div>
+<div id="sliderwidgetapi.type.sliderwidget" class="section level4">
+<h4><a href="../../api/type/SliderWidget/index.html">SliderWidget</a></h4>
+</div>
+<div id="snapshotobjectapi.type.snapshotobject" class="section level4">
+<h4><a href="../../api/type/SnapshotObject/index.html">SnapshotObject</a></h4>
+</div>
+<div id="spinnerwidgetapi.type.spinnerwidget" class="section level4">
+<h4><a href="../../api/type/SpinnerWidget/index.html">SpinnerWidget</a></h4>
+</div>
+<div id="spriteobjectapi.type.spriteobject" class="section level4">
+<h4><a href="../../api/type/SpriteObject/index.html">SpriteObject</a></h4>
+</div>
+<div id="stageobjectapi.type.stageobject" class="section level4">
+<h4><a href="../../api/type/StageObject/index.html">StageObject</a></h4>
+</div>
+<div id="stepperwidgetapi.type.stepperwidget" class="section level4">
+<h4><a href="../../api/type/StepperWidget/index.html">StepperWidget</a></h4>
+</div>
+<div id="stringapi.type.string" class="section level4">
+<h4><a href="../../api/type/String.html">String</a></h4>
+</div>
+<div id="switchwidgetapi.type.switchwidget" class="section level4">
+<h4><a href="../../api/type/SwitchWidget/index.html">SwitchWidget</a></h4>
+</div>
+<div id="tabbarwidgetapi.type.tabbarwidget" class="section level4">
+<h4><a href="../../api/type/TabBarWidget/index.html">TabBarWidget</a></h4>
+</div>
+<div id="tableapi.type.table" class="section level4">
+<h4><a href="../../api/type/Table.html">Table</a></h4>
+</div>
+<div id="tableviewwidgetapi.type.tableviewwidget" class="section level4">
+<h4><a href="../../api/type/TableViewWidget/index.html">TableViewWidget</a></h4>
+</div>
+<div id="textboxapi.type.textbox" class="section level4">
+<h4><a href="../../api/type/TextBox/index.html">TextBox</a></h4>
+</div>
+<div id="textfieldapi.type.textfield" class="section level4">
+<h4><a href="../../api/type/TextField/index.html">TextField</a></h4>
+</div>
+<div id="textobjectapi.type.textobject" class="section level4">
+<h4><a href="../../api/type/TextObject/index.html">TextObject</a></h4>
+</div>
+<div id="textureresourceapi.type.textureresource" class="section level4">
+<h4><a href="../../api/type/TextureResource/index.html">TextureResource</a></h4>
+</div>
+<div id="textureresourcebitmapapi.type.textureresourcebitmap" class="section level4">
+<h4><a href="../../api/type/TextureResourceBitmap/index.html">TextureResourceBitmap</a></h4>
+</div>
+<div id="textureresourcecanvasapi.type.textureresourcecanvas" class="section level4">
+<h4><a href="../../api/type/TextureResourceCanvas/index.html">TextureResourceCanvas</a></h4>
+</div>
+<div id="textureresourceexternalapi.type.textureresourceexternal" class="section level4">
+<h4><a href="../../api/type/TextureResourceExternal/index.html">TextureResourceExternal</a></h4>
+</div>
+<div id="userdataapi.type.userdata" class="section level4">
+<h4><a href="../../api/type/Userdata.html">Userdata</a></h4>
+</div>
+<div id="videoapi.type.video" class="section level4">
+<h4><a href="../../api/type/Video/index.html">Video</a></h4>
+</div>
+<div id="webviewapi.type.webview" class="section level4">
+<h4><a href="../../api/type/WebView/index.html">WebView</a></h4>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.type.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

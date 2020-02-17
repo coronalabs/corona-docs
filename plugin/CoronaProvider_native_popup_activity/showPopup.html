@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | Activity Popup | showPopup</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#native.showpopup-activity-popup">native.showPopup() — Activity Popup</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#name-required">name <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#options-required">options <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+<li><a href="#options-reference">Options Reference</a><ul>
+<li><a href="#items-required">items <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#excludedactivities-optional">excludedActivities <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#origin-optional">origin <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#permittedarrowdirections-optional">permittedArrowDirections <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#listener-optional">listener <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#item-array">Item Array</a></li>
+<li><a href="#supported-activities">Supported Activities</a></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#string-items">String Items</a></li>
+<li><a href="#url-items">URL Items</a></li>
+<li><a href="#image-items">Image Items</a></li>
+<li><a href="#combined-items">Combined Items</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/CoronaProvider_native_popup_activity/index.html">Activity Popup</a>  ▸  <a href="../../plugin/CoronaProvider_native_popup_activity/showPopup.html">showPopup</a>
+</div>
+<div id="native.showpopup-activity-popup" class="section level1">
+<h1>native.showPopup() — Activity Popup</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left">[function][api.type.function]</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../api/library/native/index.html">native.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Return value</strong></td>
+<td align="left">none</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">native, showPopup, activity</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Displays the activity popup window which corresponds to <code>UIActivityViewController</code> on iOS. The set of activities depends on the items you specify.</p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">native.showPopup( name, options )</pre>
+<div id="name-required" class="section level5">
+<h5>name <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> The string name of the popup to be shown. For the Activity Popup plugin, use <code>&quot;activity&quot;</code>.</p>
+</div>
+<div id="options-required" class="section level5">
+<h5>options <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> A table that specifies parameters for the popup — see the next section for details.</p>
+</div>
+</div>
+<div id="options-reference" class="section level2">
+<h2>Options Reference</h2>
+<div id="items-required" class="section level5">
+<h5>items <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/Array.html">Array</a>.</em> Array of individual items. See <a href="#itemarray">Item Array</a> below.</p>
+</div>
+<div id="excludedactivities-optional" class="section level5">
+<h5>excludedActivities <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Array.html">Array</a>.</em> By default, all built-in and compatible activities are shown. You can exclude an activity by specifying an array of strings where each corresponds to an activity. See <a href="#activities">Supported Activities</a> below for valid string values.</p>
+</div>
+<div id="origin-optional" class="section level5">
+<h5>origin <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> Only applicable on iPad. Defines the bounds of the object (typically a button) from which the iPad's popup emerges from. A convenience pattern is to pass the <code>contentBounds</code> property of the object.</p>
+</div>
+<div id="permittedarrowdirections-optional" class="section level5">
+<h5>permittedArrowDirections <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> Only applicable on iPad. An array of values which defines the directions in which the iPad's popup arrow may point. Valid values are <code>&quot;up&quot;</code>, <code>&quot;down&quot;</code>, <code>&quot;left&quot;</code>, <code>&quot;right&quot;</code>, or <code>&quot;any&quot;</code>. The default is <code>&quot;any&quot;</code>.</p>
+</div>
+<div id="listener-optional" class="section level5">
+<h5>listener <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Listener.html">Listener</a>.</em> Listener which supports basic <a href="../../api/event/popup/index.html">popup events</a>. In addition, it supports the following additional properties:</p>
+<ul>
+<li><code>event.action</code> (<a href="../../api/type/String.html">string</a>) — Value of <code>&quot;sent&quot;</code> or <code>&quot;cancelled&quot;</code>.</li>
+<li><code>event.activity</code> (<a href="../../api/type/String.html">string</a>) — Value corresponding to the <a href="#activities">Supported Activities</a>.</li>
+</ul>
+<p><a id="itemarray"></a></p>
+</div>
+</div>
+<div id="item-array" class="section level2">
+<h2>Item Array</h2>
+<p>The item array is an <a href="../../api/type/Array.html">array</a> of individual items, where each item is a <a href="../../api/type/Table.html">table</a> that contains data on which activity is to be performed. Each individual item table must contain both <code>type</code> and <code>value</code> properties.</p>
+<p>Different activities support different item types. Please refer to Apple's <a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIActivity_Class/index.html#//apple_ref/doc/constant_group/Built_in_Activity_Types">documentation</a> for a reference of supported activity types.</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;string&quot;</code></td>
+<td align="left"><a href="../../api/type/String.html">String</a> value which will be converted to a <code>NSString</code>.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;url&quot;</code></td>
+<td align="left"><a href="../../api/type/String.html">String</a> value which will be converted to a <code>NSURL</code>.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;image&quot;</code></td>
+<td align="left"><a href="../../api/type/Table.html">Table</a> in the form of <nobr><code>{ baseDir=, filename= }</code></nobr> which specifies the image file to post. This will be converted to a <code>UIImage</code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a id="activities"></a></p>
+</div>
+<div id="supported-activities" class="section level2">
+<h2>Supported Activities</h2>
+<p>The Activity plugin supports the following activity string values, each corresponding to a <a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIActivity_Class/index.html#//apple_ref/doc/constant_group/Built_in_Activity_Types">built-in activity</a> on iOS.</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">String</th>
+<th align="left">Corresponding iOS Activity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;UIActivityTypePostToFacebook&quot;</code></td>
+<td align="left"><code>UIActivityTypePostToFacebook</code>  </td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;UIActivityTypePostToTwitter&quot;</code></td>
+<td align="left"><code>UIActivityTypePostToTwitter</code>  </td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;UIActivityTypePostToWeibo&quot;</code></td>
+<td align="left"><code>UIActivityTypePostToWeibo</code>  </td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;UIActivityTypeMessage&quot;</code></td>
+<td align="left"><code>UIActivityTypeMessage</code>  </td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;UIActivityTypeMail&quot;</code></td>
+<td align="left"><code>UIActivityTypeMail</code>  </td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;UIActivityTypePrint&quot;</code></td>
+<td align="left"><code>UIActivityTypePrint</code>  </td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;UIActivityTypeCopyToPasteboard&quot;</code></td>
+<td align="left"><code>UIActivityTypeCopyToPasteboard</code>  </td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;UIActivityTypeAssignToContact&quot;</code></td>
+<td align="left"><code>UIActivityTypeAssignToContact</code>  </td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;UIActivityTypeSaveToCameraRoll&quot;</code></td>
+<td align="left"><code>UIActivityTypeSaveToCameraRoll</code>  </td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;UIActivityTypeAddToReadingList&quot;</code></td>
+<td align="left"><code>UIActivityTypeAddToReadingList</code>  </td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;UIActivityTypePostToFlickr&quot;</code></td>
+<td align="left"><code>UIActivityTypePostToFlickr</code>  </td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;UIActivityTypePostToVimeo&quot;</code></td>
+<td align="left"><code>UIActivityTypePostToVimeo</code>  </td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;UIActivityTypePostToTencentWeibo&quot;</code></td>
+<td align="left"><code>UIActivityTypePostToTencentWeibo</code>  </td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;UIActivityTypeAirDrop&quot;</code></td>
+<td align="left"><code>UIActivityTypeAirDrop</code>  </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<div id="string-items" class="section level5">
+<h5>String Items</h5>
+<pre class="brush: lua;">local popupListener = {}
+function popupListener:popup( event )
+    print(
+        "(name, type, activity, action):", 
+        event.name, event.type, tostring(event.activity), tostring(event.action)
+    )
+end
+
+local textItems = {
+    { type = "string", value = "Hello World!" },
+    { type = "string", value = "Good night, and good luck." },
+}
+
+local options = { items=textItems, listener=popupListener }
+
+native.showPopup( "activity", options )</pre>
+</div>
+<div id="url-items" class="section level5">
+<h5>URL Items</h5>
+<pre class="brush: lua;">local popupListener = {}
+function popupListener:popup( event )
+    print(
+        "(name, type, activity, action):", 
+        event.name, event.type, tostring(event.activity), tostring(event.action)
+    )
+end
+
+local urlItems = {
+    { type = "url", value = "http://www.coronalabs.com" },
+    { type = "url", value = "http://docs.coronalabs.com" },
+}
+
+local options = { items=urlItems, listener=popupListener }
+
+native.showPopup( "activity", options )</pre>
+</div>
+<div id="image-items" class="section level5">
+<h5>Image Items</h5>
+<pre class="brush: lua;">local popupListener = {}
+function popupListener:popup( event )
+    print(
+        "(name, type, activity, action):", 
+        event.name, event.type, tostring(event.activity), tostring(event.action)
+    )
+end
+
+local imageItems = {
+    {
+        type = "image",
+        value = { filename = "world1.jpg", baseDir = system.ResourceDirectory }
+    },
+    {
+        type = "image",
+        value = { filename = "world2.jpg", baseDir = system.ResourceDirectory }
+    },
+}
+
+local options = { items=imageItems, listener=popupListener }
+
+native.showPopup( "activity", options )</pre>
+</div>
+<div id="combined-items" class="section level5">
+<h5>Combined Items</h5>
+<pre class="brush: lua;">local popupListener = {}
+function popupListener:popup( event )
+    print(
+        "(name, type, activity, action):", 
+        event.name, event.type, tostring(event.activity), tostring(event.action)
+    )
+end
+
+local itemsToShare = {
+    {
+        type = "image",
+        value = { filename = "world1.jpg", baseDir = system.ResourceDirectory }
+    },
+    { type = "url", value = "http://www.coronalabs.com" },
+    { type = "string", value = "Hello World!" },
+}
+
+local options = { items=itemsToShare, listener=popupListener }
+
+native.showPopup( "activity", options )</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.CoronaProvider_native_popup_activity.showPopup&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | Vungle 4 | init</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#vungle-v4.init">vungle-v4.init()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#providername-required">providerName <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#appid-required">appId <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#adlistener-optional">adListener <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#adstart">adStart</a></li>
+<li><a href="#adview">adView</a></li>
+<li><a href="#adend">adEnd</a></li>
+<li><a href="#cachedadavailable">cachedAdAvailable</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/vungle-v4/index.html">Vungle 4</a>  ▸  <a href="../../plugin/vungle-v4/init.html">init</a>
+</div>
+<div id="vungle-v4.init" class="section level1">
+<h1>vungle-v4.init()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Return value</strong></td>
+<td align="left">none</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">ads, advertising, vungle</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../plugin/vungle-v4/show.html">vungle-v4.show()</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../plugin/vungle-v4/index.html">vungle-v4.*</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p><code>vungle-v4.init()</code> initializes the Corona <code>ads</code> library by specifying the name of the ad network service provider and the application identifier.</p>
+<p>Once the <code>ads</code> library is initialized, you can request an ad using <a href="../../plugin/vungle-v4/show.html">vungle-v4.show()</a>.</p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">vungle-v4.init( providerName, appId [, adListener] )</pre>
+<div id="providername-required" class="section level5">
+<h5>providerName <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> String value for the provider name. For Vungle, use <code>&quot;vungle&quot;</code>.</p>
+</div>
+<div id="appid-required" class="section level5">
+<h5>appId <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> String containing the app ID.</p>
+</div>
+<div id="adlistener-optional" class="section level5">
+<h5>adListener <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Listener.html">Listener</a>.</em> The <a href="../../api/type/Function.html">function</a> or <a href="../../api/type/Table.html">table</a> that will handle ad lifecycle events from the Vungle plugin. Vungle notifies you of the following events:</p>
+</div>
+<div id="adstart" class="section level3">
+<h3>adStart</h3>
+<div class="inner-table">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><code>name</code></td>
+<td align="left"><code>&quot;adsRequest&quot;</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>provider</code></td>
+<td align="left"><code>&quot;vungle&quot;</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>type</code></td>
+<td align="left"><code>&quot;adStart&quot;</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>isError</code></td>
+<td align="left"><code>false</code> if an ad started playing; <code>true</code> if an ad could not be played</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>response</code></td>
+<td align="left">reason why ad could not be played if <code>isError</code> is <code>true</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="adview" class="section level3">
+<h3>adView</h3>
+<div class="inner-table">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><code>name</code></td>
+<td align="left"><code>&quot;adsRequest&quot;</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>provider</code></td>
+<td align="left"><code>&quot;vungle&quot;</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>type</code></td>
+<td align="left"><code>&quot;adView&quot;</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>isError</code></td>
+<td align="left"><code>false</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>totalAdSeconds</code></td>
+<td align="left">the total length of the video in seconds</td>
+</tr>
+<tr class="even">
+<td align="left"><code>secondsWatched</code></td>
+<td align="left">the length of the longest view by the user, in seconds</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>isCompletedView</code></td>
+<td align="left"><code>true</code> if the user watched 80% of the video; <code>false</code> otherwise</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="adend" class="section level3">
+<h3>adEnd</h3>
+<div class="inner-table">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><code>name</code></td>
+<td align="left"><code>&quot;adsRequest&quot;</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>provider</code></td>
+<td align="left"><code>&quot;vungle&quot;</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>type</code></td>
+<td align="left"><code>&quot;adEnd&quot;</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>isError</code></td>
+<td align="left"><code>false</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>wasCallToActionClicked</code></td>
+<td align="left"><code>true</code> if the user clicked on the call-to-action (usually &quot;Download&quot;); <code>false</code> otherwise</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="cachedadavailable" class="section level3">
+<h3>cachedAdAvailable</h3>
+<div class="inner-table">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><code>name</code></td>
+<td align="left"><code>&quot;adsRequest&quot;</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>provider</code></td>
+<td align="left"><code>&quot;vungle&quot;</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>type</code></td>
+<td align="left"><code>&quot;cachedAdAvailable&quot;</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>isError</code></td>
+<td align="left"><code>false</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.vungle-v4.init&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

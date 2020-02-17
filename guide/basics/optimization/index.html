@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Basics</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#performance-and-optimization">Performance and Optimization</a><ul>
+<li><a href="#using-memory-efficiently">Using Memory Efficiently</a></li>
+<li><a href="#reducing-power-consumption">Reducing Power Consumption</a></li>
+<li><a href="#transitions-and-animations">Transitions and Animations</a></li>
+<li><a href="#conserving-texture-memory">Conserving Texture Memory</a></li>
+<li><a href="#draw-calls-batching">Draw Calls / Batching</a></li>
+<li><a href="#lua-optimizations">Lua Optimizations</a><ul>
+<li><a href="#localize-localize">Localize, Localize</a></li>
+<li><a href="#avoid-table.insert">Avoid &quot;table.insert()&quot;</a></li>
+<li><a href="#avoid-unpack">Avoid &quot;unpack()&quot;</a></li>
+<li><a href="#avoid-ipairs">Avoid &quot;ipairs()&quot;</a></li>
+<li><a href="#math-performance">Math Performance</a></li>
+</ul></li>
+<li><a href="#managing-audio">Managing Audio</a><ul>
+<li><a href="#preloading-audio">Preloading Audio</a></li>
+<li><a href="#disposing-audio">Disposing Audio</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/basics/index.html">Basics</a>
+</div>
+<div id="performance-and-optimization" class="section level1">
+<h1>Performance and Optimization</h1>
+<p>As you develop your application, you should always consider how your design choices affect performance. Despite ongoing core improvements, mobile devices still face fundamental constraints in processing power, memory usage, and battery life. Therefore, performance and optimization is crucial to achieving faster response time, minimizing memory usage, and maximizing battery life.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#memory">Using Memory Efficiently</a></li>
+<li><a href="#power">Reducing Power Consumption</a></li>
+<li><a href="#transitions">Transitions and Animations</a></li>
+<li><a href="#texturemem">Conserving Texture Memory</a></li>
+<li><a href="#draw">Draw Calls / Batching</a></li>
+<li><a href="#lua">Lua Optimizations</a></li>
+<li><a href="#audio">Managing Audio</a></li>
+</ul>
+</div>
+<p><a id="memory"></a></p>
+<div id="using-memory-efficiently" class="section level2">
+<h2>Using Memory Efficiently</h2>
+<p>Memory is a critical resource on mobile devices. Some devices may even terminate your application if you consume too much memory.</p>
+<ul>
+<li><strong>Eliminate memory leaks</strong> — your application should <strong>not</strong> have memory leaks. Although Lua handles memory management and cleanup automatically, memory leaks can still occur. For example, global variables are never considered garbage; it's up to you to tell Lua that these variables are garbage by setting them to <code>nil</code>.</li>
+</ul>
+<div class="code-indent">
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Global variables are <strong>not</strong> recommended in general, but if you must use them for convenience, ensure that you remove them from memory when they're no longer needed <nobr>(set them to <code>nil</code>)</nobr>.</p>
+</div>
+</div>
+</div>
+<ul>
+<li><p><strong>Keep resource files as small as possible</strong> — resource files used by your application typically reside on the disk. They must be loaded into memory before they can be used. Images and audio files should be as small as possible. You should also reuse the same image assets whenever it's feasible. For example, if you design a <nobr>flip-style</nobr> menu with the same background image for each page, you should use that image on all pages and layer the necessary foreground images over it. For more details, please see <a href="#texturemem">Conserving Texture Memory</a> below.</p></li>
+<li><p><strong>Load resources lazily</strong> — avoid loading resource files until they're actually needed. While <nobr>pre-loading</nobr> resource files might seem like good practice, this can actually backfire because of how devices respond to low memory situations. One notable exception is audio files. In general, you should load sound effects for a particular scene or level before it begins, because loading them on demand can cause a slight skip during <nobr>time-critical</nobr> code. For more information, see <a href="#audio">Managing Audio</a> below.</p></li>
+<li><p><strong>Remove objects from the display hierarchy</strong> — when a display object is created, it is implicitly added to the display hierarchy. When you no longer need a display object, you should remove it from the display hierarchy and set its reference to <code>nil</code>. This makes the object eligible for garbage collection. However, this is no guarantee that the object will be removed from memory. If other variables in memory reference the display object, Lua will <strong>not</strong> consider it garbage. See the <a href="../../../guide/media/displayObjects/index.html">Display Objects</a> guide for more information on removing objects.</p></li>
+</ul>
+<p><a id="power"></a></p>
+</div>
+<div id="reducing-power-consumption" class="section level2">
+<h2>Reducing Power Consumption</h2>
+<p>Battery life is inherently limited on mobile devices because of their small form factor. You can improve battery life by adhering to the following practices.</p>
+<ul>
+<li><p><strong>Network access</strong> consumes a considerable amount of power. You can minimize the impact of network traffic by following these guidelines:</p>
+<ul>
+<li>Do not &quot;poll&quot; but rather connect to external network servers only when necessary.</li>
+<li>Optimize the data that you transmit so it's as small as possible.</li>
+<li>Transmit in bursts. More power is consumed the longer the network is actively transmitting data. It's better to transmit data in bursts rather than spreading it out into smaller transmission packets over time.</li>
+</ul></li>
+<li><p><strong>GPS</strong> and <strong>accelerometer</strong> hardware also consumes power. If you access location data via GPS, stop collecting it when you have the data you need. If you use the accelerometer, try to limit it to scenes where it's essential for the desired functionality.</p></li>
+<li><p><strong>Disk access</strong> — reading and writing files to the device's local disk — should be handled similarly to network access. It's better to transmit larger packets of data to/from the disk rather than spreading it out over numerous smaller transactions.</p></li>
+</ul>
+<p><a id="transitions"></a></p>
+</div>
+<div id="transitions-and-animations" class="section level2">
+<h2>Transitions and Animations</h2>
+<p>If you need to set or transition/tween a specific property of several display objects to the same value — for example, fade an entire overlay menu <nobr>to <code>alpha=0</code> —</nobr> it's better to add the objects to a display group and modify the property of the entire group. It's easier to code and it optimizes memory and speed. See the <a href="../../../guide/graphics/group.html">Group Programming</a> guide for more information.</p>
+<p>If you're using sprite animations, a common oversight is allowing offscreen or invisible sprites to continue animating. While these sprites may not be visible to the user, they'll continue to use processor power while animating. We suggest that you pause all animations that move off the screen or otherwise become inactive.</p>
+<p><a id="texturemem"></a></p>
+</div>
+<div id="conserving-texture-memory" class="section level2">
+<h2>Conserving Texture Memory</h2>
+<p>Texture memory is often ignored until it reaches &quot;critical mass,&quot; at which point it's <nobr>time-consuming</nobr> to make the required changes to art assets.</p>
+<!---
+
+Note that 8-bit or 24-bit `.png` images all unpack into <nobr>32-bit</nobr> images. They are rectangular arrays of pixels and there are effectively 4 color arrays (channels) per image: red, green, blue, and alpha <nobr>(RGB+A)</nobr>.
+
+-->
+<p>As general practice, remember these tips in respect to managing texture memory:</p>
+<ol style="list-style-type: decimal">
+<li><p>Always unload textures (remove them from the display hierarchy) when they're no longer needed.</p></li>
+<li><p>If you're using image sheets, consider using a tool like <a href="http://www.codeandweb.com/texturepacker">TexturePacker</a> to pack your images into the smallest configuration possible.</p></li>
+</ol>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>There is a limit on the maximum texture size that a device will support. If you exceed this limit, the texture will automatically downscale to fit within the maximum. You can use the <nobr><code>system.getInfo( &quot;maxTextureSize&quot; )</code></nobr> command to determine the maximum texture size for a particular device. See <a href="../../../api/library/system/getInfo.html">system.getInfo()</a> for more information.</p>
+</div>
+<p><a id="draw"></a></p>
+</div>
+<div id="draw-calls-batching" class="section level2">
+<h2>Draw Calls / Batching</h2>
+<p>On devices, OpenGL performs best when you are able to minimize state changes. This is because multiple objects can be batched into a single draw call if there are no state changes required between consecutive display objects.</p>
+<p>Corona's rendering engine attempts to identify situations where multiple display objects can be submitted in a single draw call. Whenever possible, you should try to arrange the display object hierarchy such that <strong>consecutive</strong> display objects — meaning, the order in which they are rendered — can be batched into a single draw call.</p>
+<p>There are certain situations where this can occur. The general rule is that consecutive display objects which use the same texture can be batched. This includes display objects that use different frames from the same <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a>, since the underlying texture is the same. In these situations, you can vary the position, tint, and alpha of each object without breaking the batch, but remember that some actions may prevent batching, for example adding a <a href="../../../guide/graphics/effects.html">shader effect</a> to an object.</p>
+<p><a id="lua"></a></p>
+</div>
+<div id="lua-optimizations" class="section level2">
+<h2>Lua Optimizations</h2>
+<p>At the code level, you should adhere to as many Lua optimizations as possible. Most of the performance tricks below pertain primarily to <nobr>time-critical</nobr> routines — that is, points in your app where there is a lot happening or where the user experience could be adversely affected by sluggish performance. However, every bit helps and we suggest that you follow these as a habit.</p>
+<div id="localize-localize" class="section level3">
+<h3>Localize, Localize</h3>
+<p>In contrast to global variables, which should be avoided whenever possible, access to <strong>local</strong> variables and functions is simply faster, especially in <nobr>time-critical</nobr> routines.</p>
+<pre class="brush: lua; gutter: false; highlight: [1,2,3,4,5,6,7]; first-line: 1;">-- Local (recommended)
+local CCX = display.contentCenterX  -- Local variable
+
+for i = 1,100 do
+    local image = display.newImage( "myImage.png" )
+    image.x = CCX
+end</pre>
+<pre class="brush: lua;">-- Non-local (discouraged)
+CCX = display.contentCenterX  -- Global variable
+
+for i = 1,100 do
+    local image = display.newImage( "myImage.png" )
+    image.x = CCX
+end</pre>
+<p>This also applies to core Lua libraries like the <code>math</code> library. In <nobr>time-critical</nobr> routines, you should always localize library functions.</p>
+<pre class="brush: lua; gutter: false; highlight: [1,2,3,4,5,6,7,8,9]; first-line: 1;">-- Local (recommended)
+local sin = math.sin  -- Local reference to "math.sin"
+
+local function foo(x)
+    for i = 1,100 do
+        x = x + sin(i)
+    end
+    return x
+end</pre>
+<pre class="brush: lua;">-- Non-local (discouraged)
+local function foo( x )
+    for i = 1,100 do
+        x = x + math.sin(i)
+    end
+    return x
+end</pre>
+<p>Finally, remember that functions should be localized whenever possible. Of course, this will require proper scoping!</p>
+<pre class="brush: lua; gutter: false; highlight: [1,2,3,4,5,6,7,8,9,10]; first-line: 1;">-- Local (recommended)
+local function func2( y )  -- "func2()" properly scoped above "func1()"
+    print( y )
+end
+
+local function func1()
+    func2( "myValue" )
+end
+
+func1()</pre>
+<pre class="brush: lua;">-- Non-local (discouraged)
+function func1()
+    func2( "myValue" )
+end
+
+function func2( y )
+    print( y )
+end
+
+func1()</pre>
+</div>
+<div id="avoid-table.insert" class="section level3">
+<h3>Avoid &quot;table.insert()&quot;</h3>
+<p>Let's compare four methods that all achieve the same thing: the common act of inserting values into a table. Of the four, the Lua <code>table.insert()</code> function is a mediocre performer and should be avoided.</p>
+<pre class="brush: lua; gutter: false; highlight: [1,2,3,4,5,6]; first-line: 1;">-- Loop index method (recommended)
+local a = {}
+
+for i = 1,100 do
+    a[i] = i
+end</pre>
+<pre class="brush: lua; gutter: false; highlight: [1,2,3,4,5,6,7,8]; first-line: 1;">-- Counter method (recommended)
+local a = {}
+local index = 1
+
+for i = 1,100 do
+    a[index] = i
+    index = index+1
+end</pre>
+<pre class="brush: lua;">-- Table size method (acceptable)
+local a = {}
+
+for i = 1,100 do
+    a[#a+1] = i
+end</pre>
+<pre class="brush: lua;">-- "table.insert()" (discouraged)
+local a = {}
+
+for i = 1,100 do
+    table.insert( a, i )
+end</pre>
+</div>
+<div id="avoid-unpack" class="section level3">
+<h3>Avoid &quot;unpack()&quot;</h3>
+<p>The Lua <code>unpack()</code> function is not a great performer. Fortunately, a simple loop can be written to accomplish the same thing:</p>
+<pre class="brush: lua; gutter: false; highlight: [1,2,3,4,5,6]; first-line: 1;">-- Loop method (recommended)
+local a = { 100, 200, 300, 400 }
+
+for i = 1,100 do
+    print( a[1],a[2],a[3],a[4] )
+end</pre>
+<pre class="brush: lua;">-- "unpack()" (discouraged)
+local a = { 100, 200, 300, 400 }
+
+for i = 1,100 do
+    print( unpack(a) )
+end</pre>
+<p>The caveat is that you must know the length of the table to retrieve all of its values in the loop method. Thus, <code>unpack()</code> still has its uses — in a table of unknown length, <nobr>for example —</nobr> but it should be avoided in <nobr>time-critical</nobr> routines.</p>
+</div>
+<div id="avoid-ipairs" class="section level3">
+<h3>Avoid &quot;ipairs()&quot;</h3>
+<p>When iterating through a table, the overhead of the Lua <code>ipairs()</code> function does not justify its use, especially when you can accomplish the same thing using a Lua construct.</p>
+<pre class="brush: lua; gutter: false; highlight: [1,2,3,4,5,6,7,8,9,10]; first-line: 1;">-- Lua construct (recommended)
+local t1 = {}
+local t2 = {}
+local t3 = {}
+local t4 = {}
+local a = { t1, t2, t3, t4 }
+
+for i = 1,#a do
+    print( a[i] )
+end</pre>
+<pre class="brush: lua;">-- "ipairs()" (discouraged)
+local t1 = {}
+local t2 = {}
+local t3 = {}
+local t4 = {}
+local a = { t1, t2, t3, t4 }
+
+for i,v in ipairs( a ) do
+    print( i,v )
+end</pre>
+</div>
+<div id="math-performance" class="section level3">
+<h3>Math Performance</h3>
+<p>Certain mathematical functions and processes are faster than others. For example, multiplication is faster than division and you should usually multiply by a decimal instead of dividing.</p>
+<pre class="brush: lua; gutter: false; highlight: [1,2,3]; first-line: 1;">-- Multiplication by decimal (recommended)
+x * 0.5
+y * 0.125</pre>
+<pre class="brush: lua;">-- Division (acceptable)
+x / 2
+y / 8</pre>
+<p>Multiplication is also faster than exponentiation:</p>
+<pre class="brush: lua; gutter: false; highlight: [1,2]; first-line: 1;">-- Multiplication (recommended)
+x * x * x</pre>
+<pre class="brush: lua;">-- Exponentiation (acceptable)
+x^3</pre>
+<p>Finally, avoid <code>math.fmod()</code> for positive numbers and use the modulus operator instead:</p>
+<pre class="brush: lua; gutter: false; highlight: [1,2,3,4,5,6]; first-line: 1;">-- Modulus operator (recommended)
+for i = 1,100 do
+    if ( ( i%30 ) &lt; 1 ) then
+        local x = 1
+    end
+end</pre>
+<pre class="brush: lua;">-- "math.fmod()" (discouraged)
+local fmod = math.fmod
+for i = 1,100 do
+    if ( fmod( i,30 ) &lt; 1 ) then
+        local x = 1
+    end
+end</pre>
+<p><a id="audio"></a></p>
+</div>
+</div>
+<div id="managing-audio" class="section level2">
+<h2>Managing Audio</h2>
+<p>When using audio, you should compress/sample sounds to the smallest acceptable quality in most cases. Also, using simple, <nobr>cross-platform</nobr> formats like <code>.wav</code> do not tax the CPU heavily.</p>
+<div id="preloading-audio" class="section level3">
+<h3>Preloading Audio</h3>
+<p>Sound effects for an app should almost always be preloaded in <nobr><strong>non</strong>-time-critical</nobr> code, for example, before a scene or level begins.</p>
+<p>If desired, sound effects can be organized in a table as follows, for easy reference and eventual disposal.</p>
+<pre class="brush: lua;">local soundTable = {
+   mySound1 = audio.loadSound( "a.wav" ),
+   mySound2 = audio.loadSound( "b.wav" ),
+   mySound3 = audio.loadSound( "c.wav" ),
+   mySound4 = audio.loadSound( "d.wav" ),
+   mySound5 = audio.loadSound( "e.wav" ),
+   mySound6 = audio.loadSound( "f.wav" ),
+   mySound7 = audio.loadSound( "g.wav" ),
+   mySound8 = audio.loadSound( "h.wav" ),
+}</pre>
+<p>With this structure, playback is as simple as:</p>
+<pre class="brush: lua;">local mySound = audio.play( soundTable["mySound1"] )</pre>
+</div>
+<div id="disposing-audio" class="section level3">
+<h3>Disposing Audio</h3>
+<p>Remember, you <strong>must</strong> dispose of audio files when they're no longer needed <strong>and</strong> clear any references to them. Assuming the table structure above is used to organize and preload sounds, the following loop will dispose of the audio handles:</p>
+<pre class="brush: lua;">for s = #soundTable,1,-1 do
+    audio.dispose( soundTable[s] ) ; soundTable[s] = nil
+end</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.basics.optimization.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

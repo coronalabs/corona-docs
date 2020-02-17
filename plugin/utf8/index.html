@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | UTF-8</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#utf8.">utf8.*</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#concepts">Concepts</a></li>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#functions">Functions</a><ul>
+<li><a href="#utf8.charposplugin.utf8.charpos"><a href="../../plugin/utf8/charpos.html">utf8.charpos()</a></a></li>
+<li><a href="#utf8.codepointplugin.utf8.codepoint"><a href="../../plugin/utf8/codepoint.html">utf8.codepoint()</a></a></li>
+<li><a href="#utf8.codesplugin.utf8.codes"><a href="../../plugin/utf8/codes.html">utf8.codes()</a></a></li>
+<li><a href="#utf8.escapeplugin.utf8.escape"><a href="../../plugin/utf8/escape.html">utf8.escape()</a></a></li>
+<li><a href="#utf8.foldplugin.utf8.fold"><a href="../../plugin/utf8/fold.html">utf8.fold()</a></a></li>
+<li><a href="#utf8.insertplugin.utf8.insert"><a href="../../plugin/utf8/insert.html">utf8.insert()</a></a></li>
+<li><a href="#utf8.ncasecmpplugin.utf8.ncasecmp"><a href="../../plugin/utf8/ncasecmp.html">utf8.ncasecmp()</a></a></li>
+<li><a href="#utf8.nextplugin.utf8.next"><a href="../../plugin/utf8/next.html">utf8.next()</a></a></li>
+<li><a href="#utf8.removeplugin.utf8.remove"><a href="../../plugin/utf8/remove.html">utf8.remove()</a></a></li>
+<li><a href="#utf8.titleplugin.utf8.title"><a href="../../plugin/utf8/title.html">utf8.title()</a></a></li>
+<li><a href="#utf8.widthplugin.utf8.width"><a href="../../plugin/utf8/width.html">utf8.width()</a></a></li>
+</ul></li>
+<li><a href="#project-settings">Project Settings</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/utf8/index.html">UTF-8</a>
+</div>
+<div id="utf8." class="section level1">
+<h1>utf8.*</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../api/type/Library.html">Library</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">utf8, UTF-8, Unicode, string</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Platforms</strong></td>
+<td align="left">Android, iOS, macOS, tvOS, Windows</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>The <a href="https://marketplace.coronalabs.com/plugin/utf-8">UTF-8</a> plugin, based on the <a href="https://github.com/starwing/luautf8">luautf8</a> module, provides functions to manipulate <nobr>UTF-8</nobr> strings in Corona.</p>
+<p>UTF-8 strings are composed of a mixture of <nobr>single-byte</nobr> and <nobr>multi-byte</nobr> Unicode characters which means that simple byte counting can't be used to determine things like string length or substring positions. The Lua string object can store <nobr>UTF-8</nobr> strings since it just considers them to be a sequence of bytes, but any operation that needs to understand the concept of a &quot;character&quot; won't work because Lua assumes all characters are one byte.</p>
+<p>Essentially, if you need to handle actions like <nobr>upper-casing</nobr> or string substitutions with accented or <nobr>non-ASCII</nobr> characters, this plugin will be especially useful.</p>
+</div>
+<div id="concepts" class="section level2">
+<h2>Concepts</h2>
+<p>The UTF-8 plugin uses some concepts which should be understood before attempting to use it.</p>
+<ul>
+<li><p><strong>character position</strong> or <code>charpos</code> — The position of a character in the <nobr>UTF-8</nobr> string relative to the start of the string. The position of any character depends on the width <nobr>(number of bytes)</nobr> of all characters preceding it.</p></li>
+<li><p><strong>offset</strong> or <code>offset</code> — The number of characters that one character is from another. This may depend on the characters which exist between the two points.</p></li>
+<li><p><strong>code point</strong> or <code>codepoint</code> — Number which represents the character at a particular <code>charpos</code>. It is the Unicode standard code for that character.</p></li>
+</ul>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">local utf8 = require( "plugin.utf8" )</pre>
+</div>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<div id="utf8.charposplugin.utf8.charpos" class="section level4">
+<h4><a href="../../plugin/utf8/charpos.html">utf8.charpos()</a></h4>
+</div>
+<div id="utf8.codepointplugin.utf8.codepoint" class="section level4">
+<h4><a href="../../plugin/utf8/codepoint.html">utf8.codepoint()</a></h4>
+</div>
+<div id="utf8.codesplugin.utf8.codes" class="section level4">
+<h4><a href="../../plugin/utf8/codes.html">utf8.codes()</a></h4>
+</div>
+<div id="utf8.escapeplugin.utf8.escape" class="section level4">
+<h4><a href="../../plugin/utf8/escape.html">utf8.escape()</a></h4>
+</div>
+<div id="utf8.foldplugin.utf8.fold" class="section level4">
+<h4><a href="../../plugin/utf8/fold.html">utf8.fold()</a></h4>
+</div>
+<div id="utf8.insertplugin.utf8.insert" class="section level4">
+<h4><a href="../../plugin/utf8/insert.html">utf8.insert()</a></h4>
+</div>
+<div id="utf8.ncasecmpplugin.utf8.ncasecmp" class="section level4">
+<h4><a href="../../plugin/utf8/ncasecmp.html">utf8.ncasecmp()</a></h4>
+</div>
+<div id="utf8.nextplugin.utf8.next" class="section level4">
+<h4><a href="../../plugin/utf8/next.html">utf8.next()</a></h4>
+</div>
+<div id="utf8.removeplugin.utf8.remove" class="section level4">
+<h4><a href="../../plugin/utf8/remove.html">utf8.remove()</a></h4>
+</div>
+<div id="utf8.titleplugin.utf8.title" class="section level4">
+<h4><a href="../../plugin/utf8/title.html">utf8.title()</a></h4>
+</div>
+<div id="utf8.widthplugin.utf8.width" class="section level4">
+<h4><a href="../../plugin/utf8/width.html">utf8.width()</a></h4>
+<p><br /></p>
+<p>In addition, the following functions mimic the respective <a href="../../api/library/string/index.html">string</a> library functions except, in the <nobr>UTF-8</nobr> plugin, they handle <nobr>multi-byte</nobr> characters:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">UTF-8 Plugin</th>
+<th align="left">Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>utf8.byte</code></td>
+<td align="left"><a href="../../api/library/string/byte.html">string.byte()</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>utf8.char</code></td>
+<td align="left"><a href="../../api/library/string/char.html">string.char()</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>utf8.find</code></td>
+<td align="left"><a href="../../api/library/string/find.html">string.find()</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>utf8.gmatch</code></td>
+<td align="left"><a href="../../api/library/string/gmatch.html">string.gmatch()</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>utf8.gsub</code></td>
+<td align="left"><a href="../../api/library/string/gsub.html">string.gsub()</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>utf8.len</code></td>
+<td align="left"><a href="../../api/library/string/len.html">string.len()</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>utf8.lower</code></td>
+<td align="left"><a href="../../api/library/string/lower.html">string.lower()</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>utf8.match</code></td>
+<td align="left"><a href="../../api/library/string/match.html">string.match()</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>utf8.reverse</code></td>
+<td align="left"><a href="../../api/library/string/reverse.html">string.reverse()</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>utf8.sub</code></td>
+<td align="left"><a href="../../api/library/string/sub.html">string.sub()</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>utf8.upper</code></td>
+<td align="left"><a href="../../api/library/string/upper.html">string.upper()</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="project-settings" class="section level2">
+<h2>Project Settings</h2>
+<p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
+{
+    plugins =
+    {
+        ["plugin.utf8"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+    },      
+}</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.utf8.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

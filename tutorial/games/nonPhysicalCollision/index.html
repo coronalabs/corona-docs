@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Tutorials | Gaming/Physics</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#non-physical-collisions">Non-Physical Collisions</a><ul>
+<li><a href="#alternate-detection-methods">Alternate Detection Methods</a></li>
+<li><a href="#overlapping-circles">Overlapping Circles</a></li>
+<li><a href="#overlapping-rectangles">Overlapping Rectangles</a></li>
+<li><a href="#checking-for-collisions">Checking for Collisions</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#section"></a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/games/index.html">Gaming/Physics</a>
+</div>
+<div id="non-physical-collisions" class="section level1">
+<h1>Non-Physical Collisions</h1>
+<p>Corona includes a robust <nobr>Box2D-powered</nobr> physics engine featuring <a href="../../../guide/physics/collisionDetection/index.html">collision detection</a> which can accomplish many things. It's even <nobr>event-driven</nobr> which means you can sense when collisions have started and ended, which two objects are involved in the collision, where they came into contact, and more. The only &quot;catch&quot; is that every colliding object must be a <nobr>physics-enabled</nobr> object under control of this physics engine which may be overkill if you're not using physics for other aspects of your game — for instance if all you need is basic knowledge of whether one simple object is occupying the same screen space as another.</p>
+<div id="alternate-detection-methods" class="section level2">
+<h2>Alternate Detection Methods</h2>
+<p>There are a few ways to detect collisions without using physics, including:</p>
+<ul>
+<li>Point inside a rectangle</li>
+<li>Separating axis theorem</li>
+<li>Overlapping circles</li>
+<li>Overlapping rectangles</li>
+</ul>
+<p>The first method can be complex if the rectangle has any rotation applied to it, and the <a href="http://gamedev.tutsplus.com/tutorials/implementation/collision-detection-with-the-separating-axis-theorem/">separating axis theorem</a> is fairly <nobr>math-intensive</nobr>, so neither of these will be covered in this tutorial. Instead, we'll discuss the <strong>overlapping circles</strong> and <strong>overlapping rectangles</strong> methods.</p>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>Before considering <nobr>non-physical</nobr> collision detection, remember that if your objects are not basic rectangles or circles, the physics engine is almost certainly a better option. Using it, you can define complex <nobr>polygon-based</nobr> shapes, chain lines, <nobr>multi-element</nobr> constructions, and more. Basically, the two <nobr>non-physical</nobr> methods in this tutorial follow the &quot;close enough&quot; methodology, so if you need precise collisions, <a href="../../../guide/physics/collisionDetection/index.html">physics-based collisions</a> are more appropriate.</p>
+</div>
+</div>
+<div id="overlapping-circles" class="section level2">
+<h2>Overlapping Circles</h2>
+<p>In some games, even objects that aren't artistically circular can often have their collision boundaries represented by a circle, for instance a circle that encloses the entire image or alternatively spans a slightly smaller area around the &quot;center&quot; of the object. During fast gameplay, the player probably won't notice exact <nobr>shape-precise</nobr> collision detection.</p>
+<div style="max-width: 400px; margin-top: 16px; margin-bottom: 16px;">
+<div class="figure">
+<img src="../../../images/docs/circle-collision.png" />
+
+</div>
+</div>
+<p>Some very simple calculations can determine if any two circles of arbitrary sizes are overlapping:</p>
+<pre class="brush: lua;">local function hasCollidedCircle( obj1, obj2 )
+
+    if ( obj1 == nil ) then  -- Make sure the first object exists
+        return false
+    end
+    if ( obj2 == nil ) then  -- Make sure the other object exists
+        return false
+    end
+
+    local dx = obj1.x - obj2.x
+    local dy = obj1.y - obj2.y
+
+    local distance = math.sqrt( dx*dx + dy*dy )
+    local objectSize = (obj2.contentWidth/2) + (obj1.contentWidth/2)
+
+    if ( distance &lt; objectSize ) then
+        return true
+    end
+    return false
+end</pre>
+<p>For this function, we simply pass in two display objects, <code>obj1</code> and <code>obj2</code>. Using the <code>contentWidth</code> property to determine their width, we check if the two circles are closer than the distance of their centers and, if so, we know that they're touching.</p>
+</div>
+<div id="overlapping-rectangles" class="section level2">
+<h2>Overlapping Rectangles</h2>
+<p>Overlapping rectangles are even easier to detect, using Corona's <nobr>built-in</nobr> object <code>contentBounds</code> properties:</p>
+<pre class="brush: lua;">local function hasCollidedRect( obj1, obj2 )
+
+    if ( obj1 == nil ) then  -- Make sure the first object exists
+        return false
+    end
+    if ( obj2 == nil ) then  -- Make sure the other object exists
+        return false
+    end
+
+    local left = obj1.contentBounds.xMin &lt;= obj2.contentBounds.xMin and obj1.contentBounds.xMax >= obj2.contentBounds.xMin
+    local right = obj1.contentBounds.xMin >= obj2.contentBounds.xMin and obj1.contentBounds.xMin &lt;= obj2.contentBounds.xMax
+    local up = obj1.contentBounds.yMin &lt;= obj2.contentBounds.yMin and obj1.contentBounds.yMax >= obj2.contentBounds.yMin
+    local down = obj1.contentBounds.yMin >= obj2.contentBounds.yMin and obj1.contentBounds.yMin &lt;= obj2.contentBounds.yMax
+
+    return ( left or right ) and ( up or down )
+end</pre>
+<p>This function works great for square or rectangular objects like tiles and cards. It uses a set of <code>if</code> statement checks to see if any corner of one rectangle is inside the bounds of the other rectangle.</p>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>For images that have some transparency around them, note that this <strong>will</strong> include the transparent areas since the function uses the content bounds of those images. If necessary, you can adjust the math in the comparisons, for instance add or subtract a pixel value to/from the various &quot;min&quot; and &quot;max&quot; properties to account for the width of the transparency.</p>
+</div>
+</div>
+<div id="checking-for-collisions" class="section level2">
+<h2>Checking for Collisions</h2>
+<p>Now that you have a couple different ways to determine if two items have collided, how can you use them? Unlike <nobr>physics-based</nobr> collisions, there are not collision listener events where the system tells you exactly when objects collide. Instead, you must check periodically (or frequently) in your own code.</p>
+<p>Perhaps the most obvious method is to use an <code>&quot;enterFrame&quot;</code> Runtime listener as follows:</p>
+<ul>
+<li><p>As a <nobr>constantly-running</nobr> &quot;game loop&quot; where you check for collisions on every time step.</p></li>
+<li><p>As a listener method which you toggle on and off as needed, for example only when the player is <nobr>touch-dragging</nobr> an object around the screen, or when the player stops dragging (releases) an object and you need to confirm that it's not overlapping another object.</p></li>
+</ul>
+<p>Consider this example function which assumes that you have a <code>myPlayer</code> object and multiple coin objects stored in a table named <code>coinCache</code>. Assuming the player can also use <nobr>circle-based</nobr> detection, this function loops through the <code>coinCache</code> table on each frame and checks if the player has come into contact with any coins:</p>
+<pre class="brush: lua;">local function gameLoop( event )
+
+    for i = 1,#coinCache do
+        -- Check for collision between player and this coin instance
+        if ( coinCache[i] and hasCollidedCircle( myPlayer, coinCache[i] ) ) then
+            -- Remove the coin from the screen
+            display.remove( coinCache[i] )
+            -- Remove reference from table
+            coinCache[i] = nil
+            -- Handle other collision aspects like increasing score, etc.
+        end
+    end
+    return true
+end
+Runtime:addEventListener( "enterFrame", gameLoop )</pre>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>That concludes our tutorial on <nobr>non-physical</nobr> collision detection. As you can see, this is a convenient method when you're building an app which requires basic collision detection and the physics engine — as powerful as it can be — is beyond the required needs of your tasks.</p>
+<!--- LEGAL -->
+</div>
+<div id="section" class="section level2">
+<h2></h2>
+<div class="tiny-copy">
+<p>Character art in this tutorial is courtesy of <a href="http://kenney.nl/">Kenney</a>. Kenney game studio supports other developers by creating free game assets and high quality learning material.</p>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=tutorial.games.nonPhysicalCollision.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

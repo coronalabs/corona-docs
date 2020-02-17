@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | calendar | addEvent</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#calendar.addevent">calendar.addEvent()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#params-required">params <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+<li><a href="#parameters-table-reference">Parameters table reference</a><ul>
+<li><a href="#listener-optional">listener <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#calendarid-optional">calendarId <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#title-optional">title <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#startdate-optional">startDate <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#enddate-optional">endDate <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#location-optional">location <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#allday-optional">allDay <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#repeatfrequency-optional">repeatFrequency <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#repeatenddate-optional">repeatEndDate <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#alarms-optional">alarms <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/calendar/index.html">calendar</a>  ▸  <a href="../../plugin/calendar/addEvent.html">addEvent</a>
+</div>
+<div id="calendar.addevent" class="section level1">
+<h1>calendar.addEvent()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Return value</strong></td>
+<td align="left">none</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">calendar, event, add, addEvent</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../plugin/calendar/index.html">calendar.*</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p><code>calendar.addEvent()</code> adds event with specified properties.</p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">calendar.addEvent( params )</pre>
+<div id="params-required" class="section level5">
+<h5>params <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> Table containing call parameters - see next section for details.</p>
+</div>
+</div>
+<div id="parameters-table-reference" class="section level2">
+<h2>Parameters table reference</h2>
+<div id="listener-optional" class="section level5">
+<h5>listener <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Listener.html">Listener</a>.</em> Listener that will receive <a href="../../plugin/calendar/event/calendarEvent/index.html">event</a> event.</p>
+</div>
+<div id="calendarid-optional" class="section level5">
+<h5>calendarId <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> Calendar identifier where calendar event should be added. Default calendar would be used if not specified.</p>
+</div>
+<div id="title-optional" class="section level5">
+<h5>title <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> Title for new calendar event.</p>
+</div>
+<div id="startdate-optional" class="section level5">
+<h5>startDate <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Number.html">Number</a>.</em> Start date for new calendar event in Unix time format.</p>
+</div>
+<div id="enddate-optional" class="section level5">
+<h5>endDate <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Number.html">Number</a>.</em> End date for new calendar event in Unix time format.</p>
+</div>
+<div id="location-optional" class="section level5">
+<h5>location <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> Location for new calendar event.</p>
+</div>
+<div id="allday-optional" class="section level5">
+<h5>allDay <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> Boolean value, where <code>true</code> means that new calendar event should last all day and <code>false</code> otherwise.</p>
+</div>
+<div id="repeatfrequency-optional" class="section level5">
+<h5>repeatFrequency <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> Recurrency frequency for new calendar event. Valid values are: <code>day</code>, <code>week</code>, <code>month</code> and <code>year</code>. This field must be combined with <code>repeatEndDate</code>.</p>
+</div>
+<div id="repeatenddate-optional" class="section level5">
+<h5>repeatEndDate <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Number.html">Number</a>.</em> Recurrency end date for new calendar event in Unix time format. This field must be combined with <code>repeatFrequency</code>.</p>
+</div>
+<div id="alarms-optional" class="section level5">
+<h5>alarms <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> Lua array, each entry containing number of minutes before event to trigger an alarm.</p>
+</div>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="brush: lua;">local calendar = require( "plugin.calendar" )
+
+local unixTimeNow = os.time( os.date( '*t' ) )
+
+local function addEventListener( event )
+    -- Handle events here
+end
+
+-- Add event with specified properties
+calendar.addEvent(
+{
+    listener = addEventListener,
+
+    title = "Test Event",
+    startDate = unixTimeNow + 86400,
+    endDate = unixTimeNow + 86400 + 3600,
+    alarm = 30,
+    repeatFrequency = "day",
+    repeatEndDate = unixTimeNow + 604800
+}
+)</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.calendar.addEvent&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

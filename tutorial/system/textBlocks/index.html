@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Tutorials | UI/Scenes</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#managing-large-blocks-of-text">Managing Large Blocks of Text</a><ul>
+<li><a href="#about-end-of-line-encodings">About End-of-Line Encodings</a></li>
+<li><a href="#implementing-multi-line-text">Implementing Multi-Line Text</a><ul>
+<li><a href="#line-break-wrapping">Line Break Wrapping</a></li>
+<li><a href="#width-wrapping">Width Wrapping</a></li>
+</ul></li>
+<li><a href="#separating-long-text">Separating Long Text</a><ul>
+<li><a href="#initial-setup">Initial Setup</a></li>
+<li><a href="#repeat-loop">Repeat Loop</a></li>
+<li><a href="#finishing-up">Finishing Up</a></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/system/index.html">UI/Scenes</a>
+</div>
+<div id="managing-large-blocks-of-text" class="section level1">
+<h1>Managing Large Blocks of Text</h1>
+<p>Some people attempt to create unusually large blocks of text in Corona only to find that it doesn't work. The reason for this lies at Corona's graphics core which is based on OpenGL. This means that almost everything on screen is a graphic… even text.</p>
+<p>More specifically, in &quot;native&quot; apps, text is just an object on the screen, but in OpenGL, everything must be rendered as an image <strong>texture</strong>. Thus, to make text appear on screen, Corona takes the string value which you pass to <a href="../../../api/library/display/newText.html">display.newText()</a> and it tells the operating system's font engine to generate an image using the font metrics that you provide. Then, a Corona display object (texture) is returned and rendered on screen.</p>
+<p>Why can this be a problem with very large blocks of text? Well basically, if you render an extremely long paragraph (or paragraphs) of text, you may exceed the device's <strong>maximum texture size</strong> limit. In OpenGL, this maximum texture size is defined as the greatest pixel limit — <nobr>horizontal or vertical —</nobr> that a rendered image can fit in. This includes large blocks of text, as noted above, since they are rendered into image textures by Corona. For some older or <nobr>lower-priced</nobr> devices, this limit is as small as 1024 pixels in either direction, meaning that if your text block exceeds that amount, OpenGL will be unable to render it properly, meaning it will typically render a solid white box on screen!</p>
+<p>Fortunately, most modern devices support texture sizes of <strong>at least</strong> 2048 pixels and, for your convenience, Corona provides this information via the following <a href="../../../api/library/system/getInfo.html">system.getInfo()</a> call:</p>
+<pre class="brush: lua;">system.getInfo( "maxTextureSize" )</pre>
+<p>Even considering a reasonable texture size limit of 2048 pixels, it's not uncommon to exceed that amount when creating large blocks of text via a <nobr>multi-line</nobr> <a href="../../../api/library/display/newText.html">display.newText()</a> call. As mentioned above, this may result in a solid white block where you expect the text to be. So how do you work around this issue? Simple — avoid creating extremely large blocks of text and, instead, create an aligned series of <strong>smaller</strong> blocks (textures) and place them on the screen.</p>
+<div id="about-end-of-line-encodings" class="section level2">
+<h2>About End-of-Line Encodings</h2>
+<p>Back in early computer history, there were two competing standards for defining the character sets used by computers: <strong>ASCII</strong> and <strong>EBCDIC</strong>. ASCII eventually ended up winning over EBCDIC and now almost everything, including macOS, Windows, Android, and iOS, are <nobr>ASCII-based</nobr>.</p>
+<p>ASCII includes the 26 capital letters, 26 lowercase letters, numbers, and various symbol characters in a single byte of data. In addition to the visible characters that you know, ASCII includes a series of <strong>control characters</strong>. In fact, the first 31 characters are control characters! These control characters can be used to control text positioning on the screen and their heritage goes back to old manual typewriters. Some of these include:</p>
+<ul>
+<li><strong>CTRL-G</strong> — bell (character #7)</li>
+<li><strong>CTRL-H</strong> — backspace (character #8)</li>
+<li><strong>CTRL-I</strong> — tab (character #9)</li>
+<li><strong>CTRL-J</strong> — line feed (character #10)</li>
+<li><strong>CTRL-M</strong> — carriage return (character #13)</li>
+</ul>
+<p>For those of us old enough to remember manual typewriters, a <strong>carriage return</strong> would return the typing head to the left side of the page. By itself, this would not advance the paper to the next line, so if you started typing after a carriage return, you'd overwrite the previous line. Thus, a second action called a <strong>line feed</strong> was needed to advance the paper a line.</p>
+<p>Computers tried to mimic this system, however different operating systems approached it slightly differently. Microsoft DOS <nobr>(and now Windows)</nobr> opted for a <nobr>2-character</nobr> <nobr><strong>end of line</strong></nobr> sequence, mimicking the typewriter. That is, each line ended with a <nobr><strong>CTRL-M</strong></nobr>, <nobr><strong>CTRL-J</strong></nobr> sequence. Unix, however, being the &quot;minimalist&quot; OS, used just a line feed (<nobr><strong>CTRL-J</strong></nobr>) to indicate the end of line.</p>
+<p>Today, Android, macOS, and iOS are all based on Unix, so the more universal standard is to use a single <nobr><strong>CTRL-J</strong></nobr> line feed to mark the end of line. Windows, however, still uses the <nobr><strong>CTRL-M</strong> + <strong>CTRL-J</strong></nobr> combination. To add to the confusion, there are different ways that people reference these strings. For instance:</p>
+<ul>
+<li><strong>CTRL-J</strong> = <code>^J</code> = <code>\n</code></li>
+<li><strong>CTRL-M</strong> = <code>^M</code> = <code>\r</code></li>
+</ul>
+<p>To clarify, when you see the <strong>caret</strong> (<code>^</code>) it means <nobr><strong>Control</strong> (<strong>CTRL</strong>)</nobr>. When you see a <strong>backslash</strong> (<code>\</code>) it indicates an <strong>escape</strong> character, so in this case, <nobr><code>\r</code> is <strong>return</strong></nobr> and <nobr><code>\n</code> is <strong>newline</strong></nobr>.</p>
+</div>
+<div id="implementing-multi-line-text" class="section level2">
+<h2>Implementing Multi-Line Text</h2>
+<p>In Corona, there are <strong>two</strong> ways to render <nobr>multi-line</nobr> text objects. Which method you use depends mostly on your app design and it's important to understand the benefits and drawbacks of each.</p>
+<div id="line-break-wrapping" class="section level3">
+<h3>Line Break Wrapping</h3>
+<p>One way of wrapping text to the next line is to simply define <strong>line breaks</strong> within the string that you pass to the <a href="../../../api/library/display/newText.html">display.newText()</a> call. Because the operating systems for our mobile devices are <nobr>Unix-based</nobr>, the <strong>escape</strong> versions like <code>\n</code> are more commonly used. In fact, you may have seen examples of <nobr>multi-line</nobr> strings in Corona code such as this:</p>
+<pre class="brush: lua;">local myString = "First line of text.\nSecond line of text.\nThird line of text."</pre>
+<p>Specifying multiple lines in this manner will be treated as separate visual lines of text in Corona.</p>
+<p>Alternatively, you can use Lua's <nobr>multi-line</nobr> text quotes to achieve the same thing:</p>
+<pre class="brush: lua;">local myString = [[First line of text.
+Second line of text.
+Third line of text.]]</pre>
+<p>Note that in this case, you do <strong>not</strong> need to specify the <strong>newline</strong> (<code>\n</code>) markers like in the first version.</p>
+<div class="float-right" style="max-width: 300px; margin-top: 12px; margin-bottom: 16px; clear: both;">
+<div class="figure">
+<img src="../../../images/docs/text-blocks-1.png" />
+
+</div>
+</div>
+<p>Now, if you pass this <code>myString</code> variable to <a href="../../../api/library/display/newText.html">display.newText()</a>, you will get a predictable text output like the one shown here. At every point you specified <code>\n</code> (or started a new line of code in <nobr>the <code>[[ ]]</code> format)</nobr>, the text will wrap to the next line. In this manner, you will always get line breaks in the exact place you specify them — for instance, to apply a <strong>double</strong> line break between two paragraphs, you could specify <code>\n\n</code> at the end of the first paragraph.</p>
+</div>
+<div id="width-wrapping" class="section level3">
+<h3>Width Wrapping</h3>
+<p>All modern design/layout applications which support text allow you to create a <strong>text box</strong> where the content — regardless of what <nobr>it is —</nobr> <nobr>line-breaks</nobr> when one line reaches the boundaries of the box. This is extremely useful when you want to display variable text content in a <nobr>fixed-width</nobr> space, allowing the text output to naturally wrap to new lines.</p>
+<p>Conveniently, Corona supports this concept via the <code>width</code> parameter of <a href="../../../api/library/display/newText.html">display.newText()</a>. By specifying a pixel width, you can instruct the text to line break at that point, for instance:</p>
+<pre class="brush: lua;">local myString = "The quick brown fox jumped over the lazy dog."
+
+local myText = display.newText( myString, 30, 30, 200, 0, native.systemFont, 24 )</pre>
+<div class="float-right" style="max-width: 300px; margin-top: 0px; margin-bottom: 16px; clear: both;">
+<div class="figure">
+<img src="../../../images/docs/text-blocks-2.png" />
+
+</div>
+</div>
+<p>Here, the value of <code>200</code> in the <code>display.newText()</code> command instructs Corona to create a text box that's 200 pixels wide, resulting in an output like the one shown here. The parameter of <code>0</code> immediately following indicates that the text box will be of <strong>flexible height</strong>, meaning that the rendered text object's height will automatically adapt to whatever text string is provided. While you could potentially set a static height for the box, it's generally not recommended because it may result in text content being visually clipped at the box's lower boundary point.</p>
+</div>
+</div>
+<div id="separating-long-text" class="section level2">
+<h2>Separating Long Text</h2>
+<p>If you're creating an app like an <nobr>e-book</nobr> or providing some detailed instructions for the user's benefit, it usually doesn't take much text to create a rendered text image that exceeds 2048 pixels. This can easily occur whether you're using defined line breaks <strong>or</strong> automatic width wrapping.</p>
+<p>Fortunately, you can loop over a large string of text and, as mentioned above, break it into smaller blocks which can be rendered properly by OpenGL, ensuring that none of them exceed the maximum texture size limit. When doing so, one option is to split apart long blocks using the natural language concept of <strong>paragraphs</strong>. Let's explore this further…</p>
+<div id="initial-setup" class="section level3">
+<h3>Initial Setup</h3>
+<p>For this tutorial, we'll use some text generated by <a href="http://www.lipsum.com/">www.lipsum.com</a>:</p>
+<pre class="brush: lua; gutter: true; first-line: 1;">local myText = [[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper mollis erat a interdum. Praesent tristique diam in nulla varius, nec aliquet mauris posuere. Suspendisse pretium risus lacus, commodo lacinia sapien dictum et. Sed non varius felis. Curabitur elementum tortor non libero pulvinar, at convallis lectus varius. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur sit amet nunc congue, molestie erat vel, facilisis turpis. Morbi vitae diam ligula. Suspendisse purus turpis, commodo in aliquam id, lobortis a sapien. Sed at libero porta, aliquam odio nec, porta dui. In a congue velit. Aliquam ac quam feugiat, ultricies metus nec, porta neque. Phasellus posuere mollis magna, ac vestibulum ligula congue id. Pellentesque imperdiet aliquam lacus, ac pellentesque dui eleifend nec. Suspendisse auctor vehicula facilisis. Pellentesque id massa tincidunt neque luctus varius.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas sit amet dapibus nulla. Suspendisse ut risus nulla. Maecenas varius elit non faucibus fermentum. Fusce rhoncus, nisl et varius tristique, enim felis egestas purus, et feugiat lorem urna a augue. Maecenas non pulvinar tortor. Aenean condimentum nibh id eros fringilla viverra. Fusce condimentum urna ut volutpat porttitor. Nunc tincidunt congue ligula.
+
+Duis placerat felis varius, convallis massa sed, volutpat magna. Sed vitae viverra neque. Integer ac sollicitudin libero, at ornare purus. Aliquam egestas hendrerit tellus. Aliquam eu elit vitae lorem lacinia tempus. Proin vel dictum mi. Maecenas porttitor, justo a dictum volutpat, nisl libero dictum ligula, vitae posuere urna elit a quam. Nam arcu metus, semper suscipit pellentesque ac, tempor ut arcu. Vestibulum eu nibh erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed semper sollicitudin lorem, vel commodo libero commodo eget. Proin lacinia euismod elit vitae porttitor. Proin ipsum neque, dictum at dictum eu, egestas malesuada turpis. Nulla eros lectus, adipiscing eget velit sed, malesuada aliquam ipsum. Curabitur et egestas massa. Vestibulum luctus est est, tincidunt viverra nisi vulputate id.
+
+Integer lobortis tellus eu ligula viverra egestas. Quisque commodo, massa vel pretium imperdiet, nisl enim euismod justo, sed ultricies lacus mi ut nisi. Maecenas molestie vitae magna non interdum. In gravida ornare orci in vulputate. Praesent suscipit lobortis dui ut interdum. Proin pulvinar metus ligula, a malesuada nunc interdum at. Aenean et scelerisque enim. Integer eget congue sapien. Etiam suscipit mauris neque, id semper quam volutpat vel. Proin venenatis dictum felis quis ultricies. Suspendisse feugiat mi congue ante gravida, id accumsan leo mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hac habitasse platea dictumst. Nulla facilisi.
+
+Nam arcu mauris, convallis sit amet dictum consequat, imperdiet at mi. Vestibulum velit erat, accumsan sit amet vehicula vitae, tempor id nisi. Quisque eu tellus vulputate nisi vestibulum tincidunt at vitae tellus. Quisque sed pretium nisl. Vivamus a aliquet purus. Integer pulvinar neque in dapibus pharetra. Quisque convallis urna vulputate ligula mattis dictum. Vivamus pharetra molestie nunc, ac rhoncus dolor euismod at. Cras fringilla sollicitudin sapien vel sagittis. Donec dignissim scelerisque mi nec pulvinar. Mauris at metus gravida, lacinia dolor quis, vehicula lacus. Donec a pellentesque tellus. Praesent sit amet lorem nisl. Pellentesque interdum felis quis vehicula vestibulum. Donec ut dolor tortor.
+]]</pre>
+<p>Now let's add some code to accomodate this large amount of text:</p>
+<pre class="brush: lua; gutter: true; first-line: 12;">local widget = require( "widget" )
+
+local scrollView = widget.newScrollView(
+{
+    top = 0,
+    left = 0,
+    width = display.contentWidth,
+    height = display.contentHeight,
+    horizontalScrollDisabled = true
+})
+
+local paragraphs = {}
+local paragraph
+local tmpString = myText
+
+local yStart = 10
+local mainPadding = 20</pre>
+<p>Let's inspect this code in detail:</p>
+<ol style="list-style-type: decimal">
+<li><p>Because these five long paragraphs of text clearly won't fit on the screen, they will be inserted into a <a href="../../../api/library/widget/newScrollView.html">widget.newScrollView()</a>. Thus, we must first <code>require()</code> the widget library (line 12) and create a new scroll view that occupies the full content area <nobr>(lines 14-21)</nobr>. Our text will output from top to bottom, so we restrict scrolling to vertical only by setting the <code>horizontalScrollDisabled</code> parameter to <code>true</code>.</p></li>
+<li><p>Following this, the <code>paragraphs</code> table will hold the different <code>display.newText()</code> objects for each paragraph (the separated blocks). The <code>paragraph</code> and <code>tmpString</code> variables will hold, respectively, the current paragraph text and a copy of the string with the current paragraph removed.</p></li>
+<li><p>The variable <code>yStart</code> will be used to position each paragraph, one after the next, with a value of <code>10</code> (pixels) to provide a little space before each new paragraph. You can, of course, adjust this value to suit your visual presentation. As for <code>mainPadding</code>, we'll use that to add some horizontal padding around each of the rendered text blocks.</p></li>
+</ol>
+</div>
+<div id="repeat-loop" class="section level3">
+<h3>Repeat Loop</h3>
+<p>To perform the main work, we'll use a <nobr><code>repeat</code>-<code>until</code></nobr> loop. Since we want to perform this process at least once — and likely for multiple paragraphs — a <code>repeat</code> loop makes more sense than a <code>while</code> loop. Essentially, this loop will run until either <code>tmpString</code> is <code>nil</code> or the length of <code>tmpString</code> is <code>0</code>.</p>
+<pre class="brush: lua; gutter: true; first-line: 30;">repeat
+    paragraph, tmpString = string.match( tmpString, "([^\n]*)\n(.*)" )
+    paragraphs[#paragraphs+1] = display.newText( { text=paragraph, width=scrollView.width-(mainPadding*2), fontSize=14 } )
+    paragraphs[#paragraphs].anchorX = 0
+    paragraphs[#paragraphs].anchorY = 0
+    paragraphs[#paragraphs].x = mainPadding
+    paragraphs[#paragraphs].y = yStart
+    paragraphs[#paragraphs]:setFillColor( 0 )
+    scrollView:insert( paragraphs[#paragraphs] )
+    yStart = yStart + paragraphs[#paragraphs].height
+until tmpString == nil or string.len( tmpString ) == 0</pre>
+<p>Let's explore what happens <strong>inside</strong> this loop:</p>
+<ol style="list-style-type: decimal">
+<li><p>First, we use <a href="../../../api/library/string/match.html">string.match()</a> to search the string for <strong>newline</strong> characters (<code>\n</code>). This <nobr>cryptic-looking</nobr> search string basically tells Lua to capture the string in two parts: any number of characters that are <strong>not</strong> a <strong>newline</strong> (<code>[^\n*]</code>) up until the first <strong>newline</strong> encountered (<code>\n</code>). This is stored in <code>paragraph</code> and then the rest of the string is stored in <code>tmpString</code>.</p></li>
+<li><p>With the variable <code>paragraph</code> now holding a single paragraph of text, we create the display object using <code>display.newText()</code>, passing the value of <code>paragraph</code> as the <code>text</code> parameter. By using <code>#paragraphs+1</code> as the loop index, it will create a new table entry at the end of the <code>paragraphs</code> table. On the lines following, we can then reference the new entry by using <code>#paragraphs</code> as the index.</p></li>
+</ol>
+<div class="code-indent">
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>Observe that the <code>width</code> parameter of the text object is set to <nobr><code>scrollView.width-(mainPadding*2</code> —</nobr> this facilitates the necessary automatic line wrapping <strong>and</strong> it provides a bit of horizontal padding for the block.</p>
+</div>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Next, on <nobr>lines 33-36</nobr>, we position the text. To keep things simple, we change the anchor point for each text block to the <nobr>top-left</nobr> corner of the display object, set the <strong>x</strong> coordinate as <code>mainPadding</code> to provide some left padding, and set the <strong>y</strong> coordinate to <code>yStart</code>. Following this, on <nobr>lines 37-38</nobr>, we change the text color to black and, finally, insert the paragraph into the scroll view.</p></li>
+<li><p>On the final line inside the loop, we increment <code>yStart</code> by the height of the previous paragraph created. This will let you position the next block of text immediately below the previous one, providing the illusion that it's one long block of text with a slight space between each paragraph.</p></li>
+</ol>
+</div>
+<div id="finishing-up" class="section level3">
+<h3>Finishing Up</h3>
+<p>Finally, let's increase the total scrollable height of the scroll view to provide a bit of vertical padding below the last paragraph:</p>
+<pre class="brush: lua; gutter: true; first-line: 42;">scrollView:setScrollHeight( scrollView:getView().height + (mainPadding*2) )</pre>
+<p>That's it! With this complete code, you can build scroll views with a nearly unlimited number of paragraphs, visually separated by an adjustable amount of pixels, featuring automatic line wrapping that adjusts to various fonts and font sizes.</p>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>Hopefully this tutorial has shown you how to construct long text blocks in Corona with just a little extra effort to circumvent the limits of texture size.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=tutorial.system.textBlocks.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

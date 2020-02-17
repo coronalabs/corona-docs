@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries | widget</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#widget.">widget.*</a><ul>
+<li><a href="#functions">Functions</a><ul>
+<li><a href="#widget.newbuttonapi.library.widget.newbutton"><a href="../../../api/library/widget/newButton.html">widget.newButton()</a></a></li>
+<li><a href="#widget.newpickerwheelapi.library.widget.newpickerwheel"><a href="../../../api/library/widget/newPickerWheel.html">widget.newPickerWheel()</a></a></li>
+<li><a href="#widget.newprogressviewapi.library.widget.newprogressview"><a href="../../../api/library/widget/newProgressView.html">widget.newProgressView()</a></a></li>
+<li><a href="#widget.newscrollviewapi.library.widget.newscrollview"><a href="../../../api/library/widget/newScrollView.html">widget.newScrollView()</a></a></li>
+<li><a href="#widget.newsegmentedcontrolapi.library.widget.newsegmentedcontrol"><a href="../../../api/library/widget/newSegmentedControl.html">widget.newSegmentedControl()</a></a></li>
+<li><a href="#widget.newsliderapi.library.widget.newslider"><a href="../../../api/library/widget/newSlider.html">widget.newSlider()</a></a></li>
+<li><a href="#widget.newspinnerapi.library.widget.newspinner"><a href="../../../api/library/widget/newSpinner.html">widget.newSpinner()</a></a></li>
+<li><a href="#widget.newstepperapi.library.widget.newstepper"><a href="../../../api/library/widget/newStepper.html">widget.newStepper()</a></a></li>
+<li><a href="#widget.newswitchapi.library.widget.newswitch"><a href="../../../api/library/widget/newSwitch.html">widget.newSwitch()</a></a></li>
+<li><a href="#widget.newtabbarapi.library.widget.newtabbar"><a href="../../../api/library/widget/newTabBar.html">widget.newTabBar()</a></a></li>
+<li><a href="#widget.newtableviewapi.library.widget.newtableview"><a href="../../../api/library/widget/newTableView.html">widget.newTableView()</a></a></li>
+<li><a href="#widget.setthemeapi.library.widget.settheme"><a href="../../../api/library/widget/setTheme.html">widget.setTheme()</a></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/widget/index.html">widget</a>
+</div>
+<div id="widget." class="section level1">
+<h1>widget.*</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Library.html">Library</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">widget</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<div id="widget.newbuttonapi.library.widget.newbutton" class="section level4">
+<h4><a href="../../../api/library/widget/newButton.html">widget.newButton()</a></h4>
+</div>
+<div id="widget.newpickerwheelapi.library.widget.newpickerwheel" class="section level4">
+<h4><a href="../../../api/library/widget/newPickerWheel.html">widget.newPickerWheel()</a></h4>
+</div>
+<div id="widget.newprogressviewapi.library.widget.newprogressview" class="section level4">
+<h4><a href="../../../api/library/widget/newProgressView.html">widget.newProgressView()</a></h4>
+</div>
+<div id="widget.newscrollviewapi.library.widget.newscrollview" class="section level4">
+<h4><a href="../../../api/library/widget/newScrollView.html">widget.newScrollView()</a></h4>
+</div>
+<div id="widget.newsegmentedcontrolapi.library.widget.newsegmentedcontrol" class="section level4">
+<h4><a href="../../../api/library/widget/newSegmentedControl.html">widget.newSegmentedControl()</a></h4>
+</div>
+<div id="widget.newsliderapi.library.widget.newslider" class="section level4">
+<h4><a href="../../../api/library/widget/newSlider.html">widget.newSlider()</a></h4>
+</div>
+<div id="widget.newspinnerapi.library.widget.newspinner" class="section level4">
+<h4><a href="../../../api/library/widget/newSpinner.html">widget.newSpinner()</a></h4>
+</div>
+<div id="widget.newstepperapi.library.widget.newstepper" class="section level4">
+<h4><a href="../../../api/library/widget/newStepper.html">widget.newStepper()</a></h4>
+</div>
+<div id="widget.newswitchapi.library.widget.newswitch" class="section level4">
+<h4><a href="../../../api/library/widget/newSwitch.html">widget.newSwitch()</a></h4>
+</div>
+<div id="widget.newtabbarapi.library.widget.newtabbar" class="section level4">
+<h4><a href="../../../api/library/widget/newTabBar.html">widget.newTabBar()</a></h4>
+</div>
+<div id="widget.newtableviewapi.library.widget.newtableview" class="section level4">
+<h4><a href="../../../api/library/widget/newTableView.html">widget.newTableView()</a></h4>
+</div>
+<div id="widget.setthemeapi.library.widget.settheme" class="section level4">
+<h4><a href="../../../api/library/widget/setTheme.html">widget.setTheme()</a></h4>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.widget.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | Appodeal</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#appodeal.">appodeal.*</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#registration">Registration</a></li>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#functions">Functions</a><ul>
+<li><a href="#appodeal.initplugin.appodeal.init"><a href="../../plugin/appodeal/init.html">appodeal.init()</a></a></li>
+<li><a href="#appodeal.showplugin.appodeal.show"><a href="../../plugin/appodeal/show.html">appodeal.show()</a></a></li>
+<li><a href="#appodeal.hideplugin.appodeal.hide"><a href="../../plugin/appodeal/hide.html">appodeal.hide()</a></a></li>
+<li><a href="#appodeal.loadplugin.appodeal.load"><a href="../../plugin/appodeal/load.html">appodeal.load()</a></a></li>
+<li><a href="#appodeal.isloadedplugin.appodeal.isloaded"><a href="../../plugin/appodeal/isLoaded.html">appodeal.isLoaded()</a></a></li>
+<li><a href="#appodeal.setuserdetailsplugin.appodeal.setuserdetails"><a href="../../plugin/appodeal/setUserDetails.html">appodeal.setUserDetails()</a></a></li>
+<li><a href="#appodeal.getrewardparametersplugin.appodeal.getrewardparameters"><a href="../../plugin/appodeal/getRewardParameters.html">appodeal.getRewardParameters()</a></a></li>
+<li><a href="#appodeal.getversionplugin.appodeal.getversion"><a href="../../plugin/appodeal/getVersion.html">appodeal.getVersion()</a></a></li>
+<li><a href="#appodeal.setsegmentfilterplugin.appodeal.setsegmentfilter"><a href="../../plugin/appodeal/setSegmentFilter.html">appodeal.setSegmentFilter()</a></a></li>
+<li><a href="#appodeal.canshowplugin.appodeal.canshow"><a href="../../plugin/appodeal/canShow.html">appodeal.canShow()</a></a></li>
+<li><a href="#appodeal.trackinapppurchaseplugin.appodeal.trackinapppurchase"><a href="../../plugin/appodeal/trackInAppPurchase.html">appodeal.trackInAppPurchase()</a></a></li>
+<li><a href="#appodeal.set728x90bannersplugin.appodeal.set728x90banners"><a href="../../plugin/appodeal/set728x90Banners.html">appodeal.set728x90Banners()</a></a></li>
+</ul></li>
+<li><a href="#events">Events</a><ul>
+<li><a href="#adsrequestplugin.appodeal.event.adsrequest"><a href="../../plugin/appodeal/event/adsRequest/index.html">adsRequest</a></a></li>
+</ul></li>
+<li><a href="#project-settings">Project Settings</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/appodeal/index.html">Appodeal</a>
+</div>
+<div id="appodeal." class="section level1">
+<h1>appodeal.*</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../api/type/Library.html">Library</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">ads, advertising, Appodeal</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Platforms</strong></td>
+<td align="left">Android, iOS</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Sample</strong></td>
+<td align="left"><a href="https://github.com/coronalabs/plugins-sample-appodeal" class="uri">https://github.com/coronalabs/plugins-sample-appodeal</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>The Appodeal plugin allows developers to monetize their mobile app with Appodeal banner, static interstitial, video interstitial, and rewarded video ads.</p>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>Be warned that plugin builds for Amazon store are restricted at the moment. We are working on the appropriate SDK/plugin update and the ability to publish your apps, which includes Corona Appodeal modular plugin, to Amazon store should become available as soon as possible.</p>
+</div>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>Appodeal contains various SDKs for the ad providers it mediates. This means that you can <strong>not</strong> use Appodeal in conjunction with <a href="../../plugin/adcolony/index.html">AdColony</a>, <a href="../../plugin/applovin/index.html">AppLovin</a>, <a href="../../plugin/admob/index.html">AdMob</a>, <a href="../../plugin/chartboost/index.html">Chartboost</a>, <a href="../../plugin/fbAudienceNetwork/index.html">Facebook Audience Network</a>, <a href="../../plugin/flurry-analytics/index.html">Flurry Analytics</a>, <a href="../../plugin/inmobi/index.html">InMobi</a>, <a href="../../plugin/unityads/index.html">Unity Ads</a>, or <a href="../../plugin/vungle/index.html">Vungle</a>.</p>
+</div>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>Beta version of Corona Appodeal plugin is now available! Check latest note in Project Settings section to learn more.</p>
+<h4 id="version-info">Version info</h4>
+<p>Current plugin versions are:</p>
+<ul>
+<li>Stable plugin: <code>2.5.10</code> for Android and <code>2.5.13</code> for iOS</li>
+<li>Beta plugin: <code>2.6.1</code> for Android and 2.6.2 for iOS (if using daily build <code>2020.3569</code> or later)</li>
+</ul>
+</div>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>Check out new <code>hasUserConsent</code> init parameter to enable GDPR data collection restrictions.</p>
+</div>
+</div>
+<div id="registration" class="section level2">
+<h2>Registration</h2>
+<p>Before you can use this plugin, you must <a href="https://www.appodeal.com/signup">register</a> with Appodeal.</p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">local appodeal = require( "plugin.appodeal" )</pre>
+</div>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<div id="appodeal.initplugin.appodeal.init" class="section level4">
+<h4><a href="../../plugin/appodeal/init.html">appodeal.init()</a></h4>
+</div>
+<div id="appodeal.showplugin.appodeal.show" class="section level4">
+<h4><a href="../../plugin/appodeal/show.html">appodeal.show()</a></h4>
+</div>
+<div id="appodeal.hideplugin.appodeal.hide" class="section level4">
+<h4><a href="../../plugin/appodeal/hide.html">appodeal.hide()</a></h4>
+</div>
+<div id="appodeal.loadplugin.appodeal.load" class="section level4">
+<h4><a href="../../plugin/appodeal/load.html">appodeal.load()</a></h4>
+</div>
+<div id="appodeal.isloadedplugin.appodeal.isloaded" class="section level4">
+<h4><a href="../../plugin/appodeal/isLoaded.html">appodeal.isLoaded()</a></h4>
+</div>
+<div id="appodeal.setuserdetailsplugin.appodeal.setuserdetails" class="section level4">
+<h4><a href="../../plugin/appodeal/setUserDetails.html">appodeal.setUserDetails()</a></h4>
+</div>
+<div id="appodeal.getrewardparametersplugin.appodeal.getrewardparameters" class="section level4">
+<h4><a href="../../plugin/appodeal/getRewardParameters.html">appodeal.getRewardParameters()</a></h4>
+</div>
+<div id="appodeal.getversionplugin.appodeal.getversion" class="section level4">
+<h4><a href="../../plugin/appodeal/getVersion.html">appodeal.getVersion()</a></h4>
+</div>
+<div id="appodeal.setsegmentfilterplugin.appodeal.setsegmentfilter" class="section level4">
+<h4><a href="../../plugin/appodeal/setSegmentFilter.html">appodeal.setSegmentFilter()</a></h4>
+</div>
+<div id="appodeal.canshowplugin.appodeal.canshow" class="section level4">
+<h4><a href="../../plugin/appodeal/canShow.html">appodeal.canShow()</a></h4>
+</div>
+<div id="appodeal.trackinapppurchaseplugin.appodeal.trackinapppurchase" class="section level4">
+<h4><a href="../../plugin/appodeal/trackInAppPurchase.html">appodeal.trackInAppPurchase()</a></h4>
+</div>
+<div id="appodeal.set728x90bannersplugin.appodeal.set728x90banners" class="section level4">
+<h4><a href="../../plugin/appodeal/set728x90Banners.html">appodeal.set728x90Banners()</a></h4>
+</div>
+</div>
+<div id="events" class="section level2">
+<h2>Events</h2>
+<div id="adsrequestplugin.appodeal.event.adsrequest" class="section level4">
+<h4><a href="../../plugin/appodeal/event/adsRequest/index.html">adsRequest</a></h4>
+</div>
+</div>
+<div id="project-settings" class="section level2">
+<h2>Project Settings</h2>
+<p>To use this plugin in modular mode, your <code>plugins</code> table of <code>build.settings</code> should look like this:</p>
+<pre class="brush: lua;">settings =
+{
+    iphone =
+    {
+        plist =
+        {
+            GADApplicationIdentifier = "ca-app-pub-3940256099942544~1458002511", -- replace with your app id. See: https://googlemobileadssdk.page.link/admob-ios-update-plist
+        },
+    },
+    android =
+    {
+        applicationChildElements =
+        {
+            [[
+                &lt;meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
+                    android:value="[YOUR_ADMOB_APP_ID]"/>  -- replace with your app id. See: https://goo.gl/fQ2neu
+            ]],
+        },
+    },
+    plugins =
+    {
+        -- Base
+        ['plugin.appodeal.base'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.GoogleAdMob'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.StartApp'] = { publisherId = 'com.coronalabs' },
+
+        -- Banner
+        ['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Flurry'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Yandex'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.AmazonAds'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.TwitterMoPub'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Smaato'] = { publisherId = 'com.coronalabs' },
+
+        -- Interstitial
+        ['plugin.appodeal.AdColony'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Chartboost'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Flurry'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.IronSource'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Mobvista'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.StartApp'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Ogury'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.AmazonAds'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.TwitterMoPub'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Smaato'] = { publisherId = 'com.coronalabs' },
+
+        -- Rewarded Video
+        ['plugin.appodeal.AdColony'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Chartboost'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Flurry'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.IronSource'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Mobvista'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.StartApp'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Unity'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Vungle'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Tapjoy'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.TwitterMoPub'] = { publisherId = 'com.coronalabs' },
+    },
+}</pre>
+<p>Make sure to include <code>Base</code> block for a plugin to work correctly. Then you can just comment out unnecessary ad types blocks, so that unneded adapters are not downloaded and linked to your project.</p>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>Disabling specific ad types and ad providers at this level with the help of new modular structure can greatly reduce the final build size.</p>
+</div>
+<p>For example, if you don't use Interstitials or Rewarded Video ad types in your app, you can comment blocks:</p>
+<pre class="brush: lua;">-- Interstitial
+--['plugin.appodeal.AdColony'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.Chartboost'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.Flurry'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.IronSource'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.Mobvista'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.StartApp'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.Ogury'] = { publisherId = 'com.coronalabs' },
+
+-- Rewarded Video
+--['plugin.appodeal.AdColony'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.Chartboost'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.Flurry'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.IronSource'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.Mobvista'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.StartApp'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.Unity'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.Vungle'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.Tapjoy'] = { publisherId = 'com.coronalabs' },</pre>
+<p>If for some reason you don't want to show ads from specific ad provider (for the sake of example, let it be <code>Flurry</code>), you can comment out it too, like this:</p>
+<pre class="brush: lua;">-- Banner
+['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
+['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
+--['plugin.appodeal.Flurry'] = { publisherId = 'com.coronalabs' },
+['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
+['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
+['plugin.appodeal.Yandex'] = { publisherId = 'com.coronalabs' },</pre>
+<p>If you are sure of your choice and want to keep your build settings nice and clean, you can remove commented ad types or/and adapters. Then for this particular example your build.settings file should look like this:</p>
+<pre class="brush: lua;">-- Base
+['plugin.appodeal.base'] = { publisherId = 'com.coronalabs' },
+['plugin.appodeal.GoogleAdMob'] = { publisherId = 'com.coronalabs' },
+['plugin.appodeal.StartApp'] = { publisherId = 'com.coronalabs' },
+
+-- Banner
+['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
+['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
+['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
+['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
+['plugin.appodeal.Yandex'] = { publisherId = 'com.coronalabs' },
+['plugin.appodeal.AmazonAds'] = { publisherId = 'com.coronalabs' },
+['plugin.appodeal.TwitterMoPub'] = { publisherId = 'com.coronalabs' },</pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>From now on, you can use a beta version of modular plugin system. It includes the latest Appodeal SDK Beta, some new features and improvements. To use it, you should add a <code>beta</code> tag to module declaration like this, for example:</p>
+<pre class="brush: lua;">settings =
+{
+    android =
+    {
+        applicationChildElements =
+        {
+            [[
+                &lt;meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
+                    android:value="[YOUR_ADMOB_APP_ID]"/>  -- replace with your app id. See: https://goo.gl/fQ2neu
+            ]],
+        },
+    },
+    plugins =
+    {
+        ['plugin.appodeal.beta.base'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.AdColony'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.AmazonAds'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.AppLovin'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Appnext'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Chartboost'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.FacebookAudience'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Flurry'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.GoogleAdMob'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.InMobi'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.IronSource'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Mobvista'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.MyTarget'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Ogury'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.StartApp'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Tapjoy'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.TwitterMoPub'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Unity'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Vungle'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.beta.Yandex'] = { publisherId = 'com.coronalabs' },
+    },
+}</pre>
+<p>Please keep in mind, that using beta versions of both Appodeal SDK and Corona Appodeal plugin may cause unexpected issues. We've made a profound tests of a new system, but you should use it at your own risk.</p>
+</div>
+<!--- Include ATS "override" template block --->
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+<p>Important</p>
+</div>
+<p>
+If building for iOS, you must bypass App Transport Security (ATS) by adding the following to the <code>plist</code> table of <code>build.settings</code>. While Corona Labs does not blindly encourage this approach for all developers and projects, bypassing ATS is required in certain cases. For more information on ATS, please see the <a href="../../guide/hardware/appleATS/index.html">Managing App Transport Security</a> guide.
+</p>
+<pre class="brush: lua;">settings =
+{
+    iphone =
+    {
+        plist =
+        {
+            NSAppTransportSecurity = { NSAllowsArbitraryLoads=true },
+        },
+    },
+}</pre>
+</div>
+<!--- --->
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>For Android, the following permissions/features are automatically added when using this plugin:</p>
+<ul>
+<li><code>&quot;android.permission.INTERNET&quot;</code></li>
+<li><code>&quot;android.permission.ACCESS_NETWORK_STATE&quot;</code></li>
+<li><code>&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</code></li>
+</ul>
+<p>In addition, if you wish to receive targeted ads in your app and increase your chances for higher revenue, you can include any or all of the following permissions:</p>
+<ul>
+<li><code>&quot;android.permission.GET_ACCOUNTS&quot;</code></li>
+<li><code>&quot;android.permission.ACCESS_COARSE_LOCATION&quot;</code></li>
+<li><code>&quot;android.permission.ACCESS_FINE_LOCATION&quot;</code></li>
+</ul>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.appodeal.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

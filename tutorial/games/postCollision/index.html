@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Tutorials | Gaming/Physics</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#uniqueness-of-post-collisions">Uniqueness of <nobr>Post-Collisions</nobr></a><ul>
+<li><a href="#configuring-post-collisions">Configuring <nobr>Post-Collisions</nobr></a></li>
+<li><a href="#post-collision-applications"><nobr>Post-Collision</nobr> Applications</a><ul>
+<li><a href="#detecting-collision-force">Detecting Collision Force</a></li>
+<li><a href="#threshold-filtering">Threshold Filtering</a></li>
+<li><a href="#detecting-collision-friction">Detecting Collision Friction</a></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/games/index.html">Gaming/Physics</a>
+</div>
+<div id="uniqueness-of-post-collisions" class="section level1">
+<h1>Uniqueness of <nobr>Post-Collisions</nobr></h1>
+<p>Almost every developer who uses Corona's <nobr>Box2D-based</nobr> physics engine implements some type of basic <nobr><strong>collision detection</strong> —</nobr> after all, a physics simulation without any collision events and associated game logic would be fairly lifeless.</p>
+<p>For those developers who need even more specialized collision handling, Corona also features the <a href="../../../api/event/preCollision/index.html">pre-collision</a> listener. This is reserved for specific, dedicated handling of a collision <strong>before</strong> it occurs and it's often used with the <a href="../../../api/type/PhysicsContact/index.html">PhysicsContact</a> as discussed in the <a href="../../../tutorial/games/multiElementCollision/index.html">Multi-Element Collisions</a> tutorial.</p>
+<p>Yet a third option — less known but equally important in some cases — is the <a href="../../../api/event/postCollision/index.html">post-collision</a> listener. As the name indicates, this listener is used to gather various details of a collision <strong>after</strong> it occurs. This event also provides some physical information that no other event type provides, making it especially useful in certain cases!</p>
+<div id="configuring-post-collisions" class="section level2">
+<h2>Configuring <nobr>Post-Collisions</nobr></h2>
+<p>This tutorial won't go into extensive detail on how to set up collision listeners since it's all outlined in the <a href="../../../guide/physics/collisionDetection/index.html">Collision Detection</a> guide. Basically, <nobr>post-collisions</nobr> are configured similarly to normal collisions:</p>
+<pre class="brush: lua; gutter: false; highlight: [10,11,12,15,16]; first-line: 1;">-- Set up physics engine
+local physics = require( "physics" )
+physics.start()
+
+-- Create a basic physics object
+local box = display.newRect( 60, 20, 50, 50 )
+physics.addBody( box )
+
+-- Set up the post-collision listener function
+local function postCollisionEvent( self, event )
+    print( "POST-COLLISION EVENT" )
+end
+
+-- Associate the listener function with the object
+box.postCollision = postCollisionEvent
+box:addEventListener( "postCollision" )</pre>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Be aware that <nobr>post-collision</nobr> events are quite &quot;noisy&quot; and may report many times per collision contact. This may affect game performance, so you should only listen for <nobr>post-collision</nobr> events when necessary. For instance, you may consider temporarily removing the associated event listener when <nobr>post-collisions</nobr> are not a factor within the simulation:</p>
+<pre class="brush: lua;">box:removeEventListener( "postCollision" )
+box.postCollision = nil</pre>
+</div>
+</div>
+</div>
+<div id="post-collision-applications" class="section level2">
+<h2><nobr>Post-Collision</nobr> Applications</h2>
+<p>It may seem pointless to gather details about a collision &quot;after the fact&quot; since the collision has already occurred and the physics engine has essentially moved to the next time step. However, it's exactly the instances where <nobr>post-collisions</nobr> <strong>are</strong> important that makes them an essential part of your physics toolbox.</p>
+<p>Let's explore some potential instances where <nobr>post-collisions</nobr> are unique and powerful:</p>
+<div id="detecting-collision-force" class="section level3">
+<h3>Detecting Collision Force</h3>
+<p>The <nobr>post-collision</nobr> event is the <strong>only</strong> collision event which reports the <strong>force</strong> of the collision which just occurred. This value is reported as <code>event.force</code> in the <nobr>post-collision</nobr> listener, for example:</p>
+<pre class="brush: lua; gutter: false; highlight: [3]; first-line: 1;">local function postCollisionEvent( self, event )
+    print( "POST-COLLISION EVENT" )
+    print( "FORCE:", event.force )
+end</pre>
+<p>Where might this apply in a physics simulation? Consider the classic hit Angry Birds<span style="font-size: 80%;"><sup>™</sup></span> where each ornery avian has a different effect on different solid materials in the world — for example, the small blue birds strike particulary hard against &quot;glass&quot; blocks. If we were to implement similar game functionality, it would be easy to code a conditional check which detects if a blue bird collides with a glass block, but that limits us to a true/false relationship — we still wouldn't know exactly what <strong>force</strong> was delivered in the collision. Using the <nobr>post-collision</nobr> event, however, we can detect the amount of force and assign damage accordingly, either shattering the glass block entirely or merely cracking it partially.</p>
+</div>
+<div id="threshold-filtering" class="section level3">
+<h3>Threshold Filtering</h3>
+<p>Collision forces are equally useful in &quot;filtering&quot; purposes. Consider a game where the player fires arrows at an armored enemy, for instance the armored skeleton in the <a href="../../../tutorial/games/multiElementCollision/index.html">Multi-Element Collisions</a> tutorial. In theory, the skeleton's armor has a certain threshold upon which it will block projectiles entirely, causing them to bounce off and fall to the ground. As noted above, a normal collision event can reveal that a projectile hit the skeleton, but it cannot provide details about collision <strong>force</strong>. Thus, the <nobr>post-collision</nobr> event once again becomes crucial — by implementing it, we can detect if the force is above a certain threshold and, if so, the arrow will penetrate the enemy's armor and deliver an appropriate amount of damage.</p>
+</div>
+<div id="detecting-collision-friction" class="section level3">
+<h3>Detecting Collision Friction</h3>
+<p>The <nobr>post-collision</nobr> event is also the only collision event which reports the <strong>friction</strong> of the collision which just occurred. This value is reported as <code>event.friction</code> in the <nobr>post-collision</nobr> listener, for instance:</p>
+<pre class="brush: lua; gutter: false; highlight: [3]; first-line: 1;">local function postCollisionEvent( self, event )
+    print( "POST-COLLISION EVENT" )
+    print( "FRICTION:", event.friction )
+end</pre>
+<p>Where might this apply in a physics simulation? One example would be to detect the friction of a car or other object when it collides with a metal surface, then use that value to display a variable amount of &quot;sparks&quot; via a <a href="../../../api/library/display/newEmitter.html">particle emitter</a> or other means. For example, if the friction is very high, we could generate a more visible amount of sparks, while if the friction is low — for instance the object just barely brushed against the surface — we could generate just a small burst of sparks (or even use the filtering threshold discussed above to omit the effect entirely).</p>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>Hopefully this tutorial has outlined some valid applications for <a href="../../../api/event/postCollision/index.html">post-collision</a> events. While detecting these will never be as common as detecting normal collisions, they are unique events which can be essential to certain game logic and even to visual realism in a game.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=tutorial.games.postCollision.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Start</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#system-requirements">System Requirements</a><ul>
+<li><a href="#macos">macOS</a></li>
+<li><a href="#windows">Windows</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/start/index.html">Start</a>
+</div>
+<div id="system-requirements" class="section level1">
+<h1>System Requirements</h1>
+<p>The specific system requirements for Corona depend on whether you are developing on a Mac or Windows system:</p>
+<div id="macos" class="section level2">
+<h2>macOS</h2>
+<div class="docs-tip-outer" style="background-color: #a5aec9;">
+<div class="docs-tip-inner-left">
+<div class="fa fa-apple" style="font-size: 36px; margin-left: 1px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Corona for <strong>macOS</strong> supports building applications for iOS, Android, tvOS, and <nobr>macOS desktop</nobr>. It requires the following basic system elements:</p>
+<ul>
+<li>macOS 10.11 or later</li>
+<li>Xcode (minimum version allowed by Apple to submit apps to the App Store)</li>
+</ul>
+<p>Ready to begin? Please proceed to <a href="../../../guide/start/installMac/index.html">Installing Corona — macOS</a>.</p>
+</div>
+</div>
+<div class="guide-notebox">
+<div class="notebox-title title-nomargin">
+Notes
+</div>
+<ul>
+<li>We only support iOS devices that run <strong>iOS 8.0</strong> or higher.</li>
+<li>We only support Android devices that run <strong>Android 4.0.3</strong> or higher with an <strong>ARMv7</strong> processor. ARMv6 is not supported.</li>
+<li>We recommend using the latest version of macOS and Xcode to avoid device build issues.</li>
+<li>You don't need to join the <a href="https://developer.apple.com/devcenter/ios/">Apple Developer</a> program just to test your app in the Corona Simulator. You will, however, need to join the program to test on actual devices or submit your app to the App Store.</li>
+<li><p>The Android SDK is <strong>not</strong> required to create Android device builds.</p></li>
+<li><p>Corona will not run in a Virtual Machine (VM) since most VM OpenGL drivers don't support OpenGL 2.1 as required by Corona.</p></li>
+</ul>
+</div>
+</div>
+<div id="windows" class="section level2">
+<h2>Windows</h2>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-windows" style="font-size: 31px; margin-left: 0px; margin-top: 2px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Corona for <strong>Windows</strong> supports building applications for Android and Win32 desktop. It requires the following basic system elements:</p>
+<ul>
+<li>Windows 10, Windows 8, or Windows 7</li>
+<li>1 GHz processor (recommended)</li>
+<li>1 GB of RAM (recommended)</li>
+<li>OpenGL 2.1 or higher (available in most modern Windows systems)</li>
+</ul>
+<p>Ready to begin? Please proceed to <a href="../../../guide/start/installWin/index.html">Installing Corona — Windows</a>.</p>
+</div>
+</div>
+<div class="guide-notebox">
+<div class="notebox-title title-nomargin">
+Notes
+</div>
+<ul>
+<li>We only support Android devices that run <nobr><strong>Android 4.0.3</strong></nobr> or higher with an <strong>ARMv7</strong> processor. ARMv6 is not supported.</li>
+<li>The Android SDK is <strong>not</strong> required to create Android device builds on Windows. You will, however, need to install the <nobr><strong>Java Development Kit</strong></nobr>.</li>
+</ul>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.start.systemReqs.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

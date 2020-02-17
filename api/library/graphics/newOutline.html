@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries | graphics | newOutline</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#graphics.newoutline">graphics.newOutline()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#image-file">Image File</a><ul>
+<li><a href="#coarsenessintexels-required">coarsenessInTexels <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#imagefile-required">imageFile <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#basedir-optional">baseDir <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#image-sheet-frame">Image Sheet Frame</a><ul>
+<li><a href="#coarsenessintexels-required-1">coarsenessInTexels <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#imagesheet-required">imageSheet <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#frameindex-required">frameIndex <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#image-file-1">Image File</a></li>
+<li><a href="#image-sheet-frame-1">Image Sheet Frame</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/graphics/index.html">graphics</a>  ▸  <a href="../../../api/library/graphics/newOutline.html">newOutline</a>
+</div>
+<div id="graphics.newoutline" class="section level1">
+<h1>graphics.newOutline()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../../api/library/graphics/index.html">graphics.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Return value</strong></td>
+<td align="left"><a href="../../../api/type/Table.html">Table</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">outline, physics, body, graphics</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../guide/physics/physicsBodies/index.html">Physics Bodies</a> <em>(guide)</em></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../guide/media/imageSheets/index.html">Image Sheets</a> <em>(guide)</em></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../../api/library/physics/addBody.html">physics.addBody()</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>This function produces the outline of the shape obtained from an image file or a frame within an <a href="../../../api/type/ImageSheet/index.html">ImageSheet</a>. A shape is recognized by the image's <nobr>non-transparent</nobr> alpha value. Generally, simpler images produce better outlines.</p>
+<p>The returned value is a table of <strong>x</strong> and <strong>y</strong> coordinates in content space that can be used as the outline for the <a href="../../../api/library/physics/addBody.html">physics.addBody()</a> function</p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<div id="image-file" class="section level3">
+<h3>Image File</h3>
+<pre class="brush: lua;">graphics.newOutline( coarsenessInTexels, imageFileName [, baseDir] )</pre>
+<div id="coarsenessintexels-required" class="section level5">
+<h5>coarsenessInTexels <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The coarseness in texels. Higher values produce lower resolution outlines. Lower values produce larger outlines that can hurt performance.</p>
+</div>
+<div id="imagefile-required" class="section level5">
+<h5>imageFile <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The file name of the image to trace.</p>
+</div>
+<div id="basedir-optional" class="section level5">
+<h5>baseDir <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Constant.html">Constant</a>.</em> Path to load the image from. Default is <code>system.ResourceDirectory</code> (project folder; same location as <code>main.lua</code>). See <a href="../../../api/library/system/pathForFile.html">system.pathForFile()</a> for valid values).</p>
+</div>
+</div>
+<div id="image-sheet-frame" class="section level3">
+<h3>Image Sheet Frame</h3>
+<pre class="brush: lua;">graphics.newOutline( coarsenessInTexels, imageSheet, frameIndex )</pre>
+<div id="coarsenessintexels-required-1" class="section level5">
+<h5>coarsenessInTexels <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The coarseness in texels. Higher values produce lower resolution outlines. Lower values produce larger outlines that can hurt performance.</p>
+</div>
+<div id="imagesheet-required" class="section level5">
+<h5>imageSheet <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/ImageSheet/index.html">ImageSheet</a>.</em> Reference to an image sheet object created with <a href="../../../api/library/graphics/newImageSheet.html">graphics.newImageSheet()</a>.</p>
+</div>
+<div id="frameindex-required" class="section level5">
+<h5>frameIndex <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> Represents the frame index number within the <a href="../../../api/type/ImageSheet/index.html">ImageSheet</a> to create the object from. This is only required if <code>imageSheet</code> is specified.</p>
+</div>
+</div>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<div id="image-file-1" class="section level5">
+<h5>Image File</h5>
+<pre class="brush: lua;">local imageFile = "star.png"
+
+local imageOutline = graphics.newOutline( 2, imageFile )
+local image = display.newImage( imageFile )
+
+physics.addBody( image, { outline=imageOutline, bounce=0.5, friction=0.1 } )</pre>
+</div>
+<div id="image-sheet-frame-1" class="section level5">
+<h5>Image Sheet Frame</h5>
+<pre class="brush: lua;">local options =
+{
+    width = 64,
+    height = 64,
+    numFrames = 12,
+    sheetContentWidth = 256,  -- width of original 1x size of entire sheet
+    sheetContentHeight = 192  -- height of original 1x size of entire sheet
+}
+local letterSheet = graphics.newImageSheet( "first_12_letters_of_the_alphabet.png", options )
+
+local frameIndex = 9
+
+local letterOutline = graphics.newOutline( 2, letterSheet, frameIndex )
+
+local letterImage = display.newImageRect( letterSheet, frameIndex, 64, 64 )
+
+physics.addBody( letterImage, { outline=letterOutline, bounce=0.5, friction=0.1 } )</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.graphics.newOutline&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

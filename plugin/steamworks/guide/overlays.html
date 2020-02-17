@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | Steamworks | Developer Guides</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#steamworks-overlay-troubleshooting">Steamworks — Overlay Troubleshooting</a><ul>
+<li><a href="#steam-client-settings">Steam Client Settings</a></li>
+<li><a href="#mac-system-preferences">Mac System Preferences</a></li>
+<li><a href="#mac-app-testing">Mac App Testing</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../plugin/index.html">Plugins</a>  ▸  <a href="../../../plugin/steamworks/index.html">Steamworks</a>  ▸  <a href="../../../plugin/steamworks/guide/index.html">Developer Guides</a>
+</div>
+<div id="steamworks-overlay-troubleshooting" class="section level1">
+<h1>Steamworks — Overlay Troubleshooting</h1>
+<p>This guide documents how to troubleshoot Steam <nobr>in-app</nobr> overlay display issues.</p>
+<div class="guides-toc">
+<ul>
+<li><a href="#clientsettings">Steam Client Settings</a></li>
+<li><a href="#macprefs">Mac System Preferences</a></li>
+<li><a href="#testing">Mac App Testing</a></li>
+</ul>
+</div>
+<p><a id="clientsettings"></a></p>
+<div id="steam-client-settings" class="section level2">
+<h2>Steam Client Settings</h2>
+<p>If the end user has disabled overlays within the Steam client's <nobr><strong>In-Game</strong></nobr> settings/preferences window, Steam overlays and popup notifications will <strong>not</strong> appear within the application window for any <nobr>Steam-based game</nobr>. This setting is controlled by the end user and is normally enabled by default. If overlays are not appearing as expected, this should be the first thing to check, following these steps:</p>
+<ol style="list-style-type: decimal">
+<li>Display the Steam client window.</li>
+<li>On Windows, click the <nobr><strong>Steam</strong> → <strong>Settings</strong></nobr> menu item. On Mac, click the <nobr><strong>Steam</strong> → <strong>Preferences</strong></nobr> menu item.</li>
+<li>Select <strong>In-Game</strong> in the Settings/Preferences window's left sidebar.</li>
+<li>Check the <nobr><strong>Enable the Steam Overlay while in-game</strong></nobr> checkbox.</li>
+<li>Click the <strong>OK</strong> button.</li>
+</ol>
+<div style="width:90%;">
+<div class="figure">
+<img src="../../../images/docs/plugin-screenshot-steamworks-in-game-settings.png" />
+
+</div>
+</div>
+<p><a id="macprefs"></a></p>
+</div>
+<div id="mac-system-preferences" class="section level2">
+<h2>Mac System Preferences</h2>
+<p>On Mac, Steam cannot display overlays and popup notifications within an application window until the end user has given the Steam client permission in the <nobr><strong>System Preferences</strong></nobr> window. This can be done as follows:</p>
+<ol style="list-style-type: decimal">
+<li>Open the <nobr><strong>System Preferences</strong></nobr> window.</li>
+<li>Select <nobr><strong>Security &amp; Privacy</strong></nobr>.</li>
+<li>Click on the <strong>Privacy</strong> tab.</li>
+<li>Select <strong>Accessibility</strong> in the list on the left.</li>
+<li>Click the [<strong>+</strong>] button.</li>
+<li>Select the <strong>Steam</strong> application.</li>
+<li>Make sure that the <strong>Steam.app</strong> item is checked in the <strong>Accessibility</strong> list.</li>
+<li>Restart the Steam client application.</li>
+</ol>
+<div style="width:60%;">
+<div class="figure">
+<img src="../../../images/docs/plugin-screenshot-steamworks-mac-system-prefs-accessibility.png" />
+
+</div>
+</div>
+<p><a id="testing"></a></p>
+</div>
+<div id="mac-app-testing" class="section level2">
+<h2>Mac App Testing</h2>
+<p>On Mac, Steam can only show overlays and popup notifications in applications that have been launched from the Steam client. Applications purchased, downloaded, and installed by Steam are normally launched in this fashion.</p>
+<p>In order for developers to test Steam overlay support, the application using the Steamworks plugin must be added to the Steam client as a <nobr><strong>Non-Steam Game</strong></nobr> and then launched from the Steam client. For example, to test Steam overlay support within the Corona Simulator, the Corona Simulator application must be added and launched from the Steam client. The same must be done with Mac applications built from the Corona Simulator as well.</p>
+<ol style="list-style-type: decimal">
+<li>Display the Steam client window.</li>
+<li>Click the <strong>LIBRARY</strong> item at the top of the Window.</li>
+<li>Select <strong>MAC</strong> from the drop-down menu.</li>
+<li>Click the <nobr><strong>ADD A GAME...</strong></nobr> button in the <nobr>bottom-left</nobr> corner.</li>
+<li>Select <nobr><strong>Add a Non-Steam Game...</strong></nobr> from the popup menu.</li>
+</ol>
+<div class="code-indent" style="width:90%;">
+<div class="figure">
+<img src="../../../images/docs/plugin-screenshot-steamworks-client-add-non-steam-game.png" />
+
+</div>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>Browse for the app in the <nobr><strong>Add a Game</strong></nobr> window.</li>
+<li>Check the app and click the <nobr><strong>ADD SELECTED PROGRAMS</strong></nobr> button.</li>
+</ol>
+<div class="code-indent" style="width:90%;">
+<div class="figure">
+<img src="../../../images/docs/plugin-screenshot-steamworks-client-browse-for-app.png" />
+
+</div>
+</div>
+<ol start="8" style="list-style-type: decimal">
+<li>Now that the selected application has been added to the Steam client's library, you can launch it from the Steam client by clicking the <strong>PLAY</strong> button. The application will then be able to display Steam overlays and popup notifications within the application window, but only if <nobr><strong>In-Game</strong></nobr> overlays are enabled by the user within the Steam client as documented <a href="#clientsettings">above</a>.</li>
+</ol>
+<div class="code-indent" style="width:90%;">
+<div class="figure">
+<img src="../../../images/docs/plugin-screenshot-steamworks-client-play-non-steam-game.png" />
+
+</div>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.steamworks.guide.overlays&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

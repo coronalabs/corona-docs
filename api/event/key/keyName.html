@@ -1,0 +1,1209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Events | key | keyName</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#event.keyname">event.keyName</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#gotchas">Gotchas</a></li>
+<li><a href="#example">Example</a></li>
+<li><a href="#key-names">Key Names</a><ul>
+<li><a href="#letter-keys">Letter Keys</a></li>
+<li><a href="#number-keys">Number Keys</a></li>
+<li><a href="#number-pad-keys">Number Pad Keys</a></li>
+<li><a href="#arrow-keys">Arrow Keys</a></li>
+<li><a href="#modifier-keys">Modifier Keys</a></li>
+<li><a href="#function-keys">Function Keys</a></li>
+<li><a href="#navigation-keys">Navigation Keys</a></li>
+<li><a href="#media-keys">Media Keys</a></li>
+<li><a href="#volume-keys">Volume Keys</a></li>
+<li><a href="#gamepadjoystick-buttons">Gamepad/Joystick Buttons</a></li>
+<li><a href="#remote-control-buttons">Remote Control Buttons</a></li>
+<li><a href="#application-keys">Application Keys</a></li>
+<li><a href="#other-keys">Other Keys</a></li>
+<li><a href="#unknown-keys">Unknown Keys</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/event/index.html">Events</a>  ▸  <a href="../../../api/event/key/index.html">key</a>  ▸  <a href="../../../api/event/key/keyName.html">keyName</a>
+</div>
+<div id="event.keyname" class="section level1">
+<h1>event.keyName</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/String.html">String</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Event</strong></td>
+<td align="left"><a href="../../../api/event/key/index.html">key</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">key, keyName</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>The unique string name of the key. Used to identify which key was pressed down or released.</p>
+</div>
+<div id="gotchas" class="section level2">
+<h2>Gotchas</h2>
+<ul>
+<li><p>The value will be <code>&quot;unknown&quot;</code> if Corona could not identify the key. This can happen when the user presses a custom OEM key on a keyboard. In this case, you can only identify the key by its numeric <a href="../../../api/event/key/nativeKeyCode.html">event.nativeKeyCode</a> value.</p></li>
+<li><p>The key name does not represent the character or string that is produced when pressing a key. A key name is just a unique string ID assigned to the key that was pressed or released according to the key position on an <nobr>ANSI-standard</nobr> US keyboard. For example, if you press the &quot;A&quot; key on a US keyboard, <code>event.keyName</code> will always be <code>&quot;a&quot;</code>, regardless of whether the &quot;Shift&quot; key was held down (that is, you will never receive a capital <code>&quot;A&quot;</code> value). In contrast, if you press the &quot;A&quot; key on a French keyboard, you will get <code>&quot;q&quot;</code> because <code>event.keyName</code> returns the &quot;key code&quot; instead of the local representation of that key.</p></li>
+</ul>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="brush: lua;">-- Called when a key event has been received
+local function onKeyEvent( event )
+
+    -- Print which key was pressed down/up
+    local message = "Key '" .. event.keyName .. "' was pressed " .. event.phase
+    print( message )
+
+    -- If the "back" key was pressed on Android, prevent it from backing out of the app
+    if ( event.keyName == "back" ) then
+        if ( system.getInfo("platform") == "android" ) then
+            return true
+        end
+    end
+
+    -- IMPORTANT! Return false to indicate that this app is NOT overriding the received key
+    -- This lets the operating system execute its default handling of the key
+    return false
+end
+
+-- Add the key event listener
+Runtime:addEventListener( "key", onKeyEvent )</pre>
+</div>
+<div id="key-names" class="section level2">
+<h2>Key Names</h2>
+<div id="letter-keys" class="section level3">
+<h3>Letter Keys</h3>
+<div class="inner-table">
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">keyName</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;a&quot;</code></td>
+<td align="left">The &quot;A&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;b&quot;</code></td>
+<td align="left">The &quot;B&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;c&quot;</code></td>
+<td align="left">The &quot;C&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;d&quot;</code></td>
+<td align="left">The &quot;D&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;e&quot;</code></td>
+<td align="left">The &quot;E&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;f&quot;</code></td>
+<td align="left">The &quot;F&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;g&quot;</code></td>
+<td align="left">The &quot;G&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;h&quot;</code></td>
+<td align="left">The &quot;H&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;i&quot;</code></td>
+<td align="left">The &quot;I&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;j&quot;</code></td>
+<td align="left">The &quot;J&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;k&quot;</code></td>
+<td align="left">The &quot;K&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;l&quot;</code></td>
+<td align="left">The &quot;L&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;m&quot;</code></td>
+<td align="left">The &quot;M&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;n&quot;</code></td>
+<td align="left">The &quot;N&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;o&quot;</code></td>
+<td align="left">The &quot;O&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;p&quot;</code></td>
+<td align="left">The &quot;P&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;q&quot;</code></td>
+<td align="left">The &quot;Q&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;r&quot;</code></td>
+<td align="left">The &quot;R&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;s&quot;</code></td>
+<td align="left">The &quot;S&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;t&quot;</code></td>
+<td align="left">The &quot;T&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;u&quot;</code></td>
+<td align="left">The &quot;U&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;v&quot;</code></td>
+<td align="left">The &quot;V&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;w&quot;</code></td>
+<td align="left">The &quot;W&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;x&quot;</code></td>
+<td align="left">The &quot;X&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;y&quot;</code></td>
+<td align="left">The &quot;Y&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;z&quot;</code></td>
+<td align="left">The &quot;Z&quot; key.</td>
+</tr>
+</tbody>
+</table>
+<div>
+
+</div>
+<div id="number-keys" class="section level3">
+<h3>Number Keys</h3>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">keyName</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;0&quot;</code></td>
+<td align="left">The &quot;0&quot; key belonging to the keyboard's top row of number keys.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;1&quot;</code></td>
+<td align="left">The &quot;1&quot; key belonging to the keyboard's top row of number keys.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;2&quot;</code></td>
+<td align="left">The &quot;2&quot; key belonging to the keyboard's top row of number keys.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;3&quot;</code></td>
+<td align="left">The &quot;3&quot; key belonging to the keyboard's top row of number keys.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;4&quot;</code></td>
+<td align="left">The &quot;4&quot; key belonging to the keyboard's top row of number keys.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;5&quot;</code></td>
+<td align="left">The &quot;5&quot; key belonging to the keyboard's top row of number keys.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;6&quot;</code></td>
+<td align="left">The &quot;6&quot; key belonging to the keyboard's top row of number keys.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;7&quot;</code></td>
+<td align="left">The &quot;7&quot; key belonging to the keyboard's top row of number keys.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;8&quot;</code></td>
+<td align="left">The &quot;8&quot; key belonging to the keyboard's top row of number keys.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;9&quot;</code></td>
+<td align="left">The &quot;9&quot; key belonging to the keyboard's top row of number keys.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="number-pad-keys" class="section level3">
+<h3>Number Pad Keys</h3>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">keyName</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;numPad0&quot;</code></td>
+<td align="left">The number pad's &quot;0&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;numPad1&quot;</code></td>
+<td align="left">The number pad's &quot;1&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;numPad2&quot;</code></td>
+<td align="left">The number pad's &quot;2&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;numPad3&quot;</code></td>
+<td align="left">The number pad's &quot;3&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;numPad4&quot;</code></td>
+<td align="left">The number pad's &quot;4&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;numPad5&quot;</code></td>
+<td align="left">The number pad's &quot;5&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;numPad6&quot;</code></td>
+<td align="left">The number pad's &quot;6&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;numPad7&quot;</code></td>
+<td align="left">The number pad's &quot;7&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;numPad8&quot;</code></td>
+<td align="left">The number pad's &quot;8&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;numPad9&quot;</code></td>
+<td align="left">The number pad's &quot;9&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;numPad+&quot;</code></td>
+<td align="left">The number pad's plus key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;numPad-&quot;</code></td>
+<td align="left">The number pad's minus key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;numPad*&quot;</code></td>
+<td align="left">The number pad's multiplication key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;numPad/&quot;</code></td>
+<td align="left">The number pad's division key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;numPad=&quot;</code></td>
+<td align="left">The number pad's equals key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;numPadEnter&quot;</code></td>
+<td align="left">The number pad's enter or return key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;numPad.&quot;</code></td>
+<td align="left">The number pad's decimal separator key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;numPad,&quot;</code></td>
+<td align="left">The number pad's thousands separator key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;numPad(&quot;</code></td>
+<td align="left">The number pad's left parentheses key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;numPad)&quot;</code></td>
+<td align="left">The number pad's right parentheses key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;numLock&quot;</code></td>
+<td align="left">The number pad's &quot;Num Lock&quot; key.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="arrow-keys" class="section level3">
+<h3>Arrow Keys</h3>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">keyName</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;up&quot;</code></td>
+<td align="left">The up arrow key on the keyboard or D-pad.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;down&quot;</code></td>
+<td align="left">The down arrow key on the keyboard or D-pad.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;left&quot;</code></td>
+<td align="left">The left arrow key on the keyboard or D-pad.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;right&quot;</code></td>
+<td align="left">The right arrow key on the keyboard or D-pad.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="modifier-keys" class="section level3">
+<h3>Modifier Keys</h3>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">keyName</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;leftAlt&quot;</code></td>
+<td align="left">The left &quot;Alt&quot; modifier key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;rightAlt&quot;</code></td>
+<td align="left">The right &quot;Alt&quot; modifier key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;leftCtrl&quot;</code></td>
+<td align="left">The left &quot;Control&quot; modifier key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;rightCtrl&quot;</code></td>
+<td align="left">The right &quot;Control&quot; modifier key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;leftShift&quot;</code></td>
+<td align="left">The left &quot;Shift&quot; modifier key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;rightShift&quot;</code></td>
+<td align="left">The right &quot;Shift&quot; modifier key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;leftCommand&quot;</code></td>
+<td align="left">The left &quot;Command&quot; or &quot;Windows&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;rightCommand&quot;</code></td>
+<td align="left">The right &quot;Command&quot; or &quot;Windows&quot; key.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="function-keys" class="section level3">
+<h3>Function Keys</h3>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">keyName</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;function&quot;</code></td>
+<td align="left">The &quot;function&quot; or &quot;fn&quot; modifier key (not supported on Windows).</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;f1&quot;</code></td>
+<td align="left">The &quot;F1&quot; function key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;f2&quot;</code></td>
+<td align="left">The &quot;F2&quot; function key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;f3&quot;</code></td>
+<td align="left">The &quot;F3&quot; function key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;f4&quot;</code></td>
+<td align="left">The &quot;F4&quot; function key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;f5&quot;</code></td>
+<td align="left">The &quot;F5&quot; function key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;f6&quot;</code></td>
+<td align="left">The &quot;F6&quot; function key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;f7&quot;</code></td>
+<td align="left">The &quot;F7&quot; function key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;f8&quot;</code></td>
+<td align="left">The &quot;F8&quot; function key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;f9&quot;</code></td>
+<td align="left">The &quot;F9&quot; function key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;f10&quot;</code></td>
+<td align="left">The &quot;F10&quot; function key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;f11&quot;</code></td>
+<td align="left">The &quot;F11&quot; function key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;f12&quot;</code></td>
+<td align="left">The &quot;F12&quot; function key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;f13&quot;</code></td>
+<td align="left">The &quot;F13&quot; function key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;f14&quot;</code></td>
+<td align="left">The &quot;F14&quot; function key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;f15&quot;</code></td>
+<td align="left">The &quot;F15&quot; function key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;f16&quot;</code></td>
+<td align="left">The &quot;F16&quot; function key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;f17&quot;</code></td>
+<td align="left">The &quot;F17&quot; function key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;f18&quot;</code></td>
+<td align="left">The &quot;F18&quot; function key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;f19&quot;</code></td>
+<td align="left">The &quot;F19&quot; function key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;f20&quot;</code></td>
+<td align="left">The &quot;F20&quot; function key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;f21&quot;</code></td>
+<td align="left">The &quot;F21&quot; function key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;f22&quot;</code></td>
+<td align="left">The &quot;F22&quot; function key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;f23&quot;</code></td>
+<td align="left">The &quot;F23&quot; function key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;f24&quot;</code></td>
+<td align="left">The &quot;F24&quot; function key.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="navigation-keys" class="section level3">
+<h3>Navigation Keys</h3>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">keyName</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;back&quot;</code></td>
+<td align="left">The &quot;navigate back&quot; key (typically provided on all Android devices).</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;forward&quot;</code></td>
+<td align="left">The &quot;navigate forward&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;homePage&quot;</code></td>
+<td align="left">The &quot;navigate to home page&quot; key (this is not the &quot;home&quot; button on Android).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="media-keys" class="section level3">
+<h3>Media Keys</h3>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">keyName</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;mediaPlay&quot;</code></td>
+<td align="left">The button used to play media such as music or video.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;mediaPlayPause&quot;</code></td>
+<td align="left">The button used to play/pause media such as music or video.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;mediaPause&quot;</code></td>
+<td align="left">The button used to pause media such as music or video.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;mediaStop&quot;</code></td>
+<td align="left">The button used to stop media such as music or video.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;mediaNext&quot;</code></td>
+<td align="left">The button used to select the next music track or chapter in a video.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;mediaPrevious&quot;</code></td>
+<td align="left">The button used to select the previous music track or chapter in a video.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;mediaFastForward&quot;</code></td>
+<td align="left">The button used to fast forward music or video.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;mediaRewind&quot;</code></td>
+<td align="left">The button used to go backwards in a song or video.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;mediaRecord&quot;</code></td>
+<td align="left">The button used to start audio or video recording.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;mediaEject&quot;</code></td>
+<td align="left">The button used to eject a CD or DVD.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;mediaClose&quot;</code></td>
+<td align="left">The button used to close the CD or DVD tray on a PC.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="volume-keys" class="section level3">
+<h3>Volume Keys</h3>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">keyName</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;volumeUp&quot;</code></td>
+<td align="left">The volume up button.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;volumeDown&quot;</code></td>
+<td align="left">The volume down button.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;volumeMute&quot;</code></td>
+<td align="left">The button used to mute and unmute audio playback.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;microphoneMute&quot;</code></td>
+<td align="left">The button used to mute and unmute the microphone.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="gamepadjoystick-buttons" class="section level3">
+<h3>Gamepad/Joystick Buttons</h3>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">keyName</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;button1&quot;</code></td>
+<td align="left">Button &quot;1&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;button2&quot;</code></td>
+<td align="left">Button &quot;2&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;button3&quot;</code></td>
+<td align="left">Button &quot;3&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;button4&quot;</code></td>
+<td align="left">Button &quot;4&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;button5&quot;</code></td>
+<td align="left">Button &quot;5&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;button6&quot;</code></td>
+<td align="left">Button &quot;6&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;button7&quot;</code></td>
+<td align="left">Button &quot;7&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;button8&quot;</code></td>
+<td align="left">Button &quot;8&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;button9&quot;</code></td>
+<td align="left">Button &quot;9&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;button10&quot;</code></td>
+<td align="left">Button &quot;10&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;button11&quot;</code></td>
+<td align="left">Button &quot;11&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;button12&quot;</code></td>
+<td align="left">Button &quot;12&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;button13&quot;</code></td>
+<td align="left">Button &quot;13&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;button14&quot;</code></td>
+<td align="left">Button &quot;14&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;button15&quot;</code></td>
+<td align="left">Button &quot;15&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;button16&quot;</code></td>
+<td align="left">Button &quot;16&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;buttonA&quot;</code></td>
+<td align="left">Button &quot;A&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;buttonB&quot;</code></td>
+<td align="left">Button &quot;B&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;buttonC&quot;</code></td>
+<td align="left">Button &quot;C&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;buttonX&quot;</code></td>
+<td align="left">Button &quot;X&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;buttonY&quot;</code></td>
+<td align="left">Button &quot;Y&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;buttonZ&quot;</code></td>
+<td align="left">Button &quot;Z&quot; on a gamepad or joystick.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;buttonSelect&quot;</code></td>
+<td align="left">The &quot;select&quot; button on a gamepad or joystick.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;buttonStart&quot;</code></td>
+<td align="left">The &quot;start&quot; button on a gamepad or joystick.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;buttonMode&quot;</code></td>
+<td align="left">The &quot;mode&quot; button on a gamepad or joystick.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;leftShoulderButton1&quot;</code></td>
+<td align="left">The first left shoulder button (aka &quot;L1&quot;) on a gamepad.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;leftShoulderButton2&quot;</code></td>
+<td align="left">The second left shoulder button (aka &quot;L2&quot;) on a gamepad.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;rightShoulderButton1&quot;</code></td>
+<td align="left">The first right shoulder button (aka &quot;R1&quot;) on a gamepad.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;rightShoulderButton2&quot;</code></td>
+<td align="left">The second right shoulder button (aka &quot;R2&quot;) on a gamepad.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;leftJoystickButton&quot;</code></td>
+<td align="left">The &quot;left thumbstick&quot; button on a gamepad (typically occurs when depressing the left thumbstick).</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;rightJoystickButton&quot;</code></td>
+<td align="left">The &quot;right thumbstick&quot; button on a gamepad (typically occurs when depressing the right thumbstick).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="remote-control-buttons" class="section level3">
+<h3>Remote Control Buttons</h3>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">keyName</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;3D&quot;</code></td>
+<td align="left">The &quot;3D&quot; button on a remote control.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;blue&quot;</code></td>
+<td align="left">The &quot;blue&quot; button on a remote control.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;green&quot;</code></td>
+<td align="left">The &quot;green&quot; button on a remote control.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;red&quot;</code></td>
+<td align="left">The &quot;red&quot; button on a remote control.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;yellow&quot;</code></td>
+<td align="left">The &quot;yellow&quot; button on a remote control.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;captions&quot;</code></td>
+<td align="left">The &quot;captions&quot; button on a remote control.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;channelUp&quot;</code></td>
+<td align="left">The &quot;channel up&quot; button on a remote control.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;channelDown&quot;</code></td>
+<td align="left">The &quot;channel down&quot; button on a remote control.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;dvr&quot;</code></td>
+<td align="left">The &quot;DVR&quot; button on a remote control.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;guide&quot;</code></td>
+<td align="left">The &quot;guide&quot; button on a remote control.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;info&quot;</code></td>
+<td align="left">The &quot;info&quot; button on a remote control.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;tv&quot;</code></td>
+<td align="left">The &quot;TV&quot; button on a remote control.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="application-keys" class="section level3">
+<h3>Application Keys</h3>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">keyName</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;bookmark&quot;</code></td>
+<td align="left">The web page bookmark key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;calculator&quot;</code></td>
+<td align="left">The key used to display the Calculator application.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;calendar&quot;</code></td>
+<td align="left">The key used to display the Calendar application.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;call&quot;</code></td>
+<td align="left">The key used to make a phone call.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;camera&quot;</code></td>
+<td align="left">The key used to display the Camera application.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;contacts&quot;</code></td>
+<td align="left">The key used to display the Contacts (Address Book) application.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;endCall&quot;</code></td>
+<td align="left">The key used to end a phone call on a mobile phone.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;explorer&quot;</code></td>
+<td align="left">The key used to display the &quot;Windows Explorer&quot; or file &quot;Finder&quot; application.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;focusCamera&quot;</code></td>
+<td align="left">The button used to focus the camera.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;mail&quot;</code></td>
+<td align="left">The key used to display the e-mail application.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;menu&quot;</code></td>
+<td align="left">The button used to display an application's menu (common on older Android devices).</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;music&quot;</code></td>
+<td align="left">The key used to display the music application.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;notification&quot;</code></td>
+<td align="left">The key used to display Android's notifications in the status bar.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;search&quot;</code></td>
+<td align="left">The &quot;search&quot; button on an Android device.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="other-keys" class="section level3">
+<h3>Other Keys</h3>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">keyName</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;`&quot;</code></td>
+<td align="left">The back tick key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;'&quot;</code></td>
+<td align="left">The apostrophe and double quote key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;@&quot;</code></td>
+<td align="left">The &quot;at&quot; key on an Android keyboard.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;\&quot;</code></td>
+<td align="left">The backslash &quot;\&quot; and &quot;|&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;/&quot;</code></td>
+<td align="left">The forward slash &quot;/&quot; and &quot;?&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;[&quot;</code></td>
+<td align="left">The left bracket &quot;[&quot; and &quot;{&quot; key on the keyboard.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;]&quot;</code></td>
+<td align="left">The right bracket &quot;]&quot; and &quot;}&quot; key on the keyboard.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;+&quot;</code></td>
+<td align="left">The plus key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;-&quot;</code></td>
+<td align="left">The minus key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;*&quot;</code></td>
+<td align="left">The asterisk key on an Android keyboard.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;.&quot;</code></td>
+<td align="left">The &quot;.&quot; and &quot;&gt;&quot; key on the keyboard.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;=&quot;</code></td>
+<td align="left">The &quot;=&quot; and &quot;+&quot; key on the keyboard.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;#&quot;</code></td>
+<td align="left">The &quot;#&quot; key on an Android keyboard.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;;&quot;</code></td>
+<td align="left">The &quot;;&quot; and &quot;:&quot; key on the keyboard.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;,&quot;</code></td>
+<td align="left">The &quot;,&quot; and &quot;&lt;&quot; key on the keyboard.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;break&quot;</code></td>
+<td align="left">The &quot;break&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;capsLock&quot;</code></td>
+<td align="left">The &quot;Caps Lock&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;clear&quot;</code></td>
+<td align="left">The number pad's &quot;Clear&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;deleteBack&quot;</code></td>
+<td align="left">The &quot;Backspace&quot; key on a Windows keyboard or &quot;Delete&quot; key on an Apple keyboard.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;deleteForward&quot;</code></td>
+<td align="left">The &quot;Delete&quot; key on a Windows keyboard or &quot;Delete Forward&quot; key on an Apple keyboard.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;end&quot;</code></td>
+<td align="left">The &quot;end&quot; key on a keyboard.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;enter&quot;</code></td>
+<td align="left">The &quot;Enter&quot; or &quot;Return&quot; key on a keyboard.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;escape&quot;</code></td>
+<td align="left">The &quot;escape&quot; or &quot;esc&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;headsetHook&quot;</code></td>
+<td align="left">The button on a headset earpiece (typically used to mute/unmute).</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;insert&quot;</code></td>
+<td align="left">The &quot;insert&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;home&quot;</code></td>
+<td align="left">The &quot;home&quot; key on a keyboard (this is not the &quot;Home&quot; button on an Android device).</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;pageUp&quot;</code></td>
+<td align="left">The &quot;page up&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;pageDown&quot;</code></td>
+<td align="left">The &quot;page down&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;printScreen&quot;</code></td>
+<td align="left">The &quot;Print Screen&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;scrollLock&quot;</code></td>
+<td align="left">The &quot;Scroll Lock&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;space&quot;</code></td>
+<td align="left">The space bar.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;tab&quot;</code></td>
+<td align="left">The &quot;tab&quot; key.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;zoomIn&quot;</code></td>
+<td align="left">The &quot;zoom-in&quot; key.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;zoomOut&quot;</code></td>
+<td align="left">The &quot;zoom-out&quot; key.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="unknown-keys" class="section level3">
+<h3>Unknown Keys</h3>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">keyName</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;unknown&quot;</code></td>
+<td align="left">The key name used if Corona is unable to recognize the received key code. In this case, you can only identify the key by its <a href="../../../api/event/key/nativeKeyCode.html">event.nativeKeyCode</a> value.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.event.key.keyName&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

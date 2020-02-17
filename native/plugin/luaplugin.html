@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Corona Native | Plugins | Creating Lua Plugins</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#creating-lua-plugins">Creating Lua Plugins</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#creating-a-plugin">Creating a Plugin</a></li>
+<li><a href="#modifying-the-plugin">Modifying the Plugin</a><ul>
+<li><a href="#metadata.json">metadata.json</a></li>
+<li><a href="#test-files">Test Files</a></li>
+</ul></li>
+<li><a href="#plugin-code">Plugin Code</a></li>
+<li><a href="#plugin-submission">Plugin Submission</a><ul>
+<li><a href="#device-testing">Device Testing</a></li>
+<li><a href="#documentation-sample">Documentation / Sample</a></li>
+<li><a href="#plugin-packaging">Plugin Packaging</a></li>
+<li><a href="#submission">Submission</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../native/index.html">Corona Native</a>  ▸  <a href="../../native/plugin/index.html">Plugins</a>  ▸  <a href="../../native/plugin/luaplugin.html">Creating Lua Plugins</a>
+</div>
+<div id="creating-lua-plugins" class="section level1">
+<h1>Creating Lua Plugins</h1>
+<p>This guide outlines how to create a Lua plugin and package it for submission to the <a href="https://marketplace.coronalabs.com/">Corona Marketplace</a>.</p>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>If you are new to the concept of plugins and how to create them, please see our <a href="../../native/plugin/index.html">Plugins</a> guide.</p>
+</div>
+</div>
+<div class="guides-toc">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#create">Creating a Plugin</a></li>
+<li><a href="#modify">Modifying the Plugin</a></li>
+<li><a href="#plugin-code">Plugin Code</a></li>
+<li><a href="#submission">Plugin Submission</a></li>
+</ul>
+</div>
+<p><a id="overview"></a></p>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>In simple terms, a <strong>Lua plugin</strong> is nothing more than a module or series of modules that provide the end user with a set of methods (functions) and properties (variables) that can be called to execute the code you're providing. However, instead of sharing the code publicly via GitHub, your own website, or similar, you can deploy your Lua modules in a binary form and effectively protect your Intellectual Property (IP).</p>
+<p><a id="create"></a></p>
+</div>
+<div id="creating-a-plugin" class="section level2">
+<h2>Creating a Plugin</h2>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>As the foundation for this guide, please use our <a href="https://github.com/coronalabs/plugins-template-library-lua">project template</a> which contains the basic required files. You can either download it as a <code>.zip</code> file and unzip it, or you can use the GitHub application and clone it to your system.</p>
+</div>
+</div>
+<p>To create a new Lua plugin, we have provided helper scripts which perform the necessary file renaming and string replacements for both macOS and Windows:</p>
+<div class="docs-tip-outer" style="background-color: #a5aec9; width: 100%;">
+<div class="docs-tip-inner-left">
+<div class="fa fa-apple" style="font-size: 36px; margin-left: 1px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>In the Terminal application (<code>~/Applications/Utilities/Terminal)</code>, run the <code>create_project.sh</code> script, first changing directory (<code>cd</code>) to the project template folder, then specifying the path to the <strong>new</strong> project folder along with the plugin name in place of <code>PLUGIN_NAME</code>:</p>
+<pre class="brush: lua;">cd /path/to/template/
+./create_project.sh /path/to/new/project/ PLUGIN_NAME</pre>
+</div>
+</div>
+<div class="docs-tip-outer" style="width: 100%;">
+<div class="docs-tip-inner-left">
+<div class="fa fa-windows" style="font-size: 31px; margin-left: 0px; margin-top: 2px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>From the Command Prompt, run the <code>create_project.bat</code> script, first changing directory (<code>cd</code>) to the project template folder, then specifying the path to the <strong>new</strong> project folder along with the plugin name in place of <code>PLUGIN_NAME</code>:</p>
+<pre class="brush: lua;">cd \path\to\template\
+create_project.bat \path\to\new\project\ PLUGIN_NAME</pre>
+</div>
+</div>
+<p>Assuming you successfully executed the script as outlined above, your new plugin folder should contain the following file and folder hierarchy:</p>
+<div class="tree">
+<ul>
+<li><code>bin/</code> — Core binaries required by the build process.</li>
+<li><code>build.bat</code> — Script which compiles and packages the plugin for distribution using Windows.</li>
+<li><code>build.sh</code> — Script which compiles and packages the plugin for distribution using a Mac.</li>
+<li><code>lua/</code> 
+<ul>
+<li><code>build.settings</code> </li>
+<li><code>config.lua</code> </li>
+<li><code>main.lua</code> </li>
+<li><code>plugin/</code> 
+<ul>
+<li><code>PLUGIN_NAME/</code> 
+<ul>
+<li><code>defaults.lua</code> — Example helper file for <code>PLUGIN_NAME.lua</code>.</li>
+</ul></li>
+<li><code>PLUGIN_NAME.lua</code> — This is a sample library implementation which saves/loads a table using JSON.</li>
+</ul></li>
+</ul></li>
+<li><code>metadata.json</code> — See <a href="#modify">Modifying the Plugin</a> as follows.</li>
+</ul>
+</div>
+<p><a id="modify"></a></p>
+</div>
+<div id="modifying-the-plugin" class="section level2">
+<h2>Modifying the Plugin</h2>
+<p>There are some essential parts of the project folder that you must modify:</p>
+<div id="metadata.json" class="section level3">
+<h3>metadata.json</h3>
+<p>First, edit the <code>metadata.json</code> file which contains information about your plugin. The base (unmodified) file looks like this:</p>
+<pre class="brush: lua;">{
+    "contact": "PUBLISHER_CONTACT@PUBLISHER_URL",
+    "url": "http://PUBLISHER_URL",
+    "pluginName": "plugin.myLuaPlugin",
+    "publisherId": "REVERSE_PUBLISHER_URL"
+}</pre>
+<p>To customize your plugin, you'll need to edit the following aspects:</p>
+<div class="inner-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Key</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;contact&quot;</code></td>
+<td align="left">In place of <code>PUBLISHER_CONTACT@PUBLISHER_URL</code>, specify your contact email address.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;url&quot;</code></td>
+<td align="left">In place of <code>http://PUBLISHER_URL</code>, specify your website URL.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;pluginName&quot;</code></td>
+<td align="left">In place of <code>plugin.myLuaPlugin</code>, indicate a suitable name for your plugin. This will be the name which Corona developers use to include the plugin within their project's <code>build.settings</code> and <code>require()</code> it within their project code.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;publisherId&quot;</code></td>
+<td align="left">In place of <code>REVERSE_PUBLISHER_URL</code>, specify a publisher URL in <nobr>reverse-domain</nobr> format, for example <code>com.mydomain</code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="test-files" class="section level3">
+<h3>Test Files</h3>
+<p>Next, open up the <code>lua</code> folder. The three files <code>build.settings</code>, <code>config.lua</code>, and <code>main.lua</code> are your test harness files. In these files, you should provide the necessary code which behaves like a sample app and facilitates testing of the plugin code — in other words, these files will allow end users to &quot;run&quot; the plugin code outlined in the following section.</p>
+<p><a id="plugin-code"></a></p>
+</div>
+</div>
+<div id="plugin-code" class="section level2">
+<h2>Plugin Code</h2>
+<p>Inside the <code>lua</code> folder is another folder called <code>plugin</code>. This is where you should include the actual plugin code. As outlined in <a href="#create">Creating a Plugin</a> above, there will be a Lua <strong>file</strong> with the name of your plugin, for example <code>myLuaPlugin.lua</code>,</p>
+<p>Essentially, your Lua plugin should be created using the <a href="../../api/type/CoronaLibrary/index.html">CoronaLibrary</a> class. Here's how a plugin called <code>plugin.myLuaPlugin</code> might look:</p>
+<pre class="brush: lua;">-- Create library
+local Library = require( "CoronaLibrary" )
+local lib = Library:new{ name = "plugin.myLuaPlugin", publisherId = "com.mydomain" }
+
+-- Create a function for the library
+lib.doSomething = function()
+    print( "I did something!" )
+end
+
+-- Return "lib"
+return lib</pre>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>It's very important that you update the <code>Library:new{}</code> command using the same information that you used for the plugin <code>metadata.json</code> file, in this case both the <code>name</code> key and <code>publisherId</code> key:</p>
+<pre class="brush: lua; gutter: false; highlight: [3]; first-line: 1;">-- Create library
+local Library = require( "CoronaLibrary" )
+local lib = Library:new{ name = "plugin.myLuaPlugin", publisherId = "com.mydomain" }</pre>
+</div>
+</div>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>The <code>lua/plugin</code> folder also contains an additional <strong>folder</strong> named according to your plugin, for instance <code>myLuaPlugin</code>. This folder contains a file named <code>defaults.lua</code>, but this file isn't necessarily required — it's merely an example used by the project template. Essentially, this folder can contain various Lua files of your choosing, for instance &quot;support&quot; modules that are <nobr><code>require()</code>-d</nobr> by the <code>myLuaPlugin.lua</code> file.</p>
+</div>
+</div>
+<p><a id="submission"></a></p>
+</div>
+<div id="plugin-submission" class="section level2">
+<h2>Plugin Submission</h2>
+<p>If you'd like to <a href="https://marketplace.coronalabs.com/product-submit">submit a plugin</a> for availability in the <a href="https://marketplace.coronalabs.com/">Corona Marketplace</a>, there are a few more steps you must complete:</p>
+<div id="device-testing" class="section level3">
+<h3>Device Testing</h3>
+<p>Using the <code>main.lua</code> file in the <code>lua</code> folder, you should build a basic sample app which exhibits the plugin and its features in action. Within that <code>main.lua</code> file, load the plugin just like you would any other Lua module:</p>
+<pre class="brush: lua;">local myLuaPlugin = require( "plugin.myLuaPlugin" )</pre>
+<p>Because the plugin code is in the <code>plugin</code> folder, your plugin will be accessible in the same manner as native Corona plugins.</p>
+<p>Finally, you should ensure that your code executes on both iOS and Android devices, since Lua plugins are intended to be <nobr>cross-platform</nobr> compatible. Verify that your plugin successfully compiles for devices and be aware of potential performance issues on <nobr>low-end</nobr> devices.</p>
+</div>
+<div id="documentation-sample" class="section level3">
+<h3>Documentation / Sample</h3>
+<p>You should prepare clear and complete documentation for your plugin so that users understand exactly how to use it. You can host this documentation on your own website, on GitHub, etc. In addition, you should offer users a basic sample project to easily test your plugin. This project can be shared/distributed via whatever method is best for you.</p>
+</div>
+<div id="plugin-packaging" class="section level3">
+<h3>Plugin Packaging</h3>
+<p>Before submitting your plugin, you should <strong>package</strong> it, following a specific structure. Corona Labs offers scripts which perform this process for you:</p>
+<div class="docs-tip-outer" style="background-color: #a5aec9; width: 100%;">
+<div class="docs-tip-inner-left">
+<div class="fa fa-apple" style="font-size: 36px; margin-left: 1px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>In the Terminal application, run the <code>build.sh</code> script, first changing directory (<code>cd</code>) to the plugin's folder:</p>
+<pre class="brush: lua;">cd /path/to/new/project/
+./build.sh</pre>
+</div>
+</div>
+<div class="docs-tip-outer" style="width: 100%;">
+<div class="docs-tip-inner-left">
+<div class="fa fa-windows" style="font-size: 31px; margin-left: 0px; margin-top: 2px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>From the Command Prompt, run the <code>build.bat</code> script, first changing directory (<code>cd</code>) to the plugin's folder:</p>
+<pre class="brush: lua;">cd \path\to\new\project\
+build.bat</pre>
+</div>
+</div>
+<p>This process converts your code into bytecode and prepares it for submission to the <a href="https://marketplace.coronalabs.com/">Corona Marketplace</a>. When complete, you will see a <nobr><code>plugin-PLUGIN_NAME.zip</code></nobr> file in your project directory.</p>
+</div>
+<div id="submission" class="section level3">
+<h3>Submission</h3>
+<p>Once your plugin is packaged and complete, with hosted documentation and at least one sample, you can <a href="https://marketplace.coronalabs.com/product-submit">submit</a> it Corona Labs. We will then contact you and personally help you through the process of uploading the plugin to our distribution servers and offering it to Corona developers via the <a href="https://marketplace.coronalabs.com/">Corona Marketplace</a>.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=native.plugin.luaplugin&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

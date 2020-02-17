@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — CoronaCards | Windows Phone 8 | communication</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#coronacards-windowsphone8">CoronaCards — Windows Phone 8</a><ul>
+<li><a href="#lua.net-communication">Lua/.NET Communication</a></li>
+<li><a href="#c-to-lua">C# to Lua</a></li>
+<li><a href="#lua-to-c">Lua to C#</a></li>
+<li><a href="#class-framework">Class Framework</a></li>
+<li><a href="#section"></a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../coronacards/index.html">CoronaCards</a>  ▸  <a href="../../coronacards/wp8/index.html">Windows Phone 8</a>  ▸  <a href="../../coronacards/wp8/communication.html">communication</a>
+</div>
+<div id="coronacards-windowsphone8" class="section level1">
+<h1>CoronaCards — Windows Phone 8</h1>
+<div id="lua.net-communication" class="section level2">
+<h2>Lua/.NET Communication</h2>
+<p>Interop communication between the Lua environment and the .NET <nobr>(C# or Visual Basic)</nobr> or C++/CX component environments is performed via Corona Runtime events. When a <code>CoronaPanel</code> XAML control loads a Corona project, it raises a &quot;Loaded&quot; event which provides a new instance of the <code>CoronaRuntimeEnvironment</code> class. This instance represents the loaded Lua environment of your project and, using this object, you can listen for and dispatch Corona Runtime events in Lua.</p>
+</div>
+<div id="c-to-lua" class="section level2">
+<h2>C# to Lua</h2>
+<p>The following example illustrates C# requesting Lua to sum two numbers and return the result back to C#. This is accomplished by having C# dispatch an event to Lua named <code>&quot;requestingSum&quot;</code> with two number properties. This is received by a Lua listener which then returns the sum back to C#.</p>
+<pre class="brush: lua;">// [C#]
+
+/// &lt;summary>Constructor. Initializes member variables and the user interface.&lt;/summary>
+public MainPage()
+{
+    // Initialize this page's components that were set up via the UI designer.
+    InitializeComponents();
+
+    // Set up Corona to automatically start up when the control's Loaded event has been raised.
+    fCoronaPanel.AutoLaunchEnabled = true;
+
+    // Add a Corona event handler which detects when the Corona project has been started.
+    fCoronaPanel.Runtime.Started += OnCoronaRuntimeStarted;
+}
+
+/// &lt;summary>Called when the Corona runtime has started and finished loaded the "main.lua" file.&lt;/summary>
+/// &lt;param name="sender">The CoronaRuntime object that raised this event.&lt;/param>
+/// &lt;param name="e">Event arguments providing the CoronaRuntimeEnvironment that has been started.&lt;/param>
+private void OnCoronaRuntimeStarted(object sender, CoronaLabs.Corona.WinRT.CoronaRuntimeEventArgs e)
+{
+    // Create a custom Corona event named "requestingSum" with the following properties.
+    // This will be converted into a Lua "event" table once dispatched by Corona.
+    var eventProperties = CoronaLabs.Corona.WinRT.CoronaLuaEventProperties.CreateWithName("requestingSum");
+    eventProperties.Set("x", 5);
+    eventProperties.Set("y", 10);
+    eventProperties.Set("message", "Hello. Can you add these 2 numbers please?");
+
+    // Dispatch the event to Lua.
+    var eventArgs = new CoronaLabs.Corona.WinRT.CoronaLuaEventArgs(eventProperties);
+    var result = e.CoronaRuntimeEnvironment.DispatchEvent(eventArgs);
+
+    // Check if a number was returned from the Lua listener.
+    var boxedNumber = result.ReturnedValue as CoronaLabs.Corona.WinRT.CoronaBoxedNumber;
+    if (boxedNumber != null)
+    {
+        // A number was returned from Lua. Fetch it.
+        double sum = boxedNumber.Value;
+    }
+}</pre>
+<pre class="brush: lua;">-- [Lua]
+
+-- Called when a Corona event named "requestingSum" has been dispatched
+local function onRequestingSum( event )
+    -- Print event property "message" to Visual Studio's Output Panel
+    print( event.message )
+
+    -- Sum event properties "x" and "y" and return the result back to C#
+    return event.x + event.y
+end
+
+-- Set up the above function to be called when an event named "requestingSum" has been dispatched
+Runtime:addEventListener( "requestingSum", onRequestingSum )</pre>
+</div>
+<div id="lua-to-c" class="section level2">
+<h2>Lua to C#</h2>
+<p>The following example illustrates Lua requesting C# to display a native message box by dispatching a <code>&quot;requestingMessageBox&quot;</code> event. The C# side of the app sets up the Corona event listener when the Corona Runtime has been loaded — this is the best time to add Corona Runtime event listeners because the &quot;Loaded&quot; event is raised in C# before <code>main.lua</code> is executed.</p>
+<pre class="brush: lua;">// [C#]
+
+/// &lt;summary>Constructor. Initializes member variables and the user interface.&lt;/summary>
+public MainPage()
+{
+    // Initialize this page's components that were set up via the UI designer.
+    InitializeComponents();
+
+    // Set up Corona to automatically start up when the control's Loaded event has been raised.
+    fCoronaPanel.AutoLaunchEnabled = true;
+
+    // Add a Corona event handler which detects when the Corona project has been loaded, but not started yet.
+    fCoronaPanel.Runtime.Loaded += OnCoronaRuntimeLoaded;
+}
+
+/// &lt;summary>
+///  Called when a new CoronaRuntimeEnvironment has been created/loaded,
+///  but before the "main.lua" has been executed.
+/// &lt;/summary>
+/// &lt;param name="sender">The CoronaRuntime object that raised this event.&lt;/param>
+/// &lt;param name="e">Event arguments providing the CoronaRuntimeEnvironment that has been created/loaded.&lt;/param>
+private void OnCoronaRuntimeLoaded(object sender, CoronaLabs.Corona.WinRT.CoronaRuntimeEventArgs e)
+{
+    // Set up C# method OnRequestingMessageBox() to be invoked when Corona runtime event
+    // "requestingMessageBox" has been dispatched.
+    e.CoronaRuntimeEnvironment.AddEventListener("requestingMessageBox", OnRequestingMessageBox);
+}
+
+/// &lt;summary>Called when Corona runtime event "requestingMessageBox" has been dispatched.&lt;/summary>
+/// &lt;param name="sender">The CoronaRuntimeEnvironment that dispatched the event.&lt;/param>
+/// &lt;param name="e">Provides the Lua event table's fields/properties.&lt;/param>
+private CoronaLabs.Corona.WinRT.ICoronaBoxedData OnRequestingMessageBox(
+    CoronaLabs.Corona.WinRT.CoronaRuntimeEnvironment sender,
+    CoronaLabs.Corona.WinRT.CoronaLuaEventArgs e)
+{
+    // Fetch the "event.message" property.
+    var boxedMessage = e.Properties.Get("message") as CoronaLabs.Corona.WinRT.CoronaBoxedString;
+    if (boxedMessage == null)
+    {
+        // A "message" property was not provided or it was not of type string.
+        // Return an error message to Lua describing what went wrong.
+        return CoronaLabs.Corona.WinRT.CoronaBoxedString.From("'event.message' is a required field.");
+    }
+
+    // Display a native message box with the given string.
+    System.Windows.MessageBox.Show(boxedMessage.ToString());
+
+    // Return a success message to Lua.
+    return CoronaLabs.Corona.WinRT.CoronaBoxedString.From("Message box was displayed successfully!");
+}</pre>
+<pre class="brush: lua;">-- [Lua]
+
+-- Dispatch an event named "requestingMessageBox" to be received by C#
+local requestingMessageBoxEvent =
+{
+    name = "requestingMessageBox",
+    message = "Hello World!"
+}
+local result = Runtime:dispatchEvent( requestingMessageBoxEvent )
+
+-- Print the message returned by C#
+print( tostring(result) )</pre>
+</div>
+<div id="class-framework" class="section level2">
+<h2>Class Framework</h2>
+<p>Documentation for the Corona .NET/C++/CX class framework can be found <a href="../../native/wp8/html/index.html">here</a>.</p>
+</div>
+<div id="section" class="section level2">
+<h2></h2>
+<div class="walkthrough-nav">
+<p><strong>⟨</strong> <a href="../../coronacards/wp8/index.html">Guide Index</a></p>
+</div>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=coronacards.wp8.communication&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

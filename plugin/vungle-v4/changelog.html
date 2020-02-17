@@ -1,0 +1,939 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | Vungle 4 | changelog</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#changelog">Changelog</a><ul>
+<li><a href="#vlad-svoka">2019-07-12 Vlad Svoka</a></li>
+<li><a href="#brent-sorrentino">2017-07-20 Brent Sorrentino</a></li>
+<li><a href="#sean-head">2017-07-20 sean head</a></li>
+<li><a href="#andrey-kosyakov">2017-06-05 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-1">2017-06-05 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-2">2017-06-05 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-3">2017-06-05 Andrey Kosyakov</a></li>
+<li><a href="#anna-cho">2017-05-31 Anna Cho</a></li>
+<li><a href="#anna-cho-1">2017-05-25 Anna Cho</a></li>
+<li><a href="#anna-cho-2">2017-05-19 Anna Cho</a></li>
+<li><a href="#andrey-kosyakov-4">2017-05-17 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-5">2017-05-05 Andrey Kosyakov</a></li>
+<li><a href="#brent-sorrentino-1">2017-03-28 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-2">2017-03-14 Brent Sorrentino</a></li>
+<li><a href="#andrey-kosyakov-6">2017-03-01 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-7">2017-03-01 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-8">2017-03-01 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-9">2017-02-16 Andrey Kosyakov</a></li>
+<li><a href="#brent-sorrentino-3">2017-02-13 Brent Sorrentino</a></li>
+<li><a href="#andrey-kosyakov-10">2016-12-02 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-11">2016-11-01 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-12">2016-10-19 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-13">2016-09-29 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-14">2016-08-19 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-15">2016-08-18 Andrey Kosyakov</a></li>
+<li><a href="#michael-wallar">2016-08-12 Michael Wallar</a></li>
+<li><a href="#andrey-kosyakov-16">2016-08-12 Andrey Kosyakov</a></li>
+<li><a href="#sergey-korotkov">2016-05-24 Sergey Korotkov</a></li>
+<li><a href="#sergey-korotkov-1">2016-05-24 Sergey Korotkov</a></li>
+<li><a href="#sergey-korotkov-2">2016-05-24 Sergey Korotkov</a></li>
+<li><a href="#sergey-korotkov-3">2016-05-24 Sergey Korotkov</a></li>
+<li><a href="#sergey-korotkov-4">2016-05-24 Sergey Korotkov</a></li>
+<li><a href="#sergey-korotkov-5">2016-05-24 Sergey Korotkov</a></li>
+<li><a href="#andrey-kosyakov-17">2016-05-19 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-18">2016-05-05 Andrey Kosyakov</a></li>
+<li><a href="#brent-sorrentino-4">2016-02-21 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-5">2016-02-21 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-6">2016-02-19 Brent Sorrentino</a></li>
+<li><a href="#andrey-kosyakov-19">2016-01-26 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-20">2016-01-26 Andrey Kosyakov</a></li>
+<li><a href="#brent-sorrentino-7">2016-01-26 Brent Sorrentino</a></li>
+<li><a href="#andrey-kosyakov-21">2015-10-26 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-22">2015-09-28 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-23">2015-09-25 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-24">2015-07-20 Andrey Kosyakov</a></li>
+<li><a href="#andrey-kosyakov-25">2015-07-20 Andrey Kosyakov</a></li>
+<li><a href="#brent-sorrentino-8">2015-07-02 Brent Sorrentino</a></li>
+<li><a href="#jordyn-chuhaloff">2015-04-06 jordyn chuhaloff</a></li>
+<li><a href="#brent-sorrentino-9">2015-03-04 Brent Sorrentino</a></li>
+<li><a href="#jordyn-chuhaloff-1">2015-02-20 jordyn chuhaloff</a></li>
+<li><a href="#brent-sorrentino-10">2015-01-29 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-11">2015-01-20 Brent Sorrentino</a></li>
+<li><a href="#emma-zhou">2015-01-14 Emma Zhou</a></li>
+<li><a href="#eric-chen">2015-01-13 Eric Chen</a></li>
+<li><a href="#brent-sorrentino-12">2015-01-09 Brent Sorrentino</a></li>
+<li><a href="#eric-chen-1">2014-10-13 Eric Chen</a></li>
+<li><a href="#eric-chen-2">2014-09-30 Eric Chen</a></li>
+<li><a href="#eric-chen-3">2014-09-30 Eric Chen</a></li>
+<li><a href="#brent-sorrentino-13">2014-09-23 Brent Sorrentino</a></li>
+<li><a href="#rolando-abarca">2014-09-11 rolando abarca</a></li>
+<li><a href="#brent-sorrentino-14">2014-08-27 Brent Sorrentino</a></li>
+<li><a href="#eric-chen-4">2014-08-22 Eric Chen</a></li>
+<li><a href="#rolando-abarca-1">2014-08-22 rolando abarca</a></li>
+<li><a href="#rolando-abarca-2">2014-08-19 rolando abarca</a></li>
+<li><a href="#danny-chan">2014-08-05 Danny Chan</a></li>
+<li><a href="#cheneric">2014-07-17 cheneric</a></li>
+<li><a href="#cheneric-1">2014-07-16 cheneric</a></li>
+<li><a href="#cheneric-2">2014-07-16 cheneric</a></li>
+<li><a href="#rolando-abarca-3">2014-07-16 rolando abarca</a></li>
+<li><a href="#rolando-abarca-4">2014-07-16 rolando abarca</a></li>
+<li><a href="#cheneric-3">2014-07-16 cheneric</a></li>
+<li><a href="#rolando-abarca-5">2014-07-16 rolando abarca</a></li>
+<li><a href="#rolando-abarca-6">2014-07-16 rolando abarca</a></li>
+<li><a href="#rolando-abarca-7">2014-07-15 rolando abarca</a></li>
+<li><a href="#rolando-abarca-8">2014-07-07 rolando abarca</a></li>
+<li><a href="#rolando-abarca-9">2014-06-04 rolando abarca</a></li>
+<li><a href="#cheneric-4">2014-05-30 cheneric</a></li>
+<li><a href="#cheneric-5">2014-05-29 cheneric</a></li>
+<li><a href="#rolando-abarca-10">2014-05-29 rolando abarca</a></li>
+<li><a href="#rolando-abarca-11">2014-05-29 rolando abarca</a></li>
+<li><a href="#brent-sorrentino-15">2014-04-21 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-16">2014-04-09 Brent Sorrentino</a></li>
+<li><a href="#brent-sorrentino-17">2014-04-04 Brent Sorrentino</a></li>
+<li><a href="#vungle">2014-01-09 vungle</a></li>
+<li><a href="#vungle-1">2014-01-09 vungle</a></li>
+<li><a href="#bryan-smith">2013-10-29 Bryan Smith</a></li>
+<li><a href="#rolando-abarca-12">2013-09-16 rolando abarca</a></li>
+<li><a href="#rolando-abarca-13">2013-09-16 rolando abarca</a></li>
+<li><a href="#vungle-2">2013-09-05 vungle</a></li>
+<li><a href="#vungle-3">2013-09-05 vungle</a></li>
+<li><a href="#vungle-4">2013-09-05 vungle</a></li>
+<li><a href="#rolando-abarca-14">2013-09-04 rolando abarca</a></li>
+<li><a href="#rolando-abarca-15">2013-09-04 rolando abarca</a></li>
+<li><a href="#vungle-5">2013-08-02 vungle</a></li>
+<li><a href="#vungle-6">2013-08-02 vungle</a></li>
+<li><a href="#danny-chan-1">2013-07-31 Danny Chan</a></li>
+<li><a href="#danny-chan-2">2013-07-31 Danny Chan</a></li>
+<li><a href="#vungle-7">2013-07-17 vungle</a></li>
+<li><a href="#vungle-8">2013-07-17 vungle</a></li>
+<li><a href="#bryan-smith-1">2013-07-17 Bryan Smith</a></li>
+<li><a href="#vungle-9">2013-07-16 vungle</a></li>
+<li><a href="#vungle-10">2013-07-16 vungle</a></li>
+<li><a href="#vungle-11">2013-07-16 vungle</a></li>
+<li><a href="#bryan-smith-2">2013-07-15 Bryan Smith</a></li>
+<li><a href="#bryan-smith-3">2013-07-15 Bryan Smith</a></li>
+<li><a href="#bryan-smith-4">2013-07-15 Bryan Smith</a></li>
+<li><a href="#rolando-abarca-16">2013-07-15 rolando abarca</a></li>
+<li><a href="#rolando-abarca-17">2013-07-15 rolando abarca</a></li>
+<li><a href="#rolando-abarca-18">2013-07-15 rolando abarca</a></li>
+<li><a href="#perry-clarke">2013-07-12 Perry Clarke</a></li>
+<li><a href="#walter">2013-05-03 walter</a></li>
+<li><a href="#walter-1">2013-05-01 walter</a></li>
+<li><a href="#walter-2">2013-04-22 walter</a></li>
+<li><a href="#walter-3">2013-04-18 walter</a></li>
+<li><a href="#walter-4">2013-04-18 walter</a></li>
+<li><a href="#walter-5">2013-04-18 walter</a></li>
+<li><a href="#walter-6">2013-04-18 walter</a></li>
+<li><a href="#walter-7">2013-04-18 walter</a></li>
+<li><a href="#walter-8">2013-04-18 walter</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/vungle-v4/index.html">Vungle 4</a>  ▸  <a href="../../plugin/vungle-v4/changelog.html">changelog</a>
+</div>
+<div id="changelog" class="section level1">
+<h1>Changelog</h1>
+<div id="vlad-svoka" class="section level5">
+<h5>2019-07-12 Vlad Svoka</h5>
+<ul>
+<li>metadata.lua edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino" class="section level5">
+<h5>2017-07-20 Brent Sorrentino</h5>
+<ul>
+<li>Fix issues in v4 docs.</li>
+</ul>
+</div>
+<div id="sean-head" class="section level5">
+<h5>2017-07-20 sean head</h5>
+<ul>
+<li>renamed docs dir</li>
+</ul>
+</div>
+<div id="andrey-kosyakov" class="section level5">
+<h5>2017-06-05 Andrey Kosyakov</h5>
+<ul>
+<li>Merge</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-1" class="section level5">
+<h5>2017-06-05 Andrey Kosyakov</h5>
+<ul>
+<li>Android 4.1.0</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-2" class="section level5">
+<h5>2017-06-05 Andrey Kosyakov</h5>
+<ul>
+<li>Android 4.1.0</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-3" class="section level5">
+<h5>2017-06-05 Andrey Kosyakov</h5>
+<ul>
+<li>Android 4.1.0</li>
+</ul>
+</div>
+<div id="anna-cho" class="section level5">
+<h5>2017-05-31 Anna Cho</h5>
+<ul>
+<li>Adding missing comma typo</li>
+</ul>
+</div>
+<div id="anna-cho-1" class="section level5">
+<h5>2017-05-25 Anna Cho</h5>
+<ul>
+<li>reverting back WRITE permission item for Android.</li>
+</ul>
+</div>
+<div id="anna-cho-2" class="section level5">
+<h5>2017-05-19 Anna Cho</h5>
+<ul>
+<li>renaming to 3081 and moving WRITE permission to manifestChildElements.</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-4" class="section level5">
+<h5>2017-05-17 Andrey Kosyakov</h5>
+<ul>
+<li>Fix for 2017.3080</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-5" class="section level5">
+<h5>2017-05-05 Andrey Kosyakov</h5>
+<ul>
+<li>ios 4.1.0</li>
+</ul>
+</div>
+<div id="brent-sorrentino-1" class="section level5">
+<h5>2017-03-28 Brent Sorrentino</h5>
+<ul>
+<li>Minor edits.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-2" class="section level5">
+<h5>2017-03-14 Brent Sorrentino</h5>
+<ul>
+<li>show.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-6" class="section level5">
+<h5>2017-03-01 Andrey Kosyakov</h5>
+<ul>
+<li>Fix plugin</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-7" class="section level5">
+<h5>2017-03-01 Andrey Kosyakov</h5>
+<ul>
+<li>Fix plugin</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-8" class="section level5">
+<h5>2017-03-01 Andrey Kosyakov</h5>
+<ul>
+<li>Change ios compiler STL to libc++</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-9" class="section level5">
+<h5>2017-02-16 Andrey Kosyakov</h5>
+<ul>
+<li>PLUG-732 Update Android Corona Plugin - Dependency Plugins</li>
+</ul>
+</div>
+<div id="brent-sorrentino-3" class="section level5">
+<h5>2017-02-13 Brent Sorrentino</h5>
+<ul>
+<li>index.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-10" class="section level5">
+<h5>2016-12-02 Andrey Kosyakov</h5>
+<ul>
+<li>iOS 4.0.9</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-11" class="section level5">
+<h5>2016-11-01 Andrey Kosyakov</h5>
+<ul>
+<li>iOS 4.0.8</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-12" class="section level5">
+<h5>2016-10-19 Andrey Kosyakov</h5>
+<ul>
+<li>Release 2.2.11</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-13" class="section level5">
+<h5>2016-09-29 Andrey Kosyakov</h5>
+<ul>
+<li>Release ios sdk 4.0.6</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-14" class="section level5">
+<h5>2016-08-19 Andrey Kosyakov</h5>
+<ul>
+<li>Fix versions</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-15" class="section level5">
+<h5>2016-08-18 Andrey Kosyakov</h5>
+<ul>
+<li>Fix events</li>
+</ul>
+</div>
+<div id="michael-wallar" class="section level5">
+<h5>2016-08-12 Michael Wallar</h5>
+<ul>
+<li>Fix syntax errors in metadata.lua files.</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-16" class="section level5">
+<h5>2016-08-12 Andrey Kosyakov</h5>
+<ul>
+<li>Release android 4.0.2</li>
+</ul>
+</div>
+<div id="sergey-korotkov" class="section level5">
+<h5>2016-05-24 Sergey Korotkov</h5>
+<ul>
+<li>metadata.lua edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="sergey-korotkov-1" class="section level5">
+<h5>2016-05-24 Sergey Korotkov</h5>
+<ul>
+<li>metadata.lua edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="sergey-korotkov-2" class="section level5">
+<h5>2016-05-24 Sergey Korotkov</h5>
+<ul>
+<li>metadata.lua edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="sergey-korotkov-3" class="section level5">
+<h5>2016-05-24 Sergey Korotkov</h5>
+<ul>
+<li>metadata.lua edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="sergey-korotkov-4" class="section level5">
+<h5>2016-05-24 Sergey Korotkov</h5>
+<ul>
+<li>metadata.lua edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="sergey-korotkov-5" class="section level5">
+<h5>2016-05-24 Sergey Korotkov</h5>
+<ul>
+<li>metadata.lua edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-17" class="section level5">
+<h5>2016-05-19 Andrey Kosyakov</h5>
+<ul>
+<li>iOS 3.2.1</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-18" class="section level5">
+<h5>2016-05-05 Andrey Kosyakov</h5>
+<ul>
+<li>Android 3.3.5</li>
+</ul>
+</div>
+<div id="brent-sorrentino-4" class="section level5">
+<h5>2016-02-21 Brent Sorrentino</h5>
+<ul>
+<li>init.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-5" class="section level5">
+<h5>2016-02-21 Brent Sorrentino</h5>
+<ul>
+<li>index.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-6" class="section level5">
+<h5>2016-02-19 Brent Sorrentino</h5>
+<ul>
+<li>index.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-19" class="section level5">
+<h5>2016-01-26 Andrey Kosyakov</h5>
+<ul>
+<li>Merge:</li>
+</ul>
+<p>Hg: --</p>
+</div>
+<div id="andrey-kosyakov-20" class="section level5">
+<h5>2016-01-26 Andrey Kosyakov</h5>
+<ul>
+<li>Android 3.3.4</li>
+</ul>
+</div>
+<div id="brent-sorrentino-7" class="section level5">
+<h5>2016-01-26 Brent Sorrentino</h5>
+<ul>
+<li>GitHub sample URL was dead; now removed.</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-21" class="section level5">
+<h5>2015-10-26 Andrey Kosyakov</h5>
+<ul>
+<li>Android 3.3.3</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-22" class="section level5">
+<h5>2015-09-28 Andrey Kosyakov</h5>
+<ul>
+<li>Fix WebKit</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-23" class="section level5">
+<h5>2015-09-25 Andrey Kosyakov</h5>
+<ul>
+<li>iOS 3.2.0 Android 3.3.2</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-24" class="section level5">
+<h5>2015-07-20 Andrey Kosyakov</h5>
+<ul>
+<li>Fix images</li>
+</ul>
+</div>
+<div id="andrey-kosyakov-25" class="section level5">
+<h5>2015-07-20 Andrey Kosyakov</h5>
+<ul>
+<li>IOS 3.1.2 Android 3.3.1</li>
+</ul>
+</div>
+<div id="brent-sorrentino-8" class="section level5">
+<h5>2015-07-02 Brent Sorrentino</h5>
+<ul>
+<li>show.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="jordyn-chuhaloff" class="section level5">
+<h5>2015-04-06 jordyn chuhaloff</h5>
+<ul>
+<li>updating sample app link</li>
+</ul>
+</div>
+<div id="brent-sorrentino-9" class="section level5">
+<h5>2015-03-04 Brent Sorrentino</h5>
+<ul>
+<li>index.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="jordyn-chuhaloff-1" class="section level5">
+<h5>2015-02-20 jordyn chuhaloff</h5>
+<ul>
+<li>new plugin version</li>
+</ul>
+</div>
+<div id="brent-sorrentino-10" class="section level5">
+<h5>2015-01-29 Brent Sorrentino</h5>
+<ul>
+<li>index.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="brent-sorrentino-11" class="section level5">
+<h5>2015-01-20 Brent Sorrentino</h5>
+<ul>
+<li>index.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="emma-zhou" class="section level5">
+<h5>2015-01-14 Emma Zhou</h5>
+<ul>
+<li>updated iOS to version 3_0_6 (iOS SDK 3.0.11) - contains all architectures</li>
+</ul>
+</div>
+<div id="eric-chen" class="section level5">
+<h5>2015-01-13 Eric Chen</h5>
+<ul>
+<li>Jordyn fixed link to vungle-resources Corona</li>
+</ul>
+</div>
+<div id="brent-sorrentino-12" class="section level5">
+<h5>2015-01-09 Brent Sorrentino</h5>
+<ul>
+<li>index.markdown edited online with Bitbucket</li>
+</ul>
+</div>
+<div id="eric-chen-1" class="section level5">
+<h5>2014-10-13 Eric Chen</h5>
+<ul>
+<li>upgraded plugin 2.0.4 --&gt; 2.0.5 (Android 3.2.1 --&gt; 3.2.2)</li>
+</ul>
+</div>
+<div id="eric-chen-2" class="section level5">
+<h5>2014-09-30 Eric Chen</h5>
+<ul>
+<li>merged to head</li>
+</ul>
+</div>
+<div id="eric-chen-3" class="section level5">
+<h5>2014-09-30 Eric Chen</h5>
+<ul>
+<li>2014.2430+ Android release</li>
+<li>images in resources/assets</li>
+<li>added Android support-v4.jar</li>
+</ul>
+</div>
+<div id="brent-sorrentino-13" class="section level5">
+<h5>2014-09-23 Brent Sorrentino</h5>
+<ul>
+<li>Minor doc update.</li>
+</ul>
+</div>
+<div id="rolando-abarca" class="section level5">
+<h5>2014-09-11 rolando abarca</h5>
+<ul>
+<li>updates Vungle SDK</li>
+</ul>
+</div>
+<div id="brent-sorrentino-14" class="section level5">
+<h5>2014-08-27 Brent Sorrentino</h5>
+<ul>
+<li>Doc updates (index only).</li>
+</ul>
+</div>
+<div id="eric-chen-4" class="section level5">
+<h5>2014-08-22 Eric Chen</h5>
+<ul>
+<li>upgraded Android SDK from 3.1.0 --&gt; 3.2.0</li>
+</ul>
+</div>
+<div id="rolando-abarca-1" class="section level5">
+<h5>2014-08-22 rolando abarca</h5>
+<ul>
+<li>updating ios plugin to 2.0.2</li>
+</ul>
+</div>
+<div id="rolando-abarca-2" class="section level5">
+<h5>2014-08-19 rolando abarca</h5>
+<ul>
+<li>updating iOS plugin to 3.0.9</li>
+</ul>
+</div>
+<div id="danny-chan" class="section level5">
+<h5>2014-08-05 Danny Chan</h5>
+<ul>
+<li>Update docs</li>
+</ul>
+</div>
+<div id="cheneric" class="section level5">
+<h5>2014-07-17 cheneric</h5>
+<ul>
+<li>removed Android permissions from sample app build.settings</li>
+<li>unneeded as they are added by our plugin</li>
+</ul>
+</div>
+<div id="cheneric-1" class="section level5">
+<h5>2014-07-16 cheneric</h5>
+<ul>
+<li>copied changes from -beta repo (removed Google Play Services <meta-data>)</li>
+</ul>
+</div>
+<div id="cheneric-2" class="section level5">
+<h5>2014-07-16 cheneric</h5>
+<ul>
+<li>updated documentation about adding GooglePlayServices for Corona 2014.2264+</li>
+</ul>
+</div>
+<div id="rolando-abarca-3" class="section level5">
+<h5>2014-07-16 rolando abarca</h5>
+<ul>
+<li>mergeeeee</li>
+</ul>
+</div>
+<div id="rolando-abarca-4" class="section level5">
+<h5>2014-07-16 rolando abarca</h5>
+<ul>
+<li>adding new plugin version (again)</li>
+</ul>
+</div>
+<div id="cheneric-3" class="section level5">
+<h5>2014-07-16 cheneric</h5>
+<ul>
+<li>removed reference to 'isCloseShown' flag in show.markdown</li>
+</ul>
+</div>
+<div id="rolando-abarca-5" class="section level5">
+<h5>2014-07-16 rolando abarca</h5>
+<ul>
+<li>new android version</li>
+</ul>
+</div>
+<div id="rolando-abarca-6" class="section level5">
+<h5>2014-07-16 rolando abarca</h5>
+<ul>
+<li>reverting old version of the android plugin</li>
+</ul>
+</div>
+<div id="rolando-abarca-7" class="section level5">
+<h5>2014-07-15 rolando abarca</h5>
+<ul>
+<li>new sdks</li>
+</ul>
+</div>
+<div id="rolando-abarca-8" class="section level5">
+<h5>2014-07-07 rolando abarca</h5>
+<ul>
+<li>updating links to new doc</li>
+</ul>
+</div>
+<div id="rolando-abarca-9" class="section level5">
+<h5>2014-06-04 rolando abarca</h5>
+<ul>
+<li>new plugins with new version name</li>
+</ul>
+</div>
+<div id="cheneric-4" class="section level5">
+<h5>2014-05-30 cheneric</h5>
+<ul>
+<li>removed android support jar because Corona said it already includes v4, which is sufficient for us</li>
+</ul>
+</div>
+<div id="cheneric-5" class="section level5">
+<h5>2014-05-29 cheneric</h5>
+<ul>
+<li>upgraded Corona to 2.0.1 (Android 3.0.6)</li>
+</ul>
+</div>
+<div id="rolando-abarca-10" class="section level5">
+<h5>2014-05-29 rolando abarca</h5>
+<ul>
+<li>updating iOS plugin</li>
+</ul>
+</div>
+<div id="rolando-abarca-11" class="section level5">
+<h5>2014-05-29 rolando abarca</h5>
+<ul>
+<li>updating docs</li>
+</ul>
+</div>
+<div id="brent-sorrentino-15" class="section level5">
+<h5>2014-04-21 Brent Sorrentino</h5>
+<ul>
+<li>Update permissions clause.</li>
+</ul>
+</div>
+<div id="brent-sorrentino-16" class="section level5">
+<h5>2014-04-09 Brent Sorrentino</h5>
+<ul>
+<li>Add Android permissions list for Vungle</li>
+</ul>
+</div>
+<div id="brent-sorrentino-17" class="section level5">
+<h5>2014-04-04 Brent Sorrentino</h5>
+<ul>
+<li>AdMob doc edits for &quot;plugins-hosted&quot; repo.</li>
+</ul>
+</div>
+<div id="vungle" class="section level5">
+<h5>2014-01-09 vungle</h5>
+<ul>
+<li>updated Corona plugin version number from 1.1.2 to 1.1.3</li>
+</ul>
+</div>
+<div id="vungle-1" class="section level5">
+<h5>2014-01-09 vungle</h5>
+<ul>
+<li>upgraded Android SDK from v1.3.1 to 1.3.10</li>
+</ul>
+</div>
+<div id="bryan-smith" class="section level5">
+<h5>2013-10-29 Bryan Smith</h5>
+<ul>
+<li>Documentation cleanup</li>
+</ul>
+</div>
+<div id="rolando-abarca-12" class="section level5">
+<h5>2013-09-16 rolando abarca</h5>
+<ul>
+<li>merging?</li>
+</ul>
+</div>
+<div id="rolando-abarca-13" class="section level5">
+<h5>2013-09-16 rolando abarca</h5>
+<ul>
+<li>updates iOS and Android libraries</li>
+</ul>
+</div>
+<div id="vungle-2" class="section level5">
+<h5>2013-09-05 vungle</h5>
+<ul>
+<li>updated Corona plugin version to 1.1.1 in iOS libs (for Android fix to isAdAvailable())</li>
+</ul>
+</div>
+<div id="vungle-3" class="section level5">
+<h5>2013-09-05 vungle</h5>
+<ul>
+<li>trying to fix link to monetization guide with anchor tag</li>
+</ul>
+</div>
+<div id="vungle-4" class="section level5">
+<h5>2013-09-05 vungle</h5>
+<ul>
+<li>updated CoronaProvider.ads.vungle.jar to v1.1.1 which contains fix for Android isAdAvailable() bug where boolean return value was not pushed to LUA stack</li>
+</ul>
+</div>
+<div id="rolando-abarca-14" class="section level5">
+<h5>2013-09-04 rolando abarca</h5>
+<ul>
+<li>removing old android jar</li>
+</ul>
+</div>
+<div id="rolando-abarca-15" class="section level5">
+<h5>2013-09-04 rolando abarca</h5>
+<ul>
+<li>updates Vungle plugin</li>
+</ul>
+</div>
+<div id="vungle-5" class="section level5">
+<h5>2013-08-02 vungle</h5>
+<ul>
+<li>changed v.vungle.com link from http to https</li>
+</ul>
+</div>
+<div id="vungle-6" class="section level5">
+<h5>2013-08-02 vungle</h5>
+<ul>
+<li>changed anchor hashtag in link from non-existent #plugins to #ad-functions</li>
+</ul>
+</div>
+<div id="danny-chan-1" class="section level5">
+<h5>2013-07-31 Danny Chan</h5>
+<ul>
+<li>update vungle support email</li>
+</ul>
+</div>
+<div id="danny-chan-2" class="section level5">
+<h5>2013-07-31 Danny Chan</h5>
+<ul>
+<li>Update Vungle doc links</li>
+</ul>
+</div>
+<div id="vungle-7" class="section level5">
+<h5>2013-07-17 vungle</h5>
+<ul>
+<li>merged Forum link with other documentation changes</li>
+</ul>
+</div>
+<div id="vungle-8" class="section level5">
+<h5>2013-07-17 vungle</h5>
+<ul>
+<li>updated documentation; example links in documentation files other than index.markdown point to Vungle github, changed URL links to long form so they don't display in <code/> blocks</li>
+</ul>
+</div>
+<div id="bryan-smith-1" class="section level5">
+<h5>2013-07-17 Bryan Smith</h5>
+<ul>
+<li>Updating with forum</li>
+</ul>
+</div>
+<div id="vungle-9" class="section level5">
+<h5>2013-07-16 vungle</h5>
+<ul>
+<li>updated (and renamed) vungle android jar to be able to display button images in the absence of asset files</li>
+</ul>
+</div>
+<div id="vungle-10" class="section level5">
+<h5>2013-07-16 vungle</h5>
+<ul>
+<li>removed sample code local path in SDK download</li>
+</ul>
+</div>
+<div id="vungle-11" class="section level5">
+<h5>2013-07-16 vungle</h5>
+<ul>
+<li>changed sample code URL to point to Vungle github repository</li>
+</ul>
+</div>
+<div id="bryan-smith-2" class="section level5">
+<h5>2013-07-15 Bryan Smith</h5>
+<ul>
+<li>Adding zlib</li>
+</ul>
+</div>
+<div id="bryan-smith-3" class="section level5">
+<h5>2013-07-15 Bryan Smith</h5>
+<ul>
+<li>Updating meta</li>
+</ul>
+</div>
+<div id="bryan-smith-4" class="section level5">
+<h5>2013-07-15 Bryan Smith</h5>
+<ul>
+<li>Adding vungle to package script</li>
+</ul>
+</div>
+<div id="rolando-abarca-16" class="section level5">
+<h5>2013-07-15 rolando abarca</h5>
+<ul>
+<li>removing old dirs</li>
+</ul>
+</div>
+<div id="rolando-abarca-17" class="section level5">
+<h5>2013-07-15 rolando abarca</h5>
+<ul>
+<li>removing default dirs</li>
+</ul>
+</div>
+<div id="rolando-abarca-18" class="section level5">
+<h5>2013-07-15 rolando abarca</h5>
+<ul>
+<li>first submit for vungle plugin</li>
+</ul>
+</div>
+<div id="perry-clarke" class="section level5">
+<h5>2013-07-12 Perry Clarke</h5>
+<ul>
+<li>Added Corona QA checklist</li>
+</ul>
+</div>
+<div id="walter" class="section level5">
+<h5>2013-05-03 walter</h5>
+<ul>
+<li>Add missing line for Availability in index.markdown</li>
+</ul>
+</div>
+<div id="walter-1" class="section level5">
+<h5>2013-05-01 walter</h5>
+<ul>
+<li>Fix: plugins/ folder needs a VERSION/ subdir</li>
+</ul>
+</div>
+<div id="walter-2" class="section level5">
+<h5>2013-04-22 walter</h5>
+<ul>
+<li>Clean up/clarify replacement strings</li>
+</ul>
+</div>
+<div id="walter-3" class="section level5">
+<h5>2013-04-18 walter</h5>
+<ul>
+<li>Add missing info on per-plugin metadata.lua files for device</li>
+</ul>
+</div>
+<div id="walter-4" class="section level5">
+<h5>2013-04-18 walter</h5>
+<ul>
+<li>Fix typo</li>
+</ul>
+</div>
+<div id="walter-5" class="section level5">
+<h5>2013-04-18 walter</h5>
+<ul>
+<li>Clarification</li>
+</ul>
+</div>
+<div id="walter-6" class="section level5">
+<h5>2013-04-18 walter</h5>
+<ul>
+<li>Update readme for metadata.json</li>
+</ul>
+</div>
+<div id="walter-7" class="section level5">
+<h5>2013-04-18 walter</h5>
+<ul>
+<li>Add metadata.json file</li>
+</ul>
+</div>
+<div id="walter-8" class="section level5">
+<h5>2013-04-18 walter</h5>
+<ul>
+<li>Inital checkin</li>
+</ul>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.vungle-v4.changelog&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Plugins | Steamworks | userInfoUpdate</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../../guide/index.html">Guides</a></li>
+<li><a href="../../../../api/index.html">API Reference</a></li>
+<li><a href="../../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#userinfoupdate">userInfoUpdate</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#properties">Properties</a><ul>
+<li><a href="#event.facebookinfochangedplugin.steamworks.event.userinfoupdate.facebookinfochanged"><a href="../../../../plugin/steamworks/event/userInfoUpdate/facebookInfoChanged.html">event.facebookInfoChanged</a></a></li>
+<li><a href="#event.largeavatarchangedplugin.steamworks.event.userinfoupdate.largeavatarchanged"><a href="../../../../plugin/steamworks/event/userInfoUpdate/largeAvatarChanged.html">event.largeAvatarChanged</a></a></li>
+<li><a href="#event.mediumavatarchangedplugin.steamworks.event.userinfoupdate.mediumavatarchanged"><a href="../../../../plugin/steamworks/event/userInfoUpdate/mediumAvatarChanged.html">event.mediumAvatarChanged</a></a></li>
+<li><a href="#event.nameplugin.steamworks.event.userinfoupdate.name"><a href="../../../../plugin/steamworks/event/userInfoUpdate/name.html">event.name</a></a></li>
+<li><a href="#event.namechangedplugin.steamworks.event.userinfoupdate.namechanged"><a href="../../../../plugin/steamworks/event/userInfoUpdate/nameChanged.html">event.nameChanged</a></a></li>
+<li><a href="#event.nicknamechangedplugin.steamworks.event.userinfoupdate.nicknamechanged"><a href="../../../../plugin/steamworks/event/userInfoUpdate/nicknameChanged.html">event.nicknameChanged</a></a></li>
+<li><a href="#event.relationshipchangedplugin.steamworks.event.userinfoupdate.relationshipchanged"><a href="../../../../plugin/steamworks/event/userInfoUpdate/relationshipChanged.html">event.relationshipChanged</a></a></li>
+<li><a href="#event.smallavatarchangedplugin.steamworks.event.userinfoupdate.smallavatarchanged"><a href="../../../../plugin/steamworks/event/userInfoUpdate/smallAvatarChanged.html">event.smallAvatarChanged</a></a></li>
+<li><a href="#event.statuschangedplugin.steamworks.event.userinfoupdate.statuschanged"><a href="../../../../plugin/steamworks/event/userInfoUpdate/statusChanged.html">event.statusChanged</a></a></li>
+<li><a href="#event.steamlevelchangedplugin.steamworks.event.userinfoupdate.steamlevelchanged"><a href="../../../../plugin/steamworks/event/userInfoUpdate/steamLevelChanged.html">event.steamLevelChanged</a></a></li>
+<li><a href="#event.usersteamidplugin.steamworks.event.userinfoupdate.usersteamid"><a href="../../../../plugin/steamworks/event/userInfoUpdate/userSteamId.html">event.userSteamId</a></a></li>
+</ul></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../../plugin/index.html">Plugins</a>  ▸  <a href="../../../../plugin/steamworks/index.html">Steamworks</a>  ▸  <a href="../../../../plugin/steamworks/event/userInfoUpdate/index.html">userInfoUpdate</a>
+</div>
+<div id="userinfoupdate" class="section level1">
+<h1>userInfoUpdate</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left">[Event][api.type.event]</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">steam, steamworks, userInfoUpdate</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../../plugin/steamworks/addEventListener.html">steamworks.addEventListener()</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../../plugin/steamworks/index.html">steamworks.*</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>This event occurs when new information has been received for one user. This event also provides flags indicating which aspect of the user's information has changed during gameplay.</p>
+<p>When calling the <a href="../../../../plugin/steamworks/requestLeaderboardEntries.html">steamworks.requestLeaderboardEntries()</a> function, Steam will automatically fetch user information and dispatch these events for each requested entry. This way, user information for each leaderboard entry will be immediately available to you by calling the <a href="../../../../plugin/steamworks/getUserInfo.html">steamworks.getUserInfo()</a> function.</p>
+<p>Also, if you call the <a href="../../../../plugin/steamworks/getUserInfo.html">steamworks.getUserInfo()</a> function and it returns <code>nil</code>, Steam will automatically fetch that user's information asynchronously — assuming it was given a valid user ID — and dispatch this event when that information becomes available. After receiving this event, you can call the <a href="../../../../plugin/steamworks/getUserInfo.html">steamworks.getUserInfo()</a> function again to acquire that user's information.</p>
+<p>You can receive these events by adding a <a href="../../../../api/type/Listener.html">listener</a> to the plugin via the <a href="../../../../plugin/steamworks/addEventListener.html">steamworks.addEventListener()</a> function.</p>
+</div>
+<div id="properties" class="section level2">
+<h2>Properties</h2>
+<div id="event.facebookinfochangedplugin.steamworks.event.userinfoupdate.facebookinfochanged" class="section level4">
+<h4><a href="../../../../plugin/steamworks/event/userInfoUpdate/facebookInfoChanged.html">event.facebookInfoChanged</a></h4>
+</div>
+<div id="event.largeavatarchangedplugin.steamworks.event.userinfoupdate.largeavatarchanged" class="section level4">
+<h4><a href="../../../../plugin/steamworks/event/userInfoUpdate/largeAvatarChanged.html">event.largeAvatarChanged</a></h4>
+</div>
+<div id="event.mediumavatarchangedplugin.steamworks.event.userinfoupdate.mediumavatarchanged" class="section level4">
+<h4><a href="../../../../plugin/steamworks/event/userInfoUpdate/mediumAvatarChanged.html">event.mediumAvatarChanged</a></h4>
+</div>
+<div id="event.nameplugin.steamworks.event.userinfoupdate.name" class="section level4">
+<h4><a href="../../../../plugin/steamworks/event/userInfoUpdate/name.html">event.name</a></h4>
+</div>
+<div id="event.namechangedplugin.steamworks.event.userinfoupdate.namechanged" class="section level4">
+<h4><a href="../../../../plugin/steamworks/event/userInfoUpdate/nameChanged.html">event.nameChanged</a></h4>
+</div>
+<div id="event.nicknamechangedplugin.steamworks.event.userinfoupdate.nicknamechanged" class="section level4">
+<h4><a href="../../../../plugin/steamworks/event/userInfoUpdate/nicknameChanged.html">event.nicknameChanged</a></h4>
+</div>
+<div id="event.relationshipchangedplugin.steamworks.event.userinfoupdate.relationshipchanged" class="section level4">
+<h4><a href="../../../../plugin/steamworks/event/userInfoUpdate/relationshipChanged.html">event.relationshipChanged</a></h4>
+</div>
+<div id="event.smallavatarchangedplugin.steamworks.event.userinfoupdate.smallavatarchanged" class="section level4">
+<h4><a href="../../../../plugin/steamworks/event/userInfoUpdate/smallAvatarChanged.html">event.smallAvatarChanged</a></h4>
+</div>
+<div id="event.statuschangedplugin.steamworks.event.userinfoupdate.statuschanged" class="section level4">
+<h4><a href="../../../../plugin/steamworks/event/userInfoUpdate/statusChanged.html">event.statusChanged</a></h4>
+</div>
+<div id="event.steamlevelchangedplugin.steamworks.event.userinfoupdate.steamlevelchanged" class="section level4">
+<h4><a href="../../../../plugin/steamworks/event/userInfoUpdate/steamLevelChanged.html">event.steamLevelChanged</a></h4>
+</div>
+<div id="event.usersteamidplugin.steamworks.event.userinfoupdate.usersteamid" class="section level4">
+<h4><a href="../../../../plugin/steamworks/event/userInfoUpdate/userSteamId.html">event.userSteamId</a></h4>
+</div>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="brush: lua;">local steamworks = require( "plugin.steamworks" )
+
+-- Called when info about one user has been received or changed
+local function onUserInfoUpdated( event )
+    -- Print information about the user
+    local userInfo = steamworks.getUserInfo( event.userSteamId )
+    if ( userInfo ) then
+        print( "User Name: " .. userInfo.name )
+        print( "User Nickname: " .. userInfo.nickname )
+        print( "Steam Level: " .. tostring(userInfo.steamLevel) )
+        print( "Status: " .. userInfo.status )
+        print( "Relationship: " .. userInfo.relationship )
+    end
+
+    -- Print which aspects of the user info has changed
+    print( "Has Name Changed: " .. tostring(event.nameChanged) )
+    print( "Has Nickname Changed: " .. tostring(event.nicknameChanged) )
+    print( "Has Steam Level Changed: " .. tostring(event.steamLevelChanged) )
+    print( "Has Status Changed: " .. tostring(event.statusChanged) )
+    print( "Has Relationship Changed: " .. tostring(event.relationshipChanged) )
+    print( "Has Facebook Info Changed: " .. tostring(event.facebookInfoChanged) )
+    print( "Has Small Avatar Changed: " .. tostring(event.smallAvatarChanged) )
+    print( "Has Medium Avatar Changed: " .. tostring(event.mediumAvatarChanged) )
+    print( "Has Large Avatar Changed: " .. tostring(event.largeAvatarChanged) )
+end
+
+-- Set up a listener to be invoked when user info has been received or changed
+steamworks.addEventListener( "userInfoUpdate", onUserInfoUpdated )</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=plugin.steamworks.event.userInfoUpdate.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

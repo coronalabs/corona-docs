@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | type | Joint</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#joint">Joint</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#properties">Properties</a><ul>
+<li><a href="#joint.isactiveapi.type.joint.isactive"><a href="../../../api/type/Joint/isActive.html">joint.isActive</a></a></li>
+<li><a href="#joint.iscollideconnectedapi.type.joint.iscollideconnected"><a href="../../../api/type/Joint/isCollideConnected.html">joint.isCollideConnected</a></a></li>
+<li><a href="#joint.reactiontorqueapi.type.joint.reactiontorque"><a href="../../../api/type/Joint/reactionTorque.html">joint.reactionTorque</a></a></li>
+<li><a href="#distancejoint.dampingratioapi.type.joint.dampingratio"><a href="../../../api/type/Joint/dampingRatio.html">distanceJoint.dampingRatio</a></a></li>
+<li><a href="#distancejoint.frequencyapi.type.joint.frequency"><a href="../../../api/type/Joint/frequency.html">distanceJoint.frequency</a></a></li>
+<li><a href="#distancejoint.lengthapi.type.joint.length"><a href="../../../api/type/Joint/length.html">distanceJoint.length</a></a></li>
+<li><a href="#frictionjoint.maxforceapi.type.joint.maxforce"><a href="../../../api/type/Joint/maxForce.html">frictionJoint.maxForce</a></a></li>
+<li><a href="#frictionjoint.maxtorqueapi.type.joint.maxtorque"><a href="../../../api/type/Joint/maxTorque.html">frictionJoint.maxTorque</a></a></li>
+<li><a href="#gearjoint.joint1api.type.joint.joint1"><a href="../../../api/type/Joint/joint1.html">gearJoint.joint1</a></a></li>
+<li><a href="#gearjoint.joint2api.type.joint.joint2"><a href="../../../api/type/Joint/joint2.html">gearJoint.joint2</a></a></li>
+<li><a href="#gearjoint.ratioapi.type.joint.ratio"><a href="../../../api/type/Joint/ratio.html">gearJoint.ratio</a></a></li>
+<li><a href="#pistonjoint.islimitenabledapi.type.joint.islimitenabled"><a href="../../../api/type/Joint/isLimitEnabled.html">pistonJoint.isLimitEnabled</a></a></li>
+<li><a href="#pistonjoint.ismotorenabledapi.type.joint.ismotorenabled"><a href="../../../api/type/Joint/isMotorEnabled.html">pistonJoint.isMotorEnabled</a></a></li>
+<li><a href="#pistonjoint.jointspeedapi.type.joint.jointspeed"><a href="../../../api/type/Joint/jointSpeed.html">pistonJoint.jointSpeed</a></a></li>
+<li><a href="#pistonjoint.jointtranslationapi.type.joint.jointtranslation"><a href="../../../api/type/Joint/jointTranslation.html">pistonJoint.jointTranslation</a></a></li>
+<li><a href="#pistonjoint.maxmotorforceapi.type.joint.maxmotorforce"><a href="../../../api/type/Joint/maxMotorForce.html">pistonJoint.maxMotorForce</a></a></li>
+<li><a href="#pistonjoint.motorspeedapi.type.joint.motorspeed"><a href="../../../api/type/Joint/motorSpeed.html">pistonJoint.motorSpeed</a></a></li>
+<li><a href="#pistonjoint.motorforceapi.type.joint.motorforce"><a href="../../../api/type/Joint/motorForce.html">pistonJoint.motorForce</a></a></li>
+<li><a href="#pistonjoint.referenceangleapi.type.joint.referenceangle"><a href="../../../api/type/Joint/referenceAngle.html">pistonJoint.referenceAngle</a></a></li>
+<li><a href="#pivotjoint.islimitenabledapi.type.joint.islimitenabled"><a href="../../../api/type/Joint/isLimitEnabled.html">pivotJoint.isLimitEnabled</a></a></li>
+<li><a href="#pivotjoint.ismotorenabledapi.type.joint.ismotorenabled"><a href="../../../api/type/Joint/isMotorEnabled.html">pivotJoint.isMotorEnabled</a></a></li>
+<li><a href="#pivotjoint.jointangleapi.type.joint.jointangle"><a href="../../../api/type/Joint/jointAngle.html">pivotJoint.jointAngle</a></a></li>
+<li><a href="#pivotjoint.jointspeedapi.type.joint.jointspeed"><a href="../../../api/type/Joint/jointSpeed.html">pivotJoint.jointSpeed</a></a></li>
+<li><a href="#pivotjoint.maxmotortorqueapi.type.joint.maxmotortorque"><a href="../../../api/type/Joint/maxMotorTorque.html">pivotJoint.maxMotorTorque</a></a></li>
+<li><a href="#pivotjoint.motorspeedapi.type.joint.motorspeed"><a href="../../../api/type/Joint/motorSpeed.html">pivotJoint.motorSpeed</a></a></li>
+<li><a href="#pivotjoint.motortorqueapi.type.joint.motortorque"><a href="../../../api/type/Joint/motorTorque.html">pivotJoint.motorTorque</a></a></li>
+<li><a href="#pivotjoint.referenceangleapi.type.joint.referenceangle"><a href="../../../api/type/Joint/referenceAngle.html">pivotJoint.referenceAngle</a></a></li>
+<li><a href="#pulleyjoint.length1api.type.joint.length1"><a href="../../../api/type/Joint/length1.html">pulleyJoint.length1</a></a></li>
+<li><a href="#pulleyjoint.length2api.type.joint.length2"><a href="../../../api/type/Joint/length2.html">pulleyJoint.length2</a></a></li>
+<li><a href="#pulleyjoint.ratioapi.type.joint.ratio"><a href="../../../api/type/Joint/ratio.html">pulleyJoint.ratio</a></a></li>
+<li><a href="#touchjoint.dampingratioapi.type.joint.dampingratio"><a href="../../../api/type/Joint/dampingRatio.html">touchJoint.dampingRatio</a></a></li>
+<li><a href="#touchjoint.frequencyapi.type.joint.frequency"><a href="../../../api/type/Joint/frequency.html">touchJoint.frequency</a></a></li>
+<li><a href="#touchjoint.maxforceapi.type.joint.maxforce"><a href="../../../api/type/Joint/maxForce.html">touchJoint.maxForce</a></a></li>
+<li><a href="#wheeljoint.jointspeedapi.type.joint.jointspeed"><a href="../../../api/type/Joint/jointSpeed.html">wheelJoint.jointSpeed</a></a></li>
+<li><a href="#wheeljoint.jointtranslationapi.type.joint.jointtranslation"><a href="../../../api/type/Joint/jointTranslation.html">wheelJoint.jointTranslation</a></a></li>
+<li><a href="#wheeljoint.springdampingratioapi.type.joint.springdampingratio"><a href="../../../api/type/Joint/springDampingRatio.html">wheelJoint.springDampingRatio</a></a></li>
+<li><a href="#wheeljoint.springfrequencyapi.type.joint.springfrequency"><a href="../../../api/type/Joint/springFrequency.html">wheelJoint.springFrequency</a></a></li>
+<li><a href="#weldjoint.dampingratioapi.type.joint.dampingratio"><a href="../../../api/type/Joint/dampingRatio.html">weldJoint.dampingRatio</a></a></li>
+<li><a href="#weldjoint.frequencyapi.type.joint.frequency"><a href="../../../api/type/Joint/frequency.html">weldJoint.frequency</a></a></li>
+<li><a href="#weldjoint.referenceangleapi.type.joint.referenceangle"><a href="../../../api/type/Joint/referenceAngle.html">weldJoint.referenceAngle</a></a></li>
+<li><a href="#ropejoint.limitstateapi.type.joint.limitstate"><a href="../../../api/type/Joint/limitState.html">ropeJoint.limitState</a></a></li>
+<li><a href="#ropejoint.maxlengthapi.type.joint.maxlength"><a href="../../../api/type/Joint/maxLength.html">ropeJoint.maxLength</a></a></li>
+</ul></li>
+<li><a href="#methods">Methods</a><ul>
+<li><a href="#jointgetanchoraapi.type.joint.getanchora"><a href="../../../api/type/Joint/getAnchorA.html">joint:getAnchorA()</a></a></li>
+<li><a href="#jointgetanchorbapi.type.joint.getanchorb"><a href="../../../api/type/Joint/getAnchorB.html">joint:getAnchorB()</a></a></li>
+<li><a href="#jointgetlocalanchoraapi.type.joint.getlocalanchora"><a href="../../../api/type/Joint/getLocalAnchorA.html">joint:getLocalAnchorA()</a></a></li>
+<li><a href="#jointgetlocalanchorbapi.type.joint.getlocalanchorb"><a href="../../../api/type/Joint/getLocalAnchorB.html">joint:getLocalAnchorB()</a></a></li>
+<li><a href="#jointgetreactionforceapi.type.joint.getreactionforce"><a href="../../../api/type/Joint/getReactionForce.html">joint:getReactionForce()</a></a></li>
+<li><a href="#jointremoveselfapi.type.joint.removeself"><a href="../../../api/type/Joint/removeSelf.html">joint:removeSelf()</a></a></li>
+<li><a href="#touchjointgettargetapi.type.joint.gettarget"><a href="../../../api/type/Joint/getTarget.html">touchJoint:getTarget()</a></a></li>
+<li><a href="#touchjointsettargetapi.type.joint.settarget"><a href="../../../api/type/Joint/setTarget.html">touchJoint:setTarget()</a></a></li>
+<li><a href="#pistonjointgetlimitsapi.type.joint.getlimits"><a href="../../../api/type/Joint/getLimits.html">pistonJoint:getLimits()</a></a></li>
+<li><a href="#pistonjointgetlocalaxisaapi.type.joint.getlocalaxisa"><a href="../../../api/type/Joint/getLocalAxisA.html">pistonJoint:getLocalAxisA()</a></a></li>
+<li><a href="#pistonjointsetlimitsapi.type.joint.setlimits"><a href="../../../api/type/Joint/setLimits.html">pistonJoint:setLimits()</a></a></li>
+<li><a href="#pivotjointgetrotationlimitsapi.type.joint.getrotationlimits"><a href="../../../api/type/Joint/getRotationLimits.html">pivotJoint:getRotationLimits()</a></a></li>
+<li><a href="#pivotjointsetrotationlimitsapi.type.joint.setrotationlimits"><a href="../../../api/type/Joint/setRotationLimits.html">pivotJoint:setRotationLimits()</a></a></li>
+<li><a href="#pulleyjointgetgroundanchoraapi.type.joint.getgroundanchora"><a href="../../../api/type/Joint/getGroundAnchorA.html">pulleyJoint:getGroundAnchorA()</a></a></li>
+<li><a href="#pulleyjointgetgroundanchorbapi.type.joint.getgroundanchorb"><a href="../../../api/type/Joint/getGroundAnchorB.html">pulleyJoint:getGroundAnchorB()</a></a></li>
+<li><a href="#wheeljointgetlocalaxisaapi.type.joint.getlocalaxisa"><a href="../../../api/type/Joint/getLocalAxisA.html">wheelJoint:getLocalAxisA()</a></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/Joint/index.html">Joint</a>
+</div>
+<div id="joint" class="section level1">
+<h1>Joint</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Parent</strong></td>
+<td align="left"><a href="../../../api/type/Userdata.html">Userdata</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../../api/library/physics/index.html">physics.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">physics, joints</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../guide/physics/physicsJoints/index.html">Physics Joints</a> <em>(guide)</em></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../../api/library/physics/newJoint.html">physics.newJoint()</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Joints can be used to assemble complex physical objects from multiple rigid bodies. For example, joints can be used to join the limbs of a ragdoll figure, attach the wheels of a vehicle to its body, create a moving elevator platform, and more. All joints are created using the <a href="../../../api/library/physics/newJoint.html">physics.newJoint()</a> constructor.</p>
+<p>Please refer to the <a href="../../../guide/physics/physicsJoints/index.html">Physics Joints</a> guide for details on the setup and configuration of each joint type.</p>
+</div>
+<div id="properties" class="section level2">
+<h2>Properties</h2>
+<div class="small-header">
+Shared
+</div>
+<div id="joint.isactiveapi.type.joint.isactive" class="section level4">
+<h4><a href="../../../api/type/Joint/isActive.html">joint.isActive</a></h4>
+</div>
+<div id="joint.iscollideconnectedapi.type.joint.iscollideconnected" class="section level4">
+<h4><a href="../../../api/type/Joint/isCollideConnected.html">joint.isCollideConnected</a></h4>
+</div>
+<div id="joint.reactiontorqueapi.type.joint.reactiontorque" class="section level4">
+<h4><a href="../../../api/type/Joint/reactionTorque.html">joint.reactionTorque</a></h4>
+<div class="small-header">
+Distance Joint
+</div>
+</div>
+<div id="distancejoint.dampingratioapi.type.joint.dampingratio" class="section level4">
+<h4><a href="../../../api/type/Joint/dampingRatio.html">distanceJoint.dampingRatio</a></h4>
+</div>
+<div id="distancejoint.frequencyapi.type.joint.frequency" class="section level4">
+<h4><a href="../../../api/type/Joint/frequency.html">distanceJoint.frequency</a></h4>
+</div>
+<div id="distancejoint.lengthapi.type.joint.length" class="section level4">
+<h4><a href="../../../api/type/Joint/length.html">distanceJoint.length</a></h4>
+<div class="small-header">
+Friction Joint
+</div>
+</div>
+<div id="frictionjoint.maxforceapi.type.joint.maxforce" class="section level4">
+<h4><a href="../../../api/type/Joint/maxForce.html">frictionJoint.maxForce</a></h4>
+</div>
+<div id="frictionjoint.maxtorqueapi.type.joint.maxtorque" class="section level4">
+<h4><a href="../../../api/type/Joint/maxTorque.html">frictionJoint.maxTorque</a></h4>
+<div class="small-header">
+Gear Joint
+</div>
+</div>
+<div id="gearjoint.joint1api.type.joint.joint1" class="section level4">
+<h4><a href="../../../api/type/Joint/joint1.html">gearJoint.joint1</a></h4>
+</div>
+<div id="gearjoint.joint2api.type.joint.joint2" class="section level4">
+<h4><a href="../../../api/type/Joint/joint2.html">gearJoint.joint2</a></h4>
+</div>
+<div id="gearjoint.ratioapi.type.joint.ratio" class="section level4">
+<h4><a href="../../../api/type/Joint/ratio.html">gearJoint.ratio</a></h4>
+<div class="small-header">
+Piston Joint
+</div>
+</div>
+<div id="pistonjoint.islimitenabledapi.type.joint.islimitenabled" class="section level4">
+<h4><a href="../../../api/type/Joint/isLimitEnabled.html">pistonJoint.isLimitEnabled</a></h4>
+</div>
+<div id="pistonjoint.ismotorenabledapi.type.joint.ismotorenabled" class="section level4">
+<h4><a href="../../../api/type/Joint/isMotorEnabled.html">pistonJoint.isMotorEnabled</a></h4>
+</div>
+<div id="pistonjoint.jointspeedapi.type.joint.jointspeed" class="section level4">
+<h4><a href="../../../api/type/Joint/jointSpeed.html">pistonJoint.jointSpeed</a></h4>
+</div>
+<div id="pistonjoint.jointtranslationapi.type.joint.jointtranslation" class="section level4">
+<h4><a href="../../../api/type/Joint/jointTranslation.html">pistonJoint.jointTranslation</a></h4>
+</div>
+<div id="pistonjoint.maxmotorforceapi.type.joint.maxmotorforce" class="section level4">
+<h4><a href="../../../api/type/Joint/maxMotorForce.html">pistonJoint.maxMotorForce</a></h4>
+</div>
+<div id="pistonjoint.motorspeedapi.type.joint.motorspeed" class="section level4">
+<h4><a href="../../../api/type/Joint/motorSpeed.html">pistonJoint.motorSpeed</a></h4>
+</div>
+<div id="pistonjoint.motorforceapi.type.joint.motorforce" class="section level4">
+<h4><a href="../../../api/type/Joint/motorForce.html">pistonJoint.motorForce</a></h4>
+</div>
+<div id="pistonjoint.referenceangleapi.type.joint.referenceangle" class="section level4">
+<h4><a href="../../../api/type/Joint/referenceAngle.html">pistonJoint.referenceAngle</a></h4>
+<div class="small-header">
+Pivot Joint
+</div>
+</div>
+<div id="pivotjoint.islimitenabledapi.type.joint.islimitenabled" class="section level4">
+<h4><a href="../../../api/type/Joint/isLimitEnabled.html">pivotJoint.isLimitEnabled</a></h4>
+</div>
+<div id="pivotjoint.ismotorenabledapi.type.joint.ismotorenabled" class="section level4">
+<h4><a href="../../../api/type/Joint/isMotorEnabled.html">pivotJoint.isMotorEnabled</a></h4>
+</div>
+<div id="pivotjoint.jointangleapi.type.joint.jointangle" class="section level4">
+<h4><a href="../../../api/type/Joint/jointAngle.html">pivotJoint.jointAngle</a></h4>
+</div>
+<div id="pivotjoint.jointspeedapi.type.joint.jointspeed" class="section level4">
+<h4><a href="../../../api/type/Joint/jointSpeed.html">pivotJoint.jointSpeed</a></h4>
+</div>
+<div id="pivotjoint.maxmotortorqueapi.type.joint.maxmotortorque" class="section level4">
+<h4><a href="../../../api/type/Joint/maxMotorTorque.html">pivotJoint.maxMotorTorque</a></h4>
+</div>
+<div id="pivotjoint.motorspeedapi.type.joint.motorspeed" class="section level4">
+<h4><a href="../../../api/type/Joint/motorSpeed.html">pivotJoint.motorSpeed</a></h4>
+</div>
+<div id="pivotjoint.motortorqueapi.type.joint.motortorque" class="section level4">
+<h4><a href="../../../api/type/Joint/motorTorque.html">pivotJoint.motorTorque</a></h4>
+</div>
+<div id="pivotjoint.referenceangleapi.type.joint.referenceangle" class="section level4">
+<h4><a href="../../../api/type/Joint/referenceAngle.html">pivotJoint.referenceAngle</a></h4>
+<div class="small-header">
+Pulley Joint
+</div>
+</div>
+<div id="pulleyjoint.length1api.type.joint.length1" class="section level4">
+<h4><a href="../../../api/type/Joint/length1.html">pulleyJoint.length1</a></h4>
+</div>
+<div id="pulleyjoint.length2api.type.joint.length2" class="section level4">
+<h4><a href="../../../api/type/Joint/length2.html">pulleyJoint.length2</a></h4>
+</div>
+<div id="pulleyjoint.ratioapi.type.joint.ratio" class="section level4">
+<h4><a href="../../../api/type/Joint/ratio.html">pulleyJoint.ratio</a></h4>
+<div class="small-header">
+Touch Joint
+</div>
+</div>
+<div id="touchjoint.dampingratioapi.type.joint.dampingratio" class="section level4">
+<h4><a href="../../../api/type/Joint/dampingRatio.html">touchJoint.dampingRatio</a></h4>
+</div>
+<div id="touchjoint.frequencyapi.type.joint.frequency" class="section level4">
+<h4><a href="../../../api/type/Joint/frequency.html">touchJoint.frequency</a></h4>
+</div>
+<div id="touchjoint.maxforceapi.type.joint.maxforce" class="section level4">
+<h4><a href="../../../api/type/Joint/maxForce.html">touchJoint.maxForce</a></h4>
+<div class="small-header">
+Wheel Joint
+</div>
+</div>
+<div id="wheeljoint.jointspeedapi.type.joint.jointspeed" class="section level4">
+<h4><a href="../../../api/type/Joint/jointSpeed.html">wheelJoint.jointSpeed</a></h4>
+</div>
+<div id="wheeljoint.jointtranslationapi.type.joint.jointtranslation" class="section level4">
+<h4><a href="../../../api/type/Joint/jointTranslation.html">wheelJoint.jointTranslation</a></h4>
+</div>
+<div id="wheeljoint.springdampingratioapi.type.joint.springdampingratio" class="section level4">
+<h4><a href="../../../api/type/Joint/springDampingRatio.html">wheelJoint.springDampingRatio</a></h4>
+</div>
+<div id="wheeljoint.springfrequencyapi.type.joint.springfrequency" class="section level4">
+<h4><a href="../../../api/type/Joint/springFrequency.html">wheelJoint.springFrequency</a></h4>
+<div class="small-header">
+Weld Joint
+</div>
+</div>
+<div id="weldjoint.dampingratioapi.type.joint.dampingratio" class="section level4">
+<h4><a href="../../../api/type/Joint/dampingRatio.html">weldJoint.dampingRatio</a></h4>
+</div>
+<div id="weldjoint.frequencyapi.type.joint.frequency" class="section level4">
+<h4><a href="../../../api/type/Joint/frequency.html">weldJoint.frequency</a></h4>
+</div>
+<div id="weldjoint.referenceangleapi.type.joint.referenceangle" class="section level4">
+<h4><a href="../../../api/type/Joint/referenceAngle.html">weldJoint.referenceAngle</a></h4>
+<div class="small-header">
+Rope Joint
+</div>
+</div>
+<div id="ropejoint.limitstateapi.type.joint.limitstate" class="section level4">
+<h4><a href="../../../api/type/Joint/limitState.html">ropeJoint.limitState</a></h4>
+</div>
+<div id="ropejoint.maxlengthapi.type.joint.maxlength" class="section level4">
+<h4><a href="../../../api/type/Joint/maxLength.html">ropeJoint.maxLength</a></h4>
+</div>
+</div>
+<div id="methods" class="section level2">
+<h2>Methods</h2>
+<p><em>(Inherits methods from <a href="../../../api/type/Userdata.html">Userdata</a>)</em></p>
+<div class="small-header">
+Shared
+</div>
+<div id="jointgetanchoraapi.type.joint.getanchora" class="section level4">
+<h4><a href="../../../api/type/Joint/getAnchorA.html">joint:getAnchorA()</a></h4>
+</div>
+<div id="jointgetanchorbapi.type.joint.getanchorb" class="section level4">
+<h4><a href="../../../api/type/Joint/getAnchorB.html">joint:getAnchorB()</a></h4>
+</div>
+<div id="jointgetlocalanchoraapi.type.joint.getlocalanchora" class="section level4">
+<h4><a href="../../../api/type/Joint/getLocalAnchorA.html">joint:getLocalAnchorA()</a></h4>
+</div>
+<div id="jointgetlocalanchorbapi.type.joint.getlocalanchorb" class="section level4">
+<h4><a href="../../../api/type/Joint/getLocalAnchorB.html">joint:getLocalAnchorB()</a></h4>
+</div>
+<div id="jointgetreactionforceapi.type.joint.getreactionforce" class="section level4">
+<h4><a href="../../../api/type/Joint/getReactionForce.html">joint:getReactionForce()</a></h4>
+</div>
+<div id="jointremoveselfapi.type.joint.removeself" class="section level4">
+<h4><a href="../../../api/type/Joint/removeSelf.html">joint:removeSelf()</a></h4>
+<div class="small-header">
+Touch Joint
+</div>
+</div>
+<div id="touchjointgettargetapi.type.joint.gettarget" class="section level4">
+<h4><a href="../../../api/type/Joint/getTarget.html">touchJoint:getTarget()</a></h4>
+</div>
+<div id="touchjointsettargetapi.type.joint.settarget" class="section level4">
+<h4><a href="../../../api/type/Joint/setTarget.html">touchJoint:setTarget()</a></h4>
+<div class="small-header">
+Piston Joint
+</div>
+</div>
+<div id="pistonjointgetlimitsapi.type.joint.getlimits" class="section level4">
+<h4><a href="../../../api/type/Joint/getLimits.html">pistonJoint:getLimits()</a></h4>
+</div>
+<div id="pistonjointgetlocalaxisaapi.type.joint.getlocalaxisa" class="section level4">
+<h4><a href="../../../api/type/Joint/getLocalAxisA.html">pistonJoint:getLocalAxisA()</a></h4>
+</div>
+<div id="pistonjointsetlimitsapi.type.joint.setlimits" class="section level4">
+<h4><a href="../../../api/type/Joint/setLimits.html">pistonJoint:setLimits()</a></h4>
+<div class="small-header">
+Pivot Joint
+</div>
+</div>
+<div id="pivotjointgetrotationlimitsapi.type.joint.getrotationlimits" class="section level4">
+<h4><a href="../../../api/type/Joint/getRotationLimits.html">pivotJoint:getRotationLimits()</a></h4>
+</div>
+<div id="pivotjointsetrotationlimitsapi.type.joint.setrotationlimits" class="section level4">
+<h4><a href="../../../api/type/Joint/setRotationLimits.html">pivotJoint:setRotationLimits()</a></h4>
+<div class="small-header">
+Pulley Joint
+</div>
+</div>
+<div id="pulleyjointgetgroundanchoraapi.type.joint.getgroundanchora" class="section level4">
+<h4><a href="../../../api/type/Joint/getGroundAnchorA.html">pulleyJoint:getGroundAnchorA()</a></h4>
+</div>
+<div id="pulleyjointgetgroundanchorbapi.type.joint.getgroundanchorb" class="section level4">
+<h4><a href="../../../api/type/Joint/getGroundAnchorB.html">pulleyJoint:getGroundAnchorB()</a></h4>
+<div class="small-header">
+Wheel Joint
+</div>
+</div>
+<div id="wheeljointgetlocalaxisaapi.type.joint.getlocalaxisa" class="section level4">
+<h4><a href="../../../api/type/Joint/getLocalAxisA.html">wheelJoint:getLocalAxisA()</a></h4>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.type.Joint.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

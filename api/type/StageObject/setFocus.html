@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | type | StageObject | setFocus</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#stageobjectsetfocus">StageObject:setFocus()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#multitouch">Multitouch</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#displayobject-required">displayObject <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#touchid-optional">touchID <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#multitouch-enabled">Multitouch Enabled</a></li>
+<li><a href="#multitouch-disabled">Multitouch Disabled</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/StageObject/index.html">StageObject</a>  ▸  <a href="../../../api/type/StageObject/setFocus.html">setFocus</a>
+</div>
+<div id="stageobjectsetfocus" class="section level1">
+<h1>StageObject:setFocus()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Object</strong></td>
+<td align="left"><a href="../../../api/type/StageObject/index.html">StageObject</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Return value</strong></td>
+<td align="left">none</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">setFocus, focus, touch focus</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../api/event/touch/index.html">touch</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../../api/library/display/getCurrentStage.html">display.getCurrentStage()</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../api/library/display/currentStage.html">display.currentStage</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../../guide/events/touchMultitouch/index.html">Tap/Touch/Multitouch</a> <em>(guide)</em></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Sets a specific <a href="../../../api/type/DisplayObject/index.html">display object</a> as the target for all future <a href="../../../api/event/touch/index.html">touch</a> events. Pass <code>nil</code> to restore default behavior for touch event dispatches.</p>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>The global <a href="../../../api/type/StageObject/index.html">StageObject</a> can be retrieved at any time via <a href="../../../api/library/display/getCurrentStage.html">display.getCurrentStage()</a> or <a href="../../../api/library/display/currentStage.html">display.currentStage</a>.</p>
+</div>
+</div>
+<div id="multitouch" class="section level2">
+<h2>Multitouch</h2>
+<p>When calling this method while <strong>multitouch</strong> is enabled via <a href="../../../api/library/system/activate.html">system.activate()</a>, the optional parameter <code>touchID</code> means that the specified touch has focus on that object, but other touches do not. Using this command, it is possible to create an object that will &quot;own&quot; the first touch it receives for the lifetime of that touch, and for multiple objects to obtain their own focused touches at the same time. Under this same scheme, if you need to release touch focus on a specific object, call this command with reference to the object and pass <code>nil</code> for <code>touchID</code>.</p>
+<p>See the <a href="#examples">examples</a> below for usage details, along with the <a href="../../../guide/events/touchMultitouch/index.html">Tap/Touch/Multitouch</a> guide.</p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">StageObject:setFocus( displayObject [, touchID] )</pre>
+<div id="displayobject-required" class="section level5">
+<h5>displayObject <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/DisplayObject/index.html">DisplayObject</a>.</em> Reference to a display object to set focus on.</p>
+</div>
+<div id="touchid-optional" class="section level5">
+<h5>touchID <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Userdata.html">Userdata</a>.</em> The touch ID passed to the touch event for the touched object. This only applies when <a href="../../../guide/events/touchMultitouch/index.html">multitouch</a> is <strong>enabled</strong> via <a href="../../../api/library/system/activate.html">system.activate()</a>.</p>
+</div>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<div id="multitouch-enabled" class="section level5">
+<h5>Multitouch Enabled</h5>
+<pre class="brush: lua;">-- Activate multitouch
+system.activate( "multitouch" )
+
+-- Create two display objects on the screen
+local newRect1 = display.newRect( display.contentCenterX, 160, 60, 60 )
+newRect1:setFillColor( 1, 0, 0.3 )
+local newRect2 = display.newRect( display.contentCenterX, 320, 60, 60 )
+newRect2:setFillColor( 0.3, 0, 1 )
+
+-- Touch event listener
+local function touchListener( event )
+
+    print( "Unique touch ID: " .. tostring(event.id) )
+
+    if ( event.phase == "began" ) then
+        event.target.alpha = 0.5
+        -- Set focus on object using unique touch ID
+        display.getCurrentStage():setFocus( event.target, event.id )
+
+    elseif ( event.phase == "ended" or event.phase == "cancelled" ) then
+        event.target.alpha = 1
+        -- Release focus on object
+        display.getCurrentStage():setFocus( event.target, nil )
+    end
+    return true
+end
+
+-- Add a touch listener to each object
+newRect1:addEventListener( "touch", touchListener )
+newRect2:addEventListener( "touch", touchListener )</pre>
+</div>
+<div id="multitouch-disabled" class="section level5">
+<h5>Multitouch Disabled</h5>
+<pre class="brush: lua;">-- Create two display objects on the screen
+local newRect1 = display.newRect( display.contentCenterX, 160, 60, 60 )
+newRect1:setFillColor( 1, 0, 0.3 )
+local newRect2 = display.newRect( display.contentCenterX, 320, 60, 60 )
+newRect2:setFillColor( 0.3, 0, 1 )
+
+-- Touch event listener
+local function touchListener( event )
+
+    if ( event.phase == "began" ) then
+        event.target.alpha = 0.5
+        -- Set focus on object
+        display.getCurrentStage():setFocus( event.target )
+
+    elseif ( event.phase == "ended" or event.phase == "cancelled" ) then
+        event.target.alpha = 1
+        -- Release focus on object
+        display.getCurrentStage():setFocus( nil )
+    end
+    return true
+end
+
+-- Add a touch listener to each object
+newRect1:addEventListener( "touch", touchListener )
+newRect2:addEventListener( "touch", touchListener )</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.type.StageObject.setFocus&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

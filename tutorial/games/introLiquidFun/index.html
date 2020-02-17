@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Tutorials | Gaming/Physics</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#liquidfun-essentials">LiquidFun Essentials</a><ul>
+<li><a href="#particle-systems">Particle Systems</a></li>
+<li><a href="#creating-particles">Creating Particles</a></li>
+<li><a href="#creating-particle-groups">Creating Particle Groups</a></li>
+<li><a href="#applying-forceimpulse">Applying Force/Impulse</a></li>
+<li><a href="#region-querying">Region Querying</a></li>
+<li><a href="#particle-collisions">Particle Collisions</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/games/index.html">Gaming/Physics</a>
+</div>
+<div id="liquidfun-essentials" class="section level1">
+<h1>LiquidFun Essentials</h1>
+<p>The <a href="http://google.github.io/liquidfun/">LiquidFun</a> physics system allows you to simulate faucets, pools, waves, streams, and other amazing <nobr>physics-based</nobr> effects similar to those featured in <nobr>Corona-powered</nobr> games like <a href="http://freeze2.com">Freeze! 2 – Brothers</a> or other games where the physics world is not composed entirely of rigid objects. In addition to basic liquid effects, you can implement <nobr>semi-liquid</nobr> elastic/gelatin objects, create liquids that color mix and blend together when they come in contact, detect and manipulate &quot;regions&quot; of the liquids, and more.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kbAwJtuRV0U?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen>
+</iframe>
+<div id="particle-systems" class="section level2">
+<h2>Particle Systems</h2>
+<p>In LiquidFun, all liquids are represented by a <strong>particle system</strong>, meaning that a stream or pool is made up of many &quot;particles&quot; which interact together to simulate the desired effect. Each particle is round and they are the minimal unit of matter in a particle system. By default, a particle behaves as a liquid, but you can change the behavior of individual particles or groups of particles. You can also set particle properties like position, velocity, and color.</p>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>Particles defined by the LiquidFun framework are <strong>not</strong> related to <nobr>emitter-based</nobr> particles that are generated by <a href="../../../api/library/display/newEmitter.html">display.newEmitter()</a>. In other words, these two particle types are <strong>distinct objects</strong> from different libraries and they will not interact with each other physically — in fact, <nobr>emitter-based</nobr> particles do not support physical collisions whatsoever.</p>
+</div>
+<p>In Corona, you create a <a href="../../../api/type/ParticleSystem/index.html">ParticleSystem</a> object via the <a href="../../../api/library/physics/newParticleSystem.html">physics.newParticleSystem()</a> function:</p>
+<pre class="brush: lua;">physics.newParticleSystem( params )</pre>
+<p>In this API, <code>params</code> is a table of parameters with only one <strong>required</strong> element: the file name (<code>filename</code>) of the particle image to render for each particle instance:</p>
+<pre class="brush: lua; gutter: false; highlight: [6]; first-line: 1;">local physics = require( "physics" )
+physics.start()
+ 
+local testParticleSystem = physics.newParticleSystem(
+{
+    filename = "particle.png"
+})</pre>
+<p>However, to make your particle system behave better, you should specify a couple additional properties. At minimum, you should define the particle <code>radius</code> to control the size of the particles which constitute the liquid effect. Another useful parameter is <code>imageRadius</code> which, if defined, will instruct Corona to render the particle <strong>image</strong> at a different size than the physical body defined by <code>radius</code>. Essentially, if <code>imageRadius</code> is slightly larger than <code>radius</code>, the particles will overlap somewhat, resulting in a more cohesive <nobr>liquid-like</nobr> appearance.</p>
+<pre class="brush: lua; gutter: false; highlight: [7,8]; first-line: 1;">local physics = require( "physics" )
+physics.start()
+ 
+local testParticleSystem = physics.newParticleSystem(
+{
+    filename = "particle.png",
+    radius = 2,
+    imageRadius = 4
+})</pre>
+<p>The complete list of other parameters and their purpose is beyond the scope of this tutorial, so please refer to the <a href="../../../api/library/physics/newParticleSystem.html#parameter-reference">documentation</a> or the <a href="http://google.github.io/liquidfun/Programmers-Guide/html/md__chapter11__particles.html">LiquidFun Programmer's Guide</a> for more information.</p>
+</div>
+<div id="creating-particles" class="section level2">
+<h2>Creating Particles</h2>
+<p>Once you have an established particle system, new particles are generated using the <a href="../../../api/type/ParticleSystem/createParticle.html">object:createParticle()</a> method. This accepts a table of optional parameters which control the behavior of each generated particle, for example:</p>
+<pre class="brush: lua;">testParticleSystem:createParticle(
+{
+    x = 0,
+    y = 0,
+    velocityX = 256,
+    velocityY = 480,
+    color = { 1, 0.2, 0.4, 1 },
+    lifetime = 32.0,
+    flags = { "water", "colorMixing" }
+})</pre>
+<p>Most of these parameters are <nobr>self-explanatory</nobr>:</p>
+<ul>
+<li><code>x</code> and <code>y</code> determine where the new particle is generated in content space.</li>
+<li><code>velocityX</code> and <code>velocityY</code> specify the starting velocity values for the new particle.</li>
+<li><code>color</code> is a table of RGB+A values for the particle.</li>
+<li><code>lifetime</code> defines how many seconds the particle remains on screen before it dies.</li>
+<li><code>flags</code> can be either a string or a table of strings which dictate various behavioral aspects of the particle. These options are beyond the scope of this tutorial, so please refer to the <a href="http://google.github.io/liquidfun/Programmers-Guide/html/md__chapter11__particles.html">LiquidFun Programmer's Guide</a> for more information.</li>
+</ul>
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>It's important to note that <a href="../../../api/type/ParticleSystem/createParticle.html">object:createParticle()</a> creates just <strong>one</strong> particle in the overall system, so to create a useful scenario, you'll need to generate numerous particles by calling this function on a repeating timer or via some other repeating method. For instance:</p>
+<pre class="brush: lua;">local physics = require( "physics" )
+physics.start()
+
+local testParticleSystem = physics.newParticleSystem(
+{
+    filename = "particle.png",
+    radius = 2,
+    imageRadius = 4
+})
+
+local function onTimer( event )
+
+    testParticleSystem:createParticle(
+    {
+        x = 0,
+        y = 0,
+        velocityX = 256,
+        velocityY = 480,
+        color = { 1, 0.2, 0.4, 1 },
+        lifetime = 32.0,
+        flags = { "water", "colorMixing" }
+    })
+end
+
+timer.performWithDelay( 20, onTimer, 0 )</pre>
+</div>
+</div>
+</div>
+<div id="creating-particle-groups" class="section level2">
+<h2>Creating Particle Groups</h2>
+<p>In addition to creating single particles in a system, you can create <strong>groups</strong> of related particles using the <a href="../../../api/type/ParticleSystem/createGroup.html">object:createGroup()</a> function. Essentially, this &quot;fills&quot; a defined region with multiple particles in one command and the group can be assigned various behavioral and visual properties. For example:</p>
+<pre class="brush: lua;">local physics = require( "physics" )
+physics.start()
+
+local testParticleSystem = physics.newParticleSystem(
+{
+    filename = "particle.png",
+    radius = 2,
+    imageRadius = 4
+})
+
+testParticleSystem:createGroup(
+{
+    x = 0,
+    y = 0,
+    color = { 0, 0.3, 1, 1 },
+    halfWidth = 64,
+    halfHeight = 32,
+    flags = { "water", "colorMixing" }
+})</pre>
+<p>This code generates a <strong>rectangular</strong> particle group, but you can also create circular groups and arbitrary shape groups. Please refer to the <a href="../../../api/type/ParticleSystem/createGroup.html#parameter-reference">documentation</a> for information on creating different group types.</p>
+</div>
+<div id="applying-forceimpulse" class="section level2">
+<h2>Applying Force/Impulse</h2>
+<p>Linear force can be applied to the center of all particles in a particle system via the <a href="../../../api/type/ParticleSystem/applyForce.html">object:applyForce()</a> API. This method accepts two numerical values indicating the amount of force to apply in the <strong>x</strong> and <strong>y</strong> directions respectively. For instance:</p>
+<pre class="brush: lua;">testParticleSystem:applyForce( 0, -9.8 * testParticleSystem.particleMass )</pre>
+<p>Alternatively, you can apply a linear <strong>impulse</strong> to all particles with the <a href="../../../api/type/ParticleSystem/applyLinearImpulse.html">object:applyLinearImpulse()</a> API. This is similar to the above method except that an impulse is a single momentary jolt in <nobr>newton-seconds</nobr>. For example:</p>
+<pre class="brush: lua;">testParticleSystem:applyLinearImpulse( 0, -9.8 * testParticleSystem.particleMass )</pre>
+</div>
+<div id="region-querying" class="section level2">
+<h2>Region Querying</h2>
+<p>While generating individual particles and even groups of particles can provide for some amazing effects, at some point you may need to detect and manipulate particles within a defined region. This is accomplished via the <a href="../../../api/type/ParticleSystem/queryRegion.html">object:queryRegion()</a> function using the following syntax:</p>
+<pre class="brush: lua;">ParticleSystem:queryRegion( upperLeftX, upperLeftY, lowerRightX, lowerRightY, hitProperties )</pre>
+<p>The defined region must be rectangular and it's defined by the first four parameters — simply specify the <nobr>upper-left</nobr> corner <nobr>(<code>upperLeftX</code>/<code>upperleftY</code>)</nobr> and the <nobr>lower-right</nobr> corner <nobr>(<code>lowerRightX</code>/<code>lowerRightY</code>)</nobr> to query in a rectangular region created by these coordinates.</p>
+<p>The last parameter, <code>hitProperties</code>, is a table of optional properties which can be applied to each particle in the region. Valid properties include:</p>
+<ul>
+<li><code>deltaX</code> — The <strong>x</strong> position delta to apply to each particle.</li>
+<li><code>deltaY</code> — The <strong>y</strong> position delta to apply to each particle.</li>
+<li><code>velocityX</code> — The <strong>x</strong> velocity delta to apply to each particle.</li>
+<li><code>velocityY</code> — The <strong>y</strong> velocity delta to apply to each particle.</li>
+</ul>
+<p>So, if you want to apply an upward <strong>y</strong> velocity to all particles in a region, the code may look like this:</p>
+<pre class="brush: lua;">local hits = testParticleSystem:queryRegion( 10, 40, 100, 160, { velocityY=-40 } )</pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>All of the values potentially applied in the <code>hitProperties</code> table are <strong>delta</strong> values that will be applied to each particle's current associated value(s). For example, if you apply a <code>velocityY</code> of <code>-40</code> to the particles in the region, it does not directly set <code>-40</code> as the actual <strong>y</strong> velocity on them, but rather it applies that velocity in delta relation to any existing velocity the particles already have.</p>
+</div>
+</div>
+<div id="particle-collisions" class="section level2">
+<h2>Particle Collisions</h2>
+<p>Detecting collision events between LiquidFun particles and other physical objects is an <nobr>in-depth</nobr> topic beyond the scope of this tutorial. Please see the <a href="../../../tutorial/games/collisionsLiquidFun/index.html">LiquidFun Particle Collisions</a> tutorial for more details on this topic.</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>This tutorial is meant to be a brief introduction to LiquidFun physics in Corona, but the capabilities of the framework extend beyond this scope. Please consult the <a href="../../../api/library/physics/newParticleSystem.html#parameter-reference">documentation</a> or the <a href="http://google.github.io/liquidfun/Programmers-Guide/html/md__chapter11__particles.html">LiquidFun Programmer's Guide</a> for more information.</p>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=tutorial.games.introLiquidFun.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

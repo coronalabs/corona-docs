@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — Developer Guides | Graphics/Audio/Animation</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#using-containers-clipped-groups">Using Containers (Clipped Groups)</a><ul>
+<li><a href="#creating-containers">Creating Containers</a></li>
+<li><a href="#groups-vs.-containers">Groups vs. Containers</a></li>
+<li><a href="#changing-the-bounds">Changing the Bounds</a></li>
+<li><a href="#anchor-points">Anchor Points</a><ul>
+<li><a href="#defaults">Defaults</a></li>
+<li><a href="#decoupling-children-from-clip-bounds">Decoupling Children From Clip Bounds</a></li>
+</ul></li>
+<li><a href="#performance">Performance</a><ul>
+<li><a href="#texture-memory">Texture Memory</a></li>
+<li><a href="#device-dependencies">Device Dependencies</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../guide/index.html">Developer Guides</a>  ▸  <a href="../../guide/graphics/index.html">Graphics/Audio/Animation</a>
+</div>
+<div id="using-containers-clipped-groups" class="section level1">
+<h1>Using Containers (Clipped Groups)</h1>
+<p>Container objects are a special kind of <a href="../../api/type/GroupObject/index.html">group</a> in which the children are clipped by the bounds of the container.</p>
+<p>The goal of containers is to eliminate the need for you to create custom rectangular mask images to create clipping bounds.</p>
+<div id="creating-containers" class="section level2">
+<h2>Creating Containers</h2>
+<p>Containers are easily created using Corona's <a href="../../api/library/display/newContainer.html">display.newContainer()</a> factory method.</p>
+<p>The following example creates a 300×300 container using an aquarium background image.</p>
+<p>The container clips the aquarium image so you only see the center of the original full 320×480 image. And as the height shrinks, the container will eventually clip the text object as well.</p>
+<pre class="brush: lua;">local container = display.newContainer( 300, 300 )
+container:translate( 160, 240 ) -- center the container
+
+local bkgd = display.newImage( "aquariumbackgroundIPhone.jpg" )
+container:insert( bkgd, true ) -- insert and center bkgd
+
+local myText = display.newText( "Hello, World!", 0, 0, native.systemFont, 40 )
+myText:setFillColor( 1, 1, 0 )
+container:insert( myText, true ) -- insert and center text
+
+-- dynamically resize the height of the container
+transition.to( container, { height=20, time=2000 } )</pre>
+</div>
+<div id="groups-vs.-containers" class="section level2">
+<h2>Groups vs. Containers</h2>
+<p>Containers are just special versions of groups. The main difference is that children do not render outside the container's bounds.</p>
+</div>
+<div id="changing-the-bounds" class="section level2">
+<h2>Changing the Bounds</h2>
+<p>Container bounds can be changed via the <code>width</code> and <code>height</code> properties, as shown in the example above.</p>
+</div>
+<div id="anchor-points" class="section level2">
+<h2>Anchor Points</h2>
+<p>The anchor points of a container control the positioning of the clipping bounds.</p>
+<div id="defaults" class="section level3">
+<h3>Defaults</h3>
+<p>By default, the clip bounds are centered about the container's origin. You can adjust the anchor to control this.</p>
+<p>Unlike groups, the <code>anchorChildren</code> property defaults to <code>true</code>. This means the children will move in lock-step with the clipping bounds when the anchor properties change.</p>
+</div>
+<div id="decoupling-children-from-clip-bounds" class="section level3">
+<h3>Decoupling Children From Clip Bounds</h3>
+<p>When you turn the <code>anchorChildren</code> property defaults to <code>false</code>, you allow the anchor to position the clip bounds independently from the children.</p>
+<p>In the diagram below, we place an image object inside a group. To illustrate the clipping region of the container, we draw the entire group below the container and set the alpha to <code>0.3</code>.</p>
+<p>The container's origin is denoted by the red dot in the center of the three images below. Each image shows the same container (with the same position and origin) but varying the <code>anchorY</code> property:</p>
+<ul>
+<li>On the left, <code>anchorY</code> is set to <code>1</code> which means the bottom of the clip is anchored to the container's origin.</li>
+<li>In the middle, the default anchor value is <code>0.5</code> which means the center of the clip is anchored to the container's origin.</li>
+<li>On the right, <code>anchorY</code> is set to <code>0</code> which means the top of the clip is anchored to the container's origin.</li>
+</ul>
+<div class="figure">
+<img src="../../images/sdk/graphics/Container-anchor.png" />
+
+</div>
+</div>
+</div>
+<div id="performance" class="section level2">
+<h2>Performance</h2>
+<div id="texture-memory" class="section level3">
+<h3>Texture Memory</h3>
+<p>The impact of containers on texture memory is minimal, so it is to your advantage to use containers instead of creating your own mask textures.</p>
+</div>
+<div id="device-dependencies" class="section level3">
+<h3>Device Dependencies</h3>
+<ul>
+<li><p>Containers work by internally creating a dynamic (rectangular) mask. This mask is implicitly applied to the group and is distinct from <a href="../../api/type/DisplayObject/setMask.html">object:setMask()</a>.</p></li>
+<li><p>Because containers use a mask and there is a nested masking limit of 3, care must be taken when inserting other masked objects into containers. Display objects that utilize masks include <a href="../../api/library/display/newText.html">display.newText</a>, <a href="../../api/library/display/newEmbossedText.html">display.newEmbossedText</a>, <a href="../../api/library/widget/newScrollView.html">widget.newScrollView</a>, <a href="../../api/library/widget/newTableView.html">widget.newTableView</a>, other containers, and any other masked image, masked vector object, or masked display group. For example, a text object (one mask) inside a container (one mask) inside yet another container (one mask) would reach but not exceed the limit of 3 nested masks.</p></li>
+</ul>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=guide.graphics.container&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

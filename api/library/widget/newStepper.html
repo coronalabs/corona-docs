@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Corona Documentation — API Reference | Libraries | widget | newStepper</title>
+  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Corona Native</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#widget.newstepper">widget.newStepper()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#gotchas">Gotchas</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#id-optional">id <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#x-y-optional">x, y <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#left-top-optional">left, top <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#width-height-optional">width, height <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#initialvalue-optional">initialValue <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#minimumvalue-optional">minimumValue <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#maximumvalue-optional">maximumValue <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#timerincrementspeed-optional">timerIncrementSpeed <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#changespeedatincrement-optional">changeSpeedAtIncrement <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#onpress-optional">onPress <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#functions">Functions</a><ul>
+<li><a href="#objectgetvalueapi.type.stepperwidget.getvalue"><a href="../../../api/type/StepperWidget/getValue.html">object:getValue()</a></a></li>
+<li><a href="#objectsetvalueapi.type.stepperwidget.setvalue"><a href="../../../api/type/StepperWidget/setValue.html">object:setValue()</a></a></li>
+</ul></li>
+<li><a href="#properties">Properties</a><ul>
+<li><a href="#object.valueapi.type.stepperwidget.value"><a href="../../../api/type/StepperWidget/value.html">object.value</a></a></li>
+<li><a href="#object.minimumvalueapi.type.stepperwidget.minimumvalue"><a href="../../../api/type/StepperWidget/minimumValue.html">object.minimumValue</a></a></li>
+<li><a href="#object.maximumvalueapi.type.stepperwidget.maximumvalue"><a href="../../../api/type/StepperWidget/maximumValue.html">object.maximumValue</a></a></li>
+</ul></li>
+<li><a href="#visual-customization">Visual Customization</a><ul>
+<li><a href="#sheet-required">sheet <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#defaultframe-required">defaultFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#nominusframe-required">noMinusFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#noplusframe-required">noPlusFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#minusactiveframe-required">minusActiveFrame <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#plusactiveframe-required">plusActiveFrame <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#default">Default</a></li>
+<li><a href="#image-sheet">Image Sheet</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/widget/index.html">widget</a>  ▸  <a href="../../../api/library/widget/newStepper.html">newStepper</a>
+</div>
+<div id="widget.newstepper" class="section level1">
+<h1>widget.newStepper()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Library</strong></td>
+<td align="left"><a href="../../../api/library/widget/index.html">widget.*</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Return value</strong></td>
+<td align="left"><a href="../../../api/type/StepperWidget/index.html">StepperWidget</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">widget, stepper, increment, decrement, control</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../api/type/StepperWidget/index.html">StepperWidget</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Creates a <a href="../../../api/type/StepperWidget/index.html">StepperWidget</a> object. The stepper consists of a minus and plus button which can be tapped or held down to decrement/increment a value, for example, the music or sound volume setting in a game.</p>
+</div>
+<div id="gotchas" class="section level2">
+<h2>Gotchas</h2>
+<ul>
+<li><p>To conserve texture memory, a <a href="../../../api/type/StepperWidget/index.html">StepperWidget</a> object can only be created from an <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a>.</p></li>
+<li><p><a href="../../../api/type/StepperWidget/index.html">StepperWidget</a> objects do not support <a href="../../../api/type/DisplayObject/scale.html">scaling</a> nor changing the width/height via <a href="../../../api/type/DisplayObject/width.html">.width</a> or <a href="../../../api/type/DisplayObject/height.html">.height</a>.</p></li>
+</ul>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">widget.newStepper( options )</pre>
+<p>This function takes a single argument, <code>options</code>, which is a table that accepts the following parameters:</p>
+<div id="id-optional" class="section level5">
+<h5>id <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> An optional identification to assign to the stepper. Default is <code>widget_stepper</code>.</p>
+</div>
+<div id="x-y-optional" class="section level5">
+<h5>x, y <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> Coordinates for the widget's <strong>x</strong> and <strong>y</strong> center point. These values will be overridden by <code>left</code> and <code>top</code> if those values are defined.</p>
+</div>
+<div id="left-top-optional" class="section level5">
+<h5>left, top <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The left and top position where the widget will be created. If specified, these values override the <code>x</code> and <code>y</code> parameters.</p>
+</div>
+<div id="width-height-optional" class="section level5">
+<h5>width, height <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The width and height of each frame from the <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a>. Set these only if you are using a custom image sheet for the stepper. If you are using the default theme, these values are set automatically.</p>
+</div>
+<div id="initialvalue-optional" class="section level5">
+<h5>initialValue <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The initial value at which the stepper begins. Default is <code>0</code>.</p>
+</div>
+<div id="minimumvalue-optional" class="section level5">
+<h5>minimumValue <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The minimum value that the stepper can reach. Default is <code>0</code>.</p>
+</div>
+<div id="maximumvalue-optional" class="section level5">
+<h5>maximumValue <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The maximum value that the stepper can reach. Default is no limit.</p>
+</div>
+<div id="timerincrementspeed-optional" class="section level5">
+<h5>timerIncrementSpeed <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The initial speed at which each stepper increment occurs, in milliseconds. Default is <code>1000</code>. The number of increments at which the speed change occurs can be controlled via <code>changeSpeedAtIncrement</code>.</p>
+</div>
+<div id="changespeedatincrement-optional" class="section level5">
+<h5>changeSpeedAtIncrement <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The number of increments at which the increment speed changes. Default is <code>5</code>. The increment speed can be controlled via <code>timerIncrementSpeed</code>.</p>
+</div>
+<div id="onpress-optional" class="section level5">
+<h5>onPress <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Listener.html">Listener</a>.</em> An optional function to be called as soon as a stepper segment is pressed and held. This callback function returns the following <code>event.phase</code> events: <code>increment</code>, <code>decrement</code>, <code>minLimit</code>, and <code>maxLimit</code>.</p>
+</div>
+</div>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<div id="objectgetvalueapi.type.stepperwidget.getvalue" class="section level4">
+<h4><a href="../../../api/type/StepperWidget/getValue.html">object:getValue()</a></h4>
+</div>
+<div id="objectsetvalueapi.type.stepperwidget.setvalue" class="section level4">
+<h4><a href="../../../api/type/StepperWidget/setValue.html">object:setValue()</a></h4>
+</div>
+</div>
+<div id="properties" class="section level2">
+<h2>Properties</h2>
+<div id="object.valueapi.type.stepperwidget.value" class="section level4">
+<h4><a href="../../../api/type/StepperWidget/value.html">object.value</a></h4>
+</div>
+<div id="object.minimumvalueapi.type.stepperwidget.minimumvalue" class="section level4">
+<h4><a href="../../../api/type/StepperWidget/minimumValue.html">object.minimumValue</a></h4>
+</div>
+<div id="object.maximumvalueapi.type.stepperwidget.maximumvalue" class="section level4">
+<h4><a href="../../../api/type/StepperWidget/maximumValue.html">object.maximumValue</a></h4>
+</div>
+</div>
+<div id="visual-customization" class="section level2">
+<h2>Visual Customization</h2>
+<p>The stepper widget can be visually customized using 5 frames from an <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a>.</p>
+<div class="figure">
+<img src="../../../images/simulator/widget-stepper.png" />
+
+</div>
+<div id="sheet-required" class="section level5">
+<h5>sheet <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/ImageSheet/index.html">ImageSheet</a>.</em> The <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a> object for the stepper.</p>
+</div>
+<div id="defaultframe-required" class="section level5">
+<h5>defaultFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The default frame used when both the minus and plus sides are active.</p>
+</div>
+<div id="nominusframe-required" class="section level5">
+<h5>noMinusFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame used when the stepper reaches its minimum value, indicating no apparent result from a tap on the minus side.</p>
+</div>
+<div id="noplusframe-required" class="section level5">
+<h5>noPlusFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame used when the stepper reaches its maximum value, indicating no apparent result from a tap on the plus side.</p>
+</div>
+<div id="minusactiveframe-required" class="section level5">
+<h5>minusActiveFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame used to indicate that a tap/hold occurred on the minus side.</p>
+</div>
+<div id="plusactiveframe-required" class="section level5">
+<h5>plusActiveFrame <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame used to indicate that a tap/hold occurred on the plus side.</p>
+</div>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<div id="default" class="section level5">
+<h5>Default</h5>
+<pre class="brush: lua;">local widget = require( "widget" )
+
+local currentNumber = 0
+
+-- Handle stepper events
+local function onStepperPress( event )
+
+    if ( "increment" == event.phase ) then
+        currentNumber = currentNumber + 1
+    elseif ( "decrement" == event.phase ) then
+        currentNumber = currentNumber - 1
+    end
+    print( currentNumber )
+end
+        
+-- Create the widget
+local newStepper = widget.newStepper(
+    {
+        left = 150,
+        top = 200,
+        minimumValue = 0,
+        maximumValue = 50,
+        onPress = onStepperPress
+    }
+)</pre>
+</div>
+<div id="image-sheet" class="section level5">
+<h5>Image Sheet</h5>
+<pre class="brush: lua;">local widget = require( "widget" )
+
+local currentNumber = 0
+
+-- Handle stepper events
+local function onStepperPress( event )
+
+    if ( "increment" == event.phase ) then
+        currentNumber = currentNumber + 1
+    elseif ( "decrement" == event.phase ) then
+        currentNumber = currentNumber - 1
+    end
+    print( currentNumber )
+end
+
+-- Image sheet options and declaration
+-- For testing, you may copy/save the image under "Visual Customization" above
+local options = {
+    width = 196,
+    height = 100,
+    numFrames = 5,
+    sheetContentWidth = 980,
+    sheetContentHeight = 100
+}
+local stepperSheet = graphics.newImageSheet( "widget-stepper.png", options )
+
+-- Create the widget
+local newStepper = widget.newStepper(
+    {
+        width = 196,
+        height = 100,
+        sheet = stepperSheet,
+        defaultFrame = 1,
+        noMinusFrame = 2,
+        noPlusFrame = 3,
+        minusActiveFrame = 4,
+        plusActiveFrame = 5,
+        onPress = onStepperPress
+    }
+)</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020 Corona Labs Inc. All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.library.widget.newStepper&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

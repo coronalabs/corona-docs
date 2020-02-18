@@ -218,15 +218,6 @@ print( "Creating temporary folder at: " .. normpath( abspath( tmp_dir ) ) )
 
 print( "Cloning tree...")
 -- copy markdown folder to temp folder
-local function clonetree_copyfile(path1, path2)
-	-- skip files in .hg directories
-	if not string.match(path1, ".*%/%.hg.*") then
-		return copyfile(path1, path2)
-	else
-		return true
-	end
-end
--- clonetree( markdown_dir, tmp_dir, clonetree_copyfile )
 utils.execute("mkdir -p \"" .. tmp_dir .. "\"")
 utils.execute("cp -rf \"" .. markdown_dir .. "\" \"" .. tmp_markdown_dir .. "\"")
 print( "\tDone.")
@@ -239,65 +230,20 @@ print( "\tDone.")
 
 -- remove current html folder and recreate it with css folder
 if is_clean_build then print("Cleaning ..."); rmtree( html_dir ); end
-makepath( output_css_path )
-makepath( output_images_dir )
 
 -- copy css file to css folder
-print("COPYCSS ", css_file, output_css_path .. "/style.css" )
-print(copyfile( css_file, output_css_path .. "/style.css" ))
+makepath( output_css_path )
+copyfile( css_file, output_css_path .. "/style.css" )
 copyfile( css_file_sh, output_css_path .. "/shCoreDefault.css" )
 
 -- copy all images
 print( "Copying images.\n" )
 
 local src = normpath( abspath( markdown_images_dir ) )
-local base = normpath( abspath( markdown_dir ) )
-local dstDirs = {}
 
-local function CopyFile( srcFile, srcBaseDir, dstBaseDir, createdDirs )
-	local i,j = string_find( srcFile, srcBaseDir, 1, true )
-	local dst = normpath( abspath( dstBaseDir .. srcFile:sub( j+1 ) ) )
-	local dir = pdirname( dst )
-	if ( not createdDirs[dir] ) then
-		makepath( dir )
-		createdDirs[dir] = true
-	end
+utils.execute('rsync -a --exclude ".*" "' .. src .. '" "' .. output_images_dir .. '"')
 
-	local ok, err = copyfile( srcFile, dst )
-	if not ok then
-		print("ERROR CopyFile", srcFile, srcBaseDir, dstBaseDir, createdDirs, err)
-	end
-end
 
--- copy images directory
-local images = dir.getfiles( src, "*.*")
-for i=1,#images do
-	local file = images[i]
-
-	-- Skip hidden files
-	local name = pbasename( file )
-	if '.' ~= name:sub(1,1) then
-		CopyFile( file, base, html_dir, dstDirs )
-	end
-end
-
--- copy subdirectories
-local subdirs = dir.getdirectories( src )
-for i=1,#subdirs do
-	local d = subdirs[i]
-
-	-- Skip hidden directories
-	local name = pbasename( d )
-	if '.' ~= name:sub(1,1) then
-		for file in dirtree(d) do
-			-- Skip hidden files
-			local name = pbasename( file )
-			if '.' ~= name:sub(1,1) then
-				CopyFile( file, base, html_dir, dstDirs )
-			end
-		end
-	end
-end
 print( "\tDone.")
 
 

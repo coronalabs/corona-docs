@@ -245,11 +245,7 @@ function dir.copyfile (src,dest,flag)
     assert_string(1,src)
     assert_string(2,dest)
     flag = flag==nil or flag
-    local ok, code = file_op(true,src,dest,flag and 0 or 1)
-    if not ok then
-        print("WARNING, ERROR COPY", code, src,dest,flag )
-    end
-    return ok,code
+    return file_op(true,src,dest,flag and 0 or 1)
 end
 
 --- move a file.

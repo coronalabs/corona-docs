@@ -236,18 +236,17 @@ makepath( output_css_path )
 copyfile( css_file, output_css_path .. "/style.css" )
 copyfile( css_file_sh, output_css_path .. "/shCoreDefault.css" )
 
+print( "Copied stylesheet.\n" )
+
 -- copy all images
 print( "Copying images.\n" )
 
 local src = normpath( abspath( markdown_images_dir ) )
 
-utils.execute('rsync -a --exclude ".*" "' .. src .. '" "' .. output_images_dir .. '"')
+utils.execute('rsync -a --exclude ".*" "' .. src .. '/" "' .. output_images_dir .. '"')
 
 
 print( "\tDone.")
-
-
-print( "Copied stylesheet.\n" )
 
 
 --

@@ -1,12 +1,9 @@
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
-@import url(https://fonts.googleapis.com/css?family=Cousine);
-
 /*
-@font-face { font-family: "OpenSansLight"; src: url("OpenSans-Light.ttf"); }
-@font-face { font-family: "OpenSansRegular"; src: url("OpenSans-Regular.ttf"); }
-@font-face { font-family: "OpenSansBold"; src: url("OpenSans-Semibold.ttf"); }
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
 */
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400);
 
 html {
 	margin: 0px;
@@ -17,7 +14,7 @@ body {
 	font-family: "Open Sans", "Helvetica Neue", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
-	line-height: 21px;
+	line-height: 22px;
 	color: #2C2323;
 	border: none;
 	margin: 0 auto;
@@ -50,7 +47,7 @@ a:hover {
 }
 	
 h1 {
-	margin: 0px 0px 20px -1px;
+	margin: 0px 0px 20px 0px;
 	padding: 0px;
 	font-size: 180%;
 	font-weight: 600;
@@ -61,7 +58,7 @@ h1 a, h1 a:hover { color: #343030; text-decoration: none;
 }
 
 h2 {
-	margin: 14px 0px 20px -1px;
+	margin: 14px 0px 20px 0px;
 	font-size: 150%;
 	font-weight: 600;
 	padding: 18px 0px 8px 0px;
@@ -73,7 +70,7 @@ h2 a, h2 a:hover { color: #343030; text-decoration: none;
 }
 
 h3, .small-header {
-	margin: 20px 0px 0px -1px;
+	margin: 20px 0px 0px 0px;
 	padding: 0px;
 	font-size: 120%;
 	font-weight: 600;
@@ -83,17 +80,17 @@ h3 a, h3 a:hover { color: #343030; text-decoration: none;
 }
 
 h4 {
-	margin-top: 24px;
-	margin-bottom: 1px;
+	margin-top: 14px;
+	margin-bottom: 0px;
 	padding: 0px;
-	font-size: 105%;
+	font-size: 110%;
 	font-weight: 400;
-	color: #343030;
+	color: #325baa;
 }
-h4 a { color: #343030; text-decoration: none; font-weight: 400;
+h4 a { color: #327dcc; text-decoration: none; font-weight: 400;
 	cursor: default;  /* prevents active cursor on header (Pandoc makes them links but they go nowhere) */
 }
-h4 a:hover { color: #292929; }
+h4 a:hover { color: #343030; cursor: pointer; }
 
 h5 {
 	margin-top: 12px;
@@ -106,7 +103,7 @@ h5 {
 h5 a, h5 a:hover { color: #343030; font-weight: 600; text-decoration: none; cursor: default; }
 
 h6 {
-	margin: 18px 0px 2px -1px;
+	margin: 18px 0px 2px 0px;
 	padding: 0px;
 	font-size: 110%;
 	font-weight: 600;
@@ -116,16 +113,10 @@ h6 a, h6 a:hover { color: #343030; text-decoration: none;
 }
 
 p {
-	margin-top: 9px;
-	margin-bottom: 1px;
+	margin-top: 12px;
+	margin-bottom: 0px;
+	padding: 0px;
 	font-size: 100%;
-}
-
-p.caption {
-	text-align: center;
-	font-weight: 700;
-	font-size: 12px;
-	margin: 0 15px 0 0;
 }
 
 
@@ -134,35 +125,21 @@ OVERRIDES FOR PANDOC-GENERATED TAGS
 ------------------------------------------------------------ */
 
 .level5 p { margin-top: 0px; }
-.level4 p { margin-top: 6px; }
+.level4 p { margin-top: 8px; }
 .level5 ul { margin-bottom: 10px; }
-.level5 p em { font-weight: 400; font-style: normal; }
-.level4 p em { font-weight: 400; font-style: normal; }
 
 /* override style for sub-topics in examples */
-#example .level5 h5 a, #examples .level5 h5 a, .inline-example a {
+#example h5 a, #examples h5 a {
 	font-size: 15px !important;
 }
-#example .level5 pre, #examples .level5 pre, .inline-example pre {
+#example pre, #examples pre {
 	margin-top: 8px !important;
 }
 
-/* override styles for list of functions and properties within an API/library */
-.level4 h4 a {
-	/*font-size: 16px;*/
-	font-weight: 400;
-	margin: 0px;
-	padding: 0px;
-	color: #325baa;
-	line-height: 8px;
-}
-.level4 h4 a:hover { color: #292929; cursor: pointer;  /* re-actives cursor */ }
-.h4-reduced-space h4 a { line-height: 0px; }
-
 /* override styles for sub-category links on API index page */
-div[id="api-reference"] div#libraries.section.level2[id="libraries"] h4 a,
-div[id="api-reference"] div#events.section.level2[id="events"] h4 a,
-div[id="api-reference"] div#types.section.level2[id="types"] h4 a {
+div[id="api-reference"] div[id="librariesapi.library"] h4 a,
+div[id="api-reference"] div[id="eventsapi.event"] h4 a,
+div[id="api-reference"] div[id="typesapi.type"] h4 a {
 	font-size: 15px;
 	text-decoration: none;
 	color: #504e4e;
@@ -200,7 +177,8 @@ b, strong {
 }
 
 em, i {
-	font-weight: 400;
+	font-weight: 400 !important;
+	font-style: normal !important;
 }
 
 hr {
@@ -221,56 +199,29 @@ blockquote {
 	clear: both;
 }
 
+.clearspace-1 {
+	min-height: 8px;
+}
+
 
 /* ------------------------------------------------------------
-CODE BLOCKS / CODE COLORING OVERRIDE
+CODE BLOCKS
 ------------------------------------------------------------ */
 
 pre, code {
-	font-size: 12px;
-	line-height: 18px;
-	font-family: "Cousine", "Monaco", monospace;
+	font-size: 14px;
+	font-family: "Source Code Pro", "Monaco", monospace; !important;
 	font-style: normal !important;
 	font-weight: normal !important;
 }
 
-pre {
-	border: 1px solid rgba(2,0,0,0.1);
-	background-color: #fcfbfb !important;
-	display: block;
-	margin: 14px 0px 22px 0px;
-	overflow: auto;
-	padding: 8px 10px 5px 10px;
-	white-space: pre;
-}
-
 code {
-	border: 1px solid rgba(2,0,0,0.08);
-	background-color: #fcfbfb !important;
-	color: #444455 !important;
-	padding: 2px 4px 0px 4px;
+	border: 1px solid #e1e1e1;
+	background-color: #f8f8f8 !important;
+	color: #231c1c !important;
+	padding: 0px 4px 1px 4px;
+	line-height: 21px !important;
 }
-
-pre code {
-	padding: 0;
-	margin: 0px;
-	border: none;
-	overflow: visible;
-}
-
-code.lua { color: #125EC8 !important; font-weight: normal !important; }				/* default */
-code > span.kw { color: #125EC8 !important; font-weight: normal !important; }		/* " */
-code > span.dt { color: #125EC8 !important; font-weight: normal !important; }		/* " */
-code > span.dv { color: #9610CD !important; font-weight: normal !important; }		/* numbers */
-code > span.bn { color: #9610CD !important; font-weight: normal !important; }		/* " */
-code > span.fl { color: #9610CD !important; font-weight: normal !important; }		/* " */
-code > span.ch { color: #9610CD !important; font-weight: normal !important; }		/* " */
-code > span.st { color: #444455 !important; font-weight: normal !important; }		/* strings */
-code > span.co { color: #a9a9c0 !important; font-style: normal !important; }		/* comments */
-code > span.al { color: #a9a9c0 !important; font-weight: normal !important; }			/* " */
-code > span.er { color: #a9a9c0 !important; font-weight: normal !important; }			/* " */
-code > span.ot { color: #444455 !important; font-style: normal !important; }		/* operators */
-code > span.fu { color: #125EC8 !important; font-style: normal !important; }		/* ? */
 
 
 /* ------------------------------------------------------------
@@ -288,9 +239,9 @@ ol {
 	margin: 12px 0px 10px 28px;
 }
 
-ul li, ol li {
-	margin-top: 8px;
-	margin-bottom: 8px;
+ul li, ol li, ul li p, ol li p {
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 ul ul, ol ul {
@@ -303,9 +254,9 @@ ol ol, ul ol {
 }
 
 ul ul li, ol ol li, ul ol li, ol ul li {
-	list-style-type: none;
+	/*list-style-type: none;*/
 	font-size: 14px;
-	line-height: 21px;
+	line-height: 22px;
 	margin-top: 8px;
 	margin-bottom: 8px;
 	margin-left: 2px;
@@ -356,13 +307,12 @@ MAIN PAGE SECTION
 .section.level1 {
 	position: absolute;
 	top: 74px;
-	left: 0;
+	left: 246px;
 	right: 0;
 	bottom: 0;
 	overflow-x: hidden;
 	overflow-y: auto;
 	padding: 30px 42px;
-	left: 246px;
 }
 
 
@@ -572,7 +522,6 @@ NAV SECTION
 	color: #a14615;
 	margin-top: 6px;
 }
-
 #resources-link a { color: #E89957; }
 #resources-link a:hover { color: #d6854c; }
 
@@ -586,7 +535,6 @@ NAV SECTION
 
 #footer p.copyright, .tiny-copy {
 	font-size: 12px;
-	line-height: 16px;
 	color: #888;
 }
 
@@ -598,9 +546,9 @@ NAV SECTION
 
 #footer a.feedback-button {
 	background-color: #4E7FC2;
+	border-radius: 2px;
 	color: white;
-	padding: 4px 35px 5px 35px;
-	border-radius: 4px;
+	padding: 4px 40px 6px 40px;
 	text-decoration: none;
 	margin-top: 0px;
 }
@@ -648,19 +596,10 @@ h5 sub sup {
 	display: inline;
 }
 
-div[id="api-reference"] div#libraries.section.level2[id="libraries"] { width: 33%; float: left; }
-div[id="api-reference"] div#events.section.level2[id="events"] { width: 33%; float: left; }
-div[id="api-reference"] div#types.section.level2[id="types"] { width: 33%; float: left; }
+div[id="api-reference"] div[id="librariesapi.library"] { width: 33%; float: left; }
+div[id="api-reference"] div[id="eventsapi.event"] { width: 33%; float: left; }
+div[id="api-reference"] div[id="typesapi.type"] { width: 33%; float: left; }
 div#section { clear: both; }
-
-
-/* ------------------------------------------------------------
-PARAMETER TABLES
------------------------------------------------------------- */
-
-#parameter-tables h4 {
-	color: #df7003;
-}
 
 
 /* ------------------------------------------------------------
@@ -722,9 +661,7 @@ NOTE BOXES
 
 .guide-notebox, .guide-notebox-imp, .guide-notebox-pink {
 	padding: 12px 16px 14px 15px;
-	margin-top: 17px;
-	margin-bottom: 17px;
-	margin-left: 0px;
+	margin: 20px 0px 20px 0px;
 	overflow: auto;
 }
 .guide-notebox {
@@ -751,9 +688,8 @@ NOTE BOXES
 	margin-left: 0px;
 	padding: 0px;
 }
-.guide-notebox ul li, .guide-notebox-imp ul li, .guide-notebox-pink ul li { margin-left: -4px; }
 .guide-notebox p, .guide-notebox-imp p, .guide-notebox-pink p {
-	margin-top: 9px;
+	margin-top: 14px;
 	margin-bottom: 0px;
 	padding: 0px 0px 1px 0px;
 }
@@ -794,6 +730,7 @@ NOTE BOXES
 
 .guide-notebox pre, .guide-notebox-imp pre, .guide-notebox-pink pre, .docs-tip-outer pre {
 	margin-bottom: 2px;
+	margin-left: 0px;
 }
 
 
@@ -802,11 +739,11 @@ IMAGE OR CODE BLOCK INDENTION
 ------------------------------------------------------------ */
 
 .image-indent {
-	margin-left: 29px;
+	margin-left: 28px;
 }
 
 .code-indent {
-	margin-left: 29px;
+	margin-left: 28px;
 	margin-right: 20px;
 }
 
@@ -818,46 +755,49 @@ INNER TABLE STYLES (COMPARISON/FEATURE TABLES AND MISC.)
 .inner-table table {
 	border-collapse: collapse;
 	padding: 0px;
-	margin: 12px 0px 18px 0px;
+	margin: 16px 0px 20px 0px;
 }
-
 .inner-table table th {
 	font-weight: 400;
-	border-bottom: 1px solid #f0efef;
+	border-bottom: 2px solid #b6d9f7;
 	margin: 0px;
-	padding: 4px 16px 4px 16px;
+	padding: 0px 18px 8px 18px;
 	font-size: 110%;
-	color: #888;
+	color: #3b68b4;
 }
-
 .inner-table table td {
-	border-bottom: 1px solid #f4f3f3;
+	border-bottom: 1px solid #daecfb;
+	padding: 8px 18px 8px 18px;
+	line-height: 22px;
+	vertical-align: top !important;
+}
+.inner-table table tr.odd {
+	background-color: #f7fbfe;
+}
+.inner-table table tr.even {
+	background-color: #fbfdfe;
+}
+.inner-table code {
 	margin: 0px;
-	padding: 3px 16px 4px 16px;
+	line-height: 21px !important;
 	vertical-align: baseline;
 }
-
-.inner-table code {
-	margin-bottom: 0px;
-	margin-top: 0px;
+.nobr table td {
+	white-space: nowrap;
 }
-
 .full-width table {
 	width: 100%;
 }
-
 .vert-compact table td {
-	padding: 1px 16px 2px 16px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
-
 .percent50 table td {
 	width: 50%;
 }
-
 .percent33 table td {
 	width: 33%;
 }
-
 .percent25 table td {
 	width: 25%;
 }
@@ -872,29 +812,39 @@ FLOAT STYLES
 	padding: 0px;
 	float: right;
 }
-
 .float-right table {
 	border-collapse: collapse;
 	padding: 0px;
 	margin: 0px 0px 0px 20px;
 	border: 0px;
 }
-
 .float-right table td {
 	min-width: 32px;
 	padding: 0px;
 	border: 0px;
 	text-align: center;
 }
-
 .float-right img {
 	margin: 0px;
 	padding: 0px 0px 0px 20px;
 	background-color: white;
 }
-
 .float-right table td img {
 	padding: 0px;
+}
+.float-left {
+	margin: 0px 25px 0px 0px;
+	padding: 0px;
+	float: left;
+}
+.float-left img {
+	margin: 0px;
+	padding: 0px 25px 0px 0px;
+	background-color: white;
+}
+@media screen and (max-width: 1000px) {
+	.float-right { float: none; }
+	.float-right img { padding: 0px; }
 }
 
 /* ------------------------------------------------------------
@@ -902,39 +852,54 @@ WALKTHROUGH NAVIGATION STYLES
 ------------------------------------------------------------ */
 
 .walkthrough-nav {
-	font-size: 17px;
-	font-weight: 400;
-	margin: 14px 2px 24px 2px !important;
-	padding: 0px !important;
+	margin: 16px 0px 28px 0px !important;
+	line-height: 30px;
 }
-
 .walkthrough-nav strong {
-	color: #777;
-	font-weight: 400;
-	padding: 0px;
+	color: #ffdf33;
+	font-size: 17px;
+	font-weight: 600;
+	padding: 0px 0px 0px 0px;
+	vertical-align: top;
 }
-
 .walkthrough-nav em {
-	color: #aaa;
-	font-size: 15px;
-	padding: 0px 5px 0px 5px;
+	color: #fff;
+	margin: 0px 8px 0px 8px;
+	padding: 0px;
+	font-size: 40px;
 	font-style: normal;
-	vertical-align: text-top;
+	font-weight: 300;
+	vertical-align: top;
+	overflow: hidden;
 }
-
+.walkthrough-nav p {
+	background-color: #fc7336;
+	display: table-cell;
+	border-radius: 2px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 1px;
+}
 .walkthrough-nav a {
+	color: #fff;
 	font-size: 15px;
-	padding: 0px 7px 0px 7px;
-	vertical-align: text-top;
+	font-weight: 400;
+	padding: 0px 5px 0px 5px;
+	vertical-align: baseline;
+	text-decoration: none;
+	display: inline-block;
 }
-
 .walkthrough-nav-upper-right {
 	float: right;
-	margin-top: -48px;
+	margin-top: -44px;
 	padding-left: 30px;
 	padding-bottom: 30px;
-	margin-right: -18px !important;
 	clear: left;
+}
+@media screen and (max-width: 1160px) {
+	.walkthrough-nav-upper-right {
+		display: none;
+	}
 }
 
 
@@ -943,69 +908,13 @@ FOR HD/RETINA DISPLAYS
 ------------------------------------------------------------ */
 
 @media only screen and (min--moz-device-pixel-ratio: 2),
-
 only screen and (-o-min-device-pixel-ratio: 2/1),
-
 only screen and (-webkit-min-device-pixel-ratio: 2),
-
 only screen and (min-device-pixel-ratio: 2) {
-
 	body, a code {
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		color: #292929;
-	}
-	h1, h2, h3, h4, h5, h6 {
-		color: #504e4e;
-	}
-
-	pre, code {
-		font-family: "Cousine", "Monaco", monospace;
-		-webkit-font-smoothing: subpixel-antialiased;
-	}
-
-	pre {
-		border: 1px solid rgba(2,0,0,0.1);
-		background-color: #fcfbfb !important;
-		display: block;
-		margin: 14px 0px 22px 0px;
-		overflow: auto;
-		padding: 8px 10px 5px 10px;
-		white-space: pre;
-	}
-
-	code {
-		border: 1px solid rgba(2,0,0,0.08);
-		background-color: #fcfbfb !important;
-		color: #444455 !important;
-		padding: 2px 4px 0px 4px;
-		text-decoration: none;
-	}
-
-	pre code {
-		padding: 0;
-		margin: 0px;
-		border: none;
-		overflow: visible;
-	}
-	code.lua { color: #3e7abe !important; font-weight: normal !important; }				/* default */
-	code > span.kw { color: #3e7abe !important; font-weight: normal !important; }		/* " */
-	code > span.dt { color: #3e7abe !important; font-weight: normal !important; }		/* " */
-	code > span.dv { color: #8563bd !important; font-weight: normal !important; }		/* numbers */
-	code > span.bn { color: #8563bd !important; font-weight: normal !important; }		/* " */
-	code > span.fl { color: #8563bd !important; font-weight: normal !important; }		/* " */
-	code > span.ch { color: #8563bd !important; font-weight: normal !important; }		/* " */
-	code > span.st { color: #444455 !important; font-weight: normal !important; }		/* strings */
-	code > span.co { color: #a9a9c0 !important; font-style: normal !important; }		/* comments */
-	code > span.al { color: #a9a9c0 !important; font-weight: 400 !important; }			/* " */
-	code > span.er { color: #a9a9c0 !important; font-weight: 400 !important; }			/* " */
-	code > span.ot { color: #444455 !important; font-style: normal !important; }		/* operators */
-	code > span.fu { color: #3e7abe !important; font-style: normal !important; }		/* ? */
-	
-	a, a code {
-		color: #325baa;
-		text-decoration: underline;
-		white-space: nowrap;
 	}
 }
 
@@ -1015,13 +924,11 @@ DOCS HUB PAGE STYLES
 ------------------------------------------------------------ */
 
 .doc-items {
-	background: #fafcfb;
+	background: #fff;
     clear: both;
     overflow: hidden;
     padding-bottom: 40px;
     max-width: 1080px;
-	/*font-family: 'Roboto', sans-serif;
-	font-weight: 300;*/
 }
 
 .doc-items .itembox a {
@@ -1085,14 +992,119 @@ DOCS HUB PAGE STYLES
 
 
 /* ------------------------------------------------------------
+TIP/ALERT/FEATURE BOX STYLES
+------------------------------------------------------------ */
+
+.docs-tip-inner-left {
+	float: left;
+	width: 50px;
+	min-height: 47px;
+	color: #fff;
+	text-align: center;
+	overflow: hidden;
+}
+.docs-tip-inner-left .fa {
+	font-size: 36px;
+	padding-top: 3px;
+}
+.docs-tip-inner-right {
+	overflow: hidden;
+	background-color: rgba(255,255,255,0.94);
+	min-height: 35px;
+	padding: 0px 24px 12px 16px;
+}
+.docs-tip-inner-right p {
+	margin: 10px 0px 0px 0px !important;
+}
+/*.docs-tip-inner-right h4 {
+	margin-top: 8px !important;
+	margin-bottom: 2px;
+}*/
+.docs-tip-inner-left img {
+	margin: 0px 0px 0px 2px;
+	padding: 0px;
+}
+.docs-tip-inner-left p {
+	margin: 0px;
+	padding: 0px;
+}
+.docs-tip-outer {
+	background-color: #6cb3ef;
+	margin: 20px 0px 20px 0px;
+	padding: 2px 1px 1px 0px;
+	overflow: hidden;
+}
+.docs-tip-color-alert {
+	background-color: #f05b54;
+}
+.docs-tip-color-action {
+	background-color: #8383a0;
+}
+.docs-tip-color-orange {
+	background-color: #ffa752;
+}
+
+
+/* ------------------------------------------------------------
+VISUAL "BULLET POINT" STYLES
+------------------------------------------------------------ */
+
+.fa-list-element {
+	min-height: 36px;
+	margin-top: 16px;
+	margin-bottom: 0px;
+	line-height: 22px;
+	font-size: 14px;
+}
+.fa-list-element p {
+	padding-top: 7px;
+	display: table-cell;
+}
+.fa-list-element-tile {
+	float: left;
+	background-color: #ff9f4b;
+	color: #fff;
+	border-radius: 36px;
+	min-width: 52px;
+	max-width: 52px;
+	min-height: 36px;
+	max-height: 36px;
+	text-align: center;
+	margin-right: 11px;
+	display: block;
+}
+.fa-list-element-tile .fa {
+	font-size: 26px;
+	padding-top: 5px;
+	overflow: hidden;
+}
+
+
+/* ------------------------------------------------------------
 OTHER STYLES
 ------------------------------------------------------------ */
+
+.cta-button {
+	background-color: #fb7f40;
+	border-radius: 2px;
+	color: white;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px 32px 5px 32px;
+	margin: 9px 0px 2px 0px;
+	text-decoration: none;
+	display: table;
+}
+.cta-button:hover {
+	/*background-color: #fc7336;*/
+	color: white;
+}
 
 a code {
 	font-family: "Open Sans", "Helvetica Neue", sans-serif !important;
 	font-size: 14px !important;
 	font-weight: 400 !important;
-	line-height: 21px !important;
+	line-height: 22px !important;
 	border: 0px !important;
 	background-color: transparent !important;
 	color: #325baa !important;
@@ -1116,9 +1128,13 @@ h4 em, #TOC em {
 	padding-left: 0px;
 }
 
+.tree ul { list-style-type: none; margin: 12px 0px 10px 0px; padding: 0px; }
+.tree ul ul { list-style-type: none; margin: 0px 0px 0px 40px; padding: 0px; }
+.tree li { margin: 6px 0px 6px 0px; padding: 0px; color: #2C2323; }
+
 h3 code, h4 code, h6 code {
 	font-size: 14px !important;
-	font-family: "Cousine", "Monaco", monospace !important;
+	font-family: "Source Code Pro", "Monaco", monospace; !important;
 	border: 1px solid rgba(2,0,0,0.08) !important;
 	background-color: #fcfbfb !important;
 	color: #343030 !important;
@@ -1130,43 +1146,34 @@ h3 code, h4 code, h6 code {
 	color: black !important;
 	background-color: #ffcc00 !important;
 	border: 0px !important;
-	padding: 4px 4px 1px 6px !important;
+	padding: 3px 6px 3px 8px !important;
 }
 
 .console-error code {
 	color: black !important;
 	background-color: #ff594c !important;
 	border: 0px !important;
-	padding: 4px 4px 1px 6px !important;
+	padding: 3px 6px 3px 8px !important;
 }
 
-.docs-tip-inner-left {
-	float: left;
-	width: 36px;
-	font-size: 31px;
-	color: #325baa;
-	opacity: 0.5;
-	text-align: center;
-	padding-top: 17px;
-	padding-bottom: 18px;
+div[id="methods"] pre, div[id="properties"] pre, div[id="functions"] pre {
+	margin-bottom: 16px;
 }
 
-.docs-tip-inner-right {
-	overflow: hidden;
-	padding: 3px 16px 14px 15px;
-	background-color: #f6f8fb;
-	min-height: 31px;
-}
+/* ------------------------------------------------------------
+PRINTING STYLES
+------------------------------------------------------------ */
 
-.docs-tip-inner-right p {
-	margin: 9px 0px 0px 0px;
-	padding: 0px 0px 1px 0px;
-}
-
-.docs-tip-outer {
-	background-color: #eef2f8;
-	margin-top: 17px;
-	margin-bottom: 17px;
-	margin-left: 0px;
-	overflow: hidden;
+@media print {
+   body{margin:0.5in;font-family:times; display:block; page-break-before:always; overflow: visible !important;}
+   *{background:#fff !important;color:#000 !important;float:none !important;width:auto !important;height:auto !important;}
+   .title, .SearchBar, #TOC, #footer{display:none !important;}
+   .section.level1 {width: 100%; left: 0; overflow: visible !important; padding: 0 10px !important;}
+   .guides-toc ul {padding: 0 10px;}
+   .fa-list-element {min-height: 22px;}
+   .fa-list-element-tile{display:none !important;}
+   a{border:0;text-decoration:none;}
+   a img{border:0}
+   /* a:after{content:" (" attr(href) ") ";font-size: 90%;} */
+   /* a[href^="/"]:after {content: " (http://www.aimweb.name" attr(href) ") ";} */
 }

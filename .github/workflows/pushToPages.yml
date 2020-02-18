@@ -5,13 +5,15 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false
     - name: Checkout Submodules
       run: |
         git submodule sync --recursive
         git submodule update --init --force --recursive --depth=1 --remote --merge
     - name: Install necessary packages
-      run: sudo apt-get update && sudo apt-get install -y lua5.1 lua-filesystem pandoc pcregrep python
+      run: sudo apt-get install -y lua5.1 lua-filesystem pandoc pcregrep
     - name: Build the docs
       working-directory: ./bin
       run: lua build.lua

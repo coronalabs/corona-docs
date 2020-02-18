@@ -40,10 +40,10 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 --->
 
 [linkDownload]: https://developer.coronalabs.com/downloads/corona-sdk
-[linkAPIZip]: http://docs.coronalabs.com/CoronaApiDocs.zip
-[linkDailyBuild]: http://developer.coronalabs.com/downloads/daily-builds
-[linkDailyAPI]: http://docs.coronalabs.com/daily
-[linkStore]: http://www.coronalabs.com/store/
+[linkAPIZip]: https://github.com/coronalabs/corona-docs/archive/gh-pages.zip
+[linkDailyBuild]: https://developer.coronalabs.com/downloads/daily-builds
+[linkDailyAPI]: https://docs.coronalabs.com/
+[linkStore]: https://www.coronalabs.com/store/
 
 
 ## [Libraries][api.library]

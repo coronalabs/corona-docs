@@ -82,7 +82,7 @@ transition.to( logo.path, { time=2000, x2=20, y2=-20, x4=-40, y4=40 } )
 
 The following video and associated [sample](https://github.com/coronalabs/samples-coronasdk/tree/master/Graphics/Perspective) shows some of the interesting effects you can achieve using transitional distortion:
 
-<iframe width="640" height="360" src="http://www.youtube.com/embed/qJsF1PsI5G8?rel=0" frameborder="0" allowfullscreen style="margin: 10px 0px;"></iframe>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/qJsF1PsI5G8?rel=0" frameborder="0" allowfullscreen style="margin: 10px 0px;"></iframe>
 
 ### Z-axis Ordering
 

@@ -1,0 +1,14 @@
+# 404 - Not Found
+
+## Sorry, we was unable to find what you were loogin for
+
+Redirecting to [https://docs.coronalabs.com/](https://docs.coronalabs.com/) in 5 seconds...
+
+<script>
+	Array.from(document.getElementsByTagName('head')[0].children).filter(e => e.tagName=="LINK" && e.rel=="stylesheet").filter(e=>e.getAttribute('href').startsWith("css/")).forEach(function(e) {
+		e.href = 'https://docs.coronalabs.com/' + e.getAttribute('href');
+	})
+	setTimeout(function() {
+		window.location.href = 'https://docs.coronalabs.com/';
+	}, 5000);
+</script>

@@ -243,7 +243,8 @@ makepath( output_css_path )
 makepath( output_images_dir )
 
 -- copy css file to css folder
-copyfile( css_file, output_css_path .. "/style.css" )
+print("COPYCSS ", css_file, output_css_path .. "/style.css" )
+print(copyfile( css_file, output_css_path .. "/style.css" ))
 copyfile( css_file_sh, output_css_path .. "/shCoreDefault.css" )
 
 -- copy all images
@@ -262,7 +263,10 @@ local function CopyFile( srcFile, srcBaseDir, dstBaseDir, createdDirs )
 		createdDirs[dir] = true
 	end
 
-	copyfile( srcFile, dst )
+	local ok, err = copyfile( srcFile, dst )
+	if not ok then
+		print("ERROR CopyFile", srcFile, srcBaseDir, dstBaseDir, createdDirs, err)
+	end
 end
 
 -- copy images directory

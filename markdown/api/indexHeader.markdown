@@ -11,5 +11,5 @@
 
 </div>
 
-[linkAPIZip]: http://docs.coronalabs.com/CoronaApiDocs.zip
+[linkAPIZip]: https://github.com/coronalabs/corona-docs/archive/gh-pages.zip
 [linkDailyBuild]: http://developer.coronalabs.com/downloads/daily-builds

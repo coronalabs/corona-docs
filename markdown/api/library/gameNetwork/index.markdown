@@ -22,4 +22,4 @@ For implementation details, please see the <nobr>Apple Game Center</nobr> [plugi
 
 __Google Play Games Services__ makes your games more social with capabilities for achievements, leaderboards, and other popular features using the [Google Play Games Services](http://developer.android.com/google/play-services/games.html) SDK.
 
-For implementation details, please see the <nobr>Google Play Games Services</nobr> [plugin documentation][plugin.gpgs].
+For implementation details, please see the <nobr>Google Play Games Services</nobr> [plugin documentation][plugin.gpgs-v2].

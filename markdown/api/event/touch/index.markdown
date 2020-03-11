@@ -32,9 +32,13 @@ Multitouch events are an extension of single touch events. Multitouch is enabled
 
 #### [event.xStart][api.event.touch.xStart]
 
+#### [event.xDelta][api.event.touch.xDelta]
+
 #### [event.y][api.event.touch.y]
 
 #### [event.yStart][api.event.touch.yStart]
+
+#### [event.yDelta][api.event.touch.yDelta]
 
 
 ## Examples

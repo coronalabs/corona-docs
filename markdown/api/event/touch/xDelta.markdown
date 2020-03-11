@@ -22,7 +22,7 @@ local function move( event )
         display.getCurrentStage():setFocus( event.target )
         event.target.xStart = event.target.x
         event.target.yStart = event.target.y
-		event.target.isFocus = true
+	event.target.isFocus = true
 
     elseif ( event.phase == "moved" ) then
         if ( event.target.isFocus ) then
@@ -32,7 +32,7 @@ local function move( event )
 
     else
         display.getCurrentStage():setFocus( nil )
-		event.target.isFocus = false
+	event.target.isFocus = false
 
     end
 end

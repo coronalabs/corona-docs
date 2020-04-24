@@ -297,7 +297,7 @@ osx-resources/fr.lproj:
 InfoPlist.strings
 ``````
 
-This results in the `fr.lproj` directory ending up in `MyApp.app/Content/Resources/fr.proj`.
+This results in the `fr.lproj` directory ending up in `MyApp.app/Content/Resources/fr.lproj`.
 
 You will probably want to add the directory you use as `bundleResourcesDirectory` to your [excluded files](#excludingfiles).
 

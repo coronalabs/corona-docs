@@ -193,7 +193,7 @@ demo.execute()</pre>
 <ul>
 <li><code>LuaIsFunction</code> returns <code>boolean</code>. <code>true</code> if the passed value represents a valid Lua function <em>reference</em>.</li>
 <li><code>LuaCreateFunction</code> transforms a Lua function <em>reference</em> to a callable JavaScript function and returns it.</li>
-<li><code>LuaReleaseFunciton</code> releases a <em>reference</em> to an underlying Lua function. Calling released functions would result in a no-op (do nothing).</li>
+<li><code>LuaReleaseFunction</code> releases a <em>reference</em> to an underlying Lua function. Calling released functions would result in a no-op (do nothing).</li>
 </ul>
 <p>Modus operandi is supposed to be as follows: receive a Lua function <em>reference</em> as a parameter. Create a JavaScript function wrapper from this <em>reference</em>. Call the wrapper function, and release when it is no longer needed.</p>
 <p>Let's demonstrate how it works with an example: <code>main.lua</code>:</p>

@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Corona Documentation — API Reference | Events | touch | yDelta</title>
+  <title>Corona Documentation — API Reference | Events | mouse | scrollX</title>
   <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
@@ -54,17 +54,17 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#event.ydelta">event.yDelta</a><ul>
+<li><a href="#event.scrollx">event.scrollX</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#example">Example</a></li>
 </ul></li>
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/event/index.html">Events</a>  ▸  <a href="../../../api/event/touch/index.html">touch</a>  ▸  <a href="../../../api/event/touch/yDelta.html">yDelta</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/event/index.html">Events</a>  ▸  <a href="../../../api/event/mouse/index.html">mouse</a>  ▸  <a href="../../../api/event/mouse/scrollX.html">scrollX</a>
 </div>
-<div id="event.ydelta" class="section level1">
-<h1>event.yDelta</h1>
+<div id="event.scrollx" class="section level1">
+<h1>event.scrollX</h1>
 <blockquote>
 <table>
 <tbody>
@@ -74,7 +74,7 @@
 </tr>
 <tr class="even">
 <td align="left"><strong>Event</strong></td>
-<td align="left"><a href="../../../api/event/touch/index.html">touch</a></td>
+<td align="left"><a href="../../../api/event/mouse/index.html">mouse</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>Revision</strong></td>
@@ -82,40 +82,30 @@
 </tr>
 <tr class="even">
 <td align="left"><strong>Keywords</strong></td>
-<td align="left">touch, yDelta</td>
+<td align="left">mouse, scrollX</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>The <strong>y</strong> distance in screen coordinates between where the touch event began and its current coordinates.</p>
+<p>The mouse scroll's current <strong>x scrolling</strong> value. This value depends on user mouse settings.</p>
 </div>
 <div id="example" class="section level2">
 <h2>Example</h2>
-<pre class="brush: lua;">local object = display.newRect( display.contentCenterX, display.contentCenterY, 100, 100 )
-
-local function move( event )
-    if ( event.phase == "began" ) then
-        display.getCurrentStage():setFocus( event.target )
-        event.target.xStart = event.target.x
-        event.target.yStart = event.target.y
-    event.target.isFocus = true
-
-    elseif ( event.phase == "moved" ) then
-        if ( event.target.isFocus ) then
-            event.target.x = event.target.xStart + event.xDelta
-            event.target.y = event.target.yStart + event.yDelta
+<pre class="brush: lua;">-- Called when a mouse event has been received.
+local function onMouseEvent( event )
+    if event.type == "scroll" then
+        if event.scrollX &lt; 0 then
+            print( "Mouse is scrolling left with a value of " .. event.scrollX .. "." )
+        elseif event.scrollX > 0 then
+            print( "Mouse is scrolling right with a value of " .. event.scrollX .. "." )
         end
-
-    else
-        display.getCurrentStage():setFocus( nil )
-        event.target.isFocus = false
-
     end
 end
 
-object:addEventListener( "touch", move )</pre>
+-- Add the mouse event listener.
+Runtime:addEventListener( "mouse", onMouseEvent )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -124,7 +114,7 @@ object:addEventListener( "touch", move )</pre>
 <p class="feedback">
 Help us help you! If you notice a problem with this page, please report it.
 </p>
-<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.event.touch.yDelta&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
+<p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.event.mouse.scrollX&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
 </div>
 </div>
 </div>

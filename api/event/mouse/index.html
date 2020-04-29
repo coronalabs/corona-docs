@@ -67,11 +67,19 @@
 <li><a href="#event.isprimarybuttondownapi.event.mouse.isprimarybuttondown"><a href="../../../api/event/mouse/isPrimaryButtonDown.html">event.isPrimaryButtonDown</a></a></li>
 <li><a href="#event.issecondarybuttondownapi.event.mouse.issecondarybuttondown"><a href="../../../api/event/mouse/isSecondaryButtonDown.html">event.isSecondaryButtonDown</a></a></li>
 <li><a href="#event.ismiddlebuttondownapi.event.mouse.ismiddlebuttondown"><a href="../../../api/event/mouse/isMiddleButtonDown.html">event.isMiddleButtonDown</a></a></li>
+<li><a href="#event.isctrldownapi.event.mouse.isctrldown"><a href="../../../api/event/mouse/isCtrlDown.html">event.isCtrlDown</a></a></li>
+<li><a href="#event.isshiftdownapi.event.mouse.isshiftdown"><a href="../../../api/event/mouse/isShiftDown.html">event.isShiftDown</a></a></li>
+<li><a href="#event.isaltdownapi.event.mouse.isaltdown"><a href="../../../api/event/mouse/isAltDown.html">event.isAltDown</a></a></li>
+<li><a href="#event.iscommanddownapi.event.mouse.iscommanddown"><a href="../../../api/event/mouse/isCommandDown.html">event.isCommandDown</a></a></li>
 <li><a href="#event.nameapi.event.mouse.name"><a href="../../../api/event/mouse/name.html">event.name</a></a></li>
 <li><a href="#event.timeapi.event.mouse.time"><a href="../../../api/event/mouse/time.html">event.time</a></a></li>
 <li><a href="#event.xapi.event.mouse.x"><a href="../../../api/event/mouse/x.html">event.x</a></a></li>
 <li><a href="#event.yapi.event.mouse.y"><a href="../../../api/event/mouse/y.html">event.y</a></a></li>
+<li><a href="#event.scrollxapi.event.mouse.scrollx"><a href="../../../api/event/mouse/scrollX.html">event.scrollX</a></a></li>
+<li><a href="#event.scrollyapi.event.mouse.scrolly"><a href="../../../api/event/mouse/scrollY.html">event.scrollY</a></a></li>
+<li><a href="#event.typeapi.event.mouse.type"><a href="../../../api/event/mouse/type.html">event.type</a></a></li>
 </ul></li>
+<li><a href="#example">Example</a></li>
 </ul></li>
 </ul>
 </div>
@@ -140,6 +148,18 @@
 <div id="event.ismiddlebuttondownapi.event.mouse.ismiddlebuttondown" class="section level4">
 <h4><a href="../../../api/event/mouse/isMiddleButtonDown.html">event.isMiddleButtonDown</a></h4>
 </div>
+<div id="event.isctrldownapi.event.mouse.isctrldown" class="section level4">
+<h4><a href="../../../api/event/mouse/isCtrlDown.html">event.isCtrlDown</a></h4>
+</div>
+<div id="event.isshiftdownapi.event.mouse.isshiftdown" class="section level4">
+<h4><a href="../../../api/event/mouse/isShiftDown.html">event.isShiftDown</a></h4>
+</div>
+<div id="event.isaltdownapi.event.mouse.isaltdown" class="section level4">
+<h4><a href="../../../api/event/mouse/isAltDown.html">event.isAltDown</a></h4>
+</div>
+<div id="event.iscommanddownapi.event.mouse.iscommanddown" class="section level4">
+<h4><a href="../../../api/event/mouse/isCommandDown.html">event.isCommandDown</a></h4>
+</div>
 <div id="event.nameapi.event.mouse.name" class="section level4">
 <h4><a href="../../../api/event/mouse/name.html">event.name</a></h4>
 </div>
@@ -151,6 +171,32 @@
 </div>
 <div id="event.yapi.event.mouse.y" class="section level4">
 <h4><a href="../../../api/event/mouse/y.html">event.y</a></h4>
+</div>
+<div id="event.scrollxapi.event.mouse.scrollx" class="section level4">
+<h4><a href="../../../api/event/mouse/scrollX.html">event.scrollX</a></h4>
+</div>
+<div id="event.scrollyapi.event.mouse.scrolly" class="section level4">
+<h4><a href="../../../api/event/mouse/scrollY.html">event.scrollY</a></h4>
+</div>
+<div id="event.typeapi.event.mouse.type" class="section level4">
+<h4><a href="../../../api/event/mouse/type.html">event.type</a></h4>
+</div>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="brush: lua;">-- Called when a mouse event has been received.
+local function onMouseEvent( event )
+    if event.type == "down" then
+        if event.isPrimaryButtonDown then
+            print( "Left mouse button clicked." )
+        elseif event.isSecondaryButtonDown then
+            print( "Right mouse button clicked." )        
+        end
+    end
+end
+                             
+-- Add the mouse event listener.
+Runtime:addEventListener( "mouse", onMouseEvent )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -160,7 +206,6 @@
 Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://coronalabs.com/corona-docs-feedback-form/?page=api.event.mouse.index&Current+Public+Release+%282018%2E3326%29" target="_blank">Report an Issue</a></p>
-</div>
 </div>
 </div>
 </div>

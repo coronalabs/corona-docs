@@ -150,7 +150,7 @@ Here is all APIs to work with functions passed to JavaScript:
 
 * `LuaIsFunction` returns `boolean`. `true` if the passed value represents a valid Lua function _reference_.
 * `LuaCreateFunction` transforms a Lua function _reference_ to a callable JavaScript function and returns it.
-* `LuaReleaseFunciton` releases a _reference_ to an underlying Lua function. Calling released functions would result in a no-op (do nothing).
+* `LuaReleaseFunction` releases a _reference_ to an underlying Lua function. Calling released functions would result in a no-op (do nothing).
 
 Modus operandi is supposed to be as follows: receive a Lua function _reference_ as a parameter. Create a JavaScript function wrapper from this _reference_. Call the wrapper function, and release when it is no longer needed.
 

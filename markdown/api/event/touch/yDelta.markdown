@@ -32,7 +32,7 @@ local function move( event )
 
     else
         display.getCurrentStage():setFocus( nil )
-	event.target.isFocus = false
+        event.target.isFocus = false
 
     end
 end

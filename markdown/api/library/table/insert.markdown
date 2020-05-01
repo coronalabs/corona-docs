@@ -29,12 +29,20 @@ _[Number][api.type.Number]._ The index of the table at which the new element wil
 ##### value ~^(required)^~
 The new value to assign to be inserted into the table.
 
+## Gotchas
+Please note that when 2 parameters are provided the optional parameter `pos` is ignored.
 
 ## Example
 
 ``````lua
-local t = { 1, "three", 4, "five" }
-print ( table.concat(t, ", ") )  --> 1, three, 4, five
-table.insert( t, 2, "two" )  
-print ( table.concat(t, ", ") )  --> 1, two, three, 4, five
+local t = { 1, "jane" }
+
+table.insert( t, "doe" )
+--> 1, jane, doe
+
+table.insert( t, 2 )
+--> 1, jane, doe, 2	-- notice 'pos' parameter is ignored
+
+table.insert(t, 2, "miss")
+--> 1, miss, jane, doe, 2
 ``````

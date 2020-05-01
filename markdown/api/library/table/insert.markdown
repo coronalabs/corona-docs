@@ -24,13 +24,15 @@ Inserts a given value into a table. If a position is given, inserts the value be
 _[Table][api.type.Table]._ A table to which the new value will be added. When a table has an element inserted both the size of the array and the element indices are updated.
 
 ##### pos ~^(optional)^~
-_[Number][api.type.Number]._ The index of the table at which the new element will be inserted. The default value is the length of the table + 1 so that `table.insert(t,x)` inserts `x` at the end of table `t`. Note that it is faster to use the length operator: `t[#t + 1] = x`.
+_[Number][api.type.Number]._ The index of the table at which the new element will be inserted. The default value is the length of the table + 1 so that `table.insert(t,x)` inserts `x` at the end of table `t`.
 
 ##### value ~^(required)^~
 The new value to assign to be inserted into the table.
 
 ## Gotchas
-Please note that when 2 parameters are provided the optional parameter `pos` is ignored.
+When 2 parameters are provided, the optional parameter `pos` is ignored.
+
+Note that it is faster to use the length operator: `t[#t + 1] = x` when inserting new value to a table.
 
 ## Example
 

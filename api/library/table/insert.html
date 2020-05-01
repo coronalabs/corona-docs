@@ -61,6 +61,7 @@
 <li><a href="#pos-optional">pos <sub><sup>(optional)</sup></sub></a></li>
 <li><a href="#value-required">value <sub><sup>(required)</sup></sub></a></li>
 </ul></li>
+<li><a href="#gotchas">Gotchas</a></li>
 <li><a href="#example">Example</a></li>
 </ul></li>
 </ul>
@@ -115,19 +116,30 @@ table.insert( t, pos, value )</pre>
 </div>
 <div id="pos-optional" class="section level5">
 <h5>pos <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The index of the table at which the new element will be inserted. The default value is the length of the table + 1 so that <code>table.insert(t,x)</code> inserts <code>x</code> at the end of table <code>t</code>. Note that it is faster to use the length operator: <code>t[#t + 1] = x</code>.</p>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The index of the table at which the new element will be inserted. The default value is the length of the table + 1 so that <code>table.insert(t,x)</code> inserts <code>x</code> at the end of table <code>t</code>.</p>
 </div>
 <div id="value-required" class="section level5">
 <h5>value <sub><sup>(required)</sup></sub></h5>
 <p>The new value to assign to be inserted into the table.</p>
 </div>
 </div>
+<div id="gotchas" class="section level2">
+<h2>Gotchas</h2>
+<p>When 2 parameters are provided, the optional parameter <code>pos</code> is ignored.</p>
+<p>Note that it is faster to use the length operator: <code>t[#t + 1] = x</code> when inserting new value to a table.</p>
+</div>
 <div id="example" class="section level2">
 <h2>Example</h2>
-<pre class="brush: lua;">local t = { 1, "three", 4, "five" }
-print ( table.concat(t, ", ") )  --> 1, three, 4, five
-table.insert( t, 2, "two" )  
-print ( table.concat(t, ", ") )  --> 1, two, three, 4, five</pre>
+<pre class="brush: lua;">local t = { 1, "jane" }
+
+table.insert( t, "doe" )
+--> 1, jane, doe
+
+table.insert( t, 2 )
+--> 1, jane, doe, 2 -- notice 'pos' parameter is ignored
+
+table.insert(t, 2, "miss")
+--> 1, miss, jane, doe, 2</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

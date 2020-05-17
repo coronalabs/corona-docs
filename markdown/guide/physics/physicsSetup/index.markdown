@@ -70,9 +70,6 @@ physics.start( true )   -- Prevent all bodies from sleeping
 physics.start( false )  -- Default behavior; bodies may sleep after a few seconds
 ``````
 
-
-
-
 <a id="options"></a>
 
 ## Simulation Options

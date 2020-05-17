@@ -54,7 +54,7 @@ physics.stop()
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Important</div>
 
-When working with Corona [display&nbsp;groups][guide.graphics.group] and Box2D, it's important to remember that Box2D expects all physics objects to share a __global&nbsp;coordinate&nbsp;system__. Both grouped and ungrouped display objects will work well since they will share the internal coordinates of that group. However, unexpected results will occur if physical objects are added to different display groups and those groups are moved, scaled, or rotated independently of each other. As a general rule, do __not__ alter the position, scale, or rotation of display groups that contain physics objects.
+When working with Corona [display&nbsp;groups][guide.graphics.group] and Box2D, it's important to remember that Box2D expects all physics objects to share a __global&nbsp;coordinate&nbsp;system__. Both grouped and ungrouped display objects will work well since they will share the internal coordinates of that group. However, unexpected results will occur if physical objects are added to different display groups and those groups are moved, scaled, or rotated independently of each other. As a general rule, do __not__ alter the position, scale, or rotation of display groups that contain physics objects. See [Physics Notes/Limitations][guide.physics.limitations]
 
 </div>
 

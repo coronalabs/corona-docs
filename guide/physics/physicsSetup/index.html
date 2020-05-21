@@ -113,6 +113,12 @@
  
 physics.pause()
 physics.stop()</pre>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>When working with Corona <a href="../../../guide/graphics/group.html">display groups</a> and Box2D, it's important to remember that Box2D expects all physics objects to share a <strong>global coordinate system</strong>. Both grouped and ungrouped display objects will work well since they will share the internal coordinates of that group. However, unexpected results will occur if physical objects are added to different display groups and those groups are moved, scaled, or rotated independently of each other. As a general rule, do <strong>not</strong> alter the position, scale, or rotation of display groups that contain physics objects. See <a href="../../../guide/physics/limitations/index.html">Physics Notes/Limitations</a></p>
+</div>
 </div>
 <div id="sleeping-bodies" class="section level3">
 <h3>Sleeping Bodies</h3>
@@ -154,12 +160,6 @@ physics.setDrawMode( "debug" )   -- Shows collision engine outlines only</pre>
 <li>gray — a body that is &quot;sleeping&quot; due to lack of activity</li>
 <li>light blue — physical joints (see the <a href="../../../guide/physics/physicsJoints/index.html">Physics Joints</a> guide)</li>
 </ul>
-<div class="guide-notebox-imp">
-<div class="notebox-title-imp">
-Important
-</div>
-<p>When working with Corona <a href="../../../guide/graphics/group.html">display groups</a> and Box2D, it's important to remember that Box2D expects all physics objects to share a <strong>global coordinate system</strong>. Both grouped and ungrouped display objects will work well since they will share the internal coordinates of that group. However, unexpected results will occur if physical objects are added to different display groups and those groups are moved, scaled, or rotated independently of each other. As a general rule, do <strong>not</strong> alter the position, scale, or rotation of display groups that contain physics objects.</p>
-</div>
 </div>
 <div id="physics.setpositioniterations" class="section level3">
 <h3>physics.setPositionIterations()</h3>

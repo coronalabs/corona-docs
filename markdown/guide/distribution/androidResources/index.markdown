@@ -28,7 +28,7 @@ Android 8 and later provide a way to have launch icons more flexible. To give de
 </div>
   
 
-For more information on this, please see [Adaptive Icons]([https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive](https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive))
+For more information on this, please see [Adaptive Icons](https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive)
 
 <a id="androidresources"></a>
 
@@ -42,7 +42,7 @@ Inside the AndroidResources folder will be the standard Android `res` folder. In
 
 Where `Icon-*dpi.png` will be one of `mipmap-mdpi`, `mipmap-hdpi`, `mipmap-xxxdpi`, etc. based on Android standard screen densities.
 
-To keep your simple, Corona Labs provides example `AndroidResources` folders when you create a new project from the Welcome screen or menu, or you can copy the folder out of a Corona SampleApp. Copy the `AndoidResources` folder from one of these locations to your project in the same folder as `main.lua`. This will get you a base structure to work from.
+To keep it simple, Corona Labs provides example `AndroidResources` folders when you create a new project from the Welcome screen, menu or you can copy the folder out of a Corona SampleApp. Copy the `AndoidResources` folder from one of these locations to your project in the same folder as `main.lua`. This will get you a base structure to work from.
 
 ## Android 7 and earlier
 
@@ -116,9 +116,9 @@ Afterwards, all of your Android icon resources should be inside the various fold
 | | ic_launcher_foreground.png | >= 26 | 432 | 432 |
 | | ic_launcher_background.png | >= 26 | 432 | 432 |
 
-### Using different tools to create android icons
+### Using different tools to create Android icons
 
-You can, if you wish us Android Studio to create an image asset, using these names and load in a 512x512 icon foreground and background and have Android Studio create the res folder for you. It however may create excessive files that are not used by Corona and may interfere with the building process. In particular, if it creates a style.xml file, for now, simply delete it.
+You can also use Android Studio to create icons([official guide](https://developer.android.com/studio/write/image-asset-studio)). However, it may create excessive files that are not used by Corona and may interfere with the building process. In particular, if it creates a style.xml file, for now, simply delete it.
 
 Again, we recommend the simple process of simply copying the right sized files over top of the `AndroidResources/res` folder that we generate and use a simple color background when possible.
 

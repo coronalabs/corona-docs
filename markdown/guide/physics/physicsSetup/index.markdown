@@ -51,6 +51,13 @@ physics.pause()
 physics.stop()
 ``````
 
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">Important</div>
+
+When working with Corona [display&nbsp;groups][guide.graphics.group] and Box2D, it's important to remember that Box2D expects all physics objects to share a __global&nbsp;coordinate&nbsp;system__. Both grouped and ungrouped display objects will work well since they will share the internal coordinates of that group. However, unexpected results will occur if physical objects are added to different display groups and those groups are moved, scaled, or rotated independently of each other. As a general rule, do __not__ alter the position, scale, or rotation of display groups that contain physics objects. See [Physics Notes/Limitations][guide.physics.limitations]
+
+</div>
+
 ### Sleeping Bodies
 
 By default, physical bodies not involved in a collision will "sleep" after a few seconds. This reduces performance overhead, but in some cases you may not want this behavior. This is particularly true in apps that use the accelerometer to effect changes in physics gravity — in this case, sleeping bodies will not respond to changes in the direction of gravity.
@@ -62,9 +69,6 @@ physics.start( true )   -- Prevent all bodies from sleeping
 
 physics.start( false )  -- Default behavior; bodies may sleep after a few seconds
 ``````
-
-
-
 
 <a id="options"></a>
 
@@ -111,13 +115,6 @@ Physics data is displayed using colored vector graphics which reflect different 
 * green — static, non-moveable physics bodies
 * gray — a body that is "sleeping" due to lack of activity
 * light blue — physical joints (see the [Physics Joints][guide.physics.physicsJoints] guide)
-
-<div class="guide-notebox-imp">
-<div class="notebox-title-imp">Important</div>
-
-When working with Corona [display&nbsp;groups][guide.graphics.group] and Box2D, it's important to remember that Box2D expects all physics objects to share a __global&nbsp;coordinate&nbsp;system__. Both grouped and ungrouped display objects will work well since they will share the internal coordinates of that group. However, unexpected results will occur if physical objects are added to different display groups and those groups are moved, scaled, or rotated independently of each other. As a general rule, do __not__ alter the position, scale, or rotation of display groups that contain physics objects.
-
-</div>
 
 ### physics.setPositionIterations()
 

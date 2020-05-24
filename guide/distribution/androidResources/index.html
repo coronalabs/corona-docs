@@ -60,7 +60,7 @@
 <li><a href="#what-are-adaptive-icons">What are Adaptive Icons</a></li>
 <li><a href="#but-i-want-my-own-background-image">But I want my own background image</a></li>
 <li><a href="#image-sizes-for-various-icon-images">Image sizes for various icon images</a></li>
-<li><a href="#using-different-tools-to-create-android-icons">Using different tools to create android icons</a></li>
+<li><a href="#using-different-tools-to-create-android-icons">Using different tools to create Android icons</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -78,8 +78,8 @@
 </ul>
 </div>
 <p><a id="background"></a></p>
-<p>With 64-bit compatible versions of Corona (2019.3492 or later), Android icons are handled in a completely different way, even for version of Android 7 and earlier.</p>
-<p>With Android 7 and earlier, Android icons were single layer <code>.PNG files</code> that were conveniently named for simplicity and Corona would in the background process them into a way Android would find them. These icons were located in the main project folder alongside <code>main.lua</code> and as long as you named them correctly and they were the right size, you didn't have to do much more.</p>
+<p>With 64-bit compatible versions of Solar2D (2019.3492 or later), Android icons are handled in a completely different way, even for Android 7 and earlier.</p>
+<p>With Android 7 and earlier, Android icons were single layer <code>.PNG files</code> that were conveniently named for simplicity and Solar2D would in the background process them into a way Android would find them. These icons were located in the main project folder alongside <code>main.lua</code> and as long as you named them correctly and they were the right size, you didn't have to do much more.</p>
 <p>Android 8 and later provide a way to have launch icons more flexible. To give device manufacturers more flexibility, Google split the icon into two layers: a background layer and a foreground later. Then the OEM (Original Equipment Manufacturer) provides a mask to make the icons look unique in their system. One maker may provide square icons, while another rounded corners or another circular icons. Using a combination of background, foreground and mask, there can be different looks for different devices, as well as allowing cool animation effects like parallax when dragging icon or tapping on it.</p>
 <div style="display:grid;grid-gap:10px;width:80%">
 <div style="grid-column:1/2">
@@ -95,9 +95,9 @@
 </div>
 </div>
 </div>
-<p>For more information on this, please see <a href="%5Bhttps://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive%5D(https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive)">Adaptive Icons</a></p>
+<p>For more information on this, please see <a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive">Adaptive Icons</a></p>
 <p><a id="androidresources"></a></p>
-<p>Corona has to manage icons based on Android 7 and earlier, and now Android 8 and later. Corona Lab's &quot;Let's do this for you&quot; no longer works. You now have to work with a folder named <code>AndroidResources</code>. This is a Corona specific folder that actually holds the icon information in an Android standard way.</p>
+<p>Solar2D has to manage icons based on Android 7 and earlier, and now Android 8 and later. Solar2D's &quot;Let's do this for you&quot; no longer works. You now have to work with a folder named <code>AndroidResources</code>. This is a Solar2D specific folder that actually holds the icon information in an Android standard way.</p>
 <p>Inside the AndroidResources folder will be the standard Android <code>res</code> folder. Inside that folder will be several other folders of importance:</p>
 <ul>
 <li><code>res/mipmap-anydpi-v26</code></li>
@@ -105,7 +105,7 @@
 <li><code>res/values</code></li>
 </ul>
 <p>Where <code>Icon-*dpi.png</code> will be one of <code>mipmap-mdpi</code>, <code>mipmap-hdpi</code>, <code>mipmap-xxxdpi</code>, etc. based on Android standard screen densities.</p>
-<p>To keep your simple, Corona Labs provides example <code>AndroidResources</code> folders when you create a new project from the Welcome screen or menu, or you can copy the folder out of a Corona SampleApp. Copy the <code>AndoidResources</code> folder from one of these locations to your project in the same folder as <code>main.lua</code>. This will get you a base structure to work from.</p>
+<p>To keep it simple, Solar2D provides example <code>AndroidResources</code> folders when you create a new project from the Welcome screen, menu or you can copy the folder out of a Solar2D SampleApp. Copy the <code>AndoidResources</code> folder from one of these locations to your project in the same folder as <code>main.lua</code>. This will get you a base structure to work from.</p>
 <div id="android-7-and-earlier" class="section level2">
 <h2>Android 7 and earlier</h2>
 <p>To maintain your icons on Android 7 and earlier follow these steps:</p>
@@ -129,7 +129,7 @@
 <p>The background image is drawn, the foreground image is drawn on top of it and finally the shape mask is applied.</p>
 <p>These images are larger than the icons you are used to working with. But it's important to know that the foreground icon needs to be centered, fit in the center 66% of the image, with the rest being transparency.</p>
 <p>Your background image will typically be a solid color, or if you have a background image, you have to understand that a good portion of it will be masked out to make these circles, rounded rectangles or other shapes.</p>
-<p>Corona's <code>AndroidResources</code> folder is setup to give you a working Adaptive Icon setup with minimal work.</p>
+<p><code>AndroidResources</code> folder is setup to give you a working Adaptive Icon setup with minimal work.</p>
 <p>This is where the <code>AndroidResources\res\mipmap-anydpi-v26</code> and <code>AndroidResources\res\values</code> folders come into play. The default setup is to provide a solid color background (no image file needed) and a series of default foreground images. The foreground images, by default are named <code>ic_launcher_foreground.png</code>. The combination of this foreground image and a solid color background work well with the mask system used.</p>
 <p>Create a foreground image for your icon in the sizes listed below, place them in the appropriate <code>mipmap-*dpi</code> folder.</p>
 <p>Then to change the background color, open <code>AndroidResources/res/values/values.xml</code> with your favorite text editor and change the color to a suitable background color for your icon.</p>
@@ -266,8 +266,8 @@
 </table>
 </div>
 <div id="using-different-tools-to-create-android-icons" class="section level3">
-<h3>Using different tools to create android icons</h3>
-<p>You can, if you wish us Android Studio to create an image asset, using these names and load in a 512x512 icon foreground and background and have Android Studio create the res folder for you. It however may create excessive files that are not used by Corona and may interfere with the building process. In particular, if it creates a style.xml file, for now, simply delete it.</p>
+<h3>Using different tools to create Android icons</h3>
+<p>You can also use Android Studio to create icons(<a href="https://developer.android.com/studio/write/image-asset-studio">official guide</a>). However, it may create excessive files that are not used by Solar2D and may interfere with the building process. In particular, if it creates a style.xml file, for now, simply delete it.</p>
 <p>Again, we recommend the simple process of simply copying the right sized files over top of the <code>AndroidResources/res</code> folder that we generate and use a simple color background when possible.</p>
 <p>Android platform is extremely powerful, and Adaptive Icons are not limited to the template we provided. For example, you can also use vector images and gradients for icon layers. Don’t be afraid to experiment. Make sure you have valid Android drawable resource <code>ic_launcher</code>.</p>
 <hr>

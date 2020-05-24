@@ -94,6 +94,13 @@ Any collision event handler that returns `true` will stop further propagation of
 
 Collisions are reported between pairs of objects, and they can be detected either __locally__ on an object, using an object listener, or __globally__ using a runtime listener.
 
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">Important</div>
+
+When working with Corona [display&nbsp;groups][guide.graphics.group] and Box2D, it's important to remember that Box2D expects all physics objects to share a __global&nbsp;coordinate&nbsp;system__. Both grouped and ungrouped display objects will work well since they will share the internal coordinates of that group. However, unexpected results will occur if physical objects are added to different display groups and those groups are moved, scaled, or rotated independently of each other. As a general rule, do __not__ alter the position, scale, or rotation of display groups that contain physics objects. See [Physics Notes/Limitations][guide.physics.limitations]
+
+</div>
+
 ### Local Collision Handling
 
 Local collision handling is best utilized in a <nobr>one-to-many</nobr> collision scenario, for example one player object which may collide with multiple enemies, <nobr>power-ups</nobr>, etc. For local collision handling, each collision event includes a `self` table ID, representing the object itself, and `event.other` which contains the table ID of the other Corona display object involved in the collision. Because Corona display objects behave like Lua tables, you may freely add arbitrary data to these tables such as names, category designators, point values, or even stored functions, and then retrieve this data at collision time. For example, you may wish to store object names in an <nobr>easily-accessible</nobr> string format.

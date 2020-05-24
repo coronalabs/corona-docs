@@ -10,11 +10,9 @@ This guide discusses implementing __Android&nbsp;Adaptive&nbsp;Icons__ on Androi
 
 <a id="background"></a>
 
-With 64-bit compatible versions of Corona (2019.3492 or later), Android icons are handled in a completely different way, even for version of Android 7 and earlier.
+With 64-bit compatible versions of Solar2D (2019.3492 or later), Android icons are handled in a completely different way, even for Android 7 and earlier.
 
-With Android 7 and earlier, Android icons were single layer `.PNG files` that were conveniently named for simplicity and Corona would in the background process them into a way Android would find them. These icons were located in the main project folder alongside `main.lua` and as long as you named them correctly and they were the right size, you didn't have to do much more.
-
-  
+With Android 7 and earlier, Android icons were single layer `.PNG files` that were conveniently named for simplicity and Solar2D would in the background process them into a way Android would find them. These icons were located in the main project folder alongside `main.lua` and as long as you named them correctly and they were the right size, you didn't have to do much more.
 
 Android 8 and later provide a way to have launch icons more flexible. To give device manufacturers more flexibility, Google split the icon into two layers: a background layer and a foreground later. Then the OEM (Original Equipment Manufacturer) provides a mask to make the icons look unique in their system. One maker may provide square icons, while another rounded corners or another circular icons. Using a combination of background, foreground and mask, there can be different looks for different devices, as well as allowing cool animation effects like parallax when dragging icon or tapping on it.
 
@@ -28,11 +26,11 @@ Android 8 and later provide a way to have launch icons more flexible. To give de
 </div>
   
 
-For more information on this, please see [Adaptive Icons]([https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive](https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive))
+For more information on this, please see [Adaptive Icons](https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive)
 
 <a id="androidresources"></a>
 
-Corona has to manage icons based on Android 7 and earlier, and now Android 8 and later. Corona Lab's "Let's do this for you" no longer works. You now have to work with a folder named `AndroidResources`. This is a Corona specific folder that actually holds the icon information in an Android standard way.
+Solar2D has to manage icons based on Android 7 and earlier, and now Android 8 and later. Solar2D's "Let's do this for you" no longer works. You now have to work with a folder named `AndroidResources`. This is a Solar2D specific folder that actually holds the icon information in an Android standard way.
 
 Inside the AndroidResources folder will be the standard Android `res` folder. Inside that folder will be several other folders of importance:
 
@@ -42,7 +40,7 @@ Inside the AndroidResources folder will be the standard Android `res` folder. In
 
 Where `Icon-*dpi.png` will be one of `mipmap-mdpi`, `mipmap-hdpi`, `mipmap-xxxdpi`, etc. based on Android standard screen densities.
 
-To keep your simple, Corona Labs provides example `AndroidResources` folders when you create a new project from the Welcome screen or menu, or you can copy the folder out of a Corona SampleApp. Copy the `AndoidResources` folder from one of these locations to your project in the same folder as `main.lua`. This will get you a base structure to work from.
+To keep it simple, Solar2D provides example `AndroidResources` folders when you create a new project from the Welcome screen, menu or you can copy the folder out of a Solar2D SampleApp. Copy the `AndoidResources` folder from one of these locations to your project in the same folder as `main.lua`. This will get you a base structure to work from.
 
 ## Android 7 and earlier
 
@@ -71,7 +69,7 @@ These images are larger than the icons you are used to working with. But it's im
 
 Your background image will typically be a solid color, or if you have a background image, you have to understand that a good portion of it will be masked out to make these circles, rounded rectangles or other shapes.
 
-Corona's `AndroidResources` folder is setup to give you a working Adaptive Icon setup with minimal work.
+`AndroidResources` folder is setup to give you a working Adaptive Icon setup with minimal work.
 
 This is where the `AndroidResources\res\mipmap-anydpi-v26` and `AndroidResources\res\values` folders come into play. The default setup is to provide a solid color background (no image file needed) and a series of default foreground images. The foreground images, by default are named `ic_launcher_foreground.png`. The combination of this foreground image and a solid color background work well with the mask system used.
 
@@ -116,9 +114,9 @@ Afterwards, all of your Android icon resources should be inside the various fold
 | | ic_launcher_foreground.png | >= 26 | 432 | 432 |
 | | ic_launcher_background.png | >= 26 | 432 | 432 |
 
-### Using different tools to create android icons
+### Using different tools to create Android icons
 
-You can, if you wish us Android Studio to create an image asset, using these names and load in a 512x512 icon foreground and background and have Android Studio create the res folder for you. It however may create excessive files that are not used by Corona and may interfere with the building process. In particular, if it creates a style.xml file, for now, simply delete it.
+You can also use Android Studio to create icons([official guide](https://developer.android.com/studio/write/image-asset-studio)). However, it may create excessive files that are not used by Solar2D and may interfere with the building process. In particular, if it creates a style.xml file, for now, simply delete it.
 
 Again, we recommend the simple process of simply copying the right sized files over top of the `AndroidResources/res` folder that we generate and use a simple color background when possible.
 

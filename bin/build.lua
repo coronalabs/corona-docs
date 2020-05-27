@@ -64,13 +64,13 @@ local images_dir = "../resources/images"
 local output_images_dir = html_dir .. "/images"
 
 -- strings to substitute throughout docs content (not headers or footers though)
-local title_prefix = "Corona Documentation"
+local title_prefix = "Solar2D Documentation"
 local default_rev_label = "Current Public Release (2018.3326)"
 local REV_LABEL = default_rev_label
 local DEFAULT_REV_URL = "https://coronalabs.com/links/docs/current-corona-sdk"
 local REV_URL_BASE = "https://developer.coronalabs.com/release/"  -- don't forget the trailing slash '/'
-local CORONA_CORE_PRODUCT = "Corona"
-local CORONA_NATIVE_PRODUCT = "Corona&nbsp;Native"
+local CORONA_CORE_PRODUCT = "Solar2D"
+local CORONA_NATIVE_PRODUCT = "Solar2D Native"
 
 require "lfs"
 require "pl.init"
@@ -384,7 +384,7 @@ for i=1,#markdown_files do
 	local path1 = normpath( abspath( markdown_files[i] ) )
 	local last_mod_date = lastmod( original_path )
 	local page_title = ""
-	local page_description = "Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!"
+	local page_description = "Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!"
 
 	-- only build the file if the last modified date is greater than last time build script was run
 	if is_clean_build or (not last_build_date) or (last_build_date:__lt( Date(last_mod_date) )) then

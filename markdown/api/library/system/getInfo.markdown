@@ -74,6 +74,7 @@ _[String][api.type.String]._ The name of the property corresponding to the desir
 
 * `simulator` for the Corona Simulator.
 * `device` for iOS, the Xcode iOS Simulator, Android devices, the Android emulator, macOS desktop apps, and Windows desktop apps.
+* `browser` for HTML5 apps.
 
 ### maxTextureSize
 
@@ -119,6 +120,7 @@ _[String][api.type.String]._ The name of the property corresponding to the desir
 * `macos` &mdash; macOS desktop apps.
 * `tvos` &mdash; Apple's tvOS (Apple TV).
 * `win32` &mdash; Win32 desktop apps.
+* `html5` &mdash; HTML5 apps.
 
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>

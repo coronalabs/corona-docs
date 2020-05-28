@@ -9,8 +9,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Corona Documentation — Corona Native | iOS</title>
-  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <title>Solar2D Documentation — Corona Native | iOS</title>
+  <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
@@ -54,10 +54,10 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#coronanative-ios">Corona Native — iOS</a><ul>
-<li><a href="#coronanative-setup">Corona Native Setup</a></li>
+<li><a href="#solar2d-native-ios">Solar2D Native — iOS</a><ul>
+<li><a href="#solar2d-native-setup">Solar2D Native Setup</a></li>
 <li><a href="#project-templates">Project Templates</a></li>
-<li><a href="#coronanative-development">Corona Native Development</a><ul>
+<li><a href="#solar2d-native-development">Solar2D Native Development</a><ul>
 <li><a href="#bridging-luac">Bridging Lua/C</a></li>
 <li><a href="#native-apis">Native APIs</a></li>
 <li><a href="#using-plugins">Using Plugins</a></li>
@@ -74,21 +74,21 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../native/index.html">Corona Native</a>  ▸  <a href="../../native/ios/index.html">iOS</a>
 </div>
-<div id="coronanative-ios" class="section level1">
-<h1>Corona Native — iOS</h1>
-<p>The following resources go further in depth on using Corona Native for iOS.</p>
+<div id="solar2d-native-ios" class="section level1">
+<h1>Solar2D Native — iOS</h1>
+<p>The following resources go further in depth on using Solar2D Native for iOS.</p>
 <div class="guides-toc">
 <ul>
-<li><a href="#setup">Corona Native Setup</a></li>
+<li><a href="#setup">Solar2D Native Setup</a></li>
 <li><a href="#templates">Project Templates</a></li>
-<li><a href="#development">Corona Native Development</a></li>
+<li><a href="#development">Solar2D Native Development</a></li>
 <li><a href="#building">Building for Devices</a></li>
 </ul>
 </div>
 <p><a id="setup"></a></p>
-<div id="coronanative-setup" class="section level2">
-<h2>Corona Native Setup</h2>
-<p>The following steps will help you set up your native development environment such that it's optimized for integration with Corona Native.</p>
+<div id="solar2d-native-setup" class="section level2">
+<h2>Solar2D Native Setup</h2>
+<p>The following steps will help you set up your native development environment such that it's optimized for integration with Solar2D Native.</p>
 <ol style="list-style-type: decimal">
 <li><p>Within the <code>/Applications/Corona/Native/</code> folder, double click <strong>Setup Corona Native</strong>. This will create the symbolic link required for the project templates.</p></li>
 <li><p>To develop native iOS applications, you'll need to install <a href="https://developer.apple.com/xcode/">Xcode</a>, available from the Mac App Store or for direct download. If you already have Xcode installed, ensure you've updated to the latest version.</p></li>
@@ -112,7 +112,7 @@
 <li><code>PluginLibrary.h</code> / <code>PluginLibrary.mm</code> — These implement <code>plugin.library</code>.</li>
 </ul></li>
 <li><code>Plugin.xcodeproj</code> — For <a href="../../native/plugin/index.html">plugins</a>, this is the main project that contains the Lua library that you are exposing to your application. This is a dependency of <code>App.xcodeproj</code>, so it will get built automatically. You only need to open this project if you want to build a plugin separately.</li>
-<li><code>CoronaNative.xcconfig</code> — Configuration file containing common setup elements for Corona Native (paths to Corona and Lua header files, libraries, and linker options).</li>
+<li><code>CoronaNative.xcconfig</code> — Configuration file containing common setup elements for Solar2D Native (paths to Corona and Lua header files, libraries, and linker options).</li>
 <li><code>CoronaApp.xcconfig</code> — Configuration file generated when building &quot;Download Plugins&quot; target. This configuration may include information necessary to use plugins specified in <code>build.settings</code>. It also includes <code>CoronaNative.xcconfig</code>.</li>
 </ul></li>
 </ul>
@@ -131,8 +131,8 @@ Project Flow
 </div>
 <p><a id="development"></a></p>
 </div>
-<div id="coronanative-development" class="section level2">
-<h2>Corona Native Development</h2>
+<div id="solar2d-native-development" class="section level2">
+<h2>Solar2D Native Development</h2>
 <div id="bridging-luac" class="section level3">
 <h3>Bridging Lua/C</h3>
 <p>To bridge Lua and C code, you'll use functionality made available by the <a href="http://www.lua.org/manual/5.1/manual.html#3">Lua C API</a>. This allows you to add libraries and functions in Lua that call directly into C.</p>
@@ -141,7 +141,7 @@ Project Flow
 </div>
 <div id="native-apis" class="section level3">
 <h3>Native APIs</h3>
-<p>The following are specific to Corona Native for iOS:</p>
+<p>The following are specific to Solar2D Native for iOS:</p>
 <div class="inner-table">
 <table>
 <thead>
@@ -173,12 +173,12 @@ Project Flow
 </div>
 <div id="using-plugins" class="section level3">
 <h3>Using Plugins</h3>
-<p>For instructions on how to obtain and include Corona plugins within a Corona Native project, please consult the <a href="../../native/ios/usingPlugins.html">Using Plugins in Corona Native — iOS</a> guide.</p>
+<p>For instructions on how to obtain and include Corona plugins within a Solar2D Native project, please consult the <a href="../../native/ios/usingPlugins.html">Using Plugins in Solar2D Native — iOS</a> guide.</p>
 <p><a id="orientation"></a></p>
 </div>
 <div id="setting-orientation" class="section level3">
 <h3>Setting Orientation</h3>
-<p>To restrict Corona to specific orientations when using Corona Native on iOS, you can use the <code>orientation</code> table in your project's <code>build.settings</code>. See <a href="../../guide/distribution/buildSettings/index.html">Project Build Settings</a> for more details.</p>
+<p>To restrict Corona to specific orientations when using Solar2D Native on iOS, you can use the <code>orientation</code> table in your project's <code>build.settings</code>. See <a href="../../guide/distribution/buildSettings/index.html">Project Build Settings</a> for more details.</p>
 <p>Alternatively, you can edit the <code>Info.plist</code> file (<code>App-Info.plist</code> in the template app) and add a <code>CoronaViewSupportedInterfaceOrientations</code> array with options similar to <code>UISupportedInterfaceOrientations</code>. For example, to enable all orientations:</p>
 <pre class="brush: xml;">&lt;key>CoronaViewSupportedInterfaceOrientations&lt;/key>
 &lt;array>
@@ -268,7 +268,7 @@ context = [EAGLContext currentContext];
 </div>
 <div id="building-for-devices" class="section level2">
 <h2>Building for Devices</h2>
-<p>To build a Corona Native project from Xcode, please follow Apple's guidelines <a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppStoreDistributionTutorial/LaunchingYourApponDevices/LaunchingYourApponDevices.html">here</a>.</p>
+<p>To build a Solar2D Native project from Xcode, please follow Apple's guidelines <a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppStoreDistributionTutorial/LaunchingYourApponDevices/LaunchingYourApponDevices.html">here</a>.</p>
 <hr>
 <div id="footer">
 <p class="copyright">

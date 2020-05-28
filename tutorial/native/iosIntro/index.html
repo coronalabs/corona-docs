@@ -9,8 +9,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Corona Documentation — Tutorials | Corona Native</title>
-  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <title>Solar2D Documentation — Tutorials | Corona Native</title>
+  <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
@@ -54,7 +54,7 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#introduction-to-coronanative-ios">Introduction to Corona Native — iOS</a><ul>
+<li><a href="#introduction-to-solar2d-native-ios">Introduction to Solar2D Native — iOS</a><ul>
 <li><a href="#setup">Setup</a></li>
 <li><a href="#plugin-project">Plugin Project</a></li>
 <li><a href="#methods-file">Methods File</a></li>
@@ -70,9 +70,9 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/native/index.html">Corona Native</a>
 </div>
-<div id="introduction-to-coronanative-ios" class="section level1">
-<h1>Introduction to Corona Native — iOS</h1>
-<p>This tutorial will help you get started with <a href="../../../native/index.html">Corona Native</a> builds for iOS.</p>
+<div id="introduction-to-solar2d-native-ios" class="section level1">
+<h1>Introduction to Solar2D Native — iOS</h1>
+<p>This tutorial will help you get started with <a href="../../../native/index.html">Solar2D Native</a> builds for iOS.</p>
 <div class="docs-tip-outer docs-tip-color-alert">
 <div class="docs-tip-inner-left">
 <div class="fa fa-exclamation-circle" style="font-size: 35px;">
@@ -85,7 +85,7 @@
 </div>
 <div id="setup" class="section level2">
 <h2>Setup</h2>
-<p>To set up Corona Native, follow these steps:</p>
+<p>To set up Solar2D Native, follow these steps:</p>
 <ol style="list-style-type: decimal">
 <li>Install Corona as outlined in <a href="../../../guide/start/installMac/index.html">Installing Corona — macOS</a>.</li>
 </ol>
@@ -96,7 +96,7 @@
 -->
 <ol start="2" style="list-style-type: decimal">
 <li><p>Once you have Corona installed, locate its core application folder. Open the <strong>Native</strong> folder within and run the <strong>Setup Corona Native</strong> application.</p></li>
-<li><p>Corona Native projects should generally use the provided <code>App</code> template as a foundation, so <strong>copy</strong> the <code>App</code> folder <nobr>(<code>/Native/Project Template/App</code>)</nobr> to another convenient location such as a working project folder. Do <strong>not</strong> modify the original template because you'll likely need a clean copy for future projects.</p></li>
+<li><p>Solar2D Native projects should generally use the provided <code>App</code> template as a foundation, so <strong>copy</strong> the <code>App</code> folder <nobr>(<code>/Native/Project Template/App</code>)</nobr> to another convenient location such as a working project folder. Do <strong>not</strong> modify the original template because you'll likely need a clean copy for future projects.</p></li>
 <li><p>Once copied, rename the folder to whatever you want. In this tutorial, we'll build a sample <strong>plugin</strong> which activates/deactivates the device's &quot;flashlight&quot; and then we'll integrate it into a test app. Thus, <code>Flashlight</code> is an appropriate folder name.</p></li>
 </ol>
 </div>
@@ -339,7 +339,7 @@ PluginLibrary::off( lua_State *L )
 <div class="notebox-title">
 Note
 </div>
-<p>Within each new method, following the <nobr>Obj-C</nobr> code which manages the device's lamp, there's some Corona Native code that constructs an event and dispatches it to Lua. Let's examine that code:</p>
+<p>Within each new method, following the <nobr>Obj-C</nobr> code which manages the device's lamp, there's some Solar2D Native code that constructs an event and dispatches it to Lua. Let's examine that code:</p>
 <pre class="brush: lua;">    Self *library = ToLibrary( L );
 
     // Create event and add message to it
@@ -434,7 +434,7 @@ In the **Deployment Info** section below, go through and edit the options such a
 
 </div>
 </div>
-<p>Here you'll see typical Corona project files like <code>main.lua</code>, <code>build.settings</code>, and <code>config.lua</code>. For Corona Native, the latter two files are typically not used, so we can ignore them for this tutorial.</p>
+<p>Here you'll see typical Corona project files like <code>main.lua</code>, <code>build.settings</code>, and <code>config.lua</code>. For Solar2D Native, the latter two files are typically not used, so we can ignore them for this tutorial.</p>
 <p>Select <code>main.lua</code> to reveal its contents (or alternatively open the file in your preferred text editor) and then <strong>replace</strong> the existing file code with the following:</p>
 <pre class="brush: lua; gutter: true; first-line: 1;">local flashlight = require( "plugin.flashlight" )
 local widget = require( "widget" )
@@ -530,7 +530,7 @@ end</pre>
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
-<p>Clearly this tutorial is just a basic example of what can be done with Corona Native, but hopefully it has shown you what <strong>can</strong> be accomplished when you combine the nearly unlimited power of native programming with the ease and simplicity of Corona!</p>
+<p>Clearly this tutorial is just a basic example of what can be done with Solar2D Native, but hopefully it has shown you what <strong>can</strong> be accomplished when you combine the nearly unlimited power of native programming with the ease and simplicity of Corona!</p>
 <hr>
 <div id="footer">
 <p class="copyright">

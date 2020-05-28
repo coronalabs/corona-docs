@@ -9,8 +9,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Corona Documentation — Developer Guides | Building/Distribution</title>
-  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <title>Solar2D Documentation — Developer Guides | Building/Distribution</title>
+  <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
@@ -116,8 +116,8 @@ Note
 Important
 </div>
 <ul>
-<li><p>For Corona Native builds on iOS, only the <code>orientation</code> (<a href="#orientation">details</a>) and <nobr><code>iphone</code> → <code>plist</code></nobr> settings (<a href="#iOSsettings">details</a>) are respected.</p></li>
-<li><p>For Corona Native builds on Android, the <code>build.settings</code> file is ignored entirely.</p></li>
+<li><p>For Solar2D Native builds on iOS, only the <code>orientation</code> (<a href="#orientation">details</a>) and <nobr><code>iphone</code> → <code>plist</code></nobr> settings (<a href="#iOSsettings">details</a>) are respected.</p></li>
+<li><p>For Solar2D Native builds on Android, the <code>build.settings</code> file is ignored entirely.</p></li>
 </ul>
 </div>
 <p><a id="basicstruct"></a></p>
@@ -604,7 +604,7 @@ On iOS, the Corona splash screen will appear after the iOS launch screen (see&nb
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>For your convenience, a default (blank) <code>LaunchScreen.storyboardc</code> document is automatically added to all new project templates. The same file is also bundled with the Corona application itself, in case you need to copy it over to existing projects. It can be found within the Corona application folder here:</p>
+<p>For your convenience, a default (blank) <code>LaunchScreen.storyboardc</code> document is automatically added to all new project templates. The same file is also bundled with the Corona application itself, in case you need to copy it over to existing projects. It can be found within the Solar2D application folder here:</p>
 <p><nobr><code>/Applications/Corona/Resources/Resource Library/iOS/LaunchScreen.storyboardc</code></nobr></p>
 </div>
 </div>
@@ -639,7 +639,7 @@ Important
 </div>
 <div id="excluding-files" class="section level2">
 <h2>Excluding Files</h2>
-<p>More sophisticated apps may have files which are needed on one platform but not another. For example, the icon files for each platform are different and you might want to include only the appropriate files on each platform. This is not something Corona handles automatically, since file naming may vary and unique situations can't be predicted. Most developers will not need to specify files which should be excluded from builds, but the option is available if necessary.</p>
+<p>More sophisticated apps may have files which are needed on one platform but not another. For example, the icon files for each platform are different and you might want to include only the appropriate files on each platform. This is not something Solar2D handles automatically, since file naming may vary and unique situations can't be predicted. Most developers will not need to specify files which should be excluded from builds, but the option is available if necessary.</p>
 <p>Files to be excluded are specified <nobr>per-platform —</nobr> <code>ios</code>, <code>android</code>, <code>macos</code>, <code>win32</code>, <code>tvos</code>, <nobr>or <code>all</code> —</nobr> using simple pattern matching where <code>*</code> means any string of characters, sometimes including <code>/</code>. In other words, these patterns match the path names of files in the app bundle as strings. This generally only matters if you have an elaborate directory structure with multiple instances of directories with the same name at different levels, for example <code>a/music</code>, <code>a/b/music</code>, <code>a/b/c/music</code>, etc. Note that the directory separator character is always a forward slash <code>/</code>, even if building on Windows.</p>
 <p>File exclusion is a powerful facility and it's possible to corrupt your app bundle if you use this procedure unwisely and accidentally exclude files critical to its operation. After making any changes to the <code>excludeFiles</code> setup, monitor the console carefully during the next build and watch for any issues. You should also examine the contents of your app bundle carefully and check exactly which files are included.</p>
 <p>Consider these examples on how to exclude various file names and types:</p>
@@ -694,7 +694,7 @@ Important
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Excluding files is a feature of Corona — it does not work for Corona Native builds.</p>
+<p>Excluding files is a feature of Solar2D — it does not work for Solar2D Native builds.</p>
 </div>
 </div>
 <hr>

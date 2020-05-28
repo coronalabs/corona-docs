@@ -9,8 +9,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Corona Documentation — Corona Native | Self-Hosted Plugins</title>
-  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <title>Solar2D Documentation — Corona Native | Self-Hosted Plugins</title>
+  <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../css/shCoreDefault.css" type="text/css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
@@ -60,7 +60,7 @@
 <li><a href="#flat-file-structure">Flat File Structure</a></li>
 <li><a href="#web-server-requirements">Web Server Requirements</a></li>
 </ul></li>
-<li><a href="#corona-simulator-and-builds">Corona Simulator and Builds</a><ul>
+<li><a href="#solar2d-simulator-and-builds">Solar2D Simulator and Builds</a><ul>
 <li><a href="#running-plugins-in-the-simulator">Running Plugins in the Simulator</a></li>
 <li><a href="#device-buildssettings">Device Builds/Settings</a></li>
 </ul></li>
@@ -74,7 +74,7 @@
 <h1>Self-Hosted Plugins</h1>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>Corona Native users who have purchased a <a href="https://marketplace.coronalabs.com/support/priority-plus-support">Priority Plus</a> support plan can enable plugins hosted on <nobr>3rd-party</nobr> servers. This allows you to create plugins for internal use and leverage the Corona Simulator's rapid build process with native code that you've written.</p>
+<p>Solar2D Native users can enable plugins hosted on third-party servers. This allows you to use third party plugins as well as creating plugins for internal use and leveraging Solar2D's rapid build process with native code that you've written.</p>
 </div>
 <div id="packaging-and-hosting" class="section level2">
 <h2>Packaging and Hosting</h2>
@@ -89,23 +89,23 @@
 <p>Upload the resulting <code>.tgz</code> file to a web server that is accessible from the Internet. If necessary, <code>https://</code> and basic authentication are supported for security and access control.</p>
 </div>
 </div>
-<div id="corona-simulator-and-builds" class="section level2">
-<h2>Corona Simulator and Builds</h2>
+<div id="solar2d-simulator-and-builds" class="section level2">
+<h2>Solar2D Simulator and Builds</h2>
 <div id="running-plugins-in-the-simulator" class="section level3">
 <h3>Running Plugins in the Simulator</h3>
-<p>The Corona Simulator only accesses hosted plugins for device builds. When it comes to running these plugins in the Simulator, you must install these plugins locally by placing the plugin file in the following directory:</p>
+<p>Solar2D Simulator only accesses hosted plugins for device builds. When it comes to running these plugins in the Simulator, you must install these plugins locally by placing the plugin file in the following directory:</p>
 <pre class="brush: lua;">~/Library/Application Support/Corona/Simulator/Plugins/</pre>
 <p>This file should match the name used as the key in the <code>plugins</code> table, for example <code>&quot;plugin.hostedplugin&quot;</code> in the <code>build.settings</code> example below.</p>
 </div>
 <div id="device-buildssettings" class="section level3">
 <h3>Device Builds/Settings</h3>
-<p>In order to use hosted plugins with your Corona project, the following changes to <code>build.settings</code> must be made:</p>
+<p>In order to use hosted plugins with your Solar2D project, the following changes to <code>build.settings</code> must be made:</p>
 <ol style="list-style-type: decimal">
-<li><p>For each <strong>device</strong> platform, you must tell Corona the URL from which to fetch the plugin <code>.tgz</code> file.</p>
+<li><p>For each <strong>device</strong> platform, you must tell Solar2D the URL from which to fetch the plugin <code>.tgz</code> file.</p>
 <p>In the <code>supportedPlatforms</code> table for the plugin, each platform property key's value should contain the URL pointing to the <code>.tgz</code> plugin file.</p></li>
-<li><p>For each <strong>Simulator</strong> platform, you must tell Corona <strong>not</strong> to attempt download of a <code>.tgz</code> file.</p>
+<li><p>For each <strong>Simulator</strong> platform, you must tell Solar2D <strong>not</strong> to attempt download of a <code>.tgz</code> file.</p>
 <p>In the <code>supportedPlatforms</code> table for the plugin, the <code>macos</code> and <code>win32</code> key values should be <code>false</code>.</p>
-<p>If you wish to use the plugin in the Corona Simulator, you must install the plugin locally as noted above.</p></li>
+<p>If you wish to use the plugin in the Solar2D Simulator, you must install the plugin locally as noted above.</p></li>
 </ol>
 <p>Here is an example of including a hosted plugin within <code>build.settings</code>:</p>
 <pre class="brush: lua;">settings =
@@ -130,7 +130,7 @@ Important
 </div>
 <ul>
 <li><p>The maximum <strong>compressed</strong> size for the <code>.tgz</code> file is 25 MB. The maximum <strong>uncompressed</strong> size for the <code>.tgz</code> file is 50 MB.</p></li>
-<li><p>The Corona Simulator will throw an error on launch/relaunch saying that the plugin couldn't be downloaded. This message is safe to ignore.</p></li>
+<li><p>Solar2D Simulator will throw an error on launch/relaunch saying that the plugin couldn't be downloaded. This message is safe to ignore.</p></li>
 </ul>
 </div>
 <hr>

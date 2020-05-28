@@ -9,8 +9,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Corona Documentation — Corona Native | Android | Runtime Permission Support</title>
-  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <title>Solar2D Documentation — Corona Native | Android | Runtime Permission Support</title>
+  <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
@@ -78,7 +78,7 @@
 </div>
 <div id="android-runtime-permission-support" class="section level1">
 <h1>Android Runtime Permission Support</h1>
-<p>This guide explains how to add support for Android Runtime Permissions in apps/plugins built with Corona Native.</p>
+<p>This guide explains how to add support for Android Runtime Permissions in apps/plugins built with Solar2D Native.</p>
 <div class="guides-toc">
 <ul>
 <li><a href="#about">About Android Runtime Permissions</a></li>
@@ -129,7 +129,7 @@ Note
 <h2>Declaring Permissions</h2>
 <p>Once it has been determined which permissions the app/plugin requires, declaration is handled as follows:</p>
 <ul>
-<li><p>If you are developing a native plugin, you must declare permissions within <code>metadata.lua</code>. This ensures that the permissions are automatically imported for Corona users.</p>
+<li><p>If you are developing a native plugin, you must declare permissions within <code>metadata.lua</code>. This ensures that the permissions are automatically imported for Solar2D users.</p>
 <p>For example, if the <code>android.permission.SEND_SMS</code> permission is required, the <code>usesPermissions</code> table must contain it like this:</p></li>
 </ul>
 <div class="code-indent">
@@ -151,11 +151,11 @@ return metadata</pre>
 <div class="notebox-title-imp">
 Important
 </div>
-<p>In addition, for Corona Native developers, you should communicate that these permissions must be explicitly added to their <code>AndroidManifest.xml</code> file <nobr>(see next point)</nobr>.</p>
+<p>In addition, for Solar2D Native developers, you should communicate that these permissions must be explicitly added to their <code>AndroidManifest.xml</code> file <nobr>(see next point)</nobr>.</p>
 </div>
 </div>
 <ul>
-<li><p>Corona Native users must add permissions to <code>AndroidManifest.xml</code> explicitly.</p>
+<li><p>Solar2D Native users must add permissions to <code>AndroidManifest.xml</code> explicitly.</p>
 <p>For example, if the <code>android.permission.SEND_SMS</code> permission is required, the <code>AndroidManifest.xml</code> must contain it like this:</p></li>
 </ul>
 <div class="code-indent">

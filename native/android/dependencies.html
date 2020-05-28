@@ -9,8 +9,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Corona Documentation — Corona Native | Android | Android Dependency Integration</title>
-  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <title>Solar2D Documentation — Corona Native | Android | Android Dependency Integration</title>
+  <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
@@ -62,7 +62,7 @@
 </ul></li>
 <li><a href="#base-logic-layer">Base Logic Layer</a><ul>
 <li><a href="#behavior-changes">Behavior Changes</a></li>
-<li><a href="#coronanative-gotchas">Corona Native Gotchas</a></li>
+<li><a href="#solar2d-native-gotchas">Solar2D Native Gotchas</a></li>
 </ul></li>
 <li><a href="#including-dependency-plugins">Including Dependency Plugins</a></li>
 <li><a href="#testing-against-dependencies">Testing Against Dependencies</a></li>
@@ -194,9 +194,9 @@ Limitations
 <p>Note that the base logic layer does <strong>not</strong> account for issues that may occur while trying to connect to Google Play Services and use Google's APIs. It will only guarantee that the app has access to the correct version of the Google Play Services <code>.apk</code> at all times. When it's time for your plugin to connect to Google Play Services, be sure to follow the <a href="https://developers.google.com/android/guides/api-client">Accessing Google APIs</a> and <a href="https://developers.google.com/android/guides/permissions">Runtime Permissions</a> guides.</p>
 </div>
 </div>
-<div id="coronanative-gotchas" class="section level3">
-<h3>Corona Native Gotchas</h3>
-<p>To use the base logic layer with a Corona Native project, you will need to identify which components of Google Play Services are being used with <nobr><code>&lt;meta-data&gt;</code></nobr> tags in the <code>&lt;application&gt;</code> block of your application's <code>AndroidManifest.xml</code>. These tags are used to identify components of Google Play Services that may need additional process. The format for these <nobr><code>&lt;meta-data&gt;</code></nobr> tags is as follows:</p>
+<div id="solar2d-native-gotchas" class="section level3">
+<h3>Solar2D Native Gotchas</h3>
+<p>To use the base logic layer with a Solar2D Native project, you will need to identify which components of Google Play Services are being used with <nobr><code>&lt;meta-data&gt;</code></nobr> tags in the <code>&lt;application&gt;</code> block of your application's <code>AndroidManifest.xml</code>. These tags are used to identify components of Google Play Services that may need additional process. The format for these <nobr><code>&lt;meta-data&gt;</code></nobr> tags is as follows:</p>
 <pre class="brush: xml;">&lt;meta-data android:name="usesGooglePlayServicesComponent[PascalCase_NAME_OF_COMPONENT]" android:value="true" /></pre>
 <p>Here, <code>[PascalCase_NAME_OF_COMPONENT]</code> corresponds to the <code>[COMPONENT_NAME]</code> that would be specified in the <code>dependencies</code> block of your project's <code>build.gradle</code>. For example, if the <code>dependencies</code> block of your <code>build.gradle</code> includes <nobr><code>compile 'com.google.android.gms:play-services-ads:15.0.1'</code></nobr>, you would need to include the following in the <code>&lt;application&gt;</code> block of <code>AndroidManifest.xml</code>:</p>
 <pre class="brush: xml;">&lt;meta-data android:name="usesGooglePlayServicesComponentAds" android:value="true" /></pre>
@@ -244,7 +244,7 @@ Notes
 <div id="testing-against-dependencies" class="section level2">
 <h2>Testing Against Dependencies</h2>
 <p>Most dependency plugins simply wrap the distribution of a library accessible from the <a href="https://developer.android.com/studio/intro/update.html#sdk-manager">Android SDK Manager</a>. In these cases, simply including the correct version of the library in the <code>dependencies</code> block of the plugin's <nobr><code>build.gradle (Module: plugin)</code></nobr> file is sufficient for testing. For example, a plugin that depends on the <a href="https://developer.android.com/topic/libraries/support-library/features.html#v7-cardview">CardView</a> library can be accurately tested by adding <nobr><code>compile 'com.android.support:cardview-v7:27.1.1'</code></nobr> to the <code>dependencies</code> block of the <nobr><code>build.gradle (Module: plugin)</code></nobr> file.</p>
-<p>Other dependency plugins may require additional resources to test against. Any dependency plugin that falls in this category will have an entry in the tarball of plugins provided in the release files of Corona Native. For a dependency plugin with this requirement, be sure to:</p>
+<p>Other dependency plugins may require additional resources to test against. Any dependency plugin that falls in this category will have an entry in the tarball of plugins provided in the release files of Solar2D Native. For a dependency plugin with this requirement, be sure to:</p>
 <ul>
 <li><p>Include the <code>.jar</code> file with the name of the dependency plugin. For example, the <code>shared.google.play.services.base</code> dependency plugin contains a <code>shared.google.play.services.base.jar</code> file which should be included in your project.</p></li>
 <li><p>Merge the contents of the <code>manifest</code> table of <code>metadata.lua</code> into your project's <code>AndroidManifest.xml</code>. The parts that need to be merged in should have a comment identifying them as part of the dependency plugin's package name, for instance <nobr><code>-- For share-google-play-services-base package</code></nobr>. However, any XML block designated for a different package like <nobr><code>-- From play-services-basement package</code></nobr> does not need to be added manually — these parts will be included in the compiled app when you add <nobr><code>compile 'com.google.android.gms:play-services-base:15.0.1'</code></nobr> to the <code>dependencies</code> block of your <nobr><code>build.gradle (Module: app)</code></nobr> file.</p></li>

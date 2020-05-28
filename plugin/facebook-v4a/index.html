@@ -9,8 +9,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Corona Documentation — Plugins | Facebook (v4a)</title>
-  <meta name="description" content="Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <title>Solar2D Documentation — Plugins | Facebook (v4a)</title>
+  <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
@@ -80,7 +80,7 @@
 <li><a href="#ios">iOS</a></li>
 <li><a href="#android">Android</a></li>
 </ul></li>
-<li><a href="#coronanative">Corona Native</a><ul>
+<li><a href="#solar2d-native">Solar2D Native</a><ul>
 <li><a href="#ios-1">iOS</a></li>
 <li><a href="#android-1">Android</a></li>
 </ul></li>
@@ -273,11 +273,11 @@ Note
 </div>
 </div>
 </div>
-<div id="coronanative" class="section level2">
-<h2>Corona Native</h2>
+<div id="solar2d-native" class="section level2">
+<h2>Solar2D Native</h2>
 <div id="ios-1" class="section level3">
 <h3>iOS</h3>
-<p>If you're using Corona Native for iOS, you should ensure that the following static libraries are linked:</p>
+<p>If you're using Solar2D Native for iOS, you should ensure that the following static libraries are linked:</p>
 <ul>
 <li><p><code>libBolts.a</code></p></li>
 <li><p><code>libFBSDKCoreKit.a</code></p></li>
@@ -313,14 +313,14 @@ Note
 &lt;array>
     &lt;string>CoronaFacebookDelegate&lt;/string>
 &lt;/array></pre>
-<p>This has all of the same critical pieces as the <code>build.settings</code> additions for <nobr>non-Corona Native</nobr> implementation, plus the addition of the <code>CoronaDelegates</code> key with <code>CoronaFacebookDelegate</code> in its array. This allows Facebook login to work as well as suspending/resuming your app while Facebook is active.</p>
+<p>This has all of the same critical pieces as the <code>build.settings</code> additions for <nobr>non-Solar2D Native</nobr> implementation, plus the addition of the <code>CoronaDelegates</code> key with <code>CoronaFacebookDelegate</code> in its array. This allows Facebook login to work as well as suspending/resuming your app while Facebook is active.</p>
 </div>
 <div id="android-1" class="section level3">
 <h3>Android</h3>
 <!-- TODO: REWRITE WITH LINKING IN SOURCE CODE OPTIONAL -->
-<p>If you're using Corona Native for Android, there are several configuration changes you'll need to make to your Android Studio project. Be sure to follow this procedure carefully as even minor mistakes can result in debugging headaches.</p>
+<p>If you're using Solar2D Native for Android, there are several configuration changes you'll need to make to your Android Studio project. Be sure to follow this procedure carefully as even minor mistakes can result in debugging headaches.</p>
 <ol style="list-style-type: decimal">
-<li>Locate the plugin binaries package that accommodates your build of Corona Native and copy <strong>only</strong> the <code>&quot;plugin.facebook.v4a.jar&quot;</code> file into your project's <code>&quot;libs&quot;</code> directory.</li>
+<li>Locate the plugin binaries package that accommodates your build of Solar2D Native and copy <strong>only</strong> the <code>&quot;plugin.facebook.v4a.jar&quot;</code> file into your project's <code>&quot;libs&quot;</code> directory.</li>
 </ol>
 <div class="code-indent">
 <div class="guide-notebox">
@@ -388,7 +388,7 @@ Important
 <!-- TODO: MAKE LINKING IN THE SOURCE CODE OPTIONAL! -->
 <ol start="7" style="list-style-type: decimal">
 <li><p>Link in the source code for the Facebook SDK via <nobr><strong>File</strong> → <strong>New</strong> → <strong>Import Module</strong></nobr> in Android Studio. Once you're at the <strong>New Module</strong> screen, select the [<strong>...</strong>] button next to the <strong>Source Directory</strong> field and browse to the downloaded Facebook SDK noted in the step above.</p></li>
-<li><p>Find the <code>facebook</code> directory in the downloaded Facebook SDK. Confirm selection of that Gradle project and then click <strong>Finish</strong> on the <strong>New Module</strong> screen to import the Facebook SDK as a module for your Corona Native project.</p></li>
+<li><p>Find the <code>facebook</code> directory in the downloaded Facebook SDK. Confirm selection of that Gradle project and then click <strong>Finish</strong> on the <strong>New Module</strong> screen to import the Facebook SDK as a module for your Solar2D Native project.</p></li>
 <li><p>In the downloaded Facebook SDK, locate the <code>gradle.properties</code> file in the root directory and copy its contents to your Android Studio project's <code>gradle.properties</code> file.</p></li>
 <li><p>Back in Android Studio, open the <nobr><code>build.gradle (Module: app)</code></nobr> file and add this line to the bottom of the <code>dependencies</code> block:</p></li>
 </ol>

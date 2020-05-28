@@ -1,4 +1,4 @@
-# Corona game engine documentation
+# Solar2D game engine documentation
 
 ![Deploy to GitHub pages](https://github.com/coronalabs/corona-docs/workflows/Deploy%20to%20GitHub%20pages/badge.svg)
 

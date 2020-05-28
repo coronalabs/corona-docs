@@ -2,7 +2,7 @@
 
 CORONA_NATIVE_PRODUCT lets you extend CORONA_CORE_PRODUCT beyond the functionality provided by the CORONA_CORE_PRODUCT Lua&nbsp;APIs \([reference][api]\). For instance, you can use native languages like <nobr>Objective-C</nobr> or Java and pass information between the native code and Lua code. You can also [create plugins][native.plugin] that make it even easier to get native platform features into apps built with CORONA_CORE_PRODUCT.
 
-If you don't need to include custom native code in your app, the Corona&nbsp;Simulator is the best tool to use. Get started [here][guide.programming.01].
+If you don't need to include custom native code in your app, Solar2D Simulator is the best tool to use. Get started [here][guide.programming.01].
 
 
 ## System Requirements
@@ -35,7 +35,7 @@ To get started with CORONA_NATIVE_PRODUCT for Android, please proceed to [CORONA
 
 ## Plugin Development
 
-Plugins let you extend Corona functionality, leveraging <nobr>pre-built</nobr> components. You can create plugins that can be <nobr>re-used</nobr> across projects and submit a plugin for availability in the [Corona Marketplace](https://marketplace.coronalabs.com).
+Plugins let you extend Solar2D functionality, leveraging <nobr>pre-built</nobr> components. You can create plugins that can be <nobr>re-used</nobr> across projects and submit a plugin for availability in the [Corona Marketplace](https://marketplace.coronalabs.com).
 
 Learn more in our [Plugins][native.plugin] guide or in our [Plugin Submission Guide][native.plugin.submission].
 
@@ -44,4 +44,4 @@ Learn more in our [Plugins][native.plugin] guide or in our [Plugin Submission Gu
 
 ## Self-Hosted Plugins
 
-CORONA_NATIVE_PRODUCT users who have purchased a [Priority Plus](https://marketplace.coronalabs.com/support/priority-plus-support) support plan can enable plugins hosted on <nobr>3rd-party</nobr> servers. Learn more in our [Self-Hosted Plugins][native.hostedPlugin] guide.
+CORONA_NATIVE_PRODUCT users can enable plugins hosted on third-party servers. Learn more in our [Self-Hosted Plugins][native.hostedPlugin] guide.

@@ -2,7 +2,7 @@
 
 ## Overview
 
-CORONA_NATIVE_PRODUCT users can enable plugins hosted on third-party servers. This allows you to use third party plugins, as well as creating plugins for internal use and leveraging Solar2D's rapid build process with native code that you've written.
+CORONA_NATIVE_PRODUCT users can enable plugins hosted on third-party servers. This allows you to use third party plugins as well as creating plugins for internal use and leveraging Solar2D's rapid build process with native code that you've written.
 
 
 ## Packaging and Hosting

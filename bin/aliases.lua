@@ -88,7 +88,7 @@ return {
 	{ real="photon", shown="Photon" },
 	{ real="steamworks", shown="Steamworks" },
 
-	{ real="apple-iap-v2", shown="Apple IAP" },
+	{ real="apple-iap", shown="Apple IAP" },
 	{ real="amazon-iap-v2", shown="Amazon IAP" },
 	{ real="google-iap-v3", shown="Google IAP" },
 

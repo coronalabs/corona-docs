@@ -65,12 +65,16 @@ local output_images_dir = html_dir .. "/images"
 
 -- strings to substitute throughout docs content (not headers or footers though)
 local title_prefix = "Solar2D Documentation"
-local default_rev_label = "Current Public Release (2018.3326)"
+local default_rev_label = "Current Release (2020.3601)"
 local REV_LABEL = default_rev_label
-local DEFAULT_REV_URL = "https://coronalabs.com/links/docs/current-corona-sdk"
-local REV_URL_BASE = "https://developer.coronalabs.com/release/"  -- don't forget the trailing slash '/'
+local DEFAULT_REV_URL = "https://github.com/coronalabs/corona/releases"
+local REV_URL_BASE = "https://github.com/coronalabs/corona/releases/"  -- don't forget the trailing slash '/'
 local CORONA_CORE_PRODUCT = "Solar2D"
 local CORONA_NATIVE_PRODUCT = "Solar2D Native"
+
+local SOLAR_LINK_MAIN = "https://solar2d.com/"
+local SOLAR_LINK_PLUGINS = "https://plugins.solar2d.com/"
+local SOLAR_LINK_PLAY = "https://playground.solar2d.com/"
 
 require "lfs"
 require "pl.init"

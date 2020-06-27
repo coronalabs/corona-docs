@@ -72,9 +72,7 @@ local REV_URL_BASE = "https://github.com/coronalabs/corona/releases/"  -- don't 
 local CORONA_CORE_PRODUCT = "Solar2D"
 local CORONA_NATIVE_PRODUCT = "Solar2D Native"
 
-local SOLAR_LINK_MAIN = "https://solar2d.com/"
 local SOLAR_LINK_PLUGINS = "https://plugins.solar2d.com/"
-local SOLAR_LINK_PLAY = "https://playground.solar2d.com/"
 
 require "lfs"
 require "pl.init"

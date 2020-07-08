@@ -20,6 +20,9 @@ Calls a specified function after a delay. This function returns a [table][api.ty
 
 ## Gotchas
 
+**WARNING**
+*This part might be outdated because timers __do__ get automatically paused on applicationSuspend and resumed on applicationResume.*
+
 Timers run on system time. If the app is suspended, running timers will __not__ be automatically paused, meaning that when the app is resumed, all timers that would have completed/triggered during the suspended period will trigger immediately. Thus, if you have running timers that are not paused (in&nbsp;code) upon suspension of the app, you should handle this task by calling [timer.pause()][api.library.timer.pause] on all applicable timers.
 
 

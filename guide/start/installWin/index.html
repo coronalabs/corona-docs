@@ -56,7 +56,6 @@
 <ul>
 <li><a href="#installing-solar2d-windows">Installing Solar2D — Windows</a><ul>
 <li><a href="#installing-solar2d">Installing Solar2D</a></li>
-<li><a href="#product-activation">Product Activation</a></li>
 <li><a href="#java-development-kit">Java Development Kit</a></li>
 <li><a href="#text-editors">Text Editors</a></li>
 <li><a href="#development-environment">Development Environment</a></li>
@@ -75,7 +74,6 @@
 <div class="guides-toc">
 <ul>
 <li><a href="#install">Installing Solar2D</a></li>
-<li><a href="#activate">Product Activation</a></li>
 <li><a href="#jdk">Java Development Kit</a></li>
 <li><a href="#editor">Text Editors</a></li>
 <li><a href="#environment">Development Environment</a></li>
@@ -95,74 +93,34 @@
 <p>You do not need to install the Android SDK to use Solar2D. However, to create device builds to test on actual Android devices, you will need the <strong>Java Development Kit</strong>. The installation process is described below.</p>
 </div>
 </div>
-<p>We'll assume you've already <a href="http://developer.coronalabs.com/downloads/coronasdk/">downloaded</a> Solar2D. Now, double click the <code>.msi</code> installer file and follow the steps in the installation wizard.</p>
-<div class="guide-notebox">
-<div class="notebox-title">
-Note
-</div>
-<p>There are two ways to stay current with releases/builds of Corona:</p>
-<ul>
-<li><p><a href="https://developer.coronalabs.com/downloads/coronasdk">Public Release</a> — The latest stable release of Solar2D, providing maximum reliability for your projects. This is updated several times a year.</p></li>
-<li><p><a href="https://developer.coronalabs.com/downloads/daily-builds/">Daily Builds</a> — The bleeding edge. Daily builds contain the latest features as they are integrated into Corona.</p></li>
-</ul>
-</div>
-<p><a id="activate"></a></p>
-</div>
-<div id="product-activation" class="section level2">
-<h2>Product Activation</h2>
-<p>In order to use Solar2D, you must be connected to the Internet and perform a simple <nobr>one-time</nobr> authorization process.</p>
-<ol style="list-style-type: decimal">
-<li><p>Open the <strong>Corona Simulator</strong> from the folder where you installed it. The first time you launch, you will be presented with a <nobr>License Agreement (EULA)</nobr>. Read the license terms and click <strong>Agree</strong>.</p></li>
-<li><p>If you've already registered for a Corona account, simply enter your account <nobr>e-mail</nobr> and password to activate the product. Otherwise, click <strong>Register</strong> to create an account.</p></li>
-</ol>
-<!---
-
-<div class="code-indent">
-
-![][images.simulator.install-win-login1]
-
-</div>
-
--->
-<ol start="3" style="list-style-type: decimal">
-<li>Upon successful login, you will receive a confirmation dialog. You're ready to get started!</li>
-</ol>
-<!---
-
-<div class="code-indent">
-
-![][images.simulator.install-win-login2]
-
-</div>
-
--->
+<p>We'll assume you've already downloaded <a href="DEFAULT_REV_URL">Solar2D</a>. Now, double click the <code>.msi</code> installer file and follow the steps in the installation wizard.</p>
 <p><a id="jdk"></a></p>
 </div>
 <div id="java-development-kit" class="section level2">
 <h2>Java Development Kit</h2>
 <p>Installing Solar2D lets you create and test apps locally on your PC. If you intend to build apps for testing on Android devices, you will need to install the <nobr><strong>Java Development Kit</strong></nobr> (JDK). We suggest that you follow these instructions:</p>
 <ol style="list-style-type: decimal">
-<li>Go to the <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">JDK download</a> page.</li>
-<li>Click the <strong>JDK</strong> download link to obtain the current <nobr>Java Platform (JDK)</nobr>.</li>
+<li>Go to <a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">JDK8 download</a> page.</li>
+<li>Click the <strong>JDK</strong> download link to obtain the corresponding <nobr>Java Platform (JDK)</nobr>.</li>
 <li>On the next page, read the license agreement and click the option to accept it if you agree.</li>
-<li>Locate the <nobr><strong>Windows x86</strong></nobr> link and click it to download the file. This file will be named approximately <nobr><code>jdk-8u131-windows-i586.exe</code></nobr>.</li>
+<li>Locate the <nobr><strong>Windows x86</strong></nobr> link and click it to download the file. This file will be named approximately <nobr><code>jdk-8u251-windows-i586.exe</code></nobr>.</li>
 <li>When the download is complete, run the installer. Be sure to install the <nobr>Java Runtime Environment</nobr> (JRE) as part of the installation.</li>
 </ol>
 <!---
 
 <a id="coronaeditor"></a>
 
-## Corona Editor (IDE)
+## Solar2D Editor (IDE)
 
-[Corona Editor](http://coronalabs.com/products/editor/) offers developers a very capable and lightweight IDE. Corona Editor streamlines development and includes the following:
+[Solar2D Editor](https://github.com/coronalabs/CoronaSDK-SublimeText) offers developers a very capable and lightweight IDE. Solar2D Editor streamlines development and includes the following:
 
 * __Debugger__ &mdash; set breakpoints and inspect variables.
 * __Snippets__ &mdash; get help with syntax and coding conventions.
 * __Code completion__ &mdash; save time for all APIs and constants.
 * __Docs__ &mdash; bring up APIs directly from your code.
-* __Launch__ &mdash; run the current app in the Corona Simulator from [Sublime Text](http://www.sublimetext.com).
+* __Launch__ &mdash; run the current app in the Solar2D Simulator from [Sublime Text](http://www.sublimetext.com).
 
-For more information, please see the [Corona Editor](http://coronalabs.com/products/editor/) page.
+For more information, please see the [Solar2D Editor](https://github.com/coronalabs/CoronaSDK-SublimeText) page.
 
 -->
 <p><a id="editor"></a></p>
@@ -180,16 +138,16 @@ For more information, please see the [Corona Editor](http://coronalabs.com/produ
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><a href="https://atom.io">Atom</a></td>
-<td align="left"><a href="http://bit.ly/1SA5cXv">autocomplete-corona</a></td>
+<td align="left"><a href="http://www.sublimetext.com">Sublime Text</a></td>
+<td align="left"><a href="https://github.com/coronalabs/CoronaSDK-SublimeText">Solar2D Editor</a></td>
 </tr>
 <tr class="even">
-<td align="left"><a href="https://code.visualstudio.com/">Visual Studio Code</a></td>
-<td align="left"><a href="http://bit.ly/1SHiqgK">Corona Tools</a></td>
+<td align="left"><a href="https://atom.io">Atom</a></td>
+<td align="left"><a href="https://atom.io/packages/autocomplete-corona">autocomplete-plus</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="http://www.sublimetext.com">Sublime Text</a></td>
-<td align="left"><a href="http://bit.ly/1QGh44H">Corona Editor</a></td>
+<td align="left"><a href="https://code.visualstudio.com/">Visual Studio Code</a></td>
+<td align="left"><a href="https://marketplace.visualstudio.com/items?itemName=M4adan.solar2d-companion">Solar2D-companion</a></td>
 </tr>
 <tr class="even">
 <td align="left"><a href="http://notepad-plus-plus.org">Notepad++</a></td>
@@ -210,20 +168,20 @@ For more information, please see the [Corona Editor](http://coronalabs.com/produ
 </div>
 <div id="development-environment" class="section level2">
 <h2>Development Environment</h2>
-<p>The Solar2D development environment consists of two aspects: the <strong>Corona Simulator</strong> and the <strong>Corona Simulator Console</strong> window.</p>
+<p>The Solar2D development environment consists of two aspects: the <strong>CORONA_CORE_PRODUCT Simulator</strong> and the <strong>CORONA_CORE_PRODUCT Console</strong> window.</p>
 <ul>
-<li><p>The <strong>Corona Simulator</strong> is a visual representation and test environment for your app. What you see in the Simulator is generally what your app will look like — and how it will function — when deployed to an actual device. The Corona Simulator is an essential tool because it allows you to view changes to your code instantly in an active, responsive environment that closely mimics the device.</p></li>
-<li><p>The <strong>Corona Simulator Console</strong> is where you can view diagnostic messages about what's happening in your program. This window is automatically displayed when you launch the Corona Simulator.</p></li>
+<li><p>The <strong>CORONA_CORE_PRODUCT Simulator</strong> is a visual representation and test environment for your app. What you see in the Simulator is generally what your app will look like — and how it will function — when deployed to an actual device. Solar2D Simulator is an essential tool because it allows you to view changes to your code instantly in an active, responsive environment that closely mimics the device.</p></li>
+<li><p>The <strong>CORONA_CORE_PRODUCT Simulator Console</strong> is where you can view diagnostic messages about what's happening in your program. This window is automatically displayed when you launch the Solar2D Simulator.</p></li>
 </ul>
 <p><a id="simoptions"></a></p>
 </div>
 <div id="simulator-options" class="section level2">
 <h2>Simulator Options</h2>
-<p>The Corona Simulator for Windows features the following basic menu items:</p>
+<p>The Solar2D Simulator for Windows features the following basic menu items:</p>
 <ul>
 <li><p>The <strong>File</strong> menu is where projects (applications) are created or opened. This is also where you <strong>build</strong> your apps for distribution or testing on devices. Finally, this menu provides access to the Simulator <strong>Preferences</strong>.</p></li>
 <li><p>The <strong>Hardware</strong> menu is used to simulate physical device actions such as rotating the screen.</p></li>
-<li><p>The <strong>View</strong> menu lets you open the <strong>Welcome Screen</strong> which provides quick access to recent projects, Corona developer resources, and more. This menu also lets you access the Corona Simulator Console (<strong>Console</strong>). Finally, this menu includes options to manipulate the Simulator window or change the skin <nobr>(<strong>View</strong> → <strong>View As</strong>)</nobr>.</p></li>
+<li><p>The <strong>View</strong> menu lets you open the <strong>Welcome Screen</strong> which provides quick access to recent projects, Solar2D developer resources, and more. This menu also lets you access the Solar2D Simulator Console (<strong>Console</strong>). Finally, this menu includes options to manipulate the Simulator window or change the skin <nobr>(<strong>View</strong> → <strong>View As</strong>)</nobr>.</p></li>
 </ul>
 <!---
 
@@ -238,18 +196,18 @@ When you want to build your app for distribution or to test on a device, choose 
 </div>
 <div id="getting-started" class="section level2">
 <h2>Getting Started</h2>
-<p>If you're new to Corona, the most fun way to learn is to <a href="../../../guide/programming/01/index.html">create a simple game</a>. Don't worry if you've never created a mobile app or programmed before — the chapters in the guide will walk you through the entire process from start to finish!</p>
+<p>If you're new to Solar2D, the most fun way to learn is to <a href="../../../guide/programming/01/index.html">create a simple game</a>. Don't worry if you've never created a mobile app or programmed before — the chapters in the guide will walk you through the entire process from start to finish!</p>
 <div class="walkthrough-nav">
 <p><a href="../../../guide/programming/01/index.html">Chapter 1 — Creating an App</a> <strong>⟩</strong></p>
 </div>
 </div>
 <div id="command-line-usage" class="section level2">
 <h2>Command Line Usage</h2>
-<p>To start a particular app in the Corona Simulator without double-clicking it, use a command like this:</p>
-<pre class="brush: lua;">"C:\Program Files\Corona Labs\Solar2D\Corona Simulator.exe" "C:\Documents and Settings\MyAccount\My Documents\Corona Apps\My App\main.lua"</pre>
-<p>If you don't want the Corona Simulator Console window to automatically appear, use the <code>/no-console</code> option:</p>
-<pre class="brush: lua;">"C:\Program Files\Corona Labs\Solar2D\Corona Simulator.exe" /no-console</pre>
-<p>After using the <code>/no-console</code> option above, all Lua <code>print()</code> functions and Corona log messages can be received via the standard output stream (<code>stdout</code>).</p>
+<p>To start a particular app in the Solar2D Simulator without double-clicking it, use a command like this:</p>
+<pre class="brush: lua;">"C:\Program Files\Corona Labs\Corona\Corona Simulator.exe" "C:\Documents and Settings\MyAccount\My Documents\Corona Apps\My App\main.lua"</pre>
+<p>If you don't want the Solar2D Simulator Console window to automatically appear, use the <code>/no-console</code> option:</p>
+<pre class="brush: lua;">"C:\Program Files\Corona Labs\Corona\Corona Simulator.exe" /no-console</pre>
+<p>After using the <code>/no-console</code> option above, all Lua <code>print()</code> functions and Solar2D log messages can be received via the standard output stream (<code>stdout</code>).</p>
 <p>One additional flag is allowed (<code>/debug</code>) which allows an IDE to connect a debugger to the Simulator session. It should come immediately after the <code>.exe</code>.</p>
 <hr>
 <div id="footer">

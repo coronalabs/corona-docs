@@ -93,7 +93,7 @@
 </tr>
 <tr class="even">
 <td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://coronalabs.com/links/docs/current-corona-sdk">Current Public Release (2018.3326)</a></td>
+<td align="left"><a href="https://github.com/coronalabs/corona/releases">Current Release (2020.3601)</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>Keywords</strong></td>
@@ -120,6 +120,7 @@
 </div>
 <div id="gotchas" class="section level2">
 <h2>Gotchas</h2>
+<p><strong>WARNING</strong> <em>This part might be outdated because timers <strong>do</strong> get automatically paused on applicationSuspend and resumed on applicationResume.</em></p>
 <p>Timers run on system time. If the app is suspended, running timers will <strong>not</strong> be automatically paused, meaning that when the app is resumed, all timers that would have completed/triggered during the suspended period will trigger immediately. Thus, if you have running timers that are not paused (in code) upon suspension of the app, you should handle this task by calling <a href="../../../api/library/timer/pause.html">timer.pause()</a> on all applicable timers.</p>
 </div>
 <div id="syntax" class="section level2">

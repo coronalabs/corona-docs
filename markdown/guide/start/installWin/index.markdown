@@ -98,7 +98,7 @@ The CORONA_CORE_PRODUCT development environment consists of two aspects: the __S
 
 * The __Solar2D Simulator__ is a visual representation and test environment for your app. What you see in the Simulator is generally what your app will look like — and how it will function — when deployed to an actual device. CORONA_CORE_PRODUCT Simulator is an essential tool because it allows you to view changes to your code instantly in an active, responsive environment that closely mimics the device.
 
-* The __Solar2D Console__ is where you can view diagnostic messages about what's happening in your program. This window is automatically displayed when you launch the CORONA_CORE_PRODUCT Simulator.
+* The __Solar2D Simulator Console__ is where you can view diagnostic messages about what's happening in your program. This window is automatically displayed when you launch the CORONA_CORE_PRODUCT Simulator.
 
 
 

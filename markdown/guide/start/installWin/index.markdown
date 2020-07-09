@@ -28,7 +28,7 @@ You do not need to install the Android SDK to use CORONA_CORE_PRODUCT. However, 
 </div>
 </div>
 
-We'll assume you've already downloaded [CORONA_CORE_PRODUCT](DEFAULT_REV_URL). Now, double click the `.msi` installer file and follow the steps in the installation wizard.
+We'll assume you've already downloaded [CORONA_CORE_PRODUCT](https://github.com/coronalabs/corona/releases). Now, double click the `.msi` installer file and follow the steps in the installation wizard.
 
 
 <a id="jdk"></a>
@@ -94,11 +94,11 @@ Editor																Add-On Package
 
 ## Development Environment
 
-The CORONA_CORE_PRODUCT development environment consists of two aspects: the __CORONA_CORE_PRODUCT Simulator__ and the __CORONA_CORE_PRODUCT Console__ window.
+The CORONA_CORE_PRODUCT development environment consists of two aspects: the __Solar2D Simulator__ and the __Solar2D Console__ window.
 
-* The __CORONA_CORE_PRODUCT Simulator__ is a visual representation and test environment for your app. What you see in the Simulator is generally what your app will look like — and how it will function — when deployed to an actual device. CORONA_CORE_PRODUCT Simulator is an essential tool because it allows you to view changes to your code instantly in an active, responsive environment that closely mimics the device.
+* The __Solar2D Simulator__ is a visual representation and test environment for your app. What you see in the Simulator is generally what your app will look like — and how it will function — when deployed to an actual device. CORONA_CORE_PRODUCT Simulator is an essential tool because it allows you to view changes to your code instantly in an active, responsive environment that closely mimics the device.
 
-* The __CORONA_CORE_PRODUCT Simulator Console__ is where you can view diagnostic messages about what's happening in your program. This window is automatically displayed when you launch the CORONA_CORE_PRODUCT Simulator.
+* The __Solar2D Console__ is where you can view diagnostic messages about what's happening in your program. This window is automatically displayed when you launch the CORONA_CORE_PRODUCT Simulator.
 
 
 

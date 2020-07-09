@@ -28,7 +28,7 @@ You do not need to install the Android SDK to use CORONA_CORE_PRODUCT. However, 
 </div>
 </div>
 
-We'll assume you've already downloaded [CORONA_CORE_PRODUCT](https://github.com/coronalabs/corona/releases). Now, double click the `.msi` installer file and follow the steps in the installation wizard.
+We'll assume you've already downloaded [CORONA_CORE_PRODUCT](REVISION_URL). Now, double click the `.msi` installer file and follow the steps in the installation wizard.
 
 
 <a id="jdk"></a>

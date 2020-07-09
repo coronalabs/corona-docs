@@ -67,12 +67,22 @@ local output_images_dir = html_dir .. "/images"
 local title_prefix = "Solar2D Documentation"
 local default_rev_label = "Release 2020.3601"
 local REV_LABEL = default_rev_label
-local DEFAULT_REV_URL = "https://github.com/coronalabs/corona/releases"
-local REV_URL_BASE = "https://github.com/coronalabs/corona/releases/"  -- don't forget the trailing slash '/'
+
 local CORONA_CORE_PRODUCT = "Solar2D"
 local CORONA_NATIVE_PRODUCT = "Solar2D Native"
 
+-- Do NOT directly reference DEFAULT_REV_URL and REV_URL_BASE variables in docs. 
+-- To reference DEFAULT_REV_URL and REV_URL_BASE in the docs, use REVISION_URL.
+-- Editing DEFAULT_REV_URL and REV_URL_BASE would change REVISION_URL.
+local DEFAULT_REV_URL = "https://github.com/coronalabs/corona/releases"
+local REV_URL_BASE = "https://github.com/coronalabs/corona/releases/"  -- don't forget the trailing slash '/'
+
+-- Do NOT directly reference SOLAR_LINK_PLUGINS and SOLAR_LINK_PLAYGROUND variables in docs.
+-- To reference SOLAR_LINK_PLUGINS and SOLAR_LINK_PLAYGROUND in the docs, use PLUGINS_DIR and SOLAR_PLAY respectively.
+-- Editing PLUGINS_DIR and SOLAR_PLAY would change SOLAR_LINK_PLUGINS and SOLAR_LINK_PLAYGROUND respectively.
 local SOLAR_LINK_PLUGINS = "https://plugins.solar2d.com/"
+local SOLAR_LINK_PLAYGROUND = "https://playground.solar2d.com/"
+
 
 require "lfs"
 require "pl.init"
@@ -568,6 +578,10 @@ for i=1,#markdown_files do
 				return CORONA_CORE_PRODUCT
 			elseif w == "CORONA_NATIVE_PRODUCT" then
 				return CORONA_NATIVE_PRODUCT
+			elseif w == "PLUGINS_DIR" then
+				return SOLAR_LINK_PLUGINS
+			elseif w == "SOLAR_PLAY" then
+				return SOLAR_LINK_PLAYGROUND
 			elseif w == "CURRENT_RELEASE" then
 				return string_sub( default_rev_label, -10, -2 )
 			elseif w == "TEMPLATE_ATS" then

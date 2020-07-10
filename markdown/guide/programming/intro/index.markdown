@@ -305,7 +305,7 @@ For more details, see the [System Requirements][guide.start.systemReqs] page. If
 
 ## Getting Started
 
-### Join the community!
+### Join the community
 
 The CORONA_CORE_PRODUCT community is friendly and helpful! You can interact with other CORONA_CORE_PRODUCT developers in various ways:
 
@@ -318,7 +318,7 @@ The CORONA_CORE_PRODUCT community is friendly and helpful! You can interact with
 <a href="https://www.linkedin.com/company/solar2d/" target="_new"><div class="social-button"><div class="fa fa-linkedin" style="padding-top: 8px; padding-left: 1px;"></div></div></a>
 <div class="clear"></div>
 
-### Learning Resources
+### Check the resources
 
 There are several places where you can learn more about CORONA_CORE_PRODUCT:
 
@@ -326,7 +326,7 @@ There are several places where you can learn more about CORONA_CORE_PRODUCT:
 * The [API Reference][api] site provides details about every API.
 * Additional books and online courses for CORONA_CORE_PRODUCT can be found [here](https://burtonsmediagroup.com/books/coronasdk/).
 
-### Create a project!
+### Create a project
 
 The most fun way to learn CORONA_CORE_PRODUCT is to [create a simple game][guide.programming.01]. Don't worry if you've never created a mobile app or programmed before&nbsp;&mdash; the chapters in this guide will walk you through the entire process from start to finish.
 

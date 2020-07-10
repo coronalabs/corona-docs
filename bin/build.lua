@@ -79,7 +79,7 @@ local REV_URL_BASE = "https://github.com/coronalabs/corona/releases/"  -- don't 
 
 -- Do NOT directly reference SOLAR_LINK_PLUGINS and SOLAR_LINK_PLAYGROUND variables in docs.
 -- To reference SOLAR_LINK_PLUGINS and SOLAR_LINK_PLAYGROUND in the docs, use PLUGINS_DIR and SOLAR_PLAY respectively.
--- Editing PLUGINS_DIR and SOLAR_PLAY would change SOLAR_LINK_PLUGINS and SOLAR_LINK_PLAYGROUND respectively.
+-- Editing SOLAR_LINK_PLUGINS and SOLAR_LINK_PLAYGROUND would change PLUGINS_DIR and SOLAR_PLAY respectively.
 local SOLAR_LINK_PLUGINS = "https://plugins.solar2d.com/"
 local SOLAR_LINK_PLAYGROUND = "https://playground.solar2d.com/"
 

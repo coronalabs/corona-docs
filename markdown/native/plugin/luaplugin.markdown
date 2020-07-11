@@ -1,6 +1,6 @@
 # Creating Lua Plugins
 
-This guide outlines how to create a Lua plugin and package it for submission to the [Corona Marketplace](https://marketplace.coronalabs.com/).
+This guide outlines how to create a Lua plugin and package it for submission to the [Solar2D Plugins Marketplace](https://www.solar2dplugins.com/).
 
 <div class="docs-tip-outer">
 <div class="docs-tip-inner-left">
@@ -201,7 +201,7 @@ The `lua/plugin` folder also contains an additional __folder__ named according t
 
 ## Plugin Submission
 
-If you'd like to [submit a plugin](https://marketplace.coronalabs.com/product-submit) for availability in the [Corona Marketplace](https://marketplace.coronalabs.com/), there are a few more steps you must complete:
+The following steps apply regardless of which marketplace you choose to submit your plugin to.
 
 ### Device Testing
 
@@ -211,7 +211,7 @@ Using the `main.lua` file in the `lua` folder, you should build a basic sample a
 local myLuaPlugin = require( "plugin.myLuaPlugin" )
 ``````
 
-Because the plugin code is in the `plugin` folder, your plugin will be accessible in the same manner as native Corona plugins.
+Because the plugin code is in the `plugin` folder, your plugin will be accessible in the same manner as native CORONA_CORE_PRODUCT plugins.
 
 Finally, you should ensure that your code executes on both iOS and Android devices, since Lua plugins are intended to be <nobr>cross-platform</nobr> compatible. Verify that your plugin successfully compiles for devices and be aware of potential performance issues on <nobr>low-end</nobr> devices.
 
@@ -255,8 +255,8 @@ build.bat
 </div>
 </div>
 
-This process converts your code into bytecode and prepares it for submission to the [Corona Marketplace](https://marketplace.coronalabs.com/). When complete, you will see a <nobr>`plugin-PLUGIN_NAME.zip`</nobr> file in your project directory.
+This process converts your code into bytecode and prepares it for submission to a plugins host. When complete, you will see a <nobr>`plugin-PLUGIN_NAME.zip`</nobr> file in your project directory.
 
 ### Submission
 
-Once your plugin is packaged and complete, with hosted documentation and at least one sample, you can [submit](https://marketplace.coronalabs.com/product-submit) it Corona&nbsp;Labs. We will then contact you and personally help you through the process of uploading the plugin to our distribution servers and offering it to Corona developers via the [Corona Marketplace](https://marketplace.coronalabs.com/).
+If you'd like to submit a plugin for availability in the [Solar2D Plugins Marketplace](https://www.solar2dplugins.com/), refer to the [Solar2D Plugins Marketplace Asset Packaging Guidelines](https://www.solar2dplugins.com/asset-packaging-guidelines/) for additional steps.

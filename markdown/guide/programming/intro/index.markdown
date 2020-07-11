@@ -335,6 +335,7 @@ The most fun way to learn CORONA_CORE_PRODUCT is to [create a simple game][guide
 [Chapter 1 &mdash; Creating a project][guide.programming.01] __&rang;__
 
 </div>
+<div class="clear"></div>
 
 
 <!--- LEGAL -->

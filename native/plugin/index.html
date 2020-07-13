@@ -78,7 +78,7 @@
 </div>
 <div id="plugins" class="section level1">
 <h1>Plugins</h1>
-<p>Plugins allow you to extend the functionality of Corona. This guide outlines the fundamental details.</p>
+<p>Plugins allow you to extend the functionality of Solar2D. This guide outlines the fundamental details.</p>
 <div class="docs-tip-outer">
 <div class="docs-tip-inner-left">
 <div class="fa fa-cog">
@@ -86,7 +86,7 @@
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>If you've created a plugin and wish to submit it to the <a href="https://marketplace.coronalabs.com/">Corona Marketplace</a>, please see the <a href="../../native/plugin/submission.html">Plugin Submission Guide</a>.</p>
+<p>The old <a href="https://marketplace.coronalabs.com/">Corona Marketplace</a> is closing and no longer accepts plugin submissions. If you've created a plugin and wish to submit it to the new <a href="https://www.solar2dplugins.com/">Solar2D Plugins Marketplace</a>, please see the [Asset Packaging Guidelines][https://www.solar2dplugins.com/asset-packaging-guidelines].</p>
 </div>
 </div>
 <div class="guides-toc">
@@ -100,7 +100,7 @@
 <p><a id="architecture"></a></p>
 <div id="architecture" class="section level2">
 <h2>Architecture</h2>
-<p>Corona plugins leverage Lua's module system in which plugins are lazily loaded by a corresponding call to the Lua <a href="../../api/library/package/require.html">require()</a> function.</p>
+<p>Solar2D plugins leverage Lua's module system in which plugins are lazily loaded by a corresponding call to the Lua <a href="../../api/library/package/require.html">require()</a> function.</p>
 <p>Typically, these plugins are just shared native libraries which are supported on platforms like <nobr>macOS (<code>.dylib</code>)</nobr>, <nobr>Windows (<code>.dll</code>)</nobr>, and <nobr>Android (<code>.so</code>)</nobr>.</p>
 <div class="guide-notebox">
 <div class="notebox-title">
@@ -110,7 +110,7 @@ Note
 <li>On iOS, shared libraries are not supported, so plugins must be static libraries (<code>.a</code>).</li>
 <li>On Android, it's often convenient to create pure Java plugins (<code>.jar</code>).</li>
 </ul>
-<p>In these two cases, Corona adds special loaders which ensure that these plugins can be easily loaded, assuming certain conventions are followed.</p>
+<p>In these two cases, Solar2D adds special loaders which ensure that these plugins can be easily loaded, assuming certain conventions are followed.</p>
 </div>
 <p><a id="using"></a></p>
 </div>
@@ -118,7 +118,7 @@ Note
 <h2>Using Plugins</h2>
 <div id="solar2d" class="section level3">
 <h3>Solar2D</h3>
-<p>Plugins for Solar2D are hosted on our servers. You can incorporate a plugin by adding an entry to the <code>plugins</code> table of <code>build.settings</code>, for example:</p>
+<p>Plugins for Solar2D are hosted in a number of places. Many are available at <a href="https://plugins.solar2d.com/">plugins.solar2d.com</a>, <a href="https://solar2dmarketplace.com/">solar2dmarketplace.com</a>, and <a href="https://www.solar2dplugins.com/">solar2dplugins.com</a>. You can incorporate a plugin by adding an entry to the <code>plugins</code> table of <code>build.settings</code>, for example:</p>
 <pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
 {
     plugins =
@@ -129,7 +129,8 @@ Note
         },
     },
 }</pre>
-<p>When added in this manner, the build server will integrate the plugin during the build phase.</p>
+<p>Each plugin host will provide specific build.settings for the individual plugin.</p>
+<p>When added in this manner, Solar2D will integrate the plugin during the build phase.</p>
 <p>From there, the plugin can be loaded using the standard Lua <a href="../../api/library/package/require.html">require()</a> function, for instance:</p>
 <pre class="brush: lua;">local myPlugin = require( "plugin.myPlugin" )</pre>
 </div>
@@ -153,7 +154,7 @@ Note
 </div>
 <div id="plugin-projects" class="section level2">
 <h2>Plugin Projects</h2>
-<p>If you want to <a href="../../native/plugin/submission.html">create/submit</a> a plugin for availability in the <a href="https://marketplace.coronalabs.com/">Corona Marketplace</a>, you can use our <code>App</code> project templates to simplify development of your plugin, as well as test it. After all, a plugin itself is not an executable and it must be run inside an actual application. The project templates can be located within the Solar2D Native folder:</p>
+<p>If you want to <a href="../../native/plugin/submission.html">create/submit</a> a plugin for availability in the <a href="https://www.solar2dplugins.com/">Solar2D Plugins Marketplace</a>, you can use our <code>App</code> project templates to simplify development of your plugin, as well as test it. After all, a plugin itself is not an executable and it must be run inside an actual application. The project templates can be located within the Solar2D Native folder:</p>
 <p><nobr><code>/Applications/Corona/Native/Project Template/App/</code></nobr></p>
 <p>This folder has separate <nobr>platform-specific</nobr> subfolders for each target platform:</p>
 <ul>
@@ -197,11 +198,11 @@ Note
 </ol>
 <div id="pure-lua" class="section level3">
 <h3>Pure Lua</h3>
-<p>A Lua library plugin can be created using the <a href="../../api/type/CoronaLibrary/index.html">CoronaLibrary</a> class. Please see the <a href="../../native/plugin/luaplugin.html">Creating Lua Plugins</a> guide for details on how to create, package, and submit a Lua plugin to the <a href="https://marketplace.coronalabs.com/">Corona Marketplace</a>.</p>
+<p>A Lua library plugin can be created using the <a href="../../api/type/CoronaLibrary/index.html">CoronaLibrary</a> class. Please see the <a href="../../native/plugin/luaplugin.html">Creating Lua Plugins</a> guide for details on how to create, package, and submit a Lua plugin to the available marketplaces.</p>
 </div>
 <div id="native-c" class="section level3">
 <h3>Native C</h3>
-<p>In addition to the plugin naming conventions discussed above, Corona expects plugins to follow some additional conventions that ensure Lua can locate these modules. In C, these conventions are just the standard Lua naming conventions for modules:</p>
+<p>In addition to the plugin naming conventions discussed above, Solar2D expects plugins to follow some additional conventions that ensure Lua can locate these modules. In C, these conventions are just the standard Lua naming conventions for modules:</p>
 <ul>
 <li>The name of the module function must be prefixed by <code>luaopen_</code>.</li>
 <li>The signature of this function should match <a href="http://www.lua.org/manual/5.1/manual.html#lua_CFunction">lua_CFunction</a>.</li>
@@ -239,7 +240,7 @@ int luaopen_plugin_myLibrary( lua_State *L )
 <div id="native-java" class="section level3">
 <h3>Native Java</h3>
 <p>If you write the module in Java, Corona has set up Lua to load Java code and to let that Java code define the Lua library via <a href="http://code.google.com/p/jnlua/">JNLua</a>. Here, Lua looks for the Java class <code>LuaLoader</code> and instantiates it.</p>
-<p>Corona assumes the following conventions:</p>
+<p>Solar2D assumes the following conventions:</p>
 <ul>
 <li>The <code>LuaLoader</code> class has a default (empty) constructor.</li>
 <li>The <code>LuaLoader</code> class must implement the JNLua interface <code>com.naef.jnlua.JavaFunction</code>.</li>

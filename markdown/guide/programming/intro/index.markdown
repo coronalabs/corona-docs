@@ -313,7 +313,7 @@ The CORONA_CORE_PRODUCT community is friendly and helpful! You can interact with
 * [Discord](https://discord.gg/Abf5V9G/)
 
 <a href="https://github.com/coronalabs" target="_new"><div class="social-button"><div class="fa fa-github"></div></div></a>
-<a href="https://www.facebook.com/Solar2D" target="_new"><div class="social-button"><div class="fa fa-facebook-official" style="padding-left: 2px;"></div></div></div></a>
+<a href="https://www.facebook.com/Solar2D" target="_new"><div class="social-button"><div class="fa fa-facebook-official" style="padding-left: 2px;"></div></div></a>
 <a href="https://twitter.com/Solar2Dev" target="_new"><div class="social-button"><div class="fa fa-twitter" style="font-size: 22px; padding-top: 11px; padding-left: 2px;"></div></div></a>
 <a href="https://www.linkedin.com/company/solar2d/" target="_new"><div class="social-button"><div class="fa fa-linkedin" style="padding-top: 8px; padding-left: 1px;"></div></div></a>
 <div class="clear"></div>
@@ -335,6 +335,7 @@ The most fun way to learn CORONA_CORE_PRODUCT is to [create a simple game][guide
 [Chapter 1 &mdash; Creating a project][guide.programming.01] __&rang;__
 
 </div>
+<div class="clear"></div>
 
 
 <!--- LEGAL -->

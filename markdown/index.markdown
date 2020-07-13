@@ -96,7 +96,7 @@ Plugins
 
 </div>
 
-Corona plugins give CORONA_CORE_PRODUCT developers access to additional functionality and <nobr>third-party</nobr> services.
+CORONA_CORE_PRODUCT plugins give CORONA_CORE_PRODUCT developers access to additional functionality and <nobr>third-party</nobr> services.
 
 </a>
 </div>

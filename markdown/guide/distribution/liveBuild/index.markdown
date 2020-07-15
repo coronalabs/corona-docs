@@ -2,7 +2,7 @@
 
 <div class="guide-intro">
 
-Corona __live builds__ are a powerful and efficient way to see exactly how your <nobr>in-development</nobr> Corona app will appear on real devices. Benefits include:
+__Live builds__ are a powerful and efficient way to see exactly how your <nobr>in-development</nobr> CORONA_CORE_PRODUCT app will appear on real devices. Benefits include:
 
 </div>
 
@@ -23,7 +23,7 @@ Build and deploy your app just once and then see code/assets update almost insta
 </div>
 <div class="docs-tip-inner-right">
 
-Improve your workflow by testing on multiple devices and different platforms concurrently, all from a single Corona code base.
+Improve your workflow by testing on multiple devices and different platforms concurrently, all from a single code base.
 
 </div>
 </div>
@@ -42,7 +42,7 @@ Iterate on projects faster without rebuilding them to see the final result, even
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Important</div>
 
-To use Corona live builds on Windows, you must install [iTunes](https://www.apple.com/itunes/download/).
+To use live builds on Windows, you must install [iTunes](https://www.apple.com/itunes/download/).
 
 </div>
 
@@ -62,7 +62,7 @@ To use Corona live builds on Windows, you must install [iTunes](https://www.appl
 
 To create a live build, simply follow these steps:
 
-1. In the Corona&nbsp;Simulator, open the __Build__ dialog window <nobr>(__File__ &rarr; __Build__)</nobr> for either iOS, Android, or tvOS.
+1. In the CORONA_CORE_PRODUCT Simulator, open the __Build__ dialog window <nobr>(__File__ &rarr; __Build__)</nobr> for either iOS, Android, or tvOS.
 
 <!---
 
@@ -76,7 +76,7 @@ To create a live build, simply follow these steps:
 
 -->
 
-2. Confirm that the first several settings are correct in terms of how you typically build an app from the Corona&nbsp;Simulator. If you're not familiar with preparing/building apps for devices, please see the following guides:
+2. Confirm that the first several settings are correct in terms of how you typically build an app from the CORONA_CORE_PRODUCT Simulator. If you're not familiar with preparing/building apps for devices, please see the following guides:
 
 	* [Provisioning and Building — iOS][guide.distribution.iOSBuild]
 	* [Signing and Building — Android][guide.distribution.androidBuild]
@@ -146,7 +146,7 @@ You can install the same compiled/built app on multiple devices. For example, if
 
 ## Corona Live Server
 
-__Corona Live Server__ is an application which syncs project changes over your local network. Every time you [create a live build](#create), the Corona&nbsp;Simulator will initiate it and automatically add the built project to the Corona&nbsp;Live&nbsp;Server project list.
+__Corona Live Server__ is an application which syncs project changes over your local network. Every time you [create a live build](#create), Simulator will initiate it and automatically add the built project to the Corona&nbsp;Live&nbsp;Server project list.
 
 <div class="guide-notebox">
 <div class="notebox-title">Notes</div>
@@ -201,4 +201,4 @@ If the live build doesn't update/refresh, please proceed through the following i
 7. Remove/uninstall the live build from the device.
 8. Rebuild the app and make sure that __Create&nbsp;Live&nbsp;Build__ is selected from the build dialog window. Also, remember that only __Development__ provisioning profiles <nobr>(iOS or tvOS)</nobr> or __Debug__ keystores <nobr>(Android or Kindle Fire)</nobr> can be used to produce live builds.
 9. Start your app on the device and test for proper functionality. If the live build still doesn't update, experiment with modifying the `.CoronaLiveBuild` file as outlined in the [Live Build File](#live-build-file) section above.
-10. If you need further assistance beyond this, please consult the [Corona Forums](https://forums.coronalabs.com/forum/658-corona-live-server/).
+10. If you need further assistance beyond this, please consult the [Solar2D Forums](https://forums.solar2d.com/c/corona/corona-live-builds/114).

@@ -13,7 +13,7 @@
 
 ## Overview
 
-This function allows you to __set__ properties of the underlying native object created by the [native][api.library.native] library. For example, if you create a [WebView][api.type.WebView] on iOS, you can set the Obj-C properties of the corresponding `UIWebView`.
+This function allows you to __set__ properties of the underlying native object created by the [native][api.library.native] library. For example, if you create a [WebView][api.type.WebView] on iOS, you can set the Obj-C properties of the corresponding `WKWebView` (or `WKWebViewConfiguration` if called before a request is made).
 
 ## Gotchas
 

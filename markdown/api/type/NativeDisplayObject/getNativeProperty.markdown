@@ -13,7 +13,7 @@
 
 ## Overview
 
-This function allows you to __get__ properties of the underlying native object created by the [native][api.library.native] library. For example, if you create a [WebView][api.type.WebView] on iOS, you can access the <nobr>Obj-C</nobr> properties of the corresponding `UIWebView`.
+This function allows you to __get__ properties of the underlying native object created by the [native][api.library.native] library. For example, if you create a [WebView][api.type.WebView] on iOS, you can access the <nobr>Obj-C</nobr> properties of the corresponding `WKWebView` (or `WKWebViewConfiguration` if called before a request is made).
 
 ## Gotchas
 

@@ -1,4 +1,4 @@
-# External Modules in CORONA_CORE_PRODUCT
+# Using External Modules
 
 There's often confusion as to what exactly happens when external modules are "required" into your code, which leads to further confusion and unexpected behavior when it comes to things such as Composer scenes or even custom modules of your own.
 

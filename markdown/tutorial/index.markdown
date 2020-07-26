@@ -20,7 +20,7 @@ Contained here are useful tutorials on selected topics.
 * [Understanding Colon and Dot Operators][tutorial.basics.colonDotOperators]
 * [Passing Data To/From Functions][tutorial.basics.functionArguments]
 * [Anonymous Functions and Closures][tutorial.basics.anonymousFunctions]
-* [External Modules in CORONA_CORE_PRODUCT][tutorial.basics.externalModules]
+* [Using External Modules][tutorial.basics.externalModules]
 * [Implementing Ads][tutorial.basics.ads]
 
 </div>
@@ -41,7 +41,7 @@ Contained here are useful tutorials on selected topics.
 <div class="guides-toc">
 
 * [Tap/Touch Anatomy][tutorial.events.tapTouchAnatomy]
-* [Continuous Actions in CORONA_CORE_PRODUCT][tutorial.events.continuousActions]
+* [Continuous Actions][tutorial.events.continuousActions]
 
 </div>
 

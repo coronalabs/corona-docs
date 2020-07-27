@@ -1,4 +1,4 @@
-# Corona Basics
+# Basics
 
 <div class="guides-toc">
 
@@ -8,7 +8,7 @@
 * [Understanding Colon and Dot Operators][tutorial.basics.colonDotOperators]
 * [Passing Data To/From Functions][tutorial.basics.functionArguments]
 * [Anonymous Functions and Closures][tutorial.basics.anonymousFunctions]
-* [External Modules in Corona][tutorial.basics.externalModules]
+* [Using External Modules][tutorial.basics.externalModules]
 * [Implementing Ads][tutorial.basics.ads]
 
 </div>
@@ -21,6 +21,6 @@
 ### [Understanding Colon and Dot Operators][tutorial.basics.colonDotOperators]
 ### [Passing Data To/From Functions][tutorial.basics.functionArguments]
 ### [Anonymous Functions and Closures][tutorial.basics.anonymousFunctions]
-### [External Modules in Corona][tutorial.basics.externalModules]
+### [Using External Modules][tutorial.basics.externalModules]
 
 </div>

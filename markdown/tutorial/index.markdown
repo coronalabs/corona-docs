@@ -10,7 +10,7 @@ Contained here are useful tutorials on selected topics.
 
 </div>
 
-## Corona Basics
+## Basics
 
 <div class="guides-toc">
 
@@ -20,7 +20,7 @@ Contained here are useful tutorials on selected topics.
 * [Understanding Colon and Dot Operators][tutorial.basics.colonDotOperators]
 * [Passing Data To/From Functions][tutorial.basics.functionArguments]
 * [Anonymous Functions and Closures][tutorial.basics.anonymousFunctions]
-* [External Modules in Corona][tutorial.basics.externalModules]
+* [Using External Modules][tutorial.basics.externalModules]
 * [Implementing Ads][tutorial.basics.ads]
 
 </div>
@@ -41,7 +41,7 @@ Contained here are useful tutorials on selected topics.
 <div class="guides-toc">
 
 * [Tap/Touch Anatomy][tutorial.events.tapTouchAnatomy]
-* [Continuous Actions in Corona][tutorial.events.continuousActions]
+* [Continuous Actions][tutorial.events.continuousActions]
 
 </div>
 
@@ -106,10 +106,10 @@ Contained here are useful tutorials on selected topics.
 </div>
 
 
-## Corona Native
+## CORONA_NATIVE_PRODUCT
 
 <div class="guides-toc">
 
-* [Introduction to Corona Native &mdash; iOS][tutorial.native.iosIntro]
+* [Introduction to CORONA_NATIVE_PRODUCT &mdash; iOS][tutorial.native.iosIntro]
 
 </div>

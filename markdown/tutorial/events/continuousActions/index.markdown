@@ -1,5 +1,5 @@
 
-# Continuous Actions in Corona
+# Continuous Actions
 
 In some apps, you'll need to perform some __continuous&nbsp;action__ while the user's touch remains on the screen. This could include a space ship firing its lasers while the player holds down a "fire" button or the <nobr>commonly-used</nobr> "move&nbsp;buttons" found in most 2D&nbsp;platformers.
 
@@ -82,7 +82,7 @@ groupRegion.isHitTestable = true
 <div class="guide-notebox">
 <div class="notebox-title">Notes</div>
 
-* The size of this `groupRegion` vector rectangle is actually 200&nbsp;pixels __larger__ than the button image, both horizontally and vertically. This is because, as discussed further on in this tutorial, we also need to handle when the player's touch moves from inside the button's region to outside it, or <nobr>__slide-off__</nobr>. While it might seem excessive to extend the rectangle so far outside the button on all sides, this helps ensure that the player can't swipe or move their touch very quickly off the button and still cause Corona to assume the touch is active. <nobr>Don't worry &mdash;</nobr> this large vector object will __not__ block touch propagation to other objects in the scene unless the touch point is inside the bounds of a button image.
+* The size of this `groupRegion` vector rectangle is actually 200&nbsp;pixels __larger__ than the button image, both horizontally and vertically. This is because, as discussed further on in this tutorial, we also need to handle when the player's touch moves from inside the button's region to outside it, or <nobr>__slide-off__</nobr>. While it might seem excessive to extend the rectangle so far outside the button on all sides, this helps ensure that the player can't swipe or move their touch very quickly off the button and still cause CORONA_CORE_PRODUCT to assume the touch is active. <nobr>Don't worry &mdash;</nobr> this large vector object will __not__ block touch propagation to other objects in the scene unless the touch point is inside the bounds of a button image.
 
 * On <nobr>lines 10 and 11</nobr>, we make the rectangle invisible __and__ <nobr>hit-testable</nobr>. The <nobr>`groupRegion.isHitTestable = true`</nobr> command is especially important in this case because, by&nbsp;default, invisible objects will __not__ detect touches. This command ensures that it __will__ receive touch events.
 
@@ -167,7 +167,7 @@ Let's inspect this function in more detail:
 
 2. For the `"began"` phase of a touch <nobr>(lines 32-44)</nobr>, if that touch point intersects a button, we first confirm that there is __not__ an existing `touchID` property assigned to the <nobr>button group (line 35) &mdash;</nobr> this&nbsp;is an important aspect when multitouch is enabled because we don't want the player to be able to manipulate the same button with multiple fingers (touches) at the same time.
 
-3. If this condition passes, and this touch is the first/only touch on the button group, we then assign the unique touch&nbsp;ID tracked by Corona (`event.id`) to the `touchID` property of the group (line&nbsp;37).
+3. If this condition passes, and this touch is the first/only touch on the button group, we then assign the unique touch&nbsp;ID tracked by CORONA_CORE_PRODUCT (`event.id`) to the `touchID` property of the group (line&nbsp;37).
 
 4. Following this, we set `buttonGroup.activeButton` to the button reference, then we take the proper action (in&nbsp;this case, start firing the&nbsp;weapon). Additionally, on&nbsp;line&nbsp;43, we <nobr>`return true`</nobr> so that the touch will __not__ propagate past the button to any <nobr>touch-sensitive</nobr> objects behind it.
 
@@ -177,7 +177,7 @@ Let's inspect this function in more detail:
 
 As you can see, the `handleController()` function currently handles the `"began"` and `"ended"` phases of the touch&nbsp;&mdash; when the player touches within the bounds of a button, we can start firing the weapon and, when the player lifts off, we can stop firing. However, there is a __very__ important case which you must account for: the <nobr>__slide-off__</nobr> case.
 
-Internally, Corona generates an `"ended"` phase when the user's touch lifts off an object, but this only occurs if the touch location is <nobr>__over the object__</nobr> at that point. By default, Corona will __not__ generate an `"ended"` event if the user touches an object, slides their finger outside of its content bounds, and then releases. Thus, unless we take steps to account for this, the player can slide their touch outside of the bounds of the button region rectangle, release, and the weapon will continue firing!
+Internally, CORONA_CORE_PRODUCT generates an `"ended"` phase when the user's touch lifts off an object, but this only occurs if the touch location is <nobr>__over the object__</nobr> at that point. By default, CORONA_CORE_PRODUCT will __not__ generate an `"ended"` event if the user touches an object, slides their finger outside of its content bounds, and then releases. Thus, unless we take steps to account for this, the player can slide their touch outside of the bounds of the button region rectangle, release, and the weapon will continue firing!
 
 To prevent this, we can add another check using the `"moved"` event phase. As its name implies, this phase is triggered every time the player's finger moves from the initial touch point. Using&nbsp;it, we can ensure that the weapon stops firing when the player slides their touch outside the bounds of a button:
 
@@ -223,7 +223,7 @@ end
 
 Basically, with this additional code, we conditionally check if the touch point is outside the button __and__ that `buttonGroup.activeButton` is <nobr>currently not `nil` &mdash;</nobr> this second condition is especially important because we need to know that the button is __already&nbsp;pressed__ when the <nobr>slide-off</nobr> occurs.
 
-If both conditions are met, we use the convenient [object:dispatchEvent()][api.type.EventDispatcher.dispatchEvent] method to dispatch a <nobr>"pseudo-event"</nobr> of `"ended"` to the same listener function, making Corona think that the touch ended even if the player's finger is physically still touching the screen.
+If both conditions are met, we use the convenient [object:dispatchEvent()][api.type.EventDispatcher.dispatchEvent] method to dispatch a <nobr>"pseudo-event"</nobr> of `"ended"` to the same listener function, making CORONA_CORE_PRODUCT think that the touch ended even if the player's finger is physically still touching the screen.
 
 ### Activating the Controller
 
@@ -314,7 +314,7 @@ Let's inspect the highlighted additions in more detail:
 
 Another common UI element is a __virtual&nbsp;directional&nbsp;pad__. These usually consist of <nobr>2-directional</nobr> or <nobr>4-directional</nobr> virtual buttons arranged <nobr>side-by-side</nobr> or in a <nobr>plus-shaped</nobr> configuration, similar to the physical directional pad on a game controller. 
 
-Creating a control set like this in Corona can be done similarly to the virtual button method above, but in this case, the player will usually keep their finger touched down on the screen in the region of the control pad, simply sliding around (not&nbsp;releasing) to activate another directional button. Thus, in addition to the <nobr>slide-off</nobr>, we must handle the <nobr>__slide-on__</nobr> action where the player simply moves their touch point from one directional button to another.
+Creating a control set like this in CORONA_CORE_PRODUCT can be done similarly to the virtual button method above, but in this case, the player will usually keep their finger touched down on the screen in the region of the control pad, simply sliding around (not&nbsp;releasing) to activate another directional button. Thus, in addition to the <nobr>slide-off</nobr>, we must handle the <nobr>__slide-on__</nobr> action where the player simply moves their touch point from one directional button to another.
 
 ### Creating the Controller
 
@@ -425,7 +425,7 @@ groupRegion:addEventListener( "touch", handleController )
 
 With this additional check <nobr>(lines 64-67)</nobr>, we check for <nobr>__slide-on__</nobr> by testing if the touch point is inside the bounds of a button __and__ that `buttonGroup.activeButton` is <nobr>currently `nil` &mdash;</nobr> this second condition is especially important because we need to know that the button is __not__ already pressed when the <nobr>slide-on</nobr> occurs. As a third condition, we confirm that the button accepts <nobr>slide-on</nobr> behavior by testing for a `canSlideOn` property value of `true`.
 
-If all conditions are met, we use the [object:dispatchEvent()][api.type.EventDispatcher.dispatchEvent] method to dispatch a <nobr>pseudo-event</nobr> of `"began"` to the same listener function, making Corona think that a new touch began on the button, even though the player's finger is already physically touching the screen.
+If all conditions are met, we use the [object:dispatchEvent()][api.type.EventDispatcher.dispatchEvent] method to dispatch a <nobr>pseudo-event</nobr> of `"began"` to the same listener function, making CORONA_CORE_PRODUCT think that a new touch began on the button, even though the player's finger is already physically touching the screen.
 
 ### <nobr>Frame-Based</nobr> Movement
 
@@ -560,4 +560,4 @@ Exploring the highlighted code in more depth, we perform these actions:
 
 ## Conclusion
 
-Hopefully, this tutorial has provided a foundation for handling continuous actions in Corona. This practice may apply to many scenarios beyond those presented and you'll find that, with a little creativity, the sky is the limit!
+Hopefully, this tutorial has provided a foundation for handling continuous actions in CORONA_CORE_PRODUCT. This practice may apply to many scenarios beyond those presented and you'll find that, with a little creativity, the sky is the limit!

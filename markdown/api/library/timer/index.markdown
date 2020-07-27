@@ -29,6 +29,6 @@ Timer functions allow calling a function some time in the future rather than imm
 
 ## Source
 
-* [View source code on GitHub](https://github.com/coronalabs/framework-timer)
+* [View on GitHub](https://github.com/coronalabs/framework-timer)
 
 If you want to add new functionality or modify existing ones, you can download or fork the source code from GitHub and include in your project(See [Using External Modules][tutorial.basics.externalModules]).

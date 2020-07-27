@@ -102,4 +102,4 @@ tm.params = { myParam1 = "Parameter1", myParam2 = "Parameter2" }
 
 * [Source code](https://github.com/coronalabs/framework-timer)
 
-If you want to add new functionality or modify existing ones, you can download or fork the source code from GitHub and include in your project(See [External Modules in CORONA_CORE_PRODUCT][tutorial.basics.externalModules]).
+If you want to add new functionality or modify existing ones, you can download or fork the source code from GitHub and include in your project(See [Using External Modules][tutorial.basics.externalModules]).

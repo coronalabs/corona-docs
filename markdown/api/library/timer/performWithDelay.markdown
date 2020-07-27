@@ -20,10 +20,9 @@ Calls a specified function after a delay. This function returns a [table][api.ty
 
 ## Gotchas
 
-**WARNING**
-*This part might be outdated because timers __do__ get automatically paused on applicationSuspend and resumed on applicationResume.*
+Timers will be automatically paused when the application is suspended and resume when the application is resumed. However, to avoid unwanted behaviours, it is strongly advised to handle your timers __manually__. Thus, if you have running timers that are not paused and resumed (in&nbsp;code) upon suspension of the app, you should handle this task by calling [timer.pause()][api.library.timer.pause] and [timer.resume()][api.library.timer.resume] on all applicable timers.
 
-Timers run on system time. If the app is suspended, running timers will __not__ be automatically paused, meaning that when the app is resumed, all timers that would have completed/triggered during the suspended period will trigger immediately. Thus, if you have running timers that are not paused (in&nbsp;code) upon suspension of the app, you should handle this task by calling [timer.pause()][api.library.timer.pause] on all applicable timers.
+Timers will __not__ be automatically cancelled when changing a scene. Thus, if you have running timers that are not cancelled, you must handle this __manually__ by calling [timer.cancel()][api.library.timer.cancel] on all applicable timers.
 
 
 ## Syntax
@@ -98,3 +97,9 @@ local tm = timer.performWithDelay( 1000, onTimer )
 -- Assign a table of parameters to the "tm" handle
 tm.params = { myParam1 = "Parameter1", myParam2 = "Parameter2" }
 ``````
+
+## Extras
+
+* [Source code](https://github.com/coronalabs/framework-timer)
+
+If you want to add new functionality or modify existing ones, you can download or fork the source code from GitHub and include in your project(See [Using External Modules][tutorial.basics.externalModules]).

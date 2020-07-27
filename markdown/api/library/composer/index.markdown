@@ -138,3 +138,9 @@ scene:addEventListener( "destroy", scene )
 
 return scene
 ``````
+
+## Source
+
+* [View on GitHub](https://github.com/coronalabs/framework-composer)
+
+If you want to add or modify scene transition effects or extend functionality, you can download the source code from GitHub and include in your project(See [Using External Modules][tutorial.basics.externalModules]).

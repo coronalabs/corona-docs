@@ -97,9 +97,3 @@ local tm = timer.performWithDelay( 1000, onTimer )
 -- Assign a table of parameters to the "tm" handle
 tm.params = { myParam1 = "Parameter1", myParam2 = "Parameter2" }
 ``````
-
-## Extras
-
-* [Source code](https://github.com/coronalabs/framework-timer)
-
-If you want to add new functionality or modify existing ones, you can download or fork the source code from GitHub and include in your project(See [Using External Modules][tutorial.basics.externalModules]).

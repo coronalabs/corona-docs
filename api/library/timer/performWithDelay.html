@@ -68,6 +68,7 @@
 <li><a href="#passing-parameters-1">Passing Parameters (1)</a></li>
 <li><a href="#passing-parameters-2">Passing Parameters (2)</a></li>
 </ul></li>
+<li><a href="#extras">Extras</a></li>
 </ul></li>
 </ul>
 </div>
@@ -120,8 +121,8 @@
 </div>
 <div id="gotchas" class="section level2">
 <h2>Gotchas</h2>
-<p><strong>WARNING</strong> <em>This part might be outdated because timers <strong>do</strong> get automatically paused on applicationSuspend and resumed on applicationResume.</em></p>
-<p>Timers run on system time. If the app is suspended, running timers will <strong>not</strong> be automatically paused, meaning that when the app is resumed, all timers that would have completed/triggered during the suspended period will trigger immediately. Thus, if you have running timers that are not paused (in code) upon suspension of the app, you should handle this task by calling <a href="../../../api/library/timer/pause.html">timer.pause()</a> on all applicable timers.</p>
+<p>Timers will be automatically paused when the application is suspended and resume when the application is resumed. However, to avoid unwanted behaviours, it is strongly advised to handle your timers <strong>manually</strong>. Thus, if you have running timers that are not paused and resumed (in code) upon suspension of the app, you should handle this task by calling <a href="../../../api/library/timer/pause.html">timer.pause()</a> and <a href="../../../api/library/timer/resume.html">timer.resume()</a> on all applicable timers.</p>
+<p>Timers will <strong>not</strong> be automatically cancelled when changing a scene. Thus, if you have running timers that are not cancelled, you must handle this <strong>manually</strong> by calling <a href="../../../api/library/timer/cancel.html">timer.cancel()</a> on all applicable timers.</p>
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
@@ -189,6 +190,14 @@ end
 local tm = timer.performWithDelay( 1000, onTimer )
 -- Assign a table of parameters to the "tm" handle
 tm.params = { myParam1 = "Parameter1", myParam2 = "Parameter2" }</pre>
+</div>
+</div>
+<div id="extras" class="section level2">
+<h2>Extras</h2>
+<ul>
+<li><a href="https://github.com/coronalabs/framework-timer">Source code</a></li>
+</ul>
+<p>If you want to add new functionality or modify existing ones, you can download or fork the source code from GitHub and include in your project(See <a href="../../../tutorial/basics/externalModules/index.html">Using External Modules</a>).</p>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -198,7 +207,6 @@ tm.params = { myParam1 = "Parameter1", myParam2 = "Parameter2" }</pre>
 Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
-</div>
 </div>
 </div>
 </div>

@@ -57,4 +57,4 @@ The transition library provides functions and methods to transition/tween displa
 
 * [View on GitHub](https://github.com/coronalabs/framework-transition)
 
-If you want to add or modify transition effects or extend functionality, you can download the source code from GitHub and include in your project(See [Using External Modules][tutorial.basics.externalModules]).
+If you want to add/modify transition effects or extend functionality, you can download the source code from GitHub and include in your project(See [Using External Modules][tutorial.basics.externalModules]).

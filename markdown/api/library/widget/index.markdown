@@ -37,4 +37,4 @@
 
 * [View on GitHub](https://github.com/coronalabs/framework-widget)
 
-If you want to add new widgets or modify existing ones, you can download the source code from GitHub and include in your project(See [Using External Modules][tutorial.basics.externalModules]).
+If you want to add new widgets, modify existing ones or extend functionality, download the source code from GitHub and include in your project(See [Using External Modules][tutorial.basics.externalModules]).

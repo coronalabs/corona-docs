@@ -5,11 +5,11 @@ This guide will help you get up and running with CORONA_CORE_PRODUCT for macOS.
 <div class="guides-toc">
 
 * [Installing CORONA_CORE_PRODUCT](#install)
-* [Product Activation](#activate)
 * [Java Development Kit](#jdk)
 * [Text Editors](#editor)
 * [Development Environment](#environment)
 * [Simulator Options](#simoptions)
+* [Command Line Usage](#cmdusage)
 
 </div>
 
@@ -24,7 +24,7 @@ This guide will help you get up and running with CORONA_CORE_PRODUCT for macOS.
 </div>
 <div class="docs-tip-inner-right">
 
-Before proceeding, ensure that your system meets the [core requirements][guide.start.systemReqs#macos] to install Corona.
+Before proceeding, ensure that your system meets the [core requirements][guide.start.systemReqs#macos] to install CORONA_CORE_PRODUCT.
 
 </div>
 </div>
@@ -35,9 +35,9 @@ Before proceeding, ensure that your system meets the [core requirements][guide.s
 </div>
 <div class="docs-tip-inner-right">
 
-We'll assume you've already [downloaded](http://developer.coronalabs.com/downloads/coronasdk/) CORONA_CORE_PRODUCT. If not, please do so before continuing.
+We'll assume you've already downloaded [CORONA_CORE_PRODUCT](REVISION_URL). If not, please do so before continuing.
 
-<a href="http://developer.coronalabs.com/downloads/coronasdk/" target="_blank" class="cta-button">Download CORONA_CORE_PRODUCT</a>
+<a href="https://github.com/coronalabs/corona/releases" target="_blank" class="cta-button">Download CORONA_CORE_PRODUCT</a>
 
 </div>
 </div>
@@ -63,40 +63,6 @@ You can use CORONA_CORE_PRODUCT without installing Apple's Developer Kit or the 
 </div>
 </div>
 
-<div class="guide-notebox">
-<div class="notebox-title">Note</div>
-
-There are two ways to stay current with releases/builds of CORONA_CORE_PRODUCT:
-
-* [Public Release](https://developer.coronalabs.com/downloads/coronasdk) &mdash; The latest stable release of CORONA_CORE_PRODUCT, providing maximum reliability for your projects. This is updated several times a year.
-
-* [Daily Builds](https://developer.coronalabs.com/downloads/daily-builds/) &mdash; The bleeding edge. Daily builds contain the latest features as they are integrated into Corona.
-
-</div>
-
-
-
-
-<a id="activate"></a>
-
-## Product Activation
-
-In order to use CORONA_CORE_PRODUCT, you must be connected to the Internet and perform a simple <nobr>one-time</nobr> authorization process.
-
-1. Open the __Corona Simulator__ from the folder where you installed it.
-
-<div class="code-indent" style="max-width: 320px;">
-
-![][images.simulator.install-mac-2]
-
-</div>
-
-2. The first time you launch, you will be presented with a <nobr>License Agreement (EULA)</nobr>. Read the license terms and click __Agree__.
-
-3. If you've already registered for a Corona account, simply enter your account <nobr>e-mail</nobr> and password to activate the product. Otherwise, click __Register__ to create an account.
-
-4. Upon successful login, you will receive a confirmation dialog. You're ready to get started!
-
 
 
 
@@ -104,12 +70,12 @@ In order to use CORONA_CORE_PRODUCT, you must be connected to the Internet and p
 
 ## Java Development Kit
 
-Installing CORONA_CORE_PRODUCT lets you create and test apps locally on your Mac. If you intend to build apps for testing on Android devices, you will need to install the <nobr>__Java Development Kit__</nobr> (JDK). If you try to build an Android app without the JDK installed, the Corona&nbsp;Simulator will help you install it. Alternatively, if you want to install it manually, you can follow these instructions:
+Installing CORONA_CORE_PRODUCT lets you create and test apps locally on your Mac. If you intend to build apps for testing on Android devices, you will need to install the <nobr>__Java Development Kit__</nobr> (JDK). If you try to build an Android app without the JDK installed, the CORONA_CORE_PRODUCT Simulator will help you install it. Alternatively, if you want to install it manually, you can follow these instructions:
 
-1. Go to the [JDK download](http://www.oracle.com/technetwork/java/javase/downloads/index.html) page.
-2. Click the __JDK__ download link to obtain the current <nobr>Java Platform (JDK)</nobr>.
+1. Go to [JDK8 download](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) page.
+2. Click the __JDK__ download link to obtain the corresponding <nobr>Java Platform (JDK)</nobr>.
 3. On the next page, read the license agreement and click the option to accept it if you agree.
-4. Locate the <nobr>__Mac OS X__</nobr> link and click it to download the file. This file will be named approximately <nobr>`jdk-8u131-macosx-x64.dmg`</nobr>.
+4. Locate the <nobr>__Mac OS X__</nobr> link and click it to download the file. This file will be named approximately <nobr>`jdk-8u261-macosx-x64.dmg`</nobr>.
 5. When the download is complete, open the `.dmg` and run the installer.
 
 
@@ -146,13 +112,12 @@ You'll need a text editor or IDE to write code for your CORONA_CORE_PRODUCT proj
 
 Editor																Add-On Package
 ------------------------------------------------------------------	---------------------------------------------
-[Xcode](https://developer.apple.com/xcode/)							[Corona Plugin for Xcode](https://marketplace.coronalabs.com/asset/corona-plugin-for-xcode)
-[Atom](https://atom.io)												[autocomplete-corona](http://bit.ly/1SA5cXv)
-[Visual Studio Code](https://code.visualstudio.com/)				[Corona Tools](http://bit.ly/1SHiqgK)
-[Sublime Text](http://www.sublimetext.com)							[Corona Editor](http://bit.ly/1QGh44H)
-[TextMate](http://macromates.com)
-[TextWrangler](http://www.barebones.com/products/textwrangler/)
+[Sublime Text](http://www.sublimetext.com)							[Solar2D Editor](https://github.com/coronalabs/CoronaSDK-SublimeText)
+[Atom](https://atom.io)												[autocomplete-corona](https://atom.io/packages/autocomplete-corona)
+[Visual Studio Code](https://code.visualstudio.com/)				[Solar2d-companion](https://marketplace.visualstudio.com/items?itemName=M4adan.solar2d-companion)
+[Xcode](https://developer.apple.com/xcode/)							[Xcode Editor](https://github.com/jcbnlsn/Xcode-Corona-Editor)
 [ZeroBrane Studio](https://studio.zerobrane.com)
+[TextMate](http://macromates.com)
 [Vim](http://www.vim.org)
 ------------------------------------------------------------------	---------------------------------------------
 
@@ -165,11 +130,11 @@ Editor																Add-On Package
 
 ## Development Environment
 
-The CORONA_CORE_PRODUCT development environment consists of two aspects: the <nobr>__Corona Simulator__</nobr> and the <nobr>__Corona Simulator Console__</nobr>.
+The CORONA_CORE_PRODUCT development environment consists of two aspects: the <nobr>__Solar2D Simulator__</nobr> and the <nobr>__Solar2D Simulator Console__</nobr>.
 
-* The __Corona Simulator__ is a visual representation and test environment for your app. What you see in the Simulator is generally what your app will look like&nbsp;— and how it will function&nbsp;— when deployed to an actual device. The Corona&nbsp;Simulator is an essential tool because it allows you to view changes to your code instantly in an active, responsive environment that closely mimics the device.
+* The __Solar2D Simulator__ is a visual representation and test environment for your app. What you see in the Simulator is generally what your app will look like&nbsp;— and how it will function&nbsp;— when deployed to an actual device. The CORONA_CORE_PRODUCT Simulator is an essential tool because it allows you to view changes to your code instantly in an active, responsive environment that closely mimics the device.
 
-* The __Corona Simulator Console__ is where you can view diagnostic messages about what's happening in your program.
+* The __Solar2D Simulator Console__ is where you can view diagnostic messages about what's happening in your program.
 
 
 
@@ -178,7 +143,7 @@ The CORONA_CORE_PRODUCT development environment consists of two aspects: the <no
 
 ## Simulator Options
 
-The Corona Simulator for macOS features the following basic menu items:
+The CORONA_CORE_PRODUCT Simulator for macOS features the following basic menu items:
 
 * The standard macOS application menu provides access to the Simulator __Preferences__. It also lets you manually open/run __Corona&nbsp;Live&nbsp;Server__ for doing [Live Builds][guide.distribution.liveBuild] on actual devices.
 
@@ -186,7 +151,7 @@ The Corona Simulator for macOS features the following basic menu items:
 
 * The __Hardware__ menu is used to simulate physical device actions such as rotating the screen.
 
-* The __Window__ menu lets you open the __Welcome&nbsp;Window__ which provides quick access to recent projects, Corona developer resources, and more. This menu also lets you access the Corona&nbsp;Simulator&nbsp;Console (__Console__). Finally, this menu includes options to manipulate the Simulator window or change the skin <nobr>(__Window__ &rarr; __View&nbsp;As__)</nobr>.
+* The __Window__ menu lets you open the __Welcome&nbsp;Window__ which provides quick access to recent projects, CORONA_CORE_PRODUCT developer resources, and more. This menu also lets you access the Simulator&nbsp;Console (__Console__). Finally, this menu includes options to manipulate the Simulator window or change the skin <nobr>(__Window__ &rarr; __View&nbsp;As__)</nobr>.
 
 
 
@@ -203,25 +168,11 @@ When you want to build your app for distribution or to test on a device, choose 
 
 -->
 
-
-
-
-## Getting Started
-
-If you're new to Corona, the most fun way to learn is to [create a simple game][guide.programming.01]. Don't worry if you've never created a mobile app or programmed before&nbsp;&mdash; the chapters in the guide will walk you through the entire process from start to finish!
-
-<div class="walkthrough-nav">
-
-[Chapter 1 &mdash; Creating an App][guide.programming.01] __&rang;__
-
-</div>
-
-
-
+<a id = "cmdusage"></a>
 
 ## Command Line Usage
 
-To start a particular app in the Corona Simulator without double-clicking it, use a command like this:
+To start a particular app in the CORONA_CORE_PRODUCT Simulator without double-clicking it, use a command like this:
 
 ```
 "/Applications/Corona/Corona Simulator.app/Contents/MacOS/Corona Simulator" ~/CoronaApps/MyApp
@@ -250,3 +201,15 @@ defaults delete com.coronalabs.Corona_Simulator no-console
 ```
 
 One additional flag is allowed `-debug YES` which allows an IDE to connect a debugger to the Simulator session. Specify it before the directory/file argument.
+
+
+
+## Getting Started
+
+If you're new to CORONA_CORE_PRODUCT, the most fun way to learn is to [create a simple game][guide.programming.01]. Don't worry if you've never created a mobile app or programmed before&nbsp;&mdash; the chapters in the guide will walk you through the entire process from start to finish!
+
+<div class="walkthrough-nav">
+
+[Chapter 1 &mdash; Creating a project][guide.programming.01] __&rang;__
+
+</div>

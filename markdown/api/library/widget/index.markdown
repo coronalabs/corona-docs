@@ -32,3 +32,9 @@
 #### [widget.newTableView()][api.library.widget.newTableView]
 
 #### [widget.setTheme()][api.library.widget.setTheme]
+
+## Source
+
+* [View on GitHub](https://github.com/coronalabs/framework-widget)
+
+If you want to add new widgets, modify existing ones or extend functionality, download the source code from GitHub and include in your project(See [Using External Modules][tutorial.basics.externalModules]).

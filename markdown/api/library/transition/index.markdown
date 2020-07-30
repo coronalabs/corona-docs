@@ -52,3 +52,9 @@ The transition library provides functions and methods to transition/tween displa
 #### [transition.scaleBy()][api.library.transition.scaleBy]
 
 #### [transition.scaleTo()][api.library.transition.scaleTo]
+
+## Source
+
+* [View on GitHub](https://github.com/coronalabs/framework-transition)
+
+If you want to add/modify transition effects or extend functionality, download the source code from GitHub and include in your project(See [Using External Modules][tutorial.basics.externalModules]).

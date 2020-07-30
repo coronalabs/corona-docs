@@ -583,7 +583,7 @@ for i=1,#markdown_files do
 			elseif w == "SOLAR_PLAY" then
 				return SOLAR_LINK_PLAYGROUND
 			elseif w == "CURRENT_RELEASE" then
-				return string_sub( default_rev_label, -10, -2 )
+				return string_sub( default_rev_label, -9, -1 )
 			elseif w == "TEMPLATE_ATS" then
 				return templateATS
 			end

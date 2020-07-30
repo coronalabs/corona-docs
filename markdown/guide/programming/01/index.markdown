@@ -1,4 +1,4 @@
-# Chapter 1 &mdash; Creating an App
+# Chapter 1 &mdash; Creating a project
 
 
 <div class="walkthrough-nav">
@@ -10,12 +10,12 @@ __&lang;__ [Previous][guide.programming.intro] _|_ [Next][guide.programming.02] 
 </div>
 
 
-In this chapter we are going to create a simple <nobr>tap-based</nobr> game to keep a balloon in the air, along with covering some of the basics of app development. We will keep this first project as simple as possible for those who are new or have been away from programming for a while.
+In this chapter we are going to create a simple <nobr>tap-based</nobr> game to keep a balloon in the air, along with covering some of the basics of game development. We will keep this first project as simple as possible for those who are new or have been away from programming for a while.
 
 <div class="guides-toc">
 
-* [Using Corona](#using)
-* [Creating an App](#createapp)
+* [Using CORONA_CORE_PRODUCT](#using)
+* [Creating a project](#createapp)
 * [Extra Credit](#extracredit)
 * [Chapter Concepts](#concepts)
 
@@ -24,11 +24,11 @@ In this chapter we are going to create a simple <nobr>tap-based</nobr> game to k
 
 <a id="using"></a>
 
-## Using Corona
+## Using CORONA_CORE_PRODUCT
 
-### Corona Scripting
+### Scripting
 
-Corona uses the [Lua](https://www.lua.org/) scripting language. If you've ever programmed in any language, you will find Lua an easy transition. Our [Introduction to Lua][guide.start.introLua] guide provides an overview of Lua, or you can [learn Lua on YouTube](https://www.youtube.com/playlist?list=PLxgtJR7f0RBKGid7F2dfv7qc-xWwSee2O). In a very short time, you will find yourself writing that great app that you've dreamed of creating!
+CORONA_CORE_PRODUCT uses [Lua](https://www.lua.org/) scripting language. If you've ever programmed in any language, you will find Lua an easy transition. [Introduction to Lua][guide.start.introLua] guide provides an overview of Lua, or you can [learn Lua on YouTube](https://www.youtube.com/playlist?list=PLxgtJR7f0RBKGid7F2dfv7qc-xWwSee2O). In a very short time, you will find yourself writing that great app that you've dreamed of creating!
 
 If you're completely new to programming, Lua is still easy to learn and this guide will help you along.
 
@@ -42,14 +42,13 @@ If you don't already have a favorite text editor, the following options are reco
 
 Editor																Add-On Package																					 macOS		 Windows
 ------------------------------------------------------------------	----------------------------------------------------------------------------------------------	----------	----------
-[Atom](https://atom.io)												[autocomplete-corona](http://bit.ly/1SA5cXv)													 &#x2713;	 &#x2713;
-[Xcode](https://developer.apple.com/xcode/)							[Corona Plugin for Xcode](https://marketplace.coronalabs.com/asset/corona-plugin-for-xcode)		 &#x2713;
-[Visual Studio Code](https://code.visualstudio.com/)				[Corona Tools](http://bit.ly/1SHiqgK)															 &#x2713;	 &#x2713;
-[Sublime Text](http://www.sublimetext.com)							[Corona Editor](http://bit.ly/1QGh44H)															 &#x2713;	 &#x2713;
+[Sublime Text](http://www.sublimetext.com)							[Solar2D Editor](https://github.com/coronalabs/CoronaSDK-SublimeText)															 &#x2713;	 &#x2713;
+[Atom](https://atom.io)												[autocomplete-corona](https://atom.io/packages/autocomplete-corona)													 &#x2713;	 &#x2713;
+[Visual Studio Code](https://code.visualstudio.com/)				[Solar2d-companion](https://marketplace.visualstudio.com/items?itemName=M4adan.solar2d-companion)															 &#x2713;	 &#x2713;
+[Xcode](https://developer.apple.com/xcode/)							[Xcode Editor](https://github.com/jcbnlsn/Xcode-Corona-Editor)		 &#x2713;
 [Vim](http://www.vim.org)																																			 &#x2713;	 &#x2713;
 [ZeroBrane Studio](https://studio.zerobrane.com)																													 &#x2713;	 &#x2713;
 [Notepad++](http://notepad-plus-plus.org)																																		 &#x2713;
-[TextWrangler](http://www.barebones.com/products/textwrangler/)																										 &#x2713;
 [TextMate](http://macromates.com)																																	 &#x2713;
 ------------------------------------------------------------------	----------------------------------------------------------------------------------------------	----------	----------
 
@@ -60,7 +59,7 @@ Editor																Add-On Package																					 macOS		 Windows
 
 <a id="createapp"></a>
 
-## Creating an App
+## Creating a project
 
 <div class="float-right" style="max-width: 240px; margin-bottom: 16px; clear: both;">
 
@@ -68,7 +67,7 @@ Editor																Add-On Package																					 macOS		 Windows
 
 </div>
 
-Your first app is going to be very simple, but it will demonstrate some important concepts. We are going to make a simple tapping game to keep a balloon in the air. Each time the balloon is tapped, we will "push" it a little higher.
+Your first project is going to be very simple, but it will demonstrate some important concepts. We are going to make a simple tapping game to keep a balloon in the air. Each time the balloon is tapped, we will "push" it a little higher.
 
 <div class="guide-notebox">
 <div class="notebox-title">Notes</div>
@@ -81,9 +80,9 @@ Your first app is going to be very simple, but it will demonstrate some importan
 
 ### Starting a Project
 
-Creating a new project in Corona is easy. In just a few simple steps you'll be ready to make your first app!
+Creating a new project in CORONA_CORE_PRODUCT is easy. In just a few simple steps you'll be ready to make your first game!
 
-1. Open the __Corona Simulator__.
+1. Open the __Solar2D Simulator__.
 
 2. Click __New&nbsp;Project__ from the welcome window or select __New&nbsp;Project...__ from the __File__ menu.
 
@@ -125,7 +124,7 @@ To get going quickly, you can download and use the default images included with 
 
 If you choose to create your own images for this project or any other project, note these basic image guidelines:
 
-* Corona supports PNG and JPG format.
+* CORONA_CORE_PRODUCT supports PNG and JPG format. SVG is supported through [Nano SVG][plugin.nanosvg] plugin.
 * Images should not contain an embedded ICC profile.
 * Avoid progressive JPG files since they will take much longer to load.
 
@@ -134,9 +133,9 @@ If you choose to create your own images for this project or any other project, n
 
 ### Loading the Background
 
-The first image that we need to load is the background. Corona places everything on the screen from back to front in regards to layering, so the first image we load will exist behind other images that are loaded afterward. While there are ways to change the layering order of images and send them to the back or front of the display stack, we'll keep this project simple and load them in a logical order.
+The first image that we need to load is the background. CORONA_CORE_PRODUCT places everything on the screen from back to front in regards to layering, so the first image we load will exist behind other images that are loaded afterward. While there are ways to change the layering order of images and send them to the back or front of the display stack, we'll keep this project simple and load them in a logical order.
 
-Using your chosen text editor, locate and open the `main.lua` file within your project folder. The `main.lua` file is the foundational <nobr>"core program file"</nobr> of every Corona project and you cannot create an app without it. This is the Lua file with which the application starts, every time you run the app.
+Using your chosen text editor, locate and open the `main.lua` file within your project folder. The `main.lua` file is the foundational <nobr>"core program file"</nobr> of every CORONA_CORE_PRODUCT project and you cannot create an app without it. This is the Lua file with which the application starts, every time you run the app.
 
 In this `main.lua` file, type in the highlighted command:
 
@@ -184,7 +183,7 @@ Remember to always use different variable names each time you use a variable. Ju
 
 * The `=` (equal&nbsp;sign) is used to assign the variable `background` to an image.
 
-* `display.newImageRect()` is one of the Corona APIs <nobr>(Application Programming Interface)</nobr>. It is used to load an image from a file so that you can use it in the app. There are a couple of ways to load an image into your app, but `display.newImageRect()` is special in that it can resize/scale the image (this&nbsp;will be explained in just a&nbsp;moment).
+* `display.newImageRect()` is one of the CORONA_CORE_PRODUCT APIs <nobr>(Application Programming Interface)</nobr>. It is used to load an image from a file so that you can use it in the app. There are a couple of ways to load an image into your app, but `display.newImageRect()` is special in that it can resize/scale the image (this&nbsp;will be explained in just a&nbsp;moment).
 
 * Inside the parentheses are the __parameters__ which we pass to `display.newImageRect()`, sometimes referred to as __arguments__. The first parameter is the name of the image file that we want to load, including the file extension (`.png`).
 
@@ -213,9 +212,9 @@ background.x = display.contentCenterX
 background.y = display.contentCenterY
 ``````
 
-By default, Corona will position the center of an object at the coordinate point of `0,0` which is located in the <nobr>upper-left</nobr> corner of the screen. By changing the object's `x` and `y` properties, however, we can move the background image to a new location.
+By default, CORONA_CORE_PRODUCT will position the center of an object at the coordinate point of `0,0` which is located in the <nobr>upper-left</nobr> corner of the screen. By changing the object's `x` and `y` properties, however, we can move the background image to a new location.
 
-For this project, we'll place the background in the center of the screen&nbsp;&mdash; but what if we don't know exactly which coordinate values represent the center? Fortunately, Corona provides some convenient shortcuts for this. When you specify the values `display.contentCenterX` and `display.contentCenterY`, Corona will set the center coordinates of the screen as the `background.x` and `background.y` properties.
+For this project, we'll place the background in the center of the screen&nbsp;&mdash; but what if we don't know exactly which coordinate values represent the center? Fortunately, CORONA_CORE_PRODUCT provides some convenient shortcuts for this. When you specify the values `display.contentCenterX` and `display.contentCenterY`, CORONA_CORE_PRODUCT will set the center coordinates of the screen as the `background.x` and `background.y` properties.
 
 <div class="float-right" style="max-width: 240px; margin-top: 16px; clear: both;">
 
@@ -229,7 +228,7 @@ For this project, we'll place the background in the center of the screen&nbsp;&m
 </div>
 <div class="docs-tip-inner-right">
 
-Let's check the result of your code! Save your modified `main.lua` file and then, from within the Corona&nbsp;Simulator, "relaunch" it using <nobr>⌘-R</nobr> <nobr>(Command-R)</nobr>. If all went well, the background should now be showing, centered on the screen.
+Let's check the result of your code! Save your modified `main.lua` file and then, from within the CORONA_CORE_PRODUCT Simulator, "relaunch" it using <nobr>⌘-R</nobr> <nobr>(Command-R)</nobr>. If all went well, the background should now be showing, centered on the screen.
 
 If you get an error or can't see the background, there are a few possibilities as to the cause:
 
@@ -250,7 +249,7 @@ If you get an error or can't see the background, there are a few possibilities a
 </div>
 <div class="docs-tip-inner-right">
 
-Remember that the <nobr>__Corona Simulator Console__</nobr> window is a valuable place to check for and diagnose potential errors in your code. On Windows, this panel is always accessible in the Simulator. On&nbsp;Mac, if this window isn't already open, you can view it by selecting <nobr>__Window__ &rarr; __Console__</nobr>.
+Remember that the <nobr>__Simulator Console__</nobr> window is a valuable place to check for and diagnose potential errors in your code. On Windows, this panel is always accessible in the Simulator. On&nbsp;Mac, if this window isn't already open, you can view it by selecting <nobr>__Window__ &rarr; __Console__</nobr>.
 
 </div>
 </div>
@@ -302,9 +301,9 @@ Save your `main.lua` file and relaunch the Simulator. There should now be a ball
 
 ### Adding Physics
 
-Time to get into physics! Corona includes the [Box2D](http://www.box2d.org/) physics engine for your use in building apps. While using physics is not required to make a game, it makes it much easier to handle many game situations.
+Time to get into physics! [Box2D](http://www.box2d.org/) is the included physics engine for your use in building apps and games. While using physics is not required to make a game, it makes it much easier to handle many game situations.
 
-Including physics is very easy with Corona. Below the previous lines, add these commands:
+Including physics is very easy with CORONA_CORE_PRODUCT. Below the previous lines, add these commands:
 
 ``````{ brush="lua" gutter="true" first-line="20" highlight="[20,21]" }
 local physics = require( "physics" )
@@ -326,7 +325,7 @@ physics.start()
 physics.addBody( platform, "static" )
 ``````
 
-This tells the physics engine to add a physical "body" to the image that is stored in `platform`. In addition, the second parameter tells Corona to treat it as a __static__ physical object. What does this mean? Basically, static physical objects are not affected by gravity or other physical forces, so anytime you have an object which shouldn't move, set its type to `"static"`.
+This tells the physics engine to add a physical "body" to the image that is stored in `platform`. In addition, the second parameter tells CORONA_CORE_PRODUCT to treat it as a __static__ physical object. What does this mean? Basically, static physical objects are not affected by gravity or other physical forces, so anytime you have an object which shouldn't move, set its type to `"static"`.
 
 Now add a physical body to the balloon:
 
@@ -395,13 +394,13 @@ end
 </div>
 <div class="docs-tip-inner-right">
 
-Functions are essential to developing apps with Corona, so let's examine the basic structure:
+Functions are essential for both app and game development, so let's examine the basic structure:
 
 <div style="margin-bottom: -10px;">
 
 * As before, we use the keyword `local` to declare the function.
 
-* The keyword `function` tells Corona that this is a function and that its set of commands will be called by the name `pushBalloon`.
+* The keyword `function` tells CORONA_CORE_PRODUCT that this is a function and that its set of commands will be called by the name `pushBalloon`.
 
 * The ending parentheses (`()`) are required. In later chapters we will put something inside these parentheses, but for now you can leave this as shown.
 
@@ -446,7 +445,7 @@ The first two parameters, `0` and `-0.75`, indicate the amount of directional fo
 </div>
 <div class="docs-tip-inner-right">
 
-As shown in the diagram at right, positive __x__ values in Corona extend to the __right__, while positive __y__ values extend __downward__ (not&nbsp;upward as in the [Cartesian](https://en.wikipedia.org/wiki/Cartesian_coordinate_system) coordinate&nbsp;system). This is why we use a negative value (`-0.75`) to push the balloon upward.
+As shown in the diagram at right, positive __x__ values in CORONA_CORE_PRODUCT extend to the __right__, while positive __y__ values extend __downward__ (not&nbsp;upward as in the [Cartesian](https://en.wikipedia.org/wiki/Cartesian_coordinate_system) coordinate&nbsp;system). This is why we use a negative value (`-0.75`) to push the balloon upward.
 
 </div>
 </div>
@@ -457,7 +456,7 @@ That's it! We could, if needed, add additional commands inside the `pushBalloon(
 
 ### Events
 
-Events are what create interactivity and, in many ways, Corona is an <nobr>event-based</nobr> framework where information is dispatched during a specific event to an __event&nbsp;listener__. Whether that event is the user touching an object/button, tapping the screen, or (in&nbsp;this&nbsp;game) tapping the balloon, Corona can react by triggering an event.
+Events are what create interactivity and, in many ways, CORONA_CORE_PRODUCT is an <nobr>event-based</nobr> framework where information is dispatched during a specific event to an __event&nbsp;listener__. Whether that event is the user touching an object/button, tapping the screen, or (in&nbsp;this&nbsp;game) tapping the balloon, CORONA_CORE_PRODUCT can react by triggering an event.
 
 Adding an event listener is easy&nbsp;&mdash; do so now, following the function:
 
@@ -471,11 +470,11 @@ balloon:addEventListener( "tap", pushBalloon )
 
 Let's inspect the structure of this new command:
 
-* First, we must tell Corona which object is involved in the event listener. For this game, we want to detect an event related directly to the `balloon` object.
+* First, we must tell CORONA_CORE_PRODUCT which object is involved in the event listener. For this game, we want to detect an event related directly to the `balloon` object.
 
-* Immediately following this, add a colon (`:`), then `addEventListener`. In&nbsp;Lua, this is called an __object&nbsp;method__. Essentially, `addEventListener`, following the colon, tells Corona that we want to add an event listener to `balloon`, specified before the colon.
+* Immediately following this, add a colon (`:`), then `addEventListener`. In&nbsp;Lua, this is called an __object&nbsp;method__. Essentially, `addEventListener`, following the colon, tells CORONA_CORE_PRODUCT that we want to add an event listener to `balloon`, specified before the colon.
 
-* Inside the parentheses are two parameters which complete the command. The first parameter is the __event&nbsp;type__ which Corona will listen for, in this case `"tap"`. The second parameter is the __function__ which should be run (called) when the event occurs, in this case the `pushBalloon()` function which we wrote in the previous section. Essentially, we're telling Corona to run the `pushBalloon()` function every time the user taps the balloon.
+* Inside the parentheses are two parameters which complete the command. The first parameter is the __event&nbsp;type__ which CORONA_CORE_PRODUCT will listen for, in this case `"tap"`. The second parameter is the __function__ which should be run (called) when the event occurs, in this case the `pushBalloon()` function which we wrote in the previous section. Essentially, we're telling CORONA_CORE_PRODUCT to run the `pushBalloon()` function every time the user taps the balloon.
 
 <div class="docs-tip-outer docs-tip-color-action">
 <div class="docs-tip-inner-left">
@@ -566,15 +565,15 @@ Let's inspect this command in more detail:
 
 * The command begins with <nobr>`local tapText`</nobr> which you should easily recognize as the declaration of a variable `tapText`.
 
-* `display.newText()` is another Corona&nbsp;API, but instead of loading an image as we did earlier, this command creates a __text__ object. Because we are assigning the variable `tapText` to this object, we'll be able to make changes to the text during our game, such as changing the printed number to match how many times the balloon was tapped.
+* `display.newText()` is another API, but instead of loading an image as we did earlier, this command creates a __text__ object. Because we are assigning the variable `tapText` to this object, we'll be able to make changes to the text during our game, such as changing the printed number to match how many times the balloon was tapped.
 
-* Inside the parentheses are the parameters which we pass to `display.newText()`. The first parameter is the initial printed value for the text, but notice that instead of setting a direct string value like `"0"`, we actually assign the __variable__ which we declared earlier (`tapCount`). In Corona, it's perfectly valid to specify a variable as a parameter of an API, as long as it's a valid variable and the API accepts the variable's type as that parameter.
+* Inside the parentheses are the parameters which we pass to `display.newText()`. The first parameter is the initial printed value for the text, but notice that instead of setting a direct string value like `"0"`, we actually assign the __variable__ which we declared earlier (`tapCount`). In CORONA_CORE_PRODUCT, it's perfectly valid to specify a variable as a parameter of an API, as long as it's a valid variable and the API accepts the variable's type as that parameter.
 
 <div class="code-indent">
 
 The second two parameters, `display.contentCenterX` and `20`, are used to position this text object on the screen. You'll notice that we use the same shortcut of `display.contentCenterX` to position the object in the horizontal center of the screen, and `20` to set its vertical __y__ position near the top of the screen.
 
-The fourth parameter for this API is the __font__ in which to render the text. Corona supports [custom fonts][guide.system.customFont] across all platforms, but for this game we'll use the default system font by specifying `native.systemFont`.
+The fourth parameter for this API is the __font__ in which to render the text. CORONA_CORE_PRODUCT supports [custom fonts][guide.system.customFont] across all platforms, but for this game we'll use the default system font by specifying `native.systemFont`.
 
 The final parameter (`40`) is the intended __size__ of the rendered text.
 
@@ -674,7 +673,7 @@ The complete `BalloonTap` program is available for download [here](https://githu
 
 ## Chapter Concepts
 
-We've covered many concepts in this chapter. It may seem a bit overwhelming, but be patient, look at your code, and read through the sections again if necessary. If you need help, the [Corona Forums](https://forums.coronalabs.com/) are a friendly venue to communicate with other Corona developers and staff members.
+We've covered many concepts in this chapter. It may seem a bit overwhelming, but be patient, look at your code, and read through the sections again if necessary. If you need help, [Discord](https://discord.com/invite/Abf5V9G) and [the forums](https://forums.solar2d.com/) are a friendly venue to communicate with other developers.
 
 Here's a quick overview of what you learned in this chapter:
 
@@ -699,24 +698,11 @@ Command/Property															Description
 
 </div>
 
-<div class="docs-tip-outer">
-<div class="docs-tip-inner-left">
-<div class="fa fa-pencil" style="font-size: 31px; padding-left: 2px;"></div>
-</div>
-<div class="docs-tip-inner-right">
-
-How are you enjoying this guide? Is&nbsp;it&nbsp;helpful? Please <a href="https://docs.google.com/forms/d/e/1FAIpQLScqNwYqPM8S1DorhV5K1nDlxZYTN2SFnMn0wYCpv8r3AiQtsg/viewform" target="_new">fill out a quick survey</a> and help us improve the Corona learning experience!
-
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScqNwYqPM8S1DorhV5K1nDlxZYTN2SFnMn0wYCpv8r3AiQtsg/viewform" target="_blank" class="cta-button" style="background-color: #4fa0e6;">Provide Feedback</a>
-
-</div>
-</div>
-
 
 ##
 
 <div class="walkthrough-nav">
 
-__&lang;__ [Introduction to Corona][guide.programming.intro] _|_ [Chapter 2 &mdash; Upward &amp; Onward][guide.programming.02] __&rang;__
+__&lang;__ [Introduction to CORONA_CORE_PRODUCT][guide.programming.intro] _|_ [Chapter 2 &mdash; Upward &amp; Onward][guide.programming.02] __&rang;__
 
 </div>

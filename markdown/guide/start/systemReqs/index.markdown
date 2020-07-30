@@ -26,10 +26,10 @@ Ready to begin? Please proceed to [Installing CORONA_CORE_PRODUCT &mdash; macOS]
 * We only support iOS devices that run __iOS&nbsp;8.0__ or higher.
 * We only support Android devices that run __Android&nbsp;4.0.3__ or higher with an __ARMv7__ processor. ARMv6 is not supported.
 * We recommend using the latest version of macOS and Xcode to avoid device build issues.
-* You don't need to join the [Apple Developer](https://developer.apple.com/devcenter/ios/) program just to test your app in the Corona&nbsp;Simulator. You will, however, need to join the program to test on actual devices or submit your app to the App&nbsp;Store.
+* You don't need to join the [Apple Developer](https://developer.apple.com/devcenter/ios/) program just to test your app in the CORONA_CORE_PRODUCT Simulator. However, you will need to join the program to test on actual devices or submit your app to the App&nbsp;Store.
 * The Android SDK is __not__ required to create Android device builds.
 
-* CORONA_CORE_PRODUCT will not run in a Virtual Machine (VM) since most VM OpenGL drivers don't support OpenGL&nbsp;2.1 as required by Corona.
+* CORONA_CORE_PRODUCT will not run in a Virtual Machine (VM) since most VM OpenGL drivers don't support OpenGL&nbsp;2.1 as required by CORONA_CORE_PRODUCT.
 
 </div>
 

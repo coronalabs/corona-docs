@@ -54,12 +54,12 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#chapter-1-creating-an-app">Chapter 1 — Creating an App</a><ul>
-<li><a href="#using-corona">Using Corona</a><ul>
-<li><a href="#corona-scripting">Corona Scripting</a></li>
+<li><a href="#chapter-1-creating-a-project">Chapter 1 — Creating a project</a><ul>
+<li><a href="#using-solar2d">Using Solar2D</a><ul>
+<li><a href="#scripting">Scripting</a></li>
 <li><a href="#text-editors">Text Editors</a></li>
 </ul></li>
-<li><a href="#creating-an-app">Creating an App</a><ul>
+<li><a href="#creating-a-project">Creating a project</a><ul>
 <li><a href="#starting-a-project">Starting a Project</a></li>
 <li><a href="#including-images">Including Images</a></li>
 <li><a href="#loading-the-background">Loading the Background</a></li>
@@ -78,28 +78,28 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/programming/index.html">Getting Started</a>
 </div>
-<div id="chapter-1-creating-an-app" class="section level1">
-<h1>Chapter 1 — Creating an App</h1>
+<div id="chapter-1-creating-a-project" class="section level1">
+<h1>Chapter 1 — Creating a project</h1>
 <div class="walkthrough-nav">
 <div class="walkthrough-nav-upper-right">
 <p><strong>⟨</strong> <a href="../../../guide/programming/intro/index.html">Previous</a> <em>|</em> <a href="../../../guide/programming/02/index.html">Next</a> <strong>⟩</strong></p>
 </div>
 </div>
-<p>In this chapter we are going to create a simple <nobr>tap-based</nobr> game to keep a balloon in the air, along with covering some of the basics of app development. We will keep this first project as simple as possible for those who are new or have been away from programming for a while.</p>
+<p>In this chapter we are going to create a simple <nobr>tap-based</nobr> game to keep a balloon in the air, along with covering some of the basics of game development. We will keep this first project as simple as possible for those who are new or have been away from programming for a while.</p>
 <div class="guides-toc">
 <ul>
-<li><a href="#using">Using Corona</a></li>
-<li><a href="#createapp">Creating an App</a></li>
+<li><a href="#using">Using Solar2D</a></li>
+<li><a href="#createapp">Creating a project</a></li>
 <li><a href="#extracredit">Extra Credit</a></li>
 <li><a href="#concepts">Chapter Concepts</a></li>
 </ul>
 </div>
 <p><a id="using"></a></p>
-<div id="using-corona" class="section level2">
-<h2>Using Corona</h2>
-<div id="corona-scripting" class="section level3">
-<h3>Corona Scripting</h3>
-<p>Corona uses the <a href="https://www.lua.org/">Lua</a> scripting language. If you've ever programmed in any language, you will find Lua an easy transition. Our <a href="../../../guide/start/introLua/index.html">Introduction to Lua</a> guide provides an overview of Lua, or you can <a href="https://www.youtube.com/playlist?list=PLxgtJR7f0RBKGid7F2dfv7qc-xWwSee2O">learn Lua on YouTube</a>. In a very short time, you will find yourself writing that great app that you've dreamed of creating!</p>
+<div id="using-solar2d" class="section level2">
+<h2>Using Solar2D</h2>
+<div id="scripting" class="section level3">
+<h3>Scripting</h3>
+<p>Solar2D uses <a href="https://www.lua.org/">Lua</a> scripting language. If you've ever programmed in any language, you will find Lua an easy transition. <a href="../../../guide/start/introLua/index.html">Introduction to Lua</a> guide provides an overview of Lua, or you can <a href="https://www.youtube.com/playlist?list=PLxgtJR7f0RBKGid7F2dfv7qc-xWwSee2O">learn Lua on YouTube</a>. In a very short time, you will find yourself writing that great app that you've dreamed of creating!</p>
 <p>If you're completely new to programming, Lua is still easy to learn and this guide will help you along.</p>
 </div>
 <div id="text-editors" class="section level3">
@@ -118,28 +118,28 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><a href="https://atom.io">Atom</a></td>
-<td align="left"><a href="http://bit.ly/1SA5cXv">autocomplete-corona</a></td>
-<td align="center">✓</td>
-<td align="center">✓</td>
+<td align="left"><a href="http://www.sublimetext.com">Sublime Text</a></td>
+<td align="left"><a href="https://github.com/coronalabs/CoronaSDK-SublimeText">Solar2D Editor</a></td>
+<td align="center"></td>
+<td align="center">✓ ✓</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="https://developer.apple.com/xcode/">Xcode</a></td>
-<td align="left"><a href="https://marketplace.coronalabs.com/asset/corona-plugin-for-xcode">Corona Plugin for Xcode</a></td>
-<td align="center">✓</td>
+<td align="left"><a href="https://atom.io">Atom</a></td>
+<td align="left"><a href="https://atom.io/packages/autocomplete-corona">autocomplete-corona</a></td>
 <td align="center"></td>
+<td align="center">✓ ✓</td>
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://code.visualstudio.com/">Visual Studio Code</a></td>
-<td align="left"><a href="http://bit.ly/1SHiqgK">Corona Tools</a></td>
-<td align="center">✓</td>
-<td align="center">✓</td>
+<td align="left">[Solar2d-companion](https://marketplace.visualstudio.com/items?itemName=M4adan.solar2d-companion</td>
+<td align="center">)</td>
+<td align="center">✓ ✓</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="http://www.sublimetext.com">Sublime Text</a></td>
-<td align="left"><a href="http://bit.ly/1QGh44H">Corona Editor</a></td>
-<td align="center">✓</td>
-<td align="center">✓</td>
+<td align="left"><a href="https://developer.apple.com/xcode/">Xcode</a></td>
+<td align="left"><a href="https://github.com/jcbnlsn/Xcode-Corona-Editor">Xcode Editor</a> ✓</td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr class="odd">
 <td align="left"><a href="http://www.vim.org">Vim</a></td>
@@ -160,12 +160,6 @@
 <td align="center">✓</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="http://www.barebones.com/products/textwrangler/">TextWrangler</a></td>
-<td align="left"></td>
-<td align="center">✓</td>
-<td align="center"></td>
-</tr>
-<tr class="odd">
 <td align="left"><a href="http://macromates.com">TextMate</a></td>
 <td align="left"></td>
 <td align="center">✓</td>
@@ -177,15 +171,15 @@
 <p><a id="createapp"></a></p>
 </div>
 </div>
-<div id="creating-an-app" class="section level2">
-<h2>Creating an App</h2>
+<div id="creating-a-project" class="section level2">
+<h2>Creating a project</h2>
 <div class="float-right" style="max-width: 240px; margin-bottom: 16px; clear: both;">
 <div class="figure">
 <img src="../../../images/docs/sbs-balloon-0.png" />
 
 </div>
 </div>
-<p>Your first app is going to be very simple, but it will demonstrate some important concepts. We are going to make a simple tapping game to keep a balloon in the air. Each time the balloon is tapped, we will &quot;push&quot; it a little higher.</p>
+<p>Your first project is going to be very simple, but it will demonstrate some important concepts. We are going to make a simple tapping game to keep a balloon in the air. Each time the balloon is tapped, we will &quot;push&quot; it a little higher.</p>
 <div class="guide-notebox">
 <div class="notebox-title">
 Notes
@@ -197,9 +191,9 @@ Notes
 </div>
 <div id="starting-a-project" class="section level3">
 <h3>Starting a Project</h3>
-<p>Creating a new project in Corona is easy. In just a few simple steps you'll be ready to make your first app!</p>
+<p>Creating a new project in Solar2D is easy. In just a few simple steps you'll be ready to make your first game!</p>
 <ol style="list-style-type: decimal">
-<li><p>Open the <strong>Corona Simulator</strong>.</p></li>
+<li><p>Open the <strong>Solar2D Simulator</strong>.</p></li>
 <li><p>Click <strong>New Project</strong> from the welcome window or select <strong>New Project...</strong> from the <strong>File</strong> menu.</p></li>
 </ol>
 <!--- TODO: Fix the platform-different citation below -->
@@ -257,7 +251,7 @@ Notes
 <div class="docs-tip-inner-right">
 <p>If you choose to create your own images for this project or any other project, note these basic image guidelines:</p>
 <ul>
-<li>Corona supports PNG and JPG format.</li>
+<li>Solar2D supports PNG and JPG format. SVG is supported through <a href="../../../plugin/nanosvg/index.html">Nano SVG</a> plugin.</li>
 <li>Images should not contain an embedded ICC profile.</li>
 <li>Avoid progressive JPG files since they will take much longer to load.</li>
 </ul>
@@ -266,8 +260,8 @@ Notes
 </div>
 <div id="loading-the-background" class="section level3">
 <h3>Loading the Background</h3>
-<p>The first image that we need to load is the background. Corona places everything on the screen from back to front in regards to layering, so the first image we load will exist behind other images that are loaded afterward. While there are ways to change the layering order of images and send them to the back or front of the display stack, we'll keep this project simple and load them in a logical order.</p>
-<p>Using your chosen text editor, locate and open the <code>main.lua</code> file within your project folder. The <code>main.lua</code> file is the foundational <nobr>&quot;core program file&quot;</nobr> of every Corona project and you cannot create an app without it. This is the Lua file with which the application starts, every time you run the app.</p>
+<p>The first image that we need to load is the background. Solar2D places everything on the screen from back to front in regards to layering, so the first image we load will exist behind other images that are loaded afterward. While there are ways to change the layering order of images and send them to the back or front of the display stack, we'll keep this project simple and load them in a logical order.</p>
+<p>Using your chosen text editor, locate and open the <code>main.lua</code> file within your project folder. The <code>main.lua</code> file is the foundational <nobr>&quot;core program file&quot;</nobr> of every Solar2D project and you cannot create an app without it. This is the Lua file with which the application starts, every time you run the app.</p>
 <p>In this <code>main.lua</code> file, type in the highlighted command:</p>
 <pre class="brush: lua; gutter: true; highlight: [7]; first-line: 1;">-----------------------------------------------------------------------------------------
 --
@@ -309,7 +303,7 @@ local background = display.newImageRect( "background.png", 360, 570 )</pre>
 </div>
 <ul>
 <li><p>The <code>=</code> (equal sign) is used to assign the variable <code>background</code> to an image.</p></li>
-<li><p><code>display.newImageRect()</code> is one of the Corona APIs <nobr>(Application Programming Interface)</nobr>. It is used to load an image from a file so that you can use it in the app. There are a couple of ways to load an image into your app, but <code>display.newImageRect()</code> is special in that it can resize/scale the image (this will be explained in just a moment).</p></li>
+<li><p><code>display.newImageRect()</code> is one of the Solar2D APIs <nobr>(Application Programming Interface)</nobr>. It is used to load an image from a file so that you can use it in the app. There are a couple of ways to load an image into your app, but <code>display.newImageRect()</code> is special in that it can resize/scale the image (this will be explained in just a moment).</p></li>
 <li><p>Inside the parentheses are the <strong>parameters</strong> which we pass to <code>display.newImageRect()</code>, sometimes referred to as <strong>arguments</strong>. The first parameter is the name of the image file that we want to load, including the file extension (<code>.png</code>).</p></li>
 </ul>
 <div class="code-indent" style="margin-bottom: 20px;">
@@ -329,8 +323,8 @@ local background = display.newImageRect( "background.png", 360, 570 )</pre>
 <pre class="brush: lua; gutter: true; highlight: [8,9]; first-line: 7;">local background = display.newImageRect( "background.png", 360, 570 )
 background.x = display.contentCenterX
 background.y = display.contentCenterY</pre>
-<p>By default, Corona will position the center of an object at the coordinate point of <code>0,0</code> which is located in the <nobr>upper-left</nobr> corner of the screen. By changing the object's <code>x</code> and <code>y</code> properties, however, we can move the background image to a new location.</p>
-<p>For this project, we'll place the background in the center of the screen — but what if we don't know exactly which coordinate values represent the center? Fortunately, Corona provides some convenient shortcuts for this. When you specify the values <code>display.contentCenterX</code> and <code>display.contentCenterY</code>, Corona will set the center coordinates of the screen as the <code>background.x</code> and <code>background.y</code> properties.</p>
+<p>By default, Solar2D will position the center of an object at the coordinate point of <code>0,0</code> which is located in the <nobr>upper-left</nobr> corner of the screen. By changing the object's <code>x</code> and <code>y</code> properties, however, we can move the background image to a new location.</p>
+<p>For this project, we'll place the background in the center of the screen — but what if we don't know exactly which coordinate values represent the center? Fortunately, Solar2D provides some convenient shortcuts for this. When you specify the values <code>display.contentCenterX</code> and <code>display.contentCenterY</code>, Solar2D will set the center coordinates of the screen as the <code>background.x</code> and <code>background.y</code> properties.</p>
 <div class="float-right" style="max-width: 240px; margin-top: 16px; clear: both;">
 <div class="figure">
 <img src="../../../images/docs/sbs-balloon-1.png" />
@@ -344,7 +338,7 @@ background.y = display.contentCenterY</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Let's check the result of your code! Save your modified <code>main.lua</code> file and then, from within the Corona Simulator, &quot;relaunch&quot; it using <nobr>⌘-R</nobr> <nobr>(Command-R)</nobr>. If all went well, the background should now be showing, centered on the screen.</p>
+<p>Let's check the result of your code! Save your modified <code>main.lua</code> file and then, from within the Solar2D Simulator, &quot;relaunch&quot; it using <nobr>⌘-R</nobr> <nobr>(Command-R)</nobr>. If all went well, the background should now be showing, centered on the screen.</p>
 <p>If you get an error or can't see the background, there are a few possibilities as to the cause:</p>
 <div style="margin-bottom: -10px;">
 <ul>
@@ -362,7 +356,7 @@ background.y = display.contentCenterY</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Remember that the <nobr><strong>Corona Simulator Console</strong></nobr> window is a valuable place to check for and diagnose potential errors in your code. On Windows, this panel is always accessible in the Simulator. On Mac, if this window isn't already open, you can view it by selecting <nobr><strong>Window</strong> → <strong>Console</strong></nobr>.</p>
+<p>Remember that the <nobr><strong>Simulator Console</strong></nobr> window is a valuable place to check for and diagnose potential errors in your code. On Windows, this panel is always accessible in the Simulator. On Mac, if this window isn't already open, you can view it by selecting <nobr><strong>Window</strong> → <strong>Console</strong></nobr>.</p>
 </div>
 </div>
 </div>
@@ -400,8 +394,8 @@ balloon.alpha = 0.8</pre>
 </div>
 <div id="adding-physics" class="section level3">
 <h3>Adding Physics</h3>
-<p>Time to get into physics! Corona includes the <a href="http://www.box2d.org/">Box2D</a> physics engine for your use in building apps. While using physics is not required to make a game, it makes it much easier to handle many game situations.</p>
-<p>Including physics is very easy with Corona. Below the previous lines, add these commands:</p>
+<p>Time to get into physics! <a href="http://www.box2d.org/">Box2D</a> is the included physics engine for your use in building apps and games. While using physics is not required to make a game, it makes it much easier to handle many game situations.</p>
+<p>Including physics is very easy with Solar2D. Below the previous lines, add these commands:</p>
 <pre class="brush: lua; gutter: true; highlight: [20,21]; first-line: 20;">local physics = require( "physics" )
 physics.start()</pre>
 <p>Let's explain these two lines in a little more detail:</p>
@@ -414,7 +408,7 @@ physics.start()</pre>
 physics.start()
 
 physics.addBody( platform, "static" )</pre>
-<p>This tells the physics engine to add a physical &quot;body&quot; to the image that is stored in <code>platform</code>. In addition, the second parameter tells Corona to treat it as a <strong>static</strong> physical object. What does this mean? Basically, static physical objects are not affected by gravity or other physical forces, so anytime you have an object which shouldn't move, set its type to <code>&quot;static&quot;</code>.</p>
+<p>This tells the physics engine to add a physical &quot;body&quot; to the image that is stored in <code>platform</code>. In addition, the second parameter tells Solar2D to treat it as a <strong>static</strong> physical object. What does this mean? Basically, static physical objects are not affected by gravity or other physical forces, so anytime you have an object which shouldn't move, set its type to <code>&quot;static&quot;</code>.</p>
 <p>Now add a physical body to the balloon:</p>
 <pre class="brush: lua; gutter: true; highlight: [24]; first-line: 20;">local physics = require( "physics" )
 physics.start()
@@ -471,11 +465,11 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Functions are essential to developing apps with Corona, so let's examine the basic structure:</p>
+<p>Functions are essential for both app and game development, so let's examine the basic structure:</p>
 <div style="margin-bottom: -10px;">
 <ul>
 <li><p>As before, we use the keyword <code>local</code> to declare the function.</p></li>
-<li><p>The keyword <code>function</code> tells Corona that this is a function and that its set of commands will be called by the name <code>pushBalloon</code>.</p></li>
+<li><p>The keyword <code>function</code> tells Solar2D that this is a function and that its set of commands will be called by the name <code>pushBalloon</code>.</p></li>
 <li><p>The ending parentheses (<code>()</code>) are required. In later chapters we will put something inside these parentheses, but for now you can leave this as shown.</p></li>
 <li><p>As mentioned above, functions are <nobr>self-contained</nobr> sections (blocks) of code which run only when we tell them to. Thus, whenever you create a function, you <strong>must</strong> close it with the keyword <code>end</code>. This tells Lua that the function is finished.</p></li>
 </ul>
@@ -511,7 +505,7 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>As shown in the diagram at right, positive <strong>x</strong> values in Corona extend to the <strong>right</strong>, while positive <strong>y</strong> values extend <strong>downward</strong> (not upward as in the <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system">Cartesian</a> coordinate system). This is why we use a negative value (<code>-0.75</code>) to push the balloon upward.</p>
+<p>As shown in the diagram at right, positive <strong>x</strong> values in Solar2D extend to the <strong>right</strong>, while positive <strong>y</strong> values extend <strong>downward</strong> (not upward as in the <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system">Cartesian</a> coordinate system). This is why we use a negative value (<code>-0.75</code>) to push the balloon upward.</p>
 </div>
 </div>
 <p>The third and fourth parameters, <code>balloon.x</code> and <code>balloon.y</code>, tell the physics engine where to apply the force, relative to the balloon itself. If you apply the force at a location which is not the center of the balloon, it may cause the balloon to move in an unexpected direction or spin around. For this game, we will keep the force focused on the center of the balloon.</p>
@@ -519,7 +513,7 @@ end</pre>
 </div>
 <div id="events" class="section level3">
 <h3>Events</h3>
-<p>Events are what create interactivity and, in many ways, Corona is an <nobr>event-based</nobr> framework where information is dispatched during a specific event to an <strong>event listener</strong>. Whether that event is the user touching an object/button, tapping the screen, or (in this game) tapping the balloon, Corona can react by triggering an event.</p>
+<p>Events are what create interactivity and, in many ways, Solar2D is an <nobr>event-based</nobr> framework where information is dispatched during a specific event to an <strong>event listener</strong>. Whether that event is the user touching an object/button, tapping the screen, or (in this game) tapping the balloon, Solar2D can react by triggering an event.</p>
 <p>Adding an event listener is easy — do so now, following the function:</p>
 <pre class="brush: lua; gutter: true; highlight: [30]; first-line: 26;">local function pushBalloon()
     balloon:applyLinearImpulse( 0, -0.75, balloon.x, balloon.y )
@@ -528,9 +522,9 @@ end
 balloon:addEventListener( "tap", pushBalloon )</pre>
 <p>Let's inspect the structure of this new command:</p>
 <ul>
-<li><p>First, we must tell Corona which object is involved in the event listener. For this game, we want to detect an event related directly to the <code>balloon</code> object.</p></li>
-<li><p>Immediately following this, add a colon (<code>:</code>), then <code>addEventListener</code>. In Lua, this is called an <strong>object method</strong>. Essentially, <code>addEventListener</code>, following the colon, tells Corona that we want to add an event listener to <code>balloon</code>, specified before the colon.</p></li>
-<li><p>Inside the parentheses are two parameters which complete the command. The first parameter is the <strong>event type</strong> which Corona will listen for, in this case <code>&quot;tap&quot;</code>. The second parameter is the <strong>function</strong> which should be run (called) when the event occurs, in this case the <code>pushBalloon()</code> function which we wrote in the previous section. Essentially, we're telling Corona to run the <code>pushBalloon()</code> function every time the user taps the balloon.</p></li>
+<li><p>First, we must tell Solar2D which object is involved in the event listener. For this game, we want to detect an event related directly to the <code>balloon</code> object.</p></li>
+<li><p>Immediately following this, add a colon (<code>:</code>), then <code>addEventListener</code>. In Lua, this is called an <strong>object method</strong>. Essentially, <code>addEventListener</code>, following the colon, tells Solar2D that we want to add an event listener to <code>balloon</code>, specified before the colon.</p></li>
+<li><p>Inside the parentheses are two parameters which complete the command. The first parameter is the <strong>event type</strong> which Solar2D will listen for, in this case <code>&quot;tap&quot;</code>. The second parameter is the <strong>function</strong> which should be run (called) when the event occurs, in this case the <code>pushBalloon()</code> function which we wrote in the previous section. Essentially, we're telling Solar2D to run the <code>pushBalloon()</code> function every time the user taps the balloon.</p></li>
 </ul>
 <div class="docs-tip-outer docs-tip-color-action">
 <div class="docs-tip-inner-left">
@@ -603,12 +597,12 @@ local tapText = display.newText( tapCount, display.contentCenterX, 20, native.sy
 <p>Let's inspect this command in more detail:</p>
 <ul>
 <li><p>The command begins with <nobr><code>local tapText</code></nobr> which you should easily recognize as the declaration of a variable <code>tapText</code>.</p></li>
-<li><p><code>display.newText()</code> is another Corona API, but instead of loading an image as we did earlier, this command creates a <strong>text</strong> object. Because we are assigning the variable <code>tapText</code> to this object, we'll be able to make changes to the text during our game, such as changing the printed number to match how many times the balloon was tapped.</p></li>
-<li><p>Inside the parentheses are the parameters which we pass to <code>display.newText()</code>. The first parameter is the initial printed value for the text, but notice that instead of setting a direct string value like <code>&quot;0&quot;</code>, we actually assign the <strong>variable</strong> which we declared earlier (<code>tapCount</code>). In Corona, it's perfectly valid to specify a variable as a parameter of an API, as long as it's a valid variable and the API accepts the variable's type as that parameter.</p></li>
+<li><p><code>display.newText()</code> is another API, but instead of loading an image as we did earlier, this command creates a <strong>text</strong> object. Because we are assigning the variable <code>tapText</code> to this object, we'll be able to make changes to the text during our game, such as changing the printed number to match how many times the balloon was tapped.</p></li>
+<li><p>Inside the parentheses are the parameters which we pass to <code>display.newText()</code>. The first parameter is the initial printed value for the text, but notice that instead of setting a direct string value like <code>&quot;0&quot;</code>, we actually assign the <strong>variable</strong> which we declared earlier (<code>tapCount</code>). In Solar2D, it's perfectly valid to specify a variable as a parameter of an API, as long as it's a valid variable and the API accepts the variable's type as that parameter.</p></li>
 </ul>
 <div class="code-indent">
 <p>The second two parameters, <code>display.contentCenterX</code> and <code>20</code>, are used to position this text object on the screen. You'll notice that we use the same shortcut of <code>display.contentCenterX</code> to position the object in the horizontal center of the screen, and <code>20</code> to set its vertical <strong>y</strong> position near the top of the screen.</p>
-<p>The fourth parameter for this API is the <strong>font</strong> in which to render the text. Corona supports <a href="../../../guide/system/customFont/index.html">custom fonts</a> across all platforms, but for this game we'll use the default system font by specifying <code>native.systemFont</code>.</p>
+<p>The fourth parameter for this API is the <strong>font</strong> in which to render the text. Solar2D supports <a href="../../../guide/system/customFont/index.html">custom fonts</a> across all platforms, but for this game we'll use the default system font by specifying <code>native.systemFont</code>.</p>
 <p>The final parameter (<code>40</code>) is the intended <strong>size</strong> of the rendered text.</p>
 </div>
 <div class="float-right" style="max-width: 240px; margin-top: 16px; margin-bottom: 16px; clear: both;">
@@ -688,7 +682,7 @@ end</pre>
 </div>
 <div id="chapter-concepts" class="section level2">
 <h2>Chapter Concepts</h2>
-<p>We've covered many concepts in this chapter. It may seem a bit overwhelming, but be patient, look at your code, and read through the sections again if necessary. If you need help, the <a href="https://forums.coronalabs.com/">Corona Forums</a> are a friendly venue to communicate with other Corona developers and staff members.</p>
+<p>We've covered many concepts in this chapter. It may seem a bit overwhelming, but be patient, look at your code, and read through the sections again if necessary. If you need help, <a href="https://discord.com/invite/Abf5V9G">Discord</a> and <a href="https://forums.solar2d.com/">the forums</a> are a friendly venue to communicate with other developers.</p>
 <p>Here's a quick overview of what you learned in this chapter:</p>
 <div class="inner-table">
 <table>
@@ -754,22 +748,11 @@ end</pre>
 </tbody>
 </table>
 </div>
-<div class="docs-tip-outer">
-<div class="docs-tip-inner-left">
-<div class="fa fa-pencil" style="font-size: 31px; padding-left: 2px;">
-
-</div>
-</div>
-<div class="docs-tip-inner-right">
-<p>How are you enjoying this guide? Is it helpful? Please <a href="https://docs.google.com/forms/d/e/1FAIpQLScqNwYqPM8S1DorhV5K1nDlxZYTN2SFnMn0wYCpv8r3AiQtsg/viewform" target="_new">fill out a quick survey</a> and help us improve the Corona learning experience!</p>
-<p><a href="https://docs.google.com/forms/d/e/1FAIpQLScqNwYqPM8S1DorhV5K1nDlxZYTN2SFnMn0wYCpv8r3AiQtsg/viewform" target="_blank" class="cta-button" style="background-color: #4fa0e6;">Provide Feedback</a></p>
-</div>
-</div>
 </div>
 <div id="section" class="section level2">
 <h2></h2>
 <div class="walkthrough-nav">
-<p><strong>⟨</strong> <a href="../../../guide/programming/intro/index.html">Introduction to Corona</a> <em>|</em> <a href="../../../guide/programming/02/index.html">Chapter 2 — Upward &amp; Onward</a> <strong>⟩</strong></p>
+<p><strong>⟨</strong> <a href="../../../guide/programming/intro/index.html">Introduction to Solar2D</a> <em>|</em> <a href="../../../guide/programming/02/index.html">Chapter 2 — Upward &amp; Onward</a> <strong>⟩</strong></p>
 </div>
 <hr>
 <div id="footer">

@@ -9,6 +9,7 @@ This guide will help you get up and running with CORONA_CORE_PRODUCT for Windows
 * [Text Editors](#editor)
 * [Development Environment](#environment)
 * [Simulator Options](#simoptions)
+* [Command Line Usage](#cmdusage)
 
 </div>
 
@@ -40,7 +41,7 @@ Installing CORONA_CORE_PRODUCT lets you create and test apps locally on your PC.
 1. Go to [JDK8 download](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) page.
 2. Click the __JDK__ download link to obtain the corresponding <nobr>Java Platform (JDK)</nobr>.
 3. On the next page, read the license agreement and click the option to accept it if you agree.
-4. Locate the <nobr>__Windows x86__</nobr> link and click it to download the file. This file will be named approximately <nobr>`jdk-8u251-windows-i586.exe`</nobr>.
+4. Locate the <nobr>__Windows x86__</nobr> link and click it to download the file. This file will be named approximately <nobr>`jdk-8u261-windows-i586.exe`</nobr>.
 5. When the download is complete, run the installer. Be sure to install the <nobr>Java Runtime Environment</nobr> (JRE) as part of the installation.
 
 
@@ -130,20 +131,7 @@ When you want to build your app for distribution or to test on a device, choose 
 -->
 
 
-
-
-## Getting Started
-
-If you're new to CORONA_CORE_PRODUCT, the most fun way to learn is to [create a simple game][guide.programming.01]. Don't worry if you've never created a mobile app or programmed before&nbsp;&mdash; the chapters in the guide will walk you through the entire process from start to finish!
-
-<div class="walkthrough-nav">
-
-[Chapter 1 &mdash; Creating an App][guide.programming.01] __&rang;__
-
-</div>
-
-
-
+<a id="cmdusage"></a>
 
 ## Command Line Usage
 
@@ -162,3 +150,14 @@ If you don't want the CORONA_CORE_PRODUCT Simulator Console window to automatica
 After using the `/no-console` option above, all Lua `print()` functions and CORONA_CORE_PRODUCT log messages can be received via the standard output stream (`stdout`).
 
 One additional flag is allowed (`/debug`) which allows an IDE to connect a debugger to the Simulator session. It should come immediately after the `.exe`.
+
+
+## Getting Started
+
+If you're new to CORONA_CORE_PRODUCT, the most fun way to learn is to [create a simple game][guide.programming.01]. Don't worry if you've never created a mobile app or programmed before&nbsp;&mdash; the chapters in the guide will walk you through the entire process from start to finish!
+
+<div class="walkthrough-nav">
+
+[Chapter 1 &mdash; Creating an App][guide.programming.01] __&rang;__
+
+</div>

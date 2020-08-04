@@ -42,10 +42,10 @@ If you don't already have a favorite text editor, the following options are reco
 
 Editor																Add-On Package																					 macOS		 Windows
 ------------------------------------------------------------------	----------------------------------------------------------------------------------------------	----------	----------
-[Sublime Text](http://www.sublimetext.com)							[Solar2D Editor](https://github.com/coronalabs/CoronaSDK-SublimeText)															 &#x2713;	 &#x2713;
-[Atom](https://atom.io)												[autocomplete-corona](https://atom.io/packages/autocomplete-corona)													 &#x2713;	 &#x2713;
-[Visual Studio Code](https://code.visualstudio.com/)				[Solar2d-companion](https://marketplace.visualstudio.com/items?itemName=M4adan.solar2d-companion)															 &#x2713;	 &#x2713;
-[Xcode](https://developer.apple.com/xcode/)							[Xcode Editor](https://github.com/jcbnlsn/Xcode-Corona-Editor)		 &#x2713;
+[Sublime Text](http://www.sublimetext.com)							[Solar2D Editor](https://github.com/coronalabs/CoronaSDK-SublimeText)														&#x2713;	 &#x2713;
+[Atom](https://atom.io)												[autocomplete-corona](https://atom.io/packages/autocomplete-corona)											&#x2713;	 &#x2713;
+[Visual Studio Code](https://code.visualstudio.com/)				[Solar2d-companion](https://github.com/m4adan/solar2d-companion)															 &#x2713;	 &#x2713;
+[Xcode](https://developer.apple.com/xcode/)							[Xcode Editor](https://github.com/jcbnlsn/Xcode-Corona-Editor)														 &#x2713;
 [Vim](http://www.vim.org)																																			 &#x2713;	 &#x2713;
 [ZeroBrane Studio](https://studio.zerobrane.com)																													 &#x2713;	 &#x2713;
 [Notepad++](http://notepad-plus-plus.org)																																		 &#x2713;
@@ -183,7 +183,7 @@ Remember to always use different variable names each time you use a variable. Ju
 
 * The `=` (equal&nbsp;sign) is used to assign the variable `background` to an image.
 
-* `display.newImageRect()` is one of the CORONA_CORE_PRODUCT APIs <nobr>(Application Programming Interface)</nobr>. It is used to load an image from a file so that you can use it in the app. There are a couple of ways to load an image into your app, but `display.newImageRect()` is special in that it can resize/scale the image (this&nbsp;will be explained in just a&nbsp;moment).
+* `display.newImageRect()` is one of the CORONA_CORE_PRODUCT [API](https://en.wikipedia.org/wiki/Application_programming_interface)s. It is used to load an image from a file so that you can use it in the app. There are a couple of ways to load an image into your app, but `display.newImageRect()` is special in that it can resize/scale the image (this&nbsp;will be explained in just a&nbsp;moment).
 
 * Inside the parentheses are the __parameters__ which we pass to `display.newImageRect()`, sometimes referred to as __arguments__. The first parameter is the name of the image file that we want to load, including the file extension (`.png`).
 
@@ -228,7 +228,7 @@ For this project, we'll place the background in the center of the screen&nbsp;&m
 </div>
 <div class="docs-tip-inner-right">
 
-Let's check the result of your code! Save your modified `main.lua` file and then, from within the CORONA_CORE_PRODUCT Simulator, "relaunch" it using <nobr>⌘-R</nobr> <nobr>(Command-R)</nobr>. If all went well, the background should now be showing, centered on the screen.
+Let's check the result of your code! Save your modified `main.lua` file and then, from within the Simulator, "relaunch" it using <nobr>⌘-R</nobr> <nobr>(Command-R)</nobr>. If all went well, the background should now be showing, centered on the screen.
 
 If you get an error or can't see the background, there are a few possibilities as to the cause:
 
@@ -303,7 +303,7 @@ Save your `main.lua` file and relaunch the Simulator. There should now be a ball
 
 Time to get into physics! [Box2D](http://www.box2d.org/) is the included physics engine for your use in building apps and games. While using physics is not required to make a game, it makes it much easier to handle many game situations.
 
-Including physics is very easy with CORONA_CORE_PRODUCT. Below the previous lines, add these commands:
+Including physics is very easy. Below the previous lines, add these commands:
 
 ``````{ brush="lua" gutter="true" first-line="20" highlight="[20,21]" }
 local physics = require( "physics" )
@@ -325,7 +325,7 @@ physics.start()
 physics.addBody( platform, "static" )
 ``````
 
-This tells the physics engine to add a physical "body" to the image that is stored in `platform`. In addition, the second parameter tells CORONA_CORE_PRODUCT to treat it as a __static__ physical object. What does this mean? Basically, static physical objects are not affected by gravity or other physical forces, so anytime you have an object which shouldn't move, set its type to `"static"`.
+This tells the physics engine to add a physical __"body"__ to the image that is stored in `platform`. In addition, the second parameter tells CORONA_CORE_PRODUCT to treat it as a __static__ physical object. What does this mean? Basically, static physical objects are not affected by gravity or other physical forces, so anytime you have an object which shouldn't move, set its type to `"static"`.
 
 Now add a physical body to the balloon:
 

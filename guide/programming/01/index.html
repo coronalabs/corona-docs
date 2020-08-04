@@ -131,15 +131,15 @@
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://code.visualstudio.com/">Visual Studio Code</a></td>
-<td align="left">[Solar2d-companion](https://marketplace.visualstudio.com/items?itemName=M4adan.solar2d-companion</td>
-<td align="center">)</td>
+<td align="left"><a href="https://github.com/m4adan/solar2d-companion">Solar2d-companion</a></td>
+<td align="center"></td>
 <td align="center">✓ ✓</td>
 </tr>
 <tr class="even">
 <td align="left"><a href="https://developer.apple.com/xcode/">Xcode</a></td>
-<td align="left"><a href="https://github.com/jcbnlsn/Xcode-Corona-Editor">Xcode Editor</a> ✓</td>
+<td align="left"><a href="https://github.com/jcbnlsn/Xcode-Corona-Editor">Xcode Editor</a></td>
 <td align="center"></td>
-<td align="center"></td>
+<td align="center">✓</td>
 </tr>
 <tr class="odd">
 <td align="left"><a href="http://www.vim.org">Vim</a></td>
@@ -303,7 +303,7 @@ local background = display.newImageRect( "background.png", 360, 570 )</pre>
 </div>
 <ul>
 <li><p>The <code>=</code> (equal sign) is used to assign the variable <code>background</code> to an image.</p></li>
-<li><p><code>display.newImageRect()</code> is one of the Solar2D APIs <nobr>(Application Programming Interface)</nobr>. It is used to load an image from a file so that you can use it in the app. There are a couple of ways to load an image into your app, but <code>display.newImageRect()</code> is special in that it can resize/scale the image (this will be explained in just a moment).</p></li>
+<li><p><code>display.newImageRect()</code> is one of the Solar2D <a href="https://en.wikipedia.org/wiki/Application_programming_interface">API</a>s. It is used to load an image from a file so that you can use it in the app. There are a couple of ways to load an image into your app, but <code>display.newImageRect()</code> is special in that it can resize/scale the image (this will be explained in just a moment).</p></li>
 <li><p>Inside the parentheses are the <strong>parameters</strong> which we pass to <code>display.newImageRect()</code>, sometimes referred to as <strong>arguments</strong>. The first parameter is the name of the image file that we want to load, including the file extension (<code>.png</code>).</p></li>
 </ul>
 <div class="code-indent" style="margin-bottom: 20px;">
@@ -338,7 +338,7 @@ background.y = display.contentCenterY</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Let's check the result of your code! Save your modified <code>main.lua</code> file and then, from within the Solar2D Simulator, &quot;relaunch&quot; it using <nobr>⌘-R</nobr> <nobr>(Command-R)</nobr>. If all went well, the background should now be showing, centered on the screen.</p>
+<p>Let's check the result of your code! Save your modified <code>main.lua</code> file and then, from within the Simulator, &quot;relaunch&quot; it using <nobr>⌘-R</nobr> <nobr>(Command-R)</nobr>. If all went well, the background should now be showing, centered on the screen.</p>
 <p>If you get an error or can't see the background, there are a few possibilities as to the cause:</p>
 <div style="margin-bottom: -10px;">
 <ul>
@@ -395,7 +395,7 @@ balloon.alpha = 0.8</pre>
 <div id="adding-physics" class="section level3">
 <h3>Adding Physics</h3>
 <p>Time to get into physics! <a href="http://www.box2d.org/">Box2D</a> is the included physics engine for your use in building apps and games. While using physics is not required to make a game, it makes it much easier to handle many game situations.</p>
-<p>Including physics is very easy with Solar2D. Below the previous lines, add these commands:</p>
+<p>Including physics is very easy. Below the previous lines, add these commands:</p>
 <pre class="brush: lua; gutter: true; highlight: [20,21]; first-line: 20;">local physics = require( "physics" )
 physics.start()</pre>
 <p>Let's explain these two lines in a little more detail:</p>
@@ -408,7 +408,7 @@ physics.start()</pre>
 physics.start()
 
 physics.addBody( platform, "static" )</pre>
-<p>This tells the physics engine to add a physical &quot;body&quot; to the image that is stored in <code>platform</code>. In addition, the second parameter tells Solar2D to treat it as a <strong>static</strong> physical object. What does this mean? Basically, static physical objects are not affected by gravity or other physical forces, so anytime you have an object which shouldn't move, set its type to <code>&quot;static&quot;</code>.</p>
+<p>This tells the physics engine to add a physical <strong>&quot;body&quot;</strong> to the image that is stored in <code>platform</code>. In addition, the second parameter tells Solar2D to treat it as a <strong>static</strong> physical object. What does this mean? Basically, static physical objects are not affected by gravity or other physical forces, so anytime you have an object which shouldn't move, set its type to <code>&quot;static&quot;</code>.</p>
 <p>Now add a physical body to the balloon:</p>
 <pre class="brush: lua; gutter: true; highlight: [24]; first-line: 20;">local physics = require( "physics" )
 physics.start()

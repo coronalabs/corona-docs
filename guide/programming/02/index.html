@@ -106,7 +106,7 @@
 
 </div>
 </div>
-<p>Before we jump into designing and programming our next game, we need to think about the features and other aspects. This usually begins with a <strong>design document</strong> for any major project. In the interest of moving along quickly, here's a simple example:</p>
+<p>Before we jump into designing and programming our next game, we need to think about the features and other aspects. This usually begins with a <strong>design document</strong>(<a href="https://en.wikipedia.org/wiki/Game_design_document">GDD</a>) for any major project. In the interest of moving along quickly, here's a simple example:</p>
 <div class="inner-table" style="margin-top: -22px;">
 <table>
 <thead>
@@ -140,13 +140,10 @@
 <h3>Project Setup</h3>
 <p>With these basic design goals in mind, start a new project just like you did in the previous chapter:</p>
 <ol style="list-style-type: decimal">
-<li>From the <strong>Corona Simulator</strong>, select <strong>New Project...</strong> from the <strong>File</strong> menu.</li>
-</ol>
-<!--- TODO: Fix the platform-different citation below -->
-<ol start="2" style="list-style-type: decimal">
+<li><p>From the <strong>Simulator</strong>, select <strong>New Project...</strong> from the <strong>File</strong> menu.</p></li>
 <li><p>For the project/application name, type <code>StarExplorer</code> and ensure that the <strong>Blank</strong> template option is selected.</p></li>
 <li><p>This time, under the section where you can select a screen size, choose <strong>Tablet Preset</strong>. Notice that the width and height values change to <code>768</code> and <code>1024</code> respectively.</p></li>
-<li><p>Leave the other settings at default and click <strong>OK</strong> (Windows) or <strong>Next</strong> (Mac).</p></li>
+<li><p>Leave the other settings at default and click <strong>OK</strong> / <strong>Next</strong>.</p></li>
 <li><p>Locate and open the project folder.</p></li>
 </ol>
 <p><a id="settings"></a></p>
@@ -154,7 +151,7 @@
 </div>
 <div id="settings-and-configuration" class="section level2">
 <h2>Settings and Configuration</h2>
-<p>In addition to <code>main.lua</code>, Corona projects include two important files which configure your app to work correctly on multiple types of devices: <code>build.settings</code> and <code>config.lua</code>.</p>
+<p>In addition to <code>main.lua</code>, there are two important files which configure your app to work correctly on multiple types of devices: <code>build.settings</code> and <code>config.lua</code>.</p>
 <div id="build-settings" class="section level3">
 <h3>Build Settings</h3>
 <p>The <code>build.settings</code> file provides real devices <nobr>(phones, tablets, etc.)</nobr> with details they need regarding your app. This includes the supported orientations for the app, names of icon files, plugins to include, special information required by devices, and more.</p>
@@ -171,8 +168,8 @@
     },</pre>
 <p>Our <code>StarExplorer</code> app will only be available to play in <strong>portrait</strong> mode, so we set this on the following two lines:</p>
 <ul>
-<li><p><nobr><code>default = &quot;portrait&quot;,</code></nobr> — This line tells Corona that the game should <strong>begin</strong> in portrait orientation (when the user first loads the app).</p></li>
-<li><p><nobr><code>supported = { &quot;portrait&quot;, },</code></nobr> — This line tells Corona that the only <strong>supported</strong> orientation is also portrait. That means that even if the user turns (orients) the physical device around in their hands, your app will remain locked in portrait orientation.</p></li>
+<li><p><nobr><code>default = &quot;portrait&quot;,</code></nobr> — This line specifies that the game should <strong>begin</strong> in portrait orientation when the user first loads the app.</p></li>
+<li><p><nobr><code>supported = { &quot;portrait&quot;, },</code></nobr> — This line specifies that the only <strong>supported</strong> orientation is also portrait. That means that even if the user turns (orients) the physical device around in their hands, your app will remain locked in portrait orientation.</p></li>
 </ul>
 <div class="code-indent">
 <div class="docs-tip-outer">
@@ -190,7 +187,7 @@
 </div>
 <div id="configuration-options" class="section level3">
 <h3>Configuration Options</h3>
-<p>The <code>config.lua</code> file contains all of the <nobr>Corona-specific</nobr> app configuration settings. This is where we specify what content resolution the app will run at, the content scale mode, how Corona should handle <nobr>high-resolution</nobr> devices, etc.</p>
+<p>The <code>config.lua</code> file contains app configuration settings. This is where we specify what content resolution the app will run at, the content scale mode, how <nobr>high-resolution</nobr> devices should be handled, etc.</p>
 <p>Using your text editor, locate and open the <code>config.lua</code> file within your project folder and inspect the following highlighted lines:</p>
 <pre class="brush: lua; gutter: true; highlight: [8,9,10,11,12]; first-line: 6;">application =
 {
@@ -201,7 +198,7 @@
         scale = "letterbox",</pre>
 <p>Notice that this <code>content</code> table contains a series of configuration settings, including:</p>
 <ul>
-<li><code>width</code> and <code>height</code> — These values specify the <strong>content area</strong> size for the app. In Corona, your base content area can be whatever you wish, but often it's based around a common screen width/height aspect ratio like 3:4, set here by <code>768</code> and <code>1024</code>.</li>
+<li><code>width</code> and <code>height</code> — These values specify the <strong>content area</strong> size for the app. Your base content area can be whatever you wish, but often it's based around a common screen width/height aspect ratio like 3:4, set here by <code>768</code> and <code>1024</code>.</li>
 </ul>
 <div class="code-indent">
 <div class="docs-tip-outer docs-tip-color-alert">
@@ -216,7 +213,7 @@
 </div>
 </div>
 <ul>
-<li><code>scale</code> — This important setting tells Corona how to handle the content area for screens which do not match the aspect ratio defined by the <code>width</code> and <code>height</code> settings, for example 3:4 in this case. The two most common options are <code>&quot;letterbox&quot;</code> and <code>&quot;zoomEven&quot;</code>.</li>
+<li><code>scale</code> — This important setting specifies how to handle the content area for screens which do not match the aspect ratio defined by the <code>width</code> and <code>height</code> settings, for example 3:4 in this case. The two most common options are <code>&quot;letterbox&quot;</code> and <code>&quot;zoomEven&quot;</code>.</li>
 </ul>
 <div class="code-indent">
 <p><code>&quot;letterbox&quot;</code> scales the content area to fill the screen while preserving the same aspect ratio. The entire content area will reside on the screen, but this might result in &quot;black bars&quot; on devices with aspect ratios that differ from your content aspect ratio. Note, however, that you can still utilize this &quot;blank&quot; area and fill it with visual elements by positioning them or extending them outside the content area bounds. Essentially, <code>&quot;letterbox&quot;</code> is an ideal scale mode if you want to ensure that everything in your content area appears within the screen bounds on all devices.</p>
@@ -343,12 +340,12 @@ math.randomseed( os.time() )</pre>
 </div>
 <div id="loading-image-sheets" class="section level3">
 <h3>Loading Image Sheets</h3>
-<p>If you've used another game development platform, you may be familiar with the term &quot;sprite sheet&quot; or &quot;texture atlas.&quot; In Corona terminology, this is known as an <strong>image sheet</strong> and it allows you to load multiple images/frames from a single larger image file. Image sheets are also used for animated sprites, where frames for the sprite are pulled from the sheet and assembled into an animated sequence.</p>
+<p>If you've used another game development platform, you may be familiar with the term &quot;sprite sheet&quot; or &quot;texture atlas.&quot; In Solar2D, it is called an <strong>image sheet</strong> and it allows you to load multiple images/frames from a single larger image file. Image sheets are also used for animated sprites, where frames for the sprite are pulled from the sheet and assembled into an animated sequence.</p>
 <div class="guide-notebox">
 <div class="notebox-title">
 Note
 </div>
-<p>Image sheets are most easily created using a tool such as <a href="http://www.codeandweb.com/texturepacker">TexturePacker</a> which collects, organizes, and packs multiple images into a <nobr>Corona-compatible</nobr> image sheet. While this software isn't a requirement, it does save you time and energy.</p>
+<p>Image sheets are most easily created using a tool such as <a href="http://www.codeandweb.com/texturepacker">TexturePacker</a> which collects, organizes, and packs multiple images into a compatible image sheet. While this software isn't a requirement, it does save you time and energy.</p>
 </div>
 <p>Following your existing code, create a <code>sheetOptions</code> table as shown below. Note that it should contain a child table, <code>frames</code>, which will contain an array of Lua tables defining each frame in the sheet.</p>
 <pre class="brush: lua; gutter: true; highlight: [14,15,16,17,18,19,20,21]; first-line: 11;">-- Seed the random number generator
@@ -368,7 +365,7 @@ local sheetOptions =
 
 </div>
 </div>
-<p>When configuring an image sheet, you must tell Corona where the images are located within the sheet. For this game, every image is different in size, so we must provide four specific properties which define the theoretical &quot;bounding box&quot; for the portion of the image sheet to utilize:</p>
+<p>When configuring an image sheet, you must specify where the images are located within the sheet. For this game, every image is different in size, so we must provide four specific properties which define the theoretical &quot;bounding box&quot; for the portion of the image sheet to utilize:</p>
 <ol style="list-style-type: decimal">
 <li><code>x</code> — the <nobr>upper-left</nobr> corner point of the image in <strong>x</strong> coordinates, relative to the overall sheet width.</li>
 <li><code>y</code> — the <nobr>upper-left</nobr> corner point of the image in <strong>y</strong> coordinates, relative to the overall sheet height.</li>
@@ -504,7 +501,7 @@ background.y = display.contentCenterY</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>These commands should appear straightforward at this point, but there is one very important difference! Inspect the first parameter to <a href="../../../api/library/display/newImageRect.html">display.newImageRect()</a> — before the image file name (now the second parameter), we indicate the <strong>display group</strong> (<code>backGroup</code>) in which to place the object. This is a convenient inline shortcut which tells Corona that the background image, once loaded, should be inserted into that group.</p>
+<p>These commands should appear straightforward at this point, but there is one very important difference! Inspect the first parameter to <a href="../../../api/library/display/newImageRect.html">display.newImageRect()</a> — before the image file name (now the second parameter), we indicate the <strong>display group</strong> (<code>backGroup</code>) in which to place the object. This is a convenient inline shortcut to specify the display group to insert the background image once it's loaded.</p>
 </div>
 </div>
 </div>
@@ -519,7 +516,7 @@ background.y = display.contentCenterY
 ship = display.newImageRect( mainGroup, objectSheet, 4, 98, 79 )</pre>
 <p>Let's inspect this command in more detail:</p>
 <ul>
-<li><p>The first parameter tells Corona to place the ship into the <code>mainGroup</code> display group (not simply on the stage).</p></li>
+<li><p>The first parameter specifies the display group that the object will be placed (<code>mainGroup</code>). (not simply on the stage).</p></li>
 <li><p>The second parameter is the reference to the image sheet we loaded earlier (<code>objectSheet</code>).</p></li>
 <li><p>Since the ship is the 4th frame in our image sheet configuration, we specify <code>4</code> as the frame number (third parameter).</p></li>
 <li><p>Finally, as usual, we set the width and height to <code>98</code> and <code>79</code>, matching the frame's <code>width</code> and <code>height</code> values in the image sheet configuration.</p></li>
@@ -553,13 +550,13 @@ ship.y = display.contentHeight - 100
 physics.addBody( ship, { radius=30, isSensor=true } )
 ship.myName = "ship"</pre>
 <p>With the first two commands, we position the ship at the <nobr>bottom-center</nobr> of the screen. You'll recognize <code>display.contentCenterX</code> from the previous chapter, but this time we utilize a new command, <code>display.contentHeight</code>. This convenient property indicates the maximum <strong>y</strong> coordinate of the content area (bottom edge of the screen). Since the ship should be positioned slightly above this point, however, we subtract <code>100</code> from this value.</p>
-<p>Next, we add the ship to the physics engine with a <code>radius</code> property of <code>30</code>. In addition, we specify an important <nobr>property: <code>isSensor=true</code>.</nobr> This tells Corona that the object should be a <strong>sensor</strong> object. Essentially, sensor objects detect collisions with other physical objects but they do <strong>not</strong> produce a physical response. For example, if a normal body collides with a sensor body, the two bodies will not bounce off each other or cause any other physical reaction. This is ideal for our ship object, because we only want it to detect collisions with asteroids, not bounce off them.</p>
+<p>Next, we add the ship to the physics engine with a <code>radius</code> property of <code>30</code>. In addition, we specify an important <nobr>property: <code>isSensor=true</code>.</nobr> This specifies that the object should be a <strong>sensor</strong> object. Essentially, sensor objects detect collisions with other physical objects but they do <strong>not</strong> produce a physical response. For example, if a normal body collides with a sensor body, the two bodies will not bounce off each other or cause any other physical reaction. This is ideal for our ship object, because we only want it to detect collisions with asteroids, not bounce off them.</p>
 <p>Lastly, we give the ship object a <code>myName</code> property of <code>&quot;ship&quot;</code>. This property will be used later to help determine what types of collisions are happening in the game.</p>
 <div class="guide-notebox">
 <div class="notebox-title">
 Note
 </div>
-<p>Although the ship image clearly isn't circular, we added a circular physics body (<code>radius=30</code>) to the ship object. For this game, we're just being somewhat &quot;lazy&quot; by using this approximate body shape — once you get more comfortable with Corona, you'll learn how to add a perfect <nobr>shape-based</nobr> physics body to the ship which accurately matches the ship image's outline.</p>
+<p>Although the ship image clearly isn't circular, we added a circular physics body (<code>radius=30</code>) to the ship object. For this game, we're just being somewhat &quot;lazy&quot; by using this approximate body shape — once you get more comfortable with Solar2D, you'll learn how to add a perfect <nobr>shape-based</nobr> physics body to the ship which accurately matches the ship image's outline.</p>
 </div>
 </div>
 <div id="lives-and-score" class="section level3">
@@ -659,7 +656,7 @@ end</pre>
 <div id="section" class="section level2">
 <h2></h2>
 <div class="walkthrough-nav">
-<p><strong>⟨</strong> <a href="../../../guide/programming/01/index.html">Chapter 1 — Creating an App</a> <em>|</em> <a href="../../../guide/programming/03/index.html">Chapter 3 — Bringing it to Life</a> <strong>⟩</strong></p>
+<p><strong>⟨</strong> <a href="../../../guide/programming/01/index.html">Chapter 1 — Creating a project</a> <em>|</em> <a href="../../../guide/programming/03/index.html">Chapter 3 — Bringing it to Life</a> <strong>⟩</strong></p>
 </div>
 <hr>
 <div id="footer">

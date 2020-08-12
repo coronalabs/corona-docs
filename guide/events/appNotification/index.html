@@ -122,7 +122,7 @@
 <li><p>The app has to support a registration process and it must support incoming messages.</p></li>
 <li><p>You must configure your app and devices so that Apple and/or Google recognizes them.</p></li>
 <li><p>If using iOS/Apple, your app cannot send push requests directly to their servers.</p></li>
-<li><p>We recommend that you use a <nobr>third-party</nobr> service to send push requests to Apple or Google, who in turn sends them onward to devices. That service can be a company like <a href="https://documentation.onesignal.com/docs/corona-sdk-overview">OneSignal</a>, <a href="http://www.pushwoosh.com">PushWoosh</a>, or <a href="http://urbanairship.com">Urban Airship</a> that specializes in push notifications.</p></li>
+<li><p>We recommend that you use a third-party service to send push requests to Apple or Google, who in turn sends them onward to devices. That service can be a company like <a href="https://github.com/OneSignal/OneSignal-Solar2D-SDK">OneSignal</a>, <a href="http://www.pushwoosh.com">PushWoosh</a>, or <a href="http://urbanairship.com">Urban Airship</a> that specializes in push notifications.</p></li>
 </ul>
 <p><a id="interact"></a></p>
 </div>
@@ -156,8 +156,8 @@
 Important
 </div>
 <ul>
-<li><p>For Android, all <strong>new</strong> apps, or existing apps being updated with push notifications for the first time, must use <nobr><a href="https://firebase.google.com/">Firebase</a> Cloud Messaging (FCM)</nobr>, supported by the current <a href="../../../plugin/notifications-v2/index.html">Notifications</a> plugin (above). If you have a legacy app already configured for <nobr>Google Cloud Messaging (GCM)</nobr>, it will continue to work indefinitely, but you should continue using the <a href="../../../plugin/notifications/index.html">legacy</a> plugin instead of the current notifications plugin.</p></li>
-<li><p>For iOS, you can either use the <nobr>Apple Push Notification Service (APNS)</nobr> or <nobr>Firebase Cloud Messaging (FCM)</nobr> for push notifications (see below).</p></li>
+<li><p>For Android, all <strong>new</strong> apps, or existing apps being updated with push notifications for the first time, must use <a href="https://firebase.google.com/">Firebase Cloud Messaging (FCM)</a>, supported by the current <a href="../../../plugin/notifications-v2/index.html">Notifications</a> plugin (above). If you have a legacy app already configured for Google Cloud Messaging (GCM), it will continue to work indefinitely, but you should continue using the <a href="../../../plugin/notifications/index.html">legacy</a> plugin instead of the current notifications plugin.</p></li>
+<li><p>For iOS, you can either use the Apple Push Notification Service (APNS) or Firebase Cloud Messaging (FCM) for push notifications (see below).</p></li>
 </ul>
 </div>
 <p><a id="ios-setup"></a></p>
@@ -182,9 +182,9 @@ Important
 }</pre>
 <div id="firebase" class="section level3">
 <h3>Firebase</h3>
-<p>If you want to use Google <nobr><a href="https://firebase.google.com">Firebase</a> Cloud Messaging (FCM)</nobr> for push notifications, follow these additional steps:</p>
+<p>If you want to use <a href="https://firebase.google.com">Google Firebase Cloud Messaging (FCM)</a> for push notifications, follow these additional steps:</p>
 <ol style="list-style-type: decimal">
-<li><p>Copy <code>GoogleService-Info.plist</code>, provided in the Firebase console, to your Corona project's root directory alongside <code>main.lua</code>.</p></li>
+<li><p>Copy <code>GoogleService-Info.plist</code>, provided in the Firebase console, to your project's root directory alongside <code>main.lua</code>.</p></li>
 <li><p>Add the following entries to the <nobr><code>iphone</code> → <code>plist</code></nobr> table of <code>build.settings</code>:</p></li>
 </ol>
 <div class="code-indent">
@@ -207,7 +207,7 @@ Important
 <h2>Android Setup</h2>
 <p>Android also requires some additional configuration for <strong>push</strong> notifications:</p>
 <ol style="list-style-type: decimal">
-<li><p>Copy <nobr><code>google-services.json</code></nobr>, provided in the Firebase console, to your Corona project's root directory alongside <code>main.lua</code>.</p></li>
+<li><p>Copy <code>google-services.json</code>, provided in the Firebase console, to your project's root directory alongside <code>main.lua</code>.</p></li>
 <li><p>Add an additional <code>useGoogleServicesJson</code> entry into the <code>android</code> table of <code>build.settings</code>. When added, the build server will read the settings from the JSON file and integrate them into your app during the build phase.</p></li>
 </ol>
 <div class="code-indent">
@@ -222,7 +222,7 @@ Important
 <p><a id="androidicons"></a></p>
 <div id="android-icons" class="section level3">
 <h3>Android Icons</h3>
-<p>You can set custom notification icons in a Corona project by adding the following files to the root of the project directory, just like custom application icons. Please see Google's official <a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design_status_bar.html">documentation</a> for further details.</p>
+<p>You can set custom notification icons in a project by adding the following files to the root of the project directory, just like custom application icons. Please see <a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design_status_bar.html">Google's official documentation</a> for further details.</p>
 <div class="inner-table">
 <table>
 <thead>
@@ -290,7 +290,7 @@ Important
 </div>
 <div id="handling-notification-events" class="section level2">
 <h2>Handling Notification Events</h2>
-<p>In accordance with the Corona event/listener model, if your app is running in either the foreground or background and a notification arrives, you'll receive a <a href="../../../api/event/notification/index.html">notification</a> event. It's your responsibility to initialize the system and set up a listener function to handle these events. Please review the following framework and then read the detailed subsections below.</p>
+<p>In accordance with the Solar2D event/listener model, if your app is running in either the foreground or background and a notification arrives, you'll receive a <a href="../../../api/event/notification/index.html">notification</a> event. It's your responsibility to initialize the system and set up a listener function to handle these events. Please review the following framework and then read the detailed subsections below.</p>
 <pre class="brush: lua;">local function notificationListener( event )
 
     if ( event.type == "remote" ) then
@@ -369,7 +369,7 @@ end</pre>
 <div class="notebox-title-imp">
 Important
 </div>
-<p>If you're using Google <nobr><a href="https://firebase.google.com/">Firebase</a> Cloud Messaging (FCM)</nobr> for push notifications, you should pass an additional parameter to <a href="../../../plugin/notifications-v2/registerForPushNotifications.html">notifications.registerForPushNotifications()</a>. This parameter should be a <a href="../../../api/type/Table.html">table</a> containing the <code>useFCM</code> key with a value of <code>true</code>:</p>
+<p>If you're using <a href="https://firebase.google.com/">Google Firebase Cloud Messaging (FCM)</a> for push notifications, you should pass an additional parameter to <a href="../../../plugin/notifications-v2/registerForPushNotifications.html">notifications.registerForPushNotifications()</a>. This parameter should be a <a href="../../../api/type/Table.html">table</a> containing the <code>useFCM</code> key with a value of <code>true</code>:</p>
 <pre class="brush: lua;">notifications.registerForPushNotifications( { useFCM=true } )</pre>
 </div>
 <p>Calling <a href="../../../plugin/notifications-v2/registerForPushNotifications.html">notifications.registerForPushNotifications()</a> will trigger a remote registration event to your notification listener function. To accommodate this, add an additional condition:</p>
@@ -393,7 +393,7 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>The code required to register your device varies depending on the service. Please consult your preferred provider's documentation or seek assistance in the <a href="https://forums.coronalabs.com/">Corona Forums</a>.</p>
+<p>The code required to register your device varies depending on the service. Please consult your preferred provider's documentation or seek assistance in the <a href="https://forums.solar2d.com/">forums</a> or <a href="https://discord.gg/Abf5V9G">Discord</a>.</p>
 </div>
 </div>
 <hr>

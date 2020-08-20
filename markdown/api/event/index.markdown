@@ -22,7 +22,6 @@
 
 #### [enterFrame][api.event.enterFrame]
 
-
 #### [finalize][api.event.finalize]
 
 #### [gameNetwork][api.event.gameNetwork]

@@ -12,7 +12,7 @@
 
 `"lateUpdate"` events occur at the <nobr>frames-per-second</nobr> interval of the application, either 30 or 60 as specified in `config.lua`. They are only dispatched to the global [Runtime][api.type.EventDispatcher] object.
 
-This is dispatched after the `"enterFrame"` event, and right before the engine starts the rendering process. For this reason, it is useful to make any last update according to it's state. Also, it is intended to be a safe call for all those who are listening to this event, otherwise, it loses it's purpose.
+This is dispatched after the `"enterFrame"` event, and right before the engine starts the rendering process. For this reason, it is useful to make any last update according to its state. Also, it is intended to be a safe call for all those who are listening to this event, otherwise, it loses its purpose.
 
 ## Properties
 

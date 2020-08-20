@@ -1088,6 +1088,13 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 <p class="index">[event.phase][api.event.key.phase]</p>
 
 
+#### [lateUpdate][api.event.lateUpdate]
+
+<p class="index">[event.name][api.event.lateUpdate.name]</p>
+
+<p class="index">[event.time][api.event.lateUpdate.time]</p>
+
+
 #### [licensing][api.event.licensing]
 
 <p class="index">[event.errorType][api.event.licensing.errorType]</p>

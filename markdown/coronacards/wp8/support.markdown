@@ -78,6 +78,7 @@ Supported
 [finalize][api.event.finalize]
 [gyroscope][api.event.gyroscope]
 [key][api.event.key], but only the "back" key
+[lateUpdate][api.event.lateUpdate]
 [networkRequest][api.event.networkRequest]
 [orientation][api.event.orientation]
 [particleCollision][api.event.particleCollision]

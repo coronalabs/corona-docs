@@ -22,6 +22,7 @@
 
 #### [enterFrame][api.event.enterFrame]
 
+
 #### [finalize][api.event.finalize]
 
 #### [gameNetwork][api.event.gameNetwork]
@@ -33,6 +34,8 @@
 #### [inputDeviceStatus][api.event.inputDeviceStatus]
 
 #### [key][api.event.key]
+
+#### [lateUpdate][api.event.lateUpdate]
 
 #### [licensing][api.event.licensing]
 

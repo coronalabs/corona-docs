@@ -27,7 +27,7 @@ Timers will __not__ be automatically cancelled when changing a scene. Thus, if y
 
 ## Syntax
 
-	timer.performWithDelay( delay, listener [, iterations] )
+	timer.performWithDelay( delay, listener [, iterations] [, tag] )
 
 ##### delay ~^(required)^~
 _[Number][api.type.Number]._ The delay in milliseconds, for example, `1000` = 1 second. Note that timers cannot execute faster than the runtime framerate of the app. For example, if the framerate of the app is `60` frames per second, as defined in the `config.lua` file \([guide][guide.basics.configSettings]\), the shortest delay for a timer is approximately `16.667` milliseconds <nobr>(`1000`/`60` = ~`16.667`)</nobr>.
@@ -36,7 +36,10 @@ _[Number][api.type.Number]._ The delay in milliseconds, for example, `1000` = 1 
 _[Listener][api.type.Listener]._ The listener to invoke after the delay. This may be either a function listener or a table listener. If a table listener, it must have a timer method because timer events are sent to the listener.
 
 ##### iterations ~^(optional)^~
-_[Number][api.type.Number]._ Optionally specifies the number of times `listener` is to be invoked. By default, it is `1`; pass `0` or `-1` if you want the timer to loop forever.
+_[Number][api.type.Number]._ Optionally specify the number of times `listener` is to be invoked. By default, it is `1`; pass `0` or `-1` if you want the timer to loop forever.
+
+##### tag ~^(optional)^~
+_[String][api.type.String]._ Optionally assign a `tag` to the timer. You can pause, resume or cancel all timers that share the same `tag` with a single function call.
 
 
 ## Examples

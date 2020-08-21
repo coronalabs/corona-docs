@@ -10,7 +10,7 @@
 
 ## Overview
 
-Changes the behavior of the timer object to provide events as soon as possible instead of waiting until the next frame to execute. The default behavior is `false` meaning that timers fire on frame intervals. Setting this to `true` will enable the events to arrive as soon as possible.
+Changes the behavior of the timer object to provide events as soon as possible instead of waiting until the next frame to execute. The default behavior is `false`, meaning that timers fire on frame intervals. Setting this to `true` will enable the events to arrive as soon as possible.
 
 ## Syntax
 

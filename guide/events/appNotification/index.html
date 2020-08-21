@@ -149,6 +149,14 @@
         },
     },
 }</pre>
+<p>Inside this <code>build.settings</code> file, also include the <code>minSdkVersion</code> of 16 or higher. For more info about setting minimum SDK version, <a href="https://docs.coronalabs.com/guide/distribution/advancedSettings/index.html">see this</a></p>
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
+{
+    android =
+    {
+        minSdkVersion = "16",
+    },
+}</pre>
 <p>Then, within the code module which uses notifications functions, simply <code>require()</code> the library as follows:</p>
 <pre class="brush: lua;">local notifications = require( "plugin.notifications.v2" )</pre>
 <div class="guide-notebox-imp">

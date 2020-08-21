@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — API Reference | Libraries | timer | allowIterationsWithinFrame</title>
+  <title>Solar2D Documentation — API Reference | Libraries | transition | ignoreEmptyReference</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
@@ -54,7 +54,7 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#timer.allowinterationswithinframe">timer.allowInterationsWithinFrame</a><ul>
+<li><a href="#transition.ignoreemptyreference">transition.ignoreEmptyReference</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#example">Example</a></li>
@@ -62,10 +62,10 @@
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/timer/index.html">timer</a>  ▸  <a href="../../../api/library/timer/allowIterationsWithinFrame.html">allowIterationsWithinFrame</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/transition/index.html">transition</a>  ▸  <a href="../../../api/library/transition/ignoreEmptyReference.html">ignoreEmptyReference</a>
 </div>
-<div id="timer.allowinterationswithinframe" class="section level1">
-<h1>timer.allowInterationsWithinFrame</h1>
+<div id="transition.ignoreemptyreference" class="section level1">
+<h1>transition.ignoreEmptyReference</h1>
 <blockquote>
 <table>
 <tbody>
@@ -75,7 +75,7 @@
 </tr>
 <tr class="even">
 <td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/timer/index.html">timer.*</a></td>
+<td align="left"><a href="../../../api/library/transition/index.html">transition.*</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>Revision</strong></td>
@@ -83,22 +83,23 @@
 </tr>
 <tr class="even">
 <td align="left"><strong>Keywords</strong></td>
-<td align="left">timer, allowInteractionsWithinFrame</td>
+<td align="left">transition, ignoreEmptyReference</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>Changes the behavior of the timer object to provide events as soon as possible instead of waiting until the next frame to execute. The default behavior is <code>false</code>, meaning that timers fire on frame intervals. Setting this to <code>true</code> will enable the events to arrive as soon as possible.</p>
+<p>Changes the default behavior of the <a href="../../../api/library/transition/pause.html">transition.pause()</a>, <a href="../../../api/library/transition/resume.html">transition.resume()</a> and <a href="../../../api/library/transition/cancel.html">transition.cancel()</a> functions so that if <code>nil</code> or no argument is passed into these functions, they will be ignored and nothing will happen. The default behavior is <code>false</code>, which means that passing <code>nil</code> or no argument into these three functions will pause, resume or cancel all functions.</p>
+<p>You can always use <a href="../../../api/library/transition/pauseAll.html">transition.pauseAll()</a>, <a href="../../../api/library/transition/resumeAll.html">transition.resumeAll()</a> and <a href="../../../api/library/transition/cancelAll.html">transition.cancelAll()</a> to control all transitions.</p>
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">timer.allowInteratonsWithinFrame</pre>
+<pre class="brush: lua;">transition.ignoreEmptyReference</pre>
 </div>
 <div id="example" class="section level2">
 <h2>Example</h2>
-<pre class="brush: lua;">timer.allowInterationsWithinFrame = true</pre>
+<pre class="brush: lua;">transition.ignoreEmptyReference = true</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

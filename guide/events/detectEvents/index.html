@@ -72,12 +72,15 @@
 <p><strong>Events</strong> are the foundation of interactive applications in Corona. They're used to trigger responses in your app like a tap on the screen, detection of a specific system event, completion of a timer, collision of two physical bodies, etc. Events are detected using the <a href="../../../api/type/EventDispatcher/addEventListener.html">object:addEventListener()</a> method which directs Corona to track (listen for) the associated event within a listener function. See the <a href="#registerevents">Registering Events</a> section for details.</p>
 <div class="guides-toc">
 <ul>
-<li><a href="#runtime">Runtime Events</a></li>
-<li><a href="#local">Local Events</a></li>
-<li><a href="#functionvstable">Function and Table Listeners</a></li>
-<li><a href="#listeners">Event Listeners</a></li>
-<li><a href="#registerevents">Registering Events</a></li>
-<li><a href="#remove">Removing Event Listeners</a></li>
+<li><a href="#basic-interactivity-and-event-detection">Basic Interactivity and Event Detection</a>
+<ul>
+<li><a href="#runtime-events">Runtime Events</a></li>
+<li><a href="#local-events">Local Events</a></li>
+<li><a href="#function-and-table-listeners">Function and Table Listeners</a></li>
+<li><a href="#event-listeners">Event Listeners</a></li>
+<li><a href="#registering-events">Registering Events</a></li>
+<li><a href="#removing-event-listeners">Removing Event Listeners</a></li>
+</ul></li>
 </ul>
 </div>
 <p><a id="runtime"></a></p>
@@ -86,6 +89,7 @@
 <p><strong>Runtime events</strong> are dispatched to the global Runtime listener. These events are not directed at any particular object; rather, they are broadcast to all interested listeners. Common Runtime events include the following:</p>
 <ul>
 <li><p><code>enterFrame</code> events (<a href="../../../api/event/enterFrame/index.html">documentation</a>) occur at the <nobr>frames-per-second</nobr> interval of the application.</p></li>
+<li><p><code>lateUpdate</code> events (<a href="../../../api/event/lateUpdate/index.html">documentation</a>) occur at the <nobr>frames-per-second</nobr> interval of the application, right after the <code>enterFrame</code> event and right before the rendering process.</p></li>
 <li><p><code>system</code> events (<a href="../../../api/event/system/index.html">documentation</a>) are dispatched when certain external events occur, such as when the device suspends or exits the application.</p></li>
 <li><p><code>resize</code> events (<a href="../../../api/event/resize/index.html">documentation</a>) occur when the width or height of the app's view has been changed.</p></li>
 <li><p><code>orientation</code> events (<a href="../../../api/event/orientation/index.html">documentation</a>) occur when the device orientation changes from portrait to landscape or <nobr>vice-versa</nobr>.</p></li>

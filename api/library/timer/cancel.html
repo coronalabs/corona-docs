@@ -57,7 +57,7 @@
 <li><a href="#timer.cancel">timer.cancel()</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#syntax">Syntax</a><ul>
-<li><a href="#timerid-required">timerID <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#whattocancel-required">whatToCancel <sub><sup>(required)</sup></sub></a></li>
 </ul></li>
 <li><a href="#example">Example</a></li>
 </ul></li>
@@ -96,7 +96,7 @@
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>Cancels a timer operation initiated with <a href="../../../api/library/timer/performWithDelay.html">timer.performWithDelay()</a>.</p>
+<p>Cancels a specific timer or all timers with the same tag that were initiated with <a href="../../../api/library/timer/performWithDelay.html">timer.performWithDelay()</a>.</p>
 <!---
 
 This function returns two numbers: time remaining ( and number of iterations that were left.
@@ -105,14 +105,31 @@ This function returns two numbers: time remaining ( and number of iterations tha
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">timer.cancel( timerID )</pre>
-<div id="timerid-required" class="section level5">
-<h5>timerID <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../../api/type/Object.html">Object</a>.</em> Handle returned by the call to <a href="../../../api/library/timer/performWithDelay.html">timer.performWithDelay()</a>.</p>
+<pre class="brush: lua;">timer.cancel( whatToCancel )</pre>
+<div id="whattocancel-required" class="section level5">
+<h5>whatToCancel <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Object.html">Object</a> or <a href="../../../api/type/String.html">String</a>.</em> The timer ID from, or <code>tag</code> passed to, <a href="../../../api/library/timer/performWithDelay.html">timer.performWithDelay()</a>.</p>
 </div>
 </div>
 <div id="example" class="section level2">
 <h2>Example</h2>
+<pre class="brush: lua;">local function listener( event )
+    print( "listener called" )
+end
+ 
+timer1 = timer.performWithDelay( 2000, listener )  -- wait 2 seconds
+
+-- sometime later...
+timer.cancel( timer1 )</pre>
+<pre class="brush: lua;">local function listener( event )
+    print( "listener called" )
+end
+ 
+timer1 = timer.performWithDelay( 2000, listener, "red" )  -- wait 2 seconds
+timer2 = timer.performWithDelay( 3000, listener, "blue" )  -- wait 3 seconds
+
+-- sometime later...
+timer.cancel( "red" )</pre>
 <pre class="brush: lua;">local t = {}
 function t:timer( event )
     local count = event.count

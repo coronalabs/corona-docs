@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — API Reference | Libraries | timer | allowIterationsWithinFrame</title>
+  <title>Solar2D Documentation — API Reference | Events | lateUpdate</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
@@ -54,51 +54,85 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#timer.allowinterationswithinframe">timer.allowInterationsWithinFrame</a><ul>
+<li><a href="#lateupdate">lateUpdate</a><ul>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#syntax">Syntax</a></li>
+<li><a href="#properties">Properties</a><ul>
+<li><a href="#event.nameapi.event.lateupdate.name"><a href="../../../api/event/lateUpdate/name.html">event.name</a></a></li>
+<li><a href="#event.timeapi.event.lateupdate.time"><a href="../../../api/event/lateUpdate/time.html">event.time</a></a></li>
+</ul></li>
 <li><a href="#example">Example</a></li>
 </ul></li>
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/timer/index.html">timer</a>  ▸  <a href="../../../api/library/timer/allowIterationsWithinFrame.html">allowIterationsWithinFrame</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/event/index.html">Events</a>  ▸  <a href="../../../api/event/lateUpdate/index.html">lateUpdate</a>
 </div>
-<div id="timer.allowinterationswithinframe" class="section level1">
-<h1>timer.allowInterationsWithinFrame</h1>
+<div id="lateupdate" class="section level1">
+<h1>lateUpdate</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
 <td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Boolean.html">Boolean</a></td>
+<td align="left"><a href="../../../api/type/Event.html">Event</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/timer/index.html">timer.*</a></td>
-</tr>
-<tr class="odd">
 <td align="left"><strong>Revision</strong></td>
 <td align="left"><a href="https://github.com/coronalabs/corona/releases">Release 2020.3606</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><strong>Keywords</strong></td>
-<td align="left">timer, allowInteractionsWithinFrame</td>
+<td align="left">lateUpdate, runtime</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../guide/events/detectEvents/index.html">Basic Interactivity and Event Detection</a> <em>(guide)</em></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>Changes the behavior of the timer object to provide events as soon as possible instead of waiting until the next frame to execute. The default behavior is <code>false</code>, meaning that timers fire on frame intervals. Setting this to <code>true</code> will enable the events to arrive as soon as possible.</p>
+<p><code>&quot;lateUpdate&quot;</code> events occur at the <nobr>frames-per-second</nobr> interval of the application, either 30 or 60 as specified in <code>config.lua</code>. They are only dispatched to the global <a href="../../../api/type/EventDispatcher/index.html">Runtime</a> object.</p>
+<p>This is dispatched after the <code>&quot;enterFrame&quot;</code> event, and right before the engine starts the rendering process. For this reason, it is useful to make any last update according to its state. Also, it is intended to be a safe call for all those who are listening to this event, otherwise, it loses its purpose.</p>
 </div>
-<div id="syntax" class="section level2">
-<h2>Syntax</h2>
-<pre class="brush: lua;">timer.allowInteratonsWithinFrame</pre>
+<div id="properties" class="section level2">
+<h2>Properties</h2>
+<div id="event.nameapi.event.lateupdate.name" class="section level4">
+<h4><a href="../../../api/event/lateUpdate/name.html">event.name</a></h4>
+</div>
+<div id="event.timeapi.event.lateupdate.time" class="section level4">
+<h4><a href="../../../api/event/lateUpdate/time.html">event.time</a></h4>
+</div>
 </div>
 <div id="example" class="section level2">
 <h2>Example</h2>
-<pre class="brush: lua;">timer.allowInterationsWithinFrame = true</pre>
+<pre class="brush: lua;">local shouldUpdate = false
+local rect = display.newRect(100, 100, 30, 30)
+local x, y
+
+-- Change the state
+local touchListener = function( event )
+    x, y = event.x, event.y
+    shouldUpdate = true
+
+    print("I need to update my position.") -- This could be call more than once each frame.
+    
+    return true
+end 
+rect:addEventListener("touch", touchListener)
+
+
+-- Interpretation of the new state
+local myListener = function( event )
+    if not shouldUpdate then return false end
+    shouldUpdate = false
+
+    rect.x, rect.y = x, y
+
+    print("Position updated!") -- This is going to be called just once, before the game renders.
+end
+Runtime:addEventListener( "lateUpdate", myListener )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

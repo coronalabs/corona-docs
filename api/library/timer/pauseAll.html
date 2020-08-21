@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — API Reference | Libraries | timer | allowIterationsWithinFrame</title>
+  <title>Solar2D Documentation — API Reference | Libraries | timer | pauseAll</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
@@ -54,7 +54,7 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#timer.allowinterationswithinframe">timer.allowInterationsWithinFrame</a><ul>
+<li><a href="#timer.pauseall">timer.pauseAll()</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#example">Example</a></li>
@@ -62,16 +62,16 @@
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/timer/index.html">timer</a>  ▸  <a href="../../../api/library/timer/allowIterationsWithinFrame.html">allowIterationsWithinFrame</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/timer/index.html">timer</a>  ▸  <a href="../../../api/library/timer/pauseAll.html">pauseAll</a>
 </div>
-<div id="timer.allowinterationswithinframe" class="section level1">
-<h1>timer.allowInterationsWithinFrame</h1>
+<div id="timer.pauseall" class="section level1">
+<h1>timer.pauseAll()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
 <td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Boolean.html">Boolean</a></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>Library</strong></td>
@@ -83,22 +83,34 @@
 </tr>
 <tr class="even">
 <td align="left"><strong>Keywords</strong></td>
-<td align="left">timer, allowInteractionsWithinFrame</td>
+<td align="left">timer, pause, resume</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../api/library/timer/pause.html">timer.pause()</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>Changes the behavior of the timer object to provide events as soon as possible instead of waiting until the next frame to execute. The default behavior is <code>false</code>, meaning that timers fire on frame intervals. Setting this to <code>true</code> will enable the events to arrive as soon as possible.</p>
+<p>Pauses all timers started with <a href="../../../api/library/timer/performWithDelay.html">timer.performWithDelay()</a>.</p>
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">timer.allowInteratonsWithinFrame</pre>
+<pre class="brush: lua;">timer.pauseAll( timerId )</pre>
 </div>
 <div id="example" class="section level2">
 <h2>Example</h2>
-<pre class="brush: lua;">timer.allowInterationsWithinFrame = true</pre>
+<pre class="brush: lua;">local function listener( event )
+    print( "listener called" )
+end
+ 
+timer1 = timer.performWithDelay( 2000, listener )  -- wait 2 seconds
+timer2 = timer.performWithDelay( 3000, listener )  -- wait 3 seconds
+
+-- sometime later...
+timer.pauseAll()</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

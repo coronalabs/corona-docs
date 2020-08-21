@@ -131,7 +131,7 @@ transition.cancel( tagName )</pre>
 </div>
 <div id="examples" class="section level2">
 <h2>Examples</h2>
-<pre class="brush: lua;">-- cancel all running transitions
+<pre class="brush: lua;">-- cancel all running (and paused) transitions
 
 local transition1 = transition.to( currentTarget, { time=400, y=y+100, iterations=5, tag="transTag" } )
 local transition2 = transition.to( otherTarget, { time=200, y=y-200, tag="transTag" } )

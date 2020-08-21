@@ -340,7 +340,8 @@ All transitions — standard and sequenced — can be paused, resumed, or cancel
 -->
 <div id="pause" class="section level3">
 <h3>Pause</h3>
-<p>Transitions can be paused with the <a href="../../../api/library/transition/pause.html">transition.pause()</a> function. This only effects transitions that are running.</p>
+<p>Transitions can be paused with the <a href="../../../api/library/transition/pause.html">transition.pause()</a> and <a href="../../../api/library/transition/pauseAll.html">transition.pauseAll()</a> functions. These only affect transitions that are running.</p>
+<p>With the <a href="../../../api/library/transition/pause.html">transition.pause()</a> function, you can control which specific transitions to pause by what parameter you use.</p>
 <div class="inner-table">
 <table>
 <thead>
@@ -372,7 +373,8 @@ All transitions — standard and sequenced — can be paused, resumed, or cancel
 </div>
 <div id="resume" class="section level3">
 <h3>Resume</h3>
-<p>Transitions can be resumed with the <a href="../../../api/library/transition/resume.html">transition.resume()</a> function. This only effects transitions that are paused.</p>
+<p>Transitions can be resumed with the <a href="../../../api/library/transition/resume.html">transition.resume()</a> and <a href="../../../api/library/transition/resumeAll.html">transition.resumeAll()</a> functions. These only affect transitions that are paused.</p>
+<p>With the <a href="../../../api/library/transition/resume.html">transition.resume()</a> function, you can control which specific transitions to resume by what parameter you use.</p>
 <div class="inner-table">
 <table>
 <thead>
@@ -404,7 +406,8 @@ All transitions — standard and sequenced — can be paused, resumed, or cancel
 </div>
 <div id="cancel" class="section level3">
 <h3>Cancel</h3>
-<p>Transitions can be cancelled with the <a href="../../../api/library/transition/cancel.html">transition.cancel()</a> function. Note that the transition(s) will stop in place — they will not revert to the beginning state or skip to the ending state. This function only effects transitions that are currently running or paused.</p>
+<p>Transitions can be cancelled with the <a href="../../../api/library/transition/cancel.html">transition.cancel()</a> and <a href="../../../api/library/transition/cancelAll.html">transition.cancelAll()</a> functions. Note that the transition(s) will stop in place — they will not revert to their beginning state or skip to the end state. These functions only effects transitions that are currently running or paused.</p>
+<p>With the <a href="../../../api/library/transition/cancel.html">transition.cancel()</a> function, you can control which specific transitions to cancel by what parameter you use.</p>
 <div class="inner-table">
 <table>
 <thead>
@@ -432,6 +435,15 @@ All transitions — standard and sequenced — can be paused, resumed, or cancel
 </tr>
 </tbody>
 </table>
+</div>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>If you accidentally pass a reference to a display object into <a href="../../../api/library/transition/pause.html">transition.pause()</a>, <a href="../../../api/library/transition/resume.html">transition.resume()</a> or <a href="../../../api/library/transition/cancel.html">transition.cancel()</a> after the display object has already been removed, then the argument will be <code>nil</code>. This is the same passing no argument into the function, which will result in all transitions being paused, resumed or cancelled (depending on the function).</p>
+<p>In order to avoid this default behaviour, you can include the following line of code in your project after requiring the transition library:</p>
+<pre class="brush: lua;">transition.ignoreEmptyReference = true</pre>
+<p>If set <code>transition.ignoreEmptyReference</code> to <code>true</code> (default is <code>false</code>), then passing <code>nil</code> or no argument into these three functions will be ignored and nothing will happen. You can always use <a href="../../../api/library/transition/pauseAll.html">transition.pauseAll()</a>, <a href="../../../api/library/transition/resumeAll.html">transition.resumeAll()</a> and <a href="../../../api/library/transition/cancelAll.html">transition.cancelAll()</a> to control all transitions.</p>
 </div>
 <p><a id="easing"></a></p>
 </div>

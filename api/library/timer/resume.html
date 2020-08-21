@@ -57,7 +57,7 @@
 <li><a href="#timer.resume">timer.resume()</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#syntax">Syntax</a><ul>
-<li><a href="#timerid-required">timerId <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#whattoresume-required">whatToResume <sub><sup>(required)</sup></sub></a></li>
 </ul></li>
 <li><a href="#example">Example</a></li>
 </ul></li>
@@ -100,14 +100,15 @@
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>Resumes a timer that was paused with <a href="../../../api/library/timer/pause.html">timer.pause()</a>. It returns a <a href="../../../api/type/Number.html">number</a> that represents the amount of time remaining in the timer.</p>
+<p>Resumes a specific timer or all timers with the same tag that were paused with <a href="../../../api/library/timer/pause.html">timer.pause()</a>.</p>
+<p>If a specific timer is resumed, then the function returns a <a href="../../../api/type/Number.html">number</a> that represents the amount of time remaining in the timer.</p>
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">timer.resume( timerId )</pre>
-<div id="timerid-required" class="section level5">
-<h5>timerId <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../../api/type/Object.html">Object</a>.</em> The timer ID from <a href="../../../api/library/timer/performWithDelay.html">timer.performWithDelay()</a>.</p>
+<pre class="brush: lua;">timer.resume( whatToResume )</pre>
+<div id="whattoresume-required" class="section level5">
+<h5>whatToResume <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Object.html">Object</a> or <a href="../../../api/type/String.html">String</a>.</em> The timer ID from, or <code>tag</code> passed to, <a href="../../../api/library/timer/performWithDelay.html">timer.performWithDelay()</a>.</p>
 </div>
 </div>
 <div id="example" class="section level2">
@@ -125,6 +126,18 @@ print( "Time remaining is " .. pauseTime )
 -- sometime later...
 local resumeTime = timer.resume( timer1 )
 print( "Resume time is " .. resumeTime )</pre>
+<pre class="brush: lua;">local function listener( event )
+    print( "listener called" )
+end
+ 
+timer1 = timer.performWithDelay( 2000, listener, "red" )  -- wait 2 seconds
+timer2 = timer.performWithDelay( 3000, listener, "blue" )  -- wait 3 seconds
+
+-- sometime later...
+timer.pause( "red" )
+
+-- sometime later...
+timer.resume( "red" )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

@@ -61,6 +61,7 @@
 <li><a href="#delay-required">delay <sub><sup>(required)</sup></sub></a></li>
 <li><a href="#listener-required">listener <sub><sup>(required)</sup></sub></a></li>
 <li><a href="#iterations-optional">iterations <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#tag-optional">tag <sub><sup>(optional)</sup></sub></a></li>
 </ul></li>
 <li><a href="#examples">Examples</a><ul>
 <li><a href="#function-listener">Function Listener</a></li>
@@ -126,7 +127,7 @@
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">timer.performWithDelay( delay, listener [, iterations] )</pre>
+<pre class="brush: lua;">timer.performWithDelay( delay, listener [, iterations] [, tag] )</pre>
 <div id="delay-required" class="section level5">
 <h5>delay <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The delay in milliseconds, for example, <code>1000</code> = 1 second. Note that timers cannot execute faster than the runtime framerate of the app. For example, if the framerate of the app is <code>60</code> frames per second, as defined in the <code>config.lua</code> file (<a href="../../../guide/basics/configSettings/index.html">guide</a>), the shortest delay for a timer is approximately <code>16.667</code> milliseconds <nobr>(<code>1000</code>/<code>60</code> = ~<code>16.667</code>)</nobr>.</p>
@@ -137,7 +138,11 @@
 </div>
 <div id="iterations-optional" class="section level5">
 <h5>iterations <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../../api/type/Number.html">Number</a>.</em> Optionally specifies the number of times <code>listener</code> is to be invoked. By default, it is <code>1</code>; pass <code>0</code> or <code>-1</code> if you want the timer to loop forever.</p>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> Optionally specify the number of times <code>listener</code> is to be invoked. By default, it is <code>1</code>; pass <code>0</code> or <code>-1</code> if you want the timer to loop forever.</p>
+</div>
+<div id="tag-optional" class="section level5">
+<h5>tag <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> Optionally assign a <code>tag</code> to the timer. You can pause, resume or cancel all timers that share the same <code>tag</code> with a single function call.</p>
 </div>
 </div>
 <div id="examples" class="section level2">

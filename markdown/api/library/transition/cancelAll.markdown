@@ -14,6 +14,8 @@
 
 The `transition.cancelAll()` function cancels all running and paused transitions.
 
+Note: Using [transition.cancelAll()][api.library.transition.cancelAll] requires `Solar2D 2020.3611` or a newer build.
+
 
 ## Syntax
 

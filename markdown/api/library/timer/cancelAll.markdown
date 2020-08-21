@@ -14,6 +14,8 @@
 
 Cancels all timer operations initiated with [timer.performWithDelay()][api.library.timer.performWithDelay].
 
+Note: Using [timer.cancelAll()][api.library.timer.cancelAll] requires `Solar2D 2020.3611` or a newer build.
+
 <!---
 
 This function doesn't return any values.

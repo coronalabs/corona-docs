@@ -14,6 +14,8 @@
 
 Pauses all timers started with [timer.performWithDelay()][api.library.timer.performWithDelay].
 
+Note: Using [timer.pauseAll()][api.library.timer.pauseAll] requires `Solar2D 2020.3611` or a newer build.
+
 ## Syntax
 
 	timer.pauseAll( timerId )

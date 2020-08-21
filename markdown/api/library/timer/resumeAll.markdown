@@ -14,6 +14,8 @@
 
 Resumes all timers that were paused with [timer.pause()][api.library.timer.pause].
 
+Note: Using [timer.resumeAll()][api.library.timer.resumeAll] requires `Solar2D 2020.3611` or a newer build.
+
 ## Syntax
 
 	timer.resumeAll()

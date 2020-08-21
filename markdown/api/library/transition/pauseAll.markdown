@@ -14,6 +14,8 @@
 
 The `transition.pauseAll()` function pauses all running transitions.
 
+Note: Using [transition.pauseAll()][api.library.transition.pauseAll] requires `Solar2D 2020.3611` or a newer build.
+
 
 ## Syntax
 

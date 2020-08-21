@@ -22,7 +22,7 @@ If a specific timer is resumed, then the function returns a [number][api.type.Nu
 	timer.resume( whatToResume )
 
 ##### whatToResume ~^(required)^~
-_[Object][api.type.Object] or [String][api.type.String]._ The timer ID from, or `tag` passed to, [timer.performWithDelay()][api.library.timer.performWithDelay].
+_[Object][api.type.Object] or [String][api.type.String]._ The timer ID from, or `tag` passed to, [timer.performWithDelay()][api.library.timer.performWithDelay]. Note: Using `tag` requires `Solar2D 2020.3611` or a newer build.
 
 
 ## Example

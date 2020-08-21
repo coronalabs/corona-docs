@@ -39,7 +39,7 @@ _[Listener][api.type.Listener]._ The listener to invoke after the delay. This ma
 _[Number][api.type.Number]._ Optionally specify the number of times `listener` is to be invoked. By default, it is `1`; pass `0` or `-1` if you want the timer to loop forever.
 
 ##### tag ~^(optional)^~
-_[String][api.type.String]._ Optionally assign a `tag` to the timer. You can pause, resume or cancel all timers that share the same `tag` with a single function call.
+_[String][api.type.String]._ Optionally assign a `tag` to the timer. You can pause, resume or cancel all timers that share the same `tag` with a single function call. Note: Using `tag` requires `Solar2D 2020.3611` or a newer build.
 
 
 ## Examples

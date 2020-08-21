@@ -14,6 +14,7 @@
 
 The `transition.resumeAll()` function resumes all paused transitions.
 
+Note: Using [transition.resumeAll()][api.library.transition.resumeAll] requires `Solar2D 2020.3611` or a newer build.
 
 ## Syntax
 

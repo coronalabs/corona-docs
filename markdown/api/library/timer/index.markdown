@@ -21,13 +21,13 @@ Timer functions allow calling a function some time in the future rather than imm
 
 #### [timer.pause()][api.library.timer.pause]
 
-#### [timer.pause()][api.library.timer.pauseAll]
+#### [timer.pauseAll()][api.library.timer.pauseAll]
 
 #### [timer.performWithDelay()][api.library.timer.performWithDelay]
 
 #### [timer.resume()][api.library.timer.resume]
 
-#### [timer.resume()][api.library.timer.resumeAll]
+#### [timer.resumeAll()][api.library.timer.resumeAll]
 
 ## Properties
 

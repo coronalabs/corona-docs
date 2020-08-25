@@ -8,7 +8,7 @@ Plugins allow you to extend the functionality of CORONA_CORE_PRODUCT. This guide
 </div>
 <div class="docs-tip-inner-right">
 
-The old [Corona Marketplace](https://marketplace.coronalabs.com/) is closing and no longer accepts plugin submissions. If you've created a plugin and wish to submit it to the new [Solar2D Plugins Marketplace](https://www.solar2dplugins.com/), please see the [Asset Packaging Guidelines][https://www.solar2dplugins.com/asset-packaging-guidelines].
+The old [Corona Marketplace](https://marketplace.coronalabs.com/) is closing and no longer accepts plugin submissions. If you've created a plugin and wish to submit it to the new [Solar2D Plugins Marketplace](https://www.solar2dplugins.com/), please see the [Asset Packaging Guidelines](https://www.solar2dplugins.com/asset-packaging-guidelines).
 
 </div>
 </div>
@@ -50,7 +50,7 @@ In these two cases, CORONA_CORE_PRODUCT adds special loaders which ensure that t
 
 ### CORONA_CORE_PRODUCT
 
-Plugins for CORONA_CORE_PRODUCT are hosted in a number of places. Many are available at [plugins.solar2d.com](https://plugins.solar2d.com/), [solar2dmarketplace.com](https://solar2dmarketplace.com/), and [solar2dplugins.com](https://www.solar2dplugins.com/). You can incorporate a plugin by adding an entry to the `plugins` table of `build.settings`, for&nbsp;example:
+Plugins for CORONA_CORE_PRODUCT are hosted in a number of places. Many are available at [Free Plugins Directory](PLUGINS_DIR), [Solar2D Marketplace](https://solar2dmarketplace.com/), and [Solar2D Plugins Marketplace](https://www.solar2dplugins.com/). You can incorporate a plugin by adding an entry to the `plugins` table of `build.settings`, for&nbsp;example:
 
 ``````{ brush="lua" gutter="false" first-line="1" highlight="[5,6,7,8]" }
 settings =

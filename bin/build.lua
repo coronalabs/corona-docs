@@ -70,6 +70,7 @@ local REV_LABEL = default_rev_label
 
 local CORONA_CORE_PRODUCT = "Solar2D"
 local CORONA_NATIVE_PRODUCT = "Solar2D Native"
+local CORONA_CARDS_PRODUCT = "CoronaCards"
 
 -- Do NOT directly reference DEFAULT_REV_URL and REV_URL_BASE variables in docs. 
 -- To reference DEFAULT_REV_URL and REV_URL_BASE in the docs, use REVISION_URL.
@@ -578,6 +579,8 @@ for i=1,#markdown_files do
 				return CORONA_CORE_PRODUCT
 			elseif w == "CORONA_NATIVE_PRODUCT" then
 				return CORONA_NATIVE_PRODUCT
+			elseif w == "CORONA_CARDS_PRODUCT" then
+				return CORONA_CARDS_PRODUCT
 			elseif w == "PLUGINS_DIR" then
 				return SOLAR_LINK_PLUGINS
 			elseif w == "SOLAR_PLAY" then

@@ -1,8 +1,8 @@
 # 404 - Not Found
 
-## Sorry, we was unable to find what you were loogin for
+## Sorry! We can't find the page you're looking for.
 
-Redirecting to [https://docs.coronalabs.com/](https://docs.coronalabs.com/) in 5 seconds...
+Redirecting to [documentation index](https://docs.coronalabs.com/) in 5 seconds...
 
 <script>
 	Array.from(document.getElementsByTagName('head')[0].children).filter(e => e.tagName=="LINK" && e.rel=="stylesheet").filter(e=>e.getAttribute('href').startsWith("css/")).forEach(function(e) {

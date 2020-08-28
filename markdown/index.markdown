@@ -15,7 +15,7 @@
 
 <div class="section level1" id="corona-documentation">
 <h1>
-<a href="#TOC">Solar2D Documentation</a>
+<a href="#TOC">CORONA_CORE_PRODUCT Documentation</a>
 </h1>
 
 Learn more about the CORONA_CORE_PRODUCT platform &mdash; everything you need is right here!
@@ -64,7 +64,7 @@ Monetization Guide
 
 </div>
 
-This guide will help you navigate options for monetization in Solar2D-built apps.
+This guide will help you navigate options for monetization in apps built with CORONA_CORE_PRODUCT.
 
 </a>
 </div>
@@ -96,7 +96,7 @@ Plugins
 
 </div>
 
-CORONA_CORE_PRODUCT plugins give CORONA_CORE_PRODUCT developers access to additional functionality and <nobr>third-party</nobr> services.
+Plugins give CORONA_CORE_PRODUCT developers access to additional functionality and <nobr>third-party</nobr> services.
 
 </a>
 </div>
@@ -112,28 +112,26 @@ CORONA_NATIVE_PRODUCT
 
 </div>
 
-Extend Solar2D with native code and wrap it behind a <nobr>cross-platform</nobr> interface.
+Extend CORONA_CORE_PRODUCT with native code and wrap it behind a <nobr>cross-platform</nobr> interface.
 
 </a>
 </div>
 
 
 <!-- CoronaCards -->
-<!---
 <div class="itembox">
 <a href="coronacards/index.html">
 <div class="itembox-header">
 <div class="itembox-icon fa fa-clone"></div>
 
-CoronaCards
+CORONA_CARDS_PRODUCT
 
 </div>
 
-Use CoronaCards to mix interactive content into your existing native apps.
+Use CORONA_CARDS_PRODUCT to mix interactive content into your existing native apps.
 
 </a>
 </div>
--->
 
 
 </div>

@@ -4,5 +4,5 @@
 * [API Reference][api]
 * [Tutorials][tutorial]
 * [Plugins][plugin]
-* [CORONA_NATIVE_PRODUCT][native]
-* [CORONA_CARDS_PRODUCT][coronacards]
+* [Solar2D Native][native]
+* [CoronaCards][coronacards]

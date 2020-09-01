@@ -17,7 +17,7 @@ Timer functions allow calling a function some time in the future rather than imm
 
 #### [timer.cancel()][api.library.timer.cancel]
 
-#### [timer.cancelAll()][api.library.timer.cancel]
+#### [timer.cancelAll()][api.library.timer.cancelAll]
 
 #### [timer.pause()][api.library.timer.pause]
 

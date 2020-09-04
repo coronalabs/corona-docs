@@ -1,4 +1,4 @@
-# Corona Basics
+# Basics
 
 <div class="guides-toc">
 

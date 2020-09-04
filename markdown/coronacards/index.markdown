@@ -7,6 +7,6 @@
 * [iOS][coronacards.ios]
 * [Android][coronacards.android]
 * [Windows Phone 8 + Windows 10 Mobile][coronacards.wp8]
-* [FAQ][coronacards.faq]
+* [Frequently Asked Questions (FAQ)][coronacards.faq]
 
 </div>

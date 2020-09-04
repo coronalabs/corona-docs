@@ -58,15 +58,14 @@
 <li><a href="#coronacards-project-integration-android">CoronaCards: Project Integration — Android</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#system-requirements">System Requirements</a></li>
-<li><a href="#coronacards-installation">CoronaCards Installation</a></li>
+<li><a href="#installation">Installation</a></li>
 <li><a href="#classes">Classes</a></li>
 <li><a href="#usageassets">Usage/Assets</a><ul>
 <li><a href="#eclipse">Eclipse</a></li>
 <li><a href="#manifest">Manifest</a></li>
-<li><a href="#corona-project">Corona Project</a><ul>
+<li><a href="#solar2d-project">Solar2D Project</a><ul>
 <li><a href="#example">Example</a></li>
 </ul></li>
-<li><a href="#licensing-file">Licensing File</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -111,9 +110,9 @@
 <li>Android device with an <strong>ARMv7</strong> processor</li>
 </ul>
 </div>
-<div id="coronacards-installation" class="section level2">
-<h2>CoronaCards Installation</h2>
-<p>Get the desired CoronaCards framework from the <a href="http://developer.coronalabs.com/downloads/coronacards">download page</a> and follow the instructions to install it.</p>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<p>Get the desired CoronaCards framework from the <a href="https://github.com/coronalabs/corona/releases">download page</a> and follow the instructions to install it.</p>
 </div>
 <div id="classes" class="section level2">
 <h2>Classes</h2>
@@ -130,9 +129,9 @@
 <h3>Manifest</h3>
 <p>Nothing needs to be added to the manifest.</p>
 </div>
-<div id="corona-project" class="section level3">
-<h3>Corona Project</h3>
-<p>Place your Corona assets (i.e. <code>main.lua</code>) into the <code>assets</code> folder of your project. The <code>CoronaView</code> should then use this path:</p>
+<div id="solar2d-project" class="section level3">
+<h3>Solar2D Project</h3>
+<p>Place your Solar2D assets (i.e. <code>main.lua</code>) into the <code>assets</code> folder of your project. The <code>CoronaView</code> should then use this path:</p>
 <pre class="brush: lua;">CoronaView coronaView = new CoronaView(context);
 coronaView.init("");</pre>
 <div id="example" class="section level5">
@@ -140,11 +139,6 @@ coronaView.init("");</pre>
 <pre class="brush: lua;">CoronaView coronaView = new CoronaView(context);
 // Assuming 'main.lua' and all of its assets are in a folder named 'Fishies' in the 'assets' directory:
 coronaView.init("Fishies/")</pre>
-</div>
-</div>
-<div id="licensing-file" class="section level3">
-<h3>Licensing File</h3>
-<p>The licensing file needs to be put in every directory which houses a CoronaCards project or the <code>CoronaView</code> that is pointing to that project will not run. This file ensures that you are authorized to use CoronaCards. Obtain a trial licensing file <a href="https://developer.coronalabs.com/downloads/coronacards">here</a>.</p>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -154,6 +148,7 @@ coronaView.init("Fishies/")</pre>
 Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
+</div>
 </div>
 </div>
 </div>

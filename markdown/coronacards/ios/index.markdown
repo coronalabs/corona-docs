@@ -1,6 +1,6 @@
-# CoronaCards &mdash; iOS
+# CORONA_CARDS_PRODUCT &mdash; iOS
 
-Using CoronaCards, your existing iOS app can leverage the full power of Corona's engine via one or more <nobr>Corona-based</nobr> views (`CoronaView`). These views are based on the iOS `GLKView` and can be inserted into the `UIView` hierarchy. They can be sized as partial or <nobr>full-screen</nobr> just like any other `UIView` and may even be shown as transparent overlays on top of existing content.
+Using CORONA_CARDS_PRODUCT, your existing iOS app can leverage the full power of CORONA_CORE_PRODUCT via one or more <nobr>CORONA_CORE_PRODUCT-based</nobr> views (`CoronaView`). These views are based on the iOS `GLKView` and can be inserted into the `UIView` hierarchy. They can be sized as partial or <nobr>full-screen</nobr> just like any other `UIView` and may even be shown as transparent overlays on top of existing content.
 
 
 ## System Requirements
@@ -11,7 +11,7 @@ Using CoronaCards, your existing iOS app can leverage the full power of Corona's
 
 ## Installation
 
-Get the desired CoronaCards framework from the [download](http://developer.coronalabs.com/downloads/coronacards) page and follow the instructions to install it.
+Get the desired CORONA_CARDS_PRODUCT framework from the [download](REVISION_URL) page and follow the instructions to install it.
 
 
 ## Setup and Integration
@@ -40,7 +40,7 @@ Get the desired CoronaCards framework from the [download](http://developer.coron
 
 ## Samples
 
-The following basic samples are available on [GitHub](https://github.com/coronacards). They exhibit the different ways in which CoronaCards can be integrated into an existing app. These samples expect `CoronaKit.framework` to be installed in `/Users/Shared/CoronaLabs/ios/`. See the [setup][coronacards.ios.setup] guide for more information.
+The following basic samples are available on [GitHub](https://github.com/coronacards). They exhibit the different ways in which CORONA_CARDS_PRODUCT can be integrated into an existing app. These samples expect `CoronaKit.framework` to be installed in `/Users/Shared/CoronaLabs/ios/`. See the [setup][coronacards.ios.setup] guide for more information.
 
 * [SimpleView (Obj-C)](https://github.com/coronacards/sample-ios-SimpleView)
 * [SimpleView (Swift)](https://github.com/coronacards/sample-ios-SimpleView-swift)

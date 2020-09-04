@@ -249,9 +249,9 @@ If you're new to CORONA_CORE_PRODUCT or app development, download [CORONA_CORE_P
 
 CORONA_NATIVE_PRODUCT provides <nobr>low-level</nobr> access to the operating system and native&nbsp;APIs. While most apps designed using CORONA_CORE_PRODUCT do not require this level of access, it allows you to use native languages like <nobr>Obj-C</nobr> or Java to pass information between the native code and Lua code.
 
-### CoronaCards
+### CORONA_CARDS_PRODUCT
 
-[CoronaCards](http://coronacards.com/) is used to implement CORONA_CORE_PRODUCT inside native apps or other frameworks. This allows developers to embed CORONA_CORE_PRODUCT resources without interfering with the main application stack.
+[CORONA_CARDS_PRODUCT](coronacards) is used to implement CORONA_CORE_PRODUCT inside native apps or other frameworks. This allows developers to embed CORONA_CORE_PRODUCT resources without interfering with the main application stack.
 
 
 

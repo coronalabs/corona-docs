@@ -2,7 +2,7 @@
 
 CORONA_NATIVE_PRODUCT lets you extend CORONA_CORE_PRODUCT beyond the functionality provided by the CORONA_CORE_PRODUCT Lua&nbsp;APIs \([reference][api]\). For instance, you can use native languages like <nobr>Objective-C</nobr> or Java and pass information between the native code and Lua code. You can also [create plugins][native.plugin] that make it even easier to get native platform features into apps built with CORONA_CORE_PRODUCT.
 
-If you don't need to include custom native code in your app, Solar2D Simulator is the best tool to use. Get started [here][guide.programming.01].
+If you don't need to include custom native code in your app, CORONA_CORE_PRODUCT Simulator is the best tool to use. Get started [here][guide.programming.01].
 
 
 ## System Requirements
@@ -35,7 +35,7 @@ To get started with CORONA_NATIVE_PRODUCT for Android, please proceed to [CORONA
 
 ## Plugin Development
 
-Plugins let you extend Solar2D functionality, leveraging <nobr>pre-built</nobr> components. You can create plugins that can be <nobr>re-used</nobr> across projects and submit a plugin for availability in the [Corona Marketplace](https://marketplace.coronalabs.com).
+Plugins let you extend Solar2D functionality, leveraging <nobr>pre-built</nobr> components. You can create plugins that can be <nobr>re-used</nobr> across projects and also, you can submit a plugin for availability in the [Free Plugins Directory](PLUGINS_DIR) as well as third-party marketplaces such as [Solar2D Marketplace](https://solar2dmarketplace.com/) and [Solar2D Plugins](https://www.solar2dplugins.com/).
 
 Learn more in our [Plugins][native.plugin] guide or in our [Plugin Submission Guide][native.plugin.submission].
 

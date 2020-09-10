@@ -11,7 +11,8 @@ Build-time properties for an app are defined using a optional `build.settings` f
 * [Desktop Build Settings](#desktopsettings)
 * [Plugins](#plugins)
 * [Custom App Icons](#appicons)
-* [Splash/Launch Screen](#launchimage)
+* [Splash Screen](#splashscreen)
+* [Launch Screen — iOS](#launchimage)
 * [Excluding Files](#excludingfiles)
 
 </div>
@@ -19,7 +20,7 @@ Build-time properties for an app are defined using a optional `build.settings` f
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>
 
-This guide outlines the most common build settings for apps across the various platforms that Corona supports. For those developers who require more advanced settings, please consult the [Advanced Build Settings][guide.distribution.advancedSettings] guide for which options are available.
+This guide outlines the most common build settings for apps across the various platforms that CORONA_CORE_PRODUCT supports. For those developers who require more advanced settings, please consult the [Advanced Build Settings][guide.distribution.advancedSettings] guide for which options are available.
 
 </div>
 
@@ -62,9 +63,9 @@ The `build.settings` file can be used to set app orientation in relation to the 
 
 Please note that there are three different things which are subject to orientation:
 
-1. The splash screen (see [Splash Screen](#launchimage) below).
+1. The splash screen (see [Splash Screen](#splashscreen) below).
 2. Native UI elements such as alerts and the visual keyboard.
-3. The Corona display stage itself.
+3. The display stage itself.
 
 </div>
 
@@ -124,7 +125,7 @@ supported = { "portrait", "portraitUpsideDown" },
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp title-nomargin">Important</div>
 
-1. When the device orientation changes, the __coordinate&nbsp;position__ `(0,0)` on the Corona display stage will correspond to the top-left corner of the current orientation.
+1. When the device orientation changes, the __coordinate&nbsp;position__ `(0,0)` on the display stage will correspond to the top-left corner of the current orientation.
 
 2. The __iPad__ ignores the `default` setting and attempts to launch in the current physical orientation of the device, assuming that orientation is specified in the supported list.
 
@@ -151,8 +152,8 @@ settings =
 			CFBundleIconFiles = {},  -- Required!
 			UILaunchStoryboardName = "LaunchScreen",  -- Required!
 			UIStatusBarHidden = true,
-			CFBundleDisplayName = "Corona App",
-			CFBundleName = "Corona App",
+			CFBundleDisplayName = "Solar2D App",
+			CFBundleName = "Solar2D App",
 		},
 	},
 }
@@ -171,7 +172,7 @@ In the example above, a few common `plist` keys are shown:
 
 * `CFBundleIconFiles` ([table][api.type.Table]) &mdash; a __required__ table of app icon image files to associate with the app. See [Custom App Icons](#appicons) below for details.
 
-* `UILaunchStoryboardName` &mdash; a __required__ string pointing to a valid `.storyboardc` file. See [iOS Launch Screen](#ios-launch) below for important details.
+* `UILaunchStoryboardName` &mdash; a __required__ string pointing to a valid `.storyboardc` file. See [Launch Screen — iOS](#launchimage) below for important details.
 
 * `UIStatusBarHidden` ([boolean][api.type.Boolean]) &mdash; specifies if the status bar should initially be hidden when the app launches.
 
@@ -207,7 +208,7 @@ When the system prompts the user to allow access, the associated description is 
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Important</div>
 
-In Corona, the following APIs are affected by iOS permissions, so you should include the permission key(s) noted in the associated API documentation if you're using any of these commands:
+The following APIs are affected by iOS permissions, so you should include the permission key(s) noted in the associated API documentation if you're using any of these commands:
 
 * [display.capture()][api.library.display.capture] when `saveToPhotoLibrary` is `true`
 * [display.captureBounds()][api.library.display.captureBounds] when `saveToPhotoLibrary` is `true`
@@ -258,7 +259,7 @@ settings =
 
 ### Version Code
 
-You can override the __version&nbsp;code__ entered into the Corona&nbsp;Simulator __Build&nbsp;for&nbsp;Android__ box with an optional `versionCode` <nobr>key-value</nobr> pair in the `build.settings` file. This is an internal number used to distinguish application releases for the Android app store, corresponding to the `versionCode` item detailed [here](http://developer.android.com/guide/topics/manifest/manifest-element.html). This setting is invisible to users.
+You can override the __version&nbsp;code__ entered into the Simulator __Build&nbsp;for&nbsp;Android__ box with an optional `versionCode` <nobr>key-value</nobr> pair in the `build.settings` file. This is an internal number used to distinguish application releases for the Android app store, corresponding to the `versionCode` item detailed [here](http://developer.android.com/guide/topics/manifest/manifest-element.html). This setting is invisible to users.
 
 ``````{ brush="lua" gutter="false" first-line="1" highlight="[5]" }
 settings
@@ -301,7 +302,7 @@ settings
 
 In the example above, a few useful `android.permission` keys are exhibited:
 
-* `"android.permission.INTERNET"` &mdash; permits a Corona app to access the Internet.
+* `"android.permission.INTERNET"` &mdash; permits an application to access the Internet.
 * `"android.permission.WRITE_EXTERNAL_STORAGE"` &mdash; allows `media.save()` and camera support.
 * `"android.permission.ACCESS_FINE_LOCATION"` &mdash; allows access to GPS.
 * `"android.permission.ACCESS_COARSE_LOCATION"` &mdash; allows getting the location from WiFi/cellular.
@@ -345,7 +346,7 @@ settings =
 {
 	android =
 	{
-		-- This tells the Corona Simulator to create an expansion file
+		-- This tells the Simulator to create an expansion file
 		usesExpansionFile = true,
 
 		-- The following permissions are required to download expansion files
@@ -395,7 +396,7 @@ Setting/Feature																					Purpose
 
 ## Desktop Build Settings
 
-For macOS desktop or Win32 desktop apps, the Corona `build.settings` file supports a `window` table for customizing the app's desktop window:
+For macOS desktop or Win32 desktop apps, `build.settings` file supports a `window` table for customizing the app's desktop window:
 
 ``````{ brush="lua" gutter="false" first-line="1" highlight="[3,4,5,6]" }
 settings =
@@ -425,7 +426,7 @@ Please see the example within [Creating macOS Desktop Apps][guide.distribution.m
 
 ## Plugins
 
-Corona offers several [plugins][plugin] which can be used in your projects. These plugins can be included via the `plugins` table nested within the `settings` table:
+CORONA_CORE_PRODUCT offers several [plugins][plugin] which can be used in your projects. These plugins can be included via the `plugins` table nested within the `settings` table:
 
 ``````{ brush="lua" gutter="false" first-line="1" highlight="[3,4,5,6]" }
 settings =
@@ -477,7 +478,7 @@ For iOS, several icon files are required. Please see the [Managing Xcode Assets]
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Important</div>
 
-Google has changed how Android icons are managed with Android 8 and later, using Adaptive Icons. Starting with Corona Daily Build 2019.3504 and later, icons are now handled using the `AndroidResources` folder. See our guide on [Adaptive Icons][guide.distribution.androidResources] for more information.
+Google has changed how Android icons are managed with Android 8 and later, using Adaptive Icons. Starting with daily build 2019.3504 and later, icons are now handled using the `AndroidResources` folder. See our guide on [Adaptive Icons][guide.distribution.androidResources] for more information.
 
 </div>
 
@@ -501,9 +502,9 @@ File						Size (w&times;h)
 
 Desktop apps&nbsp;&mdash; applications built for macOS or Windows&nbsp;&mdash; require additional icons as follows:
 
-* For macOS desktop apps, you must add a <nobr>`Icon-osx.icns`</nobr> file to your project folder before performing a macOS build via the Corona&nbsp;Simulator. This file should contain multiple images at different resolutions, bundled into a single `.icns` file \([details](https://en.wikipedia.org/wiki/Apple_Icon_Image_format)\). See the [Creating macOS Desktop Apps][guide.distribution.macOSBuild] guide for more information.
+* For macOS desktop apps, you must add a <nobr>`Icon-osx.icns`</nobr> file to your project folder before performing a macOS build via the Simulator. This file should contain multiple images at different resolutions, bundled into a single `.icns` file \([details](https://en.wikipedia.org/wiki/Apple_Icon_Image_format)\). See the [Creating macOS Desktop Apps][guide.distribution.macOSBuild] guide for more information.
 
-* For Windows desktop apps, you must add a <nobr>`Icon-win32.ico`</nobr> file to your project folder before performing a Win32 build via the Corona&nbsp;Simulator. This file should contain multiple images at different resolutions, bundled into a single `.ico` file \([details](https://en.wikipedia.org/wiki/ICO_(file_format))\). See the [Creating Win32 Desktop Apps][guide.distribution.win32Build] guide for more information.
+* For Windows desktop apps, you must add a <nobr>`Icon-win32.ico`</nobr> file to your project folder before performing a Win32 build via the Simulator. This file should contain multiple images at different resolutions, bundled into a single `.ico` file \([details](https://en.wikipedia.org/wiki/ICO_(file_format))\). See the [Creating Win32 Desktop Apps][guide.distribution.win32Build] guide for more information.
 
 ### tvOS / Android TV
 
@@ -516,28 +517,111 @@ Apps designed for TV systems require additional icons:
 
 
 
-<a id="launchimage"></a>
+<a id="splashscreen"></a>
 
-## Splash/Launch Screen
+## Splash Screen
 
-### Corona Splash Screen
+By default, a CORONA_CORE_PRODUCT branded splash screen will appear when the app opens. This splash screen can be customized or disabled.
 
-By default, a Corona-branded splash screen will appear when the app opens. This splash screen can be customized or disabled with purchase of the [Splash Screen Control](https://marketplace.coronalabs.com/plugin/com.coronalabs/plugin.CoronaSplashControl) plugin. Please see the [documentation][plugin.CoronaSplashControl] for details on configuring the splash screen via `build.settings`, assuming you've purchased the plugin.
+<div class="guide-notebox">
+<div class="notebox-title">Note</div>
+
+* On iOS, the iOS launch screen will appear before the splash screen, assuming the splash screen is not disabled. If the splash screen is disabled, the launch screen will appear until the app is fully loaded, then your first screen/scene will appear.
+
+</div>
+
+### Customization
+
+If you'd like to display your own custom splash screen, include the `splashScreen` table within `build.settings` as above, but set the `enable` key to `true` and add an `image` key defining the image name. For&nbsp;instance:
+
+``````lua
+settings =
+{
+	splashScreen = 
+	{
+		enable = true,
+		image = "mySplashScreen.png"
+	},
+}
+``````
+
+Alternatively, you can customize the splash screen on a <nobr>per-platform</nobr> basis as follows:
+
+``````lua
+settings =
+{
+	splashScreen =
+	{
+		ios = {
+			enable = true,
+			image = "mySplashScreen_iOS.png"
+		},
+		android = {
+			enable = true,
+			image = "mySplashScreen_Android.png"
+		}
+	},
+}
+``````
+
+For customized implementation, `image` indicates the path to any image file in the project. The image will be displayed on a black background and it will match the default orientation of the app, scaled to fit the screen of the current device. You may need to experiment to arrive at the ideal image for your splash screen, but if it's large enough for the largest device your app is intended to run on, you only need one image.
+
+<div class="guide-notebox">
+<div class="notebox-title">Note</div>
+
+Because `build.settings` does not apply to app builds performed via CORONA_NATIVE_PRODUCT, special handling is required to customize the splash screen in these instances:
+
+* For iOS, place an image named `_CoronaSplashScreen.png` in the root of your app bundle, specifying it as a "resource" in Xcode.
+
+* For Android, place an image named `_corona_splash_screen.png` within `res/drawable/` using whatever mechanism is appropriate in Android&nbsp;Studio or otherwise.
+
+</div>
+
+### Removal
+
+To remove default splash screen, add the `splashScreen` table to the project's `build.settings` with the `enable` key set to `false`:
+
+``````lua
+settings =
+{
+	splashScreen = 
+	{
+		enable = false
+	},
+}
+``````
+
+Alternatively, you can remove the splash screen on a <nobr>per-platform</nobr> basis as follows:
+
+``````lua
+settings =
+{
+	splashScreen =
+	{
+		ios = {
+			enable = false
+		},
+		android = {
+			enable = true
+		}
+	},
+}
+``````
 
 <!---
 
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>
 
-On iOS, the Corona splash screen will appear after the iOS launch screen (see&nbsp;below), assuming the splash screen is not disabled. If the Corona splash screen is disabled, the iOS launch screen will appear until the app is fully loaded, then your first screen/scene will appear.
+On iOS, the CORONA_CORE_PRODUCT splash screen will appear after the iOS launch screen (see&nbsp;below), assuming the splash screen is not disabled. If the CORONA_CORE_PRODUCT splash screen is disabled, the iOS launch screen will appear until the app is fully loaded, then your first screen/scene will appear.
 
 </div>
 
 -->
 
-<a id="ios-launch"></a>
+<a id="launchimage"></a>
 
-### iOS Launch Screen
+## Launch Screen — iOS
 
 For iOS, you must include some form of __launch&nbsp;screen__ support. Apple recommends that you utilize an <nobr>Xcode-generated</nobr> storyboard for this, since a single storyboard is flexible and adaptable for all launch screens across all devices.
 
@@ -547,7 +631,7 @@ For iOS, you must include some form of __launch&nbsp;screen__ support. Apple rec
 </div>
 <div class="docs-tip-inner-right">
 
-For your convenience, a default (blank) `LaunchScreen.storyboardc` document is automatically added to all new project templates. The same file is also bundled with the Corona application itself, in case you need to copy it over to existing projects. It&nbsp;can be found within the CORONA_CORE_PRODUCT application folder here:
+For your convenience, a default (blank) `LaunchScreen.storyboardc` document is automatically added to all new project templates. The same file is also bundled with the application itself, in case you need to copy it over to existing projects. It&nbsp;can be found within the CORONA_CORE_PRODUCT application folder here:
 
 <nobr>`/Applications/Corona/Resources/Resource Library/iOS/LaunchScreen.storyboardc`</nobr>
 

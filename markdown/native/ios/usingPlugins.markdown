@@ -1,6 +1,6 @@
 # Using Plugins in CORONA_NATIVE_PRODUCT&nbsp;&mdash; iOS
 
-To use plugins with CORONA_NATIVE_PRODUCT builds through Xcode, you must include them in `build.settings` just like you would for Corona&nbsp;Simulator builds, for example:
+To use plugins with CORONA_NATIVE_PRODUCT builds through Xcode, you must include them in `build.settings` just like you would for Simulator builds, for example:
 
 ``````{ brush="lua" gutter="false" first-line="1" highlight="[5,6,7,8]" }
 settings =
@@ -15,7 +15,6 @@ settings =
 }
 ``````
 
-From here, you must run a process which contacts the [Corona Marketplace](https://marketplace.coronalabs.com/) and confirms that you have an active license for the plugin(s). If confirmed, Corona will install the library files and link them to your project.
 
 ## Procedure
 
@@ -43,7 +42,7 @@ To perform the process described above, simply follow these steps:
 </div>
 </div>
 
-4. In the Xcode tool bar, click on the __active&nbsp;scheme__ button again and select your main app. Now you can build your app with any plugin in the [Corona Marketplace](https://marketplace.coronalabs.com/).
+4. In the Xcode tool bar, click on the __active&nbsp;scheme__ button again and select your main app. Now you can build your app with any plugin in the [Free Plugins Directory](PLUGINS_DIR).
 
 <div class="docs-tip-outer docs-tip-color-alert">
 <div class="docs-tip-inner-left">

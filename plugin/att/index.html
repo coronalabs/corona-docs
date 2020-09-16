@@ -59,12 +59,13 @@
 <li><a href="#overview">Overview</a><ul>
 <li><a href="#native-code-examples">Native code examples</a></li>
 </ul></li>
-<li><a href="#build.settings">build.settings</a></li>
+<li><a href="#project-settings">Project Settings</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#functions">Functions</a><ul>
 <li><a href="#att.requestlistenerplugin.att.request"><a href="../../plugin/att/request.html">att.request(listener)</a></a></li>
 <li><a href="#att.statusplugin.att.status"><a href="../../plugin/att/status.html">att.status)</a></a></li>
 </ul></li>
+<li><a href="#example">Example</a></li>
 </ul></li>
 </ul>
 </div>
@@ -106,8 +107,9 @@
   })</pre>
 </div>
 </div>
-<div id="build.settings" class="section level2">
-<h2>build.settings</h2>
+<div id="project-settings" class="section level2">
+<h2>Project Settings</h2>
+<p>To use this plugin your <code>build.settings</code> should contain following entries:</p>
 <pre class="brush: lua;">settings = 
 {
     iphone =
@@ -121,8 +123,7 @@
     {
         ['plugin.att'] = { publisherId = 'com.solar2d' },
     }
-}
-</pre>
+}</pre>
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
@@ -135,13 +136,18 @@
 </div>
 <div id="att.statusplugin.att.status" class="section level4">
 <h4><a href="../../plugin/att/status.html">att.status)</a></h4>
+</div>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
 <pre class="brush: lua;">local att = require "plugin.att"
 
 local status = att.status
 local statusText = display.newText( status, display.contentCenterX, display.contentCenterY*0.5, nil, 14 )
 
-local eventText = display.newText( "tap to request", display.contentCenterX, display.contentCenterY*1.5, display.contentWidth*0.5, display.contentHeight*0.25, nil, 14 )
 
+
+local eventText = display.newText( "tap to request", display.contentCenterX, display.contentCenterY*1.5, display.contentWidth*0.5, display.contentHeight*0.25, nil, 14 )
 
 local function attListener(e)
     eventText.text = "Status is " .. tostring(e.status)
@@ -151,8 +157,7 @@ local function tapListener()
     att.request(attListener)
 end
 
-Runtime:addEventListener( "tap", tapListener)
-</pre>
+Runtime:addEventListener( "tap", tapListener)</pre>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -162,7 +167,6 @@ Runtime:addEventListener( "tap", tapListener)
 Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
-</div>
 </div>
 </div>
 </div>

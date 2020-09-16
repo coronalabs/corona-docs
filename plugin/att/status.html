@@ -87,11 +87,11 @@
 </blockquote>
 <p>Returns current tracking status. Possible values are:</p>
 <ul>
-<li><code>authorized</code></li>
-<li><code>denied</code></li>
-<li><code>restricted</code></li>
-<li><code>notDetermined</code></li>
-<li><code>unavailable</code></li>
+<li><code>authorized</code> - the value returned if the user authorizes access to app-related data that can be used for tracking the user or the device.</li>
+<li><code>denied</code> - the value returned if the user denies authorization to access app-related data that can be used for tracking the user or the device.</li>
+<li><code>restricted</code> - the value returned if authorization to access app-related data that can be used for tracking the user or the device is restricted.</li>
+<li><code>notDetermined</code> - the value returned if a user has not yet received an authorization request to authorize access to app-related data that can be used for tracking the user or the device.</li>
+<li><code>unavailable</code> - the value returned if iOS version is less than 14.0.</li>
 </ul>
 <pre class="brush: lua;">print(att.status)</pre>
 <hr>

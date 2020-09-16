@@ -79,10 +79,11 @@
 <li><a href="#desktop">Desktop</a></li>
 <li><a href="#tvos-android-tv">tvOS / Android TV</a></li>
 </ul></li>
-<li><a href="#splashlaunch-screen">Splash/Launch Screen</a><ul>
-<li><a href="#corona-splash-screen">Corona Splash Screen</a></li>
-<li><a href="#ios-launch-screen">iOS Launch Screen</a></li>
+<li><a href="#splash-screen">Splash Screen</a><ul>
+<li><a href="#customization">Customization</a></li>
+<li><a href="#removal">Removal</a></li>
 </ul></li>
+<li><a href="#launch-screen-ios">Launch Screen — iOS</a></li>
 <li><a href="#excluding-files">Excluding Files</a></li>
 </ul></li>
 </ul>
@@ -102,7 +103,8 @@
 <li><a href="#desktopsettings">Desktop Build Settings</a></li>
 <li><a href="#plugins">Plugins</a></li>
 <li><a href="#appicons">Custom App Icons</a></li>
-<li><a href="#launchimage">Splash/Launch Screen</a></li>
+<li><a href="#splashscreen">Splash Screen</a></li>
+<li><a href="#launchimage">Launch Screen — iOS</a></li>
 <li><a href="#excludingfiles">Excluding Files</a></li>
 </ul>
 </div>
@@ -110,7 +112,7 @@
 <div class="notebox-title">
 Note
 </div>
-<p>This guide outlines the most common build settings for apps across the various platforms that Corona supports. For those developers who require more advanced settings, please consult the <a href="../../../guide/distribution/advancedSettings/index.html">Advanced Build Settings</a> guide for which options are available.</p>
+<p>This guide outlines the most common build settings for apps across the various platforms that Solar2D supports. For those developers who require more advanced settings, please consult the <a href="../../../guide/distribution/advancedSettings/index.html">Advanced Build Settings</a> guide for which options are available.</p>
 </div>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
@@ -140,9 +142,9 @@ Important
 </div>
 <p>Please note that there are three different things which are subject to orientation:</p>
 <ol style="list-style-type: decimal">
-<li>The splash screen (see <a href="#launchimage">Splash Screen</a> below).</li>
+<li>The splash screen (see <a href="#splashscreen">Splash Screen</a> below).</li>
 <li>Native UI elements such as alerts and the visual keyboard.</li>
-<li>The Corona display stage itself.</li>
+<li>The display stage itself.</li>
 </ol>
 </div>
 <p>All orientation settings must be contained in the <code>orientation</code> table within <code>settings</code>:</p>
@@ -202,7 +204,7 @@ Important
 Important
 </div>
 <ol style="list-style-type: decimal">
-<li><p>When the device orientation changes, the <strong>coordinate position</strong> <code>(0,0)</code> on the Corona display stage will correspond to the top-left corner of the current orientation.</p></li>
+<li><p>When the device orientation changes, the <strong>coordinate position</strong> <code>(0,0)</code> on the display stage will correspond to the top-left corner of the current orientation.</p></li>
 <li><p>The <strong>iPad</strong> ignores the <code>default</code> setting and attempts to launch in the current physical orientation of the device, assuming that orientation is specified in the supported list.</p></li>
 <li><p>If you ever need to detect the current device orientation, it can be read from the <a href="../../../api/library/system/orientation.html">system.orientation</a> property. This will provide a value from the four standard conventions listed above. In addition, iOS devices may report either the <code>&quot;faceUp&quot;</code> or <code>&quot;faceDown&quot;</code> orientation.</p></li>
 </ol>
@@ -222,8 +224,8 @@ Important
             CFBundleIconFiles = {},  -- Required!
             UILaunchStoryboardName = "LaunchScreen",  -- Required!
             UIStatusBarHidden = true,
-            CFBundleDisplayName = "Corona App",
-            CFBundleName = "Corona App",
+            CFBundleDisplayName = "Solar2D App",
+            CFBundleName = "Solar2D App",
         },
     },
 }</pre>
@@ -239,7 +241,7 @@ Important
 <p>In the example above, a few common <code>plist</code> keys are shown:</p>
 <ul>
 <li><p><code>CFBundleIconFiles</code> (<a href="../../../api/type/Table.html">table</a>) — a <strong>required</strong> table of app icon image files to associate with the app. See <a href="#appicons">Custom App Icons</a> below for details.</p></li>
-<li><p><code>UILaunchStoryboardName</code> — a <strong>required</strong> string pointing to a valid <code>.storyboardc</code> file. See <a href="#ios-launch">iOS Launch Screen</a> below for important details.</p></li>
+<li><p><code>UILaunchStoryboardName</code> — a <strong>required</strong> string pointing to a valid <code>.storyboardc</code> file. See <a href="#launchimage">Launch Screen — iOS</a> below for important details.</p></li>
 <li><p><code>UIStatusBarHidden</code> (<a href="../../../api/type/Boolean.html">boolean</a>) — specifies if the status bar should initially be hidden when the app launches.</p></li>
 <li><p><code>CFBundleDisplayName</code> (<a href="../../../api/type/String.html">string</a>) — the display name of the bundle. If you do <strong>not</strong> need to localize the app and the bundle name contains only ASCII characters, omit this key and specify the bundle name as <strong>Application Name</strong> in the Simulator <strong>Build for iOS</strong> window. If you localize the app (<a href="../../../guide/distribution/localization/index.html">guide</a>), include this key in both the <code>plist</code> table and in the <code>InfoPlist.strings</code> files of your language <nobr>sub-directories</nobr> alongside the localized <code>CFBundleName</code> keys.</p></li>
 <li><p><code>CFBundleName</code> (<a href="../../../api/type/String.html">string</a>) — a short app name of 16 characters or less. If the bundle name contains only ASCII characters, omit this key and specify the bundle name as <strong>Application Name</strong> in the Simulator <strong>Build for iOS</strong> window. If you localize the app (<a href="../../../guide/distribution/localization/index.html">guide</a>), this key should be included in the <code>plist</code> table and also alongside <code>CFBundleDisplayName</code> in the <code>InfoPlist.strings</code> files of your language <nobr>sub-directories</nobr>. If you do <strong>not</strong> localize the app, you may include this <code>CFBundleName</code> key in the <code>plist</code> table, but do not include the <code>CFBundleDisplayName</code> key.</p></li>
@@ -266,7 +268,7 @@ Important
 <div class="notebox-title-imp">
 Important
 </div>
-<p>In Corona, the following APIs are affected by iOS permissions, so you should include the permission key(s) noted in the associated API documentation if you're using any of these commands:</p>
+<p>The following APIs are affected by iOS permissions, so you should include the permission key(s) noted in the associated API documentation if you're using any of these commands:</p>
 <ul>
 <li><a href="../../../api/library/display/capture.html">display.capture()</a> when <code>saveToPhotoLibrary</code> is <code>true</code></li>
 <li><a href="../../../api/library/display/captureBounds.html">display.captureBounds()</a> when <code>saveToPhotoLibrary</code> is <code>true</code></li>
@@ -320,7 +322,7 @@ Important
 }</pre>
 <div id="version-code" class="section level3">
 <h3>Version Code</h3>
-<p>You can override the <strong>version code</strong> entered into the Corona Simulator <strong>Build for Android</strong> box with an optional <code>versionCode</code> <nobr>key-value</nobr> pair in the <code>build.settings</code> file. This is an internal number used to distinguish application releases for the Android app store, corresponding to the <code>versionCode</code> item detailed <a href="http://developer.android.com/guide/topics/manifest/manifest-element.html">here</a>. This setting is invisible to users.</p>
+<p>You can override the <strong>version code</strong> entered into the Simulator <strong>Build for Android</strong> box with an optional <code>versionCode</code> <nobr>key-value</nobr> pair in the <code>build.settings</code> file. This is an internal number used to distinguish application releases for the Android app store, corresponding to the <code>versionCode</code> item detailed <a href="http://developer.android.com/guide/topics/manifest/manifest-element.html">here</a>. This setting is invisible to users.</p>
 <pre class="brush: lua; gutter: false; highlight: [5]; first-line: 1;">settings
 {
     android =
@@ -354,7 +356,7 @@ Note
 }</pre>
 <p>In the example above, a few useful <code>android.permission</code> keys are exhibited:</p>
 <ul>
-<li><code>&quot;android.permission.INTERNET&quot;</code> — permits a Corona app to access the Internet.</li>
+<li><code>&quot;android.permission.INTERNET&quot;</code> — permits an application to access the Internet.</li>
 <li><code>&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</code> — allows <code>media.save()</code> and camera support.</li>
 <li><code>&quot;android.permission.ACCESS_FINE_LOCATION&quot;</code> — allows access to GPS.</li>
 <li><code>&quot;android.permission.ACCESS_COARSE_LOCATION&quot;</code> — allows getting the location from WiFi/cellular.</li>
@@ -391,7 +393,7 @@ Important
 {
     android =
     {
-        -- This tells the Corona Simulator to create an expansion file
+        -- This tells the Simulator to create an expansion file
         usesExpansionFile = true,
 
         -- The following permissions are required to download expansion files
@@ -458,7 +460,7 @@ Important
 </div>
 <div id="desktop-build-settings" class="section level2">
 <h2>Desktop Build Settings</h2>
-<p>For macOS desktop or Win32 desktop apps, the Corona <code>build.settings</code> file supports a <code>window</code> table for customizing the app's desktop window:</p>
+<p>For macOS desktop or Win32 desktop apps, <code>build.settings</code> file supports a <code>window</code> table for customizing the app's desktop window:</p>
 <pre class="brush: lua; gutter: false; highlight: [3,4,5,6]; first-line: 1;">settings =
 {
     window =
@@ -480,7 +482,7 @@ Important
 </div>
 <div id="plugins" class="section level2">
 <h2>Plugins</h2>
-<p>Corona offers several <a href="../../../plugin/index.html">plugins</a> which can be used in your projects. These plugins can be included via the <code>plugins</code> table nested within the <code>settings</code> table:</p>
+<p>Solar2D offers several <a href="../../../plugin/index.html">plugins</a> which can be used in your projects. These plugins can be included via the <code>plugins</code> table nested within the <code>settings</code> table:</p>
 <pre class="brush: lua; gutter: false; highlight: [3,4,5,6]; first-line: 1;">settings =
 {
     plugins =
@@ -520,7 +522,7 @@ Important
 <div class="notebox-title-imp">
 Important
 </div>
-<p>Google has changed how Android icons are managed with Android 8 and later, using Adaptive Icons. Starting with Corona Daily Build 2019.3504 and later, icons are now handled using the <code>AndroidResources</code> folder. See our guide on <a href="../../../guide/distribution/androidResources/index.html">Adaptive Icons</a> for more information.</p>
+<p>Google has changed how Android icons are managed with Android 8 and later, using Adaptive Icons. Starting with daily build 2019.3504 and later, icons are now handled using the <code>AndroidResources</code> folder. See our guide on <a href="../../../guide/distribution/androidResources/index.html">Adaptive Icons</a> for more information.</p>
 </div>
 <p>For Android, icon files will be copied into the <code>.apk</code> during the build, assuming they are available in your root project folder <nobr>(alongside <code>main.lua</code>)</nobr>. These icons should adhere to the standard Android icon names and sizes listed below. For detailed information on creating icons, please refer to the <a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design.html">Android Icon Design Guidelines</a>.</p>
 <div class="inner-table">
@@ -564,8 +566,8 @@ Important
 <h3>Desktop</h3>
 <p>Desktop apps — applications built for macOS or Windows — require additional icons as follows:</p>
 <ul>
-<li><p>For macOS desktop apps, you must add a <nobr><code>Icon-osx.icns</code></nobr> file to your project folder before performing a macOS build via the Corona Simulator. This file should contain multiple images at different resolutions, bundled into a single <code>.icns</code> file (<a href="https://en.wikipedia.org/wiki/Apple_Icon_Image_format">details</a>). See the <a href="../../../guide/distribution/macOSBuild/index.html">Creating macOS Desktop Apps</a> guide for more information.</p></li>
-<li><p>For Windows desktop apps, you must add a <nobr><code>Icon-win32.ico</code></nobr> file to your project folder before performing a Win32 build via the Corona Simulator. This file should contain multiple images at different resolutions, bundled into a single <code>.ico</code> file (<a href="https://en.wikipedia.org/wiki/ICO_(file_format)">details</a>). See the <a href="../../../guide/distribution/win32Build/index.html">Creating Win32 Desktop Apps</a> guide for more information.</p></li>
+<li><p>For macOS desktop apps, you must add a <nobr><code>Icon-osx.icns</code></nobr> file to your project folder before performing a macOS build via the Simulator. This file should contain multiple images at different resolutions, bundled into a single <code>.icns</code> file (<a href="https://en.wikipedia.org/wiki/Apple_Icon_Image_format">details</a>). See the <a href="../../../guide/distribution/macOSBuild/index.html">Creating macOS Desktop Apps</a> guide for more information.</p></li>
+<li><p>For Windows desktop apps, you must add a <nobr><code>Icon-win32.ico</code></nobr> file to your project folder before performing a Win32 build via the Simulator. This file should contain multiple images at different resolutions, bundled into a single <code>.ico</code> file (<a href="https://en.wikipedia.org/wiki/ICO_(file_format)">details</a>). See the <a href="../../../guide/distribution/win32Build/index.html">Creating Win32 Desktop Apps</a> guide for more information.</p></li>
 </ul>
 </div>
 <div id="tvos-android-tv" class="section level3">
@@ -575,28 +577,96 @@ Important
 <li><p>For Apple's tvOS, several unique icons and assets are required. Please see the <a href="../../../guide/distribution/xcAssets/index.html">Managing Xcode Assets</a> guide for a reference on the <code>Images.xcassets</code> folder and how to include/reference it within your app.</p></li>
 <li><p>For Android TV, you should include a <nobr><code>Banner-xhdpi.png</code></nobr> image inside your project folder. This image should be 320×180 pixels in size.</p></li>
 </ul>
-<p><a id="launchimage"></a></p>
+<p><a id="splashscreen"></a></p>
 </div>
 </div>
-<div id="splashlaunch-screen" class="section level2">
-<h2>Splash/Launch Screen</h2>
-<div id="corona-splash-screen" class="section level3">
-<h3>Corona Splash Screen</h3>
-<p>By default, a Corona-branded splash screen will appear when the app opens. This splash screen can be customized or disabled with purchase of the <a href="https://marketplace.coronalabs.com/plugin/com.coronalabs/plugin.CoronaSplashControl">Splash Screen Control</a> plugin. Please see the <a href="../../../plugin/CoronaSplashControl/index.html">documentation</a> for details on configuring the splash screen via <code>build.settings</code>, assuming you've purchased the plugin.</p>
+<div id="splash-screen" class="section level2">
+<h2>Splash Screen</h2>
+<p>By default, a Solar2D branded splash screen will appear when the app opens. This splash screen can be customized or disabled.</p>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<ul>
+<li>On iOS, the iOS launch screen will appear before the splash screen, assuming the splash screen is not disabled. If the splash screen is disabled, the launch screen will appear until the app is fully loaded, then your first screen/scene will appear.</li>
+</ul>
+</div>
+<div id="customization" class="section level3">
+<h3>Customization</h3>
+<p>If you'd like to display your own custom splash screen, include the <code>splashScreen</code> table within <code>build.settings</code> as above, but set the <code>enable</code> key to <code>true</code> and add an <code>image</code> key defining the image name. For instance:</p>
+<pre class="brush: lua;">settings =
+{
+    splashScreen = 
+    {
+        enable = true,
+        image = "mySplashScreen.png"
+    },
+}</pre>
+<p>Alternatively, you can customize the splash screen on a <nobr>per-platform</nobr> basis as follows:</p>
+<pre class="brush: lua;">settings =
+{
+    splashScreen =
+    {
+        ios = {
+            enable = true,
+            image = "mySplashScreen_iOS.png"
+        },
+        android = {
+            enable = true,
+            image = "mySplashScreen_Android.png"
+        }
+    },
+}</pre>
+<p>For customized implementation, <code>image</code> indicates the path to any image file in the project. The image will be displayed on a black background and it will match the default orientation of the app, scaled to fit the screen of the current device. You may need to experiment to arrive at the ideal image for your splash screen, but if it's large enough for the largest device your app is intended to run on, you only need one image.</p>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>Because <code>build.settings</code> does not apply to app builds performed via Solar2D Native, special handling is required to customize the splash screen in these instances:</p>
+<ul>
+<li><p>For iOS, place an image named <code>_CoronaSplashScreen.png</code> in the root of your app bundle, specifying it as a &quot;resource&quot; in Xcode.</p></li>
+<li><p>For Android, place an image named <code>_corona_splash_screen.png</code> within <code>res/drawable/</code> using whatever mechanism is appropriate in Android Studio or otherwise.</p></li>
+</ul>
+</div>
+</div>
+<div id="removal" class="section level3">
+<h3>Removal</h3>
+<p>To remove default splash screen, add the <code>splashScreen</code> table to the project's <code>build.settings</code> with the <code>enable</code> key set to <code>false</code>:</p>
+<pre class="brush: lua;">settings =
+{
+    splashScreen = 
+    {
+        enable = false
+    },
+}</pre>
+<p>Alternatively, you can remove the splash screen on a <nobr>per-platform</nobr> basis as follows:</p>
+<pre class="brush: lua;">settings =
+{
+    splashScreen =
+    {
+        ios = {
+            enable = false
+        },
+        android = {
+            enable = true
+        }
+    },
+}</pre>
 <!---
 
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>
 
-On iOS, the Corona splash screen will appear after the iOS launch screen (see&nbsp;below), assuming the splash screen is not disabled. If the Corona splash screen is disabled, the iOS launch screen will appear until the app is fully loaded, then your first screen/scene will appear.
+On iOS, the Solar2D splash screen will appear after the iOS launch screen (see&nbsp;below), assuming the splash screen is not disabled. If the Solar2D splash screen is disabled, the iOS launch screen will appear until the app is fully loaded, then your first screen/scene will appear.
 
 </div>
 
 -->
-<p><a id="ios-launch"></a></p>
+<p><a id="launchimage"></a></p>
 </div>
-<div id="ios-launch-screen" class="section level3">
-<h3>iOS Launch Screen</h3>
+</div>
+<div id="launch-screen-ios" class="section level2">
+<h2>Launch Screen — iOS</h2>
 <p>For iOS, you must include some form of <strong>launch screen</strong> support. Apple recommends that you utilize an <nobr>Xcode-generated</nobr> storyboard for this, since a single storyboard is flexible and adaptable for all launch screens across all devices.</p>
 <div class="docs-tip-outer" style="background-color: #ffa752;">
 <div class="docs-tip-inner-left">
@@ -605,7 +675,7 @@ On iOS, the Corona splash screen will appear after the iOS launch screen (see&nb
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>For your convenience, a default (blank) <code>LaunchScreen.storyboardc</code> document is automatically added to all new project templates. The same file is also bundled with the Corona application itself, in case you need to copy it over to existing projects. It can be found within the Solar2D application folder here:</p>
+<p>For your convenience, a default (blank) <code>LaunchScreen.storyboardc</code> document is automatically added to all new project templates. The same file is also bundled with the application itself, in case you need to copy it over to existing projects. It can be found within the Solar2D application folder here:</p>
 <p><nobr><code>/Applications/Corona/Resources/Resource Library/iOS/LaunchScreen.storyboardc</code></nobr></p>
 </div>
 </div>
@@ -636,7 +706,6 @@ Important
 }</pre>
 </div>
 <p><a id="excludingfiles"></a></p>
-</div>
 </div>
 <div id="excluding-files" class="section level2">
 <h2>Excluding Files</h2>

@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — Plugins | Splash Screen Control</title>
+  <title>Solar2D Documentation — Plugins | att | status</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
@@ -55,27 +55,20 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#coronasplashcontrol.">CoronaSplashControl.*</a><ul>
-<li><a href="#overview">Overview</a></li>
-<li><a href="#integration">Integration</a><ul>
-<li><a href="#splash-screen-removal">Splash Screen Removal</a></li>
-<li><a href="#custom-splash-screen">Custom Splash Screen</a></li>
-</ul></li>
-<li><a href="#solar2d-native">Solar2D Native</a></li>
-</ul></li>
+<li><a href="#att.status">att.status</a></li>
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/CoronaSplashControl/index.html">Splash Screen Control</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/att/index.html">att</a>  ▸  <a href="../../plugin/att/status.html">status</a>
 </div>
-<div id="coronasplashcontrol." class="section level1">
-<h1>CoronaSplashControl.*</h1>
+<div id="att.status" class="section level1">
+<h1>att.status</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
 <td align="left"><strong>Type</strong></td>
-<td align="left">(special)</td>
+<td align="left"><a href="../../api/type/String.html">String</a></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>Revision</strong></td>
@@ -83,96 +76,24 @@
 </tr>
 <tr class="odd">
 <td align="left"><strong>Keywords</strong></td>
-<td align="left">Splash Screen Control, splash screen</td>
+<td align="left">Ads, Monetization, Apple, App Tracking Transparency</td>
 </tr>
 <tr class="even">
 <td align="left"><strong>Platforms</strong></td>
-<td align="left">Android, iOS</td>
+<td align="left">iOS, tvOS</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
-<h2>Overview</h2>
-<p>This special plugin, enables control of the default Solar2D branded splash screen that is displayed when apps start up on a device. Rather than adding capabilities to Lua code, this plugin enables the ability to control the splash screen from within <code>build.settings</code>.</p>
-<div class="guide-notebox">
-<div class="notebox-title">
-Note
-</div>
+<p>Returns current tracking status. Possible values are:</p>
 <ul>
-<li>On iOS, the iOS launch screen will appear before the splash screen, assuming the splash screen is not disabled. If the splash screen is disabled, the launch screen will appear until the app is fully loaded, then your first screen/scene will appear.</li>
+<li><code>authorized</code></li>
+<li><code>denied</code></li>
+<li><code>restricted</code></li>
+<li><code>notDetermined</code></li>
+<li><code>unavailable</code></li>
 </ul>
-</div>
-</div>
-<div id="integration" class="section level2">
-<h2>Integration</h2>
-<div id="splash-screen-removal" class="section level3">
-<h3>Splash Screen Removal</h3>
-<p>To remove splash screen, add the <code>splashScreen</code> table to the project's <code>build.settings</code> with the <code>enable</code> key set to <code>false</code>:</p>
-<pre class="brush: lua;">settings =
-{
-    splashScreen = 
-    {
-        enable = false
-    },
-}</pre>
-<p>Alternatively, you can remove the splash screen on a <nobr>per-platform</nobr> basis as follows:</p>
-<pre class="brush: lua;">settings =
-{
-    splashScreen =
-    {
-        ios = {
-            enable = false
-        },
-        android = {
-            enable = true
-        }
-    },
-}</pre>
-</div>
-<div id="custom-splash-screen" class="section level3">
-<h3>Custom Splash Screen</h3>
-<p>If you'd like to display your own custom splash screen, include the <code>splashScreen</code> table within <code>build.settings</code> as above, but set the <code>enable</code> key to <code>true</code> and add an <code>image</code> key defining the image name. For instance:</p>
-<pre class="brush: lua;">settings =
-{
-    splashScreen = 
-    {
-        enable = true,
-        image = "mySplashScreen.png"
-    },
-}</pre>
-<p>Alternatively, you can customize the splash screen on a <nobr>per-platform</nobr> basis as follows:</p>
-<pre class="brush: lua;">settings =
-{
-    splashScreen =
-    {
-        ios = {
-            enable = true,
-            image = "mySplashScreen_iOS.png"
-        },
-        android = {
-            enable = true,
-            image = "mySplashScreen_Android.png"
-        }
-    },
-}</pre>
-<p>For customized implementation, <code>image</code> indicates the path to any image file in the project. The image will be displayed on a black background and it will match the default orientation of the app, scaled to fit the screen of the current device. You may need to experiment to arrive at the ideal image for your splash screen, but if it's large enough for the largest device your app is intended to run on, you only need one image.</p>
-<div class="guide-notebox">
-<div class="notebox-title">
-Note
-</div>
-<p>Because <code>build.settings</code> does not apply to app builds performed via Solar2D Native, special handling is required to customize the splash screen in these instances. Please see the <a href="#native">Solar2D Native</a> section below for details.</p>
-</div>
-<p><a id="native"></a></p>
-</div>
-</div>
-<div id="solar2d-native" class="section level2">
-<h2>Solar2D Native</h2>
-<p>Because <code>build.settings</code> does not apply to app builds performed via Solar2D Native, special handling is required to customize the splash screen in these instances:</p>
-<ul>
-<li><p>For iOS, place an image named <code>_CoronaSplashScreen.png</code> in the root of your app bundle, specifying it as a &quot;resource&quot; in Xcode.</p></li>
-<li><p>For Android, place an image named <code>_corona_splash_screen.png</code> within <code>res/drawable/</code> using whatever mechanism is appropriate in Android Studio or otherwise.</p></li>
-</ul>
+<pre class="brush: lua;">print(att.status)</pre>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -182,7 +103,6 @@ Note
 Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
-</div>
 </div>
 </div>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>

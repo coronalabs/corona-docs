@@ -24,7 +24,7 @@ This function returns a handle that can be passed to [network.cancel()][api.libr
 
 ## Gotchas
 
-You cannot execute a network download during an `applicationSuspend` or `applicationExit` [event][api.event.system.type]. After Corona suspends, no callbacks will fire. You can work around this by saving the request you wish to make to a file upon suspension. Then, on an `applicationResume` [event][api.event.system.type], check if there is a pending download saved and, if so, execute it.
+You cannot execute a network download during an `applicationSuspend` or `applicationExit` [event][api.event.system.type]. When your application suspends, no callbacks will fire. You can work around this by saving the request you wish to make to a file upon suspension. Then, on an `applicationResume` [event][api.event.system.type], check if there is a pending download saved and, if so, execute it.
 
 Network requests do not raise runtime errors in the event of failure so there is no need to wrap them in a Lua `pcall()` statement (errors are reported in the event sent to the network listener).
 
@@ -102,7 +102,7 @@ network.download(
 	"GET",
 	networkListener,
 	params,
-	"helloCopy.png",
+	"maskCopy.png",
 	system.TemporaryDirectory
 )
 ``````

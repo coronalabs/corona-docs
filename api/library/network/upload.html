@@ -127,7 +127,7 @@
 </div>
 <div id="gotchas" class="section level2">
 <h2>Gotchas</h2>
-<p>You cannot execute a network upload during an <code>applicationSuspend</code> or <code>applicationExit</code> <a href="../../../api/event/system/type.html">event</a>. After Corona suspends, no callbacks will fire. You can work around this by saving the request you wish to make to a file upon suspension. Then, on an <code>applicationResume</code> <a href="../../../api/event/system/type.html">event</a>, check if there is a pending upload saved and, if so, execute it.</p>
+<p>You cannot execute a network upload during an <code>applicationSuspend</code> or <code>applicationExit</code> <a href="../../../api/event/system/type.html">event</a>. When your application suspends, no callbacks will fire. You can work around this by saving the request you wish to make to a file upon suspension. Then, on an <code>applicationResume</code> <a href="../../../api/event/system/type.html">event</a>, check if there is a pending upload saved and, if so, execute it.</p>
 <p>Network requests do not raise runtime errors in the event of failure so there is no need to wrap them in a Lua <code>pcall()</code> statement (errors are reported in the event sent to the network listener).</p>
 <div id="android" class="section level3">
 <h3>Android</h3>

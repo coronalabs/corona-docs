@@ -71,7 +71,7 @@
 </div>
 <div id="connecting-to-rest-api-services" class="section level1">
 <h1>Connecting to REST API Services</h1>
-<p>One of the &quot;hidden&quot; powers of Corona is the ability to connect to various online services to get data into your app. To accomplish this, a popular option is <strong>REST</strong> (or RESTful) APIs which are based on standard HTTP protocols and are generally easy to authenticate.</p>
+<p>Using Solar2D, you can connect to various online services to get data into your app. To accomplish this, a popular option is <strong>REST</strong> (or RESTful) APIs which are based on standard HTTP protocols and are generally easy to authenticate.</p>
 <div id="rest-overview" class="section level2">
 <h2>REST Overview</h2>
 <p>Many services offer their data via REST and you can use the standard HTTP &quot;verbs&quot; to access that data:</p>
@@ -87,19 +87,19 @@
 <li><p>Most services run their APIs over a secure protocol (<code>https://</code>) which is followed by the host name.</p></li>
 <li><p>Following the host name is commonly the API version — in this case <code>/1.1</code> indicates that this is version <code>1.1</code> of the API. This allows services to change their API definitions to add/update features or change data without breaking older apps that utilize the previous version.</p></li>
 <li><p>Following this is typically the category of functionality. In this example, all of Twitter's &quot;friends&quot; APIs are grouped under the <code>/friends</code> family.</p></li>
-<li><p>Finally, the specific <code>/list</code> API will fetch a list of the current user's friends, conveniently formatted in JSON which is easily compatible with Corona (alternatively, some services allow you to request XML data by specifying <code>.xml</code> instead of <code>.json</code>).</p></li>
+<li><p>Finally, the specific <code>/list</code> API will fetch a list of the current user's friends, conveniently formatted in JSON which is easily compatible with Solar2D (alternatively, some services allow you to request XML data by specifying <code>.xml</code> instead of <code>.json</code>).</p></li>
 </ul>
 </div>
 <div id="authentication" class="section level2">
 <h2>Authentication</h2>
 <p>Most REST APIs require some form of verification or authentication, in particular if you're trying to add or update data. Authentication can occur in various ways, for example by passing the username and password as part of the domain name:</p>
-<pre class="brush: lua;">http://username:password@api.yoursite.com/someapi/dosomething.json</pre>
+<pre class="brush: lua;">https://username:password@api.yoursite.com/someapi/dosomething.json</pre>
 <p>In this example, the <code>username:password</code> method is a shortcut to using a headers table. Sometimes the username and password will be referred to as the &quot;API Key&quot; and &quot;secret&quot; and they may need to be encoded in some fashion such as <a href="../../../api/library/crypto/index.html">MD5</a>.</p>
 <p>An alternate method is to use a <strong>headers</strong> table, discussed in more detail below.</p>
 </div>
 <div id="making-api-calls" class="section level2">
 <h2>Making API Calls</h2>
-<p>In Corona, your REST API calls are made via <a href="../../../api/library/network/request.html">network.request()</a>. For this API, you provide a URL, an HTTP &quot;verb,&quot; a callback function to handle the completed request, and an optional table of information in which to handle headers and data passed to the server.</p>
+<p>Your REST API calls are made via <a href="../../../api/library/network/request.html">network.request()</a>. For this API, you need to provide a URL, an HTTP &quot;verb&quot;, a callback function to handle the completed request, and an optional table of information in which to handle headers and data passed to the server.</p>
 <div id="basic-request" class="section level3">
 <h3>Basic Request</h3>
 <p>Let's look at a simple example using basic authentication (no headers):</p>

@@ -68,6 +68,8 @@
 <li><a href="#animation.setspeedscaleplugin.animation.setspeedscale"><a href="../../plugin/animation/setSpeedScale.html">animation.setSpeedScale()</a></a></li>
 <li><a href="#animation.getanimationsplugin.animation.getanimations"><a href="../../plugin/animation/getAnimations.html">animation.getAnimations()</a></a></li>
 </ul></li>
+<li><a href="#project-settings">Project Settings</a></li>
+<li><a href="#source">Source</a></li>
 </ul></li>
 </ul>
 </div>
@@ -164,6 +166,28 @@
 </div>
 <div id="animation.getanimationsplugin.animation.getanimations" class="section level4">
 <h4><a href="../../plugin/animation/getAnimations.html">animation.getAnimations()</a></h4>
+</div>
+</div>
+<div id="project-settings" class="section level2">
+<h2>Project Settings</h2>
+<p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>.</p>
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
+{
+    plugins =
+    {
+        ["plugin.animation"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+    },
+}</pre>
+</div>
+<div id="source" class="section level2">
+<h2>Source</h2>
+<ul>
+<li><a href="https://github.com/coronalabs/framework-animation">View on GitHub</a></li>
+</ul>
+<p>If you want to add, modify or extend functionality, download the source code from GitHub and include in your project(See <a href="../../tutorial/basics/externalModules/index.html">Using External Modules</a>).</p>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -173,7 +197,6 @@
 Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
-</div>
 </div>
 </div>
 </div>

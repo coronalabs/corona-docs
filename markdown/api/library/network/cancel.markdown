@@ -71,10 +71,10 @@ end
 
 -- Start the image download
 network.download(
-    "http://www.coronalabs.com/demo/hello.png",
+    "https://plugins.solar2d.com/images/logo-banner.png",
     "GET",
     networkListener,
     { progress = true },
-    "helloCopy.png",
+    "bannerCopy.png",
     system.TemporaryDirectory )
 ``````

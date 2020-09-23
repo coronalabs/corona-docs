@@ -1,7 +1,7 @@
 
 # Connecting to REST API Services
 
-One of the "hidden" powers of Corona is the ability to connect to various online services to get data into your app. To accomplish this, a popular option is __REST__ (or&nbsp;RESTful) APIs which are based on standard HTTP protocols and are generally easy to authenticate.
+Using CORONA_CORE_PRODUCT, you can connect to various online services to get data into your app. To accomplish this, a popular option is __REST__ (or&nbsp;RESTful) APIs which are based on standard HTTP protocols and are generally easy to authenticate.
 
 
 ## REST Overview
@@ -26,7 +26,7 @@ Let's inspect this in more detail:
 
 * Following this is typically the category of functionality. In this example, all of Twitter's "friends" APIs are grouped under the `/friends` family.
 
-* Finally, the specific `/list` API will fetch a list of the current user's friends, conveniently formatted in JSON which is easily compatible with Corona (alternatively,&nbsp;some services allow you to request XML data by specifying `.xml` instead of&nbsp;`.json`).
+* Finally, the specific `/list` API will fetch a list of the current user's friends, conveniently formatted in JSON which is easily compatible with CORONA_CORE_PRODUCT (alternatively,&nbsp;some services allow you to request XML data by specifying `.xml` instead of&nbsp;`.json`).
 
 
 ## Authentication
@@ -34,7 +34,7 @@ Let's inspect this in more detail:
 Most REST APIs require some form of verification or authentication, in particular if you're trying to add or update data. Authentication can occur in various ways, for example by passing the username and password as part of the domain name:
 
 ``````
-http://username:password@api.yoursite.com/someapi/dosomething.json
+https://username:password@api.yoursite.com/someapi/dosomething.json
 ``````
 
 In this example, the `username:password` method is a shortcut to using a headers table. Sometimes the username and password will be referred to as the "API&nbsp;Key" and "secret" and they may need to be encoded in some fashion such as [MD5][api.library.crypto].
@@ -44,7 +44,7 @@ An alternate method is to use a __headers__ table, discussed in more detail belo
 
 ## Making API Calls
 
-In Corona, your REST API calls are made via [network.request()][api.library.network.request]. For this API, you provide a URL, an HTTP "verb," a callback function to handle the completed request, and an optional table of information in which to handle headers and data passed to the server.
+Your REST API calls are made via [network.request()][api.library.network.request]. For this API, you need to provide a URL, an HTTP "verb", a callback function to handle the completed request, and an optional table of information in which to handle headers and data passed to the server.
 
 ### Basic Request
 

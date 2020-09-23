@@ -20,7 +20,7 @@ Makes an asynchronous HTTP or HTTPS request to a URL. This function returns a ha
 
 ## Gotchas
 
-* You cannot execute a network request during an `applicationSuspend` or `applicationExit` [event][api.event.system.type]. After Corona suspends, no callbacks will fire. You can work around this by saving the request you wish to make to a file upon suspension. Then, on an `applicationResume` [event][api.event.system.type], check if there is a pending request saved and, if so, execute it.
+* You cannot execute a network request during an `applicationSuspend` or `applicationExit` [event][api.event.system.type]. When your application suspends, no callbacks will fire. You can work around this by saving the request you wish to make to a file upon suspension. Then, on an `applicationResume` [event][api.event.system.type], check if there is a pending request saved and, if so, execute it.
 
 * The `Content-Type` of requests defaults to `text/plain`. If you're `POST`-ing form data, you must set it appropriately <nobr>(see the [example](#HTTP_POST_with_custom_headers) below).</nobr>
 
@@ -89,7 +89,7 @@ Note that if a `filename` table is specified in `params.body` or in `params.resp
 ``````lua
 -- The following sample code contacts Google's encrypted search over SSL
 -- and prints the response (in this case, the HTML source of the home page)
--- to the Corona terminal.
+-- to the console.
 
 local function networkListener( event )
 
@@ -171,7 +171,7 @@ params.progress = "download"
 
 -- Tell network.request() that we want the output to go to a file:
 params.response = {
-    filename = "corona.jpg",
+    filename = "solar.jpg",
     baseDirectory = system.DocumentsDirectory
 }
  

@@ -22,6 +22,8 @@ For in-app purchasing on other platforms, see the documentation for [Google IAP]
 
 * Additional configuration must occur within [iTunes&nbsp;Connect](https://itunesconnect.apple.com/). If you need assistance with this process, please see Apple's [documentation](https://developer.apple.com/library/ios/technotes/tn2259/_index.html).
 
+* For additional functionality, please take a look at [Apple IAP][plugin.apple-iap] plugin.
+
 </div>
 
 

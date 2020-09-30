@@ -148,14 +148,51 @@ Important
 <p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
 <pre class="brush: lua;">settings =
 {
+    iphone =
+    {
+        plist = {
+            SKAdNetworkItems = {
+                { SKAdNetworkIdentifier = "2U9PT9HC89.skadnetwork" },
+                { SKAdNetworkIdentifier = "44jx6755aq.skadnetwork" },
+                { SKAdNetworkIdentifier = "4FZDC2EVR5.skadnetwork" },
+                { SKAdNetworkIdentifier = "4PFYVQ9L8R.skadnetwork" },
+                { SKAdNetworkIdentifier = "737z793b9f.skadnetwork" },
+                { SKAdNetworkIdentifier = "7UG5ZH24HU.skadnetwork" },
+                { SKAdNetworkIdentifier = "8s468mfl3y.skadnetwork" },
+                { SKAdNetworkIdentifier = "9RD848Q2BZ.skadnetwork" },
+                { SKAdNetworkIdentifier = "9T245VHMPL.skadnetwork" },
+                { SKAdNetworkIdentifier = "av6w8kgt66.skadnetwork" },
+                { SKAdNetworkIdentifier = "c6k4g5qg8m.skadnetwork" },
+                { SKAdNetworkIdentifier = "CJ5566H2GA.skadnetwork" },
+                { SKAdNetworkIdentifier = "F38H382JLK.skadnetwork" },
+                { SKAdNetworkIdentifier = "GLQZH8VGBY.skadnetwork" },
+                { SKAdNetworkIdentifier = "hs6bdukanm.skadnetwork" },
+                { SKAdNetworkIdentifier = "mlmmfzh3r3.skadnetwork" },
+                { SKAdNetworkIdentifier = "prcb7njmu6.skadnetwork" },
+                { SKAdNetworkIdentifier = "T38B2KH725.skadnetwork" },
+                { SKAdNetworkIdentifier = "TL55SBB4FM.skadnetwork" },
+                { SKAdNetworkIdentifier = "W9Q455WK68.skadnetwork" },
+                { SKAdNetworkIdentifier = "wg4vff78zm.skadnetwork" },
+                { SKAdNetworkIdentifier = "YCLNXRL5PM.skadnetwork" },
+                { SKAdNetworkIdentifier = "ydx93a7ass.skadnetwork" },
+            },
+        },
+    },
     plugins =
     {
         ["plugin.chartboost"] =
         {
             publisherId = "com.coronalabs"
         },
+        -- See: http://docs.coronalabs.com/plugin/att
     },
 }</pre>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<pre class="brush: lua;">Add [Apple Tracking Transparency][plugin.att] plugin to your project as well.</pre>
+</div>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
 Important

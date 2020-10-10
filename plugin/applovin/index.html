@@ -57,7 +57,6 @@
 <ul>
 <li><a href="#applovin.">applovin.*</a><ul>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#versions">Versions</a></li>
 <li><a href="#registration">Registration</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#functions">Functions</a><ul>
@@ -73,6 +72,7 @@
 <li><a href="#adsrequestplugin.applovin.event.adsrequest"><a href="../../plugin/applovin/event/adsRequest/index.html">adsRequest</a></a></li>
 </ul></li>
 <li><a href="#project-settings">Project Settings</a></li>
+<li><a href="#sample-project">Sample project</a></li>
 </ul></li>
 </ul>
 </div>
@@ -100,10 +100,6 @@
 <td align="left"><strong>Platforms</strong></td>
 <td align="left">Android, iOS</td>
 </tr>
-<tr class="odd">
-<td align="left"><strong>Sample</strong></td>
-<td align="left"><a href="https://github.com/coronalabs/plugins-sample-applovin" class="uri">https://github.com/coronalabs/plugins-sample-applovin</a></td>
-</tr>
 </tbody>
 </table>
 </blockquote>
@@ -127,7 +123,7 @@ Notes
 <li><p>Once you are <a href="https://www.applovin.com/signup">registered</a>, obtain your <strong>SDK key</strong> from the <a href="https://www.applovin.com/manage">AppLovin developer portal</a>. From the <strong>Account</strong> section, expand the <strong>Account</strong> menu on the left side, select <strong>Keys</strong>, and your SDK key should be revealed.</p></li>
 <li><p>Native ads are not supported at this time.</p></li>
 <li><p>Apps are automatically added to the <a href="https://www.applovin.com/manage">AppLovin developer portal</a> when you <a href="#settings">include</a> this plugin within your project, <code>require()</code> it, and call <a href="../../plugin/applovin/init.html">applovin.init()</a>.</p></li>
-<li><p>If you use the <strong>AppLovin Free</strong> version and make changes to the ad settings in the <a href="https://www.applovin.com/manage">AppLovin developer portal</a>, you must also email <a href="mailto:applovin-support@coronalabs.com">applovin-support@coronalabs.com</a> with a summary of your changes. This ensures that your ads and associated preferences will be delivered consistently.</p></li>
+<li><p>If you use the plugin and make changes to the ad settings in the <a href="https://www.applovin.com/manage">AppLovin developer portal</a>, you must also email <a href="mailto:support@solar2d.com">support@solar2d.com</a> with a summary of your changes. This ensures that your ads and associated preferences will be delivered consistently.</p></li>
 </ul>
 </div>
 <div class="guide-notebox-imp">
@@ -137,30 +133,6 @@ Important
 <p>Check out new <code>setHasUserConsent</code> method to enable GDPR data collection restrictions.</p>
 </div>
 </div>
-<div id="versions" class="section level2">
-<h2>Versions</h2>
-<p>The AppLovin plugin is offered in two varieties, aimed to accommodate different Corona developers and business models:</p>
-<div class="docs-tip-outer" style="background-color: #ff7f4c;">
-<div class="docs-tip-inner-left">
-<div class="fa fa-user-circle-o" style="font-size: 28px; margin-top: 4px;">
-
-</div>
-</div>
-<div class="docs-tip-inner-right">
-<p>Monetization through the <strong>AppLovin Free</strong> plugin entails a revenue share with Corona Labs in the form of a fixed 5% flat rate, but the ad revenue you see in your AppLovin dashboard is all yours.</p>
-</div>
-</div>
-<div class="docs-tip-outer docs-tip-color-alert">
-<div class="docs-tip-inner-left">
-<div class="fa fa-unlock-alt" style="font-size: 36px; margin-top: 2px; margin-left: 1px;">
-
-</div>
-</div>
-<div class="docs-tip-inner-right">
-<p>The <strong>AppLovin Paid</strong> plugin lets you keep 100% of your ad revenue and allows you to manage your account/settings with AppLovin directly. It is only available to users who have purchased the <a href="https://marketplace.coronalabs.com/plugin/com.coronalabs/plugin.applovin.paid">AppLovin Paid</a> plugin.</p>
-</div>
-</div>
-</div>
 <div id="registration" class="section level2">
 <h2>Registration</h2>
 <p>To begin, please register with <a href="https://www.applovin.com/signup">AppLovin</a>. Once you have access to the <a href="https://www.applovin.com/manage">AppLovin developer portal</a>, you can view your apps, select ad preferences, and more.</p>
@@ -168,10 +140,8 @@ Important
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
 <div id="example">
-<h5 id="applovin-free">AppLovin Free</h5>
+<h5 id="applovin">AppLovin</h5>
 <pre class="brush: lua;">local applovin = require( "plugin.applovin" )</pre>
-<h5 id="applovin-paid">AppLovin Paid</h5>
-<pre class="brush: lua;">local applovin = require( "plugin.applovin.paid" )</pre>
 </div>
 </div>
 <div id="functions" class="section level2">
@@ -209,23 +179,12 @@ Important
 <h2>Project Settings</h2>
 <p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
 <div id="example">
-<h5 id="applovin-free-1">AppLovin Free</h5>
+<h5 id="applovin-1">AppLovin</h5>
 <pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
 {
     plugins =
     {
         ["plugin.applovin"] =
-        {
-            publisherId = "com.coronalabs"
-        },
-    },
-}</pre>
-<h5 id="applovin-paid-1">AppLovin Paid</h5>
-<pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
-{
-    plugins =
-    {
-        ["plugin.applovin.paid"] =
         {
             publisherId = "com.coronalabs"
         },
@@ -243,6 +202,12 @@ Note
 <li><code>&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</code></li>
 </ul>
 </div>
+</div>
+<div id="sample-project" class="section level2">
+<h2>Sample project</h2>
+<ul>
+<li><a href="https://github.com/coronalabs/plugins-sample-applovin">View on GitHub</a></li>
+</ul>
 <hr>
 <div id="footer">
 <p class="copyright">

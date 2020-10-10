@@ -6,7 +6,7 @@ return {
 	{ real="guide", shown="Developer Guides" },
 	{ real="tutorial", shown="Tutorials" },
 	{ real="coronacards", shown="CoronaCards" },
-	{ real="native", shown="Corona Native" },
+	{ real="native", shown="Solar2D Native" },
 	{ real="type", shown="Types" },
 
 	-- The following are aliases for guide/tutorial main topics
@@ -103,6 +103,7 @@ return {
 	{ real="CoronaProvider_native_popup_addressbook", shown="Address Book" },
 	{ real="advertisingId", shown="Advertising ID" },
 	{ real="animation", shown="Animation" },
+	{ real="att", shown="App Tracking Transparency" },
 	{ real="batteryState", shown="Battery State" },
 	{ real="bit", shown="Bit" },
 	{ real="collisionFilters", shown="Collision Filters" },

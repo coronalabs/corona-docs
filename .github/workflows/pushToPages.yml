@@ -2,7 +2,8 @@ name: Deploy to GitHub pages
 on: [push]
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
+    container: coronalabs/docs
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -12,8 +13,6 @@ jobs:
       run: |
         git submodule sync --recursive
         git submodule update --init --force --recursive --depth=1 --remote --merge
-    - name: Install necessary packages
-      run: sudo apt-get install -y lua5.1 lua-filesystem pandoc pcregrep
     - name: Build the docs
       working-directory: ./bin
       run: lua build.lua

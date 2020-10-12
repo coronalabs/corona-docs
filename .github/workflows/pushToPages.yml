@@ -2,6 +2,7 @@ name: Deploy to GitHub pages
 on: [push]
 jobs:
   build-and-deploy:
+    runs-on: ubuntu-latest
     container: coronalabs/docs
     steps:
     - name: Checkout

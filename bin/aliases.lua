@@ -17,6 +17,7 @@ return {
 	{ real="events", shown="Events/Listeners" },
 	{ real="graphics", shown="Graphics/Audio/Animation" },
 	{ real="hardware", shown="System/Hardware" },
+	{ real="html5", shown="HTML5" },
 	{ real="media", shown="Graphics/Audio/Animation" },
 	{ real="monetization", shown="Ads/Monetization" },
 	{ real="physics", shown="Physics" },

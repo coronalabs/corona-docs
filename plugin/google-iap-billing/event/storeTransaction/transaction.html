@@ -100,13 +100,42 @@
 <p>This table contains the following <nobr>read-only</nobr> properties pertaining to the transaction:</p>
 <ul>
 <li><code>state</code> — A <a href="../../../../api/type/String.html">string</a> indicating the state of the transaction.</li>
-<li><code>&quot;purchased&quot;</code> — this will be in the case of a normal or restored purchase</li>
-<li><code>&quot;pending&quot;</code> — for pending purchases, when Play Store is awaiting for user to make a payment in physical store. Once purchase is made, another event would be generated with the <code>&quot;purchased&quot;</code> state.</li>
-<li><code>&quot;cancelled&quot;</code> — for a purchase cancelled by user. Note, this event would not contain specifics about which purchase was cancelled</li>
-<li><code>&quot;consumed&quot;</code> — for a consumed purchase</li>
-<li><code>&quot;finished&quot;</code> — when purchase was acknowledged successfully</li>
-<li><code>&quot;failed&quot;</code> — in case of an error. Note, this event probably would not contain specifics about which purchase failed, only the error message and the code</li>
-<li><p><code>&quot;unknown&quot;</code> — this should not happen</p></li>
+</ul>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&quot;purchased&quot;</code></td>
+<td align="left">this will be in the case of a normal or restored purchase</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;pending&quot;</code></td>
+<td align="left">for pending purchases, when Play Store is awaiting for user to make a payment in physical store. Once purchase is made, another event would be generated with the <code>&quot;purchased&quot;</code> state.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;cancelled&quot;</code></td>
+<td align="left">for a purchase cancelled by user. Note, this event would not contain specifics about which purchase was cancelled</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;consumed&quot;</code></td>
+<td align="left">for a consumed purchase</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;finished&quot;</code></td>
+<td align="left">when purchase was acknowledged successfully</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&quot;failed&quot;</code></td>
+<td align="left">in case of an error. Note, this event probably would not contain specifics about which purchase failed, only the error message and the code</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&quot;unknown&quot;</code></td>
+<td align="left">this should not happen</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
 <li><p><code>receipt</code> — A <nobr>JSON-formatted</nobr> <a href="../../../../api/type/String.html">string</a> representation of the transaction receipt. This is the <code>INAPP_PURCHASE_DATA</code> returned by Google.</p></li>
 <li><p><code>identifier</code> — The unique <a href="../../../../api/type/String.html">string</a> identifier for the transaction.</p></li>
 <li><p><code>productIdentifier</code> — A <a href="../../../../api/type/String.html">string</a> representing the product identifier associated with the transaction.</p></li>

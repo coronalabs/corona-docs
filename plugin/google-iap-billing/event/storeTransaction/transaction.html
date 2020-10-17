@@ -99,7 +99,7 @@
 <h2>Overview</h2>
 <p>This table contains the following <nobr>read-only</nobr> properties pertaining to the transaction:</p>
 <ul>
-<li><p><code>state</code> — A <a href="../../../../api/type/String.html">string</a> indicating the state of the transaction.</p></li>
+<li><code>state</code> — A <a href="../../../../api/type/String.html">string</a> indicating the state of the transaction.</li>
 <li><code>&quot;purchased&quot;</code> — this will be in the case of a normal or restored purchase</li>
 <li><code>&quot;pending&quot;</code> — for pending purchases, when Play Store is awaiting for user to make a payment in physical store. Once purchase is made, another event would be generated with the <code>&quot;purchased&quot;</code> state.</li>
 <li><code>&quot;cancelled&quot;</code> — for a purchase cancelled by user. Note, this event would not contain specifics about which purchase was cancelled</li>

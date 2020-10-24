@@ -144,7 +144,7 @@ The following steps pertain to in-app purchasing on __Android__.
 
 3. Configure your <nobr>in-app</nobr> purchases (products). This task is beyond the scope of this guide, so please see Google's [Administering In-App Billing](https://developer.android.com/google/play/billing/billing_admin.html) guide for further assistance.
 
-4. On the Corona side, integrate the [Google IAP][plugin.google-iap-v3] plugin by adding an entry into the `plugins` table of the project's `build.settings` file:
+4. On the Corona side, integrate the [Google Biling][plugin.google-iap-billing] plugin by adding an entry into the `plugins` table of the project's `build.settings` file:
 
 <div class="code-indent">
 
@@ -153,7 +153,7 @@ settings =
 {
 	plugins =
 	{
-		["plugin.google.iap.v3"] =
+		["plugin.google.iap.billing"] =
 		{
 			publisherId = "com.coronalabs"
 		},
@@ -163,26 +163,7 @@ settings =
 
 </div>
 
-5. Enable the `BILLING` permission within the <nobr>`android` &rarr; `usesPermissions`</nobr> table of `build.settings`:
-
-<div class="code-indent">
-
-``````{ brush="lua" gutter="false" first-line="1" highlight="[7]" }
-settings =
-{
-	android =
-	{
-		usesPermissions =
-		{
-			"com.android.vending.BILLING",
-		},
-	},
-}
-``````
-
-</div>
-
-6. Add a `license` table to the project's `config.lua` file. Inside this table, the `key` value should be set to the corresponding <nobr>per-app</nobr> key obtained from the [Google Play Developer Console](https://play.google.com/apps/publish/). This key is indicated in the <nobr>__Licensing & In-App Billing__</nobr> section of <nobr>__Services & APIs__</nobr>.
+5. Optionally add a `license` table to the project's `config.lua` file. Inside this table, the `key` value should be set to the corresponding <nobr>per-app</nobr> Licensing key obtained from the [Google Play Developer Console](https://play.google.com/apps/publish/). This key is indicated in the <nobr>__Monetization setup__</nobr> section of <nobr>__Monetize__</nobr>. This key would allow the plugin to cryptographically verify purchase receipts right on the device.
 
 <div class="code-indent">
 
@@ -201,7 +182,7 @@ application =
 
 </div>
 
-7. When you're ready to test <nobr>in-app</nobr> purchasing, [build][guide.distribution.androidBuild] your app to create a `.apk` file which can be uploaded to the [Google Play Developer Console](https://play.google.com/apps/publish/). Then, proceed to Google's [Testing In-App Billing](https://developer.android.com/google/play/billing/billing_testing.html) guide.
+6. When you're ready to test <nobr>in-app</nobr> purchasing, [build][guide.distribution.androidBuild] your app to create a `.apk` file which can be uploaded to the [Google Play Developer Console](https://play.google.com/apps/publish/). Then, proceed to Google's [Testing In-App Billing](https://developer.android.com/google/play/billing/billing_testing.html) guide.
 
 </div>
 
@@ -292,7 +273,7 @@ local store = require( "store" )  -- iOS
 <div class="docs-tip-inner-right">
 
 ``````lua
-local store = require( "plugin.google.iap.v3" )  -- Android
+local store = require( "plugin.google.iap.billing" )  -- Android
 ``````
 
 </div>
@@ -321,7 +302,7 @@ local targetAppStore = system.getInfo( "targetAppStore" )
 if ( "apple" == targetAppStore ) then  -- iOS
 	store = require( "store" )
 elseif ( "google" == targetAppStore ) then  -- Android
-	store = require( "plugin.google.iap.v3" )
+	store = require( "plugin.google.iap.billing" )
 elseif ( "amazon" == targetAppStore ) then  -- Amazon
 	store = require( "plugin.amazon.iap" )
 else
@@ -384,7 +365,7 @@ The `store.init()` call is required and must be executed before you attempt to c
 </div>
 <div class="docs-tip-inner-right">
 
-For Google IAP, this same transaction listener function also handles initialization ([init][plugin.google-iap-v3.event.init]) events. Thus, if you're using Google&nbsp;IAP, you should differentiate store transaction events from initialization events by conditionally checking the value of [event.name][plugin.google-iap-v3.event.storeTransaction.name]. Please see the Google&nbsp;IAP [store.init()][plugin.google-iap-v3.init] documentation for an example of doing so.
+For Google IAP, this same transaction listener function also handles initialization ([init][plugin.google-iap-billin.event.init]) events. Thus, if you're using Google&nbsp;IAP, you should differentiate store transaction events from initialization events by conditionally checking the value of [event.name][plugin.google-iap-billing.event.storeTransaction.name]. Please see the Google&nbsp;IAP [store.init()][plugin.google-iap-billing.init] documentation for an example of doing so.
 
 </div>
 </div>
@@ -502,7 +483,7 @@ For each instance within `event.products`, various properties will be available 
 </div>
 <div class="docs-tip-inner-right">
 
-Together, the above properties should be sufficient to display an informative product listing to the user/player, but you may want to consult the documentation for [iOS][api.library.store.event.productList.products], [Android][plugin.google-iap-v3.event.productList.products], and [Amazon][plugin.amazon-iap-v2.event.productList.products] to inspect additional properties.
+Together, the above properties should be sufficient to display an informative product listing to the user/player, but you may want to consult the documentation for [iOS][api.library.store.event.productList.products], [Android][plugin.google-iap-billing.event.productList.products], and [Amazon][plugin.amazon-iap-v2.event.productList.products] to inspect additional properties.
 
 </div>
 </div>
@@ -579,7 +560,7 @@ store.init( transactionListener )
 </div>
 <div class="docs-tip-inner-right">
 
-For Google IAP, this same transaction listener function also handles initialization ([init][plugin.google-iap-v3.event.init]) events. Thus, if you're using Google&nbsp;IAP, you should differentiate store transaction events from initialization events by conditionally checking the value of [event.name][plugin.google-iap-v3.event.storeTransaction.name]. Please see the Google&nbsp;IAP [store.init()][plugin.google-iap-v3.init] documentation for an example of doing so.
+For Google IAP, this same transaction listener function also handles initialization ([init][plugin.google-iap-billing.event.init]) events. Thus, if you're using Google&nbsp;IAP, you should differentiate store transaction events from initialization events by conditionally checking the value of [event.name][plugin.google-iap-billing.event.storeTransaction.name]. Please see the Google&nbsp;IAP [store.init()][plugin.google-iap-billing.init] documentation for an example of doing so.
 
 </div>
 </div>
@@ -611,7 +592,7 @@ end
 </div>
 <div class="docs-tip-inner-right">
 
-As noted above, the properties and values returned will vary slightly because of core variances in store functionality. For example, Apple will return `"restored"` for the `state` property of restored purchases, but Google&nbsp;Play and Amazon will group normal purchases and restored purchases collectively under the `"purchased"` state. In&nbsp;addition, each store returns an assortment of unique properties which you may need to inspect, so please consult the documentation for [iOS][api.library.store.event.storeTransaction.transaction], [Android][plugin.google-iap-v3.event.storeTransaction.transaction], and [Amazon][plugin.amazon-iap-v2.event.storeTransaction.transaction] respectively.
+As noted above, the properties and values returned will vary slightly because of core variances in store functionality. For example, Apple will return `"restored"` for the `state` property of restored purchases, but Google&nbsp;Play and Amazon will group normal purchases and restored purchases collectively under the `"purchased"` state. In&nbsp;addition, each store returns an assortment of unique properties which you may need to inspect, so please consult the documentation for [iOS][api.library.store.event.storeTransaction.transaction], [Android][plugin.google-iap-billing.event.storeTransaction.transaction], and [Amazon][plugin.amazon-iap-v2.event.storeTransaction.transaction] respectively.
 
 </div>
 </div>
@@ -671,7 +652,7 @@ if ( transaction.state == "purchased" or transaction.state == "restored" ) then
 
 ## Store-Specific Functionality
 
-Each marketplace offers some unique and potentially critical functionality which you must be aware of. The following list summarizes these, but you should always consult the documentation for [iOS][api.library.store], [Android][plugin.google-iap-v3], and [Amazon][plugin.amazon-iap-v2] to inspect <nobr>platform-specific</nobr> functionality in detail.
+Each marketplace offers some unique and potentially critical functionality which you must be aware of. The following list summarizes these, but you should always consult the documentation for [iOS][api.library.store], [Android][plugin.google-iap-billing], and [Amazon][plugin.amazon-iap-v2] to inspect <nobr>platform-specific</nobr> functionality in detail.
 
 ### Purchasing Disabled (Apple)
 
@@ -681,7 +662,7 @@ iOS devices have a setting which can disable <nobr>in-app</nobr> purchasing enti
 
 Google IAP requires that you __consume__ purchases to make item(s) available for purchase again. Essentially, once a product is purchased, it is considered "owned" and it cannot be purchased again. However, since you'll almost certainly want to encourage players to buy certain items again&nbsp;&mdash; gem/coin&nbsp;packs, extra&nbsp;lives,&nbsp;etc.&nbsp;&mdash; you must send a consumption request to revert "owned" products to "unowned" products so that they become available for purchase again. Consuming products also discards their previous purchase data.
 
-To consume items, call [store.consumePurchase()][plugin.google-iap-v3.consumePurchase] with the associated product identifier:
+To consume items, call [store.consumePurchase()][plugin.google-iap-billing.consumePurchase] with the associated product identifier:
 
 ``````lua
 store.consumePurchase( productIdentifier )

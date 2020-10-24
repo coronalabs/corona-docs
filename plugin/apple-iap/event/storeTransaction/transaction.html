@@ -99,7 +99,7 @@
 <h2>Overview</h2>
 <p>This table contains the following <nobr>read-only</nobr> properties pertaining to the transaction:</p>
 <ul>
-<li><p><code>state</code> — A <a href="../../../../api/type/String.html">string</a> indicating the state of the transaction. This will be <code>&quot;purchased&quot;</code> in the case of a normal purchase, <code>&quot;restored&quot;</code> for a restored purchase, <code>&quot;cancelled&quot;</code> for a cancelled purchase, or <code>&quot;failed&quot;</code> in case of an error.</p></li>
+<li><p><code>state</code> — A <a href="../../../../api/type/String.html">string</a> indicating the state of the transaction. This will be <code>&quot;purchased&quot;</code> in the case of a normal purchase, <code>&quot;restored&quot;</code> for a restored purchase, <code>&quot;restoreCompleted&quot;</code> once <a href="../../../../plugin/apple-iap/restore.html">restore()</a> call is finished restoring purchases, <code>&quot;cancelled&quot;</code> for a cancelled purchase, or <code>&quot;failed&quot;</code> in case of an error.</p></li>
 <li><p><code>receipt</code> — A <nobr>JSON-formatted</nobr> <a href="../../../../api/type/String.html">string</a> representation of the transaction receipt.</p></li>
 <li><p><code>identifier</code> — The unique <a href="../../../../api/type/String.html">string</a> identifier for the transaction.</p></li>
 <li><p><code>productIdentifier</code> — A <a href="../../../../api/type/String.html">string</a> representing the product identifier associated with the transaction.</p></li>

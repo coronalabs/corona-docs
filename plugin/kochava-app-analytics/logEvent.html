@@ -181,8 +181,8 @@ Note
 </div>
 <p>Kochava supports the logging and verification of app store receipts, but only when <code>eventType</code> is <code>&quot;purchase&quot;</code>. In this case, the following parameters can be added to the <code>params</code> table for this purpose:</p>
 <ul>
-<li><p><code>&quot;receiptData&quot;</code> (<a href="../../api/type/String.html">string</a>) — This parameter expects the data from <code>event.transaction.receipt</code> found in the <nobr>in-app</nobr> purchase transaction callback. Supported markets include <a href="../../api/library/store/index.html">Apple IAP</a> and <a href="../../plugin/google-iap-v3/index.html">Google IAP</a>.</p></li>
-<li><p><code>&quot;receiptDataSignature&quot;</code> (<a href="../../api/type/String.html">string</a>) — This parameter is mandatory when logging a <a href="../../plugin/google-iap-v3/index.html">Google IAP</a> receipt. It expects the data from <code>event.transaction.signature</code> found in the <nobr>in-app</nobr> purchase transaction callback.</p></li>
+<li><p><code>&quot;receiptData&quot;</code> (<a href="../../api/type/String.html">string</a>) — This parameter expects the data from <code>event.transaction.receipt</code> found in the <nobr>in-app</nobr> purchase transaction callback. Supported markets include <a href="../../api/library/store/index.html">Apple IAP</a> and <a href="../../plugin/google-iap-billing/index.html">Google IAP</a>.</p></li>
+<li><p><code>&quot;receiptDataSignature&quot;</code> (<a href="../../api/type/String.html">string</a>) — This parameter is mandatory when logging a <a href="../../plugin/google-iap-billing/index.html">Google IAP</a> receipt. It expects the data from <code>event.transaction.signature</code> found in the <nobr>in-app</nobr> purchase transaction callback.</p></li>
 </ul>
 </div>
 </div>

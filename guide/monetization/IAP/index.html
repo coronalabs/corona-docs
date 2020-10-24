@@ -232,14 +232,14 @@
 <li><p>Start by setting up your Google merchant account and link it to the <a href="https://play.google.com/apps/publish/">Google Play Developer Console</a>. <nobr>In-app</nobr> purchases will <strong>not</strong> work until these steps are cleared, and you won't get an error message reporting so. Please see <a href="https://support.google.com/payments/merchant/answer/7161426">here</a> for detailed instructions.</p></li>
 <li><p>While still in console, create a new app and fill out all of the information needed for publishing the app — note, however, that some details don't need to be final for simply testing <nobr>in-app</nobr> purchasing.</p></li>
 <li><p>Configure your <nobr>in-app</nobr> purchases (products). This task is beyond the scope of this guide, so please see Google's <a href="https://developer.android.com/google/play/billing/billing_admin.html">Administering In-App Billing</a> guide for further assistance.</p></li>
-<li><p>On the Corona side, integrate the <a href="../../../plugin/google-iap-v3/index.html">Google IAP</a> plugin by adding an entry into the <code>plugins</code> table of the project's <code>build.settings</code> file:</p></li>
+<li><p>On the Corona side, integrate the <a href="../../../plugin/google-iap-billing/index.html">Google Biling</a> plugin by adding an entry into the <code>plugins</code> table of the project's <code>build.settings</code> file:</p></li>
 </ol>
 <div class="code-indent">
 <pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
 {
     plugins =
     {
-        ["plugin.google.iap.v3"] =
+        ["plugin.google.iap.billing"] =
         {
             publisherId = "com.coronalabs"
         },
@@ -247,22 +247,7 @@
 }</pre>
 </div>
 <ol start="5" style="list-style-type: decimal">
-<li>Enable the <code>BILLING</code> permission within the <nobr><code>android</code> → <code>usesPermissions</code></nobr> table of <code>build.settings</code>:</li>
-</ol>
-<div class="code-indent">
-<pre class="brush: lua; gutter: false; highlight: [7]; first-line: 1;">settings =
-{
-    android =
-    {
-        usesPermissions =
-        {
-            "com.android.vending.BILLING",
-        },
-    },
-}</pre>
-</div>
-<ol start="6" style="list-style-type: decimal">
-<li>Add a <code>license</code> table to the project's <code>config.lua</code> file. Inside this table, the <code>key</code> value should be set to the corresponding <nobr>per-app</nobr> key obtained from the <a href="https://play.google.com/apps/publish/">Google Play Developer Console</a>. This key is indicated in the <nobr><strong>Licensing &amp; In-App Billing</strong></nobr> section of <nobr><strong>Services &amp; APIs</strong></nobr>.</li>
+<li>Optionally add a <code>license</code> table to the project's <code>config.lua</code> file. Inside this table, the <code>key</code> value should be set to the corresponding <nobr>per-app</nobr> Licensing key obtained from the <a href="https://play.google.com/apps/publish/">Google Play Developer Console</a>. This key is indicated in the <nobr><strong>Monetization setup</strong></nobr> section of <nobr><strong>Monetize</strong></nobr>. This key would allow the plugin to cryptographically verify purchase receipts right on the device.</li>
 </ol>
 <div class="code-indent">
 <pre class="brush: lua; gutter: false; highlight: [3,4,5,6,7,8,9]; first-line: 1;">application = 
@@ -276,7 +261,7 @@
     },
 }</pre>
 </div>
-<ol start="7" style="list-style-type: decimal">
+<ol start="6" style="list-style-type: decimal">
 <li>When you're ready to test <nobr>in-app</nobr> purchasing, <a href="../../../guide/distribution/androidBuild/index.html">build</a> your app to create a <code>.apk</code> file which can be uploaded to the <a href="https://play.google.com/apps/publish/">Google Play Developer Console</a>. Then, proceed to Google's <a href="https://developer.android.com/google/play/billing/billing_testing.html">Testing In-App Billing</a> guide.</li>
 </ol>
 </div>
@@ -348,7 +333,7 @@ When you set up test accounts, be sure they're added to the &ldquo;Gmail account
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<pre class="brush: lua;">local store = require( "plugin.google.iap.v3" )  -- Android</pre>
+<pre class="brush: lua;">local store = require( "plugin.google.iap.billing" )  -- Android</pre>
 </div>
 </div>
 <div class="docs-tip-outer" style="background-color: #fd9827;">
@@ -369,7 +354,7 @@ local targetAppStore = system.getInfo( "targetAppStore" )
 if ( "apple" == targetAppStore ) then  -- iOS
     store = require( "store" )
 elseif ( "google" == targetAppStore ) then  -- Android
-    store = require( "plugin.google.iap.v3" )
+    store = require( "plugin.google.iap.billing" )
 elseif ( "amazon" == targetAppStore ) then  -- Amazon
     store = require( "plugin.amazon.iap" )
 else
@@ -422,7 +407,7 @@ store.init( transactionListener )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>For Google IAP, this same transaction listener function also handles initialization (<a href="../../../plugin/google-iap-v3/event/init/index.html">init</a>) events. Thus, if you're using Google IAP, you should differentiate store transaction events from initialization events by conditionally checking the value of <a href="../../../plugin/google-iap-v3/event/storeTransaction/name.html">event.name</a>. Please see the Google IAP <a href="../../../plugin/google-iap-v3/init.html">store.init()</a> documentation for an example of doing so.</p>
+<p>For Google IAP, this same transaction listener function also handles initialization ([init][plugin.google-iap-billin.event.init]) events. Thus, if you're using Google IAP, you should differentiate store transaction events from initialization events by conditionally checking the value of <a href="../../../plugin/google-iap-billing/event/storeTransaction/name.html">event.name</a>. Please see the Google IAP <a href="../../../plugin/google-iap-billing/init.html">store.init()</a> documentation for an example of doing so.</p>
 </div>
 </div>
 <div class="docs-tip-outer">
@@ -517,7 +502,7 @@ store.loadProducts( productIdentifiers, productListener )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Together, the above properties should be sufficient to display an informative product listing to the user/player, but you may want to consult the documentation for <a href="../../../api/library/store/event/productList/products.html">iOS</a>, <a href="../../../plugin/google-iap-v3/event/productList/products.html">Android</a>, and <a href="../../../plugin/amazon-iap-v2/event/productList/products.html">Amazon</a> to inspect additional properties.</p>
+<p>Together, the above properties should be sufficient to display an informative product listing to the user/player, but you may want to consult the documentation for <a href="../../../api/library/store/event/productList/products.html">iOS</a>, <a href="../../../plugin/google-iap-billing/event/productList/products.html">Android</a>, and <a href="../../../plugin/amazon-iap-v2/event/productList/products.html">Amazon</a> to inspect additional properties.</p>
 </div>
 </div>
 <p><a id="transactions"></a></p>
@@ -585,7 +570,7 @@ store.init( transactionListener )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>For Google IAP, this same transaction listener function also handles initialization (<a href="../../../plugin/google-iap-v3/event/init/index.html">init</a>) events. Thus, if you're using Google IAP, you should differentiate store transaction events from initialization events by conditionally checking the value of <a href="../../../plugin/google-iap-v3/event/storeTransaction/name.html">event.name</a>. Please see the Google IAP <a href="../../../plugin/google-iap-v3/init.html">store.init()</a> documentation for an example of doing so.</p>
+<p>For Google IAP, this same transaction listener function also handles initialization (<a href="../../../plugin/google-iap-billing/event/init/index.html">init</a>) events. Thus, if you're using Google IAP, you should differentiate store transaction events from initialization events by conditionally checking the value of <a href="../../../plugin/google-iap-billing/event/storeTransaction/name.html">event.name</a>. Please see the Google IAP <a href="../../../plugin/google-iap-billing/init.html">store.init()</a> documentation for an example of doing so.</p>
 </div>
 </div>
 <div class="docs-tip-outer docs-tip-color-alert">
@@ -612,7 +597,7 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>As noted above, the properties and values returned will vary slightly because of core variances in store functionality. For example, Apple will return <code>&quot;restored&quot;</code> for the <code>state</code> property of restored purchases, but Google Play and Amazon will group normal purchases and restored purchases collectively under the <code>&quot;purchased&quot;</code> state. In addition, each store returns an assortment of unique properties which you may need to inspect, so please consult the documentation for <a href="../../../api/library/store/event/storeTransaction/transaction.html">iOS</a>, <a href="../../../plugin/google-iap-v3/event/storeTransaction/transaction.html">Android</a>, and <a href="../../../plugin/amazon-iap-v2/event/storeTransaction/transaction.html">Amazon</a> respectively.</p>
+<p>As noted above, the properties and values returned will vary slightly because of core variances in store functionality. For example, Apple will return <code>&quot;restored&quot;</code> for the <code>state</code> property of restored purchases, but Google Play and Amazon will group normal purchases and restored purchases collectively under the <code>&quot;purchased&quot;</code> state. In addition, each store returns an assortment of unique properties which you may need to inspect, so please consult the documentation for <a href="../../../api/library/store/event/storeTransaction/transaction.html">iOS</a>, <a href="../../../plugin/google-iap-billing/event/storeTransaction/transaction.html">Android</a>, and <a href="../../../plugin/amazon-iap-v2/event/storeTransaction/transaction.html">Amazon</a> respectively.</p>
 </div>
 </div>
 <p><a id="purchasing"></a></p>
@@ -648,7 +633,7 @@ if ( transaction.state == "purchased" or transaction.state == "restored" ) then
 </div>
 <div id="store-specific-functionality" class="section level2">
 <h2>Store-Specific Functionality</h2>
-<p>Each marketplace offers some unique and potentially critical functionality which you must be aware of. The following list summarizes these, but you should always consult the documentation for <a href="../../../api/library/store/index.html">iOS</a>, <a href="../../../plugin/google-iap-v3/index.html">Android</a>, and <a href="../../../plugin/amazon-iap-v2/index.html">Amazon</a> to inspect <nobr>platform-specific</nobr> functionality in detail.</p>
+<p>Each marketplace offers some unique and potentially critical functionality which you must be aware of. The following list summarizes these, but you should always consult the documentation for <a href="../../../api/library/store/index.html">iOS</a>, <a href="../../../plugin/google-iap-billing/index.html">Android</a>, and <a href="../../../plugin/amazon-iap-v2/index.html">Amazon</a> to inspect <nobr>platform-specific</nobr> functionality in detail.</p>
 <div id="purchasing-disabled-apple" class="section level3">
 <h3>Purchasing Disabled (Apple)</h3>
 <p>iOS devices have a setting which can disable <nobr>in-app</nobr> purchasing entirely. This is commonly used to prevent children from accidentally purchasing items without permission. For Apple IAP, Corona provides the <a href="../../../api/library/store/canMakePurchases.html">store.canMakePurchases</a> property to check whether purchasing is enabled or disabled. You should use this to check in advance if purchasing is allowed and notify the user if it's forbidden.</p>
@@ -656,7 +641,7 @@ if ( transaction.state == "purchased" or transaction.state == "restored" ) then
 <div id="consuming-items-google" class="section level3">
 <h3>Consuming Items (Google)</h3>
 <p>Google IAP requires that you <strong>consume</strong> purchases to make item(s) available for purchase again. Essentially, once a product is purchased, it is considered &quot;owned&quot; and it cannot be purchased again. However, since you'll almost certainly want to encourage players to buy certain items again — gem/coin packs, extra lives, etc. — you must send a consumption request to revert &quot;owned&quot; products to &quot;unowned&quot; products so that they become available for purchase again. Consuming products also discards their previous purchase data.</p>
-<p>To consume items, call <a href="../../../plugin/google-iap-v3/consumePurchase.html">store.consumePurchase()</a> with the associated product identifier:</p>
+<p>To consume items, call <a href="../../../plugin/google-iap-billing/consumePurchase.html">store.consumePurchase()</a> with the associated product identifier:</p>
 <pre class="brush: lua;">store.consumePurchase( productIdentifier )</pre>
 <p>When invoked, and upon receipt of a successful consumption event, the value of <code>event.transaction.state</code> within the transaction listener function will be <code>&quot;consumed&quot;</code>. At this point, you may <nobr>re-enable</nobr> the product for purchase within your user interface or store scene.</p>
 <div class="docs-tip-outer">

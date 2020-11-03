@@ -67,7 +67,9 @@
 <li><a href="#adorientation-optional">adOrientation <sub><sup>(optional)</sup></sub></a></li>
 <li><a href="#userid-optional">userId <sub><sup>(optional)</sup></sub></a></li>
 <li><a href="#debuglogging-optional">debugLogging <sub><sup>(optional)</sup></sub></a></li>
-<li><a href="#hasuserconsent-optional">hasUserConsent <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#privacyframeworks-required">privacyFrameworks <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#privacyconsents-required">privacyConsents <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#deprecated">Deprecated</a></li>
 </ul></li>
 <li><a href="#example">Example</a></li>
 </ul></li>
@@ -157,9 +159,19 @@ Note
 <h5>debugLogging <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> If <code>true</code>, turns on debug logging which displays extra debugging information in the device log. Default is <code>false</code>.</p>
 </div>
-<div id="hasuserconsent-optional" class="section level5">
-<h5>hasUserConsent <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> If set to <code>false</code>, AdColony will enable GDPR data collection restrictions, set to <code>true</code> for opposite.</p>
+<div id="privacyframeworks-required" class="section level5">
+<h5>privacyFrameworks <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> A table of key-value pairs containing used privacy regulations as keys and boolean values (<code>true</code> if used) as values. Set only those which are valid for current user. Choices are as follows:</p>
+<pre class="brush: lua;">privacyFrameworks = { gdpr=true, coppa=true, ccpa=true },</pre>
+</div>
+<div id="privacyconsents-required" class="section level5">
+<h5>privacyConsents <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> A table of key-value pairs containing consent values for privacy frameworks. Set only those which are valid for current user.</p>
+<pre class="brush: lua;">privacyConsents = { gdpr=true, coppa=true, ccpa=true },</pre>
+</div>
+<div id="deprecated" class="section level3">
+<h3>Deprecated</h3>
+<p><s> ##### hasUserConsent <sub><sup>(optional)</sup></sub> <em><a href="../../api/type/Boolean.html">Boolean</a>.</em> If set to <code>false</code>, AdColony will enable GDPR data collection restrictions, set to <code>true</code> for opposite. </s></p>
 </div>
 </div>
 <div id="example" class="section level2">

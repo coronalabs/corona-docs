@@ -3,3 +3,4 @@ tools/
 bin/.lastbuild.log
 html/
 /tmp/
+.DS_Store

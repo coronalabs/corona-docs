@@ -8,7 +8,8 @@ Plugins allow you to extend the functionality of CORONA_CORE_PRODUCT. This guide
 </div>
 <div class="docs-tip-inner-right">
 
-The old [Corona Marketplace](https://marketplace.coronalabs.com/) is closing and no longer accepts plugin submissions. If you've created a plugin and wish to submit it to the new [Solar2D Plugins Marketplace](https://www.solar2dplugins.com/), please see the [Asset Packaging Guidelines](https://www.solar2dplugins.com/asset-packaging-guidelines).
+Solar2D runs Solar2D Free Plugin directory at [plugins.solar2d.com](https://plugins.solar2d.com/). If you created a plugin please submit it to the Solar2D Free Plugin Directory. You can either submit link where one can get your pluign, or distribute it for free.
+Alternatively, you may submit it to the [Solar2D Plugins Marketplace](https://www.solar2dplugins.com/), please see the [Asset Packaging Guidelines](https://www.solar2dplugins.com/asset-packaging-guidelines).
 
 </div>
 </div>
@@ -81,7 +82,7 @@ Native plugins can easily be added to your iOS or Android project.
 
 On iOS, plugins will be in the form of static library (`.a`) files that need to be linked into your app executable. 
 
-On Android, plugins can come in the form of `.so` (shared&nbsp;library) or `.jar` files.
+On Android, plugins can come in the form of `.so` (shared&nbsp;library), `.jar` or `.aar` files.
 
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>

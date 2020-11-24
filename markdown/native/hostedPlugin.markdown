@@ -9,9 +9,56 @@ CORONA_NATIVE_PRODUCT users can enable plugins hosted on third-party servers. Th
 
 Plugins must be packaged for each platform __separately__ as a `.tgz` file and hosted on a web server.
 
-### Flat File Structure
+### Package as Archives
 
-Follow the [Plugins][native.plugin] guide to build your plugin, then package the plugin on your server. The plugin needs to be stored in a flat (no&nbsp;directories) `.tgz` format. For example, from inside your plugin build folder, run:
+Follow the [Plugins][native.plugin] guide to build your plugin. Remember that for each support platform, a separate archive has to be packaged.
+
+#### iOS
+
+Building the plugin-in to be hosted on a web server, a few simple extra steps are required:
+
+1. Create a directory for packaging, for instance `package-plugin`. Create a folder named `iphone` within `package-plugin`.
+
+2. Place your iOS library (`.a`) file of your plugin into that directory.
+
+3. Any additional resources that the plugin requires are placed into a new directory named `resources`. For instance, `*.nib` files for views. If your plugin depends on other frameworks, place all the compiled frameworks underneath a directory called `Frameworks`.
+
+4. Place the `metadata.lua` file also in the directory `package-plugin`
+
+5. Use a simple packaging script to call the zip/tar program. On Mac you could use the following lines, for instance, placed into a shell script `deploy.sh`:
+
+``````lua
+#!/bin/bash
+tar -czf iphone.tgz libplugin_YOUR-PLUGIN.a metadata.lua resources
+scp ../iphone.tgz "youruser@www.your-web-server-where-plugin-will-be-hostd.de:/var/www/YOUR_DOMAIN/plugins"
+``````
+
+Finally, for those who will use your Self-Hosted-Plugin, they have to add the location (`www.YOUR_DOMAIN.de/plugins/android.tgz`) into their `build.settings` so that the build proccess for Corona-Apps can find the plugin (see also below).
+
+
+#### Android
+
+Building the plugin-in to be published on a web server, a few simple extra steps are required:
+
+1. Create a directory for packaging, for instance `package-plugin`. Create a folder named `android` within `package-plugin`.
+
+2. Create a new gradle file, called `corona.gradle` and copy all your dependencies and repository definitions from your plugin's `build.gradle` also into that file.
+
+3. Place the `metadata.lua` file also in the directory `package-plugin`
+
+4. Use a simple packaging script to copy the build result into this directory and to call the zip/tar program. On Mac you could use the following lines, for instance, placed into a shell script `deploy.sh`:
+
+``````lua
+#!/bin/bash
+cp ../../build/outputs/aar/plugin-release.aar .
+COPYFILE_DISABLE=true tar -czf ../"$(basename "$(pwd)").tgz" --exclude='.[^/]*'  ./*
+scp ../android.tgz "youruser@www.your-web-server-where-plugin-will-be-hostd.de:/var/www/YOUR_DOMAIN/plugins"
+``````
+
+Finally, for those who will use your Self-Hosted-Plugin, they have to add the location (`www.YOUR_DOMAIN.de/plugins/android.tgz`) into their `build.settings` so that the build proccess for Corona-Apps can find the plugin (see also below).
+
+#### Lua
+The plugin needs to be stored in a flat (no&nbsp;directories) `.tgz` format. For example, from inside your plugin build folder, run:
 
 	tar -czf myplugin.tgz myplugin.lua metadata.lua
 

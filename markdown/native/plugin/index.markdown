@@ -81,7 +81,7 @@ Native plugins can easily be added to your iOS or Android project.
 
 On iOS, plugins will be in the form of static library (`.a`) files that need to be linked into your app executable. 
 
-On Android, plugins can come in the form of `.so` (shared&nbsp;library) or `.jar` files.
+On Android, plugins can come in the form of `.so` (shared&nbsp;library), `.jar` or `.aar` files.
 
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>

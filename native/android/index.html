@@ -63,10 +63,12 @@
 <li><a href="#solar2d-native-development">Solar2D Native Development</a><ul>
 <li><a href="#bridging-luajava">Bridging Lua/Java</a></li>
 <li><a href="#native-apis">Native APIs</a></li>
+<li><a href="#using-proguard">Using ProGuard</a></li>
 <li><a href="#using-common-android-libraries">Using Common Android Libraries</a></li>
 <li><a href="#runtime-permission-support">Runtime Permission Support</a></li>
 </ul></li>
 <li><a href="#building-for-devices">Building for Devices</a></li>
+<li><a href="#building-for-self-hosted-plugins">Building for Self Hosted Plugins</a></li>
 </ul></li>
 </ul>
 </div>
@@ -82,6 +84,7 @@
 <li><a href="#templates">Project Templates</a></li>
 <li><a href="#development">Solar2D Native Development</a></li>
 <li><a href="#building">Building for Devices</a></li>
+<li><a href="#self-hosted">Building for Self-Hosted-Plugins</a></li>
 </ul>
 </div>
 <p><a id="setup"></a></p>
@@ -125,9 +128,9 @@
 </ul></li>
 </ul></li>
 </ul></li>
-<li><code>plugin</code> — For <a href="../../native/plugin/index.html">plugins</a>, there are additional files and directories of interest:
+<li><code>plugin</code> — This is the main folder when developing plugins for SOlar2D. All your code goes here. For <a href="../../native/plugin/index.html">plugins</a>, there are additional files and directories of interest:
 <ul>
-<li><code>build.gradle</code> — This is the build script that creates the plugin. The output is a <code>.jar</code> file. The only files included in the <code>.jar</code> are those located in <code>plugin/src/main/</code>, whether they are code or resources.</li>
+<li><code>build.gradle</code> — This is the build script that creates the plugin. The output is usually a <code>.jar</code> file. The only files included in the <code>.jar</code> are those located in <code>plugin/src/main/</code>, whether they are code or resources. In case you have additional resources to be added to the plugin (e.g., UI) that reside usually in the <code>res</code> directory (see below), an <code>aar</code> file will be generated (How to handle <code>aar</code> files please see <a href="#self-hosted">Building for Self Hosted Plugins</a>).</li>
 <li><code>libs</code> — This is where <nobr>third-party</nobr> (Corona) <code>.jar</code> plugins that your <strong>plugin</strong> relies upon should go.</li>
 <li><code>src</code>  
 <ul>
@@ -145,6 +148,7 @@
 </ul></li>
 </ul></li>
 <li><code>jniLibs/</code> — This is where <nobr>third-party</nobr> (Corona) <code>.so</code> plugins that your <strong>plugin</strong> relies upon should go.</li>
+<li><code>res/</code> — This is where your Android resources will be located (i.e., color, style, texts, and so forth). If there will be such resources remember to appy the plugin <code>'com.android.library'</code> instead of <code>'com.android.appication'</code> in your build.gradle.</li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -177,6 +181,12 @@ Project Flow
 <h3>Native APIs</h3>
 <p>The native APIs for Android are available as a <a href="html/overview-summary.html">JavaDoc</a>.</p>
 </div>
+<div id="using-proguard" class="section level3">
+<h3>Using ProGuard</h3>
+<p>Just remember to keep ProGuard from obfuscating your <code>plugin.your-plugin-name.LuaLoader</code> class by adding the line:</p>
+<pre class="brush: lua;">-keep public class plugin.your-plugin-name.LuaLoader { public *;}</pre>
+<p>to your <code>proguard-rules.pro</code> file within the plugin module.</p>
+</div>
 <div id="using-common-android-libraries" class="section level3">
 <h3>Using Common Android Libraries</h3>
 <p>If you're <a href="../../native/plugin/index.html">developing a plugin</a> that depends on the <a href="https://developer.android.com/topic/libraries/support-library/index.html">Android Support Libraries</a> or <a href="https://developers.google.com/android/guides/overview">Google Play Services</a>, please read our <a href="../../native/android/dependencies.html">Android Dependency Integration</a> guide.</p>
@@ -191,6 +201,22 @@ Project Flow
 <h2>Building for Devices</h2>
 <p>To build a Solar2D Native project from Android Studio, simply use the <strong>Run</strong> button on the top bar of icons. This will build your project, sign it, and prompt you to select a deployment target. The built <code>.apk</code> is signed with either a keystore you've specified in the <nobr><code>android</code> → <code>signingConfigs</code></nobr> block of the <code>android/app/build.gradle</code> script, or the default <code>debug.keystore</code> if none is provided.</p>
 <p>Android Studio has several other <nobr>build-related</nobr> options that you can read about <a href="http://developer.android.com/tools/building/building-studio.html">here</a>.</p>
+<p><a id="self-hosted"></a></p>
+</div>
+<div id="building-for-self-hosted-plugins" class="section level2">
+<h2>Building for Self Hosted Plugins</h2>
+<p>Building the plugin-in to be published on a web server (since the plugin is not yet intended to be shared with the community), a few simple extra steps are required:</p>
+<ol style="list-style-type: decimal">
+<li><p>Create a directory for packaging, for instance <code>package-plugin</code>. Create a folder named <code>android</code> within <code>package-plugin</code>.</p></li>
+<li><p>Create a new gradle file, called <code>corona.gradle</code> and copy all your dependencies and repository definitions from your plugin's <code>build.gradle</code> also into that file.</p></li>
+<li><p>Place the <code>metadata.lua</code> file also in the directory <code>package-plugin</code></p></li>
+<li><p>Use a simple packaging script to copy the build result into this directory and to call the zip/tar program. On Mac you could use the following lines, for instance, placed into a shell script <code>deploy.sh</code>:</p></li>
+</ol>
+<pre class="brush: lua;">#!/bin/bash
+cp ../../build/outputs/aar/plugin-release.aar .
+COPYFILE_DISABLE=true tar -czf ../"$(basename "$(pwd)").tgz" --exclude='.[^/]*'  ./*
+scp ../android.tgz "youruser@www.your-web-server-where-plugin-will-be-hostd.de:/var/www/YOUR_DOMAIN/plugins"</pre>
+<p>Finally, for those who will use your Self-Hosted-Plugin, they have to add the location (<code>www.YOUR_DOMAIN.de/plugins/android.tgz</code>) into their <code>build.settings</code> so that the build proccess for Corona-Apps can find the plugin.</p>
 <hr>
 <div id="footer">
 <p class="copyright">

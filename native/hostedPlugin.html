@@ -58,7 +58,11 @@
 <li><a href="#self-hosted-plugins">Self-Hosted Plugins</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#packaging-and-hosting">Packaging and Hosting</a><ul>
-<li><a href="#flat-file-structure">Flat File Structure</a></li>
+<li><a href="#package-as-archives">Package as Archives</a><ul>
+<li><a href="#ios">iOS</a></li>
+<li><a href="#android">Android</a></li>
+<li><a href="#lua">Lua</a></li>
+</ul></li>
 <li><a href="#web-server-requirements">Web Server Requirements</a></li>
 </ul></li>
 <li><a href="#solar2d-simulator-and-builds">Solar2D Simulator and Builds</a><ul>
@@ -66,6 +70,7 @@
 <li><a href="#device-buildssettings">Device Builds/Settings</a></li>
 </ul></li>
 </ul></li>
+<li><a href="#using-local-storage-instead-of-urls">Using local storage instead of URLs</a></li>
 </ul>
 </div>
 <div id="breadcrumb">
@@ -80,14 +85,48 @@
 <div id="packaging-and-hosting" class="section level2">
 <h2>Packaging and Hosting</h2>
 <p>Plugins must be packaged for each platform <strong>separately</strong> as a <code>.tgz</code> file and hosted on a web server.</p>
-<div id="flat-file-structure" class="section level3">
-<h3>Flat File Structure</h3>
-<p>Follow the <a href="../native/plugin/index.html">Plugins</a> guide to build your plugin, then package the plugin on your server. The plugin needs to be stored in a flat (no directories) <code>.tgz</code> format. For example, from inside your plugin build folder, run:</p>
-<pre class="brush: lua;">tar -czf myplugin.tgz myplugin.lua metadata.lua</pre>
+<div id="package-as-archives" class="section level3">
+<h3>Package as Archives</h3>
+<p>Follow the <a href="../native/plugin/index.html">Plugins</a> guide to build your plugin. Remember that for each support platform, a separate archive has to be packaged.</p>
+<div id="ios" class="section level4">
+<h4>iOS</h4>
+<p>Building the plugin-in to be hosted on a web server, a few simple extra steps are required:</p>
+<ol style="list-style-type: decimal">
+<li><p>Create a directory for packaging, for instance <code>package-plugin</code>. Create a folder named <code>iphone</code> within <code>package-plugin</code>.</p></li>
+<li><p>Place your iOS library (<code>.a</code>) file of your plugin into that directory.</p></li>
+<li><p>Any additional resources that the plugin requires are placed into a new directory named <code>resources</code>. For instance, <code>*.nib</code> files for views. If your plugin depends on other frameworks, place all the compiled frameworks underneath a directory called <code>Frameworks</code>.</p></li>
+<li><p>Place the <code>metadata.lua</code> file also in the directory <code>package-plugin</code></p></li>
+<li><p>Use a simple packaging script to call the zip/tar program. On Mac you could use the following lines, for instance, placed into a shell script <code>deploy.sh</code>:</p></li>
+</ol>
+<pre class="brush: lua;">#!/bin/bash
+tar -czf iphone.tgz libplugin_YOUR-PLUGIN.a metadata.lua resources
+scp ../iphone.tgz "youruser@www.your-web-server-where-plugin-will-be-hostd.de:/var/www/YOUR_DOMAIN/plugins"</pre>
+<p>Finally, for those who will use your Self-Hosted-Plugin, they have to add the location (<code>www.YOUR_DOMAIN.de/plugins/android.tgz</code>) into their <code>build.settings</code> so that the build proccess for Solar2D Apps can find the plugin (see also below).</p>
+</div>
+<div id="android" class="section level4">
+<h4>Android</h4>
+<p>Building the plugin-in to be published on a web server, a few simple extra steps are required:</p>
+<ol style="list-style-type: decimal">
+<li><p>Create a directory for packaging, for instance <code>package-plugin</code>. Create a folder named <code>android</code> within <code>package-plugin</code>.</p></li>
+<li><p>Create a new gradle file, called <code>corona.gradle</code> and copy all your dependencies and repository definitions from your plugin's <code>build.gradle</code> also into that file.</p></li>
+<li><p>Place the <code>metadata.lua</code> file also in the directory <code>package-plugin</code></p></li>
+<li><p>Use a simple packaging script to copy the build result into this directory and to call the zip/tar program. On Mac you could use the following lines, for instance, placed into a shell script <code>deploy.sh</code>:</p></li>
+</ol>
+<pre class="brush: lua;">#!/bin/bash
+cp ../../build/outputs/aar/plugin-release.aar .
+COPYFILE_DISABLE=true tar -czf ../"$(basename "$(pwd)").tgz" --exclude='.[^/]*'  ./*
+scp ../android.tgz "youruser@www.your-web-server-where-plugin-will-be-hostd.de:/var/www/YOUR_DOMAIN/plugins"</pre>
+<p>Finally, for those who will use your Self-Hosted-Plugin, they have to add the location (<code>www.YOUR_DOMAIN.de/plugins/android.tgz</code>) into their <code>build.settings</code> so that the build proccess for Solar2D Apps can find the plugin (see also below).</p>
+</div>
+<div id="lua" class="section level4">
+<h4>Lua</h4>
+<p>The plugin needs to be stored in a flat (no directories) <code>.tgz</code> format. For example, from inside your plugin build folder, run:</p>
+<pre class="brush: lua;">COPYFILE_DISABLE=true tar -czf myplugin.tgz myplugin.lua metadata.lua</pre>
+</div>
 </div>
 <div id="web-server-requirements" class="section level3">
 <h3>Web Server Requirements</h3>
-<p>Upload the resulting <code>.tgz</code> file to a web server that is accessible from the Internet. If necessary, <code>https://</code> and basic authentication are supported for security and access control.</p>
+<p>Upload the resulting <code>.tgz</code> file to a web server that is accessible from the Internet. If necessary, <code>https://</code> and basic authentication are supported for security and access control. You can use <code>localhost</code> as web server too, since builds are local now. Note that this way machine performing the build would have to run the server.</p>
 </div>
 </div>
 <div id="solar2d-simulator-and-builds" class="section level2">
@@ -130,10 +169,32 @@
 Important
 </div>
 <ul>
-<li><p>The maximum <strong>compressed</strong> size for the <code>.tgz</code> file is 25 MB. The maximum <strong>uncompressed</strong> size for the <code>.tgz</code> file is 50 MB.</p></li>
-<li><p>Solar2D Simulator will throw an error on launch/relaunch saying that the plugin couldn't be downloaded. This message is safe to ignore.</p></li>
+<li>Solar2D Simulator will throw an error on launch/relaunch saying that the plugin couldn't be downloaded. This message is safe to ignore.</li>
 </ul>
 </div>
+</div>
+</div>
+</div>
+<div id="using-local-storage-instead-of-urls" class="section level1">
+<h1>Using local storage instead of URLs</h1>
+<p>Local storage can be used instead of web server. To do this, rename resulting archive to <code>data.tgz</code>, and put it into <code>Solar2DPlugins/&lt;publiserId&gt;/&lt;plugin.name&gt;/&lt;platform&gt;/data.tgz</code>. The <code>Solar2DPlugins</code> can be found at <code>~/Solar2DPlugins</code> on macOS or <code>%APPDATA%\Solar2DPlugins</code> on Windows.</p>
+<p>Platform can be one of:</p>
+<ul>
+<li><code>android</code></li>
+<li><code>android-kindle</code></li>
+<li><code>appletvos</code></li>
+<li><code>appletvsimulator</code></li>
+<li><code>html5</code></li>
+<li><code>iphone</code></li>
+<li><code>iphone-sim</code></li>
+<li><code>mac-sim</code></li>
+<li><code>macos</code></li>
+<li><code>win32</code></li>
+<li><code>win32-sim</code></li>
+<li><code>lua</code></li>
+</ul>
+<p>For example, to replace <a href="../plugin/bit/index.html">bit</a> plugin for iPhone Simulator while building on macOS place archive at <code>~/Solar2DPlugins/com.coronalabs/plugin.bit/iphone-sim/data.tgz</code></p>
+<p>Note that this plugins would always be used before any other type of plugins.</p>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -143,8 +204,6 @@ Important
 Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
-</div>
-</div>
 </div>
 </div>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>

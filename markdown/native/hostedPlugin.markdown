@@ -33,7 +33,7 @@ tar -czf iphone.tgz libplugin_YOUR-PLUGIN.a metadata.lua resources
 scp ../iphone.tgz "youruser@www.your-web-server-where-plugin-will-be-hostd.de:/var/www/YOUR_DOMAIN/plugins"
 ``````
 
-Finally, for those who will use your Self-Hosted-Plugin, they have to add the location (`www.YOUR_DOMAIN.de/plugins/android.tgz`) into their `build.settings` so that the build proccess for Corona-Apps can find the plugin (see also below).
+Finally, for those who will use your Self-Hosted-Plugin, they have to add the location (`www.YOUR_DOMAIN.de/plugins/android.tgz`) into their `build.settings` so that the build proccess for Solar2D Apps can find the plugin (see also below).
 
 
 #### Android
@@ -55,16 +55,16 @@ COPYFILE_DISABLE=true tar -czf ../"$(basename "$(pwd)").tgz" --exclude='.[^/]*' 
 scp ../android.tgz "youruser@www.your-web-server-where-plugin-will-be-hostd.de:/var/www/YOUR_DOMAIN/plugins"
 ``````
 
-Finally, for those who will use your Self-Hosted-Plugin, they have to add the location (`www.YOUR_DOMAIN.de/plugins/android.tgz`) into their `build.settings` so that the build proccess for Corona-Apps can find the plugin (see also below).
+Finally, for those who will use your Self-Hosted-Plugin, they have to add the location (`www.YOUR_DOMAIN.de/plugins/android.tgz`) into their `build.settings` so that the build proccess for Solar2D Apps can find the plugin (see also below).
 
 #### Lua
 The plugin needs to be stored in a flat (no&nbsp;directories) `.tgz` format. For example, from inside your plugin build folder, run:
 
-	tar -czf myplugin.tgz myplugin.lua metadata.lua
+	COPYFILE_DISABLE=true tar -czf myplugin.tgz myplugin.lua metadata.lua
 
 ### Web Server Requirements
 
-Upload the resulting `.tgz` file to a web server that is accessible from the Internet. If necessary, `https://` and basic authentication are supported for security and access control.
+Upload the resulting `.tgz` file to a web server that is accessible from the Internet. If necessary, `https://` and basic authentication are supported for security and access control. You can use `localhost` as web server too, since builds are local now. Note that this way machine performing the build would have to run the server.
 
 
 ## Solar2D Simulator and Builds
@@ -117,8 +117,30 @@ settings =
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Important</div>
 
-* The maximum __compressed__ size for the `.tgz` file is 25&nbsp;MB. The maximum __uncompressed__ size for the `.tgz` file is 50&nbsp;MB.
-
 * Solar2D Simulator will throw an error on launch/relaunch saying that the plugin couldn't be downloaded. This message is safe to ignore.
 
 </div>
+
+
+# Using local storage instead of URLs
+
+Local storage can be used instead of web server. To do this, rename resulting archive to `data.tgz`, and put it into `Solar2DPlugins/<publiserId>/<plugin.name>/<platform>/data.tgz`. The `Solar2DPlugins` can be found at `~/Solar2DPlugins` on macOS or `%APPDATA%\Solar2DPlugins` on Windows.
+
+Platform can be one of:
+
+* `android`
+* `android-kindle`
+* `appletvos`
+* `appletvsimulator`
+* `html5`
+* `iphone`
+* `iphone-sim`
+* `mac-sim`
+* `macos`
+* `win32`
+* `win32-sim`
+* `lua`
+
+For example, to replace [bit][plugin.bit] plugin for iPhone Simulator while building on macOS place archive at `~/Solar2DPlugins/com.coronalabs/plugin.bit/iphone-sim/data.tgz`
+
+Note that this plugins would always be used before any other type of plugins.

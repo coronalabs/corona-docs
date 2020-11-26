@@ -212,12 +212,14 @@ Note
 </div>
 <div id="google-admob-mediation-setup" class="section level2">
 <h2>Google AdMob Mediation setup</h2>
-<p>You can use AdMob plugin to serve ads from other networks to give your monetization a boost on Android. To set it up in Solar2D create <code>corona.gradle</code> file inside your project within <code>AndroidResources</code> with Gradle dependencies to networks you want to connect. For example, to use Facebook Audience Network and AppLoving contents of <code>AndroidResources/corona.gradle</code> would be:</p>
+<p>AdMob plugin can be used to serve ads from other networks to give your monetization a boost on Android.</p>
+<p>To use this feature, you would have to connect each individual network manually using AdMob interface. List of available networks with links to set up instructions can be found <a href="https://developers.google.com/admob/android/mediate#mediation-networks">here</a>.</p>
+<p>Most of the networks would have &quot;Import the SDK and adapter&quot; step. To implement it, add Gradle dependencies to special file <code>corona.gradle</code> within <code>AndroidResource</code> directory inside your Solar2D Project.</p>
+<p>For example, to use Facebook and AppLoving networks contents of the <code>AndroidResources/corona.gradle</code> file should be:</p>
 <pre class="brush: lua;">dependencies {
     implementation 'com.google.ads.mediation:facebook:6.2.0.0'
     implementation 'com.google.ads.mediation:applovin:9.14.5.0'
 }</pre>
-<p>You would have to connect each individual network manually using AdMob interface, list of available networks with links to set up instructions can be found here <a href="https://developers.google.com/admob/android/mediate#mediation-networks">here</a>.</p>
 </div>
 <div id="sample-project" class="section level2">
 <h2>Sample project</h2>

@@ -119,7 +119,7 @@ Note, that if no Simulator urls are there Solar2D Simulator will throw an error 
 </div>
 
 
-# Using local storage instead of URLs
+## Using local storage instead of URLs
 
 
 Local storage can be used instead of web server. To do this, rename resulting archive to `data.tgz`, and put it into `Solar2DPlugins/<publiserId>/<plugin.name>/<platform>/data.tgz`. The `Solar2DPlugins` can be found at `~/Solar2DPlugins` on macOS or `%APPDATA%\Solar2DPlugins` on Windows.

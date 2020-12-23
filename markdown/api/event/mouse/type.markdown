@@ -16,6 +16,7 @@ A string identifying the type of mouse event that is occurring. Can be one of th
 * `"up"` — indicates that a mouse button was released.
 * `"move"` — indicates that the mouse is moving on the screen.
 * `"drag"` — indicates that the mouse is moving on the screen while a mouse button is pressed.
+* `"scroll"` — indicates that mouse is scrolling along either the X or Y axis.
 
 ## Example
  

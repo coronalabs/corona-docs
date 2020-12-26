@@ -131,7 +131,7 @@ Important
 <h4 id="version-info">Version info</h4>
 <p>Current plugin versions are:</p>
 <ul>
-<li>Both stable and beta plugins are <code>2.6.4</code> for both Android and iOS (if using daily build <code>2020.3569</code> or later).</li>
+<li>Stable plugins is <code>2.8.1</code> for both Android and iOS (if using daily build <code>2020.3569</code> or later). Beta plugin is not recommended to use and contains legacy version</li>
 </ul>
 </div>
 <div class="guide-notebox-imp">
@@ -203,11 +203,84 @@ Important
     {
         plist =
         {
-            GADApplicationIdentifier = "ca-app-pub-3940256099942544~1458002511", -- replace with your app id. See: https://googlemobileadssdk.page.link/admob-ios-update-plist
+            GADApplicationIdentifier = "[YOUR_ADMOB_APP_ID]", -- replace with your app id. See: https://googlemobileadssdk.page.link/admob-ios-update-plist
+            NSAppTransportSecurity = { NSAllowsArbitraryLoads=true },
+            NSLocationWhenInUseUsageDescription = "The app needs your location for analytics and advertising purposes",
+            NSCalendarsUsageDescription = "The app needs your calendar to provide personalised advertising experience tailored to you",
+            NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized ads to you.",
+            SKAdNetworkItems = {
+                { SKAdNetworkIdentifier = "4pfyvq9l8r.skadnetwork" },
+                { SKAdNetworkIdentifier = "yclnxrl5pm.skadnetwork" },
+                { SKAdNetworkIdentifier = "v72qych5uu.skadnetwork" },
+                { SKAdNetworkIdentifier = "tl55sbb4fm.skadnetwork" },
+                { SKAdNetworkIdentifier = "t38b2kh725.skadnetwork" },
+                { SKAdNetworkIdentifier = "prcb7njmu6.skadnetwork" },
+                { SKAdNetworkIdentifier = "ppxm28t8ap.skadnetwork" },
+                { SKAdNetworkIdentifier = "mlmmfzh3r3.skadnetwork" },
+                { SKAdNetworkIdentifier = "klf5c3l5u5.skadnetwork" },
+                { SKAdNetworkIdentifier = "hs6bdukanm.skadnetwork" },
+                { SKAdNetworkIdentifier = "c6k4g5qg8m.skadnetwork" },
+                { SKAdNetworkIdentifier = "9t245vhmpl.skadnetwork" },
+                { SKAdNetworkIdentifier = "9rd848q2bz.skadnetwork" },
+                { SKAdNetworkIdentifier = "8s468mfl3y.skadnetwork" },
+                { SKAdNetworkIdentifier = "7ug5zh24hu.skadnetwork" },
+                { SKAdNetworkIdentifier = "4fzdc2evr5.skadnetwork" },
+                { SKAdNetworkIdentifier = "4468km3ulz.skadnetwork" },
+                { SKAdNetworkIdentifier = "3rd42ekr43.skadnetwork" },
+                { SKAdNetworkIdentifier = "2u9pt9hc89.skadnetwork" },
+                { SKAdNetworkIdentifier = "m8dbw4sv7c.skadnetwork" },
+                { SKAdNetworkIdentifier = "7rz58n8ntl.skadnetwork" },
+                { SKAdNetworkIdentifier = "ejvt5qm6ak.skadnetwork" },
+                { SKAdNetworkIdentifier = "5lm9lj6jb7.skadnetwork" },
+                { SKAdNetworkIdentifier = "44jx6755aq.skadnetwork" },
+                { SKAdNetworkIdentifier = "mtkv5xtk9e.skadnetwork" },
+                { SKAdNetworkIdentifier = "ludvb6z3bs.skadnetwork" },
+                { SKAdNetworkIdentifier = "wg4vff78zm.skadnetwork" },
+                { SKAdNetworkIdentifier = "737z793b9f.skadnetwork" },
+                { SKAdNetworkIdentifier = "ydx93a7ass.skadnetwork" },
+                { SKAdNetworkIdentifier = "w9q455wk68.skadnetwork" },
+                { SKAdNetworkIdentifier = "glqzh8vgby.skadnetwork" },
+                { SKAdNetworkIdentifier = "av6w8kgt66.skadnetwork" },
+                { SKAdNetworkIdentifier = "cj5566h2ga.skadnetwork" },
+                { SKAdNetworkIdentifier = "f38h382jlk.skadnetwork" },
+                { SKAdNetworkIdentifier = "s39g8k73mm.skadnetwork" },
+                { SKAdNetworkIdentifier = "v9wttpbfk9.skadnetwork" },
+                { SKAdNetworkIdentifier = "n38lu8286q.skadnetwork" },
+                { SKAdNetworkIdentifier = "cstr6suwn9.skadnetwork" },
+                { SKAdNetworkIdentifier = "su67r6k2v3.skadnetwork" },
+                { SKAdNetworkIdentifier = "n9x2a789qt.skadnetwork" },
+                { SKAdNetworkIdentifier = "kbd757ywx3.skadnetwork" },
+                { SKAdNetworkIdentifier = "uw77j35x4d.skadnetwork" },
+                { SKAdNetworkIdentifier = "3sh42y64q3.skadnetwork" },
+                { SKAdNetworkIdentifier = "5l3tpt7t6e.skadnetwork" },
+                { SKAdNetworkIdentifier = "mls7yz5dvl.skadnetwork" },
+                { SKAdNetworkIdentifier = "5a6flpkh64.skadnetwork" },
+                { SKAdNetworkIdentifier = "578prtvx9j.skadnetwork" },
+                { SKAdNetworkIdentifier = "f73kdq92p3.skadnetwork" },
+                { SKAdNetworkIdentifier = "8m87ys6875.skadnetwork" },
+                { SKAdNetworkIdentifier = "488r3q3dtq.skadnetwork" },
+                { SKAdNetworkIdentifier = "zmvfpc5aq8.skadnetwork" },
+                { SKAdNetworkIdentifier = "97r2b46745.skadnetwork" },
+                { SKAdNetworkIdentifier = "6xzpu9s2p8.skadnetwork" },
+                { SKAdNetworkIdentifier = "cg4yq2srnc.skadnetwork" },
+                { SKAdNetworkIdentifier = "ecpz2srf59.skadnetwork" },
+                { SKAdNetworkIdentifier = "238da6jt44.skadnetwork" },
+                { SKAdNetworkIdentifier = "22mmun2rn5.skadnetwork" },
+                { SKAdNetworkIdentifier = "lr83yxwka7.skadnetwork" },
+                { SKAdNetworkIdentifier = "24t9a8vw3c.skadnetwork" },
+                { SKAdNetworkIdentifier = "v79kvwwj4g.skadnetwork" },
+                { SKAdNetworkIdentifier = "424m5254lk.skadnetwork" },
+                { SKAdNetworkIdentifier = "44n7hlldy6.skadnetwork" },
+                { SKAdNetworkIdentifier = "4dzt52r2t5.skadnetwork" },
+                { SKAdNetworkIdentifier = "wzmmz9fp6w.skadnetwork" },
+                { SKAdNetworkIdentifier = "bvpn9ufa9b.skadnetwork" },
+                { SKAdNetworkIdentifier = "gta9lk7p23.skadnetwork" },
+            },
         },
     },
     android =
     {
+        minSdkVersion = "16",
         applicationChildElements =
         {
             [[
@@ -220,51 +293,34 @@ Important
     {
         -- Base
         ['plugin.appodeal.base'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.GoogleAdMob'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.StartApp'] = { publisherId = 'com.coronalabs' },
 
-        -- Banner
+        -- All types
+        ['plugin.appodeal.Bidmachine'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.GoogleAdMob'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.A4G'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.Flurry'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.Yandex'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.AmazonAds'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.TwitterMoPub'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.Smaato'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.StartApp'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Unity'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Yandex'] = { publisherId = 'com.coronalabs' },
+
+        -- Banner
+        ['plugin.appodeal.AmazonAds'] = { publisherId = 'com.coronalabs' },
 
         -- Interstitial
         ['plugin.appodeal.AdColony'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.Chartboost'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.Flurry'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.IronSource'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.Mobvista'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.StartApp'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.Ogury'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.AmazonAds'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.TwitterMoPub'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.Smaato'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.IronSource'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Ogury'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Vungle'] = { publisherId = 'com.coronalabs' },
 
         -- Rewarded Video
         ['plugin.appodeal.AdColony'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.Chartboost'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.Flurry'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.IronSource'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.Mobvista'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.StartApp'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.Unity'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Ogury'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.Vungle'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.Tapjoy'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.TwitterMoPub'] = { publisherId = 'com.coronalabs' },
     },
 }</pre>
 <p>Make sure to include <code>Base</code> block for a plugin to work correctly. Then you can just comment out unnecessary ad types blocks, so that unneded adapters are not downloaded and linked to your project.</p>
@@ -306,9 +362,9 @@ Note
 <pre class="brush: lua;">-- Banner
 ['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
 ['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Flurry'] = { publisherId = 'com.coronalabs' },
+['plugin.appodeal.Flurry'] = { publisherId = 'com.coronalabs' },
 ['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
+-- ['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
 ['plugin.appodeal.Yandex'] = { publisherId = 'com.coronalabs' },</pre>
 <p>If you are sure of your choice and want to keep your build settings nice and clean, you can remove commented ad types or/and adapters. Then for this particular example your build.settings file should look like this:</p>
 <pre class="brush: lua;">-- Base
@@ -324,19 +380,21 @@ Note
 ['plugin.appodeal.Yandex'] = { publisherId = 'com.coronalabs' },
 ['plugin.appodeal.AmazonAds'] = { publisherId = 'com.coronalabs' },
 ['plugin.appodeal.TwitterMoPub'] = { publisherId = 'com.coronalabs' },</pre>
+<!-- 
 <div class="guide-notebox">
-<div class="notebox-title">
-Note
-</div>
-<p>From now on, you can use a beta version of modular plugin system. It includes the latest Appodeal SDK Beta, some new features and improvements. To use it, you should add a <code>beta</code> tag to module declaration like this, for example:</p>
-<pre class="brush: lua;">settings =
+<div class="notebox-title">Note</div>
+
+From now on, you can use a beta version of modular plugin system. It includes the latest Appodeal SDK Beta, some new features and improvements. To use it, you should add a `beta` tag to module declaration like this, for example:
+
+``````lua
+settings =
 {
     android =
     {
         applicationChildElements =
         {
             [[
-                &lt;meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
+                <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
                     android:value="[YOUR_ADMOB_APP_ID]"/>  -- replace with your app id. See: https://goo.gl/fQ2neu
             ]],
         },
@@ -364,9 +422,13 @@ Note
         ['plugin.appodeal.beta.Vungle'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.beta.Yandex'] = { publisherId = 'com.coronalabs' },
     },
-}</pre>
-<p>Please keep in mind, that using beta versions of both Appodeal SDK and Solar2D Appodeal plugin may cause unexpected issues. We've made a profound tests of a new system, but you should use it at your own risk.</p>
+}
+``````
+
+Please keep in mind, that using beta versions of both Appodeal SDK and Solar2D Appodeal plugin may cause unexpected issues. We've made a profound tests of a new system, but you should use it at your own risk.
+
 </div>
+-->
 <!--- Include ATS "override" template block --->
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">

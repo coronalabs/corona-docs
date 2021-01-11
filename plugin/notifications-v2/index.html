@@ -117,6 +117,12 @@ Important
 </div>
 <p>For Android, all <strong>new</strong> apps, or existing apps being updated with push notifications for the first time, must use <nobr><a href="https://firebase.google.com/">Firebase</a> Cloud Messaging (FCM)</nobr>, supported by this plugin. If you have a legacy app already configured for <nobr>Google Cloud Messaging (GCM)</nobr>, it will continue to work indefinitely, but you should continue using the <a href="../../plugin/notifications/index.html">legacy</a> plugin instead of this plugin.</p>
 </div>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>To use Firebase notifications on iOS make sure to include <code>plugin.notifications.v2.firebase</code> plugin in your <code>build.settings</code>. This plugin is identical to the <code>plugin.notifications.v2</code> and also includes libraries required to operate notification through Firebase on iOS.</p>
+</div>
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
@@ -151,6 +157,17 @@ Important
     plugins =
     {
         ["plugin.notifications.v2"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+    },
+}</pre>
+<p>Or use <code>plugin.notifications.v2.firebase</code> if you plan to use Firebase on iOS.</p>
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
+{
+    plugins =
+    {
+        ["plugin.notifications.v2.firebase"] =
         {
             publisherId = "com.coronalabs"
         },

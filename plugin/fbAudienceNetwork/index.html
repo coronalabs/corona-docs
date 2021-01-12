@@ -157,6 +157,15 @@ Important
 <h5 id="facebook-audience-network-1">Facebook Audience Network</h5>
 <pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
 {
+    iphone =
+    {
+        plist = {
+            SKAdNetworkItems = {
+                { SKAdNetworkIdentifier = "v9wttpbfk9.skadnetwork" },
+                { SKAdNetworkIdentifier = "n38lu8286q.skadnetwork" },
+            },
+        },
+    },
     plugins =
     {
         ["plugin.fbAudienceNetwork"] =

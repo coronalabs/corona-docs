@@ -57,6 +57,7 @@
 <ul>
 <li><a href="#event.products">event.products</a><ul>
 <li><a href="#overview">Overview</a></li>
+<li><a href="#json-entries">JSON entries</a></li>
 </ul></li>
 </ul>
 </div>
@@ -110,6 +111,116 @@
 <li><p><code>priceCurrencyCode</code> — ISO 4217 currency code for the price, for example <code>&quot;GBP&quot;</code> if the price is specified in British pounds sterling.</p></li>
 <li><p><code>originalJson</code> — A JSON-formatted <a href="../../../../api/type/String.html">string</a> representation of the product details.</p></li>
 </ul>
+</div>
+<div id="json-entries" class="section level2">
+<h2>JSON entries</h2>
+<p>Field <code>originalJson</code> contains json encoded values. Here is the table for all of its fields and how they correspond to products array entries.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Products entry field</th>
+<th>Original JSON field</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>title</td>
+<td>title</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>description</td>
+<td>description</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>localizedPrice</td>
+<td>price</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>productIdentifier</td>
+<td>productId</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>type</td>
+<td>type</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>priceAmountMicros</td>
+<td>price_amount_micros</td>
+<td>JSON field is integer</td>
+</tr>
+<tr class="odd">
+<td>priceCurrencyCode</td>
+<td>price_currency_code</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>originalJson</td>
+<td></td>
+<td>JSON String</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>freeTrialPeriod</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>iconUrl</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>introductoryPrice</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>introductoryPriceAmountMicros</td>
+<td>Integer</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>introductoryPriceCycles</td>
+<td>Integer</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>introductoryPricePeriod</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>original_price</td>
+<td>Optional</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>original_price_micros</td>
+<td>Integer, optional</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>packageName</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>skuDetailsToken</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>subscriptionPeriod</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <hr>
 <div id="footer">
 <p class="copyright">

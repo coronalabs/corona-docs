@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — Plugins | On-Demand Resources | OnDemandResourcesEvent | errorCode</title>
+  <title>Solar2D Documentation — Plugins | On-Demand Resources | onDemandResourcesEvent | type</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../../../css/shCoreDefault.css" type="text/css" />
@@ -55,26 +55,26 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#event.errorcode">event.errorCode</a><ul>
+<li><a href="#event.type">event.type</a><ul>
 <li><a href="#overview">Overview</a></li>
 </ul></li>
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../../plugin/index.html">Plugins</a>  ▸  <a href="../../../../plugin/onDemandResources/index.html">On-Demand Resources</a>  ▸  <a href="../../../../plugin/onDemandResources/event/OnDemandResourcesEvent/index.html">OnDemandResourcesEvent</a>  ▸  <a href="../../../../plugin/onDemandResources/event/OnDemandResourcesEvent/errorCode.html">errorCode</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../../plugin/index.html">Plugins</a>  ▸  <a href="../../../../plugin/onDemandResources/index.html">On-Demand Resources</a>  ▸  <a href="../../../../plugin/onDemandResources/event/onDemandResourcesEvent/index.html">onDemandResourcesEvent</a>  ▸  <a href="../../../../plugin/onDemandResources/event/onDemandResourcesEvent/type.html">type</a>
 </div>
-<div id="event.errorcode" class="section level1">
-<h1>event.errorCode</h1>
+<div id="event.type" class="section level1">
+<h1>event.type</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
 <td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../../api/type/Number.html">Number</a></td>
+<td align="left"><a href="../../../../api/type/String.html">String</a></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>Event</strong></td>
-<td align="left"><a href="../../../../plugin/onDemandResources/event/OnDemandResourcesEvent/index.html">onDemandResourcesEvent</a></td>
+<td align="left"><a href="../../../../plugin/onDemandResources/event/onDemandResourcesEvent/index.html">onDemandResourcesEvent</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>Revision</strong></td>
@@ -82,11 +82,11 @@
 </tr>
 <tr class="even">
 <td align="left"><strong>Keywords</strong></td>
-<td align="left">on-demand resources, onDemandResources, onDemandResourcesEvent, errorCode</td>
+<td align="left">on-demand resources, onDemandResources, onDemandResourcesEvent, type</td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../../plugin/onDemandResources/event/OnDemandResourcesEvent/index.html">onDemandResourcesEvent</a></td>
+<td align="left"><a href="../../../../plugin/onDemandResources/event/onDemandResourcesEvent/index.html">onDemandResourcesEvent</a></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -97,7 +97,8 @@
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>Number indicating the error code, if any. Use this number to identify specific errors and handle them.</p>
+<p>If the event is dispatched to a listener function within a <a href="../../../../plugin/onDemandResources/request.html">onDemandResources.request()</a> call, this value will be <code>&quot;complete&quot;</code>, indicating that the resources request attempt is complete. At this time, you may check the <a href="../../../../plugin/onDemandResources/event/onDemandResourcesEvent/isError.html">isError</a> property to confirm that the request succeeded.</p>
+<p>If this is received by the listener specified in <a href="../../../../plugin/onDemandResources/setEventListener.html">onDemandResources.setEventListener()</a>, its value will be <code>&quot;lowDiskSpace&quot;</code>, indicating that the system is running low on storage space.</p>
 <hr>
 <div id="footer">
 <p class="copyright">

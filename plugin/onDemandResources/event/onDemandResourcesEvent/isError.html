@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — Plugins | On-Demand Resources | OnDemandResourcesEvent</title>
+  <title>Solar2D Documentation — Plugins | On-Demand Resources | onDemandResourcesEvent | isError</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../../../css/shCoreDefault.css" type="text/css" />
@@ -55,45 +55,38 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#ondemandresourcesevent">onDemandResourcesEvent</a><ul>
+<li><a href="#event.iserror">event.isError</a><ul>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#properties">Properties</a><ul>
-<li><a href="#event.errorcodeplugin.ondemandresources.event.ondemandresourcesevent.errorcode">[event.errorCode][plugin.onDemandResources.event.onDemandResourcesEvent.errorCode]</a></li>
-<li><a href="#event.iserrorplugin.ondemandresources.event.ondemandresourcesevent.iserror">[event.isError][plugin.onDemandResources.event.onDemandResourcesEvent.isError]</a></li>
-<li><a href="#event.nameplugin.ondemandresources.event.ondemandresourcesevent.name">[event.name][plugin.onDemandResources.event.onDemandResourcesEvent.name]</a></li>
-<li><a href="#event.tagplugin.ondemandresources.event.ondemandresourcesevent.tag">[event.tag][plugin.onDemandResources.event.onDemandResourcesEvent.tag]</a></li>
-<li><a href="#event.typeplugin.ondemandresources.event.ondemandresourcesevent.type">[event.type][plugin.onDemandResources.event.onDemandResourcesEvent.type]</a></li>
-</ul></li>
 </ul></li>
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../../plugin/index.html">Plugins</a>  ▸  <a href="../../../../plugin/onDemandResources/index.html">On-Demand Resources</a>  ▸  <a href="../../../../plugin/onDemandResources/event/OnDemandResourcesEvent/index.html">OnDemandResourcesEvent</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../../plugin/index.html">Plugins</a>  ▸  <a href="../../../../plugin/onDemandResources/index.html">On-Demand Resources</a>  ▸  <a href="../../../../plugin/onDemandResources/event/onDemandResourcesEvent/index.html">onDemandResourcesEvent</a>  ▸  <a href="../../../../plugin/onDemandResources/event/onDemandResourcesEvent/isError.html">isError</a>
 </div>
-<div id="ondemandresourcesevent" class="section level1">
-<h1>onDemandResourcesEvent</h1>
+<div id="event.iserror" class="section level1">
+<h1>event.isError</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
 <td align="left"><strong>Type</strong></td>
-<td align="left">[Event][api.type.event]</td>
+<td align="left"><a href="../../../../api/type/Boolean.html">Boolean</a></td>
 </tr>
 <tr class="even">
+<td align="left"><strong>Event</strong></td>
+<td align="left"><a href="../../../../plugin/onDemandResources/event/onDemandResourcesEvent/index.html">onDemandResourcesEvent</a></td>
+</tr>
+<tr class="odd">
 <td align="left"><strong>Revision</strong></td>
 <td align="left"><a href="https://github.com/coronalabs/corona/releases">Release 2020.3619</a></td>
 </tr>
-<tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">on-demand resources, onDemandResources, onDemandResourcesEvent</td>
-</tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../../plugin/onDemandResources/request.html">onDemandResources.request()</a></td>
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">on-demand resources, onDemandResources, onDemandResourcesEvent, isError</td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../../plugin/onDemandResources/setEventListener.html">onDemandResources.setEventListener()</a></td>
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../../../plugin/onDemandResources/event/onDemandResourcesEvent/index.html">onDemandResourcesEvent</a></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -104,24 +97,8 @@
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>The following event properties are passed to individual listener functions within <a href="../../../../plugin/onDemandResources/request.html">onDemandResources.request()</a> calls <strong>and</strong> to the listener function specified in <a href="../../../../plugin/onDemandResources/setEventListener.html">onDemandResources.setEventListener()</a>.</p>
-</div>
-<div id="properties" class="section level2">
-<h2>Properties</h2>
-<div id="event.errorcodeplugin.ondemandresources.event.ondemandresourcesevent.errorcode" class="section level4">
-<h4>[event.errorCode][plugin.onDemandResources.event.onDemandResourcesEvent.errorCode]</h4>
-</div>
-<div id="event.iserrorplugin.ondemandresources.event.ondemandresourcesevent.iserror" class="section level4">
-<h4>[event.isError][plugin.onDemandResources.event.onDemandResourcesEvent.isError]</h4>
-</div>
-<div id="event.nameplugin.ondemandresources.event.ondemandresourcesevent.name" class="section level4">
-<h4>[event.name][plugin.onDemandResources.event.onDemandResourcesEvent.name]</h4>
-</div>
-<div id="event.tagplugin.ondemandresources.event.ondemandresourcesevent.tag" class="section level4">
-<h4>[event.tag][plugin.onDemandResources.event.onDemandResourcesEvent.tag]</h4>
-</div>
-<div id="event.typeplugin.ondemandresources.event.ondemandresourcesevent.type" class="section level4">
-<h4>[event.type][plugin.onDemandResources.event.onDemandResourcesEvent.type]</h4>
+<p><a href="../../../../api/type/Boolean.html">Boolean</a> value indicating whether an error occurred. If this field is <code>true</code>, the resources associated with <a href="../../../../plugin/onDemandResources/event/onDemandResourcesEvent/tag.html">tag</a> are not available.</p>
+<p>If this is received by the listener specified in <a href="../../../../plugin/onDemandResources/setEventListener.html">onDemandResources.setEventListener()</a>, its value will be <code>true</code> and the event <a href="../../../../plugin/onDemandResources/event/onDemandResourcesEvent/type.html">type</a> will be <code>&quot;lowDiskSpace&quot;</code>.</p>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -131,7 +108,6 @@
 Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
-</div>
 </div>
 </div>
 </div>

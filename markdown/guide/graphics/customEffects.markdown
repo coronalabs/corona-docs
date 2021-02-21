@@ -189,7 +189,7 @@ Corona's default fragment kernel simply samples a single texture (`CoronaSampler
 `````
 P_COLOR vec4 FragmentKernel( P_UV vec2 texCoord )
 {
-    P_COLOR texColor = texture2D( CoronaSampler0, texCoord );
+    P_COLOR vec4 texColor = texture2D( CoronaSampler0, texCoord );
     return CoronaColorScale( texColor );
 }
 `````

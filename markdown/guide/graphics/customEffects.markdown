@@ -309,7 +309,7 @@ P_COLOR vec4 FragmentKernel( P_UV vec2 texCoord )
 	// Modulate by the display object's combined alpha/tint.
 	return CoronaColorScale( texColor );
 }
-
+]]
 `````
 
 

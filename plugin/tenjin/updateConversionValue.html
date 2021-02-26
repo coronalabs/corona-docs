@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — Plugins | Tenjin | init</title>
+  <title>Solar2D Documentation — Plugins | Tenjin | updateConversionValue</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
@@ -55,26 +55,19 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#tenjin.init">tenjin.init()</a><ul>
+<li><a href="#tenjin.updateconversionvalue">tenjin.updateConversionValue()</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#syntax">Syntax</a><ul>
-<li><a href="#listener-required">listener <sub><sup>(required)</sup></sub></a></li>
-<li><a href="#params-required">params <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#conversionvalue-required">conversionValue <sub><sup>(required)</sup></sub></a></li>
 </ul></li>
-<li><a href="#parameter-reference">Parameter Reference</a><ul>
-<li><a href="#apikey-required">apiKey <sub><sup>(required)</sup></sub></a></li>
-<li><a href="#hasuserconsent-optional">hasUserConsent <sub><sup>(optional)</sup></sub></a></li>
-<li><a href="#registerappforadnetworkattribution-optional">registerAppForAdNetworkAttribution <sub><sup>(optional)</sup></sub></a></li>
-</ul></li>
-<li><a href="#example">Example</a></li>
 </ul></li>
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/tenjin/index.html">Tenjin</a>  ▸  <a href="../../plugin/tenjin/init.html">init</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/tenjin/index.html">Tenjin</a>  ▸  <a href="../../plugin/tenjin/updateConversionValue.html">updateConversionValue</a>
 </div>
-<div id="tenjin.init" class="section level1">
-<h1>tenjin.init()</h1>
+<div id="tenjin.updateconversionvalue" class="section level1">
+<h1>tenjin.updateConversionValue()</h1>
 <blockquote>
 <table>
 <tbody>
@@ -92,10 +85,14 @@
 </tr>
 <tr class="even">
 <td align="left"><strong>Keywords</strong></td>
-<td align="left">analytics, attribution, Tenjin, init</td>
+<td align="left">analytics, attribution, Tenjin, updateConversionValue</td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../plugin/tenjin/init.html">tenjin.init()</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
 <td align="left"><a href="../../plugin/tenjin/index.html">tenjin.*</a></td>
 </tr>
 </tbody>
@@ -103,47 +100,14 @@
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p><code>tenjin.init()</code> initializes the Tenjin SDK.</p>
-<p>Once initialized, you can call any of the other Tenjin API functions such as <a href="../../plugin/tenjin/logEvent.html">tenjin.logEvent()</a>.</p>
+<p>Sends an event to Tenjin.</p>
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">tenjin.init( listener, params )</pre>
-<div id="listener-required" class="section level5">
-<h5>listener <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../api/type/Listener.html">Listener</a>.</em> Listener that will receive <a href="../../plugin/tenjin/event/analyticsRequest/index.html">analyticsRequest</a> events.</p>
-</div>
-<div id="params-required" class="section level5">
-<h5>params <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../api/type/Table.html">Table</a>.</em> Table containing Tenjin initialization values — see the next section for details.</p>
-</div>
-</div>
-<div id="parameter-reference" class="section level2">
-<h2>Parameter Reference</h2>
-<p>The <code>params</code> table includes parameters for the Tenjin initialization.</p>
-<div id="apikey-required" class="section level5">
-<h5>apiKey <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> Your Tenjin API Key, gathered from the <a href="https://tenjin.io/">Tenjin</a> system.</p>
-</div>
-<div id="hasuserconsent-optional" class="section level5">
-<h5>hasUserConsent <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> If set to <code>false</code>, Tenjin will enable GDPR data collection restrictions, set to <code>true</code> for opposite. Default is <code>false</code>.</p>
-</div>
-<div id="registerappforadnetworkattribution-optional" class="section level5">
-<h5>registerAppForAdNetworkAttribution <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> If set to <code>true</code>, Tenjin SDK <code>registerAppForAdNetworkAttribution</code> will be called.</p>
-</div>
-</div>
-<div id="example" class="section level2">
-<h2>Example</h2>
-<pre class="brush: lua;">local tenjin = require( "plugin.tenjin" )
-
-local function tenjinListener( event )
-    -- Handle events here
-end
-
--- Initialize plugin
-tenjin.init( tenjinListener, { apiKey="YOUR_API_KEY" } )</pre>
+<pre class="brush: lua;">tenjin.updateConversionValue( conversionValue )</pre>
+<div id="conversionvalue-required" class="section level5">
+<h5>conversionValue <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/Number.html">Number</a>.</em> Integer to be passed to Tenjin SDK</p>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -153,6 +117,7 @@ tenjin.init( tenjinListener, { apiKey="YOUR_API_KEY" } )</pre>
 Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
+</div>
 </div>
 </div>
 </div>

@@ -88,7 +88,7 @@
 </tr>
 <tr class="even">
 <td align="left"><strong>See also</strong></td>
-<td align="left"><a href="http://luasqlite.luaforge.net/lsqlite3.html">LuaSQLite Documentation</a></td>
+<td align="left"><a href="http://lua.sqlite.org/index.cgi/doc/tip/doc/lsqlite3.wiki">LuaSQLite Documentation</a></td>
 </tr>
 <tr class="odd">
 <td align="left"></td>
@@ -99,7 +99,7 @@
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>Corona includes support for SQLite databases on all platforms. The documentation for LuaSQLite can be viewed <a href="http://luasqlite.luaforge.net/lsqlite3.html">here</a>.</p>
+<p>Solar2D includes support for SQLite databases on all platforms. The documentation for LuaSQLite can be viewed <a href="http://lua.sqlite.org/index.cgi/doc/tip/doc/lsqlite3.wiki">here</a>.</p>
 </div>
 <div id="gotchas" class="section level2">
 <h2>Gotchas</h2>
@@ -110,9 +110,9 @@
 <ul>
 <li><p><code>sqlite3.open( path )</code> — Opens the SQLite file. Note that the path should be the full path to the database, not just the file name. In case of an error, the function returns <code>nil</code>, an error code, and an error message.</p></li>
 <li><p><code>sqlite3.version()</code> — Returns the version of SQLite in use. Returns a string with SQLite version information in the form <code>x.y[.z]</code>.</p></li>
-<li><p><code>file:exec( SQL_Command )</code> — Executes a SQL command in the database. Typically this is used to create tables, insert, update, append, or retrieve data from a database. In case of an error, this function returns a numerical <a href="http://luasqlite.luaforge.net/lsqlite3.html#numerical%20error%20and%20result%20codes">error code</a>.</p></li>
+<li><p><code>file:exec( SQL_Command )</code> — Executes a SQL command in the database. Typically this is used to create tables, insert, update, append, or retrieve data from a database. In case of an error, this function returns a numerical <a href="http://lua.sqlite.org/index.cgi/doc/tip/doc/lsqlite3.wiki#numerical_error_and_result_codes">error code</a>.</p></li>
 <li><p><code>file:nrows( SQL_Command )</code> — Returns successive rows from the SQL statement. Each call to the iterator returns a table in which the named fields correspond to the columns in the database.</p></li>
-<li><p><code>file:close()</code> — Closes the database. In case of an error, this function returns a numerical <a href="http://luasqlite.luaforge.net/lsqlite3.html#numerical%20error%20and%20result%20codes">error code</a>.</p></li>
+<li><p><code>file:close()</code> — Closes the database. In case of an error, this function returns a numerical <a href="http://lua.sqlite.org/index.cgi/doc/tip/doc/lsqlite3.wiki#numerical_error_and_result_codes">error code</a>.</p></li>
 </ul>
 </div>
 <div id="examples" class="section level2">

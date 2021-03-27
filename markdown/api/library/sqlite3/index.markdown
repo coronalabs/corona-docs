@@ -4,13 +4,13 @@
 > __Type__              [Library][api.type.Library]
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          sqlite3, database, sqlite
-> __See also__          [LuaSQLite Documentation](http://luasqlite.luaforge.net/lsqlite3.html)
+> __See also__          [LuaSQLite Documentation](http://lua.sqlite.org/index.cgi/doc/tip/doc/lsqlite3.wiki)
 >								[SQLite Language Reference](http://www.sqlite.org/lang.html)
 > --------------------- ------------------------------------------------------------------------------------------
 
 ## Overview
 
-Corona includes support for SQLite databases on all platforms. The documentation for LuaSQLite can be viewed [here](http://luasqlite.luaforge.net/lsqlite3.html).
+CORONA_CORE_PRODUCT includes support for SQLite databases on all platforms. The documentation for LuaSQLite can be viewed [here](http://lua.sqlite.org/index.cgi/doc/tip/doc/lsqlite3.wiki).
 
 
 ## Gotchas
@@ -24,11 +24,11 @@ When providing a file path to `open()`, make sure to use [system.pathForFile()][
 
 * `sqlite3.version()` &mdash; Returns the version of SQLite in use. Returns a string with SQLite version information in the form `x.y[.z]`.
 
-* `file:exec( SQL_Command )` &mdash; Executes a SQL command in the database. Typically this is used to create tables, insert, update, append, or retrieve data from a database. In case of an error, this function returns a numerical [error&nbsp;code](http://luasqlite.luaforge.net/lsqlite3.html#numerical%20error%20and%20result%20codes).
+* `file:exec( SQL_Command )` &mdash; Executes a SQL command in the database. Typically this is used to create tables, insert, update, append, or retrieve data from a database. In case of an error, this function returns a numerical [error&nbsp;code](http://lua.sqlite.org/index.cgi/doc/tip/doc/lsqlite3.wiki#numerical_error_and_result_codes).
 
 * `file:nrows( SQL_Command )` &mdash; Returns successive rows from the SQL statement. Each call to the iterator returns a table in which the named fields correspond to the columns in the database. 
 
-* `file:close()` &mdash; Closes the database. In case of an error, this function returns a numerical [error&nbsp;code](http://luasqlite.luaforge.net/lsqlite3.html#numerical%20error%20and%20result%20codes).
+* `file:close()` &mdash; Closes the database. In case of an error, this function returns a numerical [error&nbsp;code](http://lua.sqlite.org/index.cgi/doc/tip/doc/lsqlite3.wiki#numerical_error_and_result_codes).
 
 
 ## Examples

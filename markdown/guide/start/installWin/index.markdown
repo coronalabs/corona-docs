@@ -36,6 +36,17 @@ We'll assume you've already downloaded [CORONA_CORE_PRODUCT](REVISION_URL). Now,
 
 ## Java Development Kit
 
+<div class="docs-tip-outer docs-tip-color-alert" style="width: 100%;">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;"></div>
+</div>
+<div class="docs-tip-inner-right">
+
+Installing JDK is no longer required for CORONA_CORE_PRODUCT 2020.3629 and later.
+
+</div>
+</div>
+
 Installing CORONA_CORE_PRODUCT lets you create and test apps locally on your PC. If you intend to build apps for testing on Android devices, you will need to install the <nobr>__Java Development Kit__</nobr> (JDK). We&nbsp;suggest that you follow these instructions:
 
 1. Go to [JDK8 download](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) page.

@@ -96,6 +96,8 @@ Afterwards, all of your Android icon resources should be inside the various fold
 
 26 is the API Level of Android 8.0 “Oreo”.
 
+<div class="inner-table">
+
 | Folder | Icon Name | Android version | Width | Height |
 |----------------|----------------------------|-----------------|-------|--------|
 | mipmap-mdpi | ic_launcher.png | < 26 | 48 | 48 |
@@ -113,6 +115,8 @@ Afterwards, all of your Android icon resources should be inside the various fold
 | mipmap-xxxhdpi | ic_launcher.png | < 26 | 192 | 192 |
 | | ic_launcher_foreground.png | >= 26 | 432 | 432 |
 | | ic_launcher_background.png | >= 26 | 432 | 432 |
+
+</div>
 
 ### Using different tools to create Android icons
 

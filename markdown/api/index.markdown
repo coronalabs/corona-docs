@@ -5,54 +5,23 @@
 # API Reference
 
 <div class="guide-notebox">
-<div class="notebox-title">[REVISION_LABEL](REVISION_URL)</div>
+<div class="notebox-title">Notes</div>
 
-This is the complete list of Lua APIs for Corona&nbsp;SDK. If&nbsp;you're new, [download Corona][linkDownload] and get started for free!
+* This is the complete list of Lua APIs for CORONA_CORE_PRODUCT. If you're looking to extend CORONA_CORE_PRODUCT beyond the functionality provided by these Lua&nbsp;APIs, please see the [CORONA_NATIVE_PRODUCT documentation][native].
 
-To obtain the most recent builds of Corona SDK, browse the latest [daily builds][linkDailyBuild] and corresponding [documentation][linkDailyAPI].
+* If you're new, download CORONA_CORE_PRODUCT and proceed to the [Getting Started][guide.programming] series. There are also numerous [guides][guide] on specific topics.
 
-If you're looking for native APIs in <nobr>Objective-C</nobr> and Java, see the [Enterprise API Reference][native]. There are also [guides][guide] and [tutorials](http://coronalabs.com/resources/tutorials/) on numerous topics.
-
-To download this documentation for offline viewing, please click [here][linkAPIZip].
+* To download this documentation for offline viewing, please click [here][linkAPIZip].
 
 </div>
 
-
-
-<!---
-
--- ---------------------------------- ---------------------------------- ---------------------------
-   <big>Get Started</big><br/>        <big>Daily Builds</big><br/>         
-   New to Corona? You're in luck!     Check out the latest [here]          
-   Corona lets you get started        [linkDailyBuild] and corresponding   
-   for free.                          [API docs][linkDailyAPI]. Or         
-   [Download today][linkDownload]!    [upgrade][linkStore] to get          
-                                      access.                              
-                                                                           
-   <big>Explore</big><br/>             <big>Off the Grid</big><br/>         
-   There are also [guides][guide]     If you would like to download        
-   and [tutorials][tutorial]          this documentation for offline       
-   available, as well as information  viewing, please                      
-   on [native coding][native]         [click here][linkAPIZip].            
-   options.                                                                
--- ---------------------------------- ---------------------------------- ---------------------------
-
---->
-
-[linkDownload]: https://developer.coronalabs.com/downloads/corona-sdk
 [linkAPIZip]: https://github.com/coronalabs/corona-docs/archive/gh-pages.zip
-[linkDailyBuild]: https://developer.coronalabs.com/downloads/daily-builds
-[linkDailyAPI]: https://docs.coronalabs.com/
-[linkStore]: https://www.coronalabs.com/store/
-
+[linkDailyBuild]: http://developer.coronalabs.com/downloads/daily-builds
 
 ## [Libraries][api.library]
 
 
 #### [ads.*][api.library.ads]
-
-
-#### [analytics.*][api.library.analytics]
 
 
 #### [audio.*][api.library.audio]
@@ -134,8 +103,6 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 
 <p class="index">[composer.loadScene()][api.library.composer.loadScene]</p>
 
-<p class="index">[Storyboard to Composer Migration][api.library.composer.migration]</p>
-
 <p class="index">[composer.newScene()][api.library.composer.newScene]</p>
 
 <p class="index">[composer.recycleAutomatically][api.library.composer.recycleAutomatically]</p>
@@ -210,6 +177,8 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 
 <p class="index">[display.getDefault()][api.library.display.getDefault]</p>
 
+<p class="index">[display.getSafeAreaInsets()][api.library.display.getSafeAreaInsets]</p>
+
 <p class="index">[display.imageSuffix][api.library.display.imageSuffix]</p>
 
 <p class="index">[display.loadRemoteImage()][api.library.display.loadRemoteImage]</p>
@@ -249,6 +218,14 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 <p class="index">[display.pixelWidth][api.library.display.pixelWidth]</p>
 
 <p class="index">[display.remove()][api.library.display.remove]</p>
+
+<p class="index">[display.safeActualContentHeight][api.library.display.safeActualContentHeight]</p>
+
+<p class="index">[display.safeActualContentWidth][api.library.display.safeActualContentWidth]</p>
+
+<p class="index">[display.safeScreenOriginX][api.library.display.safeScreenOriginX]</p>
+
+<p class="index">[display.safeScreenOriginY][api.library.display.safeScreenOriginY]</p>
 
 <p class="index">[display.save()][api.library.display.save]</p>
 
@@ -326,6 +303,8 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 #### [graphics.*][api.library.graphics]
 
 <p class="index">[graphics.defineEffect()][api.library.graphics.defineEffect]</p>
+
+<p class="index">[graphics.getFontMetrics()][api.library.graphics.getFontMetrics]</p>
 
 <p class="index">[graphics.newImageSheet()][api.library.graphics.newImageSheet]</p>
 
@@ -573,11 +552,7 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 
 <p class="index">[package.loaders][api.library.package.loaders]</p>
 
-<p class="index">[module()][api.library.package.module]</p>
-
-<p class="index">[require()][api.library.package.require]</p>
-
-<p class="index">[package.seeall][api.library.package.seeall]</p>
+<p class="index">[requir<span style="display: none;">X</span>e()][api.library.package.require]</p>
 
 
 #### [physics.*][api.library.physics]
@@ -597,6 +572,8 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 <p class="index">[physics.getMKS()][api.library.physics.getMKS]</p>
 
 <p class="index">[physics.getReportCollisionsInContentCoordinates()][api.library.physics.getReportCollisionsInContentCoordinates]</p>
+
+<p class="index">[physics.getTimeScale()][api.library.physics.getTimeScale]</p>
 
 <p class="index">[physics.newJoint()][api.library.physics.newJoint]</p>
 
@@ -630,6 +607,8 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 
 <p class="index">[physics.setScale()][api.library.physics.setScale]</p>
 
+<p class="index">[physics.setTimeScale()][api.library.physics.setTimeScale]</p>
+
 <p class="index">[physics.setTimeStep()][api.library.physics.setTimeStep]</p>
 
 <p class="index">[physics.setVelocityIterations()][api.library.physics.setVelocityIterations]</p>
@@ -641,10 +620,7 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 <p class="index">[physics.toMKS()][api.library.physics.toMKS]</p>
 
 
-#### [socket.* (networking)][api.library.socket]
-
-
-#### [sprite.* (removed)][api.library.sprite]
+#### [socket.*][api.library.socket]
 
 
 #### [sqlite3.* (database)][api.library.sqlite3]
@@ -665,12 +641,6 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 <p class="index">[event.products][api.library.store.event.productList.products]</p>
 
 <p class="index">[storeTransaction][api.library.store.event.storeTransaction]</p>
-
-<p class="index">[event.errorString][api.library.store.event.storeTransaction.errorString]</p>
-
-<p class="index">[event.errorType][api.library.store.event.storeTransaction.errorType]</p>
-
-<p class="index">[event.isError][api.library.store.event.storeTransaction.isError]</p>
 
 <p class="index">[event.name][api.library.store.event.storeTransaction.name]</p>
 
@@ -726,6 +696,8 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 
 #### [system.*][api.library.system]
 
+<p class="index">[system.ApplicationSupportDirectory][api.library.system.ApplicationSupportDirectory]</p>
+
 <p class="index">[system.CachesDirectory][api.library.system.CachesDirectory]</p>
 
 <p class="index">[system.DocumentsDirectory][api.library.system.DocumentsDirectory]</p>
@@ -741,6 +713,8 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 <p class="index">[system.cancelNotification()][api.library.system.cancelNotification]</p>
 
 <p class="index">[system.deactivate()][api.library.system.deactivate]</p>
+
+<p class="index">[system.deletePreferences()][api.library.system.deletePreferences]</p>
 
 <p class="index">[system.getIdleTimer()][api.library.system.getIdleTimer]</p>
 
@@ -774,6 +748,8 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 
 <p class="index">[system.setLocationThreshold()][api.library.system.setLocationThreshold]</p>
 
+<p class="index">[system.setPreferences()][api.library.system.setPreferences]</p>
+
 <p class="index">[system.setTapDelay()][api.library.system.setTapDelay]</p>
 
 <p class="index">[system.vibrate()][api.library.system.vibrate]</p>
@@ -798,13 +774,21 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 
 #### [timer.*][api.library.timer]
 
+<p class="index">[timer.allowInterationsWithinFrame][api.library.timer.allowIterationsWithinFrame]</p>
+
 <p class="index">[timer.cancel()][api.library.timer.cancel]</p>
 
+<p class="index">[timer.cancelAll()][api.library.timer.cancelAll]</p>
+
 <p class="index">[timer.pause()][api.library.timer.pause]</p>
+
+<p class="index">[timer.pauseAll()][api.library.timer.pauseAll]</p>
 
 <p class="index">[timer.performWithDelay()][api.library.timer.performWithDelay]</p>
 
 <p class="index">[timer.resume()][api.library.timer.resume]</p>
+
+<p class="index">[timer.resumeAll()][api.library.timer.resumeAll]</p>
 
 
 #### [transition.*][api.library.transition]
@@ -812,6 +796,8 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 <p class="index">[transition.blink()][api.library.transition.blink]</p>
 
 <p class="index">[transition.cancel()][api.library.transition.cancel]</p>
+
+<p class="index">[transition.cancelAll()][api.library.transition.cancelAll]</p>
 
 <p class="index">[transition.dissolve()][api.library.transition.dissolve]</p>
 
@@ -821,13 +807,19 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 
 <p class="index">[transition.from()][api.library.transition.from]</p>
 
+<p class="index">[transition.ignoreEmptyReference][api.library.transition.ignoreEmptyReference]</p>
+
 <p class="index">[transition.moveBy()][api.library.transition.moveBy]</p>
 
 <p class="index">[transition.moveTo()][api.library.transition.moveTo]</p>
 
 <p class="index">[transition.pause()][api.library.transition.pause]</p>
 
+<p class="index">[transition.pauseAll()][api.library.transition.pauseAll]</p>
+
 <p class="index">[transition.resume()][api.library.transition.resume]</p>
+
+<p class="index">[transition.resumeAll()][api.library.transition.resumeAll]</p>
 
 <p class="index">[transition.scaleBy()][api.library.transition.scaleBy]</p>
 
@@ -869,6 +861,8 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 #### [accelerometer][api.event.accelerometer]
 
 <p class="index">[event.deltaTime][api.event.accelerometer.deltaTime]</p>
+
+<p class="index">[event.device][api.event.accelerometer.device]</p>
 
 <p class="index">[event.isShake][api.event.accelerometer.isShake]</p>
 
@@ -987,25 +981,6 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 <p class="index">[event.name][api.event.enterFrame.name]</p>
 
 <p class="index">[event.time][api.event.enterFrame.time]</p>
-
-
-#### [fbconnect][api.event.fbconnect]
-
-<p class="index">[event.didComplete][api.event.fbconnect.didComplete]</p>
-
-<p class="index">[event.expiration][api.event.fbconnect.expiration]</p>
-
-<p class="index">[event.isError][api.event.fbconnect.isError]</p>
-
-<p class="index">[event.name][api.event.fbconnect.name]</p>
-
-<p class="index">[event.phase][api.event.fbconnect.phase]</p>
-
-<p class="index">[event.response][api.event.fbconnect.response]</p>
-
-<p class="index">[event.token][api.event.fbconnect.token]</p>
-
-<p class="index">[event.type][api.event.fbconnect.type]</p>
 
 
 #### [finalize][api.event.finalize]
@@ -1195,15 +1170,29 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 
 #### [mouse][api.event.mouse]
 
+<p class="index">[event.isAltDown][api.event.mouse.isAltDown]</p>
+
+<p class="index">[event.isCommandDown][api.event.mouse.isCommandDown]</p>
+
+<p class="index">[event.isCtrlDown][api.event.mouse.isCtrlDown]</p>
+
 <p class="index">[event.isMiddleButtonDown][api.event.mouse.isMiddleButtonDown]</p>
 
 <p class="index">[event.isPrimaryButtonDown][api.event.mouse.isPrimaryButtonDown]</p>
 
 <p class="index">[event.isSecondaryButtonDown][api.event.mouse.isSecondaryButtonDown]</p>
 
+<p class="index">[event.isShiftDown][api.event.mouse.isShiftDown]</p>
+
 <p class="index">[event.name][api.event.mouse.name]</p>
 
+<p class="index">[event.scrollX][api.event.mouse.scrollX]</p>
+
+<p class="index">[event.scrollY][api.event.mouse.scrollY]</p>
+
 <p class="index">[event.time][api.event.mouse.time]</p>
+
+<p class="index">[event.type][api.event.mouse.type]</p>
 
 <p class="index">[event.x][api.event.mouse.x]</p>
 
@@ -1440,6 +1429,10 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 
 #### [system][api.event.system]
 
+<p class="index">[event.commandLineArgs][api.event.system.commandLineArgs]</p>
+
+<p class="index">[event.commandLineDir][api.event.system.commandLineDir]</p>
+
 <p class="index">[event.name][api.event.system.name]</p>
 
 <p class="index">[event.type][api.event.system.type]</p>
@@ -1530,10 +1523,6 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 
 
 #### [video][api.event.video]
-
-<p class="index">[event.errorCode][api.event.video.errorCode]</p>
-
-<p class="index">[event.errorMessage][api.event.video.errorMessage]</p>
 
 <p class="index">[event.name][api.event.video.name]</p>
 
@@ -1755,8 +1744,6 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 <p class="index">[object:dispatchEvent()][api.type.EventDispatcher.dispatchEvent]</p>
 
 <p class="index">[object:removeEventListener()][api.type.EventDispatcher.removeEventListener]</p>
-
-<p class="index">[object:addEventListener()][api.type.EventListener.addEventListener]</p>
 
 
 #### [File][api.type.File]
@@ -2083,6 +2070,8 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 
 <p class="index">[object:getValues()][api.type.PickerWheelWidget.getValues]</p>
 
+<p class="index">[object:selectValue()][api.type.PickerWheelWidget.selectValue]</p>
+
 
 #### [ProgressViewWidget][api.type.ProgressViewWidget]
 
@@ -2117,8 +2106,6 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 <p class="index">[Runtime:hasEventSource()][api.type.Runtime.hasEventSource]</p>
 
 <p class="index">[Runtime:hideErrorAlerts()][api.type.Runtime.hideErrorAlerts]</p>
-
-<p class="index">[Runtime:setCheckGlobals()][api.type.Runtime.setCheckGlobals]</p>
 
 
 #### [Scene][api.type.Scene]
@@ -2343,6 +2330,8 @@ To download this documentation for offline viewing, please click [here][linkAPIZ
 
 
 #### [TextObject][api.type.TextObject]
+
+<p class="index">[object.baselineOffset][api.type.TextObject.baselineOffset]</p>
 
 <p class="index">[object:setEmbossColor()][api.type.TextObject.setEmbossColor]</p>
 

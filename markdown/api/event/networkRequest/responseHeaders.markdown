@@ -1,7 +1,7 @@
 # event.responseHeaders
 
 > --------------------- ------------------------------------------------------------------------------------------
-> __Type__              [Table][api.type.table]
+> __Type__              [Table][api.type.Table]
 > __Event__             [networkRequest][api.event.networkRequest]
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          networkRequest, responseHeaders

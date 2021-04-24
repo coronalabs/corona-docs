@@ -2,7 +2,7 @@
 # event.errorType
 
 > --------------------- ------------------------------------------------------------------------------------------
-> __Type__              [String][api.type.string]
+> __Type__              [String][api.type.String]
 > __Event__             [licensing][api.event.licensing]
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          licensing, errorType

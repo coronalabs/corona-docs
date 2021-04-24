@@ -341,7 +341,7 @@ As you can see, the first parameter is the object to transition (`newLaser`). Fo
 
 Great! New lasers will now correctly appear at the same location as the ship (visually&nbsp;behind it&nbsp;too) and move upward across the screen. There is just one last thing to implement, and it's very important: __cleanup__. In any app, it's critical that you remove objects from the game which are no longer needed. If you don't, the app will eventually slow to a crawl, run out of memory, and crash&nbsp;&mdash; not a good experience for the player!
 
-In Corona, there are various approaches toward cleanup and it will depend on the situation. For the lasers, we're going to use a very convenient method known as an `onComplete` callback. Available as an option within `transition.to()` and several other commands, this tells Corona that you want to call a function when something "completes." This is ideal for removing lasers which have completed their transition, so let's expand our `transition.to()` command to include an `onComplete` callback:
+There are various approaches toward cleanup and it will depend on the situation. For the lasers, we're going to use a very convenient method known as an `onComplete` callback. Available as an option within `transition.to()` and several other commands, this tells CORONA_CORE_PRODUCT that you want to call a function when something "completes." This is ideal for removing lasers which have completed their transition, so let's expand our `transition.to()` command to include an `onComplete` callback:
 
 ``````{ brush="lua" gutter="true" first-line="132" highlight="[137]" }
 	newLaser.x = ship.x
@@ -354,7 +354,7 @@ In Corona, there are various approaches toward cleanup and it will depend on the
 end
 ``````
 
-Simply stated, this addition tells Corona to run a function when the transition completes. Inside the function, the only command we need is `display.remove( newLaser )` which removes the laser object from the stage. Beyond that, Lua's <nobr>built-in</nobr> garbage collection process will automatically free up memory that was allocated to the object.
+Simply stated, this addition runs a function when the transition completes. Inside the function, the only command we need is `display.remove( newLaser )` which removes the laser object from the stage. Beyond that, Lua's <nobr>built-in</nobr> garbage collection process will automatically free up memory that was allocated to the object.
 
 <div class="docs-tip-outer">
 <div class="docs-tip-inner-left">
@@ -416,7 +416,7 @@ end
 </div>
 <div class="docs-tip-inner-right">
 
-Notice that, unlike our previous functions, this function has the keyword `event` in the parentheses following its name. As you learned in the `BalloonTap` project, Corona is largely an <nobr>[event][api.type.Event]-based</nobr> framework where information is dispatched during a specific event to an event [listener][api.type.Listener].
+Notice that, unlike our previous functions, this function has the keyword `event` in the parentheses following its name. As you learned in the `BalloonTap` project, CORONA_CORE_PRODUCT is largely an <nobr>[event][api.type.Event]-based</nobr> framework where information is dispatched during a specific event to an event [listener][api.type.Listener].
 
 Specifically for this routine, the `event` parameter ([table][api.type.Table]) tells us what object the user is touching/dragging, the location of the touch in content space, and a few other pieces of information. You'll see this `event` parameter used frequently as you move forward and study existing code samples, so it's a good idea to become familiar with it now.
 
@@ -547,7 +547,7 @@ Let's complete the `dragShip()` touch listener function with one more command:
 end
 ``````
 
-As the comment indicates, this short but important command tells Corona that the touch event should "stop" on this object and not propagate to underlying objects. This is essential in more complex apps where you might have multiple overlapping objects with touch event detection. Adding <nobr>`return true`</nobr> at the end of touch listener functions prevents potential (and&nbsp;usually&nbsp;undesirable) touch propagation.
+As the comment indicates, this short but important command tells CORONA_CORE_PRODUCT that the touch event should "stop" on this object and not propagate to underlying objects. This is essential in more complex apps where you might have multiple overlapping objects with touch event detection. Adding <nobr>`return true`</nobr> at the end of touch listener functions prevents potential (and&nbsp;usually&nbsp;undesirable) touch propagation.
 
 ### Touch Listener
 
@@ -584,7 +584,7 @@ Let's check the result of our code. Save your modified `main.lua` file, relaunch
 
 ## Game Loop
 
-Many games include some type of __game&nbsp;loop__ to handle the updating of information, checking/updating the state of game objects, etc. Although it's entirely possible to build a game in Corona without ever implementing a game loop, we'll use one here to illustrate the concept.
+Many games include some type of __game&nbsp;loop__ to handle the updating of information, checking/updating the state of game objects, etc. Although it's entirely possible to build a game in CORONA_CORE_PRODUCT without ever implementing a game loop, we'll use one here to illustrate the concept.
 
 A game loop function is usually short &mdash; instead of containing a large amount of code itself, it typically calls other functions to handle specific repetitive functionality. Our game loop will be used to create new asteroids and clean up "dead" asteroids.
 
@@ -719,7 +719,7 @@ table.remove( asteroidsTable, i )
 </div>
 <div class="docs-tip-inner-right">
 
-It's very important to understand basic Lua memory management and how it relates to Corona display objects. The first command above, <nobr>`display.remove( thisAsteroid )`</nobr>, will remove the asteroid from the screen, visually. However, that command alone will __not__ release the asteroid from Lua memory. Why?
+It's very important to understand basic Lua memory management and how it relates to display objects. The first command above, <nobr>`display.remove( thisAsteroid )`</nobr>, will remove the asteroid from the screen, visually. However, that command alone will __not__ release the asteroid from Lua memory. Why?
 
 Because we stored an __additional__ reference to the asteroid inside the `asteroidsTable` table, Lua cannot free up the memory allocated to the asteroid object until that reference is removed. That's why we perform the second command, <nobr>`table.remove( asteroidsTable, i )`</nobr>, directly afterward. This effectively removes that additional reference and, because there are no other persistent references to the object, the Lua garbage collection process can then automatically free its allocated memory.
 
@@ -751,7 +751,7 @@ Let's dissect this line:
 
 1. First, we state that the `gameLoopTimer` placeholder variable (declared&nbsp;earlier) will be associated with our timer. This allows us to use that variable as a reference/handle for pausing or canceling the timer later, if necessary.
 
-2. Next, we call `timer.performWithDelay()`. This convenient command tells Corona to perform some action after a specified number of milliseconds. Timers are useful for a wide array of game functionality, so get comfortable with them!
+2. Next, we call `timer.performWithDelay()`. This convenient command tells CORONA_CORE_PRODUCT to perform some action after a specified number of milliseconds. Timers are useful for a wide array of game functionality, so get comfortable with them!
 
 3. Inside the parentheses, we start with the number of milliseconds to wait (delay) until the timer fires. Here we use `500` which is exactly half a second, but you can experiment with other values. A lower number like `250` will make asteroids spawn faster and increase the difficulty of the game, but don't set this value too low or asteroids will generate too quickly and crowd the screen.
 
@@ -1057,7 +1057,7 @@ In the default `else` clause (the player has at least one life&nbsp;remaining), 
 
 ### Collision Listener
 
-All of our collision logic is now in place, but absolutely nothing will happen unless we link it up! Since we decided to implement collisions in the global method, it only takes one command to tell Corona that it should listen for new collisions during every runtime frame of the app.
+All of our collision logic is now in place, but absolutely nothing will happen unless we link it up! Since we decided to implement collisions in the global method, it only takes one command to tell CORONA_CORE_PRODUCT that it should listen for new collisions during every runtime frame of the app.
 
 Immediately following the `onCollision()` function (after&nbsp;its closing `end`&nbsp;statement), add the following command:
 

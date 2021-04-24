@@ -347,7 +347,7 @@ end</pre>
 <div id="cleanup" class="section level3">
 <h3>Cleanup</h3>
 <p>Great! New lasers will now correctly appear at the same location as the ship (visually behind it too) and move upward across the screen. There is just one last thing to implement, and it's very important: <strong>cleanup</strong>. In any app, it's critical that you remove objects from the game which are no longer needed. If you don't, the app will eventually slow to a crawl, run out of memory, and crash — not a good experience for the player!</p>
-<p>In Corona, there are various approaches toward cleanup and it will depend on the situation. For the lasers, we're going to use a very convenient method known as an <code>onComplete</code> callback. Available as an option within <code>transition.to()</code> and several other commands, this tells Corona that you want to call a function when something &quot;completes.&quot; This is ideal for removing lasers which have completed their transition, so let's expand our <code>transition.to()</code> command to include an <code>onComplete</code> callback:</p>
+<p>There are various approaches toward cleanup and it will depend on the situation. For the lasers, we're going to use a very convenient method known as an <code>onComplete</code> callback. Available as an option within <code>transition.to()</code> and several other commands, this tells Solar2D that you want to call a function when something &quot;completes.&quot; This is ideal for removing lasers which have completed their transition, so let's expand our <code>transition.to()</code> command to include an <code>onComplete</code> callback:</p>
 <pre class="brush: lua; gutter: true; highlight: [137]; first-line: 132;">    newLaser.x = ship.x
     newLaser.y = ship.y
     newLaser:toBack()
@@ -356,7 +356,7 @@ end</pre>
         onComplete = function() display.remove( newLaser ) end
     } )
 end</pre>
-<p>Simply stated, this addition tells Corona to run a function when the transition completes. Inside the function, the only command we need is <code>display.remove( newLaser )</code> which removes the laser object from the stage. Beyond that, Lua's <nobr>built-in</nobr> garbage collection process will automatically free up memory that was allocated to the object.</p>
+<p>Simply stated, this addition runs a function when the transition completes. Inside the function, the only command we need is <code>display.remove( newLaser )</code> which removes the laser object from the stage. Beyond that, Lua's <nobr>built-in</nobr> garbage collection process will automatically free up memory that was allocated to the object.</p>
 <div class="docs-tip-outer">
 <div class="docs-tip-inner-left">
 <div class="fa fa-cog">
@@ -407,7 +407,7 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Notice that, unlike our previous functions, this function has the keyword <code>event</code> in the parentheses following its name. As you learned in the <code>BalloonTap</code> project, Corona is largely an <nobr><a href="../../../api/type/Event.html">event</a>-based</nobr> framework where information is dispatched during a specific event to an event <a href="../../../api/type/Listener.html">listener</a>.</p>
+<p>Notice that, unlike our previous functions, this function has the keyword <code>event</code> in the parentheses following its name. As you learned in the <code>BalloonTap</code> project, Solar2D is largely an <nobr><a href="../../../api/type/Event.html">event</a>-based</nobr> framework where information is dispatched during a specific event to an event <a href="../../../api/type/Listener.html">listener</a>.</p>
 <p>Specifically for this routine, the <code>event</code> parameter (<a href="../../../api/type/Table.html">table</a>) tells us what object the user is touching/dragging, the location of the touch in content space, and a few other pieces of information. You'll see this <code>event</code> parameter used frequently as you move forward and study existing code samples, so it's a good idea to become familiar with it now.</p>
 </div>
 </div>
@@ -499,7 +499,7 @@ end</pre>
 
     return true  -- Prevents touch propagation to underlying objects
 end</pre>
-<p>As the comment indicates, this short but important command tells Corona that the touch event should &quot;stop&quot; on this object and not propagate to underlying objects. This is essential in more complex apps where you might have multiple overlapping objects with touch event detection. Adding <nobr><code>return true</code></nobr> at the end of touch listener functions prevents potential (and usually undesirable) touch propagation.</p>
+<p>As the comment indicates, this short but important command tells Solar2D that the touch event should &quot;stop&quot; on this object and not propagate to underlying objects. This is essential in more complex apps where you might have multiple overlapping objects with touch event detection. Adding <nobr><code>return true</code></nobr> at the end of touch listener functions prevents potential (and usually undesirable) touch propagation.</p>
 </div>
 <div id="touch-listener" class="section level3">
 <h3>Touch Listener</h3>
@@ -529,7 +529,7 @@ ship:addEventListener( "touch", dragShip )</pre>
 </div>
 <div id="game-loop" class="section level2">
 <h2>Game Loop</h2>
-<p>Many games include some type of <strong>game loop</strong> to handle the updating of information, checking/updating the state of game objects, etc. Although it's entirely possible to build a game in Corona without ever implementing a game loop, we'll use one here to illustrate the concept.</p>
+<p>Many games include some type of <strong>game loop</strong> to handle the updating of information, checking/updating the state of game objects, etc. Although it's entirely possible to build a game in Solar2D without ever implementing a game loop, we'll use one here to illustrate the concept.</p>
 <p>A game loop function is usually short — instead of containing a large amount of code itself, it typically calls other functions to handle specific repetitive functionality. Our game loop will be used to create new asteroids and clean up &quot;dead&quot; asteroids.</p>
 <p>First, create the core game loop function in your <code>main.lua</code> file following the code you've already written:</p>
 <pre class="brush: lua; gutter: true; highlight: [170,171,172,173]; first-line: 167;">ship:addEventListener( "touch", dragShip )
@@ -622,7 +622,7 @@ then</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>It's very important to understand basic Lua memory management and how it relates to Corona display objects. The first command above, <nobr><code>display.remove( thisAsteroid )</code></nobr>, will remove the asteroid from the screen, visually. However, that command alone will <strong>not</strong> release the asteroid from Lua memory. Why?</p>
+<p>It's very important to understand basic Lua memory management and how it relates to display objects. The first command above, <nobr><code>display.remove( thisAsteroid )</code></nobr>, will remove the asteroid from the screen, visually. However, that command alone will <strong>not</strong> release the asteroid from Lua memory. Why?</p>
 <p>Because we stored an <strong>additional</strong> reference to the asteroid inside the <code>asteroidsTable</code> table, Lua cannot free up the memory allocated to the asteroid object until that reference is removed. That's why we perform the second command, <nobr><code>table.remove( asteroidsTable, i )</code></nobr>, directly afterward. This effectively removes that additional reference and, because there are no other persistent references to the object, the Lua garbage collection process can then automatically free its allocated memory.</p>
 </div>
 </div>
@@ -644,7 +644,7 @@ gameLoopTimer = timer.performWithDelay( 500, gameLoop, 0 )</pre>
 <p>Let's dissect this line:</p>
 <ol style="list-style-type: decimal">
 <li><p>First, we state that the <code>gameLoopTimer</code> placeholder variable (declared earlier) will be associated with our timer. This allows us to use that variable as a reference/handle for pausing or canceling the timer later, if necessary.</p></li>
-<li><p>Next, we call <code>timer.performWithDelay()</code>. This convenient command tells Corona to perform some action after a specified number of milliseconds. Timers are useful for a wide array of game functionality, so get comfortable with them!</p></li>
+<li><p>Next, we call <code>timer.performWithDelay()</code>. This convenient command tells Solar2D to perform some action after a specified number of milliseconds. Timers are useful for a wide array of game functionality, so get comfortable with them!</p></li>
 <li><p>Inside the parentheses, we start with the number of milliseconds to wait (delay) until the timer fires. Here we use <code>500</code> which is exactly half a second, but you can experiment with other values. A lower number like <code>250</code> will make asteroids spawn faster and increase the difficulty of the game, but don't set this value too low or asteroids will generate too quickly and crowd the screen.</p></li>
 <li><p>The next parameter is the function which will be called/run when the timer fires. Obviously we specify <code>gameLoop</code> here.</p></li>
 <li><p>Finally, we include the optional <strong>iterations</strong> parameter with a value of <code>0</code>. If this parameter is omitted, timers will simply fire once and stop. If you include this parameter, the timer will repeat for that number of iterations, but don't be fooled by the <code>0</code> in this case — we are <strong>not</strong> telling the timer to <nobr>&quot;run zero times&quot;</nobr> but rather to repeat forever. Basically, passing <code>0</code> or <code>-1</code> will cause the timer to repeat indefinitely (unless we tell it to pause/stop).</p></li>
@@ -893,7 +893,7 @@ end</pre>
 </div>
 <div id="collision-listener" class="section level3">
 <h3>Collision Listener</h3>
-<p>All of our collision logic is now in place, but absolutely nothing will happen unless we link it up! Since we decided to implement collisions in the global method, it only takes one command to tell Corona that it should listen for new collisions during every runtime frame of the app.</p>
+<p>All of our collision logic is now in place, but absolutely nothing will happen unless we link it up! Since we decided to implement collisions in the global method, it only takes one command to tell Solar2D that it should listen for new collisions during every runtime frame of the app.</p>
 <p>Immediately following the <code>onCollision()</code> function (after its closing <code>end</code> statement), add the following command:</p>
 <pre class="brush: lua; gutter: true; highlight: [255]; first-line: 251;">        end
     end
@@ -996,7 +996,7 @@ Runtime:addEventListener( "collision", onCollision )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">
-© 2020 Solar2D All Rights Reserved.
+© 2021 Solar2D All Rights Reserved.
 </p>
 <p class="feedback">
 Help us help you! If you notice a problem with this page, please report it.

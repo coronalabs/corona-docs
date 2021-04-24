@@ -265,7 +265,7 @@ P_POSITION vec2 VertexKernel( P_POSITION vec2 position )
 <p>Corona's default fragment kernel simply samples a single texture (<code>CoronaSampler0</code>) and, using <code>CoronaColorScale()</code>, modulates it by the display object's alpha/tint:</p>
 <pre class="brush: lua;">P_COLOR vec4 FragmentKernel( P_UV vec2 texCoord )
 {
-    P_COLOR texColor = texture2D( CoronaSampler0, texCoord );
+    P_COLOR vec4 texColor = texture2D( CoronaSampler0, texCoord );
     return CoronaColorScale( texColor );
 }</pre>
 <div id="time-1" class="section level3">
@@ -578,7 +578,7 @@ v2.xz = v0 * v1; // GOOD: Write mask limits calculations</pre>
 <hr>
 <div id="footer">
 <p class="copyright">
-© 2020 Solar2D All Rights Reserved.
+© 2021 Solar2D All Rights Reserved.
 </p>
 <p class="feedback">
 Help us help you! If you notice a problem with this page, please report it.

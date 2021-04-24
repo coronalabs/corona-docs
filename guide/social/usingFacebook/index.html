@@ -232,7 +232,7 @@ Note
 </div>
 <div id="logging-inout" class="section level2">
 <h2>Logging In/Out</h2>
-<p>Logging in to Facebook is accomplished through <a href="../../../plugin/facebook-v4a/login.html">facebook.login()</a>. If you didn't already set a [listener][api.Type.Listener] function via <a href="../../../plugin/facebook-v4a/init.html">facebook.init()</a> or <a href="../../../plugin/facebook-v4a/setFBConnectListener.html">facebook.setFBConnectListener()</a>, you can set it by passing the listener reference as the first argument to <a href="../../../plugin/facebook-v4a/login.html">facebook.login()</a>.</p>
+<p>Logging in to Facebook is accomplished through <a href="../../../plugin/facebook-v4a/login.html">facebook.login()</a>. If you didn't already set a <a href="../../../api/type/Listener.html">listener</a> function via <a href="../../../plugin/facebook-v4a/init.html">facebook.init()</a> or <a href="../../../plugin/facebook-v4a/setFBConnectListener.html">facebook.setFBConnectListener()</a>, you can set it by passing the listener reference as the first argument to <a href="../../../plugin/facebook-v4a/login.html">facebook.login()</a>.</p>
 <p>Secondly, via <a href="../../../plugin/facebook-v4a/login.html">facebook.login()</a>, you can request an array of <a href="https://developers.facebook.com/docs/facebook-login/permissions">permissions</a>. Both <nobr><strong>read-only</strong></nobr> and <strong>publishable</strong> permissions can be specified, with some caveats which are outlined in the <a href="../../../plugin/facebook-v4a/login.html">facebook.login()</a> documentation.</p>
 <p>Putting these two aspects together, a login call might look like this:</p>
 <pre class="brush: lua;">facebook.login( facebookListener, { "email", "user_birthday" } )</pre>
@@ -322,7 +322,7 @@ facebook.request( "me/photos", "POST", attachment )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">
-© 2020 Solar2D All Rights Reserved.
+© 2021 Solar2D All Rights Reserved.
 </p>
 <p class="feedback">
 Help us help you! If you notice a problem with this page, please report it.

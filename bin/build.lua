@@ -65,7 +65,7 @@ local output_images_dir = html_dir .. "/images"
 
 -- strings to substitute throughout docs content (not headers or footers though)
 local title_prefix = "Solar2D Documentation"
-local default_rev_label = "Release 2021.3642"
+local default_rev_label = "Release 2021.3646"
 local REV_LABEL = default_rev_label
 
 local CORONA_CORE_PRODUCT = "Solar2D"

@@ -17,7 +17,9 @@ This guide explains how to sign, build, and test your app on Android devices.
 
 * You do not need to install the Android SDK. However, you will need to install the proper version of the __Java&nbsp;Development&nbsp;Kit__ if you're using Windows. See the [Java Development Kit][guide.start.installWin#jdk] section for details.
 
-* The Android build process generates a standard `.apk` file. You can build and test apps on Android devices without creating a [Google&nbsp;developer&nbsp;account](https://developers.google.com), but you will need an account if you wish to publish to the [Google&nbsp;Play](https://play.google.com/store) marketplace.
+* The Android build process generates two files: an `.apk` and an `.aab` file. You can build and test apps on Android devices without creating a [Google&nbsp;developer&nbsp;account](https://developers.google.com), but you will need an account if you wish to publish to the [Google&nbsp;Play](https://play.google.com/store) marketplace.
+	
+* The [Android App Bundle](https://developer.android.com/platform/technology/app-bundle) file, `.aab`, is automatically generated when you build for Android. You can use this file to submit your apps or games to Google Play.
 
 * We only support Android devices that run <nobr>__Android 4.0.3__</nobr> or higher with an __ARMv7__ processor. This can create some confusion because ARM processors are identified by both a __family__ and an __architecture__. Family names do not have a __"v"__ in them. For instance, the ARM7 processor is actually a ARMv3 architecture, and ARM11 is a ARMv6 architecture. See [this guide](http://en.wikipedia.org/wiki/List_of_ARM_microprocessor_cores) to help identify the various processors.
 

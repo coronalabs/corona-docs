@@ -75,8 +75,8 @@ local CORONA_CARDS_PRODUCT = "CoronaCards"
 -- Do NOT directly reference DEFAULT_REV_URL and REV_URL_BASE variables in docs. 
 -- To reference DEFAULT_REV_URL and REV_URL_BASE in the docs, use REVISION_URL.
 -- Editing DEFAULT_REV_URL and REV_URL_BASE would change REVISION_URL.
-local DEFAULT_REV_URL = "https://github.com/coronalabs/corona/releases"
-local REV_URL_BASE = "https://github.com/coronalabs/corona/releases/"  -- don't forget the trailing slash '/'
+local DEFAULT_REV_URL = "https://solar2d.com/download/"
+local REV_URL_BASE = "https://solar2d.com/download/"  -- don't forget the trailing slash '/'
 
 -- Do NOT directly reference SOLAR_LINK_PLUGINS and SOLAR_LINK_PLAYGROUND variables in docs.
 -- To reference SOLAR_LINK_PLUGINS and SOLAR_LINK_PLAYGROUND in the docs, use PLUGINS_DIR and SOLAR_PLAY respectively.

@@ -57,7 +57,6 @@
 <ul>
 <li><a href="#objectsetnativeproperty">object:setNativeProperty()</a><ul>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#gotchas">Gotchas</a></li>
 <li><a href="#syntax">Syntax</a><ul>
 <li><a href="#property-required">property <sub><sup>(required)</sup></sub></a></li>
 <li><a href="#value-required">value <sub><sup>(required)</sup></sub></a></li>
@@ -92,7 +91,7 @@
 </tr>
 <tr class="odd">
 <td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://github.com/coronalabs/corona/releases">Release 2021.3646</a></td>
+<td align="left"><a href="https://solar2d.com/download/">Release 2021.3646</a></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>Keywords</strong></td>
@@ -107,11 +106,7 @@
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>This function allows you to <strong>set</strong> properties of the underlying native object created by the <a href="../../../api/library/native/index.html">native</a> library. For example, if you create a <a href="../../../api/type/WebView/index.html">WebView</a> on iOS, you can set the Obj-C properties of the corresponding <code>WKWebView</code> (or <code>WKWebViewConfiguration</code> if called before a request is made).</p>
-</div>
-<div id="gotchas" class="section level2">
-<h2>Gotchas</h2>
-<p>This is an iOS-only feature.</p>
+<p>This function allows you to <strong>set</strong> properties of the underlying native object created by the <a href="../../../api/library/native/index.html">native</a> library. For example, if you create a <a href="../../../api/type/WebView/index.html">WebView</a> on iOS, you can set the Obj-C properties of the corresponding <a href="https://developer.apple.com/documentation/webkit/wkwebview?language=objc"><code>WKWebView</code></a> or <a href="https://developer.apple.com/documentation/webkit/wkwebviewconfiguration?language=objc"><code>WKWebViewConfiguration</code></a> if called before a request is made. Similarly on Android it can set properties of <a href="https://developer.android.com/reference/android/webkit/WebView"><code>WebView</code></a> or <a href="https://developer.android.com/reference/android/webkit/WebSettings"><code>WebSettings</code></a></p>
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
@@ -122,13 +117,20 @@
 </div>
 <div id="value-required" class="section level5">
 <h5>value <sub><sup>(required)</sup></sub></h5>
-<p>The value to set the property to. Must be a Lua value compatible with <nobr>Obj-C</nobr>. The following Lua values are converted to the corresponding values in <nobr>Obj-C</nobr>: <a href="../../../api/type/Boolean.html">boolean</a>, <a href="../../../api/type/String.html">string</a>, <a href="../../../api/type/Array.html">array</a>, <a href="../../../api/type/Table.html">table</a>, and <a href="../../../api/type/Number.html">number</a>.</p>
+<p>The value to set the property to. Must be a Lua value compatible with <nobr>Obj-C</nobr> or Java. The following Lua values are converted to the corresponding values in <nobr>Obj-C</nobr>: <a href="../../../api/type/Boolean.html">boolean</a>, <a href="../../../api/type/String.html">string</a>, <a href="../../../api/type/Array.html">array</a>, <a href="../../../api/type/Table.html">table</a>, and <a href="../../../api/type/Number.html">number</a>. Java supported types are <a href="../../../api/type/Boolean.html">boolean</a>, <a href="../../../api/type/String.html">string</a> and <a href="../../../api/type/Number.html">number</a>.</p>
+<p>Android also supports special pair of values for WebView: property <code>&quot;http.agent&quot;</code> and value <code>&quot;system&quot;</code> to set WebView user agent to system default.</p>
 </div>
 </div>
 <div id="example" class="section level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local webView = native.newWebView( 0, 0, display.contentWidth, display.contentHeight )
-webView:setNativeProperty( "allowsInlineMediaPlayback", true )</pre>
+if system.getInfo("platform") == "android" then
+    webView:setNativeProperty("http.agent", "system")
+    webView:setNativeProperty("setBuiltInZoomControls", false)
+else
+    webView:setNativeProperty( "allowsInlineMediaPlayback", true )
+end
+webView:request( "https://www.solar2d.com" )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

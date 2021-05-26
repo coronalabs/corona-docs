@@ -60,6 +60,13 @@
 <li><a href="#gotchas">Gotchas</a></li>
 <li><a href="#syntax">Syntax</a><ul>
 <li><a href="#productidentifier-required">productIdentifier <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#options-optional">options <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#options-reference">Options Reference</a><ul>
+<li><a href="#accountid-optional">accountId <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#obfuscatedaccountid-optional">obfuscatedAccountId <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#profileid-optional">profileId <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#obfuscatedprofileid-optional">obfuscatedProfileId <sub><sup>(optional)</sup></sub></a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -109,10 +116,34 @@
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">store.purchaseSubscription( productIdentifier )</pre>
+<pre class="brush: lua;">store.purchaseSubscription( productIdentifier [, options] )</pre>
 <div id="productidentifier-required" class="section level5">
 <h5>productIdentifier <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> String representing the product identifier of the item to purchase.</p>
+</div>
+<div id="options-optional" class="section level5">
+<h5>options <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> A table that specifies additional parameters of the purchase API call.</p>
+</div>
+</div>
+<div id="options-reference" class="section level2">
+<h2>Options Reference</h2>
+<p>The <code>options</code> table contains details about the purchase request.</p>
+<div id="accountid-optional" class="section level5">
+<h5>accountId <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> Specifies an optional string that is uniquely associated with the user's account in your app. This value would be obfuscated (SHA-256 hash) before sending to Google. For more details see <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setObfuscatedAccountId%28java.lang.String%29">documentation</a>.</p>
+</div>
+<div id="obfuscatedaccountid-optional" class="section level5">
+<h5>obfuscatedAccountId <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> Specifies an optional obfuscated string that is uniquely associated with the user's account in your app. If set, <code>accountId</code> would be ignored. For more details see <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setObfuscatedAccountId%28java.lang.String%29">documentation</a>.</p>
+</div>
+<div id="profileid-optional" class="section level5">
+<h5>profileId <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> Specifies an optional string that is uniquely associated with the user's profile in your app. This value would be obfuscated (SHA-256 hash) before sending to Google. For more details see <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setObfuscatedProfileId%28java.lang.String%29">documentation</a>.</p>
+</div>
+<div id="obfuscatedprofileid-optional" class="section level5">
+<h5>obfuscatedProfileId <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> Specifies an optional obfuscated string that is uniquely associated with the user's profile in your app. If set, <code>profileId</code> would be ignored. For more details see <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setObfuscatedProfileId%28java.lang.String%29">documentation</a>).</p>
 <hr>
 <div id="footer">
 <p class="copyright">

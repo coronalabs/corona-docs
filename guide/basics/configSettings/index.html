@@ -227,7 +227,11 @@ Important
 }</pre>
 <p>As indicated, each <strong>image suffix</strong> must be specified within brackets and quotes as in <code>[&quot;@2x&quot;]</code>. The suffix can be named whatever you want, but it should be short and logical since you must append the same suffix to <strong>all</strong> image files designed for that image set. When adding a suffix to each image file, do not include the bracket or quotes — just append the suffix itself, for example <code>myImage@2x.png</code> or <code>myImage@4x.png</code>.</p>
 <p>The second part of each declaration is the <strong>scale factor</strong>. This value specifies the scale threshold above which Corona will use images in that suffix set. The following code can help you determine the proper values:</p>
-<pre class="brush: lua;">print( display.pixelWidth / display.actualContentWidth )</pre>
+<pre class="brush: lua;">-- For if your app is in portrait orientation:
+print( display.pixelWidth / display.actualContentWidth )
+
+-- For if your app is in landscape orientation:
+print( display.pixelWidth / display.actualContentHeight )</pre>
 <p>Add this code to your project, access the Corona Simulator, and use <strong>Window → View As</strong> to simulate different devices. Note the output in the Corona Simulator Console — this is the scale factor for the device. If the value on a particular device is <strong>greater than</strong> or <strong>equal to</strong> the number you specify for the scale factor, Corona will use images from that suffix set.</p>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">

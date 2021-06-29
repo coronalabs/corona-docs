@@ -185,7 +185,11 @@ As indicated, each __image suffix__ must be specified within brackets and quotes
 The second part of each declaration is the __scale&nbsp;factor__. This value specifies the scale threshold above which Corona will use images in that suffix set. The following code can help you determine the proper values:
 
 ``````lua
+-- For if your app is in portrait orientation:
 print( display.pixelWidth / display.actualContentWidth )
+
+-- For if your app is in landscape orientation:
+print( display.pixelWidth / display.actualContentHeight )
 ``````
 
 Add this code to your project, access the Corona Simulator, and use __Window&nbsp;&rarr;&nbsp;View&nbsp;As__ to simulate different devices. Note the output in the Corona Simulator Console — this is the scale factor for the device. If the value on a particular device is __greater&nbsp;than__ or __equal&nbsp;to__ the number you specify for the scale factor, Corona will use images from that suffix set.

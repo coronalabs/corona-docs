@@ -1,5 +1,9 @@
 name: Deploy to GitHub pages
 on: [push]
+concurrency: 
+  group: singleton
+  cancel-in-progress: true
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest

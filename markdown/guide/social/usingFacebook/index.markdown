@@ -203,7 +203,7 @@ This listener function can be the same function that you'll use for Facebook req
 
 ## Logging In/Out
 
-Logging in to Facebook is accomplished through [facebook.login()][plugin.facebook-v4a.login]. If you didn't already set a [listener][api.Type.Listener] function via [facebook.init()][plugin.facebook-v4a.init] or  [facebook.setFBConnectListener()][plugin.facebook-v4a.setFBConnectListener], you can set it by passing the listener reference as the first argument to [facebook.login()][plugin.facebook-v4a.login].
+Logging in to Facebook is accomplished through [facebook.login()][plugin.facebook-v4a.login]. If you didn't already set a [listener][api.type.Listener] function via [facebook.init()][plugin.facebook-v4a.init] or  [facebook.setFBConnectListener()][plugin.facebook-v4a.setFBConnectListener], you can set it by passing the listener reference as the first argument to [facebook.login()][plugin.facebook-v4a.login].
 
 Secondly, via [facebook.login()][plugin.facebook-v4a.login], you can request an array of [permissions](https://developers.facebook.com/docs/facebook-login/permissions). Both <nobr>__read-only__</nobr> and __publishable__ permissions can be specified, with some caveats which are outlined in the [facebook.login()][plugin.facebook-v4a.login] documentation.
 

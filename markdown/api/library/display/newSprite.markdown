@@ -1,7 +1,7 @@
 # display.newSprite()
 
 > --------------------- ------------------------------------------------------------------------------------------
-> __Type__              [Function][api.type.function]
+> __Type__              [Function][api.type.Function]
 > __Library__           [display.*][api.library.display]
 > __Return value__      [SpriteObject][api.type.SpriteObject]
 > __Revision__          [REVISION_LABEL](REVISION_URL)

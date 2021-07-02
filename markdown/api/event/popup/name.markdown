@@ -2,7 +2,7 @@
 # event.name
 
 > --------------------- ------------------------------------------------------------------------------------------
-> __Type__              [String][api.type.string]
+> __Type__              [String][api.type.String]
 > __Event__             [popup][api.event.popup]
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          popup, name

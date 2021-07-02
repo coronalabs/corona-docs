@@ -32,7 +32,7 @@ _[Number][api.type.Number]._ The row index to scroll to.
 _[Number][api.type.Number]._ Time in milliseconds to scroll to the specified row index. For an instantaneous effect (no&nbsp;transition), set this to `0`. Default is `400`.
 
 ##### onComplete ~^(optional)^~
-_[Function][api.type.function]._ An optional function that will be called when the scroll completes.
+_[Function][api.type.Function]._ An optional function that will be called when the scroll completes.
 
 
 ## Example

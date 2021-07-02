@@ -65,7 +65,7 @@ local output_images_dir = html_dir .. "/images"
 
 -- strings to substitute throughout docs content (not headers or footers though)
 local title_prefix = "Solar2D Documentation"
-local default_rev_label = "Release 2020.3619"
+local default_rev_label = "Release 2021.3646"
 local REV_LABEL = default_rev_label
 
 local CORONA_CORE_PRODUCT = "Solar2D"
@@ -75,8 +75,8 @@ local CORONA_CARDS_PRODUCT = "CoronaCards"
 -- Do NOT directly reference DEFAULT_REV_URL and REV_URL_BASE variables in docs. 
 -- To reference DEFAULT_REV_URL and REV_URL_BASE in the docs, use REVISION_URL.
 -- Editing DEFAULT_REV_URL and REV_URL_BASE would change REVISION_URL.
-local DEFAULT_REV_URL = "https://github.com/coronalabs/corona/releases"
-local REV_URL_BASE = "https://github.com/coronalabs/corona/releases/"  -- don't forget the trailing slash '/'
+local DEFAULT_REV_URL = "https://solar2d.com/download/"
+local REV_URL_BASE = "https://solar2d.com/download/"  -- don't forget the trailing slash '/'
 
 -- Do NOT directly reference SOLAR_LINK_PLUGINS and SOLAR_LINK_PLAYGROUND variables in docs.
 -- To reference SOLAR_LINK_PLUGINS and SOLAR_LINK_PLAYGROUND in the docs, use PLUGINS_DIR and SOLAR_PLAY respectively.

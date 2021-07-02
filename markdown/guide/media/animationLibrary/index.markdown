@@ -219,7 +219,7 @@ A __timeline__ is a powerful way to construct intricate <nobr>multi-interpolatio
 animation.newTimeline( timelineParams )
 ``````
 
-For this function, the `timelineParams` argument is a [table][api.Type.Table] which specifies the tweens, markers, and other parameters for the timeline.
+For this function, the `timelineParams` argument is a [table][api.type.Table] which specifies the tweens, markers, and other parameters for the timeline.
 
 ### Timeline Tweens
 

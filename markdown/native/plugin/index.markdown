@@ -8,7 +8,7 @@ Plugins allow you to extend the functionality of CORONA_CORE_PRODUCT. This guide
 </div>
 <div class="docs-tip-inner-right">
 
-Solar2D runs Solar2D Free Plugin directory at [plugins.solar2d.com](https://plugins.solar2d.com/). If you created a plugin please submit it to the Solar2D Free Plugin Directory. You can either submit link where one can get your pluign, or distribute it for free.
+Solar2D runs Solar2D Free Plugin directory at [plugins.solar2d.com](https://plugins.solar2d.com/). If you created a plugin please submit it to the Solar2D Free Plugin Directory. You can either submit link where one can get your plugin, or distribute it for free.
 Alternatively, you may submit it to the [Solar2D Plugins Marketplace](https://www.solar2dplugins.com/), please see the [Asset Packaging Guidelines](https://www.solar2dplugins.com/asset-packaging-guidelines).
 
 </div>

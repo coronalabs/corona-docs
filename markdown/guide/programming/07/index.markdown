@@ -27,7 +27,7 @@ Sound effects and background music are an important part of the gameplay experie
 
 ## Preloading and Streaming
 
-There are two ways to load audio in your Corona app. Which one you use typically depends on how the audio file will be utilized.
+There are two ways to load audio in your Solar2D app. Which one you use typically depends on how the audio file will be utilized.
 
 ### Preloading
 
@@ -101,7 +101,7 @@ local backgroundMusic2 = audio.loadStream( "musicTrack1.wav" )
 
 ### Including Audio Files
 
-Let's add sound effects to our game! To begin, you'll need to download the sample audio files, courtesy of <a href="http://www.soundimage.org" target="_new">Eric Matyas</a>. Within the `audio` subfolder of this chapter's [source files](https://github.com/coronalabs/GettingStarted07/archive/master.zip), you'll find the following audio files:
+Let's add sound effects to our game! To begin, you'll need to download the sample audio files, courtesy of <a href="https://www.soundimage.org" target="_new">Eric Matyas</a>. Within the `audio` subfolder of this chapter's [source files](https://github.com/coronalabs/GettingStarted07/archive/master.zip), you'll find the following audio files:
 
 <div class="inner-table">
 
@@ -339,7 +339,7 @@ math.randomseed( os.time() )
 audio.reserveChannels( 1 )
 ``````
 
-Basically, the <nobr>`audio.reserveChannels( 1 )`</nobr> command tells the Corona audio library to reserve channel `1`. While reserved, no audio file will play on the channel unless we explicitly command it to.
+Basically, the <nobr>`audio.reserveChannels( 1 )`</nobr> command tells the Solar2D audio library to reserve channel `1`. While reserved, no audio file will play on the channel unless we explicitly command it to.
 
 </div>
 

@@ -26,7 +26,7 @@ Particles emitted by an emitter are __not__ automatically removed unless their l
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>
 
-On macOS, [Particle Designer](http://71squared.com/particledesigner) can be used to design and output emitters as <nobr>JSON-encoded</nobr> files. Otherwise, emitter properties can simply be passed to this function as <nobr>key-value</nobr> pairs in a Lua table. See the examples below for usage details.
+On macOS, [Particle Designer](https://www.71squared.com/particledesigner) can be used to design and output emitters as <nobr>JSON-encoded</nobr> files. Otherwise, emitter properties can simply be passed to this function as <nobr>key-value</nobr> pairs in a Lua table. See the examples below for usage details.
 
 </div>
 

@@ -21,7 +21,7 @@ The `socket` library provides low-level access to the network stack on the host 
 
 </div>
 
-Corona currently includes version <nobr>`3.0-rc1`</nobr> of the LuaSocket libraries. These Lua modules implement common network protocols such as SMTP, HTTP, and FTP. Also included are features to support MIME (common&nbsp;encodings), URL manipulation, and LTN12 for transferring and filtering data.
+Solar2D currently includes version <nobr>`3.0-rc1`</nobr> of the LuaSocket libraries. These Lua modules implement common network protocols such as SMTP, HTTP, and FTP. Also included are features to support MIME (common&nbsp;encodings), URL manipulation, and LTN12 for transferring and filtering data.
 
 For asynchronous HTTP functions instead of synchronous LuaSocket functions, see [network.request()][api.library.network.request] and [network.download()][api.library.network.download].
 
@@ -73,7 +73,7 @@ myFile = io.open( path, "w+b" )
  
 -- Request remote file and save data to local file
 http.request{
-	url = "http://coronalabs.com/wordpress/wp-content/uploads/2018/07/orange_vertikal_RGB.png", 
+	url = "https://coronalabs.com/wordpress/wp-content/uploads/2018/07/orange_vertikal_RGB.png", 
 	sink = ltn12.sink.file( myFile )
 }
  

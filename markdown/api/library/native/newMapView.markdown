@@ -35,8 +35,6 @@ Renders a map view within the specified boundaries and returns a display object 
 
 Google now requires you to provide an API key to use maps on Android. You can get an [API key here](https://developers.google.com/maps/documentation/javascript/get-api-key).
 
-You will need Corona [daily build 3387](https://developer.coronalabs.com/downloads/daily-builds/) or later to provide the API key.
-
 </div>
 </div>
 

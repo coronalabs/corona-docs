@@ -15,7 +15,7 @@
 
 Moves the displayed map region to a new location, with the new center point and horizontal/vertical span distances given in degrees of latitude and longitude. This implicitly sets the zoom level. This function will "sanity-check" the span settings and will interpolate a consistent zoom level even if `latitudeSpan` and `longitudeSpan` are specified with radically different values. The final parameter is an optional boolean (default `false`) that determines whether the transition is animated or happens instantly.
 
-Note that degrees of latitude and longitude cover large distances on the Earth, so fairly small changes will translate into big position changes in the map, especially at close zoom levels. Also note that most of the planet's map locations are fairly empty, so it will generally be easier to work with known latitude/longitude values when experimenting with maps. Try looking up your own address on a public geocoding site like [http://geocoder.us](http://geocoder.us) (US&nbsp;addresses&nbsp;only) if you need a quick test location.
+Note that degrees of latitude and longitude cover large distances on the Earth, so fairly small changes will translate into big position changes in the map, especially at close zoom levels. Also note that most of the planet's map locations are fairly empty, so it will generally be easier to work with known latitude/longitude values when experimenting with maps. Try looking up your own address on a site like [Google Maps](https://www.google.com/maps) if you need a quick test location.
 
 ## Syntax
 

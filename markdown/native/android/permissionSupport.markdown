@@ -24,16 +24,16 @@ When an Android application runs on a device, the operating system provides only
 
 For apps running on __Android&nbsp;5.1__ or lower, the `AndroidManifest.xml` file is the sole decider for what permissions are allowed, since the user approves of them when installing the app.
 
-For apps running on __Android&nbsp;6.0__ or newer, the app can't reliably assume that it has access to [dangerous permissions](http://developer.android.com/guide/topics/security/permissions.html#permission-groups).
+For apps running on __Android&nbsp;6.0__ or newer, the app can't reliably assume that it has access to [dangerous permissions](https://developer.android.com/guide/topics/permissions/overview#permission-groups).
 
-Permissions __not__ defined in the [dangerous permissions](http://developer.android.com/guide/topics/security/permissions.html#permission-groups) table do not need to be handled at runtime, but they still need to be [declared](#declaring-permissions). Essentially, this means that an app/plugin can't always assume that it has the required permissions, so it must gracefully handle the user's rights. This guide covers how you can check for the state of permissions, request permissions, and handle the results.
+Permissions __not__ defined in the [dangerous permissions](https://developer.android.com/guide/topics/permissions/overview#permission-groups) table do not need to be handled at runtime, but they still need to be [declared](#declaring-permissions). Essentially, this means that an app/plugin can't always assume that it has the required permissions, so it must gracefully handle the user's rights. This guide covers how you can check for the state of permissions, request permissions, and handle the results.
 
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Recap</div>
 
 * If the device is running __Android 5.1__ or lower, permissions are granted on app install. No runtime checks need to be performed.
 
-* If the device is running __Android 6.0__ or newer, [dangerous permissions](http://developer.android.com/guide/topics/security/permissions.html#permission-groups) are requested at runtime. This requires that both the developer and the end user consider whether the permission should be granted.
+* If the device is running __Android 6.0__ or newer, [dangerous permissions](https://developer.android.com/guide/topics/permissions/overview#permission-groups) are requested at runtime. This requires that both the developer and the end user consider whether the permission should be granted.
 
 </div>
 
@@ -51,7 +51,7 @@ The Corona [Camera](https://github.com/coronalabs/samples-coronasdk/blob/master/
 
 ## Targeting Android 6.0
 
-To begin supporting and testing runtime permissions, you must first target Android&nbsp;6.0. Simply change a number to `23` in a few places within the project ([API Level 23](http://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels) corresponds with Android&nbsp;6.0).
+To begin supporting and testing runtime permissions, you must first target Android&nbsp;6.0. Simply change a number to `23` in a few places within the project ([API Level 23](https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels) corresponds with Android&nbsp;6.0).
 
 1. `AndroidManifest.xml` &mdash; Change `android:targetSdkVersion="xx"` to `android:targetSdkVersion="23"`. This will allow you to test your changes in the local project.
 
@@ -122,7 +122,7 @@ In addition, for CORONA_NATIVE_PRODUCT developers, you should communicate that t
 
 ## Extended Permission APIs
 
-Supporting runtime permissions in Corona is very similar to supporting them in native Android apps. This guide is intended as a supplement to Google's [Requesting Permissions at Run Time](http://developer.android.com/training/permissions/requesting.html) guide and follows along in parallel with it.
+Supporting runtime permissions in Corona is very similar to supporting them in native Android apps. This guide is intended as a supplement to Google's [Requesting Permissions at Run Time](https://developer.android.com/training/permissions/requesting.html) guide and follows along in parallel with it.
 
 In Corona, we have provided an interface for developers to handle their permission requests without having to worry about API Levels or [permission leak](https://www.owasp.org/images/c/ca/ASDC12-An_InDepth_Introduction_to_the_Android_Permissions_Modeland_How_to_Secure_MultiComponent_Applications.pdf#page=11).
 
@@ -137,7 +137,7 @@ See [Checking for Permissions](#permission-checking) and [Requesting Permissions
 
 ## Checking for Permissions
 
-This can be done via Google's [context.checkSelfPermission()](http://developer.android.com/reference/android/content/Context.html#checkSelfPermission%28java.lang.String%29) API, however it's only available in API Level 23, it doesn't protect against [permission leak](https://www.owasp.org/images/c/ca/ASDC12-An_InDepth_Introduction_to_the_Android_Permissions_Modeland_How_to_Secure_MultiComponent_Applications.pdf#page=11), and it ignores instances when a permission is not listed in `AndroidManifest.xml`. Instead, we recommend checking for permissions using Corona's `PermissionsServices.getPermissionStateFor()`<!-- (TODO: LINK) --> API. This provides the state of a permission on all supported Android versions and can also determine if the desired permission is missing from `AndroidManifest.xml`.
+This can be done via Google's [context.checkSelfPermission()](https://developer.android.com/reference/android/content/Context.html#checkSelfPermission%28java.lang.String%29) API, however it's only available in API Level 23, it doesn't protect against [permission leak](https://www.owasp.org/images/c/ca/ASDC12-An_InDepth_Introduction_to_the_Android_Permissions_Modeland_How_to_Secure_MultiComponent_Applications.pdf#page=11), and it ignores instances when a permission is not listed in `AndroidManifest.xml`. Instead, we recommend checking for permissions using Corona's `PermissionsServices.getPermissionStateFor()`<!-- (TODO: LINK) --> API. This provides the state of a permission on all supported Android versions and can also determine if the desired permission is missing from `AndroidManifest.xml`.
 
 ``````java
 // Determine the PermissionState for the our ability to send SMS messages.

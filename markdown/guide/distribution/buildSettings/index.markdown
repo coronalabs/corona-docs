@@ -259,7 +259,7 @@ settings =
 
 ### Version Code
 
-You can override the __version&nbsp;code__ entered into the Simulator __Build&nbsp;for&nbsp;Android__ box with an optional `versionCode` <nobr>key-value</nobr> pair in the `build.settings` file. This is an internal number used to distinguish application releases for the Android app store, corresponding to the `versionCode` item detailed [here](http://developer.android.com/guide/topics/manifest/manifest-element.html). This setting is invisible to users.
+You can override the __version&nbsp;code__ entered into the Simulator __Build&nbsp;for&nbsp;Android__ box with an optional `versionCode` <nobr>key-value</nobr> pair in the `build.settings` file. This is an internal number used to distinguish application releases for the Android app store, corresponding to the `versionCode` item detailed [here](https://developer.android.com/guide/topics/manifest/manifest-element). This setting is invisible to users.
 
 ``````{ brush="lua" gutter="false" first-line="1" highlight="[5]" }
 settings
@@ -307,11 +307,11 @@ In the example above, a few useful `android.permission` keys are exhibited:
 * `"android.permission.ACCESS_FINE_LOCATION"` &mdash; allows access to GPS.
 * `"android.permission.ACCESS_COARSE_LOCATION"` &mdash; allows getting the location from WiFi/cellular.
 
-See the Android [documentation](http://developer.android.com/reference/android/Manifest.permission.html) for more information on supported values and what you can do with them.
+See the Android [documentation](https://developer.android.com/reference/android/Manifest.permission) for more information on supported values and what you can do with them.
 
 ### App Features
 
-The `usesFeatures` table creates <nobr>`<uses-feature>`</nobr> tags in the `AndroidManifest.xml` file. These parameters tell the Android app store which hardware/software capabilities the app does or doesn't require. See the Android [features reference](http://developer.android.com/guide/topics/manifest/uses-feature-element.html#features-reference) for a list of supported values.
+The `usesFeatures` table creates <nobr>`<uses-feature>`</nobr> tags in the `AndroidManifest.xml` file. These parameters tell the Android app store which hardware/software capabilities the app does or doesn't require. See the Android [features reference](https://developer.android.com/guide/topics/manifest/uses-feature-element.html#features-reference) for a list of supported values.
 
 ``````{ brush="lua" gutter="false" first-line="1" highlight="[5,6,7,8,9,10]" }
 settings
@@ -339,7 +339,7 @@ If you __require__ a feature (`required=true`), devices lacking the feature will
 
 ### Expansion Files
 
-The `usesExpansionFile` boolean indicates if the app should be built with expansion files. If it's set to `true` and the build target is Google&nbsp;Play, everything in the project directory except the Lua scripts are put into the expansion file. See the Android [documentation](http://developer.android.com/google/play/expansion-files.html) for more information.
+The `usesExpansionFile` boolean indicates if the app should be built with expansion files. If it's set to `true` and the build target is Google&nbsp;Play, everything in the project directory except the Lua scripts are put into the expansion file. See the Android [documentation](https://developer.android.com/google/play/expansion-files) for more information.
 
 ``````{ brush="lua" gutter="false" first-line="1" highlight="[6,11,12,13]" }
 settings =

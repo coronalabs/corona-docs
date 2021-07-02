@@ -9,7 +9,7 @@
 
 ## Feature Support
 
-[CoronaCards](http://www.coronacards.com/) is designed to be added to __existing native apps__ and embedded in an existing app structure, so it does not control or own the main application stack. Because of this architecture, some Lua functionality is limited or unsupported.
+[CoronaCards](https://www.coronacards.com/) is designed to be added to __existing native apps__ and embedded in an existing app structure, so it does not control or own the main application stack. Because of this architecture, some Lua functionality is limited or unsupported.
 
 ### Unsupported Libraries/Services
 

@@ -20,7 +20,7 @@ The following resources go further in depth on using CORONA_NATIVE_PRODUCT for A
 
 ## CORONA_NATIVE_PRODUCT Setup
 
-Download and install [Android Studio](http://developer.android.com/tools/studio/index.html), the official IDE for Android development.
+Download and install [Android Studio](https://developer.android.com/studio), the official IDE for Android development.
 
 ### For macOS
 
@@ -98,7 +98,7 @@ Note that the `LuaLoader` class is instantiated __once__ for the lifetime of the
 
 ### Bridging Lua/Java
 
-To bridge Lua and Java code, you'll use functionality made available by [JNLua](http://code.google.com/p/jnlua/). This allows you to add libraries and functions in Lua that call directly into Java.
+To bridge Lua and Java code, you'll use functionality made available by [JNLua](https://code.google.com/archive/p/jnlua/). This allows you to add libraries and functions in Lua that call directly into Java.
 
 ### Native APIs
 
@@ -131,7 +131,7 @@ For information on working with Android Runtime Permissions in __Android&nbsp;6.
 
 To build a CORONA_NATIVE_PRODUCT project from Android&nbsp;Studio, simply use the __Run__ button on the top bar of icons. This will build your project, sign it, and prompt you to select a deployment target. The built `.apk` is signed with either a keystore you've specified in the <nobr>`android` &rarr; `signingConfigs`</nobr> block of the `android/app/build.gradle` script, or the default `debug.keystore` if none is provided.
 
-Android Studio has several other <nobr>build-related</nobr> options that you can read about [here](http://developer.android.com/tools/building/building-studio.html).
+Android Studio has several other <nobr>build-related</nobr> options that you can read about [here](https://developer.android.com/studio/run).
 
 <a id="self-hosted"></a>
 

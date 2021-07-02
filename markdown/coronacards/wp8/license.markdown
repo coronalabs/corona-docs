@@ -4,12 +4,12 @@
 
 CoronaCards for Windows&nbsp;Phone&nbsp;8 can be used on an __unlimited trial basis__, but all projects will be watermarked with __TRIAL__ and a message will be logged to Visual&nbsp;Studio's __Output__ panel.
 
-To purchase a license, please do so via the [CoronaCards&nbsp;pricing](http://coronacards.com/pricing/) page.
+To purchase a license, please do so via the [CoronaCards&nbsp;pricing](https://coronacards.com/pricing/) page.
 
 
 ## Applying a License
 
-Once you have [purchased](http://coronacards.com/pricing/) a CoronaCards license, please follow these steps:
+Once you have [purchased](https://coronacards.com/pricing/) a CoronaCards license, please follow these steps:
 
 1. Download a new license file (`license.ccdata`) by clicking the __Get&nbsp;License__ button on the right side of your Corona [Account&nbsp;Info](https://developer.coronalabs.com/user) page.
 2. Place this file in the root of your CoronaCards project folder, alongside `main.lua`.

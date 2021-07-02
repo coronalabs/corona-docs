@@ -199,7 +199,7 @@ The most important point of focus is line&nbsp;14 where we execute a SQL `SELECT
 </div>
 <div class="docs-tip-inner-right">
 
-For more information on using the `SELECT` command to filter data, read [this article](http://zetcode.com/db/sqlite/).
+For more information on using the `SELECT` command to filter data, read [this article](https://zetcode.com/db/sqlite/).
 
 </div>
 </div>

@@ -163,7 +163,7 @@ A Lua library plugin can be created using the [CoronaLibrary][api.type.CoronaLib
 In addition to the plugin naming conventions discussed above, CORONA_CORE_PRODUCT expects plugins to follow some additional conventions that ensure Lua can locate these modules. In&nbsp;C, these conventions are just the standard Lua naming conventions for modules:
 
 * The name of the module function must be prefixed by `luaopen_`. 
-* The signature of this function should match [lua_CFunction](http://www.lua.org/manual/5.1/manual.html#lua_CFunction).
+* The signature of this function should match [lua_CFunction](https://www.lua.org/manual/5.1/manual.html#lua_CFunction).
 * If a module contains a dot (`.`), it is replaced by an underscore (`_`) in the name of the function, since C does not allow dots in symbol names.
 * This function should be publicly visible.
 
@@ -200,7 +200,7 @@ int luaopen_plugin_myLibrary( lua_State *L )
 
 ### Native Java
 
-If you write the module in Java, Corona has set up Lua to load Java code and to let that Java code define the Lua library via [JNLua](http://code.google.com/p/jnlua/). Here, Lua looks for the Java class `LuaLoader` and instantiates it.
+If you write the module in Java, Corona has set up Lua to load Java code and to let that Java code define the Lua library via [JNLua](https://code.google.com/archive/p/jnlua/). Here, Lua looks for the Java class `LuaLoader` and instantiates it.
 
 CORONA_CORE_PRODUCT assumes the following conventions:
 

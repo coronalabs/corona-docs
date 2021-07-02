@@ -175,7 +175,7 @@ params.response = {
     baseDirectory = system.DocumentsDirectory
 }
  
-network.request( "http://docs.coronalabs.com/images/simulator/image-mask-base2.png", "GET", networkListener,  params )
+network.request( "https://docs.coronalabs.com/images/simulator/image-mask-base2.png", "GET", networkListener,  params )
 ``````
 
 ##### Upload Text File

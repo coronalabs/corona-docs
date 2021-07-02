@@ -221,6 +221,6 @@ As you've learned in this tutorial, <nobr>mutli-element</nobr> physics bodies po
 
 <div class="tiny-copy">
 
-Character art in this tutorial is courtesy of [Ponywolf](http://ponywolf.com), creator of amazing <nobr>open-source</nobr> game templates like [Match 3 Space RPG](https://marketplace.coronalabs.com/asset/match-3-space-rpg), [Sticker Knight Platformer](https://marketplace.coronalabs.com/asset/sticker-knight-platformer), and [Endless Sk8boarder](https://marketplace.coronalabs.com/asset/endless-sk8boarder).
+Character art in this tutorial is courtesy of [Ponywolf](https://ponywolf.com), creator of amazing <nobr>open-source</nobr> game templates like [Match 3 Space RPG](https://github.com/coronalabs/Match-Three-Space-RPG), [Sticker Knight Platformer](https://github.com/coronalabs/Sticker-Knight-Platformer/), and [Endless Sk8boarder](https://github.com/coronalabs/Endless-Skateborder).
 
 </div>

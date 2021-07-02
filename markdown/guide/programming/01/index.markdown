@@ -42,14 +42,14 @@ If you don't already have a favorite text editor, the following options are reco
 
 Editor																Add-On Package																					 macOS		 Windows
 ------------------------------------------------------------------	----------------------------------------------------------------------------------------------	----------	----------
-[Sublime Text](http://www.sublimetext.com)							[Solar2D Editor](https://github.com/coronalabs/CoronaSDK-SublimeText)														&#x2713;	 &#x2713;
+[Sublime Text](https://www.sublimetext.com)							[Solar2D Editor](https://github.com/coronalabs/CoronaSDK-SublimeText)														&#x2713;	 &#x2713;
 [Atom](https://atom.io)												[autocomplete-corona](https://atom.io/packages/autocomplete-corona)											&#x2713;	 &#x2713;
 [Visual Studio Code](https://code.visualstudio.com/)				[Solar2d-companion](https://github.com/m4adan/solar2d-companion)															 &#x2713;	 &#x2713;
 [Xcode](https://developer.apple.com/xcode/)							[Xcode Editor](https://github.com/jcbnlsn/Xcode-Corona-Editor)														 &#x2713;
-[Vim](http://www.vim.org)																																			 &#x2713;	 &#x2713;
+[Vim](https://www.vim.org)																																			 &#x2713;	 &#x2713;
 [ZeroBrane Studio](https://studio.zerobrane.com)																													 &#x2713;	 &#x2713;
-[Notepad++](http://notepad-plus-plus.org)																																		 &#x2713;
-[TextMate](http://macromates.com)																																	 &#x2713;
+[Notepad++](https://notepad-plus-plus.org)																																		 &#x2713;
+[TextMate](https://macromates.com)																																	 &#x2713;
 ------------------------------------------------------------------	----------------------------------------------------------------------------------------------	----------	----------
 
 </div>
@@ -301,7 +301,7 @@ Save your `main.lua` file and relaunch the Simulator. There should now be a ball
 
 ### Adding Physics
 
-Time to get into physics! [Box2D](http://www.box2d.org/) is the included physics engine for your use in building apps and games. While using physics is not required to make a game, it makes it much easier to handle many game situations.
+Time to get into physics! [Box2D](https://www.box2d.org/) is the included physics engine for your use in building apps and games. While using physics is not required to make a game, it makes it much easier to handle many game situations.
 
 Including physics is very easy. Below the previous lines, add these commands:
 

@@ -277,7 +277,7 @@ If you've used another game development platform, you may be familiar with the t
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>
 
-Image sheets are most easily created using a tool such as [TexturePacker](http://www.codeandweb.com/texturepacker) which collects, organizes, and packs multiple images into a compatible image sheet. While this software isn't a requirement, it does save you time and energy.
+Image sheets are most easily created using a tool such as [TexturePacker](https://www.codeandweb.com/texturepacker) which collects, organizes, and packs multiple images into a compatible image sheet. While this software isn't a requirement, it does save you time and energy.
 
 </div>
 

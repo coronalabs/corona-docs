@@ -59,7 +59,7 @@ These properties relate to general emitter behavior.
 `state`									[String][api.type.String] value <nobr>(read-only)</nobr> which indicates the playing state of the emitter. Values include `"playing"`, `"stopped"`, or `"paused"`, based on the result of the emitter functions listed above.
 `textureFileName`						[String][api.type.String] indicating the file (image) used for emitted particles. This file can __not__ be changed dynamically following creation of the emitter via [display.newEmitter()][api.library.display.newEmitter].
 `maxParticles`							[Number][api.type.Number] which limits the amount of particles that can be emitted at any given time. Excessively high values may impact performance on some devices. This is a read-only property.
-`angle`									[Number][api.type.Number] indicating the angle, in degrees, of particle emission. Note that this value __must__ be adjusted by `-90` (degrees) to account for Corona's coordinate system (`0`&nbsp;degrees&nbsp;pointing <nobr>directly up) &mdash;</nobr> for example, if you want the particles to be emitted directly upward, set this to `-90`.
+`angle`									[Number][api.type.Number] indicating the angle, in degrees, of particle emission. Note that this value __must__ be adjusted by `-90` (degrees) to account for Solar2D's coordinate system (`0`&nbsp;degrees&nbsp;pointing <nobr>directly up) &mdash;</nobr> for example, if you want the particles to be emitted directly upward, set this to `-90`.
 `angleVariance`							[Number][api.type.Number] indicating the __variance__ on the angle of particle emission (`angle`).
 `emitterType`							[Number][api.type.Number] indicating the emitter type. Set this to `0` for a point/line/field emitter&nbsp;&mdash; sometimes referred to as a "gravity" type emitter&nbsp;&mdash; or `1` for a radial emitter. For each type, additional unique properties apply as indicated in the following sections.
 `absolutePosition`						[Boolean][api.type.Boolean] or [GroupObject][api.type.GroupObject] indicating how the generated particles should behave in relation to the emitter. If `true`, all particles are independent of the emitter. If the emitter orientation/angle changes, all particles will continue their transformations independently. If `false`, particles will move relative to the emitter if its orientation/angle changes. If set to [GroupObject][api.type.GroupObject] particles will transform following the specified parent group. For example, if set to the background group and the whole background is moved, particles will move with the background. The group must be in the parent chain of the emitter. If the emitter is removed from the group, this setting will change to `true`. Group can only be assigned __after__ emitter is created.
@@ -156,7 +156,7 @@ These properties control the starting and ending color channel values of individ
 
 ### Particles &mdash; Blend Modes
 
-These properties allow you to control how the source and destination factors are used in the blending calculation of particles. They follow the blend factors discussed in the [OpenGL-ES 2 specification](http://www.khronos.org/opengles/sdk/docs/man/xhtml/glBlendEquationSeparate.xml).
+These properties allow you to control how the source and destination factors are used in the blending calculation of particles. They follow the blend factors discussed in the [OpenGL-ES 2 specification](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glBlendEquationSeparate.xml).
 
 <div class="inner-table">
 <span class="fix-wid">Property</span>	Description

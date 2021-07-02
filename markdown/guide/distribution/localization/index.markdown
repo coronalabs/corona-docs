@@ -17,7 +17,7 @@ This guide explains how to localize an iOS app for multiple languages/marketplac
 
 The first step in localizing an app is determining which languages you wish to support. Once this is determined:
 
-1. Locate the appropriate <nobr>2-character</nobr> <nobr>__ISO 639-1__</nobr> [language&nbsp;code](http://www.loc.gov/standards/iso639-2/php/code_list.php) for each.
+1. Locate the appropriate <nobr>2-character</nobr> <nobr>__ISO 639-1__</nobr> [language&nbsp;code](https://www.loc.gov/standards/iso639-2/php/code_list.php) for each.
 
 2. In the project `build.settings` file, add these language codes to a `CFBundleLocalizations` table within the <nobr>`settings` &rarr; `iphone` &rarr; `plist`</nobr> table. The order is not important, but make sure that each entry is the <nobr>2-character</nobr> string value appropriate to the language, for example:
 
@@ -155,6 +155,6 @@ Once the above steps are complete, you can test the bundle names locally to ensu
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Disclaimer</div>
 
-Changing the device settings must be done entirely at your own risk, especially in regards to language settings. If you change the device language, ensure that you understand the options and menus that will allow you to revert the device to your native language. Corona&nbsp;Labs cannot be held responsible for any settings changes that are conducted without reasonable caution.
+Changing the device settings must be done entirely at your own risk, especially in regards to language settings. If you change the device language, ensure that you understand the options and menus that will allow you to revert the device to your native language. Solar2D&nbsp;Labs cannot be held responsible for any settings changes that are conducted without reasonable caution.
 
 </div>

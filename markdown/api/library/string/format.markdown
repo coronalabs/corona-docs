@@ -19,7 +19,7 @@ For more information, see the `string.format()` section [here](http://lua-users.
 
 ## Remarks
 
-This function allows you to use the same `formatstring` options in C and C++ ([information](http://www.cplusplus.com/reference/clibrary/cstdio/printf/)).
+This function allows you to use the same `formatstring` options in C and C++ ([information](https://www.cplusplus.com/reference/cstdio/printf/)).
 
 ## Syntax
 
@@ -37,12 +37,12 @@ _[String][api.type.String]._ Optional additional parameters that follow the same
 ## Example
 
 `````lua
-print( string.format( "%6.2f", "1234" ) )                   --> maximum of 6 characters left and 2 right of decimal: 1234.00
-print( string.format( "%07d", "1234" ) )                    --> leading zeros with maximum 7 characters: 0001234
-print( string.format( "%s %q", "Hello", "Corona user!" ) )  --> string and quoted string
-print( string.format( "%c%c%c", 76, 117, 97 ) )             --> char: Lua
-print( string.format( "%e, %E", math.pi, math.pi ) )        --> exponent: 3.141593e+00, 3.141593E+00
-print( string.format( "%f, %g", math.pi, math.pi ) )        --> float and compact float: 3.141593, 3.14159
-print( string.format( "%d, %i, %u", -100, -10.1, -100 ) )   --> signed, signed, unsigned integer: -100, -10, 0
-print( string.format( "%o, %x, %X", 10, 10, 10 ) )          --> octal, hex, hex: 12, a, A
+print( string.format( "%6.2f", "1234" ) )                    --> maximum of 6 characters left and 2 right of decimal: 1234.00
+print( string.format( "%07d", "1234" ) )                     --> leading zeros with maximum 7 characters: 0001234
+print( string.format( "%s %q", "Hello", "Solar2D user!" ) )  --> string and quoted string
+print( string.format( "%c%c%c", 76, 117, 97 ) )              --> char: Lua
+print( string.format( "%e, %E", math.pi, math.pi ) )         --> exponent: 3.141593e+00, 3.141593E+00
+print( string.format( "%f, %g", math.pi, math.pi ) )         --> float and compact float: 3.141593, 3.14159
+print( string.format( "%d, %i, %u", -100, -10.1, -100 ) )    --> signed, signed, unsigned integer: -100, -10, 0
+print( string.format( "%o, %x, %X", 10, 10, 10 ) )           --> octal, hex, hex: 12, a, A
 `````

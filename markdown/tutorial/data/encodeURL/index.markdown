@@ -29,11 +29,11 @@ Some basic rules for a <nobr>__properly-encoded__</nobr> URL are:
 
 To illustrate this concept, let's consider another URL:
 
-`http://www.google.com/search?q=Corona tutorials & guides`
+`https://www.google.com/search?q=Corona tutorials & guides`
 
 When encoded properly, the URL looks like this:
 
-`http://www.google.com/search?q=Corona+tutorials+%26+guides`
+`https://www.google.com/search?q=Corona+tutorials+%26+guides`
 
 
 ## Encoding Function
@@ -60,14 +60,14 @@ Using this function, we can then encode URLs like this:
 
 ``````lua
 local searchQuery = "Corona tutorials & guides"
-local URL = "http://google.com/q=" .. string.urlEncode( searchQuery )
+local URL = "https://google.com/q=" .. string.urlEncode( searchQuery )
 ``````
 
 Alternatively, since we added this function to Corona's <nobr>built-in</nobr> [string][api.library.string] library, it can also be used in the colon operator syntax:
 
 ``````lua
 local searchQuery = "Corona tutorials & guides"
-local URL = "http://google.com/q=" .. searchQuery:urlEncode()
+local URL = "https://google.com/q=" .. searchQuery:urlEncode()
 ``````
 
 That's it! Once the URL is properly encoded, we can use it within Corona's [network][api.library.network] functions to make network requests, pass the URL to a [native.newWebView()][api.library.native.newWebView], or use it with any other API/function that requires a URL.

@@ -98,7 +98,7 @@ Installing CORONA_CORE_PRODUCT lets you create and test apps locally on your Mac
 
 ## Corona Editor (IDE)
 
-[Corona Editor](http://coronalabs.com/products/editor/) offers developers a very capable and lightweight IDE. Corona Editor streamlines development and includes the following:
+[Corona Editor](https://github.com/coronalabs/CoronaSDK-SublimeText) offers developers a very capable and lightweight IDE. Corona Editor streamlines development and includes the following:
 
 * __Debugger__ &mdash; set breakpoints and inspect variables.
 * __Snippets__ &mdash; get help with syntax and coding conventions.
@@ -106,7 +106,7 @@ Installing CORONA_CORE_PRODUCT lets you create and test apps locally on your Mac
 * __Docs__ &mdash; bring up APIs directly from your code.
 * __Launch__ &mdash; run the current app in the Corona Simulator from Sublime.
 
-For more information, please see the [Corona Editor](http://coronalabs.com/products/editor/) page.
+For more information, please see the [Corona Editor](https://github.com/coronalabs/CoronaSDK-SublimeText) page.
 
 -->
 
@@ -123,13 +123,13 @@ You'll need a text editor or IDE to write code for your CORONA_CORE_PRODUCT proj
 
 Editor																Add-On Package
 ------------------------------------------------------------------	---------------------------------------------
-[Sublime Text](http://www.sublimetext.com)							[Solar2D Editor](https://github.com/coronalabs/CoronaSDK-SublimeText)
+[Sublime Text](https://www.sublimetext.com)							[Solar2D Editor](https://github.com/coronalabs/CoronaSDK-SublimeText)
 [Atom](https://atom.io)												[autocomplete-corona](https://atom.io/packages/autocomplete-corona)
 [Visual Studio Code](https://code.visualstudio.com/)				[Solar2d-companion](https://marketplace.visualstudio.com/items?itemName=M4adan.solar2d-companion)
 [Xcode](https://developer.apple.com/xcode/)							[Xcode Editor](https://github.com/jcbnlsn/Xcode-Corona-Editor)
 [ZeroBrane Studio](https://studio.zerobrane.com)
-[TextMate](http://macromates.com)
-[Vim](http://www.vim.org)
+[TextMate](https://macromates.com)
+[Vim](https://www.vim.org)
 ------------------------------------------------------------------	---------------------------------------------
 
 </div>

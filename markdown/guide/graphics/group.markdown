@@ -1,6 +1,6 @@
 # Group Programming
 
-In Corona, [display groups][api.type.GroupObject] are the standard way to organize objects hierarchically.
+In Solar2D, [display groups][api.type.GroupObject] are the standard way to organize objects hierarchically.
 
 <div class="guides-toc">
 
@@ -24,9 +24,9 @@ In Corona, [display groups][api.type.GroupObject] are the standard way to organi
 
 ## Overview
 
-Understanding [display groups][api.type.GroupObject] is essential to building apps in Corona. A display group is a special kind of [display object][guide.media.displayObjects] which can contain other display objects and even other display groups. Imagine it as a blank sheet of paper on which you "draw" images, text, shapes, and animated sprites.
+Understanding [display groups][api.type.GroupObject] is essential to building apps in Solar2D. A display group is a special kind of [display object][guide.media.displayObjects] which can contain other display objects and even other display groups. Imagine it as a blank sheet of paper on which you "draw" images, text, shapes, and animated sprites.
 
-In app development within Corona, it's important to note that display groups are not limited by the screen boundaries. In fact, display groups are boundless and span to infinity in all directions — the physical screen edges simply frame a portion of the [stage][api.type.StageObject]. In Corona, the stage can be considered the parent display group, and new display groups that you create are automatically added as child groups of it.
+In app development within Solar2D, it's important to note that display groups are not limited by the screen boundaries. In fact, display groups are boundless and span to infinity in all directions — the physical screen edges simply frame a portion of the [stage][api.type.StageObject]. In Solar2D, the stage can be considered the parent display group, and new display groups that you create are automatically added as child groups of it.
 
 
 
@@ -37,7 +37,7 @@ In app development within Corona, it's important to note that display groups are
 
 All display groups, including the [stage][api.type.StageObject], revolve around a coordinate system. Any visual object that you place on the screen will have an `x` and `y` coordinate indicating its horizontal and vertical position respectively.
 
-In Corona, the default origin of display groups is `0,0` which is located at the <nobr>__top-left corner__</nobr> of the stage, not the center. From this `0,0` point, positive `x` values extend to the right, while positive `y` values extend downward (not&nbsp;upward as in the [Cartesian](http://en.wikipedia.org/wiki/Cartesian_coordinate_system) coordinate system). Negative coordinates are allowed as well, but as you can see in the diagram below, they will not reside within the portion of the group which is visible on the screen (the&nbsp;black&nbsp;region). Groups can, however, be moved to adjust their origin point &mdash; see [Group&nbsp;Transforms](#transforms) below for more information.
+In Solar2D, the default origin of display groups is `0,0` which is located at the <nobr>__top-left corner__</nobr> of the stage, not the center. From this `0,0` point, positive `x` values extend to the right, while positive `y` values extend downward (not&nbsp;upward as in the [Cartesian](https://en.wikipedia.org/wiki/Cartesian_coordinate_system) coordinate system). Negative coordinates are allowed as well, but as you can see in the diagram below, they will not reside within the portion of the group which is visible on the screen (the&nbsp;black&nbsp;region). Groups can, however, be moved to adjust their origin point &mdash; see [Group&nbsp;Transforms](#transforms) below for more information.
 
 ![][images.simulator.coordinates]
 
@@ -48,7 +48,7 @@ In Corona, the default origin of display groups is `0,0` which is located at the
 
 ## Drawing Model
 
-The "blank sheet of paper" analogy is useful for understanding Corona's drawing model. Just as if you're drawing figures on a sheet of paper, Corona [display&nbsp;objects][guide.media.displayObjects] that are placed in a display group become part of that group (the&nbsp;paper).
+The "blank sheet of paper" analogy is useful for understanding Solar2D's drawing model. Just as if you're drawing figures on a sheet of paper, Solar2D [display&nbsp;objects][guide.media.displayObjects] that are placed in a display group become part of that group (the&nbsp;paper).
 
 Display objects that are not placed into a specific group become part of the [stage][api.type.StageObject], but in the process of developing an app, you will usually create several display groups in a specific layered order. You can imagine this as a "stack&nbsp;of&nbsp;paper" with each display group representing one sheet in the stack. For example, assume that you want to mimic a "landscape&nbsp;painting" with three layers (three&nbsp;display&nbsp;groups) as follows:
 
@@ -150,7 +150,7 @@ When you modify a group's properties, all of its children are affected. For exam
 
 Group transforms are applied hierarchically to the group's children. The child's transform is applied first, followed by the transform of its parent, followed by each ancestor, all the way to the [stage][api.type.StageObject]. Consequently, children in a group are positioned relative to the parent group's position. When you modify the transform of a group (move/scale/rotate) it affects the transform of the children.
 
-In the image below, the black region indicates a theoretical Corona content area (in&nbsp;landscape orientation) and the intersection of the orange lines indicates the origin of the group. Note that this origin always defaults to `0,0` <nobr>(the top-left</nobr> corner of the content&nbsp;area).
+In the image below, the black region indicates a theoretical Solar2D content area (in&nbsp;landscape orientation) and the intersection of the orange lines indicates the origin of the group. Note that this origin always defaults to `0,0` <nobr>(the top-left</nobr> corner of the content&nbsp;area).
 
 For testing, a red vector object has been drawn at `100,100` which signifies its center position since [display objects][guide.media.displayObjects] have a default center [anchor][guide.graphics.transform-anchor].
 
@@ -173,7 +173,7 @@ myGroup.y = 50
 
 ![][images.simulator.group-at-50-50]
 
-Notice that the red box moves along with the group (its&nbsp;parent). However, the object's __inherent__ `x` and `y` position does __not__ change &mdash; it remains at `100,100` even though the box appears at a __content__ position of `150,150`. This is because Corona manages the position of display objects in relation to their parent group.
+Notice that the red box moves along with the group (its&nbsp;parent). However, the object's __inherent__ `x` and `y` position does __not__ change &mdash; it remains at `100,100` even though the box appears at a __content__ position of `150,150`. This is because Solar2D manages the position of display objects in relation to their parent group.
 
 To get the actual position of an object in content coordinates, regardless of a moved/scaled/rotated group, use the [object:localToContent()][api.type.DisplayObject.localToContent] function:
 
@@ -278,4 +278,4 @@ A special type of group called a [container][api.library.display.newContainer] c
 
 ## Offscreen Culling
 
-Corona will cull child objects that are outside the boundaries of the screen.
+Solar2D will cull child objects that are outside the boundaries of the screen.

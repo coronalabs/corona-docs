@@ -92,7 +92,7 @@ As general practice, remember these tips in respect to managing texture memory:
 
 1. Always unload textures (remove them from the display hierarchy) when they're no longer needed.
 
-2. If you're using image sheets, consider using a tool like [TexturePacker](http://www.codeandweb.com/texturepacker) to pack your images into the smallest configuration possible.
+2. If you're using image sheets, consider using a tool like [TexturePacker](https://www.codeandweb.com/texturepacker) to pack your images into the smallest configuration possible.
 
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Important</div>
@@ -110,7 +110,7 @@ There is a limit on the maximum texture size that a device will support. If you 
 
 On devices, OpenGL performs best when you are able to minimize state changes. This is because multiple objects can be batched into a single draw call if there are no state changes required between consecutive display objects.
 
-Corona's rendering engine attempts to identify situations where multiple display objects can be submitted in a single draw call. Whenever possible, you should try to arrange the display object hierarchy such that __consecutive__ display objects&nbsp;&mdash; meaning, the order in which they are rendered&nbsp;&mdash; can be batched into a single draw call.
+Solar2D's rendering engine attempts to identify situations where multiple display objects can be submitted in a single draw call. Whenever possible, you should try to arrange the display object hierarchy such that __consecutive__ display objects&nbsp;&mdash; meaning, the order in which they are rendered&nbsp;&mdash; can be batched into a single draw call.
 
 There are certain situations where this can occur. The general rule is that consecutive display objects which use the same texture can be batched. This includes display objects that use different frames from the same [image sheet][api.library.graphics.newImageSheet], since the underlying texture is the same. In these situations, you can vary the position, tint, and alpha of each object without breaking the batch, but remember that some actions may prevent batching, for example adding a [shader effect][guide.graphics.effects] to an object.
 

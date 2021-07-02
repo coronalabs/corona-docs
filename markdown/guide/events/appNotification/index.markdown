@@ -53,7 +53,7 @@ To use __push__ notifications, remember the following points:
 
 * If using iOS/Apple, your app cannot send push requests directly to their servers.
 
-* We recommend that you use a third-party service to send push requests to Apple or Google, who in turn sends them onward to devices. That service can be a company like [OneSignal](https://github.com/OneSignal/OneSignal-Solar2D-SDK), [PushWoosh](http://www.pushwoosh.com), or [Urban Airship](http://urbanairship.com) that specializes in push notifications.
+* We recommend that you use a third-party service to send push requests to Apple or Google, who in turn sends them onward to devices. That service can be a company like [OneSignal](https://github.com/OneSignal/OneSignal-Solar2D-SDK), [PushWoosh](https://www.pushwoosh.com/), or [Airship](https://www.airship.com/) that specializes in push notifications.
 
 
 

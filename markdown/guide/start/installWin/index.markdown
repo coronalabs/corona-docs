@@ -70,7 +70,7 @@ Installing CORONA_CORE_PRODUCT lets you create and test apps locally on your PC.
 * __Snippets__ &mdash; get help with syntax and coding conventions.
 * __Code completion__ &mdash; save time for all APIs and constants.
 * __Docs__ &mdash; bring up APIs directly from your code.
-* __Launch__ &mdash; run the current app in the CORONA_CORE_PRODUCT Simulator from [Sublime Text](http://www.sublimetext.com).
+* __Launch__ &mdash; run the current app in the CORONA_CORE_PRODUCT Simulator from [Sublime Text](https://www.sublimetext.com).
 
 For more information, please see the [CORONA_CORE_PRODUCT Editor](https://github.com/coronalabs/CoronaSDK-SublimeText) page.
 
@@ -89,12 +89,12 @@ You'll need a text editor or IDE to write code for your CORONA_CORE_PRODUCT proj
 
 Editor																Add-On Package
 ------------------------------------------------------------------	---------------------------------------------
-[Sublime Text](http://www.sublimetext.com)							[CORONA_CORE_PRODUCT Editor](https://github.com/coronalabs/CoronaSDK-SublimeText)
+[Sublime Text](https://www.sublimetext.com)							[CORONA_CORE_PRODUCT Editor](https://github.com/coronalabs/CoronaSDK-SublimeText)
 [Atom](https://atom.io)												[autocomplete-corona](https://atom.io/packages/autocomplete-corona)
 [Visual Studio Code](https://code.visualstudio.com/)				[CORONA_CORE_PRODUCT-companion](https://marketplace.visualstudio.com/items?itemName=M4adan.solar2d-companion)
-[Notepad++](http://notepad-plus-plus.org)
+[Notepad++](https://notepad-plus-plus.org)
 [ZeroBrane Studio](https://studio.zerobrane.com)
-[Vim](http://www.vim.org)
+[Vim](https://www.vim.org)
 ------------------------------------------------------------------	---------------------------------------------
 
 </div>

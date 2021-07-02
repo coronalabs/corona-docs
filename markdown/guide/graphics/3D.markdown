@@ -1,6 +1,6 @@
 # 2.5D — Perspective and Depth
 
-This guide explains how you can achieve interesting 2.5D effects in Corona. While Corona is not a true 3D engine, its 2.5D capabilities allow you to simulate effects that appear <nobr>three-dimensional</nobr> (3D) without the complexity of working in 3D.
+This guide explains how you can achieve interesting 2.5D effects in Solar2D. While Solar2D is not a true 3D engine, its 2.5D capabilities allow you to simulate effects that appear <nobr>three-dimensional</nobr> (3D) without the complexity of working in 3D.
 
 <div class="guides-toc">
 
@@ -15,7 +15,7 @@ This guide explains how you can achieve interesting 2.5D effects in Corona. Whil
 
 ## Background
 
-During the Renaissance, [Filippo Brunelleschi](http://en.wikipedia.org/wiki/Filippo_Brunelleschi#Invention_of_linear_perspective) demonstrated the geometrical method of perspective that is still used today. This method solved the problem of how to represent three dimensional objects on a 2D plane. Even today, this remains the basis of how 3D computer graphics are represented on the screen. In essence, your eye is tricked into believing that what is rendered on a flat screen is actually 3D.
+During the Renaissance, [Filippo Brunelleschi](https://en.wikipedia.org/wiki/Filippo_Brunelleschi#Invention_of_linear_perspective) demonstrated the geometrical method of perspective that is still used today. This method solved the problem of how to represent three dimensional objects on a 2D plane. Even today, this remains the basis of how 3D computer graphics are represented on the screen. In essence, your eye is tricked into believing that what is rendered on a flat screen is actually 3D.
 
 
 
@@ -86,15 +86,15 @@ The following video and associated [sample](https://github.com/coronalabs/sample
 
 ### Z-axis Ordering
 
-All Corona display objects exist on the `z=0` plane, but they can be ordered as shown in the [Group Programming][guide.graphics.group] guide. When you distort an image, it looks like it exists in a 3D world, but it actually remains in the same plane. Thus, all of the standard object ordering rules will continue to be honored.
+All Solar2D display objects exist on the `z=0` plane, but they can be ordered as shown in the [Group Programming][guide.graphics.group] guide. When you distort an image, it looks like it exists in a 3D world, but it actually remains in the same plane. Thus, all of the standard object ordering rules will continue to be honored.
 
 ### Billboarding
 
-In the Corona graphics model, billboarding is available toll-free. Just create a group and ensure it's the top-most by calling [group:toFront()][api.type.DisplayObject.toFront].
+In the Solar2D graphics model, billboarding is available toll-free. Just create a group and ensure it's the top-most by calling [group:toFront()][api.type.DisplayObject.toFront].
 
 ### Mode 7
 
-In [Super Nintendo Mode 7](http://en.wikipedia.org/wiki/Mode_7), you could only place the background in perspective. In Corona, you can distort any rectangle to make the image appear in perspective.
+In [Super Nintendo Mode 7](https://en.wikipedia.org/wiki/Mode_7), you could only place the background in perspective. In Solar2D, you can distort any rectangle to make the image appear in perspective.
 
 ### Meshes
 
@@ -135,11 +135,11 @@ d.path.y1 = intersectionY
 
 ### Z-axis Scaling
 
-In Corona, you can simulate depth by scaling objects as they move closer or further from the viewer. This can be used to create an illusion of relative depth, for example a series of trees receding into the distance.
+In Solar2D, you can simulate depth by scaling objects as they move closer or further from the viewer. This can be used to create an illusion of relative depth, for example a series of trees receding into the distance.
 
 ### Scrolling
 
-Placing images in the background is <nobr>toll-free</nobr> in Corona. Consequently, horizontal scrollers, side scrollers, and <nobr>bi-directional</nobr> scrollers are all easily achievable in Corona &mdash; just make sure that your background is drawn first or move it to the back via [object:toBack()][api.type.DisplayObject.toBack]).
+Placing images in the background is <nobr>toll-free</nobr> in Solar2D. Consequently, horizontal scrollers, side scrollers, and <nobr>bi-directional</nobr> scrollers are all easily achievable in Solar2D &mdash; just make sure that your background is drawn first or move it to the back via [object:toBack()][api.type.DisplayObject.toBack]).
 
 ### Parallax
 
@@ -147,4 +147,4 @@ Parallax provides a sense of "distance" between the camera and moving objects th
 
 ### Skybox/Skydome
 
-In Corona, the skybox/skydome effect is available <nobr>toll-free</nobr>. Just create a group and ensure it's the <nobr>back-most</nobr> by calling [group:toBack()][api.type.DisplayObject.toBack].
+In Solar2D, the skybox/skydome effect is available <nobr>toll-free</nobr>. Just create a group and ensure it's the <nobr>back-most</nobr> by calling [group:toBack()][api.type.DisplayObject.toBack].

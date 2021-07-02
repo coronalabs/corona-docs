@@ -12,4 +12,4 @@
 </div>
 
 [linkAPIZip]: https://github.com/coronalabs/corona-docs/archive/gh-pages.zip
-[linkDailyBuild]: http://developer.coronalabs.com/downloads/daily-builds
+[linkDailyBuild]: https://github.com/coronalabs/corona/releases

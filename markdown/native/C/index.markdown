@@ -9,7 +9,7 @@
 
 ## Overview
 
-In addition to the [Lua C API](http://www.lua.org/manual/5.1/manual.html#3), Corona offers several C functions to help you create native extensions and plugins.
+In addition to the [Lua C API](https://www.lua.org/manual/5.1/manual.html#3), Corona offers several C functions to help you create native extensions and plugins.
 
 
 ## Functions

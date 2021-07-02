@@ -1,7 +1,7 @@
 
 # LiquidFun Essentials
 
-The [LiquidFun](http://google.github.io/liquidfun/) physics system allows you to simulate faucets, pools, waves, streams, and other amazing <nobr>physics-based</nobr> effects similar to those featured in <nobr>Corona-powered</nobr> games like [Freeze! 2 &ndash; Brothers](http://freeze2.com) or other games where the physics world is not composed entirely of rigid objects. In addition to basic liquid effects, you can implement <nobr>semi-liquid</nobr> elastic/gelatin objects, create liquids that color mix and blend together when they come in contact, detect and manipulate "regions" of the liquids, and more.
+The [LiquidFun](https://google.github.io/liquidfun/) physics system allows you to simulate faucets, pools, waves, streams, and other amazing <nobr>physics-based</nobr> effects similar to those featured in <nobr>Corona-powered</nobr> games like [Freeze! 2 &ndash; Brothers](http://freeze2.com) or other games where the physics world is not composed entirely of rigid objects. In addition to basic liquid effects, you can implement <nobr>semi-liquid</nobr> elastic/gelatin objects, create liquids that color mix and blend together when they come in contact, detect and manipulate "regions" of the liquids, and more.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kbAwJtuRV0U?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
 
@@ -49,7 +49,7 @@ local testParticleSystem = physics.newParticleSystem(
 })
 ``````
 
-The complete list of other parameters and their purpose is beyond the scope of this tutorial, so please refer to the [documentation][api.library.physics.newParticleSystem#parameter-reference] or the [LiquidFun Programmer's Guide](http://google.github.io/liquidfun/Programmers-Guide/html/md__chapter11__particles.html) for more information.
+The complete list of other parameters and their purpose is beyond the scope of this tutorial, so please refer to the [documentation][api.library.physics.newParticleSystem#parameter-reference] or the [LiquidFun Programmer's Guide](https://google.github.io/liquidfun/Programmers-Guide/html/md__chapter11__particles.html) for more information.
 
 
 ## Creating Particles
@@ -75,7 +75,7 @@ Most of these parameters are <nobr>self-explanatory</nobr>:
 * `velocityX` and `velocityY` specify the starting velocity values for the new particle.
 * `color` is a table of RGB+A values for the particle.
 * `lifetime` defines how many seconds the particle remains on screen before it dies.
-* `flags` can be either a string or a table of strings which dictate various behavioral aspects of the particle. These options are beyond the scope of this tutorial, so please refer to the [LiquidFun Programmer's Guide](http://google.github.io/liquidfun/Programmers-Guide/html/md__chapter11__particles.html) for more information.
+* `flags` can be either a string or a table of strings which dictate various behavioral aspects of the particle. These options are beyond the scope of this tutorial, so please refer to the [LiquidFun Programmer's Guide](https://google.github.io/liquidfun/Programmers-Guide/html/md__chapter11__particles.html) for more information.
 
 <div class="docs-tip-outer">
 <div class="docs-tip-inner-left">
@@ -199,4 +199,4 @@ Detecting collision events between LiquidFun particles and other physical object
 
 ## Conclusion
 
-This tutorial is meant to be a brief introduction to LiquidFun physics in Corona, but the capabilities of the framework extend beyond this scope. Please consult the [documentation][api.library.physics.newParticleSystem#parameter-reference] or the [LiquidFun Programmer's Guide](http://google.github.io/liquidfun/Programmers-Guide/html/md__chapter11__particles.html) for more information.
+This tutorial is meant to be a brief introduction to LiquidFun physics in Corona, but the capabilities of the framework extend beyond this scope. Please consult the [documentation][api.library.physics.newParticleSystem#parameter-reference] or the [LiquidFun Programmer's Guide](https://google.github.io/liquidfun/Programmers-Guide/html/md__chapter11__particles.html) for more information.

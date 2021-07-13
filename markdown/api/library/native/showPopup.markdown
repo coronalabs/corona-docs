@@ -66,8 +66,8 @@ The following <nobr>key-value</nobr> pairs apply within the `options` table if `
 
 * `iOSAppId` &mdash; [String][api.type.String] ID assigned to the app by the iTunes App Store.
 * `tvOSAppId` &mdash; [String][api.type.String] If specified, this will be used on tvOS instead of `iOSAppId`.
-* `androidAppPackageName` &mdash; [String][api.type.String] indicating the unique package name of the Android app to be displayed by the Google Play or Amazon app stores. This property is optional. If you do not provide a package name, Corona will use the currently running app's package name by default. You should only set this if you want to display the app store details of another app.
-* `supportedAndroidStores` &mdash; [Array][api.type.Array] of strings indicating which app stores are supported on Android. This is needed in case the app was not installed by an app store so that Corona knows which app store to display the popup from. This is especially needed while testing and debugging the app. Currently, string names of `"amazon"` and `"google"` are supported.
+* `androidAppPackageName` &mdash; [String][api.type.String] indicating the unique package name of the Android app to be displayed by the Google Play or Amazon app stores. This property is optional. If you do not provide a package name, Solar2D will use the currently running app's package name by default. You should only set this if you want to display the app store details of another app.
+* `supportedAndroidStores` &mdash; [Array][api.type.Array] of strings indicating which app stores are supported on Android. This is needed in case the app was not installed by an app store so that Solar2D knows which app store to display the popup from. This is especially needed while testing and debugging the app. Currently, string names of `"amazon"` and `"google"` are supported.
 
 
 <a id="requestAppPermission"></a>
@@ -78,27 +78,27 @@ Currently this option is only available on Android. The following <nobr>key-valu
 
 * `appPermission` &mdash; Single [string][api.type.String] or an [array][api.type.Array] of strings where each string is an app permission to request. Valid options include the following <nobr>platform-agnostic</nobr> types:
 
-	* `"BodySensors"` &mdash; Corresponds to the `SENSORS` [permission group](http://developer.android.com/reference/android/Manifest.permission_group.html) on Android. Only available on Android devices running version 4.4W and above. <!--Corresponds to the "Motion and Fitness" privacy setting on iOS.-->
+	* `"BodySensors"` &mdash; Corresponds to the `SENSORS` [permission group](https://developer.android.com/reference/android/Manifest.permission_group) on Android. Only available on Android devices running version 4.4W and above. <!--Corresponds to the "Motion and Fitness" privacy setting on iOS.-->
 
-	* `"Calendars"` &mdash; Corresponds to the `CALENDAR` [permission group](http://developer.android.com/reference/android/Manifest.permission_group.html#CALENDAR) on Android.
+	* `"Calendars"` &mdash; Corresponds to the `CALENDAR` [permission group](https://developer.android.com/reference/android/Manifest.permission_group#CALENDAR) on Android.
 
-	* `"Camera"` &mdash; Corresponds to the `CAMERA` [permission group](http://developer.android.com/reference/android/Manifest.permission_group.html#CAMERA) on Android.
+	* `"Camera"` &mdash; Corresponds to the `CAMERA` [permission group](https://developer.android.com/reference/android/Manifest.permission_group#CAMERA) on Android.
 
-	* `"Contacts"` &mdash; Corresponds to the `CONTACTS` [permission group](http://developer.android.com/reference/android/Manifest.permission_group.html#CONTACTS) on Android.
+	* `"Contacts"` &mdash; Corresponds to the `CONTACTS` [permission group](https://developer.android.com/reference/android/Manifest.permission_group#CONTACTS) on Android.
 
-	* `"Location"` &mdash; Corresponds to the `LOCATION` [permission group](http://developer.android.com/reference/android/Manifest.permission_group.html#LOCATION) on Android.
+	* `"Location"` &mdash; Corresponds to the `LOCATION` [permission group](https://developer.android.com/reference/android/Manifest.permission_group#LOCATION) on Android.
 
-	* `"Microphone"` &mdash; Corresponds to the `MICROPHONE` [permission group](http://developer.android.com/reference/android/Manifest.permission_group.html#MICROPHONE) on Android.
+	* `"Microphone"` &mdash; Corresponds to the `MICROPHONE` [permission group](https://developer.android.com/reference/android/Manifest.permission_group#MICROPHONE) on Android.
 
-	* `"Phone"` &mdash; Corresponds to the `PHONE` [permission group](http://developer.android.com/reference/android/Manifest.permission_group.html#PHONE) on Android.
+	* `"Phone"` &mdash; Corresponds to the `PHONE` [permission group](https://developer.android.com/reference/android/Manifest.permission_group#PHONE) on Android.
 
-	* `"SMS"` &mdash; Corresponds to the `SMS` [permission group](http://developer.android.com/reference/android/Manifest.permission_group.html#SMS) on Android.
+	* `"SMS"` &mdash; Corresponds to the `SMS` [permission group](https://developer.android.com/reference/android/Manifest.permission_group#SMS) on Android.
 
-	* `"Storage"` &mdash; Corresponds to the `STORAGE` [permission group](http://developer.android.com/reference/android/Manifest.permission_group.html#STORAGE) on Android.
+	* `"Storage"` &mdash; Corresponds to the `STORAGE` [permission group](https://developer.android.com/reference/android/Manifest.permission_group#STORAGE) on Android.
 
-    On Android, this can also be the name of anything in the `usesPermissions` table of `build.settings`, such as `"android.permission.READ_SMS"` or `"com.android.voicemail.permission.ADD_VOICEMAIL"`. The full name of an Android [permission group](http://developer.android.com/reference/android/Manifest.permission_group.html) such as `"android.permission-group.STORAGE"` or `"android.permission-group.PHONE"` is also valid.
+    On Android, this can also be the name of anything in the `usesPermissions` table of `build.settings`, such as `"android.permission.READ_SMS"` or `"com.android.voicemail.permission.ADD_VOICEMAIL"`. The full name of an Android [permission group](https://developer.android.com/reference/android/Manifest.permission_group) such as `"android.permission-group.STORAGE"` or `"android.permission-group.PHONE"` is also valid.
 
-    To properly use app permissions on Android, you'll need to add __at&nbsp;least&nbsp;one__ of the Android permissions corresponding to a <nobr>platform-agnostic</nobr> type to the `usesPermissions` table of `build.settings`. See __Table&nbsp;1__ of Android's [dangerous permission group documentation](http://developer.android.com/guide/topics/security/permissions.html#permission-groups) for more information on which Android permissions correspond with which <nobr>platform-agnostic</nobr> types.
+    To properly use app permissions on Android, you'll need to add __at&nbsp;least&nbsp;one__ of the Android permissions corresponding to a <nobr>platform-agnostic</nobr> type to the `usesPermissions` table of `build.settings`. See __Table&nbsp;1__ of Android's [dangerous permission group documentation](https://developer.android.com/guide/topics/permissions/overview#permission-groups) for more information on which Android permissions correspond with which <nobr>platform-agnostic</nobr> types.
 
 * `urgency` &mdash; [String][api.type.String] representing how urgent this permission request is to running the app. Must be one of the following values:
 

@@ -23,7 +23,7 @@ You can change the default texture filter by calling [display.setDefault()][api.
 
 ## Gotchas
 
-Image sheet packing tools such as [TexturePacker](http://www.codeandweb.com/texturepacker/) will output the `sourceX`, `sourceY`, `sourceWidth`, and `sourceHeight` parameters for __trimmed__ frames. When displaying these frames on the screen, the image will be positioned in respect to the __center__ point of the untrimmed frame size.
+Image sheet packing tools such as [TexturePacker](https://www.codeandweb.com/texturepacker) will output the `sourceX`, `sourceY`, `sourceWidth`, and `sourceHeight` parameters for __trimmed__ frames. When displaying these frames on the screen, the image will be positioned in respect to the __center__ point of the untrimmed frame size.
 
 If you want to use dynamically-selected image sheets &mdash; chosen automatically depending on the screen resolution &mdash; you __must__ include the `sheetContentWidth` and `sheetContentHeight` parameters. See below for details.
 
@@ -78,7 +78,7 @@ _[Number][api.type.Number]._ Total number of images (frames) in the image sheet.
 _[Number][api.type.Number]._ The border around each frame, typically used for tiles whose edges are extruded to eliminate seam artifacts. Default is `0`. When greater than `0`, this overrides the trimming options for cropping the frame.
 
 ##### sheetContentWidth / sheetContentHeight ~^(optional)^~
-These values tell Corona the size of the original 1x image sheet. For example, if you're developing for both iPad and iPad Retina, and you're using an image sheet of 1000×1000 for the regular iPad, you should specify `1000` for both of these values and then design your Retina image sheet at 2000×2000. For more information on this topic, see the [Project Configuration][guide.basics.configSettings] guide.
+These values tell Solar2D the size of the original 1x image sheet. For example, if you're developing for both iPad and iPad Retina, and you're using an image sheet of 1000×1000 for the regular iPad, you should specify `1000` for both of these values and then design your Retina image sheet at 2000×2000. For more information on this topic, see the [Project Configuration][guide.basics.configSettings] guide.
 
 ### Complex
 
@@ -144,7 +144,7 @@ _[Number][api.type.Number]._  The __y__ origin of the crop rect relative to the 
 _[Number][api.type.Number]._ The amount of pixels around each individual frame. This is necessary for scaling image sheets without getting blending artifacts around the edges. Default is `0`.
 
 ##### sheetContentWidth / sheetContentHeight ~^(optional)^~
-These values tell Corona the size of the original 1x image sheet. For example, if you're developing for both iPad and iPad Retina, and you're using an image sheet of 1000×1000 for the regular iPad, you should specify `1000` for both of these values and then design your Retina image sheet at 2000×2000. For more information on this topic, see the [Project Configuration][guide.basics.configSettings] guide.
+These values tell Solar2D the size of the original 1x image sheet. For example, if you're developing for both iPad and iPad Retina, and you're using an image sheet of 1000×1000 for the regular iPad, you should specify `1000` for both of these values and then design your Retina image sheet at 2000×2000. For more information on this topic, see the [Project Configuration][guide.basics.configSettings] guide.
 
 ## Examples
 

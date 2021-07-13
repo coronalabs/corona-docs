@@ -1,6 +1,6 @@
 #  Image Sheets
 
-Corona fully supports __image sheets__, sometimes referred to as sprite sheets or texture atlases. This allows you to load multiple images/frames from a single larger image file. Image sheets can be used for both static images and animated sprites. <!--- add link to sprite guide (left) -->
+Solar2D fully supports __image sheets__, sometimes referred to as sprite sheets or texture atlases. This allows you to load multiple images/frames from a single larger image file. Image sheets can be used for both static images and animated sprites. <!--- add link to sprite guide (left) -->
 
 <div class="guides-toc">
 
@@ -16,9 +16,9 @@ Corona fully supports __image sheets__, sometimes referred to as sprite sheets o
 
 ## Overview
 
-In mobile app design, where devices have limited texture memory, it's often essential to conserve this memory by using image sheets. In most cases, it is more efficient to consolidate several smaller images onto one larger sheet and "pull" a particular image from the sheet when you want to display it on the screen. Corona offers this functionality via image sheets.
+In mobile app design, where devices have limited texture memory, it's often essential to conserve this memory by using image sheets. In most cases, it is more efficient to consolidate several smaller images onto one larger sheet and "pull" a particular image from the sheet when you want to display it on the screen. Solar2D offers this functionality via image sheets.
 
-Image sheets are also a convenience feature. Using popular <nobr>third-party</nobr> tools like [TexturePacker](http://www.codeandweb.com/texturepacker), you can design your images individually and then instruct the application to consolidate several image files into one optimized image sheet.
+Image sheets are also a convenience feature. Using popular <nobr>third-party</nobr> tools like [TexturePacker](https://www.codeandweb.com/texturepacker), you can design your images individually and then instruct the application to consolidate several image files into one optimized image sheet.
 
 For a more detailed explanation of the memory benefits of image sheets, please refer to the [Performance&nbsp;and&nbsp;Optimization][guide.basics.optimization] guide.
 
@@ -29,7 +29,7 @@ For a more detailed explanation of the memory benefits of image sheets, please r
 
 ## Image Sheet Setup
 
-The syntax for a new image sheet requires, at minimum, the name of the file and a table of __options__ which tells Corona about the images contained on the overall sheet. Depending on your needs, these options can be in "simple" format or "complex" format. If you're using a texture packing utility like those mentioned above, this task will typically be handled for you.
+The syntax for a new image sheet requires, at minimum, the name of the file and a table of __options__ which tells Solar2D about the images contained on the overall sheet. Depending on your needs, these options can be in "simple" format or "complex" format. If you're using a texture packing utility like those mentioned above, this task will typically be handled for you.
 
 Initializing the image sheet is done with the [graphics.newImageSheet()][api.library.graphics.newImageSheet] function:
 
@@ -103,7 +103,7 @@ Just like individual images displayed with [display.newImageRect()][api.library.
 * `sheetContentWidth`
 * `sheetContentHeight`
 
-These values tell Corona the size of the original 1x image sheet. For example, if you're developing for both iPad and iPad&nbsp;Retina, and you're using an image sheet of 1000&times;1000 for the regular iPad, you should specify `1000` for both of these values and then design your Retina image sheet at 2000&times;2000.
+These values tell Solar2D the size of the original 1x image sheet. For example, if you're developing for both iPad and iPad&nbsp;Retina, and you're using an image sheet of 1000&times;1000 for the regular iPad, you should specify `1000` for both of these values and then design your Retina image sheet at 2000&times;2000.
 
 ``````lua
 local options =
@@ -170,7 +170,7 @@ While trimming is often necessary to achieve the smallest possible image sheets,
 
 When you place one of these images on the screen or use them in a sprite animation, you will typically want the images to be positioned as if they were __not__ trimmed — meaning, the empty space that was trimmed is respected, not discarded, in regards to screen positioning. This ensures that the images align properly with each other, especially in an animation where the trimmed area will often vary per frame.
 
-Corona manages this with some additional parameters in the image sheet setup. These include `sourceX`, `sourceY`, `sourceWidth`, and `sourceHeight`. These are added to the image sheet `options` as follows:
+Solar2D manages this with some additional parameters in the image sheet setup. These include `sourceX`, `sourceY`, `sourceWidth`, and `sourceHeight`. These are added to the image sheet `options` as follows:
 
 ``````lua
 local options =

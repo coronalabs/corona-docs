@@ -142,6 +142,6 @@ The method used in this tutorial is just one of several ways to handle the "allo
 
 <div class="tiny-copy">
 
-Character art in this tutorial is courtesy of [Kenney](http://kenney.nl/). Kenney game studio supports other developers by creating free game assets and high quality learning material.
+Character art in this tutorial is courtesy of [Kenney](https://kenney.nl/). Kenney game studio supports other developers by creating free game assets and high quality learning material.
 
 </div>

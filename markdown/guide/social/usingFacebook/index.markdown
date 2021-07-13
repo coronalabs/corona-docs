@@ -285,7 +285,7 @@ To upload a photo to your Facebook photo album, the `params` table can be filled
 ``````lua
 local attachment = {
 	caption = "Corona icon file",
-	url = "http://www.coronalabs.com/links/demo/Corona90x90.png",
+	url = "https://coronalabs.com/wordpress/wp-content/uploads/2020/04/Solar2D-App-Icon-RGB-512.png",
 }
 facebook.request( "me/photos", "POST", attachment )
 ``````

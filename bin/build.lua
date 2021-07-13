@@ -308,7 +308,7 @@ local full_css_path = normpath(abspath(tmp_markdown_dir .. "/css/style.css"))
 local full_css_SH_path = normpath(abspath(tmp_markdown_dir .. "/css/shCoreDefault.css"))
 local pandoc = "pandoc -f markdown -t html -o " .. tmp_nav_html_path .. " " .. tmp_nav_path
 local crumb_mdPerm = "<div id=\"breadcrumb\">" .. "[Documentation](https://docs.coronalabs.com)"
---local crumb_mdPerm = "<div id='breadcrumb'><a href='http://docs.coronalabs.com'><img class='bchome' src='../../../images/bchome.png' title=''></a>"
+--local crumb_mdPerm = "<div id='breadcrumb'><a href='https://docs.coronalabs.com'><img class='bchome' src='../../../images/bchome.png' title=''></a>"
 --local crumb_mdPerm = "<div id='breadcrumb'>"
 
 copyfile( "../resources/bodyPrefix.html", tmp_bodyPrefix )

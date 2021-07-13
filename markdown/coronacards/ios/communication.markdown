@@ -74,7 +74,7 @@ myObject:addEventListener( "touch", pressMe )
 
 ### Lua Modules
 
-A slightly lower-level way to bridge the <nobr>Obj-C</nobr> and Lua worlds is to create a Lua module. This requires using the [Lua&nbsp;C&nbsp;API](http://www.lua.org/manual/5.1/manual.html#3) which lets you invoke Lua code from C and create wrappers to C code which you can invoke from Lua.
+A slightly lower-level way to bridge the <nobr>Obj-C</nobr> and Lua worlds is to create a Lua module. This requires using the [Lua&nbsp;C&nbsp;API](https://www.lua.org/manual/5.1/manual.html#3) which lets you invoke Lua code from C and create wrappers to C code which you can invoke from Lua.
 
 
 ##

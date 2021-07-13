@@ -13,7 +13,7 @@ There are a few ways to detect collisions without using physics, including:
 * Overlapping circles
 * Overlapping rectangles
 
-The first method can be complex if the rectangle has any rotation applied to it, and the [separating axis theorem](http://gamedev.tutsplus.com/tutorials/implementation/collision-detection-with-the-separating-axis-theorem/) is fairly <nobr>math-intensive</nobr>, so neither of these will be covered in this tutorial. Instead, we'll discuss the __overlapping&nbsp;circles__ and __overlapping&nbsp;rectangles__ methods.
+The first method can be complex if the rectangle has any rotation applied to it, and the [separating axis theorem](https://gamedevelopment.tutsplus.com/tutorials/collision-detection-using-the-separating-axis-theorem--gamedev-169) is fairly <nobr>math-intensive</nobr>, so neither of these will be covered in this tutorial. Instead, we'll discuss the __overlapping&nbsp;circles__ and __overlapping&nbsp;rectangles__ methods.
 
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>
@@ -136,6 +136,6 @@ That concludes our tutorial on <nobr>non-physical</nobr> collision detection. As
 
 <div class="tiny-copy">
 
-Character art in this tutorial is courtesy of [Kenney](http://kenney.nl/). Kenney game studio supports other developers by creating free game assets and high quality learning material.
+Character art in this tutorial is courtesy of [Kenney](https://kenney.nl/). Kenney game studio supports other developers by creating free game assets and high quality learning material.
 
 </div>

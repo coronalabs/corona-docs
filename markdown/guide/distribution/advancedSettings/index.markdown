@@ -1,6 +1,6 @@
 # Advanced Build Settings
 
-This guide outlines various advanced build options for Corona apps.
+This guide outlines various advanced build options for Solar2D apps.
 
 <div class="docs-tip-outer docs-tip-color-alert">
 <div class="docs-tip-inner-left">
@@ -95,7 +95,7 @@ settings =
 
 ### Minimum SDK Version
 
-Providing a minimum SDK version with the `minSdkVersion` key value allows you to exclude your app from being installed on devices with older versions of the Android&nbsp;OS. It corresponds to the `minSdkVersion` item detailed [here](http://developer.android.com/guide/topics/manifest/uses-sdk-element.html). This setting is invisible to users.
+Providing a minimum SDK version with the `minSdkVersion` key value allows you to exclude your app from being installed on devices with older versions of the Android&nbsp;OS. It corresponds to the `minSdkVersion` item detailed [here](https://developer.android.com/guide/topics/manifest/uses-sdk-element.html). This setting is invisible to users.
 
 ``````{ brush="lua" gutter="false" first-line="1" highlight="[5]" }
 settings =
@@ -112,7 +112,7 @@ settings =
 
 * The minimum SDK version must be specified as an __integer__&nbsp;&mdash; it cannot contain any decimal points.
 
-* Corona only allows values as low as `"15"` for Android __4.0.3__ (the&nbsp;oldest version supported by&nbsp;Corona). For details on the various Android&nbsp;SDK versions and API levels, see [here](http://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels).
+* Solar2D only allows values as low as `"15"` for Android __4.0.3__ (the&nbsp;oldest version supported by&nbsp;Solar2D). For details on the various Android&nbsp;SDK versions and API levels, see [here](https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels).
 
 * The minimum SDK version defaults to `"15"` if not specified otherwise.
 
@@ -137,7 +137,7 @@ settings =
 
 ### Screen Support
 
-The optional `supportsScreens` table specifies/limits which screens an Android app supports. See the Android [documentation](http://developer.android.com/guide/topics/manifest/supports-screens-element.html) for detailed descriptions and more options.
+The optional `supportsScreens` table specifies/limits which screens an Android app supports. See the Android [documentation](https://developer.android.com/guide/topics/manifest/supports-screens-element.html) for detailed descriptions and more options.
 
 ``````{ brush="lua" gutter="false" first-line="1" highlight="[5,6,7,8,9,10,11,12]" }
 settings =
@@ -173,7 +173,7 @@ settings =
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>
 
-You cannot block file access on Android devices which have been rooted. This applies to all Android apps, including those not built with Corona. Thus, if your app's files contain any sensitive information, it's recommended that you encrypt this information yourself.
+You cannot block file access on Android devices which have been rooted. This applies to all Android apps, including those not built with Solar2D. Thus, if your app's files contain any sensitive information, it's recommended that you encrypt this information yourself.
 
 </div>
 
@@ -200,7 +200,7 @@ This section details additional directives which can be used to <nobr>fine-tune<
 
 </div>
 
-The following specialized directives are available for <nobr>Corona-built</nobr> Android apps:
+The following specialized directives are available for <nobr>Solar2D-built</nobr> Android apps:
 
 * `strings` &mdash; This directive enables the creation of a `strings.xml` file in the `.apk`.
 
@@ -317,7 +317,7 @@ settings =
 
 <div class="code-indent">
 
-Corona uses the following attributes for its own purposes and they cannot be overridden:
+Solar2D uses the following attributes for its own purposes and they cannot be overridden:
 
 <div class="inner-table">
 

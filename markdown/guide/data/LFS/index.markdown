@@ -144,7 +144,7 @@ print( "File last modified: " .. fileAttributes.modification )
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>
 
-The value returned for the timestamp will be the number of seconds since <nobr>January 1, 1970</nobr> at midnight. For more information on time and dates in Corona, see the [Utilizing Time and Dates][tutorial.data.timeDates#longer-periods-of-time] tutorial.
+The value returned for the timestamp will be the number of seconds since <nobr>January 1, 1970</nobr> at midnight. For more information on time and dates in Solar2D, see the [Utilizing Time and Dates][tutorial.data.timeDates#longer-periods-of-time] tutorial.
 
 </div>
 
@@ -155,4 +155,4 @@ The value returned for the timestamp will be the number of seconds since <nobr>J
 
 ## Further Reference
 
-LFS is very powerful and it can do much more than what is illustrated in this guide. Fortunately, most of the LFS functions are straightforward and easy to use. Please see the [LFS Reference](http://keplerproject.github.io/luafilesystem/manual.html#reference) for a complete listing of available functions and syntax details for each one.
+LFS is very powerful and it can do much more than what is illustrated in this guide. Fortunately, most of the LFS functions are straightforward and easy to use. Please see the [LFS Reference](https://keplerproject.github.io/luafilesystem/manual.html#reference) for a complete listing of available functions and syntax details for each one.

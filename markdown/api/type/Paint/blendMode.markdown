@@ -45,7 +45,7 @@ Porter-Duff blend modes can be specified via one of the strings listed below.
 
 ## Custom Blend Modes
 
-Custom blend modes allow you to control how the source and destination factors are used in the blending calculation. They follow the blend factors discussed in the [OpenGL-ES 2 specification](http://www.khronos.org/opengles/sdk/docs/man/xhtml/glBlendEquationSeparate.xml).
+Custom blend modes allow you to control how the source and destination factors are used in the blending calculation. They follow the blend factors discussed in the [OpenGL-ES 2 specification](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glBlendEquationSeparate.xml).
 
 You can specify custom blend modes via a Lua table that specifies the source and destination factors as <nobr>key-value</nobr> pairs. 
 

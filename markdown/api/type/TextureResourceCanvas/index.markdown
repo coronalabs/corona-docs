@@ -14,7 +14,7 @@
 
 ## Overview
 
-The object created by [graphics.newTexture()][api.library.graphics.newTexture] when the specified [type][api.type.TextureResource.type] is `"canvas"`. This texture resource is an <nobr>in-memory</nobr> texture which can be modified by rendering display objects to it. It is similar to a [framebuffer object](http://en.wikipedia.org/wiki/Framebuffer_Object) or a [render target texture](https://en.wikipedia.org/wiki/Render_Target).
+The object created by [graphics.newTexture()][api.library.graphics.newTexture] when the specified [type][api.type.TextureResource.type] is `"canvas"`. This texture resource is an <nobr>in-memory</nobr> texture which can be modified by rendering display objects to it. It is similar to a [framebuffer object](https://en.wikipedia.org/wiki/Framebuffer_object) or a [render target texture](https://en.wikipedia.org/wiki/Render_Target).
 
 
 ## Properties

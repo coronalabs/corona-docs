@@ -25,7 +25,7 @@ _[String][api.type.String]._ One of the following:
 
 * Email address — `"mailto:nobody@mycompany.com"`, optionally including <nobr>URL-encoded</nobr> subject and body parameters, for example:<br/>`"mailto:nobody@mycompany.com?subject=Hi%20there&body=I%20just%20wanted%20to%20say%2C%20Hi!"`
 * Phone number — `"tel:123-456-7890"`
-* Web link — `"http://www.coronalabs.com"`
+* Web link — `"https://solar2d.com/"`
 
 ## Gotchas
 
@@ -49,7 +49,7 @@ settings =
 ##### Open Web Page in Device Browser
 
 ``````lua
-system.openURL( "http://www.coronalabs.com" )
+system.openURL( "https://solar2d.com/" )
 ``````
 
 ##### Send Email via Device Mail Application

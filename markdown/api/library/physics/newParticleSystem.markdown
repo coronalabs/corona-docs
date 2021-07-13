@@ -14,7 +14,7 @@
 
 ## Overview
 
-A [ParticleSystem][api.type.ParticleSystem] object contains particles with liquid-like behavior under the [LiquidFun](http://google.github.io/liquidfun/) framework.
+A [ParticleSystem][api.type.ParticleSystem] object contains particles with liquid-like behavior under the [LiquidFun](https://google.github.io/liquidfun/) framework.
 
 Once you create a particle system, you can generate particles using [object:createParticle()][api.type.ParticleSystem.createParticle] or [object:createGroup()][api.type.ParticleSystem.createGroup].
 
@@ -90,13 +90,13 @@ _[Number][api.type.Number]._ Produces repulsion between powder particles. Larger
 _[Number][api.type.Number]._ Pushes particles out of solid particle group. Larger values repulse more.
 
 ##### staticPressureStrength ~^(optional)^~
-_[Number][api.type.Number]._ Produces static pressure. Larger values increase the pressure on neighboring particles. For a description of static pressure, refer [here](http://en.wikipedia.org/wiki/Static_pressure#Static_pressure_in_fluid_dynamics).
+_[Number][api.type.Number]._ Produces static pressure. Larger values increase the pressure on neighboring particles. For a description of static pressure, refer [here](https://en.wikipedia.org/wiki/Static_pressure#Static_pressure_in_fluid_dynamics).
 
 ##### staticPressureRelaxation ~^(optional)^~
 _[Number][api.type.Number]._ Reduces instability in static pressure calculation. Larger values stabilize static pressure with fewer iterations.
 
 ##### staticPressureIterations ~^(optional)^~
-_[Number][api.type.Number]._ Changes the number of iterations when calculating the static pressure of particles. By default this is `8` iterations. You can reduce the number of iterations down to `1` in some situations, but this may cause instability when many particles come together. If you see particles popping away from each other like popcorn, you may have to increase the number of iterations. For a description of static pressure, refer [here](http://en.wikipedia.org/wiki/Static_pressure#Static_pressure_in_fluid_dynamics).
+_[Number][api.type.Number]._ Changes the number of iterations when calculating the static pressure of particles. By default this is `8` iterations. You can reduce the number of iterations down to `1` in some situations, but this may cause instability when many particles come together. If you see particles popping away from each other like popcorn, you may have to increase the number of iterations. For a description of static pressure, refer [here](https://en.wikipedia.org/wiki/Static_pressure#Static_pressure_in_fluid_dynamics).
 
 ##### strictContactCheck ~^(optional)^~
 _[Boolean][api.type.Boolean]._ Specifies whether the strict particle/body contact check should be enabled. This value is `false` by default.

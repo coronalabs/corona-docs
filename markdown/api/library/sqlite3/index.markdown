@@ -5,7 +5,7 @@
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          sqlite3, database, sqlite
 > __See also__          [LuaSQLite Documentation](http://lua.sqlite.org/index.cgi/doc/tip/doc/lsqlite3.wiki)
->								[SQLite Language Reference](http://www.sqlite.org/lang.html)
+>								[SQLite Language Reference](https://www.sqlite.org/lang.html)
 > --------------------- ------------------------------------------------------------------------------------------
 
 ## Overview

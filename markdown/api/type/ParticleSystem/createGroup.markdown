@@ -36,7 +36,7 @@ When implementing particle collisions via the [particleCollision][api.event.part
 
 ## Parameter Reference
 
-To learn more about the parameters available for particles, please refer to the [LiquidFun Programmer's Guide](http://google.github.io/liquidfun/Programmers-Guide/html/md__chapter11__particles.html).
+To learn more about the parameters available for particles, please refer to the [LiquidFun Programmer's Guide](https://google.github.io/liquidfun/Programmers-Guide/html/md__chapter11__particles.html).
 
 ##### flags ~^(optional)^~
 _[String][api.type.String] or [Table][api.type.Table]._ One of the following strings or a table containing a <nobr>comma-delimited</nobr> list of these strings.

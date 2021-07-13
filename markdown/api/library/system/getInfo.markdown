@@ -53,8 +53,6 @@ _[String][api.type.String]._ The name of the property corresponding to the desir
 
 `"bundleID"` returns bundle/package identifier of the app or `nil` if not applicable.
 
-`"build"` returns the Solar2D build string as it appears in the __About__ box of the Solar2D Simulator.
-
 ### darkMode
 `"darkMode"` returns either `true` or `false` on platforms that support Dark Mode.
 

@@ -108,7 +108,7 @@
 </div>
 <div id="remarks" class="section level2">
 <h2>Remarks</h2>
-<p>This function allows you to use the same <code>formatstring</code> options in C and C++ (<a href="http://www.cplusplus.com/reference/clibrary/cstdio/printf/">information</a>).</p>
+<p>This function allows you to use the same <code>formatstring</code> options in C and C++ (<a href="https://www.cplusplus.com/reference/cstdio/printf/">information</a>).</p>
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
@@ -126,14 +126,14 @@ formatstring:format( [...] )</pre>
 </div>
 <div id="example" class="section level2">
 <h2>Example</h2>
-<pre class="brush: lua;">print( string.format( "%6.2f", "1234" ) )                   --> maximum of 6 characters left and 2 right of decimal: 1234.00
-print( string.format( "%07d", "1234" ) )                    --> leading zeros with maximum 7 characters: 0001234
-print( string.format( "%s %q", "Hello", "Corona user!" ) )  --> string and quoted string
-print( string.format( "%c%c%c", 76, 117, 97 ) )             --> char: Lua
-print( string.format( "%e, %E", math.pi, math.pi ) )        --> exponent: 3.141593e+00, 3.141593E+00
-print( string.format( "%f, %g", math.pi, math.pi ) )        --> float and compact float: 3.141593, 3.14159
-print( string.format( "%d, %i, %u", -100, -10.1, -100 ) )   --> signed, signed, unsigned integer: -100, -10, 0
-print( string.format( "%o, %x, %X", 10, 10, 10 ) )          --> octal, hex, hex: 12, a, A</pre>
+<pre class="brush: lua;">print( string.format( "%6.2f", "1234" ) )                    --> maximum of 6 characters left and 2 right of decimal: 1234.00
+print( string.format( "%07d", "1234" ) )                     --> leading zeros with maximum 7 characters: 0001234
+print( string.format( "%s %q", "Hello", "Solar2D user!" ) )  --> string and quoted string
+print( string.format( "%c%c%c", 76, 117, 97 ) )              --> char: Lua
+print( string.format( "%e, %E", math.pi, math.pi ) )         --> exponent: 3.141593e+00, 3.141593E+00
+print( string.format( "%f, %g", math.pi, math.pi ) )         --> float and compact float: 3.141593, 3.14159
+print( string.format( "%d, %i, %u", -100, -10.1, -100 ) )    --> signed, signed, unsigned integer: -100, -10, 0
+print( string.format( "%o, %x, %X", 10, 10, 10 ) )           --> octal, hex, hex: 12, a, A</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

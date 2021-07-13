@@ -136,9 +136,9 @@ Project Flow
 <h2>Solar2D Native Development</h2>
 <div id="bridging-luac" class="section level3">
 <h3>Bridging Lua/C</h3>
-<p>To bridge Lua and C code, you'll use functionality made available by the <a href="http://www.lua.org/manual/5.1/manual.html#3">Lua C API</a>. This allows you to add libraries and functions in Lua that call directly into C.</p>
+<p>To bridge Lua and C code, you'll use functionality made available by the <a href="https://www.lua.org/manual/5.1/manual.html#3">Lua C API</a>. This allows you to add libraries and functions in Lua that call directly into C.</p>
 <p>Every function in the Lua C API takes the <code>lua_State</code> pointer <code>L</code> as its first argument. You can get access to the proper <code>lua_State</code> variable via an instance of the <a href="../../native/ios/CoronaRuntime/index.html">CoronaRuntime</a>.</p>
-<p>In order to use the Lua C API successfully, you must understand the Lua stack. This stack is different from a function call stack; it is designed to ease the marshalling of data across the <nobr>Lua-C</nobr> bridge. See <a href="http://www.lua.org/manual/5.1/manual.html#3">here</a> for more information.</p>
+<p>In order to use the Lua C API successfully, you must understand the Lua stack. This stack is different from a function call stack; it is designed to ease the marshalling of data across the <nobr>Lua-C</nobr> bridge. See <a href="https://www.lua.org/manual/5.1/manual.html#3">here</a> for more information.</p>
 </div>
 <div id="native-apis" class="section level3">
 <h3>Native APIs</h3>

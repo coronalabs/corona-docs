@@ -156,7 +156,7 @@
 <pre class="brush: lua;">network.download( url, method, listener [, params], filename [, baseDirectory] )</pre>
 <div id="url-required" class="section level5">
 <h5>url <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../../api/type/String.html">String</a>.</em> The HTTP request URL. This must conform to the usual rules for <a href="http://en.wikipedia.org/wiki/Url">URLs</a> (see example below if you want to use non-ASCII characters in the URL).</p>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The HTTP request URL. This must conform to the usual rules for <a href="https://en.wikipedia.org/wiki/URL">URLs</a> (see example below if you want to use non-ASCII characters in the URL).</p>
 </div>
 <div id="method-required" class="section level5">
 <h5>method <sub><sup>(required)</sup></sub></h5>
@@ -208,7 +208,7 @@ local params = {}
 params.progress = true
 
 network.download(
-    "http://docs.coronalabs.com/images/simulator/image-mask-base2.png",
+    "https://docs.coronalabs.com/images/simulator/image-mask-base2.png",
     "GET",
     networkListener,
     params,
@@ -218,7 +218,7 @@ network.download(
 </div>
 <div id="using-non-ascii-characters-in-url" class="section level5">
 <h5>Using Non-ASCII Characters in URL</h5>
-<pre class="brush: lua;">--If you want to include non-ASCII characters in the URL, you must "urlencode" (http://en.wikipedia.org/wiki/Urlencode) them.
+<pre class="brush: lua;">--If you want to include non-ASCII characters in the URL, you must "urlencode" (https://en.wikipedia.org/wiki/Percent-encoding) them.
 --Note that your browser does this behind the scenes.
 
 local json = require "json"

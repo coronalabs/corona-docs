@@ -115,7 +115,7 @@
 </style>
 <div id="in-app-purchasing-iap" class="section level1">
 <h1>In-App Purchasing (IAP)</h1>
-<p>This guide discusses how to implement <nobr>in-app</nobr> purchasing (IAP) within Corona apps.</p>
+<p>This guide discusses how to implement <nobr>in-app</nobr> purchasing (IAP) within Solar2D apps.</p>
 <div class="guides-toc">
 <ul>
 <li><a href="#overview">Overview</a></li>
@@ -194,7 +194,7 @@
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>When configuring products within a store's portal, product identifiers should be named clearly and accurately since you'll need to use them within your Corona code to load products, submit purchase requests, and identify the item after a completed transaction. In addition, if you intend to support multiple stores/platforms, you should use a consistent name for each product across all of them — this will prevent the need for extra conditional code throughout your IAP implementation.</p>
+<p>When configuring products within a store's portal, product identifiers should be named clearly and accurately since you'll need to use them within your Solar2D code to load products, submit purchase requests, and identify the item after a completed transaction. In addition, if you intend to support multiple stores/platforms, you should use a consistent name for each product across all of them — this will prevent the need for extra conditional code throughout your IAP implementation.</p>
 </div>
 </div>
 <p><a id="setup"></a></p>
@@ -232,7 +232,7 @@
 <li><p>Start by setting up your Google merchant account and link it to the <a href="https://play.google.com/apps/publish/">Google Play Developer Console</a>. <nobr>In-app</nobr> purchases will <strong>not</strong> work until these steps are cleared, and you won't get an error message reporting so. Please see <a href="https://support.google.com/payments/merchant/answer/7161426">here</a> for detailed instructions.</p></li>
 <li><p>While still in console, create a new app and fill out all of the information needed for publishing the app — note, however, that some details don't need to be final for simply testing <nobr>in-app</nobr> purchasing.</p></li>
 <li><p>Configure your <nobr>in-app</nobr> purchases (products). This task is beyond the scope of this guide, so please see Google's <a href="https://developer.android.com/google/play/billing/billing_admin.html">Administering In-App Billing</a> guide for further assistance.</p></li>
-<li><p>On the Corona side, integrate the <a href="../../../plugin/google-iap-billing/index.html">Google Biling</a> plugin by adding an entry into the <code>plugins</code> table of the project's <code>build.settings</code> file:</p></li>
+<li><p>On the Solar2D side, integrate the <a href="../../../plugin/google-iap-billing/index.html">Google Billing</a> plugin by adding an entry into the <code>plugins</code> table of the project's <code>build.settings</code> file:</p></li>
 </ol>
 <div class="code-indent">
 <pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
@@ -275,10 +275,10 @@
 </div>
 <p>The following steps pertain to in-app purchasing on <strong>Amazon</strong>.</p>
 <ol style="list-style-type: decimal">
-<li><p>If you haven't already, register for an <a href="http://developer.amazon.com">Amazon Developer</a> account.</p></li>
+<li><p>If you haven't already, register for an <a href="https://developer.amazon.com/">Amazon Developer</a> account.</p></li>
 <li><p>If you're new to <nobr>Amazon in-app purchasing</nobr>, read Amazon's <a href="https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs-v2/understanding-in-app-purchasing">Understanding In-App Purchasing</a> guide.</p></li>
 <li><p>Configure your <nobr>in-app</nobr> purchases (products). This task is beyond the scope of this guide, so please see Amazon's <a href="https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs-v2/submitting-iap-items">Submitting IAP Items</a> guide for further assistance.</p></li>
-<li><p>On the Corona side, integrate the <a href="../../../plugin/amazon-iap-v2/index.html">Amazon IAP</a> plugin by adding an entry into the <code>plugins</code> table of the project's <code>build.settings</code> file:</p></li>
+<li><p>On the Solar2D side, integrate the <a href="../../../plugin/amazon-iap-v2/index.html">Amazon IAP</a> plugin by adding an entry into the <code>plugins</code> table of the project's <code>build.settings</code> file:</p></li>
 </ol>
 <div class="code-indent">
 <pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
@@ -314,7 +314,7 @@ When you set up test accounts, be sure they're added to the &ldquo;Gmail account
 <h2>Initializing IAP</h2>
 <div id="module-inclusion" class="section level3">
 <h3>Module Inclusion</h3>
-<p>Because each IAP provider utilizes a different module/plugin on the Corona side, you must load the proper one.</p>
+<p>Because each IAP provider utilizes a different module/plugin on the Solar2D side, you must load the proper one.</p>
 <p>If you are only supporting one store, you can simply <code>require()</code> the proper module as follows:</p>
 <div class="docs-tip-outer" style="background-color: #a5aec9;">
 <div class="docs-tip-inner-left">
@@ -367,7 +367,7 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>When building your app for <nobr>Android-based</nobr> devices, including Amazon's Kindle Fire devices, remember to select the correct <strong>Target App Store</strong> from the Corona build dialog window (<a href="../../../guide/distribution/androidBuild/index.html">guide</a>).</p>
+<p>When building your app for <nobr>Android-based</nobr> devices, including Amazon's Kindle Fire devices, remember to select the correct <strong>Target App Store</strong> from the Solar2D build dialog window (<a href="../../../guide/distribution/androidBuild/index.html">guide</a>).</p>
 </div>
 </div>
 </div>
@@ -407,7 +407,7 @@ store.init( transactionListener )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>For Google IAP, this same transaction listener function also handles initialization ([init][plugin.google-iap-billin.event.init]) events. Thus, if you're using Google IAP, you should differentiate store transaction events from initialization events by conditionally checking the value of <a href="../../../plugin/google-iap-billing/event/storeTransaction/name.html">event.name</a>. Please see the Google IAP <a href="../../../plugin/google-iap-billing/init.html">store.init()</a> documentation for an example of doing so.</p>
+<p>For Google IAP, this same transaction listener function also handles initialization (<a href="../../../plugin/google-iap-billing/event/init/index.html">init</a>) events. Thus, if you're using Google IAP, you should differentiate store transaction events from initialization events by conditionally checking the value of <a href="../../../plugin/google-iap-billing/event/storeTransaction/name.html">event.name</a>. Please see the Google IAP <a href="../../../plugin/google-iap-billing/init.html">store.init()</a> documentation for an example of doing so.</p>
 </div>
 </div>
 <div class="docs-tip-outer">
@@ -425,11 +425,11 @@ store.init( transactionListener )</pre>
 </div>
 <div id="loading-products" class="section level2">
 <h2>Loading Products</h2>
-<p>In your Corona app, you can use the <code>store.loadProducts()</code> function to load product information which you've entered into the respective stores:</p>
+<p>In your Solar2D app, you can use the <code>store.loadProducts()</code> function to load product information which you've entered into the respective stores:</p>
 <pre class="brush: lua;">store.loadProducts( productIdentifiers, productListener )</pre>
 <p>This function requires the following two arguments:</p>
 <ul>
-<li><code>productIdentifiers</code> — A Lua <a href="../../../api/type/Table.html">table</a> (array) where each element is a <a href="../../../api/type/String.html">string</a> representing the product identifier of the item. Product identifiers must match those you entered within <a href="https://itunesconnect.apple.com/">iTunes Connect</a>, the <a href="https://play.google.com/apps/publish/">Google Play Developer Console</a>, and/or the <a href="http://developer.amazon.com">Amazon Developer</a> portal. For example:</li>
+<li><code>productIdentifiers</code> — A Lua <a href="../../../api/type/Table.html">table</a> (array) where each element is a <a href="../../../api/type/String.html">string</a> representing the product identifier of the item. Product identifiers must match those you entered within <a href="https://itunesconnect.apple.com/">iTunes Connect</a>, the <a href="https://play.google.com/apps/publish/">Google Play Developer Console</a>, and/or the <a href="https://developer.amazon.com/">Amazon Developer</a> portal. For example:</li>
 </ul>
 <div class="code-indent">
 <pre class="brush: lua;">local productIdentifiers = {
@@ -636,7 +636,7 @@ if ( transaction.state == "purchased" or transaction.state == "restored" ) then
 <p>Each marketplace offers some unique and potentially critical functionality which you must be aware of. The following list summarizes these, but you should always consult the documentation for <a href="../../../api/library/store/index.html">iOS</a>, <a href="../../../plugin/google-iap-billing/index.html">Android</a>, and <a href="../../../plugin/amazon-iap-v2/index.html">Amazon</a> to inspect <nobr>platform-specific</nobr> functionality in detail.</p>
 <div id="purchasing-disabled-apple" class="section level3">
 <h3>Purchasing Disabled (Apple)</h3>
-<p>iOS devices have a setting which can disable <nobr>in-app</nobr> purchasing entirely. This is commonly used to prevent children from accidentally purchasing items without permission. For Apple IAP, Corona provides the <a href="../../../api/library/store/canMakePurchases.html">store.canMakePurchases</a> property to check whether purchasing is enabled or disabled. You should use this to check in advance if purchasing is allowed and notify the user if it's forbidden.</p>
+<p>iOS devices have a setting which can disable <nobr>in-app</nobr> purchasing entirely. This is commonly used to prevent children from accidentally purchasing items without permission. For Apple IAP, Solar2D provides the <a href="../../../api/library/store/canMakePurchases.html">store.canMakePurchases</a> property to check whether purchasing is enabled or disabled. You should use this to check in advance if purchasing is allowed and notify the user if it's forbidden.</p>
 </div>
 <div id="consuming-items-google" class="section level3">
 <h3>Consuming Items (Google)</h3>
@@ -661,7 +661,7 @@ if ( transaction.state == "purchased" or transaction.state == "restored" ) then
 </div>
 <div id="sandbox-mode-amazon" class="section level3">
 <h3>Sandbox Mode (Amazon)</h3>
-<p>Amazon lets you test <nobr>in-app</nobr> purchasing via a &quot;sandbox&quot; mode in which no real purchases are made. If you want to implement some form of debugging in your Corona app, you can use the <a href="../../../plugin/amazon-iap-v2/isSandboxMode.html">store.isSandboxMode()</a> API to check if the app is currently in testing mode.</p>
+<p>Amazon lets you test <nobr>in-app</nobr> purchasing via a &quot;sandbox&quot; mode in which no real purchases are made. If you want to implement some form of debugging in your Solar2D app, you can use the <a href="../../../plugin/amazon-iap-v2/isSandboxMode.html">store.isSandboxMode()</a> API to check if the app is currently in testing mode.</p>
 <hr>
 <div id="footer">
 <p class="copyright">

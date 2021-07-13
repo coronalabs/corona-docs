@@ -280,7 +280,7 @@ end</pre>
 <p>To upload a photo to your Facebook photo album, the <code>params</code> table can be filled in based on the standard Graph API parameters found <a href="https://developers.facebook.com/docs/graph-api/reference/photo#Creating">here</a>:</p>
 <pre class="brush: lua;">local attachment = {
     caption = "Corona icon file",
-    url = "http://www.coronalabs.com/links/demo/Corona90x90.png",
+    url = "https://coronalabs.com/wordpress/wp-content/uploads/2020/04/Solar2D-App-Icon-RGB-512.png",
 }
 facebook.request( "me/photos", "POST", attachment )</pre>
 <p>When <a href="../../../plugin/facebook-v4a/request.html">facebook.request()</a> calls complete, your Facebook listener function will be called with an <code>event.type</code> of <code>&quot;request&quot;</code>. Facebook generally returns your data as <code>event.response</code>, a <nobr>JSON-encoded</nobr> table of data. To convert this into a Lua table, call <a href="../../../api/library/json/decode.html">json.decode()</a>, remembering to first <code>require()</code> the JSON library.</p>

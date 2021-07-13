@@ -87,7 +87,7 @@
 .faq p em { margin-left: -20px; font-size: 110%; font-weight: 600; font-style: normal; }
 
 </style>
-<p>This guide is for third party developers who are ready to <a href="https://marketplace.coronalabs.com/product-submit">submit a plugin</a> for availability in the <a href="https://marketplace.coronalabs.com">Corona Marketplace</a>.</p>
+<p>This guide is for third party plugin developers who are ready to submit a plugin to the Solar2D Free Plugin directory at <a href="https://plugins.solar2d.com/">plugins.solar2d.com</a>. Alternatively, you may submit it to the <a href="https://www.solar2dplugins.com/">Solar2D Plugins Marketplace</a>, please see the <a href="https://www.solar2dplugins.com/asset-packaging-guidelines">Asset Packaging Guidelines</a>.</p>
 <div class="docs-tip-outer">
 <div class="docs-tip-inner-left">
 <div class="fa fa-cog">
@@ -124,7 +124,7 @@
 <h2>Packaging for Submission</h2>
 <div id="pure-lua" class="section level3">
 <h3>Pure Lua</h3>
-<p>If you have a plugin written in <strong>pure Lua</strong> <nobr>(Lua code only)</nobr>, please see the <a href="../../native/plugin/luaplugin.html">Creating Lua Plugins</a> guide for details on how to submit it to the <a href="https://marketplace.coronalabs.com/">Corona Marketplace</a>.</p>
+<p>If you have a plugin written in <strong>pure Lua</strong> <nobr>(Lua code only)</nobr>, please see the <a href="../../native/plugin/luaplugin.html">Creating Lua Plugins</a>.</p>
 </div>
 <div id="native-hybrid" class="section level3">
 <h3>Native / Hybrid</h3>
@@ -403,7 +403,7 @@ Note
 </div>
 <div id="multiple-versions" class="section level3">
 <h3>Multiple Versions</h3>
-<p>Normally, when you update a plugin binary, you simply <nobr>re-submit</nobr> the plugin. However, there may be occasions when a newer version of the plugin breaks backwards compatibility, or your updated plugin relies on new functionality available in a more recent <a href="https://developer.coronalabs.com/downloads/daily-builds/">daily build</a> of Corona.</p>
+<p>Normally, when you update a plugin binary, you simply <nobr>re-submit</nobr> the plugin. However, there may be occasions when a newer version of the plugin breaks backwards compatibility, or your updated plugin relies on new functionality available in a more recent <a href="https://github.com/coronalabs/corona/releases">Solar2D build</a>.</p>
 <p>In this situation, you should deploy a separate plugin binary. This binary will correspond to a different/newer build version of Solar2D. A developer can then simply obtain that version to access the newer version of the plugin. In this manner, you can keep the legacy plugin binary around to preserve backwards compatibility.</p>
 <p><a id="faq"></a></p>
 </div>
@@ -419,7 +419,7 @@ Note
 <p>If the plugin does not have an implementation for Windows or macOS, we recommend creating Lua stub files (see above).</p>
 <p>If you wish to provide Simulator plugin implementations, you will need to use Visual Studio (Windows) or Xcode (macOS). Some useful guidelines can be found here:</p>
 <ul>
-<li><a href="http://msdn.microsoft.com/en-us/library/ms235636(v=vs.80).aspx">Creating and Using a Dynamic Link Library</a> (<code>.dll</code>)</li>
+<li><a href="https://docs.microsoft.com/en-us/cpp/build/walkthrough-creating-and-using-a-dynamic-link-library-cpp">Creating and Using a Dynamic Link Library</a> (<code>.dll</code>)</li>
 <li><a href="https://developer.apple.com/library/mac/documentation/DeveloperTools/Conceptual/DynamicLibraries/100-Articles/CreatingDynamicLibraries.html#//apple_ref/doc/uid/TP40002073-SW1">Creating Dynamic Libraries</a> (<code>.dylib</code>)</li>
 </ul>
 <h6 id="why-is-there-both-an-iphone-and-iphone-sim-folder"><strong>Why is there both an <code>iphone</code> and <code>iphone-sim</code> folder?</strong></h6>

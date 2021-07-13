@@ -64,7 +64,7 @@
 </ul></li>
 <li><a href="#consoledevice-debugging">Console/Device Debugging</a><ul>
 <li><a href="#viewing-runtime-errors">Viewing Runtime Errors</a></li>
-<li><a href="#corona-simulator-console">Corona Simulator Console</a></li>
+<li><a href="#solar2d-simulator-console">Solar2D Simulator Console</a></li>
 <li><a href="#xcode-simulator-macos">Xcode Simulator — macOS</a></li>
 <li><a href="#device-debugging-ios">Device Debugging — iOS</a></li>
 <li><a href="#device-debugging-android">Device Debugging — Android</a></li>
@@ -113,8 +113,8 @@
 </div>
 <div id="using-corona-editor" class="section level2">
 <h2>Using Corona Editor</h2>
-<p><a href="http://coronalabs.com/products/editor/">Corona Editor</a> is an <nobr>add-on</nobr> feature for <a href="http://www.sublimetext.com/">Sublime Text</a>. This allows you to see debugging messages in Sublime Text without needing a console window. It also allows you to validate your code using an interactive debugger.</p>
-<p>Once you have Sublime Text and Corona Editor installed, it can help you debug your code. For example, you can stop the Corona Simulator at certain points and examine the state of your code, or you can step through the code and inspect variable values along the way. In addition, you can follow the <strong>stack trace</strong> of the app for more comprehensive debugging purposes.</p>
+<p><a href="https://github.com/coronalabs/CoronaSDK-SublimeText">Corona Editor</a> is an <nobr>add-on</nobr> feature for <a href="https://www.sublimetext.com/">Sublime Text</a>. This allows you to see debugging messages in Sublime Text without needing a console window. It also allows you to validate your code using an interactive debugger.</p>
+<p>Once you have Sublime Text and Corona Editor installed, it can help you debug your code. For example, you can stop the Solar2D Simulator at certain points and examine the state of your code, or you can step through the code and inspect variable values along the way. In addition, you can follow the <strong>stack trace</strong> of the app for more comprehensive debugging purposes.</p>
 <div id="using-break-points" class="section level3">
 <h3>Using Break Points</h3>
 <p>One key concept in using an interactive debugger is the ability to stop your program at certain points so you can observe the current state. This includes looking at the value of variables in scope, stepping through the code one line or one function at a time, and checking the stack trace. This is known as <strong>using break points</strong> and it all revolves around stopping your program at the points you want to inspect.</p>
@@ -164,7 +164,7 @@ Watching variables only shows you variables in scope.  It does not show global v
 <p><a id="runtimeerrors"></a></p>
 <div id="viewing-runtime-errors" class="section level3">
 <h3>Viewing Runtime Errors</h3>
-<p>If you have <strong>Show Runtime Errors</strong> enabled in the Corona Simulator preferences, runtime errors (those that crash your app) will abort the program and reveal a message dialog box with more information about the error, including:</p>
+<p>If you have <strong>Show Runtime Errors</strong> enabled in the Solar2D Simulator preferences, runtime errors (those that crash your app) will abort the program and reveal a message dialog box with more information about the error, including:</p>
 <ul>
 <li>The filename in which the error occurred in, for example <code>main.lua</code>.</li>
 <li>The line number within that file where the error occurred, for instance <nobr><code>Line 218</code></nobr>.</li>
@@ -188,22 +188,22 @@ Debug Symbols
 </div>
 <p>When <a href="../../../guide/distribution/iOSBuild/index.html">building for iOS</a> you have the choice of a <strong>Development</strong> build or a <strong>Distribution</strong> build. When <a href="../../../guide/distribution/androidBuild/index.html">building for Android</a>, you either build with a <strong>Debug</strong> keystore or a <strong>Release</strong> keystore. Typically, your choice impacts the information available in the stack trace as follows:</p>
 <ul>
-<li><p>If you build with a development profile or a debug keystore, Corona will retain debug symbols within the Lua code. This results in a minimal performance impact and a larger application bundle.</p></li>
-<li><p>If you build with a distribution profile or a release keystore, Corona will strip debug symbols out of the Lua code.</p></li>
+<li><p>If you build with a development profile or a debug keystore, Solar2D will retain debug symbols within the Lua code. This results in a minimal performance impact and a larger application bundle.</p></li>
+<li><p>If you build with a distribution profile or a release keystore, Solar2D will strip debug symbols out of the Lua code.</p></li>
 </ul>
-<p>If you wish to retain these symbols regardless of the build type, simply override the default behavior as illustrated <a href="../../../guide/distribution/advancedSettings/index.html#build-control">here</a>. This will make it easier to trace the code, but if the error occurs inside of core Corona code, debug symbols will still not be available. In these cases, you'll need to trace backwards and determine why the information you're passing to a Corona library function is causing an error.</p>
+<p>If you wish to retain these symbols regardless of the build type, simply override the default behavior as illustrated <a href="../../../guide/distribution/advancedSettings/index.html#build-control">here</a>. This will make it easier to trace the code, but if the error occurs inside of core Solar2D code, debug symbols will still not be available. In these cases, you'll need to trace backwards and determine why the information you're passing to a Solar2D library function is causing an error.</p>
 </div>
 </div>
-<div id="corona-simulator-console" class="section level3">
-<h3>Corona Simulator Console</h3>
-<p>Diagnostic output can also be viewed within the <strong>Corona Simulator Console</strong>. Here, useful debugging messages will be shown, along with the value of <code>print()</code> statements within your code. While this practice may be considered outdated to some developers, tracking the output of <code>print()</code> commands can often reveal the cause of an error or an issue with conditional logic.</p>
+<div id="solar2d-simulator-console" class="section level3">
+<h3>Solar2D Simulator Console</h3>
+<p>Diagnostic output can also be viewed within the <strong>Solar2D Simulator Console</strong>. Here, useful debugging messages will be shown, along with the value of <code>print()</code> statements within your code. While this practice may be considered outdated to some developers, tracking the output of <code>print()</code> commands can often reveal the cause of an error or an issue with conditional logic.</p>
 </div>
 <div id="xcode-simulator-macos" class="section level3">
 <h3>Xcode Simulator — macOS</h3>
-<p>The above methods can help diagnose most coding issues, but the <strong>Xcode Simulator</strong> for macOS may be necessary to preview how the app will function on actual iOS devices. This helps simulate some device features that the Corona Simulator cannot, but it's still not as accurate as a real device.</p>
+<p>The above methods can help diagnose most coding issues, but the <strong>Xcode Simulator</strong> for macOS may be necessary to preview how the app will function on actual iOS devices. This helps simulate some device features that the Solar2D Simulator cannot, but it's still not as accurate as a real device.</p>
 <p>To test an app in the Xcode Simulator:</p>
 <ol style="list-style-type: decimal">
-<li><p>Select <strong>File</strong> → <strong>Build</strong> → <strong>Build for iOS...</strong> from within the Corona Simulator.</p></li>
+<li><p>Select <strong>File</strong> → <strong>Build</strong> → <strong>Build for iOS...</strong> from within the Solar2D Simulator.</p></li>
 <li><p>In the dialog window, under the <strong>Build for:</strong> <nobr>pull-down</nobr> menu, select <strong>Xcode Simulator</strong>.</p></li>
 <li><p>Proceed with the build process and the application will open in a simulated device window.</p></li>
 <li><p>From this application, select <strong>Debug</strong> → <nobr><strong>Open System Log...</strong></nobr> to view the system log.</p></li>
@@ -224,15 +224,15 @@ Debug Symbols
 <p>Debugging on Android is a bit more &quot;command line oriented,&quot; but once you figure out the commands, it's reasonably quick to install an app, view the log as the app runs, and look for error messages.</p>
 <p>First, you must install some free tools from Google called <strong>Android Debug Bridge</strong>. Simply follow these steps:</p>
 <ol style="list-style-type: decimal">
-<li><p>Visit the <a href="http://developer.android.com/sdk/index.html#download">download</a> page. Instead of clicking the large download button, click on the <strong>Download Options</strong> link. Then, in the <nobr><strong>Get just the command line tools</strong></nobr> section, select the correct option for your system.</p></li>
+<li><p>Visit the <a href="https://developer.android.com/studio#downloads">download</a> page. Instead of clicking the large download button, click on the <strong>Download Options</strong> link. Then, in the <nobr><strong>Command line tools only</strong></nobr> section, select the correct option for your system. Alternatively, you can download the SDK Platform Tools for your operating system from the <a href="https://developer.android.com/studio/releases/platform-tools">platform tools</a> page.</p></li>
 <li><p>Install the tools. On Windows, run the installer; on macOS, unzip the file and move the folder to a sensible location.</p></li>
-<li><p>Follow the instructions for <a href="http://developer.android.com/sdk/installing/adding-packages.html">Adding SDK Packages</a>. Install at least the <strong>Android SDK Tools</strong> and <nobr><strong>Android SDK Platform-tools</strong>.</nobr></p></li>
+<li><p>Follow the instructions for <a href="https://developer.android.com/studio#downloads">Adding SDK Packages</a>. Install at least the <strong>Android SDK Tools</strong> and <nobr><strong>Android SDK Platform-tools</strong>.</nobr></p></li>
 </ol>
-<p>Once the tools are installed, you can use the command line tools. With your Android device connected, simply type the following command in the <strong>Terminal</strong> (macOS) or <strong>Command Prompt</strong> (Windows) and watch the messages appear. This command will filter out all messages except those generated by Corona.</p>
+<p>Once the tools are installed, you can use the command line tools. With your Android device connected, simply type the following command in the <strong>Terminal</strong> (macOS) or <strong>Command Prompt</strong> (Windows) and watch the messages appear. This command will filter out all messages except those generated by Solar2D.</p>
 <pre class="brush: lua;">adb logcat Corona:v *:s</pre>
-<p>Sometimes errors are generated by things besides Corona, for example messages from Google Play related to Google <nobr>In-App</nobr> Purchases. To see the entire log, use this command instead:</p>
+<p>Sometimes errors are generated by things besides Solar2D, for example messages from Google Play related to Google <nobr>In-App</nobr> Purchases. To see the entire log, use this command instead:</p>
 <pre class="brush: lua;">adb logcat</pre>
-<p>This will prevent filtering for <nobr>Corona-specific</nobr> activity, but it will generate a large number of messages and it will be difficult to locate those relevant to the problem. Thus, it may be helpful to include some <code>print()</code> statements within your code near the area which you suspect is problematic. For example:</p>
+<p>This will prevent filtering for <nobr>Solar2D-specific</nobr> activity, but it will generate a large number of messages and it will be difficult to locate those relevant to the problem. Thus, it may be helpful to include some <code>print()</code> statements within your code near the area which you suspect is problematic. For example:</p>
 <pre class="brush: lua;">print( "MYAPP - Purchase: *********************************************" )
 store.purchase( "com.coronalabs.NewExampleInAppPurchase.NonConsumableTier1" )</pre>
 <p>If you prefer a more visual tool, <strong>adb</strong> also offers a GUI version of <nobr><code>adb logcat</code></nobr> called <strong>monitor</strong>. You may need to set your device to &quot;developer mode&quot; to use these tools, and each device and version of Android exposes this in different ways, so we suggest that you search online for your specific OS and &quot;developer mode&quot; to locate the instructions.</p>
@@ -290,16 +290,16 @@ end</pre>
 </div>
 <div id="device-considerations" class="section level3">
 <h3>Device Considerations</h3>
-<p>Some developers are dismayed to find that their project works in the Corona Simulator but not on their actual device. Usually, one of the following factors is at fault:</p>
+<p>Some developers are dismayed to find that their project works in the Solar2D Simulator but not on their actual device. Usually, one of the following factors is at fault:</p>
 <ul>
-<li><p>File names are not <nobr><strong>case-sensitive</strong></nobr>. When testing on macOS or Windows, file names are not <nobr>case-sensitive</nobr>, but when running on a device, the file names <strong>must</strong> match in case. For example, the file name <code>titleimage.png</code> and <code>TitleImage.PNG</code> are the same in the Corona Simulator, but they are considered different on a device.</p></li>
+<li><p>File names are not <nobr><strong>case-sensitive</strong></nobr>. When testing on macOS or Windows, file names are not <nobr>case-sensitive</nobr>, but when running on a device, the file names <strong>must</strong> match in case. For example, the file name <code>titleimage.png</code> and <code>TitleImage.PNG</code> are the same in the Solar2D Simulator, but they are considered different on a device.</p></li>
 <li><p>There is an error in the <code>build.settings</code> file, and often this is because the various blocks and tables are not properly nested. Please see the <a href="../../../guide/distribution/buildSettings/index.html">Project Build Settings</a> guide for instructions on how to properly construct the <code>build.settings</code> file and each section within it.</p></li>
 <li><p>There's a problem with a <a href="../../../plugin/index.html">plugin</a>. Each plugin must be included exactly as specified, and several plugins require device <strong>permissions</strong> in order to function properly. Please see the appropriate <a href="../../../plugin/index.html">plugin documentation</a> for details.</p></li>
 </ul>
 </div>
 <div id="listener-removal" class="section level3">
 <h3>Listener Removal</h3>
-<p>In some cases, an <a href="../../../api/event/index.html">event</a> listener function may still be running when you attempt to remove the listener, or a Corona library will be completing an internal process when you attempt to call a certain action. For example, you may attempt to remove a <a href="../../../api/event/location/index.html">GPS</a> listener while the GPS event is still being processed, or you may try to <a href="../../../api/type/Body/isBodyActive.html">deactivate</a> a physics body at the exact moment it collides with another object. Both of these are liable to cause an error/warning.</p>
+<p>In some cases, an <a href="../../../api/event/index.html">event</a> listener function may still be running when you attempt to remove the listener, or a Solar2D library will be completing an internal process when you attempt to call a certain action. For example, you may attempt to remove a <a href="../../../api/event/location/index.html">GPS</a> listener while the GPS event is still being processed, or you may try to <a href="../../../api/type/Body/isBodyActive.html">deactivate</a> a physics body at the exact moment it collides with another object. Both of these are liable to cause an error/warning.</p>
 <p>The solution to these type of issues is to perform the necessary action after a short <a href="../../../api/library/timer/performWithDelay.html">timer</a> delay:</p>
 <pre class="brush: lua;">local function handleGPS( event )
     timer.performWithDelay( 10, function() Runtime:removeEventListener( "location", handleGPS ); end )
@@ -311,7 +311,7 @@ end</pre>
 <h2>Community Support</h2>
 <div id="locating-solutions" class="section level3">
 <h3>Locating Solutions</h3>
-<p>If you have exhausted all of the above debugging methods, proceed to the <a href="http://forums.coronalabs.com/">Corona Forums</a>. There you can search for topics which describe the same issue you're struggling with. Often, another developer will have reported the same issue and, in many cases, the thread will contain the solution — as such, please do not post a new topic without first searching for the answer in existing threads.</p>
+<p>If you have exhausted all of the above debugging methods, proceed to the <a href="https://forums.solar2d.com/">Solar2D Forums</a>. There you can search for topics which describe the same issue you're struggling with. Often, another developer will have reported the same issue and, in many cases, the thread will contain the solution — as such, please do not post a new topic without first searching for the answer in existing threads.</p>
 <p>Note that new contributors will have their first post moderated — these will be entered into the system, but they will not be visible to others until approved by a moderator.</p>
 </div>
 <div id="requesting-assistance" class="section level3">
@@ -329,7 +329,7 @@ end</pre>
 </li>
 <li> Whether you are building for iOS, Android, macOS desktop, or Windows desktop.<br />
 </li>
-<li> Which version/build of Corona you're using.<br />
+<li> Which version/build of Solar2D you're using.<br />
 </li>
 <li> The relevant error messages from your console log.<br />
 </li>

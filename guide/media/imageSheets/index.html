@@ -72,7 +72,7 @@
 </div>
 <div id="image-sheets" class="section level1">
 <h1>Image Sheets</h1>
-<p>Corona fully supports <strong>image sheets</strong>, sometimes referred to as sprite sheets or texture atlases. This allows you to load multiple images/frames from a single larger image file. Image sheets can be used for both static images and animated sprites. <!--- add link to sprite guide (left) --></p>
+<p>Solar2D fully supports <strong>image sheets</strong>, sometimes referred to as sprite sheets or texture atlases. This allows you to load multiple images/frames from a single larger image file. Image sheets can be used for both static images and animated sprites. <!--- add link to sprite guide (left) --></p>
 <div class="guides-toc">
 <ul>
 <li><a href="#overview">Overview</a></li>
@@ -84,14 +84,14 @@
 <p><a id="overview"></a></p>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>In mobile app design, where devices have limited texture memory, it's often essential to conserve this memory by using image sheets. In most cases, it is more efficient to consolidate several smaller images onto one larger sheet and &quot;pull&quot; a particular image from the sheet when you want to display it on the screen. Corona offers this functionality via image sheets.</p>
-<p>Image sheets are also a convenience feature. Using popular <nobr>third-party</nobr> tools like <a href="http://www.codeandweb.com/texturepacker">TexturePacker</a>, you can design your images individually and then instruct the application to consolidate several image files into one optimized image sheet.</p>
+<p>In mobile app design, where devices have limited texture memory, it's often essential to conserve this memory by using image sheets. In most cases, it is more efficient to consolidate several smaller images onto one larger sheet and &quot;pull&quot; a particular image from the sheet when you want to display it on the screen. Solar2D offers this functionality via image sheets.</p>
+<p>Image sheets are also a convenience feature. Using popular <nobr>third-party</nobr> tools like <a href="https://www.codeandweb.com/texturepacker">TexturePacker</a>, you can design your images individually and then instruct the application to consolidate several image files into one optimized image sheet.</p>
 <p>For a more detailed explanation of the memory benefits of image sheets, please refer to the <a href="../../../guide/basics/optimization/index.html">Performance and Optimization</a> guide.</p>
 <p><a id="setup"></a></p>
 </div>
 <div id="image-sheet-setup" class="section level2">
 <h2>Image Sheet Setup</h2>
-<p>The syntax for a new image sheet requires, at minimum, the name of the file and a table of <strong>options</strong> which tells Corona about the images contained on the overall sheet. Depending on your needs, these options can be in &quot;simple&quot; format or &quot;complex&quot; format. If you're using a texture packing utility like those mentioned above, this task will typically be handled for you.</p>
+<p>The syntax for a new image sheet requires, at minimum, the name of the file and a table of <strong>options</strong> which tells Solar2D about the images contained on the overall sheet. Depending on your needs, these options can be in &quot;simple&quot; format or &quot;complex&quot; format. If you're using a texture packing utility like those mentioned above, this task will typically be handled for you.</p>
 <p>Initializing the image sheet is done with the <a href="../../../api/library/graphics/newImageSheet.html">graphics.newImageSheet()</a> function:</p>
 <pre class="brush: lua;">graphics.newImageSheet( filename, [baseDir, ] options )</pre>
 <ul>
@@ -158,7 +158,7 @@ local sheet = graphics.newImageSheet( "mySheet.png", options )</pre>
 <li><code>sheetContentWidth</code></li>
 <li><code>sheetContentHeight</code></li>
 </ul>
-<p>These values tell Corona the size of the original 1x image sheet. For example, if you're developing for both iPad and iPad Retina, and you're using an image sheet of 1000×1000 for the regular iPad, you should specify <code>1000</code> for both of these values and then design your Retina image sheet at 2000×2000.</p>
+<p>These values tell Solar2D the size of the original 1x image sheet. For example, if you're developing for both iPad and iPad Retina, and you're using an image sheet of 1000×1000 for the regular iPad, you should specify <code>1000</code> for both of these values and then design your Retina image sheet at 2000×2000.</p>
 <pre class="brush: lua;">local options =
 {
     width = 100,
@@ -209,7 +209,7 @@ Important
 </div>
 <p>While trimming is often necessary to achieve the smallest possible image sheets, there are some important usage notes that you must be aware of, particularly in regards to positioning.</p>
 <p>When you place one of these images on the screen or use them in a sprite animation, you will typically want the images to be positioned as if they were <strong>not</strong> trimmed — meaning, the empty space that was trimmed is respected, not discarded, in regards to screen positioning. This ensures that the images align properly with each other, especially in an animation where the trimmed area will often vary per frame.</p>
-<p>Corona manages this with some additional parameters in the image sheet setup. These include <code>sourceX</code>, <code>sourceY</code>, <code>sourceWidth</code>, and <code>sourceHeight</code>. These are added to the image sheet <code>options</code> as follows:</p>
+<p>Solar2D manages this with some additional parameters in the image sheet setup. These include <code>sourceX</code>, <code>sourceY</code>, <code>sourceWidth</code>, and <code>sourceHeight</code>. These are added to the image sheet <code>options</code> as follows:</p>
 <pre class="brush: lua;">local options =
 {       
     frames =

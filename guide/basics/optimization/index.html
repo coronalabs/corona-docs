@@ -150,7 +150,7 @@ Note that 8-bit or 24-bit `.png` images all unpack into <nobr>32-bit</nobr> imag
 <p>As general practice, remember these tips in respect to managing texture memory:</p>
 <ol style="list-style-type: decimal">
 <li><p>Always unload textures (remove them from the display hierarchy) when they're no longer needed.</p></li>
-<li><p>If you're using image sheets, consider using a tool like <a href="http://www.codeandweb.com/texturepacker">TexturePacker</a> to pack your images into the smallest configuration possible.</p></li>
+<li><p>If you're using image sheets, consider using a tool like <a href="https://www.codeandweb.com/texturepacker">TexturePacker</a> to pack your images into the smallest configuration possible.</p></li>
 </ol>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
@@ -163,7 +163,7 @@ Important
 <div id="draw-calls-batching" class="section level2">
 <h2>Draw Calls / Batching</h2>
 <p>On devices, OpenGL performs best when you are able to minimize state changes. This is because multiple objects can be batched into a single draw call if there are no state changes required between consecutive display objects.</p>
-<p>Corona's rendering engine attempts to identify situations where multiple display objects can be submitted in a single draw call. Whenever possible, you should try to arrange the display object hierarchy such that <strong>consecutive</strong> display objects — meaning, the order in which they are rendered — can be batched into a single draw call.</p>
+<p>Solar2D's rendering engine attempts to identify situations where multiple display objects can be submitted in a single draw call. Whenever possible, you should try to arrange the display object hierarchy such that <strong>consecutive</strong> display objects — meaning, the order in which they are rendered — can be batched into a single draw call.</p>
 <p>There are certain situations where this can occur. The general rule is that consecutive display objects which use the same texture can be batched. This includes display objects that use different frames from the same <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a>, since the underlying texture is the same. In these situations, you can vary the position, tint, and alpha of each object without breaking the batch, but remember that some actions may prevent batching, for example adding a <a href="../../../guide/graphics/effects.html">shader effect</a> to an object.</p>
 <p><a id="lua"></a></p>
 </div>

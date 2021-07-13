@@ -152,7 +152,7 @@
 </div>
 <div id="image-effects-filters-generators-composites" class="section level1">
 <h1>Image Effects — Filters, Generators, Composites</h1>
-<p>In Corona, visual effects can be applied to display objects with unprecedented ease. This guide contains a list of all <nobr>built-in</nobr> shader effects. Alternatively, to create your own custom effects, please refer to the <a href="../../guide/graphics/customEffects.html">Custom Shader Effects</a> guide.</p>
+<p>In Solar2D, visual effects can be applied to display objects with unprecedented ease. This guide contains a list of all <nobr>built-in</nobr> shader effects. Alternatively, to create your own custom effects, please refer to the <a href="../../guide/graphics/customEffects.html">Custom Shader Effects</a> guide.</p>
 <div class="guides-toc">
 <ul>
 <li><a href="#filter">Filter Effects</a></li>
@@ -2111,7 +2111,7 @@ object.fill.effect.ambientLightIntensity = 1</pre>
 <h3>composite.normalMapWith1PointLight</h3>
 <p>This composite effect renders a point light upon a surface. In this effect, <code>pointLightPos</code> is a table containing the light position in texture space. This <code>{x,y,z}</code> origin is the upper left corner <code>{0,0,0}</code>. Positive <strong>x</strong> moves to the right, positive <strong>y</strong> moves towards the bottom, and positive <strong>z</strong> moves &quot;out of the screen&quot; towards the viewer, representing the distance from the surface. There's no maximum value for <strong>z</strong>, but typically this value will be between <code>0</code> and <code>1</code>.</p>
 <p>The <code>pointLightColor</code> parameter is a table containing RGB+A values, and <code>ambientLightIntensity</code> specifies the intensity from <code>0</code> (dark) to <code>1</code> (full brightness).</p>
-<p>The <code>attenuationFactors</code> parameter is a table containing the diffuse light's distance attenuation factors. In this case, <code>{x,y,z}</code> are the constant, linear, and quadratic attenuation factors. Note that distance attenuation does <strong>not</strong> affect ambient light intensity. For a better understanding of attenuation factors, read about <a href="https://developer.valvesoftware.com/wiki/Constant-Linear-Quadratic_Falloff">Falloff</a> and <a href="http://www.felixgers.de/teaching/jogl/lightAttenuation.html">Attenuation of Light</a>.</p>
+<p>The <code>attenuationFactors</code> parameter is a table containing the diffuse light's distance attenuation factors. In this case, <code>{x,y,z}</code> are the constant, linear, and quadratic attenuation factors. Note that distance attenuation does <strong>not</strong> affect ambient light intensity. For a better understanding of attenuation factors, read about <a href="https://developer.valvesoftware.com/wiki/Constant-Linear-Quadratic_Falloff">Falloff</a> and <a href="https://learnopengl.com/PBR/Lighting">Attenuation of Light</a>.</p>
 <ul>
 <li><code>pointLightPos</code> — default = <code>{1,0,0}</code> ; min = <code>{0,0,0}</code> ; max = <code>{1,1,1}</code></li>
 <li><code>pointLightColor</code> — default = <code>{1,1,1,1}</code> ; min = <code>{0,0,0,0}</code> ; max = <code>{1,1,1,1}</code></li>

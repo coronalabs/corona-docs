@@ -147,7 +147,7 @@ local scoresTable = {}
 local filePath = system.pathForFile( "scores.json", system.DocumentsDirectory )</pre>
 <p>Let's briefly examine these commands:</p>
 <ul>
-<li><p>With the first command, we load a new resource for our app: the JSON library. <a href="http://www.json.org/">JSON</a> is a convenient format for working with data. If you're not familiar with JSON, don't worry — for the purpose of this app, you just need to learn how to use the <nobr>built-in</nobr> <code>json.encode()</code> and <code>json.decode()</code> commands. Respectively, these commands let you take a Lua table, store (encode) its contents in a <nobr>well-understood</nobr> format, and later translate (decode) that data back into a Lua table.</p></li>
+<li><p>With the first command, we load a new resource for our app: the JSON library. <a href="https://www.json.org/">JSON</a> is a convenient format for working with data. If you're not familiar with JSON, don't worry — for the purpose of this app, you just need to learn how to use the <nobr>built-in</nobr> <code>json.encode()</code> and <code>json.decode()</code> commands. Respectively, these commands let you take a Lua table, store (encode) its contents in a <nobr>well-understood</nobr> format, and later translate (decode) that data back into a Lua table.</p></li>
 <li><p>The next command, <nobr><code>local scoresTable = {}</code></nobr>, simply creates an empty table which will eventually contain the retrieved scores, or an updated list of scores to save.</p></li>
 <li><p>The final line generates an absolute path to a JSON file (<code>scores.json</code>) which we'll use to save the ten highest scores. Don't worry that this file doesn't actually exist yet — this command will create the file and initiate a link to it under the variable <code>filePath</code>.</p></li>
 </ul>
@@ -157,7 +157,7 @@ Important
 </div>
 <p>You may wonder why we're creating a <strong>file</strong> to store the high scores data. Why not just store them locally in a Lua table? The reason is fundamental to app development in general. Basically, variables which exist in an app's local memory will be destroyed if the app quits/closes!</p>
 <p>Essentially, any data which needs to be accessed at some point after the app quits/closes should be stored in a <strong>persistent</strong> state, and the easiest way to store persistent data is to save it to a file on the device. Furthermore, this file must be stored in a <strong>persistent location</strong>.</p>
-<p>To ensure that the <code>scores.json</code> file is placed within a persistent location, we specify <code>system.DocumentsDirectory</code> as the second parameter of the command we just entered. This tells Corona to create the <code>scores.json</code> file within the app's internal &quot;documents&quot; directory. While there are other places we could put the file, we won't go into details on them here — just remember that the documents directory, referenced by the constant <code>system.DocumentsDirectory</code>, is the only place which provides truly persistent storage for files that are created from within the app. In other words, even if the player quits the app and doesn't open it again until a month later, the <code>scores.json</code> file will still exist.</p>
+<p>To ensure that the <code>scores.json</code> file is placed within a persistent location, we specify <code>system.DocumentsDirectory</code> as the second parameter of the command we just entered. This tells Solar2D to create the <code>scores.json</code> file within the app's internal &quot;documents&quot; directory. While there are other places we could put the file, we won't go into details on them here — just remember that the documents directory, referenced by the constant <code>system.DocumentsDirectory</code>, is the only place which provides truly persistent storage for files that are created from within the app. In other words, even if the player quits the app and doesn't open it again until a month later, the <code>scores.json</code> file will still exist.</p>
 </div>
 <p><a id="loaddata"></a></p>
 </div>
@@ -184,7 +184,7 @@ local function loadScores()
 end</pre>
 <p>Dissecting this function, we accomplish the following:</p>
 <ul>
-<li><p>When working with files containing data, the first step is to confirm that the file exists. The first command inside this function, <nobr><code>local file = io.open( filePath, &quot;r&quot; )</code></nobr>, attempts to open the file <code>scores.json</code> in the <code>system.DocumentsDirectory</code> folder (remember that we set the variable <code>filePath</code> to point to that file and folder). In this command, also note the second parameter, <code>&quot;r&quot;</code>. This tells Corona to open the file with <strong>read</strong> access only, but that's sufficient here because we simply need to read the file contents.</p></li>
+<li><p>When working with files containing data, the first step is to confirm that the file exists. The first command inside this function, <nobr><code>local file = io.open( filePath, &quot;r&quot; )</code></nobr>, attempts to open the file <code>scores.json</code> in the <code>system.DocumentsDirectory</code> folder (remember that we set the variable <code>filePath</code> to point to that file and folder). In this command, also note the second parameter, <code>&quot;r&quot;</code>. This tells Solar2D to open the file with <strong>read</strong> access only, but that's sufficient here because we simply need to read the file contents.</p></li>
 <li><p>In the conditional block following, if the file exists, its contents will be dumped into the local variable <code>contents</code>. Once we have its contents, we close the file with <nobr><code>io.close( file )</code></nobr>. Then, using the command <code>json.decode()</code>, we decode <code>contents</code> and store the values in <code>scoresTable</code> — basically, <code>json.decode()</code> converts <code>scores.json</code> into a Lua table which can be used in our app.</p></li>
 <li><p>In the final conditional block, just in case the <code>scores.json</code> file is empty or doesn't exist, we assign <code>scoresTable</code> ten default values of <code>0</code> so that the scene has something to work with.</p></li>
 </ul>
@@ -226,7 +226,7 @@ end</pre>
 <p>This function saves high scores data as follows:</p>
 <ul>
 <li><p>First, we clear out any unneeded scores from <code>scoresTable</code>. Because we only want to save the highest ten scores, anything beyond that can be discarded. Using a <code>for</code> loop, we step backwards through the table from its total count (<code>#scoresTable</code>) to <code>11</code>, effectively removing all but ten scores.</p></li>
-<li><p>Next, we open the <code>scores.json</code> file. Unlike our <code>io.open()</code> call within <code>loadScores()</code>, here we specify <code>&quot;w&quot;</code> as the second parameter. This tells Corona to create (write) a new file or overwrite the file if it already exists. It also tells Corona to open the file with <strong>write</strong> access which is important because, when saving score data, we need to write data to the file.</p></li>
+<li><p>Next, we open the <code>scores.json</code> file. Unlike our <code>io.open()</code> call within <code>loadScores()</code>, here we specify <code>&quot;w&quot;</code> as the second parameter. This tells Solar2D to create (write) a new file or overwrite the file if it already exists. It also tells Solar2D to open the file with <strong>write</strong> access which is important because, when saving score data, we need to write data to the file.</p></li>
 <li><p>Once the file is successfully open, we call <code>file:write()</code> to write the <code>scoresTable</code> data to the file, converted into JSON via the <code>json.encode()</code> command. Finally, we close the file with <nobr><code>io.close( file )</code></nobr>.</p></li>
 </ul>
 <p><a id="displayscores"></a></p>
@@ -333,7 +333,7 @@ end</pre>
         end
     end
 end</pre>
-<p>Most of the above code should be straightforward, but we're introducing an important new concept in <strong>anchors</strong>. By default, Corona positions the <strong>center</strong> of any display object at the <strong>x</strong> and <strong>y</strong> coordinate given. However, sometimes you'll need to align a series of objects along their edges — here, the list of scores will look best if each rank number is <nobr>right-aligned</nobr> and each score is <nobr>left-aligned</nobr>.</p>
+<p>Most of the above code should be straightforward, but we're introducing an important new concept in <strong>anchors</strong>. By default, Solar2D positions the <strong>center</strong> of any display object at the <strong>x</strong> and <strong>y</strong> coordinate given. However, sometimes you'll need to align a series of objects along their edges — here, the list of scores will look best if each rank number is <nobr>right-aligned</nobr> and each score is <nobr>left-aligned</nobr>.</p>
 <div class="float-right" style="max-width: 244px; margin-top: 12px; margin-bottom: 16px; clear: left;">
 <div class="figure">
 <img src="../../../images/docs/anchor-diagram.png" />
@@ -348,7 +348,7 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Naturally, Corona also supports vertical anchor points with the <code>anchorY</code> property. Similar to its horizontal counterpart, this property typically ranges between <code>0</code> (top) and <code>1</code> (bottom), with a default of <code>0.5</code> (center). Anchors can even be set outside of the <code>0</code> to <code>1</code> range, although this usage is less common. Setting either <code>anchorX</code> or <code>anchorY</code> to values less than <code>0</code> or greater than <code>1</code> will place the anchor point conceptually somewhere in space outside of the object's edge boundaries, which can be useful in some instances.</p>
+<p>Naturally, Solar2D also supports vertical anchor points with the <code>anchorY</code> property. Similar to its horizontal counterpart, this property typically ranges between <code>0</code> (top) and <code>1</code> (bottom), with a default of <code>0.5</code> (center). Anchors can even be set outside of the <code>0</code> to <code>1</code> range, although this usage is less common. Setting either <code>anchorX</code> or <code>anchorY</code> to values less than <code>0</code> or greater than <code>1</code> will place the anchor point conceptually somewhere in space outside of the object's edge boundaries, which can be useful in some instances.</p>
 </div>
 </div>
 </div>

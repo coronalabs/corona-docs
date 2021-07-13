@@ -127,9 +127,9 @@ Notes
 </div>
 <div id="java-package-name" class="section level2">
 <h2>Java Package Name</h2>
-<p>When you build a Kindle Fire app using Corona, you must specify a <strong>package name</strong>. In general, you can specify any package name you like, but it must be chosen carefully because it should be unique to your application.</p>
+<p>When you build a Kindle Fire app using Solar2D, you must specify a <strong>package name</strong>. In general, you can specify any package name you like, but it must be chosen carefully because it should be unique to your application.</p>
 <p>The traditional Java scheme is to use the <nobr>reverse-domain</nobr> format like <code>com.acme</code>, then append the name of a division/product, and finally append the name of the app. For example, <code>com.acme.games.catchafish</code> would be a good package name, assuming you own the <code>acme.com</code> domain name.</p>
-<p>In some cases, the package name that results from using <nobr>reverse-domain</nobr> format may not be valid, and it must be modified before Corona will build your Kindle Fire app. This would be true in any of the following cases:</p>
+<p>In some cases, the package name that results from using <nobr>reverse-domain</nobr> format may not be valid, and it must be modified before Solar2D will build your Kindle Fire app. This would be true in any of the following cases:</p>
 <ul>
 <li><p>The package name contains a hyphen or other special character (<code>com.three-amigos</code> for example). In this case, convert the special character to an underscore: <code>com.three_amigos</code>.</p></li>
 <li><p>One of the name components contains a digit or other invalid character at the beginning of an identifier (<code>com.3amigos</code> for example). In this case, try to convert the package name to something like <code>com.threeamigos</code>.</p></li>
@@ -146,12 +146,12 @@ Important
 <p>If you aren't familiar with the available <a href="../../../guide/distribution/buildSettings/index.html#androidsettings">build settings</a> for an app, please review them before proceeding with this section.</p>
 </div>
 <ol style="list-style-type: decimal">
-<li><p>From the Corona Simulator, select <strong>File</strong> → <strong>Open...</strong> to load the project you wish to build.</p></li>
+<li><p>From the Solar2D Simulator, select <strong>File</strong> → <strong>Open...</strong> to load the project you wish to build.</p></li>
 <li><p>Select <strong>File</strong> → <strong>Build</strong> → <strong>Android...</strong>.</p></li>
 <li><p>Fill in the information:</p>
 <ul>
 <li><p><strong>Application Name</strong> — by default, this will match your project folder; keep this name or specify another.</p></li>
-<li><p><strong>Version Code</strong> — this value must be an <strong>integer</strong>. Each time you update your app, you must increase the version code. It corresponds to the <code>versionCode</code> item detailed <a href="http://developer.android.com/guide/topics/manifest/manifest-element.html">here</a>. It is not visible to users.</p></li>
+<li><p><strong>Version Code</strong> — this value must be an <strong>integer</strong>. Each time you update your app, you must increase the version code. It corresponds to the <code>versionCode</code> item detailed <a href="https://developer.android.com/guide/topics/manifest/manifest-element.html">here</a>. It is not visible to users.</p></li>
 <li><p><strong>Version Name</strong> — specify a version name for your app.</p></li>
 <li><p><strong>Package</strong> — see <a href="#javapackage">Java Package Name</a> above.</p></li>
 <li><p><strong>Target App Store</strong> — select <strong>Amazon</strong> from the pull-down list.</p></li>
@@ -160,17 +160,17 @@ Important
 <li><p><strong>After Build</strong> — select which action should be performed after the app is successfully built.</p></li>
 </ul>
 <p>*<strong>Create Live Build</strong> — check this box to create a live build for <nobr>lightning-fast</nobr> testing. See <a href="../../../guide/distribution/liveBuild/index.html">Generating Live Builds</a> for details.</p></li>
-<li><p>Click <strong>Build</strong> and Corona will compile the app into a standard <code>.apk</code> file.</p></li>
+<li><p>Click <strong>Build</strong> and Solar2D will compile the app into a standard <code>.apk</code> file.</p></li>
 </ol>
 <p><a id="signdebug"></a></p>
 <div class="guide-notebox">
 <div class="notebox-title">
 Signing for Debug Build
 </div>
-<p>For debug builds, Corona includes a <code>debug.keystore</code> for testing your app on devices. To use it, follow these steps:</p>
+<p>For debug builds, Solar2D includes a <code>debug.keystore</code> for testing your app on devices. To use it, follow these steps:</p>
 <ol style="list-style-type: decimal">
 <li><p>Select <strong>Debug</strong> from the <strong>Keystore</strong> menu.</p></li>
-<li><p>Directly to the right, <strong>Browse...</strong> to the keystore file in the Corona SDK application folder:</p></li>
+<li><p>Directly to the right, <strong>Browse...</strong> to the keystore file in the Solar2D application folder:</p></li>
 </ol>
 <div class="code-indent">
 <p>Windows — <nobr><code>C:\Program Files (x86)\Corona Labs\Corona\Resources\debug.keystore</code></nobr></p>
@@ -202,7 +202,7 @@ Signing for Release Build
 </div>
 <div id="installation-and-debugging" class="section level2">
 <h2>Installation and Debugging</h2>
-<p>Once your app is compiled via Corona, the next step is to register as an <a href="https://developer.amazon.com/home.html">Amazon Developer</a>, configure your Kindle Fire for testing, and test/debug the app on a Kindle Fire device or the <nobr>Kindle Fire Emulator</nobr>.</p>
+<p>Once your app is compiled via Solar2D, the next step is to register as an <a href="https://developer.amazon.com/home.html">Amazon Developer</a>, configure your Kindle Fire for testing, and test/debug the app on a Kindle Fire device or the <nobr>Kindle Fire Emulator</nobr>.</p>
 <ol style="list-style-type: decimal">
 <li><p>If you haven't already signed up for an <a href="https://developer.amazon.com/home.html">Amazon Developer</a> account, please do so first.</p></li>
 <li><p>Next, you'll need to set up your Kindle Fire tablet for testing. You can use <nobr><strong>Android Debug Bridge</strong></nobr> to connect your Kindle Fire tablet to a development computer for testing and debugging. Please refer to Amazon's <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/05-setting-up-your-kindle-fire-tablet-for-testing">instructional guide</a> for details.</p></li>

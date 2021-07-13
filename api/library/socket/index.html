@@ -116,7 +116,7 @@ Important
 </div>
 <p>The <code>socket</code> library provides low-level access to the network stack on the host device. It is <strong>not</strong> intended for general networking usage (the <a href="../../../api/library/network/index.html">network</a> library is much easier to use). There are a small number of specific tasks that require <code>socket</code> APIs, but these are uncommon and require a level of expertise in network programming that is also uncommon. Any code that uses the <code>socket</code> APIs will need ongoing tweaking as device vendors change rules for network access, for example in regard to IPv6 networks, while code written using the <a href="../../../api/library/network/index.html">network</a> APIs will generally continue to work because it is directly supported by device vendors.</p>
 </div>
-<p>Corona currently includes version <nobr><code>3.0-rc1</code></nobr> of the LuaSocket libraries. These Lua modules implement common network protocols such as SMTP, HTTP, and FTP. Also included are features to support MIME (common encodings), URL manipulation, and LTN12 for transferring and filtering data.</p>
+<p>Solar2D currently includes version <nobr><code>3.0-rc1</code></nobr> of the LuaSocket libraries. These Lua modules implement common network protocols such as SMTP, HTTP, and FTP. Also included are features to support MIME (common encodings), URL manipulation, and LTN12 for transferring and filtering data.</p>
 <p>For asynchronous HTTP functions instead of synchronous LuaSocket functions, see <a href="../../../api/library/network/request.html">network.request()</a> and <a href="../../../api/library/network/download.html">network.download()</a>.</p>
 </div>
 <div id="gotchas" class="section level2">
@@ -160,7 +160,7 @@ myFile = io.open( path, "w+b" )
  
 -- Request remote file and save data to local file
 http.request{
-    url = "http://coronalabs.com/wordpress/wp-content/uploads/2018/07/orange_vertikal_RGB.png", 
+    url = "https://coronalabs.com/wordpress/wp-content/uploads/2018/07/orange_vertikal_RGB.png", 
     sink = ltn12.sink.file( myFile )
 }
  

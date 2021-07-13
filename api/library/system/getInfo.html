@@ -167,7 +167,7 @@
 <ul>
 <li>Android — Returns the app's <strong>Version Name</strong>.</li>
 <li>iOS — Returns the app's <strong>CFBundleVersionString</strong>.</li>
-<li>Corona Simulator — (not supported)</li>
+<li>Solar2D Simulator — (not supported)</li>
 <li>Windows desktop app — Returns the version entered into the build window.</li>
 </ul>
 </div>
@@ -183,12 +183,11 @@
 </div>
 <div id="build" class="section level3">
 <h3>build</h3>
-<p><code>&quot;build&quot;</code> returns the Corona build string as it appears in the <strong>About</strong> box of the Corona Simulator.</p>
+<p><code>&quot;build&quot;</code> returns the Solar2D build string as it appears in the <strong>About</strong> box of the Solar2D Simulator.</p>
 </div>
 <div id="bundleid" class="section level3">
 <h3>bundleID</h3>
 <p><code>&quot;bundleID&quot;</code> returns bundle/package identifier of the app or <code>nil</code> if not applicable.</p>
-<p><code>&quot;build&quot;</code> returns the Corona build string as it appears in the <strong>About</strong> box of the Corona Simulator.</p>
 </div>
 <div id="darkmode" class="section level3">
 <h3>darkMode</h3>
@@ -207,7 +206,7 @@
 <h3>environment</h3>
 <p><code>&quot;environment&quot;</code> returns the environment that the app is running in. These include:</p>
 <ul>
-<li><code>simulator</code> for the Corona Simulator.</li>
+<li><code>simulator</code> for the Solar2D Simulator.</li>
 <li><code>device</code> for iOS, the Xcode iOS Simulator, Android devices, the Android emulator, macOS desktop apps, and Windows desktop apps.</li>
 <li><code>browser</code> for HTML5 apps.</li>
 </ul>
@@ -264,7 +263,7 @@
 <div class="notebox-title">
 Note
 </div>
-<p>In the Corona Simulator, the value returned depends on the skin selected, allowing you to test <nobr>platform-dependent</nobr> logic by changing skins.</p>
+<p>In the Solar2D Simulator, the value returned depends on the skin selected, allowing you to test <nobr>platform-dependent</nobr> logic by changing skins.</p>
 </div>
 </div>
 <div id="platformname" class="section level3">
@@ -283,7 +282,7 @@ Note
 <li><code>amazon</code> — targets the Amazon app store (only returned on Android).</li>
 <li><code>google</code> — targets Google Play (only returned on Android).</li>
 <li><code>windows</code> — targets the Windows app store.</li>
-<li><code>none</code> — indicates that the app is not targeting a specific app store. This is always returned by the Corona Simulator.</li>
+<li><code>none</code> — indicates that the app is not targeting a specific app store. This is always returned by the Solar2D Simulator.</li>
 </ul>
 </div>
 </div>
@@ -291,7 +290,7 @@ Note
 <h2>Android</h2>
 <div id="androidapilevel" class="section level3">
 <h3>androidApiLevel</h3>
-<p><code>&quot;androidApiLevel&quot;</code> returns an integer indicating which <a href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">Android OS version</a> the app is running on. For example, <nobr>API Level 23</nobr> indicates that the OS version is Android 6.0 and <nobr>API Level 21</nobr> indicates that the OS version is Android 5.0.</p>
+<p><code>&quot;androidApiLevel&quot;</code> returns an integer indicating which <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels">Android OS version</a> the app is running on. For example, <nobr>API Level 23</nobr> indicates that the OS version is Android 6.0 and <nobr>API Level 21</nobr> indicates that the OS version is Android 5.0.</p>
 </div>
 <div id="androidappversioncode" class="section level3">
 <h3>androidAppVersionCode</h3>
@@ -387,7 +386,7 @@ Note
 <h2>iOS</h2>
 <div id="iosidentifierforvendor" class="section level3">
 <h3>iosIdentifierForVendor</h3>
-<p><code>&quot;iosIdentifierForVendor&quot;</code> returns the value of <code>&quot;identifierForVendor&quot;</code> (see <a href="http://developer.apple.com/library/ios/#documentation/uikit/reference/UIDevice_Class/Reference/UIDevice.html">here</a>).</p>
+<p><code>&quot;iosIdentifierForVendor&quot;</code> returns the value of <code>&quot;identifierForVendor&quot;</code> (see <a href="https://developer.apple.com/documentation/uikit/uidevice">here</a>).</p>
 <!---
 
 ### isoCountryCode
@@ -409,23 +408,23 @@ Note
 </div>
 <div id="gl_vendor" class="section level3">
 <h3>GL_VENDOR</h3>
-<p><code>&quot;GL_VENDOR&quot;</code> returns the company responsible for the GL implementation on this device. See <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glGetString.xml">here</a> for details.</p>
+<p><code>&quot;GL_VENDOR&quot;</code> returns the company responsible for the GL implementation on this device. See <a href="https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml">here</a> for details.</p>
 </div>
 <div id="gl_renderer" class="section level3">
 <h3>GL_RENDERER</h3>
-<p><code>&quot;GL_RENDERER&quot;</code> returns the name of the GL renderer. See <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glGetString.xml">here</a> for details.</p>
+<p><code>&quot;GL_RENDERER&quot;</code> returns the name of the GL renderer. See <a href="https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml">here</a> for details.</p>
 </div>
 <div id="gl_version" class="section level3">
 <h3>GL_VERSION</h3>
-<p><code>&quot;GL_VERSION&quot;</code> returns the GL version. See <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glGetString.xml">here</a> for details.</p>
+<p><code>&quot;GL_VERSION&quot;</code> returns the GL version. See <a href="https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml">here</a> for details.</p>
 </div>
 <div id="gl_shading_language_version" class="section level3">
 <h3>GL_SHADING_LANGUAGE_VERSION</h3>
-<p><code>&quot;GL_SHADING_LANGUAGE_VERSION&quot;</code> returns the GL version or release number for the GLSL shading language. See <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glGetString.xml">here</a> for details.</p>
+<p><code>&quot;GL_SHADING_LANGUAGE_VERSION&quot;</code> returns the GL version or release number for the GLSL shading language. See <a href="https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml">here</a> for details.</p>
 </div>
 <div id="gl_extensions" class="section level3">
 <h3>GL_EXTENSIONS</h3>
-<p><code>&quot;GL_EXTENSIONS&quot;</code> returns the list of extensions supported on this device. See <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glGetString.xml">here</a> for details.</p>
+<p><code>&quot;GL_EXTENSIONS&quot;</code> returns the list of extensions supported on this device. See <a href="https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml">here</a> for details.</p>
 </div>
 </div>
 <div id="examples" class="section level2">
@@ -433,7 +432,7 @@ Note
 <div id="checking-app-environment" class="section level5">
 <h5>Checking App Environment</h5>
 <pre class="brush: lua;">if ( system.getInfo( "environment" ) == "simulator" ) then
-    print( "You're in the Corona Simulator." )
+    print( "You're in the Solar2D Simulator." )
 end</pre>
 <p><a id="exampleAndroid6"></a></p>
 </div>

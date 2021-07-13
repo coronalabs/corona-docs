@@ -97,15 +97,15 @@
 <h2>About Android Runtime Permissions</h2>
 <p>When an Android application runs on a device, the operating system provides only limited access to resources. Before your application (or plugin) can make use of restricted resources, you must declare your intent to use them. This is done by editing your <code>AndroidManifest.xml</code> or by specifying the permissions in <code>metadata.lua</code>. See <a href="#declaring-permissions">Declaring Permissions</a> for more information.</p>
 <p>For apps running on <strong>Android 5.1</strong> or lower, the <code>AndroidManifest.xml</code> file is the sole decider for what permissions are allowed, since the user approves of them when installing the app.</p>
-<p>For apps running on <strong>Android 6.0</strong> or newer, the app can't reliably assume that it has access to <a href="http://developer.android.com/guide/topics/security/permissions.html#permission-groups">dangerous permissions</a>.</p>
-<p>Permissions <strong>not</strong> defined in the <a href="http://developer.android.com/guide/topics/security/permissions.html#permission-groups">dangerous permissions</a> table do not need to be handled at runtime, but they still need to be <a href="#declaring-permissions">declared</a>. Essentially, this means that an app/plugin can't always assume that it has the required permissions, so it must gracefully handle the user's rights. This guide covers how you can check for the state of permissions, request permissions, and handle the results.</p>
+<p>For apps running on <strong>Android 6.0</strong> or newer, the app can't reliably assume that it has access to <a href="https://developer.android.com/guide/topics/permissions/overview#permission-groups">dangerous permissions</a>.</p>
+<p>Permissions <strong>not</strong> defined in the <a href="https://developer.android.com/guide/topics/permissions/overview#permission-groups">dangerous permissions</a> table do not need to be handled at runtime, but they still need to be <a href="#declaring-permissions">declared</a>. Essentially, this means that an app/plugin can't always assume that it has the required permissions, so it must gracefully handle the user's rights. This guide covers how you can check for the state of permissions, request permissions, and handle the results.</p>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
 Recap
 </div>
 <ul>
 <li><p>If the device is running <strong>Android 5.1</strong> or lower, permissions are granted on app install. No runtime checks need to be performed.</p></li>
-<li><p>If the device is running <strong>Android 6.0</strong> or newer, <a href="http://developer.android.com/guide/topics/security/permissions.html#permission-groups">dangerous permissions</a> are requested at runtime. This requires that both the developer and the end user consider whether the permission should be granted.</p></li>
+<li><p>If the device is running <strong>Android 6.0</strong> or newer, <a href="https://developer.android.com/guide/topics/permissions/overview#permission-groups">dangerous permissions</a> are requested at runtime. This requires that both the developer and the end user consider whether the permission should be granted.</p></li>
 </ul>
 </div>
 <div class="guide-notebox">
@@ -118,7 +118,7 @@ Note
 </div>
 <div id="targeting-android-6.0" class="section level2">
 <h2>Targeting Android 6.0</h2>
-<p>To begin supporting and testing runtime permissions, you must first target Android 6.0. Simply change a number to <code>23</code> in a few places within the project (<a href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API Level 23</a> corresponds with Android 6.0).</p>
+<p>To begin supporting and testing runtime permissions, you must first target Android 6.0. Simply change a number to <code>23</code> in a few places within the project (<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API Level 23</a> corresponds with Android 6.0).</p>
 <ol style="list-style-type: decimal">
 <li><p><code>AndroidManifest.xml</code> — Change <code>android:targetSdkVersion=&quot;xx&quot;</code> to <code>android:targetSdkVersion=&quot;23&quot;</code>. This will allow you to test your changes in the local project.</p></li>
 <li><p><code>project.properties</code> — Change <nobr><code>target=Google Inc.:Google APIs:xx</code></nobr> to <nobr><code>target=Google Inc.:Google APIs:23</code></nobr>. Like above, this is for testing your changes.</p></li>
@@ -170,7 +170,7 @@ Important
 </div>
 <div id="extended-permission-apis" class="section level2">
 <h2>Extended Permission APIs</h2>
-<p>Supporting runtime permissions in Corona is very similar to supporting them in native Android apps. This guide is intended as a supplement to Google's <a href="http://developer.android.com/training/permissions/requesting.html">Requesting Permissions at Run Time</a> guide and follows along in parallel with it.</p>
+<p>Supporting runtime permissions in Corona is very similar to supporting them in native Android apps. This guide is intended as a supplement to Google's <a href="https://developer.android.com/training/permissions/requesting.html">Requesting Permissions at Run Time</a> guide and follows along in parallel with it.</p>
 <p>In Corona, we have provided an interface for developers to handle their permission requests without having to worry about API Levels or <a href="https://www.owasp.org/images/c/ca/ASDC12-An_InDepth_Introduction_to_the_Android_Permissions_Modeland_How_to_Secure_MultiComponent_Applications.pdf#page=11">permission leak</a>.</p>
 <p>The majority of the functionality you'll need comes from our <code>com.ansca.corona.permissions.PermissionsServices</code> class. This provides several APIs intended to bridge Google's permission handling with the <nobr>cross-platform</nobr> manner that Corona handles permissions. It also provides <nobr>easy-to-use</nobr> APIs for gathering information about the state of the <code>AndroidManifest.xml</code> file, as well as the state of various permissions.</p>
 <p>See <a href="#permission-checking">Checking for Permissions</a> and <a href="#permission-requesting">Requesting Permissions</a> below for details.</p>
@@ -178,7 +178,7 @@ Important
 </div>
 <div id="checking-for-permissions" class="section level2">
 <h2>Checking for Permissions</h2>
-<p>This can be done via Google's <a href="http://developer.android.com/reference/android/content/Context.html#checkSelfPermission%28java.lang.String%29">context.checkSelfPermission()</a> API, however it's only available in API Level 23, it doesn't protect against <a href="https://www.owasp.org/images/c/ca/ASDC12-An_InDepth_Introduction_to_the_Android_Permissions_Modeland_How_to_Secure_MultiComponent_Applications.pdf#page=11">permission leak</a>, and it ignores instances when a permission is not listed in <code>AndroidManifest.xml</code>. Instead, we recommend checking for permissions using Corona's <code>PermissionsServices.getPermissionStateFor()</code><!-- (TODO: LINK) --> API. This provides the state of a permission on all supported Android versions and can also determine if the desired permission is missing from <code>AndroidManifest.xml</code>.</p>
+<p>This can be done via Google's <a href="https://developer.android.com/reference/android/content/Context.html#checkSelfPermission%28java.lang.String%29">context.checkSelfPermission()</a> API, however it's only available in API Level 23, it doesn't protect against <a href="https://www.owasp.org/images/c/ca/ASDC12-An_InDepth_Introduction_to_the_Android_Permissions_Modeland_How_to_Secure_MultiComponent_Applications.pdf#page=11">permission leak</a>, and it ignores instances when a permission is not listed in <code>AndroidManifest.xml</code>. Instead, we recommend checking for permissions using Corona's <code>PermissionsServices.getPermissionStateFor()</code><!-- (TODO: LINK) --> API. This provides the state of a permission on all supported Android versions and can also determine if the desired permission is missing from <code>AndroidManifest.xml</code>.</p>
 <pre class="brush: java;">// Determine the PermissionState for the our ability to send SMS messages.
 PermissionsServices permissionsServices = new PermissionsServices(CoronaEnvironment.getApplicationContext());
 PermissionState sendSMSState = permissionsServices.getPermissionStateFor(PermissionsServices.Permission.SEND_SMS);</pre>

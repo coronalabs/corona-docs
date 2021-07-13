@@ -101,7 +101,7 @@
 <p><a id="methods"></a></p>
 <div id="preloading-and-streaming" class="section level2">
 <h2>Preloading and Streaming</h2>
-<p>There are two ways to load audio in your Corona app. Which one you use typically depends on how the audio file will be utilized.</p>
+<p>There are two ways to load audio in your Solar2D app. Which one you use typically depends on how the audio file will be utilized.</p>
 <div id="preloading" class="section level3">
 <h3>Preloading</h3>
 <p>The first method is to use the <code>audio.loadSound()</code> command. This loads and <nobr>pre-processes</nobr> the entire audio file, after which it can be played on demand. For instance:</p>
@@ -153,7 +153,7 @@ local backgroundMusic2 = audio.loadStream( "musicTrack1.wav" )</pre>
 <h2>Adding Sound Effects</h2>
 <div id="including-audio-files" class="section level3">
 <h3>Including Audio Files</h3>
-<p>Let's add sound effects to our game! To begin, you'll need to download the sample audio files, courtesy of <a href="http://www.soundimage.org" target="_new">Eric Matyas</a>. Within the <code>audio</code> subfolder of this chapter's <a href="https://github.com/coronalabs/GettingStarted07/archive/master.zip">source files</a>, you'll find the following audio files:</p>
+<p>Let's add sound effects to our game! To begin, you'll need to download the sample audio files, courtesy of <a href="https://www.soundimage.org" target="_new">Eric Matyas</a>. Within the <code>audio</code> subfolder of this chapter's <a href="https://github.com/coronalabs/GettingStarted07/archive/master.zip">source files</a>, you'll find the following audio files:</p>
 <div class="inner-table">
 <table>
 <thead>
@@ -371,7 +371,7 @@ math.randomseed( os.time() )
 
 -- Reserve channel 1 for background music
 audio.reserveChannels( 1 )</pre>
-<p>Basically, the <nobr><code>audio.reserveChannels( 1 )</code></nobr> command tells the Corona audio library to reserve channel <code>1</code>. While reserved, no audio file will play on the channel unless we explicitly command it to.</p>
+<p>Basically, the <nobr><code>audio.reserveChannels( 1 )</code></nobr> command tells the Solar2D audio library to reserve channel <code>1</code>. While reserved, no audio file will play on the channel unless we explicitly command it to.</p>
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>Next, let's reduce the overall volume of channel <code>1</code>. This is sometimes necessary when you obtain audio files from <nobr>third-party</nobr> sources where you didn't have any control of the sample volume. It can also be useful to control channel volume if you want to eventually build in functionality that lets the user control the volume level of the game music, or even mute it completely.</li>

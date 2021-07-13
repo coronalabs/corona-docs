@@ -91,9 +91,9 @@
 <li>Other symbols are converted to a hexadecimal value that is prefixed by a percent sign (<code>%</code>).</li>
 </ul>
 <p>To illustrate this concept, let's consider another URL:</p>
-<p><code>http://www.google.com/search?q=Corona tutorials &amp; guides</code></p>
+<p><code>https://www.google.com/search?q=Corona tutorials &amp; guides</code></p>
 <p>When encoded properly, the URL looks like this:</p>
-<p><code>http://www.google.com/search?q=Corona+tutorials+%26+guides</code></p>
+<p><code>https://www.google.com/search?q=Corona+tutorials+%26+guides</code></p>
 </div>
 <div id="encoding-function" class="section level2">
 <h2>Encoding Function</h2>
@@ -113,10 +113,10 @@
 end</pre>
 <p>Using this function, we can then encode URLs like this:</p>
 <pre class="brush: lua;">local searchQuery = "Corona tutorials & guides"
-local URL = "http://google.com/q=" .. string.urlEncode( searchQuery )</pre>
+local URL = "https://google.com/q=" .. string.urlEncode( searchQuery )</pre>
 <p>Alternatively, since we added this function to Corona's <nobr>built-in</nobr> <a href="../../../api/library/string/index.html">string</a> library, it can also be used in the colon operator syntax:</p>
 <pre class="brush: lua;">local searchQuery = "Corona tutorials & guides"
-local URL = "http://google.com/q=" .. searchQuery:urlEncode()</pre>
+local URL = "https://google.com/q=" .. searchQuery:urlEncode()</pre>
 <p>That's it! Once the URL is properly encoded, we can use it within Corona's <a href="../../../api/library/network/index.html">network</a> functions to make network requests, pass the URL to a <a href="../../../api/library/native/newWebView.html">native.newWebView()</a>, or use it with any other API/function that requires a URL.</p>
 </div>
 <div id="conclusion" class="section level2">

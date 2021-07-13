@@ -322,7 +322,7 @@ Important
 }</pre>
 <div id="version-code" class="section level3">
 <h3>Version Code</h3>
-<p>You can override the <strong>version code</strong> entered into the Simulator <strong>Build for Android</strong> box with an optional <code>versionCode</code> <nobr>key-value</nobr> pair in the <code>build.settings</code> file. This is an internal number used to distinguish application releases for the Android app store, corresponding to the <code>versionCode</code> item detailed <a href="http://developer.android.com/guide/topics/manifest/manifest-element.html">here</a>. This setting is invisible to users.</p>
+<p>You can override the <strong>version code</strong> entered into the Simulator <strong>Build for Android</strong> box with an optional <code>versionCode</code> <nobr>key-value</nobr> pair in the <code>build.settings</code> file. This is an internal number used to distinguish application releases for the Android app store, corresponding to the <code>versionCode</code> item detailed <a href="https://developer.android.com/guide/topics/manifest/manifest-element">here</a>. This setting is invisible to users.</p>
 <pre class="brush: lua; gutter: false; highlight: [5]; first-line: 1;">settings
 {
     android =
@@ -361,11 +361,11 @@ Note
 <li><code>&quot;android.permission.ACCESS_FINE_LOCATION&quot;</code> — allows access to GPS.</li>
 <li><code>&quot;android.permission.ACCESS_COARSE_LOCATION&quot;</code> — allows getting the location from WiFi/cellular.</li>
 </ul>
-<p>See the Android <a href="http://developer.android.com/reference/android/Manifest.permission.html">documentation</a> for more information on supported values and what you can do with them.</p>
+<p>See the Android <a href="https://developer.android.com/reference/android/Manifest.permission">documentation</a> for more information on supported values and what you can do with them.</p>
 </div>
 <div id="app-features" class="section level3">
 <h3>App Features</h3>
-<p>The <code>usesFeatures</code> table creates <nobr><code>&lt;uses-feature&gt;</code></nobr> tags in the <code>AndroidManifest.xml</code> file. These parameters tell the Android app store which hardware/software capabilities the app does or doesn't require. See the Android <a href="http://developer.android.com/guide/topics/manifest/uses-feature-element.html#features-reference">features reference</a> for a list of supported values.</p>
+<p>The <code>usesFeatures</code> table creates <nobr><code>&lt;uses-feature&gt;</code></nobr> tags in the <code>AndroidManifest.xml</code> file. These parameters tell the Android app store which hardware/software capabilities the app does or doesn't require. See the Android <a href="https://developer.android.com/guide/topics/manifest/uses-feature-element.html#features-reference">features reference</a> for a list of supported values.</p>
 <pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9,10]; first-line: 1;">settings
 {
     android =
@@ -388,7 +388,7 @@ Important
 </div>
 <div id="expansion-files" class="section level3">
 <h3>Expansion Files</h3>
-<p>The <code>usesExpansionFile</code> boolean indicates if the app should be built with expansion files. If it's set to <code>true</code> and the build target is Google Play, everything in the project directory except the Lua scripts are put into the expansion file. See the Android <a href="http://developer.android.com/google/play/expansion-files.html">documentation</a> for more information.</p>
+<p>The <code>usesExpansionFile</code> boolean indicates if the app should be built with expansion files. If it's set to <code>true</code> and the build target is Google Play, everything in the project directory except the Lua scripts are put into the expansion file. See the Android <a href="https://developer.android.com/google/play/expansion-files">documentation</a> for more information.</p>
 <pre class="brush: lua; gutter: false; highlight: [6,11,12,13]; first-line: 1;">settings =
 {
     android =

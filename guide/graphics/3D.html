@@ -79,7 +79,7 @@
 </div>
 <div id="d-perspective-and-depth" class="section level1">
 <h1>2.5D — Perspective and Depth</h1>
-<p>This guide explains how you can achieve interesting 2.5D effects in Corona. While Corona is not a true 3D engine, its 2.5D capabilities allow you to simulate effects that appear <nobr>three-dimensional</nobr> (3D) without the complexity of working in 3D.</p>
+<p>This guide explains how you can achieve interesting 2.5D effects in Solar2D. While Solar2D is not a true 3D engine, its 2.5D capabilities allow you to simulate effects that appear <nobr>three-dimensional</nobr> (3D) without the complexity of working in 3D.</p>
 <div class="guides-toc">
 <ul>
 <li><a href="#background">Background</a></li>
@@ -90,7 +90,7 @@
 <p><a id="background"></a></p>
 <div id="background" class="section level2">
 <h2>Background</h2>
-<p>During the Renaissance, <a href="http://en.wikipedia.org/wiki/Filippo_Brunelleschi#Invention_of_linear_perspective">Filippo Brunelleschi</a> demonstrated the geometrical method of perspective that is still used today. This method solved the problem of how to represent three dimensional objects on a 2D plane. Even today, this remains the basis of how 3D computer graphics are represented on the screen. In essence, your eye is tricked into believing that what is rendered on a flat screen is actually 3D.</p>
+<p>During the Renaissance, <a href="https://en.wikipedia.org/wiki/Filippo_Brunelleschi#Invention_of_linear_perspective">Filippo Brunelleschi</a> demonstrated the geometrical method of perspective that is still used today. This method solved the problem of how to represent three dimensional objects on a 2D plane. Even today, this remains the basis of how 3D computer graphics are represented on the screen. In essence, your eye is tricked into believing that what is rendered on a flat screen is actually 3D.</p>
 <p><a id="perspective"></a></p>
 </div>
 <div id="perspective" class="section level2">
@@ -229,15 +229,15 @@ transition.to( logo.path, { time=2000, x2=20, y2=-20, x4=-40, y4=40 } )</pre>
 </div>
 <div id="z-axis-ordering" class="section level3">
 <h3>Z-axis Ordering</h3>
-<p>All Corona display objects exist on the <code>z=0</code> plane, but they can be ordered as shown in the <a href="../../guide/graphics/group.html">Group Programming</a> guide. When you distort an image, it looks like it exists in a 3D world, but it actually remains in the same plane. Thus, all of the standard object ordering rules will continue to be honored.</p>
+<p>All Solar2D display objects exist on the <code>z=0</code> plane, but they can be ordered as shown in the <a href="../../guide/graphics/group.html">Group Programming</a> guide. When you distort an image, it looks like it exists in a 3D world, but it actually remains in the same plane. Thus, all of the standard object ordering rules will continue to be honored.</p>
 </div>
 <div id="billboarding" class="section level3">
 <h3>Billboarding</h3>
-<p>In the Corona graphics model, billboarding is available toll-free. Just create a group and ensure it's the top-most by calling <a href="../../api/type/DisplayObject/toFront.html">group:toFront()</a>.</p>
+<p>In the Solar2D graphics model, billboarding is available toll-free. Just create a group and ensure it's the top-most by calling <a href="../../api/type/DisplayObject/toFront.html">group:toFront()</a>.</p>
 </div>
 <div id="mode-7" class="section level3">
 <h3>Mode 7</h3>
-<p>In <a href="http://en.wikipedia.org/wiki/Mode_7">Super Nintendo Mode 7</a>, you could only place the background in perspective. In Corona, you can distort any rectangle to make the image appear in perspective.</p>
+<p>In <a href="https://en.wikipedia.org/wiki/Mode_7">Super Nintendo Mode 7</a>, you could only place the background in perspective. In Solar2D, you can distort any rectangle to make the image appear in perspective.</p>
 </div>
 <div id="meshes" class="section level3">
 <h3>Meshes</h3>
@@ -274,11 +274,11 @@ d.path.y1 = intersectionY</pre>
 <h2>Depth</h2>
 <div id="z-axis-scaling" class="section level3">
 <h3>Z-axis Scaling</h3>
-<p>In Corona, you can simulate depth by scaling objects as they move closer or further from the viewer. This can be used to create an illusion of relative depth, for example a series of trees receding into the distance.</p>
+<p>In Solar2D, you can simulate depth by scaling objects as they move closer or further from the viewer. This can be used to create an illusion of relative depth, for example a series of trees receding into the distance.</p>
 </div>
 <div id="scrolling" class="section level3">
 <h3>Scrolling</h3>
-<p>Placing images in the background is <nobr>toll-free</nobr> in Corona. Consequently, horizontal scrollers, side scrollers, and <nobr>bi-directional</nobr> scrollers are all easily achievable in Corona — just make sure that your background is drawn first or move it to the back via <a href="../../api/type/DisplayObject/toBack.html">object:toBack()</a>).</p>
+<p>Placing images in the background is <nobr>toll-free</nobr> in Solar2D. Consequently, horizontal scrollers, side scrollers, and <nobr>bi-directional</nobr> scrollers are all easily achievable in Solar2D — just make sure that your background is drawn first or move it to the back via <a href="../../api/type/DisplayObject/toBack.html">object:toBack()</a>).</p>
 </div>
 <div id="parallax" class="section level3">
 <h3>Parallax</h3>
@@ -286,7 +286,7 @@ d.path.y1 = intersectionY</pre>
 </div>
 <div id="skyboxskydome" class="section level3">
 <h3>Skybox/Skydome</h3>
-<p>In Corona, the skybox/skydome effect is available <nobr>toll-free</nobr>. Just create a group and ensure it's the <nobr>back-most</nobr> by calling <a href="../../api/type/DisplayObject/toBack.html">group:toBack()</a>.</p>
+<p>In Solar2D, the skybox/skydome effect is available <nobr>toll-free</nobr>. Just create a group and ensure it's the <nobr>back-most</nobr> by calling <a href="../../api/type/DisplayObject/toBack.html">group:toBack()</a>.</p>
 <hr>
 <div id="footer">
 <p class="copyright">

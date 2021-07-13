@@ -78,7 +78,7 @@
 </div>
 <div id="advanced-build-settings" class="section level1">
 <h1>Advanced Build Settings</h1>
-<p>This guide outlines various advanced build options for Corona apps.</p>
+<p>This guide outlines various advanced build options for Solar2D apps.</p>
 <div class="docs-tip-outer docs-tip-color-alert">
 <div class="docs-tip-inner-left">
 <div class="fa fa-exclamation-circle" style="font-size: 35px;">
@@ -156,7 +156,7 @@ Notes
 <h2>Advanced Settings — Android</h2>
 <div id="minimum-sdk-version" class="section level3">
 <h3>Minimum SDK Version</h3>
-<p>Providing a minimum SDK version with the <code>minSdkVersion</code> key value allows you to exclude your app from being installed on devices with older versions of the Android OS. It corresponds to the <code>minSdkVersion</code> item detailed <a href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html">here</a>. This setting is invisible to users.</p>
+<p>Providing a minimum SDK version with the <code>minSdkVersion</code> key value allows you to exclude your app from being installed on devices with older versions of the Android OS. It corresponds to the <code>minSdkVersion</code> item detailed <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html">here</a>. This setting is invisible to users.</p>
 <pre class="brush: lua; gutter: false; highlight: [5]; first-line: 1;">settings =
 {
     android =
@@ -170,7 +170,7 @@ Notes
 </div>
 <ul>
 <li><p>The minimum SDK version must be specified as an <strong>integer</strong> — it cannot contain any decimal points.</p></li>
-<li><p>Corona only allows values as low as <code>&quot;15&quot;</code> for Android <strong>4.0.3</strong> (the oldest version supported by Corona). For details on the various Android SDK versions and API levels, see <a href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">here</a>.</p></li>
+<li><p>Solar2D only allows values as low as <code>&quot;15&quot;</code> for Android <strong>4.0.3</strong> (the oldest version supported by Solar2D). For details on the various Android SDK versions and API levels, see <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">here</a>.</p></li>
 <li><p>The minimum SDK version defaults to <code>&quot;15&quot;</code> if not specified otherwise.</p></li>
 </ul>
 </div>
@@ -190,7 +190,7 @@ Notes
 </div>
 <div id="screen-support" class="section level3">
 <h3>Screen Support</h3>
-<p>The optional <code>supportsScreens</code> table specifies/limits which screens an Android app supports. See the Android <a href="http://developer.android.com/guide/topics/manifest/supports-screens-element.html">documentation</a> for detailed descriptions and more options.</p>
+<p>The optional <code>supportsScreens</code> table specifies/limits which screens an Android app supports. See the Android <a href="https://developer.android.com/guide/topics/manifest/supports-screens-element.html">documentation</a> for detailed descriptions and more options.</p>
 <pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9,10,11,12]; first-line: 1;">settings =
 {
     android =
@@ -220,7 +220,7 @@ Notes
 <div class="notebox-title">
 Note
 </div>
-<p>You cannot block file access on Android devices which have been rooted. This applies to all Android apps, including those not built with Corona. Thus, if your app's files contain any sensitive information, it's recommended that you encrypt this information yourself.</p>
+<p>You cannot block file access on Android devices which have been rooted. This applies to all Android apps, including those not built with Solar2D. Thus, if your app's files contain any sensitive information, it's recommended that you encrypt this information yourself.</p>
 </div>
 </div>
 <div id="large-heap" class="section level3">
@@ -242,7 +242,7 @@ Important
 </div>
 <p>This section details additional directives which can be used to <nobr>fine-tune</nobr> the <code>AndroidManifest.xml</code> in your application. They are rarely needed and if you don't understand what they do, you can break your application or cause unexpected behavior. Essentially, use of these directives is <strong>not</strong> recommended unless you're familiar with the concepts involved.</p>
 </div>
-<p>The following specialized directives are available for <nobr>Corona-built</nobr> Android apps:</p>
+<p>The following specialized directives are available for <nobr>Solar2D-built</nobr> Android apps:</p>
 <ul>
 <li><code>strings</code> — This directive enables the creation of a <code>strings.xml</code> file in the <code>.apk</code>.</li>
 </ul>
@@ -338,7 +338,7 @@ Important
 <li><code>coronaActivityFlags</code> — This directive allows attributes to be added to the <code>com.ansca.corona.CoronaActivity</code> activity definition in the app's <code>AndroidManifest.xml</code>. Activity attributes are documented <a href="https://developer.android.com/guide/topics/manifest/activity-element.html">here</a>.</li>
 </ul>
 <div class="code-indent">
-<p>Corona uses the following attributes for its own purposes and they cannot be overridden:</p>
+<p>Solar2D uses the following attributes for its own purposes and they cannot be overridden:</p>
 <div class="inner-table">
 <table>
 <thead>

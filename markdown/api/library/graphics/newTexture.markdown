@@ -73,6 +73,24 @@ local canvasTexture = graphics.newTexture( { type="canvas", width=128, height=12
 
 </div>
 
+* `"maskCanvas"` &mdash; Creates a [TextureResource][api.type.TextureResource] object of type [TextureResourceCanvas][api.type.TextureResourceCanvas]. This texture resource is an <nobr>in-memory</nobr> texture which can be modified by rendering display objects to it.
+
+    This type is intended specifically for masks. In particular, a canvas will be the image provided to [graphics.newMask][api.library.graphics.newMask], so its dimensions must honor the same constraints.
+    
+    When an object is drawn to the canvas, its "red" results are used and the remaining components are ignored. A red value of 0 produces a black pixel and a value of 1 a white pixel. Intermediate values lead to the corresponding shades of gray.
+
+    (**GOTCHA**: This is only confirmed to work on Windows and Android. Other platforms might still need minor fixes.)
+
+<div class="code-indent">
+
+``````lua
+local maskCanvasTexture = graphics.newTexture( { type="maskCanvas", width=128, height=128 } )
+``````
+
+</div>
+
+
+
 ##### filename ~^(required)^~
 _[String][api.type.String]._ Only applies when `type` is `"image"`. Indicates the name of the image file to load, relative to `baseDir` (`system.ResourceDirectory` by default).
 
@@ -80,16 +98,16 @@ _[String][api.type.String]._ Only applies when `type` is `"image"`. Indicates th
 _[Constant][api.type.Constant]._ Only applies when `type` is `"image"`. Specifies the base directory where `filename` is located. Options include `system.ResourceDirectory`, `system.DocumentsDirectory`, `system.ApplicationSupportDirectory`, `system.TemporaryDirectory` and `system.CachesDirectory`. Default is `system.ResourceDirectory`.
 
 ##### width ~^(required)^~
-_[Number][api.type.Number]._ Only applies when `type` is `"canvas"`. Specifies the width in which objects can be rendered within a [TextureResourceCanvas][api.type.TextureResourceCanvas].
+_[Number][api.type.Number]._ Only applies when `type` is `"canvas"` or `"maskCanvas"`. Specifies the width in which objects can be rendered within a [TextureResourceCanvas][api.type.TextureResourceCanvas].
 
 ##### height ~^(required)^~
-_[Number][api.type.Number]._ Only applies when `type` is `"canvas"`. Specifies the height in which objects can be rendered within a [TextureResourceCanvas][api.type.TextureResourceCanvas].
+_[Number][api.type.Number]._ Only applies when `type` is `"canvas" or `"maskCanvas"``. Specifies the height in which objects can be rendered within a [TextureResourceCanvas][api.type.TextureResourceCanvas].
 
 ##### pixelWidth ~^(optional)^~
-_[Number][api.type.Number]._ Only applies when `type` is `"canvas"`. Specifies the horizontal pixel dimensions of the texture that the canvas resource is rendered to.
+_[Number][api.type.Number]._ Only applies when `type` is `"canvas"` or `"maskCanvas"`. Specifies the horizontal pixel dimensions of the texture that the canvas resource is rendered to.
 
 ##### pixelHeight ~^(optional)^~
-_[Number][api.type.Number]._ Only applies when `type` is `"canvas"`. Specifies the vertical pixel dimensions of the texture that the canvas resource is rendered to.
+_[Number][api.type.Number]._ Only applies when `type` is `"canvas"` or `"maskCanvas"`. Specifies the vertical pixel dimensions of the texture that the canvas resource is rendered to.
 
 
 ## Examples
@@ -139,4 +157,80 @@ tex:draw( circ )
 
 -- Schedule texture objects to be rendered to texture before next frame
 tex:invalidate()
+``````
+##### Render to Mask Canvas Resource
+
+``````lua
+local tex = graphics.newTexture{ type = "canvas", width = 128, height = 128 }
+local back = display.newRect(0, 0, 128, 128)
+
+back:setFillColor(1, 0, 0)
+
+local rect = display.newRect(0, 0, 32, 64)
+
+rect:setFillColor(0, 0, 1)
+
+tex:draw(back)
+tex:draw(rect)
+tex:invalidate()
+
+-- Create a renderable mask and draw an all-white rect into it.
+local mask = graphics.newTexture{ type = "maskCanvas", width = 512, height = 512 }
+local mask_back = display.newRect(0, 0, 512 - 6, 512 - 6)
+
+mask:draw(mask_back)
+
+-- Add some circles in their initial locations. We'll make these black and
+-- periodically draw them into the mask, above the white rect.
+local circles = {}
+
+for i = 1, 10 do
+    circles[i] = display.newCircle(0, 0, math.random(10, 35))
+
+    circles[i]:setFillColor(0)
+
+    circles[i].radius = math.random(i * 10, 170)
+    circles[i].speed = math.random(1, 7) * .05
+
+    mask:draw(circles[i])
+end
+
+-- Add a background beneath the masked parts.
+local background = display.newRect(250, 250, mask.width, mask.height)
+
+background.fill = { type = "image", filename = tex.filename, baseDir = tex.baseDir }
+
+background:setStrokeColor(0, 0, 1)
+
+background.alpha = .7
+background.strokeWidth = 3
+
+-- These three rects will be affected by the mask.
+local masked_group = display.newGroup()
+
+local r1 = display.newRect(masked_group, 250, 350, 150, 200)
+local r2 = display.newRect(masked_group, 450, 100, 200, 100)
+local r3 = display.newRect(masked_group, 150, 150, 100, 200)
+
+masked_group:setMask(graphics.newMask(mask.filename, mask.baseDir))
+
+masked_group.maskX, masked_group.maskY = background.x, background.y
+
+local x0 = background.x
+
+-- Move the background back and forth...
+timer.performWithDelay(50, function(event)
+    background.x = x0 + math.sin(event.time / 800) * 50
+end, 0)
+
+-- ...and update the circle arcs along with it.
+timer.performWithDelay(150, function(event)
+    for i, circ in ipairs(circles) do
+        local angle = (event.time * circ.speed) * .0035
+
+        circ.x, circ.y = math.cos(angle) * circ.radius, math.sin(angle) * circ.radius
+    end
+
+    mask:invalidate("cache")
+end, 0)
 ``````

@@ -26,9 +26,13 @@ _(Inherits properties from [DisplayObject][api.type.DisplayObject])_
 
 #### [object.fill][api.type.ShapeObject.fill]
 
+#### [object.fillVertexCount][api.type.ShapeObject.fillVertexCount]
+
 #### [object.path][api.type.ShapeObject.path]
 
 #### [object.stroke][api.type.ShapeObject.stroke]
+
+#### [object.strokeVertexCount][api.type.ShapeObject.strokeVertexCount]
 
 #### [object.strokeWidth][api.type.ShapeObject.strokeWidth]
 
@@ -39,4 +43,8 @@ _(Inherits methods from [DisplayObject][api.type.DisplayObject])_
 
 #### [object:setFillColor()][api.type.ShapeObject.setFillColor]
 
+#### [object:setFillVertexColor()][api.type.ShapeObject.setFillVertexColor]
+
 #### [object:setStrokeColor()][api.type.ShapeObject.setStrokeColor]
+
+#### [object:setStrokeVertexColor()][api.type.ShapeObject.setStrokeVertexColor]

@@ -249,8 +249,11 @@ P_COLOR vec4 FragmentKernel( P_UV vec2 texCoord )
 ]]
 `````
 
+<a id="timetransforms"></a>
 
+## Time Transforms
 
+(TODO!)
 
 <a id="varyingvariables"></a>
 
@@ -410,7 +413,11 @@ P_COLOR vec4 FragmentKernel( P_UV vec2 texCoord )
 (forthcoming feature)
 
 
+<a id="vertextextures"></a>
 
+## Vertex Textures
+
+(TODO!)
 
 <a id="bestpractices"></a>
 

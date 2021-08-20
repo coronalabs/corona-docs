@@ -23,6 +23,7 @@ You should not hold onto the contact object. It is only valid in the scope of yo
 * `event.contact.isTouching` &mdash; indicates whether the two objects are touching <nobr>(read only)</nobr>.
 * `event.contact.bounce` &mdash; specifies the bounce factor of the collision <nobr>(read or write)</nobr>.
 * `event.contact.friction` &mdash; specifies the friction factor of the collision <nobr>(read or write)</nobr>.
+* `event.contact.tangentSpeed` &mdash; specifies the tangential speed ("conveyer belt" motion) along the collision surface, 0 by default <nobr>(read or write)</nobr>.
 
 
 ## Example

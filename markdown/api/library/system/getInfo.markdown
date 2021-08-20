@@ -243,6 +243,10 @@ Density			 DPI
 
 `"gpuSupportsHighPrecisionFragmentShaders"` returns a boolean indicating whether `HIGHP` is supported in fragment shaders on this device.
 
+### maxVertexTextureUnits
+
+`"maxVertexTextureUnits"` returns the number of samplers that may be used in vertex shaders on this device. See __Vertex&nbsp;Textures__ in the  [Custom Shader Effects][guide.graphics.customEffects] guide.
+
 ### GL_VENDOR
 
 `"GL_VENDOR"` returns the company responsible for the GL implementation on this device. See [here](http://www.khronos.org/opengles/sdk/docs/man/xhtml/glGetString.xml) for details.

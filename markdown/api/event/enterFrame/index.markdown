@@ -17,6 +17,8 @@
 
 #### [event.name][api.event.enterFrame.name]
 
+#### [event.frame][api.event.enterFrame.frame]
+
 #### [event.time][api.event.enterFrame.time]
 
 
@@ -29,6 +31,15 @@ local myListener = function( event )
     print( "Listener called with event of type " .. event.name )
 end
 Runtime:addEventListener( "enterFrame", myListener )
+``````
+
+##### Event Frame
+
+``````lua
+local function printCurrentFrameID( event )
+    print ( "Current frame ID: " .. tostring(event.frame) )
+end 
+Runtime:addEventListener( "enterFrame", printCurrentFrameID )
 ``````
 
 ##### Event Time

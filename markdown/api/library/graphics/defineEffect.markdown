@@ -60,6 +60,9 @@ _[String][api.type.String]._ The shader code for the vertex kernel. See __Vertex
 ##### isTimeDependent ~^(optional)^~
 _[Boolean][api.type.Boolean]._ If the vertex or fragment kernel depends on time (the&nbsp;output varies with&nbsp;time), set this to `true`. The default <nobr>(if not provided)</nobr> assumes a value of `false`, meaning the kernel does not use time in its calculations.
 
+##### timeTransform ~^(optional)^~
+_[Table][api.type.Table]._ If the vertex or fragment kernel depends on time, you can use this to mitigate potentially large time values. See __Time&nbsp;Transforms__ in the  [Custom Shader Effects][guide.graphics.customEffects] guide.
+
 ##### vertexData ~^(optional)^~
 _[Table][api.type.Table]._ This allows you to specify named parameters for your effect. You can specify up to four parameters, each of which is a `scalar` (float). See __Effect&nbsp;Parameters__ in the [Custom Shader Effects][guide.graphics.customEffects] guide for more information. Note that you can specify either `vertexData` or `uniformData` but not both.
 

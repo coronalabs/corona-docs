@@ -17,6 +17,10 @@ The `Runtime` class inherits from [EventDispatcher][api.type.EventDispatcher]. I
 
 _(Inherits methods from [EventDispatcher][api.type.EventDispatcher])_
 
+#### [Runtime:getFrameID()][api.type.Runtime.getFrameID]
+
+#### [Runtime:getFrameStartTime()][api.type.Runtime.getFrameStartTime]
+
 #### [Runtime:hasEventSource()][api.type.Runtime.hasEventSource]
 
 #### [Runtime:hideErrorAlerts()][api.type.Runtime.hideErrorAlerts]

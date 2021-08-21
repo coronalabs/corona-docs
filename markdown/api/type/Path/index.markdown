@@ -17,15 +17,8 @@ Paths specify the geometry of [shapes][api.type.ShapeObject]. These path objects
 
 ## Properties
 
-##### path.type
-_[String][api.type.String]._ The type of path &mdash; see options below.
+#### [path.type][api.type.Path.type]
 
-## Path Types
+#### [path.textureBounds][api.type.Path.textureBounds]
 
-The `type` property can take on the following values:
-
-* `"rect"`
-* `"roundedRect"`
-* `"circle"`
-* `"polygon"`
-* `"mesh"`
+#### [path.textureVertices][api.type.Path.textureVertices]

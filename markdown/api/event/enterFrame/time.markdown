@@ -6,6 +6,7 @@
 > __Event__             [enterFrame][api.event.enterFrame]
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          enterframe, time
+> __See also__          [Runtime:getFrameStartTime()][api.type.Runtime.getFrameStartTime]
 > --------------------- ------------------------------------------------------------------------------------------
 
 ## Overview

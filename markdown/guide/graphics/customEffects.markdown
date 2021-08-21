@@ -618,6 +618,8 @@ In contrast, effects that have no dependent texture reads enable the GPU to <nob
 
 Branching instructions (`if` conditions) are expensive. When possible, `for` loops should be unrolled or replaced by vector operations.
 
+<a id="precisionissues"></a>
+
 ## Precision Issues
 
 Solar2D's shaders use [IEEE-754 floats](https://en.wikipedia.org/wiki/IEEE_754) as the underlying representation for numbers.

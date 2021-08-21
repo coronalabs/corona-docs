@@ -8,7 +8,7 @@
 > __Keywords__          y, anchor
 > __See also__          [Transforms and Anchors][guide.graphics.transform-anchor] _(guide)_
 >						[Group Programming][guide.graphics.group] _(guide)_
->						[object.anchorY][api.type.DisplayObject.anchorY]
+>						[object.anchorX][api.type.DisplayObject.anchorX]
 >						[display.setDefault()][api.library.display.setDefault]
 > --------------------- ------------------------------------------------------------------------------------------
 

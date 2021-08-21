@@ -12,6 +12,7 @@ While Corona has an extensive list of [built-in shader effects][guide.graphics.e
 * [Custom Varying Variables](#varyingvariables)
 * [Effect Parameters](#effectparameters)
 * [GLSL Conventions and Best Practices](#bestpractices)
+* [Precision Issues](#precisionissues)
 
 </div>
 
@@ -253,7 +254,34 @@ P_COLOR vec4 FragmentKernel( P_UV vec2 texCoord )
 
 ## Time Transforms
 
-(TODO!)
+In the case of time-dependent vertex or fragment kernels, Solar2D will also look for `timeTransform`. If this exists, it must be a table with one of the following as its `func` member: `"modulo"`, `"pingpong"`, `"sine"`. The value of `CoronaTotalTime` within the shader will be the result of any such transformation, rather than the raw underlying time.
+
+The `"modulo"` transform is computed as `CoronaTotalTime = OriginalTotalTime % range`, where `range` is a positive number that may be supplied in the `timeTransform` table under that same key. By default, `range` is 1.
+
+The `"pingpong"` transform is similar, except `CoronaTotalTime` will first go from 0 to `range` (no default, in this case), then fall back to 0, and repeat indefinitely.
+
+The `"sine"` transform is computed as `CoronaTotalTime = amplitude * sin(scale * OriginalTotalTime + phase)`. Again, `amplitude` and `phase` may be provided in the `timeTransform` table, with defaults 1 and 0 respectively. The scale is calculated from a `period` parameter, a positive number indicating how much time should pass before the sine wave repeats. The default is 2 \* π, corresponding to a scale factor of 1.
+
+`````lua
+graphics.defineEffect{
+    category = "generator", group = "time", name = "pingpong",
+
+    isTimeDependent = true, timeTransform = { func = "pingpong", range = 5 },
+
+    fragment = [[
+        P_COLOR vec4 FragmentKernel (P_UV vec2 _)
+        {
+            return vec4(0., CoronaTotalTime / 5., 0., 1.);
+        }
+    ]]
+}
+
+local rect = display.newRect(300, 100, 50, 50)
+
+rect.fill.effect = "generator.time.pingpong"
+`````
+
+See the [precision issues](#precisionissues) below for the motivation behind these transforms.
 
 <a id="varyingvariables"></a>
 
@@ -417,7 +445,30 @@ P_COLOR vec4 FragmentKernel( P_UV vec2 texCoord )
 
 ## Vertex Textures
 
-(TODO!)
+If the device supports it, you can also sample textures in the vertex kernel. On the Solar2D side, calling [system.getInfo("maxVertexTextureUnits")][api.library.system.getInfo] will give you the number of available samplers as the return value. This is also available in the vertex kernel as `gl_MaxVertexTextureImageUnits`.
+
+Any texture meant for use by vertex kernels should be created with both [sampling filters][api.library.display.setDefault] set to `"nearest"` and use level-of-detail (`Lod`) sampling. You can declare samplers in the vertex code manually as `uniform sampler2D NAME`, where `NAME` is some unused name of your choosing. (**TODO**: with more than one, the declaration order _probably_ maps to sampler order, but this needs confirmation)
+
+`````
+kernel.vertex =
+[[
+uniform sampler2D us_Vertices; // vertex sampler #1
+
+P_POSITION vec2 VertexKernel (P_POSITION vec2 pos)
+{
+    if (gl_MaxVertexTextureImageUnits > 0)
+    {
+        ...
+
+        P_COLOR vec4 verts = texture2DLod(us_Vertices, vec2(offset, 0.), 0.);
+        
+        ...
+    }
+    
+    else return vec4(0.);
+}
+]]
+`````
 
 <a id="bestpractices"></a>
 
@@ -566,3 +617,23 @@ In contrast, effects that have no dependent texture reads enable the GPU to <nob
 ### Avoid Branching and Loops
 
 Branching instructions (`if` conditions) are expensive. When possible, `for` loops should be unrolled or replaced by vector operations.
+
+## Precision Issues
+
+Solar2D's shaders use [IEEE-754 floats](https://en.wikipedia.org/wiki/IEEE_754) as the underlying representation for numbers.
+
+In the majority of cases&mdash;the exceptions being irrelevant here&mdash;part of a floating-point number specifies an integer numerator. Let's call this `N`. Our numerator can go from `0` to `D - 1`, where `D` is a fixed power of 2. Together these give us a scale factor `t = N / D` in the range \[0, 1).
+
+The rest of the number is devoted to the sign (positive or negative) and an exponent, the latter being another integer that gives us a power of 2, for instance 2<sup>-3</sup> or 2<sup>5</sup>.
+
+We decode our numbers by interpolating between neighboring powers, with exponents `p` and `p + 1`, using the scale factor: `result = 2^p * (1 + t)`. Notice that, if `t` were 1, we would be on the **next** power of 2.
+
+This can exactly represent some values, but will only approximate most. Any format is going to have tradeoffs. IEEE-754 offers considerable accuracy near 0, as well as exact integers all the way up to `2 * D`.
+
+On the CPU side of things, Lua gives us 64-bit floats, with rather generous 52-bit numerators. On GPUs we are rarely so lucky, especially on mobile hardware, owing to concerns like bandwidth and memory.
+
+For instance, see the ["Qualifiers"](https://www.khronos.org/opengles/sdk/docs/reference_cards/OpenGL-ES-2_0-Reference-card.pdf) section in the OpenGL ES 2.0 reference card. With **mediump** our `D` is only guaranteed to be an underwhelming 1024.
+
+Now imagine what this means for time, measured in seconds. At first, we'll be totally fine. But just after the two-minute mark, interpolating between 128 and 256, we can only take steps of (256 - 128) / 1024, or 1/8th of a second. At five minutes we'll proceed in increments of 1/4, and so on. Anything relying on such results becomes quite choppy.
+
+This scenario is gloomier than it needs to be, however. The time is actually maintained in Solar2D as a single-precision float, with a respectable 23-bit numerator; the loss comes after it makes its way to the GPU. Furthermore, many shaders want transformed results, something like `TrueTotalTime % X` or `sin(N * TrueTotalTime)`, whose absolute values are likely to be in the more precise lower numeric ranges. Time transforms let us do some of the more common possibilities on the Solar2D side and pass the nicer results along.

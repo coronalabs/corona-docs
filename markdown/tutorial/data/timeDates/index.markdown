@@ -191,7 +191,7 @@ The `os.date()` function takes two optional parameters. Calling it with no param
 Sat Jan 12 14:07:30 2013
 ``````
 
-Fortunately, you can specify various formatting parameters to build dates as you like. These format parameters are based on the Unix/C++ library function [strftime](http://strftime.org), and with that you can format the date/time in many different ways. 
+Fortunately, you can specify various formatting parameters to build dates as you like. These format parameters are based on the Unix/C++ library function [strftime](https://strftime.org/), and with that you can format the date/time in many different ways. 
 
 ``````lua
 print( os.date("%A") )          -- Outputs a string representing the weekday

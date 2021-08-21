@@ -73,11 +73,11 @@ The following steps briefly outline the flow of the <nobr>`/Applications/Corona/
 
 ### Bridging Lua/C
 
-To bridge Lua and C code, you'll use functionality made available by the [Lua C API](http://www.lua.org/manual/5.1/manual.html#3). This allows you to add libraries and functions in Lua that call directly into&nbsp;C.
+To bridge Lua and C code, you'll use functionality made available by the [Lua C API](https://www.lua.org/manual/5.1/manual.html#3). This allows you to add libraries and functions in Lua that call directly into&nbsp;C.
 
 Every function in the Lua C API takes the `lua_State` pointer `L` as its first argument. You can get access to the proper `lua_State` variable via an instance of the [CoronaRuntime][native.ios.CoronaRuntime].
 
-In order to use the Lua C API successfully, you must understand the Lua stack. This stack is different from a function call stack; it is designed to ease the marshalling of data across the <nobr>Lua-C</nobr> bridge. See [here](http://www.lua.org/manual/5.1/manual.html#3) for more information.
+In order to use the Lua C API successfully, you must understand the Lua stack. This stack is different from a function call stack; it is designed to ease the marshalling of data across the <nobr>Lua-C</nobr> bridge. See [here](https://www.lua.org/manual/5.1/manual.html#3) for more information.
 
 ### Native APIs
 

@@ -12,4 +12,4 @@
 
 The URL identifying the resource to be opened by the app. This property only exists when [event.type][api.event.system.type] is `"applicationOpen"`.
 
-See the [Apple URL Scheme Reference](http://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899) for a list of <nobr>Apple-registered</nobr> URL schemes.
+See the [Apple URL Scheme Reference](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html) for a list of <nobr>Apple-registered</nobr> URL schemes.

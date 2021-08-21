@@ -22,7 +22,7 @@ local function webListener( event )
 end
 
 local webView = native.newWebView( display.contentCenterX, display.contentCenterY, 320, 480 )
-webView:request( "http://www.coronalabs.com/" )
+webView:request( "https://solar2d.com/" )
 
 webView:addEventListener( "urlRequest", webListener )
 ``````

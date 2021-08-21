@@ -53,7 +53,7 @@ To use __push__ notifications, remember the following points:
 
 * If using iOS/Apple, your app cannot send push requests directly to their servers.
 
-* We recommend that you use a <nobr>third-party</nobr> service to send push requests to Apple or Google, who in turn sends them onward to devices. That service can be a company like [OneSignal](https://documentation.onesignal.com/docs/corona-sdk-overview), [PushWoosh](http://www.pushwoosh.com), or [Urban Airship](http://urbanairship.com) that specializes in push notifications.
+* We recommend that you use a third-party service to send push requests to Apple or Google, who in turn sends them onward to devices. That service can be a company like [OneSignal](https://github.com/OneSignal/OneSignal-Solar2D-SDK), [PushWoosh](https://www.pushwoosh.com/), or [Airship](https://www.airship.com/) that specializes in push notifications.
 
 
 
@@ -91,6 +91,20 @@ settings =
 	},
 }
 ``````
+Inside this `build.settings` file, also include the `minSdkVersion` of 16 or higher. For more info about setting minimum SDK version, [see this](https://docs.coronalabs.com/guide/distribution/advancedSettings/index.html)
+
+``````{ brush="lua" gutter="false" first-line="1" highlight="[5,6,7,8]" }
+settings =
+{
+    android =
+    {
+        minSdkVersion = "16",
+    },
+}
+``````
+
+
+
 
 Then, within the code module which uses notifications functions, simply `require()` the library as follows:
 
@@ -98,12 +112,14 @@ Then, within the code module which uses notifications functions, simply `require
 local notifications = require( "plugin.notifications.v2" )
 ``````
 
+
+
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Important</div>
 
-* For Android, all __new__ apps, or existing apps being updated with push notifications for the first time, must use <nobr>[Firebase](https://firebase.google.com/) Cloud Messaging (FCM)</nobr>, supported by the current [Notifications][plugin.notifications-v2] plugin (above). If you have a legacy app already configured for <nobr>Google Cloud Messaging (GCM)</nobr>, it will continue to work indefinitely, but you should continue using the [legacy][plugin.notifications] plugin instead of the current notifications plugin.
+* For Android, all __new__ apps, or existing apps being updated with push notifications for the first time, must use [Firebase Cloud Messaging (FCM)](https://firebase.google.com/), supported by the current [Notifications][plugin.notifications-v2] plugin (above). If you have a legacy app already configured for Google Cloud Messaging (GCM), it will continue to work indefinitely, but you should continue using the [legacy][plugin.notifications] plugin instead of the current notifications plugin.
 
-* For iOS, you can either use the <nobr>Apple Push Notification Service (APNS)</nobr> or <nobr>Firebase Cloud Messaging (FCM)</nobr> for push notifications (see&nbsp;below).
+* For iOS, you can either use the Apple Push Notification Service (APNS) or Firebase Cloud Messaging (FCM) for push notifications (see&nbsp;below).
 
 </div>
 
@@ -136,9 +152,9 @@ application =
 
 ### Firebase 
 
-If you want to use Google <nobr>[Firebase](https://firebase.google.com) Cloud Messaging (FCM)</nobr> for push notifications, follow these additional steps:
+If you want to use [Google Firebase Cloud Messaging (FCM)](https://firebase.google.com) for push notifications, follow these additional steps:
 
-1. Copy `GoogleService-Info.plist`, provided in the Firebase console, to your Corona project's root directory alongside `main.lua`.
+1. Copy `GoogleService-Info.plist`, provided in the Firebase console, to your project's root directory alongside `main.lua`.
 
 2. Add the following entries to the <nobr>`iphone` &rarr; `plist`</nobr> table of `build.settings`:
 
@@ -169,7 +185,7 @@ settings =
 
 Android also requires some additional configuration for __push__ notifications:
 
-1. Copy <nobr>`google-services.json`</nobr>, provided in the Firebase console, to your Corona project's root directory alongside `main.lua`.
+1. Copy `google-services.json`, provided in the Firebase console, to your project's root directory alongside `main.lua`.
 
 2. Add an additional `useGoogleServicesJson` entry into the `android` table of `build.settings`. When added, the build server will read the settings from the JSON file and integrate them into your app during the build phase.
 
@@ -191,7 +207,7 @@ settings =
 
 ### Android Icons
 
-You can set custom notification icons in a Corona project by adding the following files to the root of the project directory, just like custom application icons. Please see Google's official [documentation](https://developer.android.com/guide/practices/ui_guidelines/icon_design_status_bar.html) for further details.
+You can set custom notification icons in a project by adding the following files to the root of the project directory, just like custom application icons. Please see [Google's official documentation](https://developer.android.com/guide/practices/ui_guidelines/icon_design_status_bar.html) for further details.
 
 <div class="inner-table">
 
@@ -248,7 +264,7 @@ To cancel a local notification before it triggers, use the [notifications.cancel
 
 ## Handling Notification Events
 
-In accordance with the Corona event/listener model, if your app is running in either the foreground or background and a notification arrives, you'll receive a [notification][api.event.notification] event. It's your responsibility to initialize the system and set up a listener function to handle these events. Please review the following framework and then read the detailed subsections below.
+In accordance with the CORONA_CORE_PRODUCT event/listener model, if your app is running in either the foreground or background and a notification arrives, you'll receive a [notification][api.event.notification] event. It's your responsibility to initialize the system and set up a listener function to handle these events. Please review the following framework and then read the detailed subsections below.
 
 ``````lua
 local function notificationListener( event )
@@ -345,7 +361,7 @@ On iOS, when you're ready to ask the user for permission to allow __push__ notif
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Important</div>
 
-If you're using Google <nobr>[Firebase](https://firebase.google.com/) Cloud Messaging (FCM)</nobr> for push notifications, you should pass an additional parameter to [notifications.registerForPushNotifications()][plugin.notifications-v2.registerForPushNotifications]. This parameter should be a [table][api.type.Table] containing the `useFCM` key with a value of `true`:
+If you're using [Google Firebase Cloud Messaging (FCM)](https://firebase.google.com/) for push notifications, you should pass an additional parameter to [notifications.registerForPushNotifications()][plugin.notifications-v2.registerForPushNotifications]. This parameter should be a [table][api.type.Table] containing the `useFCM` key with a value of `true`:
 
 ``````lua
 notifications.registerForPushNotifications( { useFCM=true } )
@@ -377,7 +393,7 @@ end
 </div>
 <div class="docs-tip-inner-right">
 
-The code required to register your device varies depending on the service. Please consult your preferred provider's documentation or seek assistance in the [Corona Forums](https://forums.coronalabs.com/).
+The code required to register your device varies depending on the service. Please consult your preferred provider's documentation or seek assistance in the [forums](https://forums.solar2d.com/) or [Discord](https://discord.gg/Abf5V9G).
 
 </div>
 </div>

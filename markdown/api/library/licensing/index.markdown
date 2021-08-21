@@ -8,9 +8,9 @@
 
 ## Overview
 
-The Corona licensing library lets you check to see if the app was bought from a store. Currently, only [Google&nbsp;Play](http://developer.android.com/google/play/licensing/setting-up.html) is supported.
+The Solar2D licensing library lets you check to see if the app was bought from a store. Currently, only [Google&nbsp;Play](https://developer.android.com/google/play/licensing/setting-up) is supported.
 
-For further information, see the Google [licensing](http://developer.android.com/google/play/licensing/licensing-reference.html) reference page.
+For further information, see the Google [licensing](https://developer.android.com/google/play/licensing/licensing-reference.html) reference page.
 
 
 ## Project Settings

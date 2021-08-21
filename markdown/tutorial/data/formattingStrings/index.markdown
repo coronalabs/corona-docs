@@ -25,7 +25,7 @@ Let's inspect the format code of `%6.2f` in further detail.
 
 * Next, `.2` indicates the number of decimal places to include __after__ the decimal, in&nbsp;this case&nbsp;2, commonly used to specify monetary values.
 
-* Finally, the `f` parameter indicates a Lua "conversion&nbsp;specifier," in this case a __floating&nbsp;point&nbsp;number__, most of which behave just like those in the family of C/C++ [printf](http://www.cplusplus.com/reference/clibrary/cstdio/printf/) functions.
+* Finally, the `f` parameter indicates a Lua "conversion&nbsp;specifier," in this case a __floating&nbsp;point&nbsp;number__, most of which behave just like those in the family of C/C++ [printf](https://www.cplusplus.com/reference/cstdio/printf/) functions.
 
 
 ## Justification and Placeholders
@@ -71,7 +71,7 @@ As noted above, you can use various "conversion&nbsp;specifiers" in the format s
 
 </div>
 
-Basically, aside from a few exceptions, Lua's [string.format()][api.library.string.format] API uses the same parameters as those in the family of C/C++ [printf](http://www.cplusplus.com/reference/clibrary/cstdio/printf/) functions.
+Basically, aside from a few exceptions, Lua's [string.format()][api.library.string.format] API uses the same parameters as those in the family of C/C++ [printf](https://www.cplusplus.com/reference/cstdio/printf/) functions.
 
 
 ## Conclusion

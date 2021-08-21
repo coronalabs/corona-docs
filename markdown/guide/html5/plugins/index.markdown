@@ -22,7 +22,7 @@ HTML5 builds are still in beta. Things in this guide may be subject for changes.
 
 </div>
 
-HTML5 provides extremely rich access to a variety of APIs, both built-in and third party integrations. It would be impossible to create bindings for all of them in Lua. This is why Corona provides an extremely easy way to bridge between Lua and JavaScript code.
+HTML5 provides extremely rich access to a variety of APIs, both built-in and third party integrations. It would be impossible to create bindings for all of them in Lua. This is why CORONA_CORE_PRODUCT provides an extremely easy way to bridge between Lua and JavaScript code.
 
 <a id="plugin"></a>
 
@@ -113,7 +113,7 @@ You should see that everything works as expected. Methods are getting called, pr
 
 ### Passing functions to JavaScript
 We have already seen that it is very straightforward to call JavaScript functions from Lua. But it is often required to do the reverse - invoke a callback to Lua when some JavaScript async operations is finished. This is tricky, since JavaScript doesn't provide any mechanisms to interact with its garbage collector. Simpler, value types like strings, numbers or event tables can be copied between Lua and JavaScript, so memory leaks are not a problem because copies are handled separately on each side. Functions on other hand, must maintain connection to their environment in order to perform expected tasks.
-Nevertheless, Corona provides two ways that allow Lua functions can be passed to Javascript:
+Nevertheless, CORONA_CORE_PRODUCT provides two ways that allow Lua functions can be passed to Javascript:
 
 <a id="funcToJsProp"></a>
 
@@ -150,7 +150,7 @@ Here is all APIs to work with functions passed to JavaScript:
 
 * `LuaIsFunction` returns `boolean`. `true` if the passed value represents a valid Lua function _reference_.
 * `LuaCreateFunction` transforms a Lua function _reference_ to a callable JavaScript function and returns it.
-* `LuaReleaseFunciton` releases a _reference_ to an underlying Lua function. Calling released functions would result in a no-op (do nothing).
+* `LuaReleaseFunction` releases a _reference_ to an underlying Lua function. Calling released functions would result in a no-op (do nothing).
 
 Modus operandi is supposed to be as follows: receive a Lua function _reference_ as a parameter. Create a JavaScript function wrapper from this _reference_. Call the wrapper function, and release when it is no longer needed.
 
@@ -198,7 +198,7 @@ demo_plugin_js = {
 
 ## Plugin example
 
-To see example of real-world plugin check out our VK Direct Games plugin available on [bitbucket](https://bitbucket.org/coronalabs/store-hosted-vk-direct/src/default/plugins/2018.3275/web/plugin_vk_direct_js.js). Lets review some notable parts.
+To see example of real-world plugin check out our VK Direct Games plugin available on [GitHub](https://github.com/coronalabs/com.coronalabs-plugin.vk.direct/blob/master/plugins/2018.3275/web/plugin_vk_direct_js.js). Lets review some notable parts.
 
 #### `init()`
 Function `init()` is most interesting. It has 2 parts. First - it remembers callback to dispatch events to:
@@ -263,10 +263,10 @@ local metadata = {
 return metadata
 ```
 
-Use [VK Direct Games plugin](https://bitbucket.org/coronalabs/store-hosted-vk-direct/src/default/plugins/2018.3275/web/plugin_vk_direct_js.js) as an example.
+Use [VK Direct Games plugin](https://github.com/coronalabs/com.coronalabs-plugin.vk.direct/blob/master/plugins/2018.3275/web/plugin_vk_direct_js.js) as an example.
 
 <a id="support"></a>
 
 ## Support
 
-If you have any questions or ideas, feel free to join community discussions on our [HTML5 forum](https://forums.coronalabs.com/forum/637-html5/) or #html5 channel on [Slack](https://coronalabs.com/slack).
+If you have any questions or ideas, feel free to join community discussions on the [forums](https://forums.solar2d.com/c/beta-testing/html5/96) or [Discord](https://discord.gg/Abf5V9G).

@@ -17,7 +17,7 @@ Returns the length of a string (amount of characters).
 
 ## Gotchas
 
-If you're using encoded UTF-8 characters, for example Russian or Arabic characters, some of these characters are <nobr>multi-byte</nobr> and may vary between 2 and 4 characters when read by `string.len()`. Please see [here](http://en.wikipedia.org/wiki/UTF-8) for more information on <nobr>UTF-8</nobr> encoding.
+If you're using encoded UTF-8 characters, for example Russian or Arabic characters, some of these characters are <nobr>multi-byte</nobr> and may vary between 2 and 4 characters when read by `string.len()`. Please see [here](https://en.wikipedia.org/wiki/UTF-8) for more information on <nobr>UTF-8</nobr> encoding.
 
 ## Syntax
 

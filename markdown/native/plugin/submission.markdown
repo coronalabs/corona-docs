@@ -7,7 +7,7 @@
 
 </style>
 
-This guide is for third party developers who are ready to [submit a plugin](https://marketplace.coronalabs.com/product-submit) for availability in the [Corona Marketplace](https://marketplace.coronalabs.com).
+This guide is for third party plugin developers who are ready to submit a plugin to the Solar2D Free Plugin directory at [plugins.solar2d.com](https://plugins.solar2d.com/). Alternatively, you may submit it to the [Solar2D Plugins Marketplace](https://www.solar2dplugins.com/), please see the [Asset Packaging Guidelines](https://www.solar2dplugins.com/asset-packaging-guidelines).
 
 <div class="docs-tip-outer">
 <div class="docs-tip-inner-left">
@@ -53,7 +53,7 @@ The CORONA_NATIVE_PRODUCT developer will have to include the plugin in the nativ
 
 ### Pure Lua
 
-If you have a plugin written in __pure&nbsp;Lua__ <nobr>(Lua code only)</nobr>, please see the [Creating Lua Plugins][native.plugin.luaplugin] guide for details on how to submit it to the [Corona Marketplace](https://marketplace.coronalabs.com/).
+If you have a plugin written in __pure&nbsp;Lua__ <nobr>(Lua code only)</nobr>, please see the [Creating Lua Plugins][native.plugin.luaplugin].
 
 ### Native / Hybrid
 
@@ -320,7 +320,7 @@ For new plugins, we highly recommend that you support the most recent public rel
 
 ### Multiple Versions
 
-Normally, when you update a plugin binary, you simply <nobr>re-submit</nobr> the plugin. However, there may be occasions when a newer version of the plugin breaks backwards compatibility, or your updated plugin relies on new functionality available in a more recent [daily build](https://developer.coronalabs.com/downloads/daily-builds/) of Corona.
+Normally, when you update a plugin binary, you simply <nobr>re-submit</nobr> the plugin. However, there may be occasions when a newer version of the plugin breaks backwards compatibility, or your updated plugin relies on new functionality available in a more recent [Solar2D build](https://github.com/coronalabs/corona/releases).
 
 In this situation, you should deploy a separate plugin binary. This binary will correspond to a different/newer build version of CORONA_CORE_PRODUCT. A developer can then simply obtain that version to access the newer version of the plugin. In this manner, you can keep the legacy plugin binary around to preserve backwards compatibility.
 
@@ -347,7 +347,7 @@ If the plugin does not have an implementation for Windows or macOS, we recommend
 
 If you wish to provide Simulator plugin implementations, you will need to use Visual&nbsp;Studio (Windows) or Xcode (macOS). Some useful guidelines can be found here:
 
-* [Creating and Using a Dynamic Link Library](http://msdn.microsoft.com/en-us/library/ms235636\(v=vs.80\).aspx) (`.dll`)
+* [Creating and Using a Dynamic Link Library](https://docs.microsoft.com/en-us/cpp/build/walkthrough-creating-and-using-a-dynamic-link-library-cpp) (`.dll`)
 * [Creating Dynamic Libraries](https://developer.apple.com/library/mac/documentation/DeveloperTools/Conceptual/DynamicLibraries/100-Articles/CreatingDynamicLibraries.html#//apple_ref/doc/uid/TP40002073-SW1) (`.dylib`)
 
 ###### __Why is there both an `iphone` and `iphone-sim` folder?__

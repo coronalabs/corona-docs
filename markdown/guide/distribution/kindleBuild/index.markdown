@@ -48,11 +48,11 @@ Also, note that Amazon prefers apps to occupy the entire screen. If you set the 
 
 ## Java Package Name
 
-When you build a Kindle Fire app using Corona, you must specify a __package&nbsp;name__. In general, you can specify any package name you like, but it must be chosen carefully because it should be unique to your application.
+When you build a Kindle Fire app using Solar2D, you must specify a __package&nbsp;name__. In general, you can specify any package name you like, but it must be chosen carefully because it should be unique to your application.
 
 The traditional Java scheme is to use the <nobr>reverse-domain</nobr> format like `com.acme`, then append the name of a division/product, and finally append the name of the app. For example, `com.acme.games.catchafish` would be a good package name, assuming you own the `acme.com` domain name.
 
-In some cases, the package name that results from using <nobr>reverse-domain</nobr> format may not be valid, and it must be modified before Corona will build your Kindle&nbsp;Fire app. This would be true in any of the following cases:
+In some cases, the package name that results from using <nobr>reverse-domain</nobr> format may not be valid, and it must be modified before Solar2D will build your Kindle&nbsp;Fire app. This would be true in any of the following cases:
 
 * The package name contains a hyphen or other special character (`com.three-amigos` for example). In this case, convert the special character to an underscore: `com.three_amigos`.
 
@@ -74,7 +74,7 @@ If you aren't familiar with the available [build settings][guide.distribution.bu
 
 </div>
 
-1. From the Corona Simulator, select __File__ &rarr; __Open...__ to load the project you wish to build.
+1. From the Solar2D Simulator, select __File__ &rarr; __Open...__ to load the project you wish to build.
 
 2. Select __File__ &rarr; __Build__ &rarr; __Android...__.
 
@@ -82,7 +82,7 @@ If you aren't familiar with the available [build settings][guide.distribution.bu
 
 	* __Application Name__ &mdash; by default, this will match your project folder; keep this name or specify another.
 
-	* __Version Code__ &mdash; this value must be an __integer__. Each time you update your app, you must increase the version code. It corresponds to the `versionCode` item detailed [here](http://developer.android.com/guide/topics/manifest/manifest-element.html). It is not visible to users.
+	* __Version Code__ &mdash; this value must be an __integer__. Each time you update your app, you must increase the version code. It corresponds to the `versionCode` item detailed [here](https://developer.android.com/guide/topics/manifest/manifest-element.html). It is not visible to users.
 
 	* __Version Name__ &mdash; specify a version name for your app.
 
@@ -98,18 +98,18 @@ If you aren't familiar with the available [build settings][guide.distribution.bu
 
 	*__Create Live Build__ &mdash; check this box to create a live build for <nobr>lightning-fast</nobr> testing. See [Generating Live Builds][guide.distribution.liveBuild] for details.
 
-4. Click __Build__ and Corona will compile the app into a standard `.apk` file.
+4. Click __Build__ and Solar2D will compile the app into a standard `.apk` file.
 
 <a id="signdebug"></a>
 
 <div class="guide-notebox">
 <div class="notebox-title">Signing for Debug Build</div>
 
-For debug builds, Corona includes a `debug.keystore` for testing your app on devices. To use it, follow these steps:
+For debug builds, Solar2D includes a `debug.keystore` for testing your app on devices. To use it, follow these steps:
 
 1. Select __Debug__ from the __Keystore__ menu.
 
-2. Directly to the right, __Browse...__ to the keystore file in the Corona SDK application folder:
+2. Directly to the right, __Browse...__ to the keystore file in the Solar2D application folder:
 
 <div class="code-indent">
 
@@ -153,7 +153,7 @@ For release builds, you must sign with your __private&nbsp;key__. You can genera
 
 ## Installation and Debugging
 
-Once your app is compiled via Corona, the next step is to register as an [Amazon Developer](https://developer.amazon.com/home.html), configure your Kindle&nbsp;Fire for testing, and test/debug the app on a Kindle&nbsp;Fire device or the <nobr>Kindle Fire Emulator</nobr>.
+Once your app is compiled via Solar2D, the next step is to register as an [Amazon Developer](https://developer.amazon.com/home.html), configure your Kindle&nbsp;Fire for testing, and test/debug the app on a Kindle&nbsp;Fire device or the <nobr>Kindle Fire Emulator</nobr>.
 
 1. If you haven't already signed up for an [Amazon Developer](https://developer.amazon.com/home.html) account, please do so first.
 

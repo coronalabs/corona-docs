@@ -8,7 +8,7 @@
 
 * This guide assumes that you have already set up a development environment for CORONA_ENTERPRISE_PRODUCT. If not, please see the [CORONA_ENTERPRISE_PRODUCT &mdash; Android Setup][native.android.androidSetup] and return to this guide once you've finished installing the Android Tools.
 
-* Before starting, download and install [Android Studio](http://developer.android.com/sdk/index.html). Run Android&nbsp;Studio for the first time and set it up (select&nbsp;a theme, update the Android&nbsp;SDK as desired,&nbsp;etc.).
+* Before starting, download and install [Android Studio](https://developer.android.com/studio). Run Android&nbsp;Studio for the first time and set it up (select&nbsp;a theme, update the Android&nbsp;SDK as desired,&nbsp;etc.).
 
 </div>
 

@@ -1,7 +1,7 @@
 # networkRequest
 
 > --------------------- ------------------------------------------------------------------------------------------
-> __Type__              [Event][api.type.event]
+> __Type__              [Event][api.type.Event]
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          networkRequest
 > __See also__          [network.request()][api.library.network.request]

@@ -52,11 +52,11 @@ local function onComplete( event )
 			-- Do nothing; dialog will simply dismiss
 		elseif ( i == 2 ) then
 			-- Open URL if "Learn More" (second button) was clicked
-			system.openURL( "http://www.coronalabs.com" )
+			system.openURL( "https://solar2d.com/" )
 		end
 	end
 end
  
 -- Show alert with two buttons
-local alert = native.showAlert( "Corona", "Dream. Build. Ship.", { "OK", "Learn More" }, onComplete )
+local alert = native.showAlert( "Solar2D", "Dream. Build. Ship.", { "OK", "Learn More" }, onComplete )
 ``````

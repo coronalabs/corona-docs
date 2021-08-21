@@ -102,7 +102,7 @@ local filePath = system.pathForFile( "scores.json", system.DocumentsDirectory )
 
 Let's briefly examine these commands:
 
-* With the first command, we load a new resource for our app: the JSON&nbsp;library. [JSON](http://www.json.org/) is a convenient format for working with data. If you're not familiar with JSON, don't worry&nbsp;&mdash; for the purpose of this app, you just need to learn how to use the <nobr>built-in</nobr> `json.encode()` and `json.decode()` commands. Respectively, these commands let you take a Lua table, store (encode) its contents in a <nobr>well-understood</nobr> format, and later translate (decode) that data back into a Lua table.
+* With the first command, we load a new resource for our app: the JSON&nbsp;library. [JSON](https://www.json.org/) is a convenient format for working with data. If you're not familiar with JSON, don't worry&nbsp;&mdash; for the purpose of this app, you just need to learn how to use the <nobr>built-in</nobr> `json.encode()` and `json.decode()` commands. Respectively, these commands let you take a Lua table, store (encode) its contents in a <nobr>well-understood</nobr> format, and later translate (decode) that data back into a Lua table.
 
 * The next command, <nobr>`local scoresTable = {}`</nobr>, simply creates an empty table which will eventually contain the retrieved scores, or an updated list of scores to save.
 
@@ -115,7 +115,7 @@ You may wonder why we're creating a __file__ to store the high scores data. Why 
 
 Essentially, any data which needs to be accessed at some point after the app quits/closes should be stored in a __persistent__ state, and the easiest way to store persistent data is to save it to a file on the device. Furthermore, this file must be stored in a __persistent&nbsp;location__.
 
-To ensure that the `scores.json` file is placed within a persistent location, we specify `system.DocumentsDirectory` as the second parameter of the command we just entered. This tells Corona to create the `scores.json` file within the app's internal "documents" directory. While there are other places we could put the file, we won't go into details on them here&nbsp;&mdash; just remember that the documents directory, referenced by the constant `system.DocumentsDirectory`, is the only place which provides truly persistent storage for files that are created from within the app. In other words, even if the player quits the app and doesn't open it again until a month later, the `scores.json` file will still exist.
+To ensure that the `scores.json` file is placed within a persistent location, we specify `system.DocumentsDirectory` as the second parameter of the command we just entered. This tells Solar2D to create the `scores.json` file within the app's internal "documents" directory. While there are other places we could put the file, we won't go into details on them here&nbsp;&mdash; just remember that the documents directory, referenced by the constant `system.DocumentsDirectory`, is the only place which provides truly persistent storage for files that are created from within the app. In other words, even if the player quits the app and doesn't open it again until a month later, the `scores.json` file will still exist.
 
 </div>
 
@@ -152,7 +152,7 @@ end
 
 Dissecting this function, we accomplish the following:
 
-* When working with files containing data, the first step is to confirm that the file exists. The first command inside this function, <nobr>`local file = io.open( filePath, "r" )`</nobr>, attempts to open the file `scores.json` in the `system.DocumentsDirectory` folder (remember&nbsp;that we set the variable `filePath` to point to that file and&nbsp;folder). In this command, also note the second parameter,&nbsp;`"r"`. This tells Corona to open the file with __read__ access only, but that's sufficient here because we simply need to read the file contents.
+* When working with files containing data, the first step is to confirm that the file exists. The first command inside this function, <nobr>`local file = io.open( filePath, "r" )`</nobr>, attempts to open the file `scores.json` in the `system.DocumentsDirectory` folder (remember&nbsp;that we set the variable `filePath` to point to that file and&nbsp;folder). In this command, also note the second parameter,&nbsp;`"r"`. This tells Solar2D to open the file with __read__ access only, but that's sufficient here because we simply need to read the file contents.
 
 * In the conditional block following, if the file exists, its contents will be dumped into the local variable `contents`. Once we have its contents, we close the file with <nobr>`io.close( file )`</nobr>. Then, using the command `json.decode()`, we decode `contents` and store the values in `scoresTable`&nbsp;&mdash; basically, `json.decode()` converts `scores.json` into a Lua table which can be used in our app.
 
@@ -208,7 +208,7 @@ This function saves high scores data as follows:
 
 * First, we clear out any unneeded scores from `scoresTable`. Because we only want to save the highest ten scores, anything beyond that can be discarded. Using a `for` loop, we step backwards through the table from its total count (`#scoresTable`) to `11`, effectively removing all but ten scores.
 
-* Next, we open the `scores.json` file. Unlike our `io.open()` call within `loadScores()`, here we specify `"w"` as the second parameter. This tells Corona to create (write) a new file or overwrite the file if it already exists. It also tells Corona to open the file with __write__ access which is important because, when saving score data, we need to write data to the file.
+* Next, we open the `scores.json` file. Unlike our `io.open()` call within `loadScores()`, here we specify `"w"` as the second parameter. This tells Solar2D to create (write) a new file or overwrite the file if it already exists. It also tells Solar2D to open the file with __write__ access which is important because, when saving score data, we need to write data to the file.
 
 * Once the file is successfully open, we call `file:write()` to write the `scoresTable` data to the file, converted into JSON via the `json.encode()` command. Finally, we close the file with <nobr>`io.close( file )`</nobr>.
 
@@ -350,7 +350,7 @@ For each score line, we'll display __two__ text objects. On the left will be a r
 end
 ``````
 
-Most of the above code should be straightforward, but we're introducing an important new concept in __anchors__. By default, Corona positions the __center__ of any display object at the __x__ and __y__ coordinate given. However, sometimes you'll need to align a series of objects along their edges&nbsp;&mdash; here, the list of scores will look best if each rank number is <nobr>right-aligned</nobr> and each score is <nobr>left-aligned</nobr>.
+Most of the above code should be straightforward, but we're introducing an important new concept in __anchors__. By default, Solar2D positions the __center__ of any display object at the __x__ and __y__ coordinate given. However, sometimes you'll need to align a series of objects along their edges&nbsp;&mdash; here, the list of scores will look best if each rank number is <nobr>right-aligned</nobr> and each score is <nobr>left-aligned</nobr>.
 
 <div class="float-right" style="max-width: 244px; margin-top: 12px; margin-bottom: 16px; clear: left;">
 
@@ -366,7 +366,7 @@ To accomplish this, notice that we set the `anchorX` property of each object. Th
 </div>
 <div class="docs-tip-inner-right">
 
-Naturally, Corona also supports vertical anchor points with the `anchorY` property. Similar to its horizontal counterpart, this property typically ranges between `0`&nbsp;(top) and `1`&nbsp;(bottom), with a default of `0.5`&nbsp;(center). Anchors can even be set outside of the `0` to `1` range, although this usage is less common. Setting either `anchorX` or `anchorY` to values less than `0` or greater than `1` will place the anchor point conceptually somewhere in space outside of the object's edge boundaries, which can be useful in some instances.
+Naturally, Solar2D also supports vertical anchor points with the `anchorY` property. Similar to its horizontal counterpart, this property typically ranges between `0`&nbsp;(top) and `1`&nbsp;(bottom), with a default of `0.5`&nbsp;(center). Anchors can even be set outside of the `0` to `1` range, although this usage is less common. Setting either `anchorX` or `anchorY` to values less than `0` or greater than `1` will place the anchor point conceptually somewhere in space outside of the object's edge boundaries, which can be useful in some instances.
 
 </div>
 </div>

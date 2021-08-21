@@ -63,7 +63,7 @@ local function networkListener( event )
 
     if ( event.isError ) then
         print( "Network error: ", event.response )
-    elseif ( event.phase == "began" ) and ( event.bytesEstimated > 1000000 ) then
+    elseif ( event.phase == "began" ) and ( event.bytesEstimated > 80000 ) then
         print( "Canceling request, file is too big!" )
         network.cancel( event.requestId )
     end
@@ -71,10 +71,10 @@ end
 
 -- Start the image download
 network.download(
-    "http://www.coronalabs.com/demo/hello.png",
+    "https://plugins.solar2d.com/images/logo-banner.png",
     "GET",
     networkListener,
     { progress = true },
-    "helloCopy.png",
+    "bannerCopy.png",
     system.TemporaryDirectory )
 ``````

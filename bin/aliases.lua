@@ -6,7 +6,7 @@ return {
 	{ real="guide", shown="Developer Guides" },
 	{ real="tutorial", shown="Tutorials" },
 	{ real="coronacards", shown="CoronaCards" },
-	{ real="native", shown="Corona Native" },
+	{ real="native", shown="Solar2D Native" },
 	{ real="type", shown="Types" },
 
 	-- The following are aliases for guide/tutorial main topics
@@ -17,6 +17,7 @@ return {
 	{ real="events", shown="Events/Listeners" },
 	{ real="graphics", shown="Graphics/Audio/Animation" },
 	{ real="hardware", shown="System/Hardware" },
+	{ real="html5", shown="HTML5" },
 	{ real="media", shown="Graphics/Audio/Animation" },
 	{ real="monetization", shown="Ads/Monetization" },
 	{ real="physics", shown="Physics" },
@@ -88,8 +89,9 @@ return {
 	{ real="photon", shown="Photon" },
 	{ real="steamworks", shown="Steamworks" },
 
+	{ real="apple-iap", shown="Apple IAP" },
 	{ real="amazon-iap-v2", shown="Amazon IAP" },
-	{ real="google-iap-v3", shown="Google IAP" },
+	{ real="google-iap-billing", shown="Google IAP" },
 
 	{ real="openssl", shown="OpenSSL" },
 
@@ -102,6 +104,7 @@ return {
 	{ real="CoronaProvider_native_popup_addressbook", shown="Address Book" },
 	{ real="advertisingId", shown="Advertising ID" },
 	{ real="animation", shown="Animation" },
+	{ real="att", shown="App Tracking Transparency" },
 	{ real="batteryState", shown="Battery State" },
 	{ real="bit", shown="Bit" },
 	{ real="collisionFilters", shown="Collision Filters" },

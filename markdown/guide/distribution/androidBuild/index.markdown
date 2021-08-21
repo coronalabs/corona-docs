@@ -17,9 +17,11 @@ This guide explains how to sign, build, and test your app on Android devices.
 
 * You do not need to install the Android SDK. However, you will need to install the proper version of the __Java&nbsp;Development&nbsp;Kit__ if you're using Windows. See the [Java Development Kit][guide.start.installWin#jdk] section for details.
 
-* The Android build process generates a standard `.apk` file. You can build and test apps on Android devices without creating a [Google&nbsp;developer&nbsp;account](https://developers.google.com), but you will need an account if you wish to publish to the [Google&nbsp;Play](https://play.google.com/store) marketplace.
+* The Android build process generates two files: an `.apk` and an `.aab` file. You can build and test apps on Android devices without creating a [Google&nbsp;developer&nbsp;account](https://developers.google.com), but you will need an account if you wish to publish to the [Google&nbsp;Play](https://play.google.com/store) marketplace.
+	
+* The [Android App Bundle](https://developer.android.com/platform/technology/app-bundle) file, `.aab`, is automatically generated when you build for Android. You can use this file to submit your apps or games to Google Play.
 
-* We only support Android devices that run <nobr>__Android 4.0.3__</nobr> or higher with an __ARMv7__ processor. This can create some confusion because ARM processors are identified by both a __family__ and an __architecture__. Family names do not have a __"v"__ in them. For instance, the ARM7 processor is actually a ARMv3 architecture, and ARM11 is a ARMv6 architecture. See [this guide](http://en.wikipedia.org/wiki/List_of_ARM_microprocessor_cores) to help identify the various processors.
+* We only support Android devices that run <nobr>__Android 4.0.3__</nobr> or higher with an __ARMv7__ processor. This can create some confusion because ARM processors are identified by both a __family__ and an __architecture__. Family names do not have a __"v"__ in them. For instance, the ARM7 processor is actually a ARMv3 architecture, and ARM11 is a ARMv6 architecture. See [this guide](https://en.wikipedia.org/wiki/List_of_ARM_microarchitectures) to help identify the various processors.
 
 </div>
 
@@ -30,11 +32,11 @@ This guide explains how to sign, build, and test your app on Android devices.
 
 ## Java Package Name
 
-When you build an Android app using Corona, you must specify a __package&nbsp;name__. In general, you can specify any package name you like, but it must be chosen carefully because it should be unique to your application.
+When you build an Android app using Solar2D, you must specify a __package&nbsp;name__. In general, you can specify any package name you like, but it must be chosen carefully because it should be unique to your application.
 
 The traditional Java scheme is to use the <nobr>reverse-domain</nobr> format like `com.acme`, then append the name of a division/product, and finally append the name of the app. For example, `com.acme.games.catchafish` would be a good package name, assuming you own the `acme.com` domain name.
 
-In some cases, the package name that results from using <nobr>reverse-domain</nobr> format may not be valid, and it must be modified before Corona will build your Android app. This would be true in any of the following cases:
+In some cases, the package name that results from using <nobr>reverse-domain</nobr> format may not be valid, and it must be modified before Solar2D will build your Android app. This would be true in any of the following cases:
 
 * The package name contains a hyphen or other special character (`com.three-amigos` for example). In this case, convert the special character to an underscore: `com.three_amigos`.
 
@@ -58,7 +60,7 @@ In some cases, the package name that results from using <nobr>reverse-domain</no
 
 </div>
 
-1. From the Corona Simulator, select __File__ &rarr; __Open...__ to load the project you wish to build.
+1. From the Solar2D Simulator, select __File__ &rarr; __Open...__ to load the project you wish to build.
 
 2. Select __File__ &rarr; __Build__ &rarr; __Android...__.
 
@@ -66,7 +68,7 @@ In some cases, the package name that results from using <nobr>reverse-domain</no
 
 	* __Application Name__ &mdash; by default, this will match your project folder; keep this name or specify another.
 
-	* __Version Code__ &mdash; this value must be an __integer__. Each time you update your app, you must increase the version code. It corresponds to the `versionCode` item detailed [here](http://developer.android.com/guide/topics/manifest/manifest-element.html). It is not visible to users.
+	* __Version Code__ &mdash; this value must be an __integer__. Each time you update your app, you must increase the version code. It corresponds to the `versionCode` item detailed [here](https://developer.android.com/guide/topics/manifest/manifest-element.html). It is not visible to users.
 
 	* __Version Name__ &mdash; specify a version name for your app.
 
@@ -82,18 +84,18 @@ In some cases, the package name that results from using <nobr>reverse-domain</no
 
 	* __Create Live Build__ &mdash; check this box to create a live build for <nobr>lightning-fast</nobr> testing. See [Generating Live Builds][guide.distribution.liveBuild] for details.
 
-4. Click __Build__ and Corona will compile the app into a standard `.apk` file.
+4. Click __Build__ and Solar2D will compile the app into a standard `.apk` file.
 
 <a id="signdebug"></a>
 
 <div class="guide-notebox">
 <div class="notebox-title">Signing for Debug Build</div>
 
-For debug builds, Corona includes a `debug.keystore` for testing your app on devices. To use it, follow these steps:
+For debug builds, Solar2D includes a `debug.keystore` for testing your app on devices. To use it, follow these steps:
 
 1. Select __Debug__ from the __Keystore__ menu.
 
-2. Directly to the right, __Browse...__ to the keystore file in the Corona SDK application folder:
+2. Directly to the right, __Browse...__ to the keystore file in the Solar2D SDK application folder:
 
 <div class="code-indent">
 
@@ -141,7 +143,7 @@ There are four methods to install an app on an Android device. You can __not__ s
 
 ### Copy to Device
 
-If you're using the Corona&nbsp;Simulator for macOS, you can copy the app directly to a connected device. This feature is not supported on Windows.
+If you're using the Solar2D&nbsp;Simulator for macOS, you can copy the app directly to a connected device. This feature is not supported on Windows.
 
 1. Connect your device.
 

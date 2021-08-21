@@ -27,11 +27,17 @@ The transition library provides functions and methods to transition/tween displa
 
 #### [transition.cancel()][api.library.transition.cancel]
 
+#### [transition.cancelAll()][api.library.transition.cancelAll]
+
 #### [transition.from()][api.library.transition.from]
 
 #### [transition.pause()][api.library.transition.pause]
 
+#### [transition.pauseAll()][api.library.transition.pauseAll]
+
 #### [transition.resume()][api.library.transition.resume]
+
+#### [transition.resumeAll()][api.library.transition.resumeAll]
 
 #### [transition.to()][api.library.transition.to]
 
@@ -52,3 +58,13 @@ The transition library provides functions and methods to transition/tween displa
 #### [transition.scaleBy()][api.library.transition.scaleBy]
 
 #### [transition.scaleTo()][api.library.transition.scaleTo]
+
+## Properties
+
+#### [transition.ignoreEmptyReference][api.library.transition.ignoreEmptyReference]
+
+## Source
+
+* [View on GitHub](https://github.com/coronalabs/framework-transition)
+
+If you want to add/modify transition effects or extend functionality, download the source code from GitHub and include in your project(See [Using External Modules][tutorial.basics.externalModules]).

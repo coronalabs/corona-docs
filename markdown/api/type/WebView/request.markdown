@@ -47,5 +47,5 @@ settings =
 
 ``````lua
 local webView = native.newWebView( 0, 0, 320, 480 )
-webView:request( "http://www.coronalabs.com/" )
+webView:request( "https://solar2d.com/" )
 ``````

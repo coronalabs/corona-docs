@@ -1,4 +1,4 @@
-# External Modules in Corona
+# Using External Modules
 
 There's often confusion as to what exactly happens when external modules are "required" into your code, which leads to further confusion and unexpected behavior when it comes to things such as Composer scenes or even custom modules of your own.
 
@@ -154,4 +154,4 @@ At this point, the module will be cleared from memory and all of its associated 
 
 ## Conclusion
 
-Hopefully this tutorial has given you a solid foundational understanding of Lua modules, how to include them, and how to call functions that exist in one module from another module. Conveniently, these rules are universal and apply to any module you may be dealing with, whether it's your own <nobr>custom-made</nobr> module, a module you downloaded, or even <nobr>built-in</nobr> Corona modules.
+Hopefully this tutorial has given you a solid foundational understanding of Lua modules, how to include them, and how to call functions that exist in one module from another module. Conveniently, these rules are universal and apply to any module you may be dealing with, whether it's your own <nobr>custom-made</nobr> module, a module you downloaded, or even <nobr>built-in</nobr> CORONA_CORE_PRODUCT modules.

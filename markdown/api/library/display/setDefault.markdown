@@ -89,9 +89,9 @@ A color key specifies which default color value to set.
 
 * `"isImageSheetSampledInsideFrame"` — Affects how [image sheet][api.type.ImageSheet] frames are sampled. If set to `true`, sampling is intruded by half of the source texture pixel size to avoid border artifacts. Default is `false`.
 
-* `"magTextureFilter"` — The default magnification sampling filter applied whenever an image is loaded by Corona. Once an image is loaded the first time, the same sampling filter will be applied for any subsequent loads of the same file. This is because textures are loaded once per file. Default value is `"linear"`. Alternative value is `"nearest"`.
+* `"magTextureFilter"` — The default magnification sampling filter applied whenever an image is loaded by Solar2D. Once an image is loaded the first time, the same sampling filter will be applied for any subsequent loads of the same file. This is because textures are loaded once per file. Default value is `"linear"`. Alternative value is `"nearest"`.
 
-* `"minTextureFilter"` — The default minification sampling filter applied whenever an image is loaded by Corona. Once an image is loaded the first time, the same sampling filter will be applied for any subsequent loads of the same file. This is because textures are loaded once per file. Default value is `"linear"`. Alternative value is `"nearest"`.
+* `"minTextureFilter"` — The default minification sampling filter applied whenever an image is loaded by Solar2D. Once an image is loaded the first time, the same sampling filter will be applied for any subsequent loads of the same file. This is because textures are loaded once per file. Default value is `"linear"`. Alternative value is `"nearest"`.
 
 * `"textureWrapX"` — The texture wrap mode along the __x__ direction. Once an image is loaded the first time, the same wrap mode will be applied for any subsequent loads of the same file. This is because textures are loaded once per file. Default value is `"clampToEdge"`. Other values are useful for patterns and include `"repeat"` or `"mirroredRepeat"`.
 
@@ -100,7 +100,7 @@ A color key specifies which default color value to set.
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Important</div>
 
-* For texture wrapping (`"textureWrapX"` and `"textureWrapY"`), `"clampToEdge"` is the only valid mode for [non-power-of-two textures](http://www.opengl.org/wiki/NPOT_Texture). To use `"repeat"` or `"mirroredRepeat"`, make sure the dimensions of your textures are power of two, for example `16`, `32`, `64`, `128`, `256`, etc.
+* For texture wrapping (`"textureWrapX"` and `"textureWrapY"`), `"clampToEdge"` is the only valid mode for [non-power-of-two textures](https://www.khronos.org/opengl/wiki/NPOT_Texture). To use `"repeat"` or `"mirroredRepeat"`, make sure the dimensions of your textures are power of two, for example `16`, `32`, `64`, `128`, `256`, etc.
 
 * When using one of the non-default wrap modes (`"repeat"` or `"mirroredRepeat"`), you should revert the wrap mode to default (`"clampToEdge"`) when repeating fills are no longer required. For example, after filling an object with a wrapping texture, revert the wrap mode to default before proceeding with any other [fill][api.type.ShapeObject.fill] operations.
 

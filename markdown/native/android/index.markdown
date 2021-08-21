@@ -9,6 +9,7 @@ The following resources go further in depth on using CORONA_NATIVE_PRODUCT for A
 * [Project Templates](#templates)
 * [CORONA_NATIVE_PRODUCT Development](#development)
 * [Building for Devices](#building)
+* [Building for Self-Hosted-Plugins](#self-hosted)
 
 </div>
 
@@ -19,7 +20,7 @@ The following resources go further in depth on using CORONA_NATIVE_PRODUCT for A
 
 ## CORONA_NATIVE_PRODUCT Setup
 
-Download and install [Android Studio](http://developer.android.com/tools/studio/index.html), the official IDE for Android development.
+Download and install [Android Studio](https://developer.android.com/studio), the official IDE for Android development.
 
 ### For macOS
 
@@ -55,8 +56,8 @@ Inside your copy of the `App` folder, the following files/directories are of pri
 				- `AndroidManifest.xml` &mdash; This is where you configure application settings such as name, permissions, etc.
 				- `java/` &mdash; This is where the Java source files for your __app__ should go. Because the package is `com.mycompany.app`, this is where the files are located by default. You should modify this according to the package name you specify.
 				- `jniLibs/` &mdash; This is where <nobr>third-party</nobr> (Corona) `.so` plugins that your __app__ relies upon should go.
-	- `plugin` &mdash; For [plugins][native.plugin], there are additional files and directories of interest:
-		- `build.gradle` &mdash; This is the build script that creates the plugin. The output is a `.jar` file. The only files included in the `.jar` are those located in `plugin/src/main/`, whether they are code or resources.
+	- `plugin` &mdash; This is the main folder when developing plugins for SOlar2D. All your code goes here. For [plugins][native.plugin], there are additional files and directories of interest:
+		- `build.gradle` &mdash; This is the build script that creates the plugin. The output is usually a `.jar` file. The only files included in the `.jar` are those located in `plugin/src/main/`, whether they are code or resources. In case you have additional resources to be added to the plugin (e.g., UI) that reside usually in the `res` directory (see below), an `aar` file will be generated (How to handle `aar` files please see [Building for Self Hosted Plugins](#self-hosted)).
 		- `libs` &mdash; This is where <nobr>third-party</nobr> (Corona) `.jar` plugins that your __plugin__ relies upon should go.
 		- `src` &nbsp;
 			- `main` &nbsp;
@@ -66,6 +67,7 @@ Inside your copy of the `App` folder, the following files/directories are of pri
 						- `library` &nbsp;
 							- `LuaLoader.java` &mdash; This is the code for the Lua library `plugin.library` on the Android side.
 				- `jniLibs/` &mdash; This is where <nobr>third-party</nobr> (Corona) `.so` plugins that your __plugin__ relies upon should go.
+				- `res/` &mdash; This is where your Android resources will be located (i.e., color, style, texts, and so forth). If there will be such resources remember to appy the plugin `'com.android.library'` instead of `'com.android.appication'` in your build.gradle.
 
 </div>
 
@@ -96,11 +98,21 @@ Note that the `LuaLoader` class is instantiated __once__ for the lifetime of the
 
 ### Bridging Lua/Java
 
-To bridge Lua and Java code, you'll use functionality made available by [JNLua](http://code.google.com/p/jnlua/). This allows you to add libraries and functions in Lua that call directly into Java.
+To bridge Lua and Java code, you'll use functionality made available by [JNLua](https://code.google.com/archive/p/jnlua/). This allows you to add libraries and functions in Lua that call directly into Java.
 
 ### Native APIs
 
 The native APIs for Android are available as a [JavaDoc](html/overview-summary.html).
+
+### Using ProGuard
+
+Just remember to keep ProGuard from obfuscating your `plugin.your-plugin-name.LuaLoader` class by adding the line:
+
+``````
+-keep public class plugin.your-plugin-name.LuaLoader { public *;}
+``````
+
+to your `proguard-rules.pro` file within the plugin module.
 
 ### Using Common Android Libraries
 
@@ -119,4 +131,27 @@ For information on working with Android Runtime Permissions in __Android&nbsp;6.
 
 To build a CORONA_NATIVE_PRODUCT project from Android&nbsp;Studio, simply use the __Run__ button on the top bar of icons. This will build your project, sign it, and prompt you to select a deployment target. The built `.apk` is signed with either a keystore you've specified in the <nobr>`android` &rarr; `signingConfigs`</nobr> block of the `android/app/build.gradle` script, or the default `debug.keystore` if none is provided.
 
-Android Studio has several other <nobr>build-related</nobr> options that you can read about [here](http://developer.android.com/tools/building/building-studio.html).
+Android Studio has several other <nobr>build-related</nobr> options that you can read about [here](https://developer.android.com/studio/run).
+
+<a id="self-hosted"></a>
+
+## Building for Self Hosted Plugins
+
+Building the plugin-in to be published on a web server (since the plugin is not yet intended to be shared with the community), a few simple extra steps are required:
+
+1. Create a directory for packaging, for instance `package-plugin`. Create a folder named `android` within `package-plugin`.
+
+2. Create a new gradle file, called `corona.gradle` and copy all your dependencies and repository definitions from your plugin's `build.gradle` also into that file.
+
+3. Place the `metadata.lua` file also in the directory `package-plugin`
+
+4. Use a simple packaging script to copy the build result into this directory and to call the zip/tar program. On Mac you could use the following lines, for instance, placed into a shell script `deploy.sh`:
+
+``````
+#!/bin/bash
+cp ../../build/outputs/aar/plugin-release.aar .
+COPYFILE_DISABLE=true tar -czf ../"$(basename "$(pwd)").tgz" --exclude='.[^/]*'  ./*
+scp ../android.tgz "youruser@www.your-web-server-where-plugin-will-be-hostd.de:/var/www/YOUR_DOMAIN/plugins"
+``````
+
+Finally, for those who will use your Self-Hosted-Plugin, they have to add the location (`www.YOUR_DOMAIN.de/plugins/android.tgz`) into their `build.settings` so that the build proccess for Corona-Apps can find the plugin.

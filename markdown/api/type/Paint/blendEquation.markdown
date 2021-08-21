@@ -12,7 +12,7 @@
 
 ## Overview
 
-The blend equation per the [OpenGL-ES 2 specification](http://www.khronos.org/opengles/sdk/docs/man/xhtml/glBlendEquation.xml). 
+The blend equation per the [OpenGL-ES 2 specification](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glBlendEquation.xml). 
 
 Blend equation values can be:
 

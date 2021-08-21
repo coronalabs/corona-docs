@@ -23,7 +23,7 @@ While both [TrueType](https://en.wikipedia.org/wiki/TrueType) (`.ttf`) and [Open
 
 1. Copy the __font file__ to the main project directory, alongside `main.lua` or copy it to a subdirectory. If you do include the subdirectory name in the path.
 
-2. To use the font, pass the font __file&nbsp;name__ as a [string][api.type.string] to the appropriate API, including the file extension:
+2. To use the font, pass the font __file&nbsp;name__ as a [string][api.type.String] to the appropriate API, including the file extension:
 
 <div class="code-indent">
 

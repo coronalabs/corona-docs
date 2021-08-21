@@ -15,10 +15,10 @@
 
 <div class="section level1" id="corona-documentation">
 <h1>
-<a href="#TOC">Corona Documentation</a>
+<a href="#TOC">CORONA_CORE_PRODUCT Documentation</a>
 </h1>
 
-Learn more about the Corona platform &mdash; everything you need is right here!
+Learn more about the CORONA_CORE_PRODUCT platform &mdash; everything you need is right here!
 
 <div style="max-width: 1120px;">
 
@@ -48,7 +48,7 @@ Guides
 
 </div>
 
-Learn more about Corona by studying our current guides on selected topics.
+Learn more about CORONA_CORE_PRODUCT by studying our current guides on selected topics.
 
 </a>
 </div>
@@ -64,7 +64,7 @@ Monetization Guide
 
 </div>
 
-This guide will help you navigate options for monetization in <nobr>Corona-built</nobr> apps.
+This guide will help you navigate options for monetization in apps built with CORONA_CORE_PRODUCT.
 
 </a>
 </div>
@@ -96,7 +96,7 @@ Plugins
 
 </div>
 
-Corona plugins give CORONA_CORE_PRODUCT developers access to additional functionality and <nobr>third-party</nobr> services.
+Plugins give CORONA_CORE_PRODUCT developers access to additional functionality and <nobr>third-party</nobr> services.
 
 </a>
 </div>
@@ -112,28 +112,26 @@ CORONA_NATIVE_PRODUCT
 
 </div>
 
-Extend Corona with native code and wrap it behind a <nobr>cross-platform</nobr> interface.
+Extend CORONA_CORE_PRODUCT with native code and wrap it behind a <nobr>cross-platform</nobr> interface.
 
 </a>
 </div>
 
 
 <!-- CoronaCards -->
-<!---
 <div class="itembox">
 <a href="coronacards/index.html">
 <div class="itembox-header">
 <div class="itembox-icon fa fa-clone"></div>
 
-CoronaCards
+CORONA_CARDS_PRODUCT
 
 </div>
 
-Use CoronaCards to mix interactive content into your existing native apps.
+Use CORONA_CARDS_PRODUCT to mix interactive content into your existing native apps.
 
 </a>
 </div>
--->
 
 
 </div>

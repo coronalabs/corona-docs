@@ -8,7 +8,7 @@
 
 ## Overview
 
-The (globals) section covers basic functions of [Lua 5.1](http://www.lua.org/) which is the underlying programming language of CORONA_CORE_PRODUCT. All of the functions and objects listed below can be called as is (without&nbsp;a&nbsp;prefix). For example:
+The (globals) section covers basic functions of [Lua 5.1](https://www.lua.org/) which is the underlying programming language of CORONA_CORE_PRODUCT. All of the functions and objects listed below can be called as is (without&nbsp;a&nbsp;prefix). For example:
 
 ``````lua
 globals.rawget()  -- incorrect; will produce an error

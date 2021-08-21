@@ -97,7 +97,7 @@ local function networkListener( event )
     print ( "event.response.baseDirectory: ", event.response.baseDirectory )
 end
  
-display.loadRemoteImage( "http://coronalabs.com/images/coronalogogrey.png", "GET", networkListener, "coronalogogrey.png", system.TemporaryDirectory, 50, 50 )
+display.loadRemoteImage( "https://plugins.solar2d.com/images/logo-banner.png", "GET", networkListener, "logo-banner.png", system.TemporaryDirectory, 50, 50 )
 `````
 
 ##### Cancel Remote Load Before Completion
@@ -181,5 +181,5 @@ display.loadRemoteImage = function( url, method, listener, ... )
 end
 
 display.loadRemoteImage( 
-    "http://coronalabs.com/images/coronalogogrey.png", "GET", networkListener, "coronalogogrey.png", system.TemporaryDirectory, display.contentCenterX, display.contentCenterY )
+    "https://plugins.solar2d.com/images/logo-banner.png", "GET", networkListener, "logo-banner.png", system.TemporaryDirectory, display.contentCenterX, display.contentCenterY )
 ``````

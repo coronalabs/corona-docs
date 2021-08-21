@@ -12,7 +12,7 @@
 
 ## Overview
 
-The `json` library allows you to serialize and deserialize Lua tables into JSON ([JavaScript Object Notation](http://json.org)). You often use <nobr>JSON-formatted</nobr> data in conjunction with web APIs, for example requests sent using the [facebook][api.library.facebook] library.
+The `json` library allows you to serialize and deserialize Lua tables into JSON ([JavaScript Object Notation](https://www.json.org/json-en.html)). You often use <nobr>JSON-formatted</nobr> data in conjunction with web APIs, for example requests sent using the [facebook][api.library.facebook] library.
 
 ## Functions
 

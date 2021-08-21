@@ -194,3 +194,9 @@ local circle = display.newCircle( 100, 100, 40 )
 circle:setFillColor( 0, 0, 1 )
 transition.to( circle, { time=400, y=200, transition=easing.inExpo } )
 ``````
+
+## Source
+
+* [View on GitHub](https://github.com/coronalabs/framework-easing)
+
+If you want to add, modify or extend functionality, download the source code from GitHub and include in your project(See [Using External Modules][tutorial.basics.externalModules]).

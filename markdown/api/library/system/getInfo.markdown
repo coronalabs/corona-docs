@@ -33,7 +33,7 @@ _[String][api.type.String]._ The name of the property corresponding to the desir
 
 * Android &mdash; Returns the app's __Version Name__.
 * iOS &mdash; Returns the app's __CFBundleVersionString__.
-* Corona Simulator &mdash; (not supported)
+* Solar2D Simulator &mdash; (not supported)
 * Windows desktop app &mdash; Returns the version entered into the build window.
 
 ### architectureInfo
@@ -47,13 +47,11 @@ _[String][api.type.String]._ The name of the property corresponding to the desir
 
 ### build
 
-`"build"` returns the Corona build string as it appears in the __About__ box of the Corona Simulator.
+`"build"` returns the Solar2D build string as it appears in the __About__ box of the Solar2D Simulator.
 
 ### bundleID
 
 `"bundleID"` returns bundle/package identifier of the app or `nil` if not applicable.
-
-`"build"` returns the Corona build string as it appears in the __About__ box of the Corona Simulator.
 
 ### darkMode
 `"darkMode"` returns either `true` or `false` on platforms that support Dark Mode.
@@ -72,8 +70,9 @@ _[String][api.type.String]._ The name of the property corresponding to the desir
 
 `"environment"` returns the environment that the app is running in. These include:
 
-* `simulator` for the Corona Simulator.
+* `simulator` for the Solar2D Simulator.
 * `device` for iOS, the Xcode iOS Simulator, Android devices, the Android emulator, macOS desktop apps, and Windows desktop apps.
+* `browser` for HTML5 apps.
 
 ### maxTextureSize
 
@@ -119,11 +118,12 @@ _[String][api.type.String]._ The name of the property corresponding to the desir
 * `macos` &mdash; macOS desktop apps.
 * `tvos` &mdash; Apple's tvOS (Apple TV).
 * `win32` &mdash; Win32 desktop apps.
+* `html5` &mdash; HTML5 apps.
 
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>
 
-In the Corona Simulator, the value returned depends on the skin selected, allowing you to test <nobr>platform-dependent</nobr> logic by changing skins.
+In the Solar2D Simulator, the value returned depends on the skin selected, allowing you to test <nobr>platform-dependent</nobr> logic by changing skins.
 
 </div>
 
@@ -143,14 +143,14 @@ This option is deprecated; use `"platform"` instead (see above).
 * `amazon` &mdash; targets the Amazon app store (only returned on Android).
 * `google` &mdash; targets Google Play (only returned on Android).
 * `windows` &mdash; targets the Windows app store.
-* `none` &mdash; indicates that the app is not targeting a specific app store. This is always returned by the Corona&nbsp;Simulator.
+* `none` &mdash; indicates that the app is not targeting a specific app store. This is always returned by the Solar2D&nbsp;Simulator.
 
 
 ## Android
 
 ### androidApiLevel
 
-`"androidApiLevel"` returns an integer indicating which [Android OS version](http://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels) the app is running on. For example, <nobr>API Level 23</nobr> indicates that the OS version is Android&nbsp;6.0 and <nobr>API Level 21</nobr> indicates that the OS version is Android&nbsp;5.0.
+`"androidApiLevel"` returns an integer indicating which [Android OS version](https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels) the app is running on. For example, <nobr>API Level 23</nobr> indicates that the OS version is Android&nbsp;6.0 and <nobr>API Level 21</nobr> indicates that the OS version is Android&nbsp;5.0.
 
 ### androidAppVersionCode
 
@@ -222,7 +222,7 @@ Density			 DPI
 
 ### iosIdentifierForVendor
 
-`"iosIdentifierForVendor"` returns the value of `"identifierForVendor"` (see [here](http://developer.apple.com/library/ios/#documentation/uikit/reference/UIDevice_Class/Reference/UIDevice.html)).
+`"iosIdentifierForVendor"` returns the value of `"identifierForVendor"` (see [here](https://developer.apple.com/documentation/uikit/uidevice)).
 
 <!---
 
@@ -249,23 +249,23 @@ Density			 DPI
 
 ### GL_VENDOR
 
-`"GL_VENDOR"` returns the company responsible for the GL implementation on this device. See [here](http://www.khronos.org/opengles/sdk/docs/man/xhtml/glGetString.xml) for details.
+`"GL_VENDOR"` returns the company responsible for the GL implementation on this device. See [here](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml) for details.
 
 ### GL_RENDERER
 
-`"GL_RENDERER"` returns the name of the GL renderer. See [here](http://www.khronos.org/opengles/sdk/docs/man/xhtml/glGetString.xml) for details.
+`"GL_RENDERER"` returns the name of the GL renderer. See [here](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml) for details.
 
 ### GL_VERSION
 
-`"GL_VERSION"` returns the GL version. See [here](http://www.khronos.org/opengles/sdk/docs/man/xhtml/glGetString.xml) for details.
+`"GL_VERSION"` returns the GL version. See [here](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml) for details.
 
 ### GL_SHADING_LANGUAGE_VERSION
 
-`"GL_SHADING_LANGUAGE_VERSION"` returns the GL version or release number for the GLSL shading language. See [here](http://www.khronos.org/opengles/sdk/docs/man/xhtml/glGetString.xml) for details.
+`"GL_SHADING_LANGUAGE_VERSION"` returns the GL version or release number for the GLSL shading language. See [here](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml) for details.
 
 ### GL_EXTENSIONS
 
-`"GL_EXTENSIONS"` returns the list of extensions supported on this device. See [here](http://www.khronos.org/opengles/sdk/docs/man/xhtml/glGetString.xml) for details.
+`"GL_EXTENSIONS"` returns the list of extensions supported on this device. See [here](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml) for details.
 
 
 ## Examples
@@ -274,7 +274,7 @@ Density			 DPI
 
 `````lua
 if ( system.getInfo( "environment" ) == "simulator" ) then
-	print( "You're in the Corona Simulator." )
+	print( "You're in the Solar2D Simulator." )
 end
 `````
 

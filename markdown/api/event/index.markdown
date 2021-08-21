@@ -34,6 +34,8 @@
 
 #### [key][api.event.key]
 
+#### [lateUpdate][api.event.lateUpdate]
+
 #### [licensing][api.event.licensing]
 
 #### [location][api.event.location]

@@ -24,7 +24,7 @@ This function returns a handle that can be passed to [network.cancel()][api.libr
 
 ## Gotchas
 
-You cannot execute a network download during an `applicationSuspend` or `applicationExit` [event][api.event.system.type]. After Corona suspends, no callbacks will fire. You can work around this by saving the request you wish to make to a file upon suspension. Then, on an `applicationResume` [event][api.event.system.type], check if there is a pending download saved and, if so, execute it.
+You cannot execute a network download during an `applicationSuspend` or `applicationExit` [event][api.event.system.type]. When your application suspends, no callbacks will fire. You can work around this by saving the request you wish to make to a file upon suspension. Then, on an `applicationResume` [event][api.event.system.type], check if there is a pending download saved and, if so, execute it.
 
 Network requests do not raise runtime errors in the event of failure so there is no need to wrap them in a Lua `pcall()` statement (errors are reported in the event sent to the network listener).
 
@@ -50,7 +50,7 @@ settings =
 	network.download( url, method, listener [, params], filename [, baseDirectory] )
 
 ##### url ~^(required)^~
-_[String][api.type.String]._ The HTTP request URL.  This must conform to the usual rules for [URLs](http://en.wikipedia.org/wiki/Url) (see example below if you want to use non-ASCII characters in the URL).
+_[String][api.type.String]._ The HTTP request URL.  This must conform to the usual rules for [URLs](https://en.wikipedia.org/wiki/URL) (see example below if you want to use non-ASCII characters in the URL).
 
 ##### method ~^(required)^~
 _[String][api.type.String]._ The HTTP method; acceptable values are `"GET"` (default) or `"POST"`.
@@ -98,11 +98,11 @@ local params = {}
 params.progress = true
 
 network.download(
-	"http://docs.coronalabs.com/images/simulator/image-mask-base2.png",
+	"https://docs.coronalabs.com/images/simulator/image-mask-base2.png",
 	"GET",
 	networkListener,
 	params,
-	"helloCopy.png",
+	"maskCopy.png",
 	system.TemporaryDirectory
 )
 ``````
@@ -110,7 +110,7 @@ network.download(
 ##### Using Non-ASCII Characters in URL
 
 ``````lua
---If you want to include non-ASCII characters in the URL, you must "urlencode" (http://en.wikipedia.org/wiki/Urlencode) them.
+--If you want to include non-ASCII characters in the URL, you must "urlencode" (https://en.wikipedia.org/wiki/Percent-encoding) them.
 --Note that your browser does this behind the scenes.
 
 local json = require "json"

@@ -64,13 +64,26 @@ local images_dir = "../resources/images"
 local output_images_dir = html_dir .. "/images"
 
 -- strings to substitute throughout docs content (not headers or footers though)
-local title_prefix = "Corona Documentation"
-local default_rev_label = "Current Public Release (2018.3326)"
+local title_prefix = "Solar2D Documentation"
+local default_rev_label = "Release 2021.3646"
 local REV_LABEL = default_rev_label
-local DEFAULT_REV_URL = "https://coronalabs.com/links/docs/current-corona-sdk"
-local REV_URL_BASE = "https://developer.coronalabs.com/release/"  -- don't forget the trailing slash '/'
-local CORONA_CORE_PRODUCT = "Corona"
-local CORONA_NATIVE_PRODUCT = "Corona&nbsp;Native"
+
+local CORONA_CORE_PRODUCT = "Solar2D"
+local CORONA_NATIVE_PRODUCT = "Solar2D Native"
+local CORONA_CARDS_PRODUCT = "CoronaCards"
+
+-- Do NOT directly reference DEFAULT_REV_URL and REV_URL_BASE variables in docs. 
+-- To reference DEFAULT_REV_URL and REV_URL_BASE in the docs, use REVISION_URL.
+-- Editing DEFAULT_REV_URL and REV_URL_BASE would change REVISION_URL.
+local DEFAULT_REV_URL = "https://solar2d.com/download/"
+local REV_URL_BASE = "https://solar2d.com/download/"  -- don't forget the trailing slash '/'
+
+-- Do NOT directly reference SOLAR_LINK_PLUGINS and SOLAR_LINK_PLAYGROUND variables in docs.
+-- To reference SOLAR_LINK_PLUGINS and SOLAR_LINK_PLAYGROUND in the docs, use PLUGINS_DIR and SOLAR_PLAY respectively.
+-- Editing SOLAR_LINK_PLUGINS and SOLAR_LINK_PLAYGROUND would change PLUGINS_DIR and SOLAR_PLAY respectively.
+local SOLAR_LINK_PLUGINS = "https://plugins.solar2d.com/"
+local SOLAR_LINK_PLAYGROUND = "https://playground.solar2d.com/"
+
 
 require "lfs"
 require "pl.init"
@@ -295,7 +308,7 @@ local full_css_path = normpath(abspath(tmp_markdown_dir .. "/css/style.css"))
 local full_css_SH_path = normpath(abspath(tmp_markdown_dir .. "/css/shCoreDefault.css"))
 local pandoc = "pandoc -f markdown -t html -o " .. tmp_nav_html_path .. " " .. tmp_nav_path
 local crumb_mdPerm = "<div id=\"breadcrumb\">" .. "[Documentation](https://docs.coronalabs.com)"
---local crumb_mdPerm = "<div id='breadcrumb'><a href='http://docs.coronalabs.com'><img class='bchome' src='../../../images/bchome.png' title=''></a>"
+--local crumb_mdPerm = "<div id='breadcrumb'><a href='https://docs.coronalabs.com'><img class='bchome' src='../../../images/bchome.png' title=''></a>"
 --local crumb_mdPerm = "<div id='breadcrumb'>"
 
 copyfile( "../resources/bodyPrefix.html", tmp_bodyPrefix )
@@ -384,7 +397,7 @@ for i=1,#markdown_files do
 	local path1 = normpath( abspath( markdown_files[i] ) )
 	local last_mod_date = lastmod( original_path )
 	local page_title = ""
-	local page_description = "Corona lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!"
+	local page_description = "Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!"
 
 	-- only build the file if the last modified date is greater than last time build script was run
 	if is_clean_build or (not last_build_date) or (last_build_date:__lt( Date(last_mod_date) )) then
@@ -566,8 +579,14 @@ for i=1,#markdown_files do
 				return CORONA_CORE_PRODUCT
 			elseif w == "CORONA_NATIVE_PRODUCT" then
 				return CORONA_NATIVE_PRODUCT
+			elseif w == "CORONA_CARDS_PRODUCT" then
+				return CORONA_CARDS_PRODUCT
+			elseif w == "PLUGINS_DIR" then
+				return SOLAR_LINK_PLUGINS
+			elseif w == "SOLAR_PLAY" then
+				return SOLAR_LINK_PLAYGROUND
 			elseif w == "CURRENT_RELEASE" then
-				return string_sub( default_rev_label, -10, -2 )
+				return string_sub( default_rev_label, -9, -1 )
 			elseif w == "TEMPLATE_ATS" then
 				return templateATS
 			end

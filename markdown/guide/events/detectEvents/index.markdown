@@ -4,12 +4,13 @@ __Events__ are the foundation of interactive applications in Corona. They're use
 
 <div class="guides-toc">
 
-* [Runtime Events](#runtime)
-* [Local Events](#local)
-* [Function and Table Listeners](#functionvstable)
-* [Event Listeners](#listeners)
-* [Registering Events](#registerevents)
-* [Removing Event Listeners](#remove)
+- [Basic Interactivity and Event Detection](#basic-interactivity-and-event-detection)
+	- [Runtime Events](#runtime-events)
+	- [Local Events](#local-events)
+	- [Function and Table Listeners](#function-and-table-listeners)
+	- [Event Listeners](#event-listeners)
+	- [Registering Events](#registering-events)
+	- [Removing Event Listeners](#removing-event-listeners)
 
 </div>
 
@@ -21,6 +22,8 @@ __Events__ are the foundation of interactive applications in Corona. They're use
 __Runtime events__ are dispatched to the global Runtime listener. These events are not directed at any particular object; rather, they are broadcast to all interested listeners. Common Runtime events include the following:
 
 * `enterFrame` events \([documentation][api.event.enterFrame]\) occur at the <nobr>frames-per-second</nobr> interval of the application.
+
+* `lateUpdate` events \([documentation][api.event.lateUpdate]\) occur at the <nobr>frames-per-second</nobr> interval of the application, right after the `enterFrame` event and right before the rendering process.
 
 * `system` events \([documentation][api.event.system]\) are dispatched when certain external events occur, such as when the device suspends or exits the application.
 

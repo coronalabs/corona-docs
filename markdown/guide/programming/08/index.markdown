@@ -109,13 +109,13 @@ You can find a full list of required icons for each platform [here][guide.distri
 
 This tutorial, and Star&nbsp;Explorer in general, is a starter project that many people complete and potentially submit to the app stores. As a result, many people have deployed the same identical game to prospective players. While this is acceptable, you should consider how to change and customize this game so that it's __yours__, distinct in certain ways from the base template we've provided. Here are some ideas:
 
-* Change the art/audio to suit your personal taste. There are numerous visual and audio assets available in the <a href="https://marketplace.coronalabs.com/assets" target="_new">Corona Marketplace</a> which you can adapt for usage within the Star&nbsp;Explorer project.
+* Change the art/audio to suit your personal taste.
 
 * Change the game title on the title screen and/or use a different background image.
 
 * Utilize additional asteroid image frames from the `gameObjects.png` image sheet, randomly spawning one of the variations in the `createAsteroid()` function.
 
-* Implement particle-based effects such as explosions and laser trails using Corona's <nobr>built-in</nobr> [display.newEmitter()][api.library.display.newEmitter] feature.
+* Implement particle-based effects such as explosions and laser trails using Solar2D's <nobr>built-in</nobr> [display.newEmitter()][api.library.display.newEmitter] feature.
 
 Once you have a game of your own (based on Star&nbsp;Explorer or some other code base), proceed to the next sections for details on testing and building.
 
@@ -132,9 +132,9 @@ Once you have a game of your own (based on Star&nbsp;Explorer or some other code
 
 </div>
 
-While the Corona Simulator is a great way to test your game during development, nothing quite compares to seeing it run on an actual device!
+While the Solar2D Simulator is a great way to test your game during development, nothing quite compares to seeing it run on an actual device!
 
-The best solution is <a href="https://coronalabs.com/corona-live-builds/" target="_new">Corona Live Builds</a>. Using the power and speed of a local network, you can preview and test your game on multiple devices simultaneously, watching your game dynamically update as you edit its code and assets. With Corona&nbsp;Live&nbsp;Builds, you get <nobr>lightning-fast</nobr> development gratification.
+The best solution is <a href="https://docs.coronalabs.com/guide/distribution/liveBuild/index.html" target="_new">Corona Live Builds</a>. Using the power and speed of a local network, you can preview and test your game on multiple devices simultaneously, watching your game dynamically update as you edit its code and assets. With Corona&nbsp;Live&nbsp;Builds, you get <nobr>lightning-fast</nobr> development gratification.
 
 To learn how to configure live builds, see the [Generating Live Builds][guide.distribution.liveBuild] guide.
 
@@ -249,15 +249,15 @@ To learn about deploying your desktop game to Steam, please see the [Steamworks 
 
 ## Congratulations!
 
-You made it! Take a deep breath and be proud of how much you've learned in such a short time&nbsp;&mdash; you've built a complete game using Corona and you're ready to begin your grand adventure into the world of game creation. What enhancements can you add to Star&nbsp;Explorer to make it even better? How about making the large asteroids explode into a few smaller asteroids when they're hit? The game may also benefit from a few additional enemies to increase the challenge and variety.
+You made it! Take a deep breath and be proud of how much you've learned in such a short time&nbsp;&mdash; you've built a complete game using Solar2D and you're ready to begin your grand adventure into the world of game creation. What enhancements can you add to Star&nbsp;Explorer to make it even better? How about making the large asteroids explode into a few smaller asteroids when they're hit? The game may also benefit from a few additional enemies to increase the challenge and variety.
 
 What other ideas do you have? Do you want to make a puzzle game? A <nobr>point-and-click</nobr> adventure game? A platform game where you run, jump, collect coins, and avoid hazards to claim a prize? There's an endless variety of games you can make.
 
-Thinking of <nobr>e-books</nobr> or educational apps? Want to build something <nobr>non-game-related</nobr> like a business or utility app? Corona can power these as well!
+Thinking of <nobr>e-books</nobr> or educational apps? Want to build something <nobr>non-game-related</nobr> like a business or utility app? Solar2D can power these as well!
 
 ### Dream, Build, Ship!
 
-Here are a few of the amazing apps built with Corona by creative dreamers just like you!
+Here are a few of the amazing apps built with Solar2D by creative dreamers just like you!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AVcKdr6ODpM?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
 
@@ -268,7 +268,7 @@ Here are a few of the amazing apps built with Corona by creative dreamers just l
 
 ### Demo Projects
 
-Star Explorer is just the beginning! Now that you're comfortable using Corona and coding in Lua, check out some of our amazing [Demo Projects][guide.programming#demo-projects] which you can use as <nobr>open-source</nobr> templates for your own games!
+Star Explorer is just the beginning! Now that you're comfortable using Solar2D and coding in Lua, check out some of our amazing [Demo Projects][guide.programming#demo-projects] which you can use as <nobr>open-source</nobr> templates for your own games!
 
 <div class="inner-table compact">
 
@@ -279,12 +279,12 @@ Star Explorer is just the beginning! Now that you're comfortable using Corona an
 
 </div>
 
-### Corona Community
+### Solar2D Community
 
-As we mentioned in the beginning, the Corona community is friendly and helpful. You can interact with other developers in various ways:
+As we mentioned in the beginning, the Solar2D community is friendly and helpful. You can interact with other developers in various ways:
 
-* [Corona Forums](https://forums.coronalabs.com/) &mdash; Get help from Corona developers and staff, or see how others tackled similar challenges.
-* [Slack](https://coronalabs.com/slack/) &mdash; `Corona Developer Network` on Slack.
+* [Solar2D Forums](https://forums.solar2d.com/) &mdash; Get help from Solar2D developers and staff, or see how others tackled similar challenges.
+* [Discord](https://discord.gg/QTD4g4w) &mdash; `Solar2D Developer Network` on Discord.
 
 <a href="https://www.facebook.com/CoronaLabs" target="_new"><div class="social-button"><div class="fa fa-facebook-official"></div></div></a>
 <a href="https://twitter.com/coronalabs" target="_new"><div class="social-button"><div class="fa fa-twitter" style="padding-left: 2px;"></div></div></a>
@@ -296,19 +296,18 @@ As we mentioned in the beginning, the Corona community is friendly and helpful. 
 
 ### Learning Resources
 
-There are several places where you can learn more about Corona:
+There are several places where you can learn more about Solar2D:
 
-* Corona [Developer Guides][guide] go further in depth on many selected topics.
+* Solar2D [Developer Guides][guide] go further in depth on many selected topics.
 * The [API Reference][api] site provides details about every API.
-* Additional books and online courses for Corona can be found [here](https://coronalabs.com/resources/books/).
 
 ### Providing Feedback
 
-Have feedback or ideas for new things you want to see in Corona? New directions you hope the product will go? Please submit your requests at [feedback.coronalabs.com](feedback.coronalabs.com).
+Have feedback or ideas for new things you want to see in Solar2D? New directions you hope the product will go? Please share your thoughts at [Solar2D forums](https://forums.solar2d.com/) or submit your requests at [GitHub](https://github.com/coronalabs/corona/issues).
 
 ### Sharing the Love
 
-One final note before you get back to working on your great app&nbsp;&mdash; please let us know when your app is in the store! We love seeing how our developers are using Corona and we enjoy highlighting the best <nobr>Corona-built</nobr> apps in the [Corona Showcase](https://coronalabs.com/corona-showcase/).
+One final note before you get back to working on your great app&nbsp;&mdash; please let us know when your app is in the store! We love seeing how our developers are using Solar2D and we enjoy highlighting the best <nobr>Solar2D-built</nobr> apps in the [Corona Showcase](https://coronalabs.com/corona-showcase/).
 
 <!---
 

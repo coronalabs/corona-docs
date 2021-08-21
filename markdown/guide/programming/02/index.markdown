@@ -32,7 +32,7 @@ Now that we have some experience developing a game, let's develop something a li
 
 </div>
 
-Before we jump into designing and programming our next game, we need to think about the features and other aspects. This usually begins with a __design&nbsp;document__ for any major project. In the interest of moving along quickly, here's a simple example:
+Before we jump into designing and programming our next game, we need to think about the features and other aspects. This usually begins with a __design&nbsp;document__([GDD](https://en.wikipedia.org/wiki/Game_design_document)) for any major project. In the interest of moving along quickly, here's a simple example:
 
 <div class="inner-table" style="margin-top: -22px;">
 
@@ -52,15 +52,13 @@ Now we have a very basic outline for our game. Once the design document is creat
 
 With these basic design goals in mind, start a new project just like you did in the previous chapter:
 
-1. From the __Corona&nbsp;Simulator__, select __New&nbsp;Project...__ from the __File__ menu.
-
-<!--- TODO: Fix the platform-different citation below -->
+1. From the __Simulator__, select __New&nbsp;Project...__ from the __File__ menu.
 
 2. For the project/application name, type `StarExplorer` and ensure that the __Blank__ template option is selected.
 
 3. This time, under the section where you can select a screen size, choose __Tablet&nbsp;Preset__. Notice that the width and height values change to `768` and `1024` respectively.
 
-4. Leave the other settings at default and click __OK__ (Windows) or __Next__ (Mac).
+4. Leave the other settings at default and click __OK__ / __Next__.
 
 5. Locate and open the project folder.
 
@@ -71,7 +69,7 @@ With these basic design goals in mind, start a new project just like you did in 
 
 ## Settings and Configuration
 
-In addition to `main.lua`, Corona projects include two important files which configure your app to work correctly on multiple types of devices: `build.settings` and `config.lua`.
+In addition to `main.lua`, there are two important files which configure your app to work correctly on multiple types of devices: `build.settings` and `config.lua`.
 
 ### Build Settings
 
@@ -94,9 +92,9 @@ settings =
 
 Our `StarExplorer` app will only be available to play in __portrait__ mode, so we set this on the following two lines:
 
-* <nobr>`default = "portrait",`</nobr> &mdash; This line tells Corona that the game should __begin__ in portrait orientation (when&nbsp;the user first loads the&nbsp;app).
+* <nobr>`default = "portrait",`</nobr> &mdash; This line specifies that the game should __begin__ in portrait orientation when the user first loads the app.
 
-* <nobr>`supported = { "portrait", },`</nobr> &mdash; This line tells Corona that the only __supported__ orientation is also portrait. That means that even if the user turns (orients) the physical device around in their hands, your app will remain locked in portrait orientation.
+* <nobr>`supported = { "portrait", },`</nobr> &mdash; This line specifies that the only __supported__ orientation is also portrait. That means that even if the user turns (orients) the physical device around in their hands, your app will remain locked in portrait orientation.
 
 <div class="code-indent">
 <div class="docs-tip-outer">
@@ -115,7 +113,7 @@ There are several additional things which can be included inside the `build.sett
 
 ### Configuration Options
 
-The `config.lua` file contains all of the <nobr>Corona-specific</nobr> app configuration settings. This is where we specify what content resolution the app will run at, the content scale mode, how Corona should handle <nobr>high-resolution</nobr> devices, etc.
+The `config.lua` file contains app configuration settings. This is where we specify what content resolution the app will run at, the content scale mode, how <nobr>high-resolution</nobr> devices should be handled, etc.
 
 Using your text editor, locate and open the `config.lua` file within your project folder and inspect the following highlighted lines:
 
@@ -131,7 +129,7 @@ application =
 
 Notice that this `content` table contains a series of configuration settings, including:
 
-* `width` and `height` &mdash; These values specify the __content&nbsp;area__ size for the app. In Corona, your base content area can be whatever you wish, but often it's based around a common screen width/height aspect ratio like 3:4, set here by `768` and `1024`.
+* `width` and `height` &mdash; These values specify the __content&nbsp;area__ size for the app. Your base content area can be whatever you wish, but often it's based around a common screen width/height aspect ratio like 3:4, set here by `768` and `1024`.
 
 <div class="code-indent">
 <div class="docs-tip-outer docs-tip-color-alert">
@@ -146,7 +144,7 @@ It's important to understand that these values do __not__ indicate an exact numb
 </div>
 </div>
 
-* `scale` &mdash; This important setting tells Corona how to handle the content area for screens which do not match the aspect ratio defined by the `width` and `height` settings, for example 3:4 in this case. The two most common options are `"letterbox"` and `"zoomEven"`.
+* `scale` &mdash; This important setting specifies how to handle the content area for screens which do not match the aspect ratio defined by the `width` and `height` settings, for example 3:4 in this case. The two most common options are `"letterbox"` and `"zoomEven"`.
 
 <div class="code-indent">
 
@@ -274,12 +272,12 @@ You can use our images as a starting point, available along with this chapter's 
 
 ### Loading Image Sheets
 
-If you've used another game development platform, you may be familiar with the term "sprite&nbsp;sheet" or "texture&nbsp;atlas." In Corona terminology, this is known as an __image&nbsp;sheet__ and it allows you to load multiple images/frames from a single larger image file. Image sheets are also used for animated sprites, where frames for the sprite are pulled from the sheet and assembled into an animated sequence.
+If you've used another game development platform, you may be familiar with the term "sprite&nbsp;sheet" or "texture&nbsp;atlas." In CORONA_CORE_PRODUCT, it is called an __image&nbsp;sheet__ and it allows you to load multiple images/frames from a single larger image file. Image sheets are also used for animated sprites, where frames for the sprite are pulled from the sheet and assembled into an animated sequence.
 
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>
 
-Image sheets are most easily created using a tool such as [TexturePacker](http://www.codeandweb.com/texturepacker) which collects, organizes, and packs multiple images into a <nobr>Corona-compatible</nobr> image sheet. While this software isn't a requirement, it does save you time and energy.
+Image sheets are most easily created using a tool such as [TexturePacker](https://www.codeandweb.com/texturepacker) which collects, organizes, and packs multiple images into a compatible image sheet. While this software isn't a requirement, it does save you time and energy.
 
 </div>
 
@@ -305,7 +303,7 @@ local sheetOptions =
 
 </div>
 
-When configuring an image sheet, you must tell Corona where the images are located within the sheet. For this game, every image is different in size, so we must provide four specific properties which define the theoretical "bounding&nbsp;box" for the portion of the image sheet to utilize:
+When configuring an image sheet, you must specify where the images are located within the sheet. For this game, every image is different in size, so we must provide four specific properties which define the theoretical "bounding&nbsp;box" for the portion of the image sheet to utilize:
 
 1. `x` &mdash; the <nobr>upper-left</nobr> corner point of the image in __x__ coordinates, relative to the overall sheet width.
 2. `y` &mdash; the <nobr>upper-left</nobr> corner point of the image in __y__ coordinates, relative to the overall sheet height.
@@ -464,7 +462,7 @@ background.y = display.contentCenterY
 </div>
 <div class="docs-tip-inner-right">
 
-These commands should appear straightforward at this point, but there is one very important difference! Inspect the first parameter to [display.newImageRect()][api.library.display.newImageRect]&nbsp;&mdash; before the image file name (now&nbsp;the second&nbsp;parameter), we indicate the __display&nbsp;group__ (`backGroup`) in which to place the object. This is a convenient inline shortcut which tells Corona that the background image, once&nbsp;loaded, should be inserted into that group.
+These commands should appear straightforward at this point, but there is one very important difference! Inspect the first parameter to [display.newImageRect()][api.library.display.newImageRect]&nbsp;&mdash; before the image file name (now&nbsp;the second&nbsp;parameter), we indicate the __display&nbsp;group__ (`backGroup`) in which to place the object. This is a convenient inline shortcut to specify the display group to insert the background image once it's loaded.
 
 </div>
 </div>
@@ -485,7 +483,7 @@ ship = display.newImageRect( mainGroup, objectSheet, 4, 98, 79 )
 
 Let's inspect this command in more detail:
 
-* The first parameter tells Corona to place the ship into the `mainGroup` display group (not&nbsp;simply on the&nbsp;stage).
+* The first parameter specifies the display group that the object will be placed (`mainGroup`). (not&nbsp;simply on the&nbsp;stage).
 
 * The second parameter is the reference to the image sheet we loaded earlier (`objectSheet`).
 
@@ -534,14 +532,14 @@ ship.myName = "ship"
 
 With the first two commands, we position the ship at the <nobr>bottom-center</nobr> of the screen. You'll recognize `display.contentCenterX` from the previous chapter, but this time we utilize a new command, `display.contentHeight`. This convenient property indicates the maximum __y__ coordinate of the content area (bottom&nbsp;edge of&nbsp;the&nbsp;screen). Since the ship should be positioned slightly above this point, however, we subtract `100` from this value.
 
-Next, we add the ship to the physics engine with a `radius` property of `30`. In addition, we specify an important <nobr>property: `isSensor=true`.</nobr> This tells Corona that the object should be a __sensor__ object. Essentially, sensor objects detect collisions with other physical objects but they do __not__ produce a physical response. For example, if a normal body collides with a sensor body, the two bodies will not bounce off each other or cause any other physical reaction. This is ideal for our ship object, because we only want it to detect collisions with asteroids, not bounce off them.
+Next, we add the ship to the physics engine with a `radius` property of `30`. In addition, we specify an important <nobr>property: `isSensor=true`.</nobr> This specifies that the object should be a __sensor__ object. Essentially, sensor objects detect collisions with other physical objects but they do __not__ produce a physical response. For example, if a normal body collides with a sensor body, the two bodies will not bounce off each other or cause any other physical reaction. This is ideal for our ship object, because we only want it to detect collisions with asteroids, not bounce off them.
 
 Lastly, we give the ship object a `myName` property of `"ship"`. This property will be used later to help determine what types of collisions are happening in the game.
 
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>
 
-Although the ship image clearly isn't circular, we added a circular physics body (`radius=30`) to the ship object. For this game, we're just being somewhat "lazy" by using this approximate body shape&nbsp;&mdash; once you get more comfortable with Corona, you'll learn how to add a perfect <nobr>shape-based</nobr> physics body to the ship which accurately matches the ship image's outline.
+Although the ship image clearly isn't circular, we added a circular physics body (`radius=30`) to the ship object. For this game, we're just being somewhat "lazy" by using this approximate body shape&nbsp;&mdash; once you get more comfortable with CORONA_CORE_PRODUCT, you'll learn how to add a perfect <nobr>shape-based</nobr> physics body to the ship which accurately matches the ship image's outline.
 
 </div>
 
@@ -640,6 +638,6 @@ Command/Property															Description
 
 <div class="walkthrough-nav">
 
-__&lang;__ [Chapter 1 &mdash; Creating an App][guide.programming.01] _|_ [Chapter 3 &mdash; Bringing it to Life][guide.programming.03] __&rang;__
+__&lang;__ [Chapter 1 &mdash; Creating a project][guide.programming.01] _|_ [Chapter 3 &mdash; Bringing it to Life][guide.programming.03] __&rang;__
 
 </div>

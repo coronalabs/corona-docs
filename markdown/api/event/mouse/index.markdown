@@ -51,6 +51,14 @@ Mouse events will not be received while the mouse cursor is outside of the appli
 
 #### [event.isMiddleButtonDown][api.event.mouse.isMiddleButtonDown]
 
+#### [event.isCtrlDown][api.event.mouse.isCtrlDown]
+
+#### [event.isShiftDown][api.event.mouse.isShiftDown]
+
+#### [event.isAltDown][api.event.mouse.isAltDown]
+
+#### [event.isCommandDown][api.event.mouse.isCommandDown]
+
 #### [event.name][api.event.mouse.name]
 
 #### [event.time][api.event.mouse.time]
@@ -58,4 +66,28 @@ Mouse events will not be received while the mouse cursor is outside of the appli
 #### [event.x][api.event.mouse.x]
 
 #### [event.y][api.event.mouse.y]
+
+#### [event.scrollX][api.event.mouse.scrollX]
+
+#### [event.scrollY][api.event.mouse.scrollY]
+
+#### [event.type][api.event.mouse.type]
+
+## Example
+ 
+``````lua
+-- Called when a mouse event has been received.
+local function onMouseEvent( event )
+    if event.type == "down" then
+        if event.isPrimaryButtonDown then
+            print( "Left mouse button clicked." )
+        elseif event.isSecondaryButtonDown then
+            print( "Right mouse button clicked." )        
+        end
+    end
+end
+                             
+-- Add the mouse event listener.
+Runtime:addEventListener( "mouse", onMouseEvent )
+``````
 

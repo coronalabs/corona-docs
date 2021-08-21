@@ -1,6 +1,6 @@
 # Plugins
 
-Plugins allow you to extend the functionality of Corona. This guide outlines the fundamental details.
+Plugins allow you to extend the functionality of CORONA_CORE_PRODUCT. This guide outlines the fundamental details.
 
 <div class="docs-tip-outer">
 <div class="docs-tip-inner-left">
@@ -8,7 +8,8 @@ Plugins allow you to extend the functionality of Corona. This guide outlines the
 </div>
 <div class="docs-tip-inner-right">
 
-If you've created a plugin and wish to submit it to the [Corona Marketplace](https://marketplace.coronalabs.com/), please see the [Plugin Submission Guide][native.plugin.submission].
+Solar2D runs Solar2D Free Plugin directory at [plugins.solar2d.com](https://plugins.solar2d.com/). If you created a plugin please submit it to the Solar2D Free Plugin Directory. You can either submit link where one can get your plugin, or distribute it for free.
+Alternatively, you may submit it to the [Solar2D Plugins Marketplace](https://www.solar2dplugins.com/), please see the [Asset Packaging Guidelines](https://www.solar2dplugins.com/asset-packaging-guidelines).
 
 </div>
 </div>
@@ -27,7 +28,7 @@ If you've created a plugin and wish to submit it to the [Corona Marketplace](htt
 
 ## Architecture
 
-Corona plugins leverage Lua's module system in which plugins are lazily loaded by a corresponding call to the Lua [require()][api.library.package.require] function.
+CORONA_CORE_PRODUCT plugins leverage Lua's module system in which plugins are lazily loaded by a corresponding call to the Lua [require()][api.library.package.require] function.
 
 Typically, these plugins are just shared native libraries which are supported on platforms like <nobr>macOS (`.dylib`)</nobr>, <nobr>Windows (`.dll`)</nobr>, and <nobr>Android (`.so`)</nobr>.
 
@@ -37,7 +38,7 @@ Typically, these plugins are just shared native libraries which are supported on
 * On iOS, shared libraries are not supported, so plugins must be static libraries (`.a`). 
 * On Android, it's often convenient to create pure Java plugins (`.jar`).
 
-In these two cases, Corona adds special loaders which ensure that these plugins can be easily loaded, assuming certain conventions are followed.
+In these two cases, CORONA_CORE_PRODUCT adds special loaders which ensure that these plugins can be easily loaded, assuming certain conventions are followed.
 
 </div>
 
@@ -50,7 +51,7 @@ In these two cases, Corona adds special loaders which ensure that these plugins 
 
 ### CORONA_CORE_PRODUCT
 
-Plugins for CORONA_CORE_PRODUCT are hosted on our servers. You can incorporate a plugin by adding an entry to the `plugins` table of `build.settings`, for&nbsp;example:
+Plugins for CORONA_CORE_PRODUCT are hosted in a number of places. Many are available at [Free Plugins Directory](PLUGINS_DIR), [Solar2D Marketplace](https://solar2dmarketplace.com/), and [Solar2D Plugins Marketplace](https://www.solar2dplugins.com/). You can incorporate a plugin by adding an entry to the `plugins` table of `build.settings`, for&nbsp;example:
 
 ``````{ brush="lua" gutter="false" first-line="1" highlight="[5,6,7,8]" }
 settings =
@@ -65,7 +66,9 @@ settings =
 }
 ``````
 
-When added in this manner, the build server will integrate the plugin during the build phase.
+Each plugin host will provide specific build.settings for the individual plugin.
+
+When added in this manner, CORONA_CORE_PRODUCT will integrate the plugin during the build phase.
 
 From there, the plugin can be loaded using the standard Lua [require()][api.library.package.require] function, for instance:
 
@@ -79,7 +82,7 @@ Native plugins can easily be added to your iOS or Android project.
 
 On iOS, plugins will be in the form of static library (`.a`) files that need to be linked into your app executable. 
 
-On Android, plugins can come in the form of `.so` (shared&nbsp;library) or `.jar` files.
+On Android, plugins can come in the form of `.so` (shared&nbsp;library), `.jar` or `.aar` files.
 
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>
@@ -98,7 +101,7 @@ When you add a plugin via CORONA_NATIVE_PRODUCT, be aware of the following:
 
 ## Plugin Projects
 
-If you want to [create/submit][native.plugin.submission] a plugin for availability in the [Corona Marketplace](https://marketplace.coronalabs.com/), you can use our `App` project templates to simplify development of your plugin, as well as test it. After&nbsp;all, a plugin itself is not an executable and it must be run inside an actual application. The project templates can be located within the CORONA_NATIVE_PRODUCT folder:
+If you want to [create/submit][native.plugin.submission] a plugin for availability in the [Solar2D Plugins Marketplace](https://www.solar2dplugins.com/), you can use our `App` project templates to simplify development of your plugin, as well as test it. After&nbsp;all, a plugin itself is not an executable and it must be run inside an actual application. The project templates can be located within the CORONA_NATIVE_PRODUCT folder:
 
 <nobr>`/Applications/Corona/Native/Project Template/App/`</nobr>
 
@@ -153,14 +156,14 @@ Plugins build upon Lua's module system, so they can come in three different flav
 
 ### Pure Lua
 
-A Lua library plugin can be created using the [CoronaLibrary][api.type.CoronaLibrary] class. Please see the [Creating Lua Plugins][native.plugin.luaplugin] guide for details on how to create, package, and submit a Lua plugin to the [Corona Marketplace](https://marketplace.coronalabs.com/).
+A Lua library plugin can be created using the [CoronaLibrary][api.type.CoronaLibrary] class. Please see the [Creating Lua Plugins][native.plugin.luaplugin] guide for details on how to create, package, and submit a Lua plugin to the available marketplaces.
 
 ### Native C
 
-In addition to the plugin naming conventions discussed above, Corona expects plugins to follow some additional conventions that ensure Lua can locate these modules. In&nbsp;C, these conventions are just the standard Lua naming conventions for modules:
+In addition to the plugin naming conventions discussed above, CORONA_CORE_PRODUCT expects plugins to follow some additional conventions that ensure Lua can locate these modules. In&nbsp;C, these conventions are just the standard Lua naming conventions for modules:
 
 * The name of the module function must be prefixed by `luaopen_`. 
-* The signature of this function should match [lua_CFunction](http://www.lua.org/manual/5.1/manual.html#lua_CFunction).
+* The signature of this function should match [lua_CFunction](https://www.lua.org/manual/5.1/manual.html#lua_CFunction).
 * If a module contains a dot (`.`), it is replaced by an underscore (`_`) in the name of the function, since C does not allow dots in symbol names.
 * This function should be publicly visible.
 
@@ -197,9 +200,9 @@ int luaopen_plugin_myLibrary( lua_State *L )
 
 ### Native Java
 
-If you write the module in Java, Corona has set up Lua to load Java code and to let that Java code define the Lua library via [JNLua](http://code.google.com/p/jnlua/). Here, Lua looks for the Java class `LuaLoader` and instantiates it.
+If you write the module in Java, Corona has set up Lua to load Java code and to let that Java code define the Lua library via [JNLua](https://code.google.com/archive/p/jnlua/). Here, Lua looks for the Java class `LuaLoader` and instantiates it.
 
-Corona assumes the following conventions:
+CORONA_CORE_PRODUCT assumes the following conventions:
 
 * The `LuaLoader` class has a default (empty) constructor.
 * The `LuaLoader` class must implement the JNLua interface `com.naef.jnlua.JavaFunction`. 

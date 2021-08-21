@@ -20,7 +20,7 @@ Lua is an extension programming language designed to support general procedural 
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>
 
-Corona uses Lua version 5.1.3. Please see the [Lua 5.1 Reference Manual](http://www.lua.org/manual/5.1/) for more details.
+Corona uses Lua version 5.1.3. Please see the [Lua 5.1 Reference Manual](https://www.lua.org/manual/5.1/) for more details.
 
 </div>
 
@@ -472,4 +472,4 @@ See the [(globals)][api.library.global] API reference for the complete list avai
 <br />
 <div class="newline" style="margin-top:10px; margin-bottom:18px;"></div>
 
-Content in this guide is cited from the [Lua 5.1 Reference Manual](http://www.lua.org/manual/5.1/), freely available under the terms of the [Lua license](http://www.lua.org/license.html).
+Content in this guide is cited from the [Lua 5.1 Reference Manual](https://www.lua.org/manual/5.1/), freely available under the terms of the [Lua license](https://www.lua.org/license.html).

@@ -41,7 +41,7 @@ RewriteRule ^$ /api [L,R=301]
 
 # BEGIN Redirects
 
-# Redirect 301 / http://docs.coronalabs.com/api
+# Redirect 301 / https://docs.coronalabs.com/api
 
 # END Redirects
 

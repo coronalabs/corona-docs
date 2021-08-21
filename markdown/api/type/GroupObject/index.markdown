@@ -35,6 +35,8 @@ Using groups with the physics engine has some limitations — see the [Physics N
 
 _(Inherits properties from [DisplayObject][api.type.DisplayObject])_
 
+#### [object.anchorChildren][api.type.GroupObject.anchorChildren]
+
 #### [object.numChildren][api.type.GroupObject.numChildren]
 
 

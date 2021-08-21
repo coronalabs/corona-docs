@@ -222,7 +222,9 @@ All transitions — standard and sequenced — can be paused, resumed, or cancel
 
 ### Pause
 
-Transitions can be paused with the [transition.pause()][api.library.transition.pause] function. This only effects transitions that are running.
+Transitions can be paused with the [transition.pause()][api.library.transition.pause] and [transition.pauseAll()][api.library.transition.pauseAll] functions. These only affect transitions that are running.
+
+With the [transition.pause()][api.library.transition.pause] function, you can control which specific transitions to pause by what parameter you use.
 
 <div class="inner-table">
 
@@ -238,7 +240,9 @@ tag name (string)		Pauses all running transitions sharing the same tag name.
 
 ### Resume
 
-Transitions can be resumed with the [transition.resume()][api.library.transition.resume] function. This only effects transitions that are paused.
+Transitions can be resumed with the [transition.resume()][api.library.transition.resume] and [transition.resumeAll()][api.library.transition.resumeAll] functions. These only affect transitions that are paused.
+
+With the [transition.resume()][api.library.transition.resume] function, you can control which specific transitions to resume by what parameter you use.
 
 <div class="inner-table">
 
@@ -254,7 +258,9 @@ tag name (string)		Resumes all paused transitions sharing the same tag name.
 
 ### Cancel
 
-Transitions can be cancelled with the [transition.cancel()][api.library.transition.cancel] function. Note that the transition(s) will stop in place — they will not revert to the beginning state or skip to the ending state. This function only effects transitions that are currently running or paused.
+Transitions can be cancelled with the [transition.cancel()][api.library.transition.cancel] and [transition.cancelAll()][api.library.transition.cancelAll] functions. Note that the transition(s) will stop in place — they will not revert to their beginning state or skip to the end state. These functions only effects transitions that are currently running or paused.
+
+With the [transition.cancel()][api.library.transition.cancel] function, you can control which specific transitions to cancel by what parameter you use.
 
 <div class="inner-table">
 
@@ -265,6 +271,19 @@ transition reference	Cancels a specific running/paused transition.
 object reference		Cancels all running/paused transitions on a specific object.
 tag name (string)		Cancels all running/paused transitions sharing the same tag name.
 ----------------------	--------------------------
+
+</div>
+
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">Important</div>
+
+If you accidentally pass a reference to a display object into [transition.pause()][api.library.transition.pause], [transition.resume()][api.library.transition.resume] or [transition.cancel()][api.library.transition.cancel] after the display object has already been removed, then the argument will be `nil`. This is the same passing no argument into the function, which will result in all transitions being paused, resumed or cancelled (depending on the function).
+
+In order to avoid this default behaviour, you can include the following line of code in your project after requiring the transition library:
+``````lua
+transition.ignoreEmptyReference = true
+``````
+If set `transition.ignoreEmptyReference` to `true` (default is `false`), then passing `nil` or no argument into these three functions will be ignored and nothing will happen. You can always use [transition.pauseAll()][api.library.transition.pauseAll], [transition.resumeAll()][api.library.transition.resumeAll] and [transition.cancelAll()][api.library.transition.cancelAll] to control all transitions.
 
 </div>
 

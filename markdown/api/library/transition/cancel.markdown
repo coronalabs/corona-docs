@@ -40,7 +40,7 @@ _[String][api.type.String]._ The tag name; all transitions with this tag will be
 ## Examples
 
 ``````lua
--- cancel all running transitions
+-- cancel all running (and paused) transitions
 
 local transition1 = transition.to( currentTarget, { time=400, y=y+100, iterations=5, tag="transTag" } )
 local transition2 = transition.to( otherTarget, { time=200, y=y-200, tag="transTag" } )

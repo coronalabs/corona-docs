@@ -30,7 +30,7 @@ Starts monitoring a host for its network reachability status. This API is design
 	network.setStatusListener( hostURL, listener )
 
 ##### hostURL ~^(required)^~
-_[String][api.type.String]._ The host you want to monitor. This may be something like `"www.coronalabs.com"`. You should not include `http://` or the port number.
+_[String][api.type.String]._ The host you want to monitor. This may be something like `"www.solar2d.com"`. You should not include `http://` or the port number.
 
 ##### listener ~^(required)^~
 _[Listener][api.type.Listener]._ The listener that gets [networkStatus][api.event.networkStatus] events for the specified host. Pass `nil` to unregister the listener that's set for the specified host.

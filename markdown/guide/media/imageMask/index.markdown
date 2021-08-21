@@ -47,7 +47,7 @@ Mask images can also be created with gray regions or gradients. In this case, a 
 
 ## Creating Mask Images
 
-Mask image files can be created using any standard image editing program like [Photoshop](http://www.adobe.com/products/photoshop.html)&reg;, [GIMP](http://www.gimp.org/downloads/), or [Paint.NET](http://www.getpaint.net/download.html). When creating the image, you __must__ obey the following rules to ensure that masks behave properly.
+Mask image files can be created using any standard image editing program like [Photoshop](https://www.adobe.com/products/photoshop.html)&reg;, [GIMP](https://www.gimp.org/downloads/), or [Paint.NET](https://www.getpaint.net/download.html). When creating the image, you __must__ obey the following rules to ensure that masks behave properly.
 
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp title-nomargin">Mask Image Requirements</div>
@@ -92,7 +92,7 @@ mountains:setMask( mask )
 
 As illustrated, the area of the photo masked by black is invisible while the white area remains fully visible. The photo and mask can now be regarded as a single display object and, like any normal display object, it can be moved, rotated, inserted into a display group, etc.
 
-Note that the width and height of the masked object remain the same as the unmasked version, even though the example photo appears smaller because of the mask. Corona respects the original dimensions in regards to size and positioning. However, touch/tap detection is ignored on completely masked (invisible) regions of an object unless you declare otherwise — see [Hit&nbsp;Masking](#hitmasking) below for more information.
+Note that the width and height of the masked object remain the same as the unmasked version, even though the example photo appears smaller because of the mask. Solar2D respects the original dimensions in regards to size and positioning. However, touch/tap detection is ignored on completely masked (invisible) regions of an object unless you declare otherwise — see [Hit&nbsp;Masking](#hitmasking) below for more information.
 
 
 <div class="guide-notebox-imp">
@@ -202,7 +202,7 @@ object.isHitTestMasked = false
 
 ## Dynamic Mask Selection
 
-Unlike images and image sheets, Corona does not automatically load different mask files based on the screen resolution. The standard behavior of masks is to scale along with the content area. This makes basic mask usage very simple: provide one mask image file and it will scale according to the object on which it's placed.
+Unlike images and image sheets, Solar2D does not automatically load different mask files based on the screen resolution. The standard behavior of masks is to scale along with the content area. This makes basic mask usage very simple: provide one mask image file and it will scale according to the object on which it's placed.
 
 However, an accurate, sharp mask image is sometimes required and <nobr>auto-scaling</nobr> is not ideal in such cases. One solution is to retrieve the internal image suffix using [display.imageSuffix][api.library.display.imageSuffix] and append it to the file parameter when creating the mask. Please see the example in [graphics.newMask()][api.library.graphics.newMask] for details.
 

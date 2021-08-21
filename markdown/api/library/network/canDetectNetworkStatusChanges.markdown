@@ -30,7 +30,7 @@ local function networkListener( event )
 end
 
 if ( network.canDetectNetworkStatusChanges ) then
-    network.setStatusListener( "www.coronalabs.com", networkListener )
+    network.setStatusListener( "www.solar2d.com", networkListener )
 else
     print( "Network reachability not supported on this platform." )
 end

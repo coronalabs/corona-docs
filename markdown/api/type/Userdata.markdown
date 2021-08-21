@@ -12,4 +12,4 @@ The type userdata is provided to allow arbitrary C data to be stored in Lua vari
 
 ##
 
-Content in this page is cited from the [Lua 5.1 Reference Manual](http://www.lua.org/manual/5.1/), freely available under the terms of the [Lua&nbsp;license](http://www.lua.org/license.html).
+Content in this page is cited from the [Lua 5.1 Reference Manual](https://www.lua.org/manual/5.1/), freely available under the terms of the [Lua&nbsp;license](https://www.lua.org/license.html).

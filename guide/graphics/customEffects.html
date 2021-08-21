@@ -75,6 +75,7 @@
 <li><a href="#alphatint">Alpha/Tint</a></li>
 <li><a href="#example-1">Example</a></li>
 </ul></li>
+<li><a href="#time-transforms">Time Transforms</a></li>
 <li><a href="#custom-varying-variables">Custom Varying Variables</a><ul>
 <li><a href="#example-2">Example</a></li>
 </ul></li>
@@ -82,6 +83,7 @@
 <li><a href="#vertex-userdata">Vertex Userdata</a></li>
 <li><a href="#uniform-userdata">Uniform Userdata</a></li>
 </ul></li>
+<li><a href="#vertex-textures">Vertex Textures</a></li>
 <li><a href="#glsl-conventions-and-best-practices">GLSL Conventions and Best Practices</a><ul>
 <li><a href="#solar2d-simulator-vs-device">Solar2D Simulator vs Device</a><ul>
 <li><a href="#performance">Performance</a></li>
@@ -97,6 +99,7 @@
 <li><a href="#avoid-dynamic-texture-lookups">Avoid Dynamic Texture Lookups</a></li>
 <li><a href="#avoid-branching-and-loops">Avoid Branching and Loops</a></li>
 </ul></li>
+<li><a href="#precision-issues">Precision Issues</a></li>
 </ul></li>
 </ul>
 </div>
@@ -116,6 +119,7 @@
 <li><a href="#varyingvariables">Custom Varying Variables</a></li>
 <li><a href="#effectparameters">Effect Parameters</a></li>
 <li><a href="#bestpractices">GLSL Conventions and Best Practices</a></li>
+<li><a href="#precisionissues">Precision Issues</a></li>
 </ul>
 </div>
 <div class="guide-notebox-imp">
@@ -316,8 +320,33 @@ P_COLOR vec4 FragmentKernel( P_UV vec2 texCoord )
     return CoronaColorScale( texColor );
 }
 ]]</pre>
-<p><a id="varyingvariables"></a></p>
+<p><a id="timetransforms"></a></p>
 </div>
+</div>
+<div id="time-transforms" class="section level2">
+<h2>Time Transforms</h2>
+<p>In the case of time-dependent vertex or fragment kernels, Solar2D will also look for <code>timeTransform</code>. If this exists, it must be a table with one of the following as its <code>func</code> member: <code>&quot;modulo&quot;</code>, <code>&quot;pingpong&quot;</code>, <code>&quot;sine&quot;</code>. The value of <code>CoronaTotalTime</code> within the shader will be the result of any such transformation, rather than the raw underlying time.</p>
+<p>The <code>&quot;modulo&quot;</code> transform is computed as <code>CoronaTotalTime = OriginalTotalTime % range</code>, where <code>range</code> is a positive number that may be supplied in the <code>timeTransform</code> table under that same key. By default, <code>range</code> is 1.</p>
+<p>The <code>&quot;pingpong&quot;</code> transform is similar, except <code>CoronaTotalTime</code> will first go from 0 to <code>range</code> (no default, in this case), then fall back to 0, and repeat indefinitely.</p>
+<p>The <code>&quot;sine&quot;</code> transform is computed as <code>CoronaTotalTime = amplitude * sin(scale * OriginalTotalTime + phase)</code>. Again, <code>amplitude</code> and <code>phase</code> may be provided in the <code>timeTransform</code> table, with defaults 1 and 0 respectively. The scale is calculated from a <code>period</code> parameter, a positive number indicating how much time should pass before the sine wave repeats. The default is 2 * π, corresponding to a scale factor of 1.</p>
+<pre class="brush: lua;">graphics.defineEffect{
+    category = "generator", group = "time", name = "pingpong",
+
+    isTimeDependent = true, timeTransform = { func = "pingpong", range = 5 },
+
+    fragment = [[
+        P_COLOR vec4 FragmentKernel (P_UV vec2 _)
+        {
+            return vec4(0., CoronaTotalTime / 5., 0., 1.);
+        }
+    ]]
+}
+
+local rect = display.newRect(300, 100, 50, 50)
+
+rect.fill.effect = "generator.time.pingpong"</pre>
+<p>See the <a href="#precisionissues">precision issues</a> below for the motivation behind these transforms.</p>
+<p><a id="varyingvariables"></a></p>
 </div>
 <div id="custom-varying-variables" class="section level2">
 <h2>Custom Varying Variables</h2>
@@ -453,8 +482,32 @@ P_COLOR vec4 FragmentKernel( P_UV vec2 texCoord )
 <div id="uniform-userdata" class="section level3">
 <h3>Uniform Userdata</h3>
 <p>(forthcoming feature)</p>
-<p><a id="bestpractices"></a></p>
+<p><a id="vertextextures"></a></p>
 </div>
+</div>
+<div id="vertex-textures" class="section level2">
+<h2>Vertex Textures</h2>
+<p>If the device supports it, you can also sample textures in the vertex kernel. On the Solar2D side, calling <a href="../../api/library/system/getInfo.html">system.getInfo(&quot;maxVertexTextureUnits&quot;)</a> will give you the number of available samplers as the return value. This is also available in the vertex kernel as <code>gl_MaxVertexTextureImageUnits</code>.</p>
+<p>Any texture meant for use by vertex kernels should be created with both <a href="../../api/library/display/setDefault.html">sampling filters</a> set to <code>&quot;nearest&quot;</code> and use level-of-detail (<code>Lod</code>) sampling. You can declare samplers in the vertex code manually as <code>uniform sampler2D NAME</code>, where <code>NAME</code> is some unused name of your choosing. (<strong>TODO</strong>: with more than one, the declaration order <em>probably</em> maps to sampler order, but this needs confirmation)</p>
+<pre class="brush: lua;">kernel.vertex =
+[[
+uniform sampler2D us_Vertices; // vertex sampler #1
+
+P_POSITION vec2 VertexKernel (P_POSITION vec2 pos)
+{
+    if (gl_MaxVertexTextureImageUnits > 0)
+    {
+        ...
+
+        P_COLOR vec4 verts = texture2DLod(us_Vertices, vec2(offset, 0.), 0.);
+        
+        ...
+    }
+    
+    else return vec4(0.);
+}
+]]</pre>
+<p><a id="bestpractices"></a></p>
 </div>
 <div id="glsl-conventions-and-best-practices" class="section level2">
 <h2>GLSL Conventions and Best Practices</h2>
@@ -575,6 +628,20 @@ v2.xz = v0 * v1; // GOOD: Write mask limits calculations</pre>
 <div id="avoid-branching-and-loops" class="section level3">
 <h3>Avoid Branching and Loops</h3>
 <p>Branching instructions (<code>if</code> conditions) are expensive. When possible, <code>for</code> loops should be unrolled or replaced by vector operations.</p>
+<p><a id="precisionissues"></a></p>
+</div>
+</div>
+<div id="precision-issues" class="section level2">
+<h2>Precision Issues</h2>
+<p>Solar2D's shaders use <a href="https://en.wikipedia.org/wiki/IEEE_754">IEEE-754 floats</a> as the underlying representation for numbers.</p>
+<p>In the majority of cases—the exceptions being irrelevant here—part of a floating-point number specifies an integer numerator. Let's call this <code>N</code>. Our numerator can go from <code>0</code> to <code>D - 1</code>, where <code>D</code> is a fixed power of 2. Together these give us a scale factor <code>t = N / D</code> in the range [0, 1).</p>
+<p>The rest of the number is devoted to the sign (positive or negative) and an exponent, the latter being another integer that gives us a power of 2, for instance 2<sup>-3</sup> or 2<sup>5</sup>.</p>
+<p>We decode our numbers by interpolating between neighboring powers, with exponents <code>p</code> and <code>p + 1</code>, using the scale factor: <code>result = 2^p * (1 + t)</code>. Notice that, if <code>t</code> were 1, we would be on the <strong>next</strong> power of 2.</p>
+<p>This can exactly represent some values, but will only approximate most. Any format is going to have tradeoffs. IEEE-754 offers considerable accuracy near 0, as well as exact integers all the way up to <code>2 * D</code>.</p>
+<p>On the CPU side of things, Lua gives us 64-bit floats, with rather generous 52-bit numerators. On GPUs we are rarely so lucky, especially on mobile hardware, owing to concerns like bandwidth and memory.</p>
+<p>For instance, see the <a href="https://www.khronos.org/opengles/sdk/docs/reference_cards/OpenGL-ES-2_0-Reference-card.pdf">&quot;Qualifiers&quot;</a> section in the OpenGL ES 2.0 reference card. With <strong>mediump</strong> our <code>D</code> is only guaranteed to be an underwhelming 1024.</p>
+<p>Now imagine what this means for time, measured in seconds. At first, we'll be totally fine. But just after the two-minute mark, interpolating between 128 and 256, we can only take steps of (256 - 128) / 1024, or 1/8th of a second. At five minutes we'll proceed in increments of 1/4, and so on. Anything relying on such results becomes quite choppy.</p>
+<p>This scenario is gloomier than it needs to be, however. The time is actually maintained in Solar2D as a single-precision float, with a respectable 23-bit numerator; the loss comes after it makes its way to the GPU. Furthermore, many shaders want transformed results, something like <code>TrueTotalTime % X</code> or <code>sin(N * TrueTotalTime)</code>, whose absolute values are likely to be in the more precise lower numeric ranges. Time transforms let us do some of the more common possibilities on the Solar2D side and pass the nicer results along.</p>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -584,7 +651,6 @@ v2.xz = v0 * v1; // GOOD: Write mask limits calculations</pre>
 Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
-</div>
 </div>
 </div>
 </div>

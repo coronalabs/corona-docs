@@ -59,10 +59,12 @@
 <li><a href="#overview">Overview</a></li>
 <li><a href="#properties">Properties</a><ul>
 <li><a href="#event.nameapi.event.enterframe.name"><a href="../../../api/event/enterFrame/name.html">event.name</a></a></li>
+<li><a href="#event.frameapi.event.enterframe.frame"><a href="../../../api/event/enterFrame/frame.html">event.frame</a></a></li>
 <li><a href="#event.timeapi.event.enterframe.time"><a href="../../../api/event/enterFrame/time.html">event.time</a></a></li>
 </ul></li>
 <li><a href="#examples">Examples</a><ul>
 <li><a href="#event-name">Event Name</a></li>
+<li><a href="#event-frame">Event Frame</a></li>
 <li><a href="#event-time">Event Time</a></li>
 </ul></li>
 </ul></li>
@@ -104,6 +106,9 @@
 <div id="event.nameapi.event.enterframe.name" class="section level4">
 <h4><a href="../../../api/event/enterFrame/name.html">event.name</a></h4>
 </div>
+<div id="event.frameapi.event.enterframe.frame" class="section level4">
+<h4><a href="../../../api/event/enterFrame/frame.html">event.frame</a></h4>
+</div>
 <div id="event.timeapi.event.enterframe.time" class="section level4">
 <h4><a href="../../../api/event/enterFrame/time.html">event.time</a></h4>
 </div>
@@ -116,6 +121,13 @@
     print( "Listener called with event of type " .. event.name )
 end
 Runtime:addEventListener( "enterFrame", myListener )</pre>
+</div>
+<div id="event-frame" class="section level5">
+<h5>Event Frame</h5>
+<pre class="brush: lua;">local function printCurrentFrameID( event )
+    print ( "Current frame ID: " .. tostring(event.frame) )
+end 
+Runtime:addEventListener( "enterFrame", printCurrentFrameID )</pre>
 </div>
 <div id="event-time" class="section level5">
 <h5>Event Time</h5>

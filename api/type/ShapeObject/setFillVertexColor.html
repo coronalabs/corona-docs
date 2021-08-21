@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — API Reference | type | DisplayObject | anchorY</title>
+  <title>Solar2D Documentation — API Reference | type | ShapeObject | setFillVertexColor</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
@@ -55,91 +55,129 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#object.anchory">object.anchorY</a><ul>
+<li><a href="#objectsetfillvertexcolor">object:setFillVertexColor()</a><ul>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#anchor-defaults">Anchor Defaults</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#index-required">index <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#gray-red-green-blue-alpha-optional">gray, red, green, blue, alpha <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
 <li><a href="#gotchas">Gotchas</a></li>
-<li><a href="#example">Example</a></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#vector-object-fill">Vector Object Fill</a></li>
+<li><a href="#text-object-fill">Text Object Fill</a></li>
+<li><a href="#image-tint">Image Tint</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/DisplayObject/index.html">DisplayObject</a>  ▸  <a href="../../../api/type/DisplayObject/anchorY.html">anchorY</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/ShapeObject/index.html">ShapeObject</a>  ▸  <a href="../../../api/type/ShapeObject/setFillVertexColor.html">setFillVertexColor</a>
 </div>
-<div id="object.anchory" class="section level1">
-<h1>object.anchorY</h1>
+<div id="objectsetfillvertexcolor" class="section level1">
+<h1>object:setFillVertexColor()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
 <td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Number.html">Number</a></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>Object</strong></td>
-<td align="left"><a href="../../../api/type/DisplayObject/index.html">DisplayObject</a></td>
+<td align="left"><a href="../../../api/type/ShapeObject/index.html">ShapeObject</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>Library</strong></td>
 <td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
 </tr>
 <tr class="even">
+<td align="left"><strong>Return value</strong></td>
+<td align="left">none</td>
+</tr>
+<tr class="odd">
 <td align="left"><strong>Revision</strong></td>
 <td align="left"><a href="https://solar2d.com/download/">Release 2021.3646</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><strong>Keywords</strong></td>
-<td align="left">y, anchor</td>
+<td align="left">setFillVertexColor, vertex color, fill, vector</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../guide/graphics/transform-anchor.html">Transforms and Anchors</a> <em>(guide)</em></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../guide/graphics/group.html">Group Programming</a> <em>(guide)</em></td>
+<td align="left">[object:setStrokeVertexColor()][api.type.ShapeObject.setVertexStrokeColor]</td>
 </tr>
 <tr class="even">
 <td align="left"></td>
-<td align="left"><a href="../../../api/type/DisplayObject/anchorX.html">object.anchorX</a></td>
+<td align="left"><a href="../../../api/library/display/newRect.html">display.newRect()</a></td>
 </tr>
 <tr class="odd">
 <td align="left"></td>
-<td align="left"><a href="../../../api/library/display/setDefault.html">display.setDefault()</a></td>
+<td align="left"><a href="../../../api/library/display/newRoundedRect.html">display.newRoundRect()</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../../api/library/display/newCircle.html">display.newCircle()</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><a href="../../../api/library/display/newText.html">display.newText()</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../../api/library/display/newPolygon.html">display.newPolygon()</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>This property allows you to control the alignment of the object along the <strong>y</strong> direction.</p>
-<p>In general, the anchors of an object control how geometry is positioned relative to the object's origin. A value of <code>0</code> corresponds to top alignment, meaning the top edge of the object is aligned with the origin. A value of <code>0.5</code> corresponds to center alignment. A value of <code>1</code> corresponds to bottom alignment.</p>
-<p>By default, anchor values must range from <code>0.0</code> to <code>1.0</code> and the anchor of new objects is set to <code>0.5</code>, however these defaults can be modified (see below).</p>
+<p>Sets the color of a particular fill vertex in vector and text objects. Also applies a tint to image objects.</p>
+<p>Until a given fill vertex color has been assigned, it is interpreted as white. The color/tint of the object at each vertex is a combination of its fill color and fill vertex color: the two red values multiplied together produce the final red, and so on for the remaining channels. When the object is drawn, the resulting colors/tints are interpolated between neighboring vertices.</p>
+<p>The first time this is called on an object, some extra memory will be allocated to it to store the colors.</p>
 </div>
-<div id="anchor-defaults" class="section level2">
-<h2>Anchor Defaults</h2>
-<ul>
-<li><p>The default anchor can be changed for all display objects via <a href="../../../api/library/display/setDefault.html">display.setDefault()</a>.</p></li>
-<li><p>Non-constrained anchors are allowed via the <code>&quot;isAnchorClamped&quot;</code> setting of <a href="../../../api/library/display/setDefault.html">display.setDefault()</a>. In this case, setting anchor values outside of the <code>0.0</code> to <code>1.0</code> range will position the anchor outside the bounds of the display object.</p></li>
-</ul>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">object:setFillVertexColor( index, gray )
+object:setFillVertexColor( index, gray, alpha )
+object:setFillVertexColor( index, red, green, blue )
+object:setFillVertexColor( index, red, green, blue, alpha )</pre>
+<div id="index-required" class="section level5">
+<h5>index <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a></em> Integer from 1 to <a href="../../../api/type/ShapeObject/fillVertexCount.html">object.fillVertexCount</a> indicating which fill vertex to color.</p>
+<p>In the case of meshes, many methods operate on vertices. In those instances and here, <code>index</code> refers to the same vertex. (<strong>TODO</strong> Other shapes. At this point the details are unlikely to change; none of it is written down though.)</p>
+</div>
+<div id="gray-red-green-blue-alpha-optional" class="section level5">
+<h5>gray, red, green, blue, alpha <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> Numbers between <code>0</code> and <code>1</code> that represent the corresponding value for that channel. <code>alpha</code> represents the opacity of the fill color/tint.</p>
+</div>
 </div>
 <div id="gotchas" class="section level2">
 <h2>Gotchas</h2>
-<p>When you change an anchor value, the object's origin does <strong>not</strong> change. Instead, its geometry moves relative to its origin. See the <a href="../../../guide/graphics/transform-anchor.html">Transforms and Anchors</a> guide for more information.</p>
+<p>If you are passing a table of color values to this function, the table must be <a href="../../../api/library/global/unpack.html">unpacked</a> so that the color values are dictated properly:</p>
+<pre class="brush: lua;">local myText = display.newText( "hello", 0, 0, native.systemFontBold, 12 )
+
+local colorTable = { 1, 0, 0, 0.5 }
+myText:setFillVertexColor( 2, unpack(colorTable) )</pre>
 </div>
-<div id="example" class="section level2">
-<h2>Example</h2>
-<pre class="brush: lua;">local rect1 = display.newRect( 0, 0, 50, 50 )
-rect1:setFillColor( 1, 0, 0 )
-rect1.x = 100
-rect1.y = 100
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<div id="vector-object-fill" class="section level5">
+<h5>Vector Object Fill</h5>
+<pre class="brush: lua;">local vertices = { 0,-110, 27,-35, 105,-35, 43,16, 65,90, 0,45, -65,90, -43,15, -105,-35, -27,-35 }
 
-local rect2 = display.newRect( 0, 0, 50, 50 )
-rect2:setFillColor( 1, 1, 1 )
+local star = display.newPolygon( 300, 300, vertices )
+star:setFillVertexColor( 3, 1, 0.2, 0.2 )</pre>
+</div>
+<div id="text-object-fill" class="section level5">
+<h5>Text Object Fill</h5>
+<pre class="brush: lua;">local myText = display.newText( "hello", 0, 0, native.systemFontBold, 12 )
 
-rect2.anchorY = 0
-rect2.x = 100
-rect2.y = 100</pre>
+myText:setFillVertexColor( 2, 1, 0.2, 0.2 )</pre>
+</div>
+<div id="image-tint" class="section level5">
+<h5>Image Tint</h5>
+<pre class="brush: lua;">local image = display.newImage( "image.png" )
+image:setFillVertexColor( 3, 0.72, 0.9, 0.16, 0.78 )  -- Tints vertex #3 of image green</pre>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -149,6 +187,7 @@ rect2.y = 100</pre>
 Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
+</div>
 </div>
 </div>
 </div>

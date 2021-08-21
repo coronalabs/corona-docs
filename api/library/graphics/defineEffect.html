@@ -67,6 +67,7 @@
 <li><a href="#fragment-required">fragment <sub><sup>(required)</sup></sub></a></li>
 <li><a href="#vertex-required">vertex <sub><sup>(required)</sup></sub></a></li>
 <li><a href="#istimedependent-optional">isTimeDependent <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#timetransform-optional">timeTransform <sub><sup>(optional)</sup></sub></a></li>
 <li><a href="#vertexdata-optional">vertexData <sub><sup>(optional)</sup></sub></a></li>
 <li><a href="#uniformdata-optional">uniformData <sub><sup>(optional)</sup></sub></a></li>
 </ul></li>
@@ -167,6 +168,10 @@ Note
 <div id="istimedependent-optional" class="section level5">
 <h5>isTimeDependent <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Boolean.html">Boolean</a>.</em> If the vertex or fragment kernel depends on time (the output varies with time), set this to <code>true</code>. The default <nobr>(if not provided)</nobr> assumes a value of <code>false</code>, meaning the kernel does not use time in its calculations.</p>
+</div>
+<div id="timetransform-optional" class="section level5">
+<h5>timeTransform <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Table.html">Table</a>.</em> If the vertex or fragment kernel depends on time, you can use this to mitigate potentially large time values. See <strong>Time Transforms</strong> in the <a href="../../../guide/graphics/customEffects.html">Custom Shader Effects</a> guide.</p>
 </div>
 <div id="vertexdata-optional" class="section level5">
 <h5>vertexData <sub><sup>(optional)</sup></sub></h5>

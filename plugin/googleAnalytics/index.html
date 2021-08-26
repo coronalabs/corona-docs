@@ -103,10 +103,17 @@
 <div id="overview" class="section level2">
 <h2>Overview</h2>
 <p>The Google Analytics plugin lets you measure the value of your app across all stages, discover what keeps users engaged, and learn how to make your app more successful.</p>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<ul>
+<li>Stating with Solar2D 2021.3652+, Google Analytics will be using Firebase</li>
+</ul>
 </div>
 <div id="registration" class="section level2">
 <h2>Registration</h2>
-<p>Before implementing the Google Analytics plugin, you must <a href="https://analytics.google.com">register for Google Analytics</a> and obtain the <strong>tracking ID</strong> for your account.</p>
+<p>Before implementing the Google Analytics plugin, you must <a href="https://console.firebase.google.com">setup a Firebase Project</a> and add <strong>google-services.json</strong> for Android and/or add <strong>GoogleService-Info.plist</strong> for iOS, provided in the Firebase console, to project settings to your Solar2D project's root directory alongside <code>main.lua</code>.</p>
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
@@ -129,6 +136,10 @@
 <p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
 <pre class="brush: lua;">settings =
 {
+    android =
+    {
+                useGoogleServicesJson = true, -- Needed for Android
+    },
     plugins =
     {
         ["plugin.googleAnalytics"] =
@@ -145,6 +156,7 @@ Note
 <ul>
 <li><code>&quot;android.permission.INTERNET&quot;</code></li>
 <li><code>&quot;android.permission.ACCESS_NETWORK_STATE&quot;</code></li>
+<li><code>&quot;android.permission.WAKE_LOCK&quot;</code></li>
 </ul>
 </div>
 </div>
@@ -152,7 +164,7 @@ Note
 <h2>Support</h2>
 <ul>
 <li><a href="https://analytics.google.com/" class="uri">https://analytics.google.com/</a></li>
-<li><a href="http://forums.coronalabs.com/forum/631-corona-premium-plugins/">Corona Forums</a></li>
+<li><a href="https://forums.solar2d.com/c/corona-marketplace/13">Solar2D Forums</a></li>
 </ul>
 <hr>
 <div id="footer">

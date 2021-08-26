@@ -112,7 +112,7 @@
 <pre class="brush: lua;">googleAnalytics.logScreenName( screenName )</pre>
 <div id="screenname-required" class="section level5">
 <h5>screenName <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> The screen/scene name to log, for example <code>&quot;main menu&quot;</code>.</p>
+<p><em><a href="../../api/type/String.html">String</a>.</em> The screen/scene name to log, for example <code>&quot;main_menu&quot;</code>.</p>
 </div>
 </div>
 <div id="example" class="section level2">
@@ -120,10 +120,10 @@
 <pre class="brush: lua;">local googleAnalytics = require( "plugin.googleAnalytics" )
 
 -- Initialize Google Analytics
-googleAnalytics.init( "CoronaApp1", "UA-12345678-90" )
+googleAnalytics.init( )
 
 -- Log screen name with Google Analytics
-googleAnalytics.logScreenName( "main menu" )</pre>
+googleAnalytics.logScreenName( "main_menu" )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

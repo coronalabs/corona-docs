@@ -58,7 +58,11 @@
 <li><a href="#googleanalytics.logevent">googleAnalytics.logEvent()</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#syntax">Syntax</a><ul>
-<li><a href="#category-required">category <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#eventname-required">eventName <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#parameters-required">parameters <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+<li><a href="#syntax-legacy">Syntax (Legacy)</a><ul>
+<li><a href="#eventname-required-1">eventName <sub><sup>(required)</sup></sub></a></li>
 <li><a href="#action-required">action <sub><sup>(required)</sup></sub></a></li>
 <li><a href="#label-optional">label <sub><sup>(optional)</sup></sub></a></li>
 <li><a href="#value-optional">value <sub><sup>(optional)</sup></sub></a></li>
@@ -112,18 +116,30 @@
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">googleAnalytics.logEvent( category, action [, label] [, value] )</pre>
-<div id="category-required" class="section level5">
-<h5>category <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> String which identifies the group of objects to track, for example <code>&quot;userAction&quot;</code>.</p>
+<pre class="brush: lua;">googleAnalytics.logEvent( eventName, parameters )</pre>
+<div id="eventname-required" class="section level5">
+<h5>eventName <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> String which identifies the group of objects to track, for example <code>&quot;share_image&quot;</code>.</p>
+</div>
+<div id="parameters-required" class="section level5">
+<h5>parameters <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> A table of key value pairs that are added to event, for example <code>&quot;{imageType = &quot;png&quot;, id=321}&quot;</code>.</p>
+</div>
+</div>
+<div id="syntax-legacy" class="section level2">
+<h2>Syntax (Legacy)</h2>
+<pre class="brush: lua;">googleAnalytics.logEvent( eventName, action [, label] [, value] )</pre>
+<div id="eventname-required-1" class="section level5">
+<h5>eventName <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> String which identifies the group of objects to track, for example <code>&quot;share_image&quot;</code>.</p>
 </div>
 <div id="action-required" class="section level5">
 <h5>action <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> A string which is uniquely paired with the category and is commonly used to define the type of user interaction, for instance <code>&quot;button press&quot;</code>.</p>
+<p><em><a href="../../api/type/String.html">String</a>.</em> A string which is uniquely paired with the event as a parameter <code>&quot;button_press&quot;</code>.</p>
 </div>
 <div id="label-optional" class="section level5">
 <h5>label <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> An optional string which provides additional dimensions to the event data, for example <code>&quot;menu&quot;</code> or <code>&quot;quit&quot;</code>.</p>
+<p><em><a href="../../api/type/String.html">String</a>.</em> An optional string which is uniquely paired with the event as a parameter <code>&quot;menu&quot;</code> or <code>&quot;quit&quot;</code>.</p>
 </div>
 <div id="value-optional" class="section level5">
 <h5>value <sub><sup>(optional)</sup></sub></h5>
@@ -135,10 +151,13 @@
 <pre class="brush: lua;">local googleAnalytics = require( "plugin.googleAnalytics" )
 
 -- Initialize Google Analytics
-googleAnalytics.init( "CoronaApp1", "UA-12345678-90" )
+googleAnalytics.init()
 
 -- Log event with Google Analytics
-googleAnalytics.logEvent( "userAction", "button press", "menuItem", 2 )</pre>
+googleAnalytics.logEvent( "share_image", {imageType = "png", id=321} )
+
+-- Legacy Log event with Google Analytics
+googleAnalytics.logEvent( "user_action", "button_press", "menu_item", 2 )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

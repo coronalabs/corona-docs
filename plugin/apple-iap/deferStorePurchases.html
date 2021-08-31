@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — Plugins | Apple IAP | changelog</title>
+  <title>Solar2D Documentation — Plugins | Apple IAP | deferStorePurchases</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
@@ -55,77 +55,81 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#changelog">Changelog</a><ul>
-<li><a href="#vlad-shcherban">2019-12-25 Vlad Shcherban</a></li>
-<li><a href="#vlad-shcherban-1">2019-12-25 Vlad Shcherban</a></li>
-<li><a href="#vlad-shcherban-2">2019-12-24 Vlad Shcherban</a></li>
-<li><a href="#vlad-shcherban-3">2019-08-25 Vlad Shcherban</a></li>
-<li><a href="#vlad-shcherban-4">2018-10-09 Vlad Shcherban</a></li>
-<li><a href="#vlad-shcherban-5">2018-10-09 Vlad Shcherban</a></li>
-<li><a href="#vlad-shcherban-6">2018-10-09 Vlad Shcherban</a></li>
-<li><a href="#vlad-shcherban-7">2018-10-09 Vlad Shcherban</a></li>
-<li><a href="#vlad-shcherban-8">2018-08-02 Vlad Shcherban</a></li>
+<li><a href="#store.deferstorepurchases">store.deferStorePurchases()</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#appstorepurchaselistener-required">appStorePurchaseListener <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
+<li><a href="#example">Example</a></li>
 </ul></li>
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/apple-iap/index.html">Apple IAP</a>  ▸  <a href="../../plugin/apple-iap/changelog.html">changelog</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/apple-iap/index.html">Apple IAP</a>  ▸  <a href="../../plugin/apple-iap/deferStorePurchases.html">deferStorePurchases</a>
 </div>
-<div id="changelog" class="section level1">
-<h1>Changelog</h1>
-<div id="vlad-shcherban" class="section level5">
-<h5>2019-12-25 Vlad Shcherban</h5>
-<ul>
-<li>Updated finishTransaction not to fail</li>
-</ul>
+<div id="store.deferstorepurchases" class="section level1">
+<h1>store.deferStorePurchases()</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Return value</strong></td>
+<td align="left">none</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://solar2d.com/download/">Release 2021.3646</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">Apple, IAP, in-app purchases, App Store Promoted Purchases</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../plugin/apple-iap/proceedToPayment.html">store.proceedToPayment</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../plugin/apple-iap/index.html">store.*</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Some times In-App Purchase can be triggered from outside of your app, say from the App Store promotion. If your app is not able to handle purchases at any time, or you require to implement the age gate before proceeding to the purchase, you can use this function to pick time when payment dialog would be shown.</p>
+<p>When listener is set and user initiates IAP purchase from the App Store purchase would not proceed to payment immediately. Instead, <a href="../../plugin/apple-iap/event/appStorePurchase/index.html">appStorePurchase</a> event would be generated and when it is better time to show the payment screen you can show it manually with the <a href="../../plugin/apple-iap/proceedToPayment.html">store.proceedToPayment()</a> method.</p>
+<p>Under the hood, having a listener set would case plugin to return <code>NO</code> from the <a href="https://developer.apple.com/documentation/storekit/skpaymenttransactionobserver/2877502-paymentqueue"><code>paymentQueue(_:shouldAddStorePayment:for:)</code></a>. You can pass <code>nil</code> to remove the listener.</p>
 </div>
-<div id="vlad-shcherban-1" class="section level5">
-<h5>2019-12-25 Vlad Shcherban</h5>
-<ul>
-<li>Removing empty transaction table</li>
-</ul>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">store.deferStorePurchases( appStorePurchaseListener )</pre>
+<div id="appstorepurchaselistener-required" class="section level5">
+<h5>appStorePurchaseListener <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/Listener.html">Listener</a>.</em> The listener that will receive the <a href="../../plugin/apple-iap/event/appStorePurchase/index.html">appStorePurchase</a> event instead of showing the purchase window immediately when purchase is triggered from outside your app.</p>
 </div>
-<div id="vlad-shcherban-2" class="section level5">
-<h5>2019-12-24 Vlad Shcherban</h5>
-<ul>
-<li>trying to fix compatibility issues with original IAP plugin. Added empty transaction table to init</li>
-</ul>
 </div>
-<div id="vlad-shcherban-3" class="section level5">
-<h5>2019-08-25 Vlad Shcherban</h5>
-<ul>
-<li>Added priceCurrencyCode</li>
-</ul>
-</div>
-<div id="vlad-shcherban-4" class="section level5">
-<h5>2018-10-09 Vlad Shcherban</h5>
-<ul>
-<li>minor changes</li>
-</ul>
-</div>
-<div id="vlad-shcherban-5" class="section level5">
-<h5>2018-10-09 Vlad Shcherban</h5>
-<ul>
-<li>minor changes</li>
-</ul>
-</div>
-<div id="vlad-shcherban-6" class="section level5">
-<h5>2018-10-09 Vlad Shcherban</h5>
-<ul>
-<li>adding StoreKit to macos</li>
-</ul>
-</div>
-<div id="vlad-shcherban-7" class="section level5">
-<h5>2018-10-09 Vlad Shcherban</h5>
-<ul>
-<li>initial release</li>
-</ul>
-</div>
-<div id="vlad-shcherban-8" class="section level5">
-<h5>2018-08-02 Vlad Shcherban</h5>
-<ul>
-<li>Initial commit</li>
-</ul>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="brush: lua;">local store = require( "store" )
+
+local function transactionListener( event )
+    -- ...
+end
+store.init( transactionListener )
+
+
+local function deferredPurchases(event)
+    local payment = event.payment
+
+    -- Tore `payment` somewhere and when time is right call
+    store.proceedToPayment(payment)
+end
+store.deferStorePurchases(deferredPurchases)</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

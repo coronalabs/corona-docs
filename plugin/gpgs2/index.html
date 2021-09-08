@@ -56,9 +56,7 @@
 <div id="TOC">
 <ul>
 <li><a href="#google-play-games-services">Google Play Games Services</a><ul>
-<li><a href="#beta-version">Beta version</a></li>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#backward-compatipility">Backward compatipility</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#project-settings">Project Settings</a></li>
 <li><a href="#nodes">Nodes</a><ul>
@@ -68,10 +66,6 @@
 <li><a href="#gpgs2.eventsplugin.gpgs2.events"><a href="../../plugin/gpgs2/events/index.html">gpgs2.events</a></a></li>
 <li><a href="#gpgs2.snapshotsplugin.gpgs2.snapshots"><a href="../../plugin/gpgs2/snapshots/index.html">gpgs2.snapshots</a></a></li>
 <li><a href="#gpgs2.videosplugin.gpgs2.videos"><a href="../../plugin/gpgs2/videos/index.html">gpgs2.videos</a></a></li>
-<li><a href="#gpgs2.multiplayerplugin.gpgs2.multiplayer"><a href="../../plugin/gpgs2/multiplayer/index.html">gpgs2.multiplayer</a></a></li>
-<li><a href="#gpgs2.multiplayer.invitationsplugin.gpgs2.multiplayer.invitations"><a href="../../plugin/gpgs2/multiplayer/invitations/index.html">gpgs2.multiplayer.invitations</a></a></li>
-<li><a href="#gpgs2.multiplayer.realtimeplugin.gpgs2.multiplayer.realtime"><a href="../../plugin/gpgs2/multiplayer/realtime/index.html">gpgs2.multiplayer.realtime</a></a></li>
-<li><a href="#gpgs2.multiplayer.turnbasedplugin.gpgs2.multiplayer.turnbased"><a href="../../plugin/gpgs2/multiplayer/turnbased/index.html">gpgs2.multiplayer.turnbased</a></a></li>
 </ul></li>
 <li><a href="#gpgs.">gpgs.*</a></li>
 <li><a href="#overview-1">Overview</a></li>
@@ -85,7 +79,6 @@
 <li><a href="#gpgs2.getserverauthcodeparamsplugin.gpgs2.getserverauthcode"><a href="../../plugin/gpgs2/getServerAuthCode.html">gpgs2.getServerAuthCode(params)</a></a></li>
 <li><a href="#gpgs2.setpopuppositionpositionplugin.gpgs2.setpopupposition"><a href="../../plugin/gpgs2/setPopupPosition.html">gpgs2.setPopupPosition(position)</a></a></li>
 <li><a href="#gpgs2.loadgamelistenerplugin.gpgs2.loadgame"><a href="../../plugin/gpgs2/loadGame.html">gpgs2.loadGame(listener)</a></a></li>
-<li><a href="#gpgs2.clearnotificationsnotificationtypesplugin.gpgs2.clearnotifications"><a href="../../plugin/gpgs2/clearNotifications.html">gpgs2.clearNotifications(notificationTypes)</a></a></li>
 <li><a href="#gpgs2.loadimageparamsplugin.gpgs2.loadimage"><a href="../../plugin/gpgs2/loadImage.html">gpgs2.loadImage(params)</a></a></li>
 <li><a href="#gpgs2.showsettingslistenerplugin.gpgs2.showsettings"><a href="../../plugin/gpgs2/showSettings.html">gpgs2.showSettings(listener)</a></a></li>
 </ul></li>
@@ -133,17 +126,28 @@
 </tbody>
 </table>
 </blockquote>
-<div id="beta-version" class="section level2">
-<h2>Beta version</h2>
-<p>This plugin is currently in beta. API may change without notice. iOS version will be available later.</p>
-</div>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>This plugin enables access to Google Play Games Services API, such as achievements, leaderboards and multiplayer.</p>
+<p>The Google Play Games Services plugin enables access to <nobr>Google Play Games Services</nobr> for game networking, including achievements, leaderboards, quests, videos, and more.</p>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
 </div>
-<div id="backward-compatipility" class="section level2">
-<h2>Backward compatipility</h2>
-<p>This plugin has full backward compatibility with the <code>gameNetwork.*</code> API. To use it, however, you have to require <code>&quot;plugin.gpgs.v2&quot;</code> before using <code>gameNetwork</code>.</p>
+<ul>
+<li><p>GPGSv2 no longer supports multiplayer and Google has stopped supporting multiplayer as of March 31, 2020. See <a href="../../plugin/gpgs/index.html">legacy</a> plugin for access to multiplayer apis.</p></li>
+<li><p>Formerly, this plugin was also compatible with iOS, but Google no longer supports integration with iOS. If you previously implemented this service on iOS, you should migrate that implementation to another service.</p></li>
+</ul>
+</div>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>If you encounter <nobr>Google Play Games Services</nobr> login issues/errors after implementing this plugin, ensure that you have enabled both <strong>Drive API</strong> and <nobr><strong>Google Play Developer API</strong></nobr> within the <a href="https://console.developers.google.com/">Google Play Developer Console</a>.</p>
+</div>
+</div>
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
@@ -156,7 +160,6 @@
     plugins = {
         ["plugin.gpgs.v2"] = {
             publisherId = "com.coronalabs",
-            supportedPlatforms = { ["android"] = true }
         }
     }
 }</pre>
@@ -189,18 +192,6 @@
 </div>
 <div id="gpgs2.videosplugin.gpgs2.videos" class="section level4">
 <h4><a href="../../plugin/gpgs2/videos/index.html">gpgs2.videos</a></h4>
-</div>
-<div id="gpgs2.multiplayerplugin.gpgs2.multiplayer" class="section level4">
-<h4><a href="../../plugin/gpgs2/multiplayer/index.html">gpgs2.multiplayer</a></h4>
-</div>
-<div id="gpgs2.multiplayer.invitationsplugin.gpgs2.multiplayer.invitations" class="section level4">
-<h4><a href="../../plugin/gpgs2/multiplayer/invitations/index.html">gpgs2.multiplayer.invitations</a></h4>
-</div>
-<div id="gpgs2.multiplayer.realtimeplugin.gpgs2.multiplayer.realtime" class="section level4">
-<h4><a href="../../plugin/gpgs2/multiplayer/realtime/index.html">gpgs2.multiplayer.realtime</a></h4>
-</div>
-<div id="gpgs2.multiplayer.turnbasedplugin.gpgs2.multiplayer.turnbased" class="section level4">
-<h4><a href="../../plugin/gpgs2/multiplayer/turnbased/index.html">gpgs2.multiplayer.turnbased</a></h4>
 </div>
 </div>
 <div id="gpgs." class="section level2">
@@ -238,9 +229,6 @@
 </div>
 <div id="gpgs2.loadgamelistenerplugin.gpgs2.loadgame" class="section level4">
 <h4><a href="../../plugin/gpgs2/loadGame.html">gpgs2.loadGame(listener)</a></h4>
-</div>
-<div id="gpgs2.clearnotificationsnotificationtypesplugin.gpgs2.clearnotifications" class="section level4">
-<h4><a href="../../plugin/gpgs2/clearNotifications.html">gpgs2.clearNotifications(notificationTypes)</a></h4>
 </div>
 <div id="gpgs2.loadimageparamsplugin.gpgs2.loadimage" class="section level4">
 <h4><a href="../../plugin/gpgs2/loadImage.html">gpgs2.loadImage(params)</a></h4>

@@ -69,7 +69,7 @@ _[Listener][api.type.Listener]._ Can be either a function listener or a table li
 * `event.completed` will be `true` if the user selected a photo; `false` if the user cancelled the camera or photo selection.
 
 ##### destination ~^(optional)^~
-_[Table][api.type.Table]._ If provided, the chosen image is saved to a file. In this case, there is no [DisplayObject][api.type.DisplayObject] added to the stage. This table should be in the form <nobr>`{ [baseDir= ,] filename= }`</nobr>. If `baseDir` is specified, this is the directory [constant][api.type.Constant] to which to save the file.
+_[Table][api.type.Table]._ If provided, the chosen image is saved to a file. In this case, there is no [DisplayObject][api.type.DisplayObject] added to the stage and to event sent to listener. This table should be in the form <nobr>`{ [baseDir= ,] filename= }`</nobr>. If `baseDir` is specified, this is the directory [constant][api.type.Constant] to which to save the file.
 
 
 ## Example

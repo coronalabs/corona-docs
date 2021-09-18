@@ -57,7 +57,11 @@
 <ul>
 <li><a href="#googleanalytics.init">googleAnalytics.init()</a><ul>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#syntax">Syntax</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#appname-required">appName <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#trackingid-required">trackingID <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#anonymizeip-optional">anonymizeIp <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
 <li><a href="#example">Example</a></li>
 </ul></li>
 </ul>
@@ -107,14 +111,26 @@
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">googleAnalytics.init( )</pre>
+<pre class="brush: lua;">googleAnalytics.init( appName, trackingID [, anonymizeIp] )</pre>
+<div id="appname-required" class="section level5">
+<h5>appName <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> The app name specified in the Google Analytics dashboard, ensuring that data sent from the app is categorized properly.</p>
+</div>
+<div id="trackingid-required" class="section level5">
+<h5>trackingID <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> The tracking ID for your account, obtained from the <a href="https://analytics.google.com">Google Analytics</a> dashboard.</p>
+</div>
+<div id="anonymizeip-optional" class="section level5">
+<h5>anonymizeIp <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> Enabling anonymize IP functionality tells Google Analytics to anonymize the IP information sent by the SDK by removing the last octet of the IP address prior to its storage.</p>
+</div>
 </div>
 <div id="example" class="section level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local googleAnalytics = require( "plugin.googleAnalytics" )
 
 -- Initialize Google Analytics
-googleAnalytics.init( )</pre>
+googleAnalytics.init( "CoronaApp1", "UA-12345678-90", true )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

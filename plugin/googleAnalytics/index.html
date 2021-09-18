@@ -103,17 +103,20 @@
 <div id="overview" class="section level2">
 <h2>Overview</h2>
 <p>The Google Analytics plugin lets you measure the value of your app across all stages, discover what keeps users engaged, and learn how to make your app more successful.</p>
-<div class="guide-notebox-imp">
-<div class="notebox-title-imp">
-Important
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
 </div>
-<ul>
-<li>Stating with Solar2D 2021.3652+, Google Analytics will be using Firebase</li>
-</ul>
+</div>
+<div class="docs-tip-inner-right">
+<p>This documentation outlines the legacy Google Analytics plugin for mobile apps using non-Firebase Google Analytic. For new apps, you should use <a href="../../plugin/googleAnalytics-v2/index.html">Google Analytics v2</a> plugin.</p>
+</div>
+</div>
 </div>
 <div id="registration" class="section level2">
 <h2>Registration</h2>
-<p>Before implementing the Google Analytics plugin, you must <a href="https://console.firebase.google.com">setup a Firebase Project</a> and add <strong>google-services.json</strong> for Android and/or add <strong>GoogleService-Info.plist</strong> for iOS, provided in the Firebase console, to project settings to your Solar2D project's root directory alongside <code>main.lua</code>.</p>
+<p>Before implementing the Google Analytics plugin, you must <a href="https://analytics.google.com">register for Google Analytics</a> and obtain the <strong>tracking ID</strong> for your account.</p>
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
@@ -136,10 +139,6 @@ Important
 <p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
 <pre class="brush: lua;">settings =
 {
-    android =
-    {
-                useGoogleServicesJson = true, -- Needed for Android
-    },
     plugins =
     {
         ["plugin.googleAnalytics"] =
@@ -156,7 +155,6 @@ Note
 <ul>
 <li><code>&quot;android.permission.INTERNET&quot;</code></li>
 <li><code>&quot;android.permission.ACCESS_NETWORK_STATE&quot;</code></li>
-<li><code>&quot;android.permission.WAKE_LOCK&quot;</code></li>
 </ul>
 </div>
 </div>

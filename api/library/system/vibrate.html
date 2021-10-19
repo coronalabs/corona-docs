@@ -58,8 +58,14 @@
 <li><a href="#system.vibrate">system.vibrate()</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#gotchas">Gotchas</a></li>
-<li><a href="#syntax">Syntax</a></li>
-<li><a href="#examples">Examples</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#type-optional">type <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#style-optional">style <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#classic-vibrate">Classic Vibrate</a></li>
+<li><a href="#haptic-feedback">Haptic Feedback</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
@@ -89,17 +95,18 @@
 </tr>
 <tr class="odd">
 <td align="left"><strong>Keywords</strong></td>
-<td align="left">vibrate</td>
+<td align="left">vibrate, haptic, taptic</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>Vibrates the phone. In the Corona Simulator, this will sound a system beep (macOS only).</p>
+<p>Vibrates and haptic feedback on a phone. In the Corona Simulator, this will sound a system beep (macOS only).</p>
 </div>
 <div id="gotchas" class="section level2">
 <h2>Gotchas</h2>
+<p>Haptic Feedback is only supported Solar2D 2021.3660+ but classic <code>&quot;system.vibrate()&quot;</code> works on older builds</p>
 <p>To enable the vibrate function on Android devices, you must set the permission level in the <code>build.settings</code> file.</p>
 <pre class="brush: lua;">settings =
 {
@@ -114,12 +121,33 @@
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">system.vibrate()</pre>
+<pre class="brush: lua;">system.vibrate([type, style])</pre>
+<div id="type-optional" class="section level5">
+<h5>type <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The possible types are <code>&quot;impact&quot;</code>, <code>&quot;selection&quot;</code> and <code>&quot;notification&quot;</code>. If no value is specified the device will do a classic vibrate</p>
+</div>
+<div id="style-optional" class="section level5">
+<h5>style <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The possible styles for <code>&quot;impact&quot;</code> are <code>&quot;light&quot;</code>, <code>&quot;medium&quot;</code> and <code>&quot;heavy&quot;</code>. The default type is <code>&quot;medium&quot;</code>. The possible styles for <code>&quot;notification&quot;</code> are <code>&quot;warning&quot;</code>, <code>&quot;success&quot;</code> and <code>&quot;error&quot;</code>. The default type is <code>&quot;success&quot;</code>.</p>
+</div>
 </div>
 <div id="examples" class="section level2">
 <h2>Examples</h2>
+<div id="classic-vibrate" class="section level5">
+<h5>Classic Vibrate</h5>
 <pre class="brush: lua;">--make the device vibrate
 system.vibrate()</pre>
+</div>
+<div id="haptic-feedback" class="section level5">
+<h5>Haptic Feedback</h5>
+<pre class="brush: lua;">--medium impact
+system.vibrate("impact") -- same as system.vibrate("impact", "medium")
+--heavy impact
+system.vibrate("impact", "heavy") 
+--selection
+system.vibrate("selection")
+--warning notification
+system.vibrate("notification", "warning")</pre>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -129,6 +157,7 @@ system.vibrate()</pre>
 Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
+</div>
 </div>
 </div>
 </div>

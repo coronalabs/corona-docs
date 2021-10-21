@@ -30,6 +30,7 @@ _[String][api.type.String]._ The property whose value will be changed. Supported
 * `"windowMode"` &mdash; Applies only to macOS desktop and Win32 desktop apps; sets the window mode. Supported values include `"normal"`, `"minimized"`, `"maximized"`, or `"fullscreen"`. Default is `"normal"`.
 * `"windowSize"` &mdash; Applies only to macOS desktop and Win32 desktop apps; sets the window width and/or height. Specify a [table][api.type.Table] with either `width` and/or `height` values.
 * `"windowTitleText"` &mdash; Applies only to macOS desktop and Win32 desktop apps; sets the window's title bar text to the specified [string][api.type.String].
+* `"mouseCursor"` &mdash; Applies only to macOS desktop and Win32 desktop apps. Sets one of the platform-provided mouse cursors for the application window. Specify a [string][api.type.String] for `value`.
 * `"mouseCursorVisible"` &mdash; Applies only to macOS desktop and Win32 desktop apps. Shows or hides the mouse cursor while it is hovering over the application window. Specify a [boolean][api.type.Boolean] for `value`.
 * `"preferredScreenEdgesDeferringSystemGestures"` &mdash; iOS only; specify a [boolean][api.type.Boolean] for `value`. If set, system gestures (Control Center, notification bar, etc.) would not work immediately, but require additional swipe to activate. When possible this setting should be left at default `false` but can be useful to prevent accidental activation of system gestures in swipe heavy games.
 
@@ -76,4 +77,15 @@ native.setProperty( "windowMode", "maximized" )
 `````lua
 -- Sets the window title text (Win32 desktop and macOS desktop apps only)
 native.setProperty( "windowTitleText", "Window Title Test" )
+`````
+
+##### Mouse cursor
+
+`````lua
+-- Sets a platform-provided mouse cursor for the window
+native.setProperty( "mouseCursor", "arrow" )
+
+-- Win32 cursors: appStarting, arrow, crosshair, pointingHand, beam, notAllowed, resizeAll, resizeNorthEastSouthWest, resizeUpDown, resizeNorthWestSouthEast, resizeLeftRight, upArrow, hourglass
+
+-- macOS cursors: arrow, closedHand, openHand, pointingHand, crosshair, notAllowed, beam, resizeRight, resizeLeft, resizeLeftRight, resizeUp, resizeDown, resizeUpDown, disappearingItem, beamHorizontal, dragLink, dragCopy, contextMenu
 `````

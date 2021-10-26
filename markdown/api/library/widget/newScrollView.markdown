@@ -71,6 +71,7 @@ _[Listener][api.type.Listener]._ The function used to listen for [ScrollViewWidg
 #### [object:setScrollWidth()][api.type.ScrollViewWidget.setScrollWidth]
 #### [object:setScrollHeight()][api.type.ScrollViewWidget.setScrollHeight]
 #### [object:takeFocus()][api.type.ScrollViewWidget.takeFocus]
+#### [object:setSize()][api.type.ScrollViewWidget.setSize]
 
 
 ## Visual Options

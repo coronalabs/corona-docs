@@ -77,7 +77,7 @@ Right trigger							`rightShoulderButton2`		`rightTrigger`
 
 ### microGamepad or directionalGamepad
 
-This is are special MFi profiles for Apple&nbsp;TV Remotes. Original Siri Apple TV Remote if value of [device.MFiProfile][api.type.InputDevice.MFiProfile] is `"microGamepad"`, or the 2nd Generation Siri Remote if value of [device.MFiProfile][api.type.InputDevice.MFiProfile] is `"directionalGamepad"`. The controller will have the following [keyName][api.event.key.keyName] and [axis][api.type.InputAxis.type] values:
+These are special MFi profiles for Apple TV Remotes. Original Siri Apple TV Remote if value of [device.MFiProfile][api.type.InputDevice.MFiProfile] is `"microGamepad"`, or the 2nd Generation Siri Remote if value of [device.MFiProfile][api.type.InputDevice.MFiProfile] is `"directionalGamepad"`. The controller will have the following [keyName][api.event.key.keyName] and [axis][api.type.InputAxis.type] values:
 
 <div style="width: 80%;">
 <div class="inner-table full-width percent33">

@@ -36,3 +36,4 @@ _(Inherits methods from [GroupObject][api.type.GroupObject])_
 #### [object:setScrollWidth()][api.type.ScrollViewWidget.setScrollWidth]
 #### [object:setScrollHeight()][api.type.ScrollViewWidget.setScrollHeight]
 #### [object:takeFocus()][api.type.ScrollViewWidget.takeFocus]
+#### [object:setSize()][api.type.ScrollViewWidget.setSize]

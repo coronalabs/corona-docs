@@ -7,7 +7,7 @@
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          widget, scroll view, ScrollViewWidget, setScrollWidth
 > __See also__          [object:setScrollHeight()][api.type.ScrollViewWidget.setScrollHeight]
->                       [widget.newScrollView()][api.library.widget.newScrollView]
+>						[widget.newScrollView()][api.library.widget.newScrollView]
 >						[ScrollViewWidget][api.type.ScrollViewWidget]
 > --------------------- ------------------------------------------------------------------------------------------
 

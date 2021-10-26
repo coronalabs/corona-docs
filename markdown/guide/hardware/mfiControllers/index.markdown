@@ -21,6 +21,7 @@ MFi devices can conform to one of three profiles as reported by [device.MFiProfi
 * `"gamepad"`
 * `"extendedGamepadgamepad"`
 * `"microGamepad"`
+* `"directionalGamepad"`
 
 ### gamepad
 
@@ -74,9 +75,9 @@ Right trigger							`rightShoulderButton2`		`rightTrigger`
 </div>
 </div>
 
-### microGamepad
+### microGamepad or directionalGamepad
 
-This is a special MFi profile for the Apple&nbsp;TV Remote. If [device.MFiProfile][api.type.InputDevice.MFiProfile] is `"microGamepad"`, the controller will have the following [keyName][api.event.key.keyName] and [axis][api.type.InputAxis.type] values:
+This is are special MFi profiles for Apple&nbsp;TV Remotes. Original Siri Apple TV Remote if value of [device.MFiProfile][api.type.InputDevice.MFiProfile] is `"microGamepad"`, or the 2nd Generation Siri Remote if value of [device.MFiProfile][api.type.InputDevice.MFiProfile] is `"directionalGamepad"`. The controller will have the following [keyName][api.event.key.keyName] and [axis][api.type.InputAxis.type] values:
 
 <div style="width: 80%;">
 <div class="inner-table full-width percent33">

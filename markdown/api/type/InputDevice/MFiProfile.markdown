@@ -16,6 +16,7 @@ A string that specifies which MFi controller profile the device conforms to:
 * `"gamepad"` &mdash; basic gamepads.
 * `"extendedGamepad"` &mdash; gamepads with two thumbsticks and additional shoulder buttons/axes.
 * `"microGamepad"` &mdash; Apple TV Remote.
+* `"directionalGamepad"` &mdash; Apple TV 2nd generation Siri Remote.
 * `nil` &mdash; non-MFi devices.
 
 For more details on control layouts, see the [MFi Controllers][guide.hardware.mfiControllers] guide.

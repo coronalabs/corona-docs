@@ -158,6 +158,10 @@ Runtime:addEventListener( "inputDeviceStatus", onInputDeviceStatusChanged )</pre
 <p>The following example shows how to detect a specific controller. When either an <code>axis</code> or <code>key</code> event is triggered, the <code>setDevice()</code> function is called which sets the <code>event.device</code> and <a href="../../../api/type/InputDevice/index.html">InputDevice</a> <code>displayName</code>.</p>
 <pre class="brush: lua;">local controller = { device="", displayName="" }
 
+--Predeclare
+local onKeyEvent
+local onAxisEvent
+
 local function setDevice( device, displayName )
 
     -- Set current controller
@@ -169,11 +173,11 @@ local function setDevice( device, displayName )
     Runtime:removeEventListener( "key", onKeyEvent )
 end
 
-local function onKeyEvent( event )
+function onKeyEvent( event )
     setDevice( event.device, event.device.displayName )
 end
 
-local function onAxisEvent( event )
+function onAxisEvent( event )
     if ( math.abs(event.normalizedValue) > 0.5 ) then
         setDevice( event.device, event.device.displayName )
     end

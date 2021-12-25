@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Solar2D Documentation — Plugins | samsung-iap | samsung-iap</title>
+  <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://docs.coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../guide/index.html">Guides</a></li>
+<li><a href="../../../api/index.html">API Reference</a></li>
+<li><a href="../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../native/index.html">Solar2D Native</a></li>
+<li><a href="../../../coronacards/index.html">CoronaCards</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#samsung-iap.-samsung-iap">samsung-iap.* — Samsung IAP</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#registrationsetup">Registration/Setup</a></li>
+<li><a href="#gotchas">Gotchas</a></li>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#properties">Properties</a><ul>
+<li><a href="#store.targetplugin.samsung-iap.target">[store.target][plugin.samsung-iap.target]</a></li>
+<li><a href="#store.isactiveplugin.samsung-iap.isactive">[store.isActive][plugin.samsung-iap.isActive]</a></li>
+<li><a href="#store.canloadproductsplugin.samsung-iap.canloadproducts">[store.canLoadProducts][plugin.samsung-iap.canLoadProducts]</a></li>
+<li><a href="#store.canmakepurchasesplugin.samsung-iap.canmakepurchases">[store.canMakePurchases][plugin.samsung-iap.canMakePurchases]</a></li>
+</ul></li>
+<li><a href="#functions">Functions</a><ul>
+<li><a href="#store.initplugin.samsung-iap.init">[store.init()][plugin.samsung-iap.init]</a></li>
+<li><a href="#store.loadproductsplugin.samsung-iap.loadproducts">[store.loadProducts()][plugin.samsung-iap.loadProducts]</a></li>
+<li><a href="#store.purchaseplugin.samsung-iap.purchase">[store.purchase()][plugin.samsung-iap.purchase]</a></li>
+<li><a href="#store.restoreplugin.samsung-iap.restore">[store.restore()][plugin.samsung-iap.restore]</a></li>
+<li><a href="#store.consumepurchaseplugin.samsung-iap.consumepurchase">[store.consumePurchase()][plugin.samsung-iap.consumePurchase]</a></li>
+</ul></li>
+<li><a href="#events">Events</a><ul>
+<li><a href="#initplugin.samsung-iap.event.init">[init][plugin.samsung-iap.event.init]</a></li>
+<li><a href="#storetransactionplugin.samsung-iap.event.storetransaction">[storeTransaction][plugin.samsung-iap.event.storeTransaction]</a></li>
+<li><a href="#productlistplugin.samsung-iap.event.productlist">[productList][plugin.samsung-iap.event.productList]</a></li>
+</ul></li>
+<li><a href="#project-settings">Project Settings</a></li>
+<li><a href="#support">Support</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../plugin/index.html">Plugins</a>  ▸  [samsung-iap][plugin.samsung-iap]  ▸  <a href="../../../plugin/samsung-iap/samsung-iap/index.html">samsung-iap</a>
+</div>
+<div id="samsung-iap.-samsung-iap" class="section level1">
+<h1>samsung-iap.* — Samsung IAP</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Library.html">Library</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://solar2d.com/download/">Release 2021.3646</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">IAP, Samsung IAP, Samsung In App Purchase</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Platforms</strong></td>
+<td align="left">Android</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Sample</strong></td>
+<td align="left"><a href="https://github.com/coronalabs/plugins-sample-googleAnalytics" class="uri">https://github.com/coronalabs/plugins-sample-googleAnalytics</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>The Samsung IAP plugin let you make in app purchases via Samsung's App Store.</p>
+</div>
+<div id="registrationsetup" class="section level2">
+<h2>Registration/Setup</h2>
+<p>In order to test and use In App Purchases you must <a href="https://seller.samsungapps.com/">setup a Samsung Seller Account</a>, create a listing to test and deploy your app for on to the Samsung App Store. Under your <a href="https://seller.samsungapps.com/member/getSellerDetail.as">Seller Profile</a> be sure add the Samsung email(s) you plan to use to test under License Test. Also you need to upload an initial binary/apk for your app in order to create and test IAP products.</p>
+</div>
+<div id="gotchas" class="section level2">
+<h2>Gotchas</h2>
+<p>While Samsung IAP does not require server, in order to verify and get receipt data you can follow <a href="https://developer.samsung.com/iap/programming-guide/samsung-iap-server-api.html">Samsung IAP Server Guide</a></p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">local store = require( "plugin.samsung.iap" )</pre>
+</div>
+<div id="properties" class="section level2">
+<h2>Properties</h2>
+<div id="store.targetplugin.samsung-iap.target" class="section level4">
+<h4>[store.target][plugin.samsung-iap.target]</h4>
+</div>
+<div id="store.isactiveplugin.samsung-iap.isactive" class="section level4">
+<h4>[store.isActive][plugin.samsung-iap.isActive]</h4>
+</div>
+<div id="store.canloadproductsplugin.samsung-iap.canloadproducts" class="section level4">
+<h4>[store.canLoadProducts][plugin.samsung-iap.canLoadProducts]</h4>
+</div>
+<div id="store.canmakepurchasesplugin.samsung-iap.canmakepurchases" class="section level4">
+<h4>[store.canMakePurchases][plugin.samsung-iap.canMakePurchases]</h4>
+</div>
+</div>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<div id="store.initplugin.samsung-iap.init" class="section level4">
+<h4>[store.init()][plugin.samsung-iap.init]</h4>
+</div>
+<div id="store.loadproductsplugin.samsung-iap.loadproducts" class="section level4">
+<h4>[store.loadProducts()][plugin.samsung-iap.loadProducts]</h4>
+</div>
+<div id="store.purchaseplugin.samsung-iap.purchase" class="section level4">
+<h4>[store.purchase()][plugin.samsung-iap.purchase]</h4>
+</div>
+<div id="store.restoreplugin.samsung-iap.restore" class="section level4">
+<h4>[store.restore()][plugin.samsung-iap.restore]</h4>
+</div>
+<div id="store.consumepurchaseplugin.samsung-iap.consumepurchase" class="section level4">
+<h4>[store.consumePurchase()][plugin.samsung-iap.consumePurchase]</h4>
+</div>
+</div>
+<div id="events" class="section level2">
+<h2>Events</h2>
+<div id="initplugin.samsung-iap.event.init" class="section level4">
+<h4>[init][plugin.samsung-iap.event.init]</h4>
+</div>
+<div id="storetransactionplugin.samsung-iap.event.storetransaction" class="section level4">
+<h4>[storeTransaction][plugin.samsung-iap.event.storeTransaction]</h4>
+</div>
+<div id="productlistplugin.samsung-iap.event.productlist" class="section level4">
+<h4>[productList][plugin.samsung-iap.event.productList]</h4>
+</div>
+</div>
+<div id="project-settings" class="section level2">
+<h2>Project Settings</h2>
+<p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
+<pre class="brush: lua;">settings =
+{
+    android =
+    {
+            manifestChildElements =
+      {
+                    --Needed for newer versions of Android
+          [[
+                        &lt;queries>
+                           &lt;package android:name="com.sec.android.app.samsungapps" />
+                        &lt;/queries>
+          ]],
+      },
+    },
+    plugins =
+    {
+        ["plugin.samsung.iap"] =
+        {
+            publisherId = "com.solar2d"
+        },
+    },      
+}</pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>For Android, the following permissions/features are automatically added when using this plugin:</p>
+<ul>
+<li><code>&quot;android.permission.INTERNET&quot;</code></li>
+<li><code>&quot;com.samsung.android.iap.permission.BILLING&quot;</code></li>
+</ul>
+</div>
+</div>
+<div id="support" class="section level2">
+<h2>Support</h2>
+<ul>
+<li><a href="https://developer.samsung.com/iap" class="uri">https://developer.samsung.com/iap</a></li>
+<li><a href="https://forums.solar2d.com/c/corona-marketplace/13">Solar2D Forums</a></li>
+</ul>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2021 Solar2D All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

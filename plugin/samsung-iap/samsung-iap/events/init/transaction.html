@@ -9,10 +9,10 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — Plugins | AppLovin | setIsAgeRestrictedUser</title>
+  <title>Solar2D Documentation — Plugins | samsung-iap | samsung-iap | Events/Listeners | init | transaction</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../css/shCoreDefault.css" type="text/css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -30,13 +30,13 @@
 	<span class="titleimg" onclick="window.location='https://docs.coronalabs.com/'"></span>
 	<div id="nav">
 		<ul>
-<li><a href="../../guide/programming/index.html">Getting Started</a></li>
-<li><a href="../../guide/index.html">Guides</a></li>
-<li><a href="../../api/index.html">API Reference</a></li>
-<li><a href="../../tutorial/index.html">Tutorials</a></li>
-<li><a href="../../plugin/index.html">Plugins</a></li>
-<li><a href="../../native/index.html">Solar2D Native</a></li>
-<li><a href="../../coronacards/index.html">CoronaCards</a></li>
+<li><a href="../../../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../../../guide/index.html">Guides</a></li>
+<li><a href="../../../../../api/index.html">API Reference</a></li>
+<li><a href="../../../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../../../native/index.html">Solar2D Native</a></li>
+<li><a href="../../../../../coronacards/index.html">CoronaCards</a></li>
 </ul>
 
 		<!--
@@ -55,30 +55,26 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#applovin.setisagerestricteduser">applovin.setIsAgeRestrictedUser()</a><ul>
+<li><a href="#event.transaction">event.transaction</a><ul>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#syntax">Syntax</a><ul>
-<li><a href="#shouldagerestrictuser-required">shouldAgeRestrictUser <sub><sup>(required)</sup></sub></a></li>
-</ul></li>
-<li><a href="#example">Example</a></li>
 </ul></li>
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/applovin/index.html">AppLovin</a>  ▸  <a href="../../plugin/applovin/setIsAgeRestrictedUser.html">setIsAgeRestrictedUser</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../../../plugin/index.html">Plugins</a>  ▸  [samsung-iap][plugin.samsung-iap]  ▸  <a href="../../../../../plugin/samsung-iap/samsung-iap/index.html">samsung-iap</a>  ▸  [Events/Listeners][plugin.samsung-iap.samsung-iap.events]  ▸  <a href="../../../../../plugin/samsung-iap/samsung-iap/events/init/index.html">init</a>  ▸  <a href="../../../../../plugin/samsung-iap/samsung-iap/events/init/transaction.html">transaction</a>
 </div>
-<div id="applovin.setisagerestricteduser" class="section level1">
-<h1>applovin.setIsAgeRestrictedUser()</h1>
+<div id="event.transaction" class="section level1">
+<h1>event.transaction</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
 <td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td align="left"><a href="../../../../../api/type/Table.html">Table</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td align="left"><strong>Event</strong></td>
+<td align="left">[init][plugin.samsung-iap.event.init]</td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>Revision</strong></td>
@@ -86,57 +82,28 @@
 </tr>
 <tr class="even">
 <td align="left"><strong>Keywords</strong></td>
-<td align="left">ads, advertising, AppLovin, setHasUserConsent</td>
+<td align="left">Samsung, IAP, in-app purchases, init, transaction</td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../plugin/applovin/init.html">applovin.init()</a></td>
+<td align="left">[init][plugin.samsung-iap.event.init]</td>
 </tr>
 <tr class="even">
 <td align="left"></td>
-<td align="left"><a href="../../plugin/applovin/load.html">applovin.load()</a></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/applovin/isLoaded.html">applovin.isLoaded()</a></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/applovin/setHasUserConsent.html">applovin.setHasUserConsent()</a></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/applovin/index.html">applovin.*</a></td>
+<td align="left">[store.*][plugin.samsung-iap]</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>Used to mark user as age restricted for AppLovin SDK, which is important for Google Play's child policies.</p>
-</div>
-<div id="syntax" class="section level2">
-<h2>Syntax</h2>
-<pre class="brush: lua;">applovin.setIsAgeRestrictedUser( shouldAgeRestrictUser )</pre>
-<div id="shouldagerestrictuser-required" class="section level5">
-<h5>shouldAgeRestrictUser <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> If the user is underage, please set the following flag to <code>true</code>, otherwise set it to <code>false</code>. The default value is <code>false</code>.</p>
-</div>
-</div>
-<div id="example" class="section level2">
-<h2>Example</h2>
-<pre class="brush: lua;">local applovin = require( "plugin.applovin" )
-
-local function adListener( event )
-
-    if ( event.phase == "init" ) then  -- Successful initialization
-        -- Set age restriction
-        applovin.setIsAgeRestrictedUser( true )
-    end
-end
-
--- Initialize the AppLovin plugin
-applovin.init( adListener, { sdkKey="YOUR_SDK_KEY" } )</pre>
+<p>This table contains the following <nobr>read-only</nobr> properties pertaining to Samsung IAP initialization:</p>
+<ul>
+<li><p><code>state</code> — A <a href="../../../../../api/type/String.html">string</a> value of <code>&quot;initialized&quot;</code> which is dispatched when the initialization process started by [store.init()][plugin.samsung-iap.init] has completed and Samsung IAP is ready.</p></li>
+<li><p><code>isError</code> — A <a href="../../../../../api/type/Boolean.html">boolean</a> indicating that an error occurred. In this case, more details are indicated by <code>errorType</code> and <code>errorString</code>.</p></li>
+<li><p><code>errorType</code> — A <a href="../../../../../api/type/String.html">string</a> representing the type of error that occurred if <code>isError</code> is <code>true</code>.</p></li>
+<li><p><code>errorString</code> — A more descriptive error message (<a href="../../../../../api/type/String.html">string</a>) if <code>isError</code> is <code>true</code>.</p></li>
+</ul>
 <hr>
 <div id="footer">
 <p class="copyright">

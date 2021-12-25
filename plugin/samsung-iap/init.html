@@ -9,10 +9,10 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — Plugins | samsung-iap | samsung-iap | canMakePurchases</title>
+  <title>Solar2D Documentation — Plugins | samsung-iap | init</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -30,13 +30,13 @@
 	<span class="titleimg" onclick="window.location='https://docs.coronalabs.com/'"></span>
 	<div id="nav">
 		<ul>
-<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
-<li><a href="../../../guide/index.html">Guides</a></li>
-<li><a href="../../../api/index.html">API Reference</a></li>
-<li><a href="../../../tutorial/index.html">Tutorials</a></li>
-<li><a href="../../../plugin/index.html">Plugins</a></li>
-<li><a href="../../../native/index.html">Solar2D Native</a></li>
-<li><a href="../../../coronacards/index.html">CoronaCards</a></li>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Solar2D Native</a></li>
+<li><a href="../../coronacards/index.html">CoronaCards</a></li>
 </ul>
 
 		<!--
@@ -55,79 +55,112 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#store.canloadproducts">store.canLoadProducts</a><ul>
+<li><a href="#store.init">store.init()</a><ul>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#syntax">Syntax</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#listener-required">listener <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#operationmode-optional">operationMode <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
 <li><a href="#example">Example</a></li>
 </ul></li>
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../plugin/index.html">Plugins</a>  ▸  [samsung-iap][plugin.samsung-iap]  ▸  <a href="../../../plugin/samsung-iap/samsung-iap/index.html">samsung-iap</a>  ▸  <a href="../../../plugin/samsung-iap/samsung-iap/canMakePurchases.html">canMakePurchases</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/samsung-iap/index.html">samsung-iap</a>  ▸  <a href="../../plugin/samsung-iap/init.html">init</a>
 </div>
-<div id="store.canloadproducts" class="section level1">
-<h1>store.canLoadProducts</h1>
+<div id="store.init" class="section level1">
+<h1>store.init()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
 <td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Boolean.html">Boolean</a></td>
+<td align="left"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
+<td align="left"><strong>Return value</strong></td>
+<td align="left">none</td>
+</tr>
+<tr class="odd">
 <td align="left"><strong>Revision</strong></td>
 <td align="left"><a href="https://solar2d.com/download/">Release 2021.3646</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><strong>Keywords</strong></td>
-<td align="left">Google, IAP, in-app purchases, canLoadProducts</td>
+<td align="left">IAP, Samsung IAP, Samsung In App Purchase, init</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../plugin/samsung-iap/loadProducts.html">store.loadProducts()</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left">[store.loadProducts()][plugin.samsung-iap.loadProducts]</td>
+<td align="left"></td>
+<td align="left"><a href="../../plugin/samsung-iap/purchase.html">store.purchase()</a></td>
 </tr>
 <tr class="odd">
 <td align="left"></td>
-<td align="left"><a href="../../../plugin/google-iap-v3/index.html">store.*</a></td>
+<td align="left"><a href="../../plugin/samsung-iap/purchase.html">store.loadProducts()</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><a href="../../plugin/samsung-iap/index.html">store.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>This property will be <code>true</code> if the store supports the loading of products. Following confirmation, the [store.loadProducts()][plugin.samsung-iap.loadProducts] function can be used to retrieve information about items available for sale.</p>
+<p>Initialize the Samsung IAP plugin and set store operation mode. This step is mandatory before any other methods can be used.</p>
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">store.canLoadProducts</pre>
+<pre class="brush: lua;">store.init( listener [,operationMode] )</pre>
+<div id="listener-required" class="section level5">
+<h5>listener <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/Listener.html">Listener</a>.</em> The listener that will handle [storeTransaction][plugin.samsung-iap.event.storeTransaction] events.</p>
+</div>
+<div id="operationmode-optional" class="section level5">
+<h5>operationMode <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> can be set to &quot;testMode&quot;, &quot;testFailureMode&quot;, or &quot;production&quot;(default).</p>
+<p>&quot;testMode&quot;: financial transactions do not occur (licensed testers are not billed for item purchases), and successful results are always returned.</p>
+<p>&quot;testFailureMode&quot; : meant to be a negative testing to ensure that your app can handle errors</p>
+<p>&quot;production&quot; : requests are processed as specified, financial transactions do occur for successful requests, and actual results are returned</p>
+</div>
 </div>
 <div id="example" class="section level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local store = require( "plugin.samsung.iap" )
+local json = require( "json" )
 
--- Transaction listener function
 local function transactionListener( event )
-    local transaction = event.transaction
+
+    -- Samsung IAP initialization event
+    if ( event.name == "init" ) then
+
+        if not ( event.transaction.isError ) then
+            -- Perform steps to enable IAP, load products, etc.
+
+        else  -- Unsuccessful initialization; output error details
+            print( event.transaction.errorType )
+            print( event.transaction.errorString )
+        end
+
+    -- Store transaction event
+    elseif ( event.name == "storeTransaction" ) then
+
+        if not ( event.transaction.state == "failed" ) then  -- Successful transaction
+            print( json.prettify( event ) )
+            print( "event.transaction: " .. json.prettify( event.transaction ) )
+
+        else  -- Unsuccessful transaction; output error details
+            print( event.transaction.errorType )
+            print( event.transaction.errorString )
+        end
+    end
 end
 
--- Product listener function
-local function productListener( event )
-    print( "Valid products:", #event.products )
-    print( "Invalid products:", #event.invalidProducts )
-end
-
--- Initialize Google IAP
-store.init( transactionListener )
-
--- Sometime later, load products
-if ( store.canLoadProducts ) then
-
-    local productIdentifiers = {
-        "com.coronalabs.ExampleInAppPurchase.Consumable",
-        "com.coronalabs.ExampleInAppPurchase.NonConsumable"
-    }
-    store.loadProducts( productIdentifiers, productListener )
-end</pre>
+-- Initialize Samsung IAP with test
+store.init( transactionListener, "testMode" )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

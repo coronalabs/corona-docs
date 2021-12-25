@@ -9,10 +9,10 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — Plugins | samsung-iap | samsung-iap | init</title>
+  <title>Solar2D Documentation — Plugins | samsung-iap | Events/Listeners | productList | name</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../css/shCoreDefault.css" type="text/css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -30,13 +30,13 @@
 	<span class="titleimg" onclick="window.location='https://docs.coronalabs.com/'"></span>
 	<div id="nav">
 		<ul>
-<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
-<li><a href="../../../guide/index.html">Guides</a></li>
-<li><a href="../../../api/index.html">API Reference</a></li>
-<li><a href="../../../tutorial/index.html">Tutorials</a></li>
-<li><a href="../../../plugin/index.html">Plugins</a></li>
-<li><a href="../../../native/index.html">Solar2D Native</a></li>
-<li><a href="../../../coronacards/index.html">CoronaCards</a></li>
+<li><a href="../../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../../guide/index.html">Guides</a></li>
+<li><a href="../../../../api/index.html">API Reference</a></li>
+<li><a href="../../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../../native/index.html">Solar2D Native</a></li>
+<li><a href="../../../../coronacards/index.html">CoronaCards</a></li>
 </ul>
 
 		<!--
@@ -55,31 +55,26 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#store.init">store.init()</a><ul>
+<li><a href="#event.name">event.name</a><ul>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#syntax">Syntax</a><ul>
-<li><a href="#listener-required">listener <sub><sup>(required)</sup></sub></a></li>
-<li><a href="#operationmode-optional">operationMode <sub><sup>(optional)</sup></sub></a></li>
-</ul></li>
-<li><a href="#example">Example</a></li>
 </ul></li>
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../plugin/index.html">Plugins</a>  ▸  [samsung-iap][plugin.samsung-iap]  ▸  <a href="../../../plugin/samsung-iap/samsung-iap/index.html">samsung-iap</a>  ▸  <a href="../../../plugin/samsung-iap/samsung-iap/init.html">init</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../../plugin/index.html">Plugins</a>  ▸  <a href="../../../../plugin/samsung-iap/index.html">samsung-iap</a>  ▸  [Events/Listeners][plugin.samsung-iap.events]  ▸  <a href="../../../../plugin/samsung-iap/events/productList/index.html">productList</a>  ▸  <a href="../../../../plugin/samsung-iap/events/productList/name.html">name</a>
 </div>
-<div id="store.init" class="section level1">
-<h1>store.init()</h1>
+<div id="event.name" class="section level1">
+<h1>event.name</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
 <td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td align="left"><a href="../../../../api/type/String.html">String</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td align="left"><strong>Event</strong></td>
+<td align="left"><a href="../../../../plugin/google-iap-v3/event/productList/index.html">productList</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>Revision</strong></td>
@@ -87,80 +82,22 @@
 </tr>
 <tr class="even">
 <td align="left"><strong>Keywords</strong></td>
-<td align="left">IAP, Samsung IAP, Samsung In App Purchase, init</td>
+<td align="left">Google, IAP, in-app purchases, productList, name</td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>See also</strong></td>
-<td align="left">[store.loadProducts()][plugin.samsung-iap.loadProducts]</td>
+<td align="left"><a href="../../../../plugin/google-iap-v3/event/productList/index.html">productList</a></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
-<td align="left">[store.purchase()][plugin.samsung-iap.purchase]</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left">[store.loadProducts()][plugin.samsung-iap.purchase]</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">[store.*][plugin.samsung-iap]</td>
+<td align="left"><a href="../../../../plugin/google-iap-v3/index.html">store.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>Initialize the Samsung IAP plugin and set store operation mode. This step is mandatory before any other methods can be used.</p>
-</div>
-<div id="syntax" class="section level2">
-<h2>Syntax</h2>
-<pre class="brush: lua;">store.init( listener [,operationMode] )</pre>
-<div id="listener-required" class="section level5">
-<h5>listener <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../../api/type/Listener.html">Listener</a>.</em> The listener that will handle [storeTransaction][plugin.samsung-iap.event.storeTransaction] events.</p>
-</div>
-<div id="operationmode-optional" class="section level5">
-<h5>operationMode <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../../api/type/String.html">String</a>.</em> can be set to &quot;testMode&quot;, &quot;testFailureMode&quot;, or &quot;production&quot;(default).</p>
-<p>&quot;testMode&quot;: financial transactions do not occur (licensed testers are not billed for item purchases), and successful results are always returned.</p>
-<p>&quot;testFailureMode&quot; : meant to be a negative testing to ensure that your app can handle errors</p>
-<p>&quot;production&quot; : requests are processed as specified, financial transactions do occur for successful requests, and actual results are returned</p>
-</div>
-</div>
-<div id="example" class="section level2">
-<h2>Example</h2>
-<pre class="brush: lua;">local store = require( "plugin.samsung.iap" )
-local json = require( "json" )
-
-local function transactionListener( event )
-
-    -- Samsung IAP initialization event
-    if ( event.name == "init" ) then
-
-        if not ( event.transaction.isError ) then
-            -- Perform steps to enable IAP, load products, etc.
-
-        else  -- Unsuccessful initialization; output error details
-            print( event.transaction.errorType )
-            print( event.transaction.errorString )
-        end
-
-    -- Store transaction event
-    elseif ( event.name == "storeTransaction" ) then
-
-        if not ( event.transaction.state == "failed" ) then  -- Successful transaction
-            print( json.prettify( event ) )
-            print( "event.transaction: " .. json.prettify( event.transaction ) )
-
-        else  -- Unsuccessful transaction; output error details
-            print( event.transaction.errorType )
-            print( event.transaction.errorString )
-        end
-    end
-end
-
--- Initialize Samsung IAP with test
-store.init( transactionListener, "testMode" )</pre>
+<p>The string <code>&quot;productList&quot;</code>.</p>
 <hr>
 <div id="footer">
 <p class="copyright">

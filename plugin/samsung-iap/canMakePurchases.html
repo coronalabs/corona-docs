@@ -9,10 +9,10 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — Plugins | samsung-iap | samsung-iap | loadProducts</title>
+  <title>Solar2D Documentation — Plugins | samsung-iap | canMakePurchases</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -30,13 +30,13 @@
 	<span class="titleimg" onclick="window.location='https://docs.coronalabs.com/'"></span>
 	<div id="nav">
 		<ul>
-<li><a href="../../../guide/programming/index.html">Getting Started</a></li>
-<li><a href="../../../guide/index.html">Guides</a></li>
-<li><a href="../../../api/index.html">API Reference</a></li>
-<li><a href="../../../tutorial/index.html">Tutorials</a></li>
-<li><a href="../../../plugin/index.html">Plugins</a></li>
-<li><a href="../../../native/index.html">Solar2D Native</a></li>
-<li><a href="../../../coronacards/index.html">CoronaCards</a></li>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Solar2D Native</a></li>
+<li><a href="../../coronacards/index.html">CoronaCards</a></li>
 </ul>
 
 		<!--
@@ -55,77 +55,79 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#samsung-iap.loadproducts">samsung-iap.loadProducts()</a><ul>
+<li><a href="#store.canloadproducts">store.canLoadProducts</a><ul>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#gotchas">Gotchas</a></li>
-<li><a href="#syntax">Syntax</a><ul>
-<li><a href="#productidentifiers-required">productIdentifiers <sub><sup>(required)</sup></sub></a></li>
-<li><a href="#productlistener-required">productListener <sub><sup>(required)</sup></sub></a></li>
-</ul></li>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#example">Example</a></li>
 </ul></li>
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../plugin/index.html">Plugins</a>  ▸  [samsung-iap][plugin.samsung-iap]  ▸  <a href="../../../plugin/samsung-iap/samsung-iap/index.html">samsung-iap</a>  ▸  <a href="../../../plugin/samsung-iap/samsung-iap/loadProducts.html">loadProducts</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/samsung-iap/index.html">samsung-iap</a>  ▸  <a href="../../plugin/samsung-iap/canMakePurchases.html">canMakePurchases</a>
 </div>
-<div id="samsung-iap.loadproducts" class="section level1">
-<h1>samsung-iap.loadProducts()</h1>
+<div id="store.canloadproducts" class="section level1">
+<h1>store.canLoadProducts</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
 <td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td align="left"><a href="../../api/type/Boolean.html">Boolean</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
-</tr>
-<tr class="odd">
 <td align="left"><strong>Revision</strong></td>
 <td align="left"><a href="https://solar2d.com/download/">Release 2021.3646</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><strong>Keywords</strong></td>
-<td align="left">IAP, Samsung IAP, Samsung In App Purchase, init</td>
+<td align="left">Google, IAP, in-app purchases, canLoadProducts</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><strong>See also</strong></td>
-<td align="left">[store.init()][plugin.samsung-iap.init]</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">[store.purchase()][plugin.samsung-iap.purchase]</td>
+<td align="left"><a href="../../plugin/samsung-iap/loadProducts.html">store.loadProducts()</a></td>
 </tr>
 <tr class="odd">
 <td align="left"></td>
-<td align="left">[store.restore()][plugin.samsung-iap.purchase]</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">[store.*][plugin.samsung-iap]</td>
+<td align="left"><a href="../../plugin/google-iap-v3/index.html">store.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>Initiates a request to retrieve item data, dispatching a [productList][plugin.samsung-iap.event.productList] event to the listener defined as <code>productListener</code>.</p>
-</div>
-<div id="gotchas" class="section level2">
-<h2>Gotchas</h2>
-<p>The <code>productListener</code> does not return invalid products and just give and error if invalid product is passed in.</p>
+<p>This property will be <code>true</code> if the store supports the loading of products. Following confirmation, the <a href="../../plugin/samsung-iap/loadProducts.html">store.loadProducts()</a> function can be used to retrieve information about items available for sale.</p>
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">store.loadProducts( productIdentifiers, productListener )</pre>
-<div id="productidentifiers-required" class="section level5">
-<h5>productIdentifiers <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../../api/type/Table.html">Table</a>.</em> An array of strings indicating a list of product identifiers.</p>
+<pre class="brush: lua;">store.canLoadProducts</pre>
 </div>
-<div id="productlistener-required" class="section level5">
-<h5>productListener <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../../api/type/Listener.html">Listener</a>.</em> The listener that will receive the [productList][plugin.samsung-iap.event.productList] event.</p>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="brush: lua;">local store = require( "plugin.samsung.iap" )
+
+-- Transaction listener function
+local function transactionListener( event )
+    local transaction = event.transaction
+end
+
+-- Product listener function
+local function productListener( event )
+    print( "Valid products:", #event.products )
+    print( "Invalid products:", #event.invalidProducts )
+end
+
+-- Initialize Google IAP
+store.init( transactionListener )
+
+-- Sometime later, load products
+if ( store.canLoadProducts ) then
+
+    local productIdentifiers = {
+        "com.coronalabs.ExampleInAppPurchase.Consumable",
+        "com.coronalabs.ExampleInAppPurchase.NonConsumable"
+    }
+    store.loadProducts( productIdentifiers, productListener )
+end</pre>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -135,7 +137,6 @@
 Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
-</div>
 </div>
 </div>
 </div>

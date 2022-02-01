@@ -60,6 +60,7 @@
 <li><a href="#syntax">Syntax</a><ul>
 <li><a href="#listener-optional">listener <sub><sup>(optional)</sup></sub></a></li>
 <li><a href="#permissions-optional">permissions <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#limitedlogin-optional">limitedLogin <sub><sup>(optional)</sup></sub></a></li>
 </ul></li>
 <li><a href="#gotchas">Gotchas</a></li>
 </ul></li>
@@ -121,7 +122,7 @@
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">facebook.login( [listener] [, permissions] )</pre>
+<pre class="brush: lua;">facebook.login( [listener] [, permissions], [, limitedLogin] )</pre>
 <div id="listener-optional" class="section level5">
 <h5>listener <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Listener.html">Listener</a>.</em> A listener that responds to <a href="../../plugin/facebook-v4a/event/fbconnect/index.html">fbconnect</a> events. If the listener is a table, it should have a property <code>&quot;fbconnect&quot;</code> that is a function.</p>
@@ -129,6 +130,10 @@
 <div id="permissions-optional" class="section level5">
 <h5>permissions <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Array.html">Array</a>.</em> An optional array of strings that correspond to Facebook's publishing <a href="https://developers.facebook.com/docs/facebook-login/permissions/v2.4#reference">permissions</a>. This enables your application to ask the user to grant certain extended permissions to your app. If not supplied, no extended permissions are requested. Use <code>&quot;publish_actions&quot;</code> to allow posting to the user's wall. For developer convenience, required permissions such as <code>&quot;public_profile&quot;</code> (<a href="https://developers.facebook.com/docs/facebook-login/permissions#reference-public_profile">reference</a>) and <code>&quot;user_friends&quot;</code> (<a href="https://developers.facebook.com/docs/facebook-login/permissions#reference-user_friends">reference</a>) will be automatically requested if needed.</p>
+</div>
+<div id="limitedlogin-optional" class="section level5">
+<h5>limitedLogin <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> default is false, using Limited Login with the app will not be used to personalize or measure advertising effectiveness. Android does not support FB Limited Login.</p>
 </div>
 </div>
 <div id="gotchas" class="section level2">

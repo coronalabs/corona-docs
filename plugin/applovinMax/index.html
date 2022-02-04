@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Solar2D Documentation — Plugins | applovinMax</title>
+  <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://docs.coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Solar2D Native</a></li>
+<li><a href="../../coronacards/index.html">CoronaCards</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#applovinmax.">applovinMax.*</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#registration">Registration</a></li>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#functions">Functions</a><ul>
+<li><a href="#applovinmax.initplugin.applovinmax.init"><a href="../../plugin/applovinMax/init.html">applovinMax.init()</a></a></li>
+<li><a href="#applovinmax.loadplugin.applovinmax.load"><a href="../../plugin/applovinMax/load.html">applovinMax.load()</a></a></li>
+<li><a href="#applovinmax.isloadedplugin.applovinmax.isloaded"><a href="../../plugin/applovinMax/isLoaded.html">applovinMax.isLoaded()</a></a></li>
+<li><a href="#applovinmax.showplugin.applovinmax.show"><a href="../../plugin/applovinMax/show.html">applovinMax.show()</a></a></li>
+<li><a href="#applovinmax.setuserdetailsplugin.applovinmax.setuserdetails"><a href="../../plugin/applovinMax/setUserDetails.html">applovinMax.setUserDetails()</a></a></li>
+<li><a href="#applovinmax.hideplugin.applovinmax.hide"><a href="../../plugin/applovinMax/hide.html">applovinMax.hide()</a></a></li>
+<li><a href="#applovinmax.sethasuserconsentplugin.applovinmax.sethasuserconsent"><a href="../../plugin/applovinMax/setHasUserConsent.html">applovinMax.setHasUserConsent()</a></a></li>
+<li><a href="#applovinmax.setisagerestricteduserplugin.applovinmax.setisagerestricteduser"><a href="../../plugin/applovinMax/setIsAgeRestrictedUser.html">applovinMax.setIsAgeRestrictedUser()</a></a></li>
+</ul></li>
+<li><a href="#events">Events</a><ul>
+<li><a href="#adsrequestplugin.applovinmax.event.adsrequest"><a href="../../plugin/applovinMax/event/adsRequest/index.html">adsRequest</a></a></li>
+</ul></li>
+<li><a href="#project-settings">Project Settings</a></li>
+<li><a href="#sample-project">Sample project</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/applovinMax/index.html">applovinMax</a>
+</div>
+<div id="applovinmax." class="section level1">
+<h1>applovinMax.*</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../api/type/Library.html">Library</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Revision</strong></td>
+<td align="left"><a href="https://solar2d.com/download/">Release 2021.3646</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Keywords</strong></td>
+<td align="left">ads, advertising, AppLovin, AppLovin Max</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Platforms</strong></td>
+<td align="left">Android, iOS</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<!---
+
+<div class="float-right" style="max-width: 240px; clear: both;">
+
+![][images.docs.plugin-screenshot-applovin]
+
+</div>
+
+-->
+<p>The AppLovin Max plugin allows developers to monetize users and use mediation through <a href="https://www.applovin.com/max/">AppLovin Max</a> static interstitial, video interstitial, and rewarded video ads.</p>
+<div class="guide-notebox">
+<div class="notebox-title">
+Notes
+</div>
+<ul>
+<li><p>For the legacy non Max plugin click [here][plugin.appLovin]</p></li>
+<li><p>The main api differences between legacy are: Sdk Keys are moved into <a href="#settings">project settings</a>, platform specific unitIds are required in <a href="../../plugin/applovinMax/load.html">applovinMax.load()</a>, and a few have <a href="../../plugin/applovinMax/event/adsRequest/phase.html">phases</a> changed.</p></li>
+<li><p>Once you are <a href="https://www.applovin.com/signup">registered</a>, obtain your <strong>SDK key</strong> from the <a href="https://dash.applovin.com">AppLovin developer portal</a>. From the <strong>Account</strong> section, expand the <strong>Account</strong> menu on the left side, select <strong>Keys</strong>, and your SDK key should be revealed.</p></li>
+<li><p>Native ads are not supported at this time.</p></li>
+<li><p>Apps are automatically added to the <a href="https://dash.applovin.com">AppLovin developer portal</a> when you <a href="#settings">include</a> this plugin and app keys within your project, <code>require()</code> it, and call <a href="../../plugin/applovin/init.html">applovin.init()</a>.</p></li>
+<li><p>If you use the plugin and make changes to the ad settings in the <a href="https://www.applovin.com/manage">AppLovin developer portal</a></p></li>
+</ul>
+</div>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>Check out new <code>setHasUserConsent</code> method to enable GDPR data collection restrictions.</p>
+</div>
+</div>
+<div id="registration" class="section level2">
+<h2>Registration</h2>
+<p>To begin, please register with <a href="https://www.applovin.com/signup">AppLovin Max</a>. Once you have access to the <a href="https://dash.applovin.com">AppLovin developer portal</a>, you can view your apps, select ad preferences, and more.</p>
+</div>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<div id="example">
+<h5 id="applovin">AppLovin</h5>
+<pre class="brush: lua;">local applovinMax = require( "plugin.applovinMax" )</pre>
+</div>
+</div>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<div id="applovinmax.initplugin.applovinmax.init" class="section level4">
+<h4><a href="../../plugin/applovinMax/init.html">applovinMax.init()</a></h4>
+</div>
+<div id="applovinmax.loadplugin.applovinmax.load" class="section level4">
+<h4><a href="../../plugin/applovinMax/load.html">applovinMax.load()</a></h4>
+</div>
+<div id="applovinmax.isloadedplugin.applovinmax.isloaded" class="section level4">
+<h4><a href="../../plugin/applovinMax/isLoaded.html">applovinMax.isLoaded()</a></h4>
+</div>
+<div id="applovinmax.showplugin.applovinmax.show" class="section level4">
+<h4><a href="../../plugin/applovinMax/show.html">applovinMax.show()</a></h4>
+</div>
+<div id="applovinmax.setuserdetailsplugin.applovinmax.setuserdetails" class="section level4">
+<h4><a href="../../plugin/applovinMax/setUserDetails.html">applovinMax.setUserDetails()</a></h4>
+</div>
+<div id="applovinmax.hideplugin.applovinmax.hide" class="section level4">
+<h4><a href="../../plugin/applovinMax/hide.html">applovinMax.hide()</a></h4>
+</div>
+<div id="applovinmax.sethasuserconsentplugin.applovinmax.sethasuserconsent" class="section level4">
+<h4><a href="../../plugin/applovinMax/setHasUserConsent.html">applovinMax.setHasUserConsent()</a></h4>
+</div>
+<div id="applovinmax.setisagerestricteduserplugin.applovinmax.setisagerestricteduser" class="section level4">
+<h4><a href="../../plugin/applovinMax/setIsAgeRestrictedUser.html">applovinMax.setIsAgeRestrictedUser()</a></h4>
+</div>
+</div>
+<div id="events" class="section level2">
+<h2>Events</h2>
+<div id="adsrequestplugin.applovinmax.event.adsrequest" class="section level4">
+<h4><a href="../../plugin/applovinMax/event/adsRequest/index.html">adsRequest</a></h4>
+<p><a id="settings"></a></p>
+</div>
+</div>
+<div id="project-settings" class="section level2">
+<h2>Project Settings</h2>
+<p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase. Also add your Sdk keys for Android and/or iOS as seen below.</p>
+<div id="example">
+<h5 id="applovin-1">AppLovin</h5>
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
+{
+    android =
+    {
+        applicationChildElements =
+        {
+                -- Array of strings
+                [[
+
+                    &lt;meta-data android:name="applovin.sdk.key" android:value="XXXXXXXXXXXXX"/>
+                ]],
+                ---- replace XXXXXXXXXXXXX with your Android Applovin SDK key
+        },
+    },
+    iphone =
+    {
+        plist =
+        {
+            AppLovinSdkKey = "XXXXXXXXXXXXX", -- replace XXXXXXXXXXXXX with your iOS Applovin SDK key
+            NSUserTrackingUsageDescription = "This only uses device info for less annoying, more relevant ads.",
+            SKAdNetworkItems = {
+                {SKAdNetworkIdentifier= "275upjj5gd.skadnetwork"},
+                {SKAdNetworkIdentifier= "294l99pt4k.skadnetwork"},
+                {SKAdNetworkIdentifier= "2fnua5tdw4.skadnetwork"},
+                {SKAdNetworkIdentifier= "2u9pt9hc89.skadnetwork"},
+                {SKAdNetworkIdentifier= "3rd42ekr43.skadnetwork"},
+                {SKAdNetworkIdentifier= "4468km3ulz.skadnetwork"},
+                {SKAdNetworkIdentifier= "44jx6755aq.skadnetwork"},
+                {SKAdNetworkIdentifier= "44n7hlldy6.skadnetwork"},
+                {SKAdNetworkIdentifier= "4fzdc2evr5.skadnetwork"},
+                {SKAdNetworkIdentifier= "4pfyvq9l8r.skadnetwork"},
+                {SKAdNetworkIdentifier= "523jb4fst2.skadnetwork"},
+                {SKAdNetworkIdentifier= "5l3tpt7t6e.skadnetwork"},
+                {SKAdNetworkIdentifier= "5lm9lj6jb7.skadnetwork"},
+                {SKAdNetworkIdentifier= "6964rsfnh4.skadnetwork"},
+                {SKAdNetworkIdentifier= "6g9af3uyq4.skadnetwork"},
+                {SKAdNetworkIdentifier= "74b6s63p6l.skadnetwork"},
+                {SKAdNetworkIdentifier= "7rz58n8ntl.skadnetwork"},
+                {SKAdNetworkIdentifier= "7ug5zh24hu.skadnetwork"},
+                {SKAdNetworkIdentifier= "84993kbrcf.skadnetwork"},
+                {SKAdNetworkIdentifier= "8s468mfl3y.skadnetwork"},
+                {SKAdNetworkIdentifier= "9nlqeag3gk.skadnetwork"},
+                {SKAdNetworkIdentifier= "9rd848q2bz.skadnetwork"},
+                {SKAdNetworkIdentifier= "9t245vhmpl.skadnetwork"},
+                {SKAdNetworkIdentifier= "a7xqa6mtl2.skadnetwork"},
+                {SKAdNetworkIdentifier= "c6k4g5qg8m.skadnetwork"},
+                {SKAdNetworkIdentifier= "cg4yq2srnc.skadnetwork"},
+                {SKAdNetworkIdentifier= "cj5566h2ga.skadnetwork"},
+                {SKAdNetworkIdentifier= "e5fvkxwrpn.skadnetwork"},
+                {SKAdNetworkIdentifier= "ejvt5qm6ak.skadnetwork"},
+                {SKAdNetworkIdentifier= "g28c52eehv.skadnetwork"},
+                {SKAdNetworkIdentifier= "g2y4y55b64.skadnetwork"},
+                {SKAdNetworkIdentifier= "gta9lk7p23.skadnetwork"},
+                {SKAdNetworkIdentifier= "hs6bdukanm.skadnetwork"},
+                {SKAdNetworkIdentifier= "kbd757ywx3.skadnetwork"},
+                {SKAdNetworkIdentifier= "kbmxgpxpgc.skadnetwork"},
+                {SKAdNetworkIdentifier= "klf5c3l5u5.skadnetwork"},
+                {SKAdNetworkIdentifier= "m8dbw4sv7c.skadnetwork"},
+                {SKAdNetworkIdentifier= "mlmmfzh3r3.skadnetwork"},
+                {SKAdNetworkIdentifier= "mtkv5xtk9e.skadnetwork"},
+                {SKAdNetworkIdentifier= "n6fk4nfna4.skadnetwork"},
+                {SKAdNetworkIdentifier= "n9x2a789qt.skadnetwork"},
+                {SKAdNetworkIdentifier= "ppxm28t8ap.skadnetwork"},
+                {SKAdNetworkIdentifier= "prcb7njmu6.skadnetwork"},
+                {SKAdNetworkIdentifier= "pwa73g5rt2.skadnetwork"},
+                {SKAdNetworkIdentifier= "pwdxu55a5a.skadnetwork"},
+                {SKAdNetworkIdentifier= "qqp299437r.skadnetwork"},
+                {SKAdNetworkIdentifier= "r45fhb6rf7.skadnetwork"},
+                {SKAdNetworkIdentifier= "rx5hdcabgc.skadnetwork"},
+                {SKAdNetworkIdentifier= "t38b2kh725.skadnetwork"},
+                {SKAdNetworkIdentifier= "tl55sbb4fm.skadnetwork"},
+                {SKAdNetworkIdentifier= "u679fj5vs4.skadnetwork"},
+                {SKAdNetworkIdentifier= "uw77j35x4d.skadnetwork"},
+                {SKAdNetworkIdentifier= "v72qych5uu.skadnetwork"},
+                {SKAdNetworkIdentifier= "wg4vff78zm.skadnetwork"},
+                {SKAdNetworkIdentifier= "wzmmz9fp6w.skadnetwork"},
+                {SKAdNetworkIdentifier= "yclnxrl5pm.skadnetwork"},
+                {SKAdNetworkIdentifier= "ydx93a7ass.skadnetwork"},
+                {SKAdNetworkIdentifier= "3qcr597p9d.skadnetwork"},
+                {SKAdNetworkIdentifier= "3qy4746246.skadnetwork"},
+                {SKAdNetworkIdentifier= "3sh42y64q3.skadnetwork"},
+                {SKAdNetworkIdentifier= "424m5254lk.skadnetwork"},
+                {SKAdNetworkIdentifier= "4dzt52r2t5.skadnetwork"},
+                {SKAdNetworkIdentifier= "578prtvx9j.skadnetwork"},
+                {SKAdNetworkIdentifier= "5a6flpkh64.skadnetwork"},
+                {SKAdNetworkIdentifier= "8c4e2ghe7u.skadnetwork"},
+                {SKAdNetworkIdentifier= "av6w8kgt66.skadnetwork"},
+                {SKAdNetworkIdentifier= "cstr6suwn9.skadnetwork"},
+                {SKAdNetworkIdentifier= "f38h382jlk.skadnetwork"},
+                {SKAdNetworkIdentifier= "p78axxw29g.skadnetwork"},
+                {SKAdNetworkIdentifier= "s39g8k73mm.skadnetwork"},
+                {SKAdNetworkIdentifier= "v4nxqhlyqp.skadnetwork"},
+                {SKAdNetworkIdentifier= "zq492l623r.skadnetwork"},
+                {SKAdNetworkIdentifier= "24t9a8vw3c.skadnetwork"},
+                {SKAdNetworkIdentifier= "32z4fx6l9h.skadnetwork"},
+                {SKAdNetworkIdentifier= "54nzkqm89y.skadnetwork"},
+                {SKAdNetworkIdentifier= "6xzpu9s2p8.skadnetwork"},
+                {SKAdNetworkIdentifier= "79pbpufp6p.skadnetwork"},
+                {SKAdNetworkIdentifier= "9b89h5y424.skadnetwork"},
+                {SKAdNetworkIdentifier= "c3frkrj4fj.skadnetwork"},
+                {SKAdNetworkIdentifier= "feyaarzu9v.skadnetwork"},
+                {SKAdNetworkIdentifier= "ggvn48r87g.skadnetwork"},
+                {SKAdNetworkIdentifier= "glqzh8vgby.skadnetwork"},
+                {SKAdNetworkIdentifier= "k674qkevps.skadnetwork"},
+                {SKAdNetworkIdentifier= "ludvb6z3bs.skadnetwork"},
+                {SKAdNetworkIdentifier= "rvh3l7un93.skadnetwork"},
+                {SKAdNetworkIdentifier= "x8jxxk4ff5.skadnetwork"},
+                {SKAdNetworkIdentifier= "xy9t38ct57.skadnetwork"},
+                {SKAdNetworkIdentifier= "zmvfpc5aq8.skadnetwork"},
+                {SKAdNetworkIdentifier= "22mmun2rn5.skadnetwork"},
+                {SKAdNetworkIdentifier= "4w7y6s5ca2.skadnetwork"},
+                {SKAdNetworkIdentifier= "5tjdwbrq8w.skadnetwork"},
+                {SKAdNetworkIdentifier= "6p4ks3rnbw.skadnetwork"},
+                {SKAdNetworkIdentifier= "737z793b9f.skadnetwork"},
+                {SKAdNetworkIdentifier= "97r2b46745.skadnetwork"},
+                {SKAdNetworkIdentifier= "b9bk5wbcq9.skadnetwork"},
+                {SKAdNetworkIdentifier= "bxvub5ada5.skadnetwork"},
+                {SKAdNetworkIdentifier= "dzg6xy7pwj.skadnetwork"},
+                {SKAdNetworkIdentifier= "f73kdq92p3.skadnetwork"},
+                {SKAdNetworkIdentifier= "hdw39hrw9y.skadnetwork"},
+                {SKAdNetworkIdentifier= "lr83yxwka7.skadnetwork"},
+                {SKAdNetworkIdentifier= "mls7yz5dvl.skadnetwork"},
+                {SKAdNetworkIdentifier= "mp6xlyr22a.skadnetwork"},
+                {SKAdNetworkIdentifier= "s69wq72ugq.skadnetwork"},
+                {SKAdNetworkIdentifier= "su67r6k2v3.skadnetwork"},
+                {SKAdNetworkIdentifier= "w9q455wk68.skadnetwork"},
+                {SKAdNetworkIdentifier= "x44k69ngh6.skadnetwork"},
+                {SKAdNetworkIdentifier= "x8uqf25wch.skadnetwork"},
+                {SKAdNetworkIdentifier= "y45688jllp.skadnetwork"},
+                {SKAdNetworkIdentifier= "n38lu8286q.skadnetwork"},
+                {SKAdNetworkIdentifier= "v9wttpbfk9.skadnetwork"},
+                {SKAdNetworkIdentifier= "252b5q8x7y.skadnetwork"},
+                {SKAdNetworkIdentifier= "9g2aggbj52.skadnetwork"},
+                {SKAdNetworkIdentifier= "krvm3zuq6h.skadnetwork"},
+                {SKAdNetworkIdentifier= "nu4557a4je.skadnetwork"},
+                {SKAdNetworkIdentifier= "r26jy69rpl.skadnetwork"},
+                {SKAdNetworkIdentifier= "3l6bd9hu43.skadnetwork"},
+                {SKAdNetworkIdentifier= "488r3q3dtq.skadnetwork"},
+                {SKAdNetworkIdentifier= "52fl2v3hgk.skadnetwork"},
+                {SKAdNetworkIdentifier= "6v7lgmsu45.skadnetwork"},
+                {SKAdNetworkIdentifier= "89z7zv988g.skadnetwork"},
+                {SKAdNetworkIdentifier= "8m87ys6875.skadnetwork"},
+                {SKAdNetworkIdentifier= "hb56zgv37p.skadnetwork"},
+                {SKAdNetworkIdentifier= "m297p6643m.skadnetwork"},
+                {SKAdNetworkIdentifier= "m5mvw97r93.skadnetwork"},
+                {SKAdNetworkIdentifier= "vcra2ehyfk.skadnetwork"},
+                {SKAdNetworkIdentifier= "238da6jt44.skadnetwork"},
+                {SKAdNetworkIdentifier= "9yg77x724h.skadnetwork"},
+                {SKAdNetworkIdentifier= "ecpz2srf59.skadnetwork"},
+                {SKAdNetworkIdentifier= "gvmwg8q7h5.skadnetwork"},
+                {SKAdNetworkIdentifier= "n66cz3y3bx.skadnetwork"},
+                {SKAdNetworkIdentifier= "nzq8sh4pbs.skadnetwork"},
+                {SKAdNetworkIdentifier= "pu4na253f3.skadnetwork"},
+                {SKAdNetworkIdentifier= "v79kvwwj4g.skadnetwork"},
+                {SKAdNetworkIdentifier= "yrqqpx2mcb.skadnetwork"},
+                {SKAdNetworkIdentifier= "z4gj7hsk7h.skadnetwork"},
+                {SKAdNetworkIdentifier= "f7s53z58qe.skadnetwork"},
+                {SKAdNetworkIdentifier= "7953jerfzd.skadnetwork"}
+
+            }
+        },
+    },
+    plugins =
+    {
+        ["plugin.applovinMax"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+    },
+}</pre>
+</div>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>For Android, the following permissions/features are automatically added when using this plugin:</p>
+<ul>
+<li><code>&quot;android.permission.INTERNET&quot;</code></li>
+<li><code>&quot;android.permission.ACCESS_NETWORK_STATE&quot;</code></li>
+<li><code>&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</code></li>
+</ul>
+</div>
+</div>
+<div id="sample-project" class="section level2">
+<h2>Sample project</h2>
+<ul>
+<li><a href="https://github.com/coronalabs/plugins-sample-applovin">View on GitHub</a></li>
+</ul>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2021 Solar2D All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
+</div>
+</div>
+</div>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

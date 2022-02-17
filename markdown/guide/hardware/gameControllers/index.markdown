@@ -108,6 +108,10 @@ The following example shows how to detect a specific controller. When either an 
 ``````lua
 local controller = { device="", displayName="" }
 
+--Predeclare
+local onKeyEvent
+local onAxisEvent
+
 local function setDevice( device, displayName )
 
 	-- Set current controller
@@ -119,11 +123,11 @@ local function setDevice( device, displayName )
 	Runtime:removeEventListener( "key", onKeyEvent )
 end
 
-local function onKeyEvent( event )
+function onKeyEvent( event )
 	setDevice( event.device, event.device.displayName )
 end
 
-local function onAxisEvent( event )
+function onAxisEvent( event )
 	if ( math.abs(event.normalizedValue) > 0.5 ) then
 		setDevice( event.device, event.device.displayName )
 	end

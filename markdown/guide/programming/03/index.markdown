@@ -16,7 +16,7 @@ Our project is beginning to take form, but it's not yet a game. Let's breathe so
 
 * [Creating Asteroids](#asteroids)
 * [Firing Mechanics](#firing)
-* [Moving the Ship](#movement)
+* [Moving the Ship](#movingShip)
 * [Game Loop](#gameloop)
 * [Collision Handling](#collisions)
 * [Chapter Concepts](#concepts)
@@ -394,7 +394,7 @@ Let's check the result of our code. Save your modified `main.lua` file, relaunch
 
 
 
-<a id="movement"></a>
+<a id="movingShip"></a>
 
 ## Moving the Ship
 

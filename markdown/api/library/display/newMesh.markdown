@@ -138,6 +138,26 @@ Note that a vertex with coordinates `x` and `y` will have world coordinates of <
 mesh:translate( mesh.path:getVertexOffset() )
 ``````
 
+##### object.path:update()
+Updates the mesh’s `vertices`, `uvs` and `indices`:
+
+<div style="margin-bottom: -10px;">
+
+	object.path:update( options )
+
+</div>
+
+The `options` table accepts the `vertices`, `uvs` and `indices` for updating the mesh. These are all optional and can be excluded at will:
+
+``````lua
+local options = {
+	vertices = {},
+	uvs = {},
+	indices = {}
+}
+mesh.path:update( options )
+``````
+
 
 ## Examples
 

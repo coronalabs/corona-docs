@@ -16,6 +16,8 @@
 
 #### [graphics.defineEffect()][api.library.graphics.defineEffect]
 
+#### [graphics.undefineEffect()][api.library.graphics.undefineEffect]
+
 #### [graphics.newImageSheet()][api.library.graphics.newImageSheet]
 
 #### [graphics.newMask()][api.library.graphics.newMask]

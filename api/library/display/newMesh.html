@@ -83,6 +83,7 @@
 <li><a href="#object.pathsetuv">object.path:setUV()</a></li>
 <li><a href="#object.pathgetuv">object.path:getUV()</a></li>
 <li><a href="#object.pathgetvertexoffset">object.path:getVertexOffset()</a></li>
+<li><a href="#object.pathupdate">object.path:update()</a></li>
 </ul></li>
 <li><a href="#examples">Examples</a><ul>
 <li><a href="#triangles-mode">Triangles Mode</a></li>
@@ -252,6 +253,20 @@ display.newMesh( options )</pre>
 </div>
 <p>Note that a vertex with coordinates <code>x</code> and <code>y</code> will have world coordinates of <nobr><code>mesh.x + x - offsetX</code></nobr> and <nobr><code>mesh.y + y - offsetY</code></nobr> respectively, assuming no scaling is applied. Consider the following command which shifts the object by the offsets and puts a vertex at <code>0,0</code> into the previous object origin:</p>
 <pre class="brush: lua;">mesh:translate( mesh.path:getVertexOffset() )</pre>
+</div>
+<div id="object.pathupdate" class="section level5">
+<h5>object.path:update()</h5>
+<p>Updates the mesh’s <code>vertices</code>, <code>uvs</code> and <code>indices</code>:</p>
+<div style="margin-bottom: -10px;">
+<pre class="brush: lua;">object.path:update( options )</pre>
+</div>
+<p>The <code>options</code> table accepts the <code>vertices</code>, <code>uvs</code> and <code>indices</code> for updating the mesh. These are all optional and can be excluded at will:</p>
+<pre class="brush: lua;">local options = {
+    vertices = {},
+    uvs = {},
+    indices = {}
+}
+mesh.path:update( options )</pre>
 </div>
 </div>
 <div id="examples" class="section level2">

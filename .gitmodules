@@ -1,3 +1,0 @@
-[submodule "markdown/plugin"]
-	path = markdown/plugin
-	url = https://github.com/coronalabs/corona-docs-plugins.git

@@ -9,16 +9,16 @@
 
 ## Overview
 
-The Amazon IAP plugin lets you sell digital content and subscriptions from within your apps, including <nobr>in-game</nobr> currency, expansion packs, upgrades, magazine issues, and more.
+The Amazon IAP plugin lets you sell digital content and subscriptions from within your apps, including <nobr>in-game</nobr> currency, expansion packs, upgrades, magazine issues, and more. The plugin also includes optional DRM support as well. See [store.verify()][plugin.amazon-iap-v2.verify] for information on implementing Amazon DRM/Licensing.
 
 <div class="guide-notebox">
 <div class="notebox-title">Notes</div>
 
-* This plugin corresponds to <nobr>Amazon IAP v2</nobr>. If you are migrating from the previous version to v2, please see the [migration][plugin.amazon-iap-v2.migration] page for a summary of changes.
+* This plugin now uses the Appstore SDK with Solar2d 2021.3661+ and adds the api store.verify() to check DRM. No codes changes are required to use the Appstore SDK for IAP. If you are using the older v1 Solar2d plugin from Amazon see the [migration][plugin.amazon-iap-v2.migration] page for a summary of changes.
 
-* If you're new to <nobr>Amazon In-App Purchasing</nobr>, read Amazon's [In-App Purchasing Overview](https://developer.amazon.com/docs/in-app-purchasing/iap-overview.html) guide.
+* If you're new to <nobr>Amazon In-App Purchasing</nobr>, read Amazon's [Understanding In-App Purchasing](https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs-v2/understanding-in-app-purchasing) guide.
 
-* You must install the [Amazon App Tester](https://developer.amazon.com/docs/in-app-purchasing/iap-install-and-configure-app-tester.html) or publish your app in the Amazon Appstore to use this plugin. Details on testing can be found [here](https://developer.amazon.com/docs/in-app-purchasing/iap-testing-overview.html).
+* You must install the [Amazon App Tester](https://developer.amazon.com/docs/in-app-purchasing/iap-install-and-configure-app-tester.html) or publish your app in the Amazon Appstore to use this plugin. Details on testing can be found [here](https://developer.amazon.com/docs/in-app-purchasing/iap-install-and-configure-app-tester.html).
 
 </div>
 
@@ -28,7 +28,7 @@ The Amazon IAP plugin lets you sell digital content and subscriptions from withi
 </div>
 <div class="docs-tip-inner-right">
 
-For in-app purchasing on other platforms, see the documentation for [Google IAP][plugin.google-iap-billing], [Apple IAP][plugin.apple-iap] or [Store API][api.library.store].
+For in-app purchasing on other platforms, see the documentation for [Google IAP][plugin.google-iap-billing], [Apple IAP][plugin.apple-iap], [Samsung IAP][plugin.samsung-iap], or [Store API][api.library.store].
 
 </div>
 </div>
@@ -69,6 +69,8 @@ To use Amazon in-app purchasing, you must first register for an [Amazon Develope
 
 #### [store.isSandboxMode()][plugin.amazon-iap-v2.isSandboxMode]
 
+#### [store.verify()][plugin.amazon-iap-v2.verify]
+
 
 ## Events
 
@@ -77,6 +79,8 @@ To use Amazon in-app purchasing, you must first register for an [Amazon Develope
 #### [productList][plugin.amazon-iap-v2.event.productList]
 
 #### [userData][plugin.amazon-iap-v2.event.userData]
+
+#### [licensing][plugin.amazon-iap-v2.event.licensing]
 
 
 ## Project Settings
@@ -101,7 +105,7 @@ settings =
 
 To use this plugin with CORONA_NATIVE_PRODUCT:
 
-1. Copy `plugin.amazon.iap.jar` and `in-app-purchasing-2.0.61.jar` into the `libs/` directory of your project.
+1. Copy `plugin.amazon.iap.jar` into the `libs/` directory of your project and add `implementation 'com.amazon.device:amazon-appstore-sdk:3.0.2'` to your App Gradle dependencies.
 
 2. Add the following section into your `AndroidManifest.xml` file, inside the `application` tag:
 
@@ -127,128 +131,3 @@ To use this plugin with CORONA_NATIVE_PRODUCT:
 ``````
 
 </div>
-
-
-<!---
-
-## Example
-
-``````lua
-local store = require('plugin.amazon.iap')
-local widget = require('widget')
-local json = require('json')
-
--- The main store listener receives events when you make a purchase, restore or if Amazon decides it needs to send you an update
-local function storeListener(event)
-	print('storeListener event:')
-	if not event.isError then
-		print('status:', event.status)
-		print('transaction:', json.prettify(event.transaction))
-
-		-- You can fulfill the purchase if everything is ok or you can tell Amazon, that this receipt
-		-- is no longer valid with store.notifyUnavailable()
-		store.notifyFulfilled(event.transaction.receiptId)
-	else
-		print(json.prettify(event))
-	end
-end
-
--- You must call init() before anything else
-store.init(storeListener)
-print('isSandboxMode:', store.isSandboxMode) -- true if you are testing with App Tester
-print('isActive:', store.isActive) -- true if the plugin was properly initialized
-
-local _W, _H = display.actualContentWidth, display.actualContentHeight
-local _CX = display.contentCenterX
-
-local width = _W * 0.8
-local size = _H * 0.1
-local buttonFontSize = 16
-
-local y = size * 0.5
-local spacing = _H * 0.15
-
-widget.newButton{
-	x = _CX, y = y,
-	width = width, height = size,
-	label = 'getUserData()',
-	fontSize = buttonFontSize,
-	onRelease = function()
-		local requestId = store.getUserData(function(event)
-			print('getUserData() event:')
-			if not event.isError then
-				print('userId:', event.userId)
-				print('marketplace:', event.marketplace)
-			else
-				print(json.prettify(event))
-			end
-		end)
-		print('getUserData() Request ID:', requestId)
-	end
-}
-
-widget.newButton{
-	x = _CX, y = y + spacing,
-	width = width, height = size,
-	label = 'getProductData()',
-	fontSize = buttonFontSize,
-	onRelease = function()
-		local requestId = store.getProductData({'consumable1', 'subscription1weekly', 'entitlement1', 'someinvalidsku'}, function(event)
-			print('getProductData() event:')
-			if not event.isError then
-				print('products:', json.prettify(event.products))
-				print('invalidProducts:', json.prettify(event.invalidProducts))
-			else
-				print(json.prettify(event))
-			end
-		end)
-		print('getProductData() Request ID:', requestId)
-	end
-}
-
-widget.newButton{
-	x = _CX, y = y + spacing * 2,
-	width = width, height = size,
-	label = 'purchase() consumable',
-	fontSize = buttonFontSize,
-	onRelease = function()
-		local requestId = store.purchase('consumable1')
-		print('purchase() Request ID:', requestId)
-	end
-}
-
-widget.newButton{
-	x = _CX, y = y + spacing * 3,
-	width = width, height = size,
-	label = 'purchase() entitlement',
-	fontSize = buttonFontSize,
-	onRelease = function()
-		local requestId = store.purchase('entitlement1')
-		print('purchase() Request ID:', requestId)
-	end
-}
-
-widget.newButton{
-	x = _CX, y = y + spacing * 4,
-	width = width, height = size,
-	label = 'purchase() subscription',
-	fontSize = buttonFontSize,
-	onRelease = function()
-		local requestId = store.purchase('subscription1weekly')
-		print('purchase() Request ID:', requestId)
-	end
-}
-
-widget.newButton{
-	x = _CX, y = y + spacing * 5,
-	width = width, height = size,
-	label = 'restore()',
-	fontSize = buttonFontSize,
-	onRelease = function()
-		local requestId = store.restore()
-		print('restore() Request ID:', requestId)
-	end
-}
-``````
-
--->

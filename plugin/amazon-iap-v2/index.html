@@ -72,11 +72,13 @@
 <li><a href="#store.getuseridplugin.amazon-iap-v2.getuserid"><a href="../../plugin/amazon-iap-v2/getUserId.html">store.getUserId()</a></a></li>
 <li><a href="#store.getuserdataplugin.amazon-iap-v2.getuserdata"><a href="../../plugin/amazon-iap-v2/getUserData.html">store.getUserData()</a></a></li>
 <li><a href="#store.issandboxmodeplugin.amazon-iap-v2.issandboxmode"><a href="../../plugin/amazon-iap-v2/isSandboxMode.html">store.isSandboxMode()</a></a></li>
+<li><a href="#store.verifyplugin.amazon-iap-v2.verify"><a href="../../plugin/amazon-iap-v2/verify.html">store.verify()</a></a></li>
 </ul></li>
 <li><a href="#events">Events</a><ul>
 <li><a href="#storetransactionplugin.amazon-iap-v2.event.storetransaction"><a href="../../plugin/amazon-iap-v2/event/storeTransaction/index.html">storeTransaction</a></a></li>
 <li><a href="#productlistplugin.amazon-iap-v2.event.productlist"><a href="../../plugin/amazon-iap-v2/event/productList/index.html">productList</a></a></li>
 <li><a href="#userdataplugin.amazon-iap-v2.event.userdata"><a href="../../plugin/amazon-iap-v2/event/userData/index.html">userData</a></a></li>
+<li><a href="#licensingplugin.amazon-iap-v2.event.licensing"><a href="../../plugin/amazon-iap-v2/event/licensing/index.html">licensing</a></a></li>
 </ul></li>
 <li><a href="#project-settings">Project Settings</a></li>
 <li><a href="#solar2d-native">Solar2D Native</a></li>
@@ -112,15 +114,15 @@
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>The Amazon IAP plugin lets you sell digital content and subscriptions from within your apps, including <nobr>in-game</nobr> currency, expansion packs, upgrades, magazine issues, and more.</p>
+<p>The Amazon IAP plugin lets you sell digital content and subscriptions from within your apps, including <nobr>in-game</nobr> currency, expansion packs, upgrades, magazine issues, and more. The plugin also includes optional DRM support as well. See <a href="../../plugin/amazon-iap-v2/verify.html">store.verify()</a> for information on implementing Amazon DRM/Licensing.</p>
 <div class="guide-notebox">
 <div class="notebox-title">
 Notes
 </div>
 <ul>
-<li><p>This plugin corresponds to <nobr>Amazon IAP v2</nobr>. If you are migrating from the previous version to v2, please see the <a href="../../plugin/amazon-iap-v2/migration.html">migration</a> page for a summary of changes.</p></li>
-<li><p>If you're new to <nobr>Amazon In-App Purchasing</nobr>, read Amazon's <a href="https://developer.amazon.com/docs/in-app-purchasing/iap-overview.html">In-App Purchasing Overview</a> guide.</p></li>
-<li><p>You must install the <a href="https://developer.amazon.com/docs/in-app-purchasing/iap-install-and-configure-app-tester.html">Amazon App Tester</a> or publish your app in the Amazon Appstore to use this plugin. Details on testing can be found <a href="https://developer.amazon.com/docs/in-app-purchasing/iap-testing-overview.html">here</a>.</p></li>
+<li><p>This plugin now uses the Appstore SDK with Solar2d 2021.3661+ and adds the api store.verify() to check DRM. No codes changes are required to use the Appstore SDK for IAP. If you are using the older v1 Solar2d plugin from Amazon see the <a href="../../plugin/amazon-iap-v2/migration.html">migration</a> page for a summary of changes.</p></li>
+<li><p>If you're new to <nobr>Amazon In-App Purchasing</nobr>, read Amazon's <a href="https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs-v2/understanding-in-app-purchasing">Understanding In-App Purchasing</a> guide.</p></li>
+<li><p>You must install the <a href="https://developer.amazon.com/docs/in-app-purchasing/iap-install-and-configure-app-tester.html">Amazon App Tester</a> or publish your app in the Amazon Appstore to use this plugin. Details on testing can be found <a href="https://developer.amazon.com/docs/in-app-purchasing/iap-install-and-configure-app-tester.html">here</a>.</p></li>
 </ul>
 </div>
 <div class="docs-tip-outer">
@@ -130,7 +132,7 @@ Notes
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>For in-app purchasing on other platforms, see the documentation for <a href="../../plugin/google-iap-billing/index.html">Google IAP</a>, <a href="../../plugin/apple-iap/index.html">Apple IAP</a> or <a href="../../api/library/store/index.html">Store API</a>.</p>
+<p>For in-app purchasing on other platforms, see the documentation for <a href="../../plugin/google-iap-billing/index.html">Google IAP</a>, <a href="../../plugin/apple-iap/index.html">Apple IAP</a>, <a href="../../plugin/samsung-iap/index.html">Samsung IAP</a>, or <a href="../../api/library/store/index.html">Store API</a>.</p>
 </div>
 </div>
 </div>
@@ -177,6 +179,9 @@ Notes
 <div id="store.issandboxmodeplugin.amazon-iap-v2.issandboxmode" class="section level4">
 <h4><a href="../../plugin/amazon-iap-v2/isSandboxMode.html">store.isSandboxMode()</a></h4>
 </div>
+<div id="store.verifyplugin.amazon-iap-v2.verify" class="section level4">
+<h4><a href="../../plugin/amazon-iap-v2/verify.html">store.verify()</a></h4>
+</div>
 </div>
 <div id="events" class="section level2">
 <h2>Events</h2>
@@ -188,6 +193,9 @@ Notes
 </div>
 <div id="userdataplugin.amazon-iap-v2.event.userdata" class="section level4">
 <h4><a href="../../plugin/amazon-iap-v2/event/userData/index.html">userData</a></h4>
+</div>
+<div id="licensingplugin.amazon-iap-v2.event.licensing" class="section level4">
+<h4><a href="../../plugin/amazon-iap-v2/event/licensing/index.html">licensing</a></h4>
 </div>
 </div>
 <div id="project-settings" class="section level2">
@@ -208,7 +216,7 @@ Notes
 <h2>Solar2D Native</h2>
 <p>To use this plugin with Solar2D Native:</p>
 <ol style="list-style-type: decimal">
-<li><p>Copy <code>plugin.amazon.iap.jar</code> and <code>in-app-purchasing-2.0.61.jar</code> into the <code>libs/</code> directory of your project.</p></li>
+<li><p>Copy <code>plugin.amazon.iap.jar</code> into the <code>libs/</code> directory of your project and add <code>implementation 'com.amazon.device:amazon-appstore-sdk:3.0.2'</code> to your App Gradle dependencies.</p></li>
 <li><p>Add the following section into your <code>AndroidManifest.xml</code> file, inside the <code>application</code> tag:</p></li>
 </ol>
 <div class="code-indent">
@@ -225,129 +233,6 @@ Notes
 <div class="code-indent">
 <pre class="brush: xml;">&lt;meta-data android:name="targetedAppStore" android:value="amazon"/></pre>
 </div>
-<!---
-
-## Example
-
-``````lua
-local store = require('plugin.amazon.iap')
-local widget = require('widget')
-local json = require('json')
-
--- The main store listener receives events when you make a purchase, restore or if Amazon decides it needs to send you an update
-local function storeListener(event)
-    print('storeListener event:')
-    if not event.isError then
-        print('status:', event.status)
-        print('transaction:', json.prettify(event.transaction))
-
-        -- You can fulfill the purchase if everything is ok or you can tell Amazon, that this receipt
-        -- is no longer valid with store.notifyUnavailable()
-        store.notifyFulfilled(event.transaction.receiptId)
-    else
-        print(json.prettify(event))
-    end
-end
-
--- You must call init() before anything else
-store.init(storeListener)
-print('isSandboxMode:', store.isSandboxMode) -- true if you are testing with App Tester
-print('isActive:', store.isActive) -- true if the plugin was properly initialized
-
-local _W, _H = display.actualContentWidth, display.actualContentHeight
-local _CX = display.contentCenterX
-
-local width = _W * 0.8
-local size = _H * 0.1
-local buttonFontSize = 16
-
-local y = size * 0.5
-local spacing = _H * 0.15
-
-widget.newButton{
-    x = _CX, y = y,
-    width = width, height = size,
-    label = 'getUserData()',
-    fontSize = buttonFontSize,
-    onRelease = function()
-        local requestId = store.getUserData(function(event)
-            print('getUserData() event:')
-            if not event.isError then
-                print('userId:', event.userId)
-                print('marketplace:', event.marketplace)
-            else
-                print(json.prettify(event))
-            end
-        end)
-        print('getUserData() Request ID:', requestId)
-    end
-}
-
-widget.newButton{
-    x = _CX, y = y + spacing,
-    width = width, height = size,
-    label = 'getProductData()',
-    fontSize = buttonFontSize,
-    onRelease = function()
-        local requestId = store.getProductData({'consumable1', 'subscription1weekly', 'entitlement1', 'someinvalidsku'}, function(event)
-            print('getProductData() event:')
-            if not event.isError then
-                print('products:', json.prettify(event.products))
-                print('invalidProducts:', json.prettify(event.invalidProducts))
-            else
-                print(json.prettify(event))
-            end
-        end)
-        print('getProductData() Request ID:', requestId)
-    end
-}
-
-widget.newButton{
-    x = _CX, y = y + spacing * 2,
-    width = width, height = size,
-    label = 'purchase() consumable',
-    fontSize = buttonFontSize,
-    onRelease = function()
-        local requestId = store.purchase('consumable1')
-        print('purchase() Request ID:', requestId)
-    end
-}
-
-widget.newButton{
-    x = _CX, y = y + spacing * 3,
-    width = width, height = size,
-    label = 'purchase() entitlement',
-    fontSize = buttonFontSize,
-    onRelease = function()
-        local requestId = store.purchase('entitlement1')
-        print('purchase() Request ID:', requestId)
-    end
-}
-
-widget.newButton{
-    x = _CX, y = y + spacing * 4,
-    width = width, height = size,
-    label = 'purchase() subscription',
-    fontSize = buttonFontSize,
-    onRelease = function()
-        local requestId = store.purchase('subscription1weekly')
-        print('purchase() Request ID:', requestId)
-    end
-}
-
-widget.newButton{
-    x = _CX, y = y + spacing * 5,
-    width = width, height = size,
-    label = 'restore()',
-    fontSize = buttonFontSize,
-    onRelease = function()
-        local requestId = store.restore()
-        print('restore() Request ID:', requestId)
-    end
-}
-``````
-
--->
 <hr>
 <div id="footer">
 <p class="copyright">

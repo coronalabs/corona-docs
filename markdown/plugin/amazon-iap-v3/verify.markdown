@@ -5,13 +5,9 @@
 > __Return value__      [Boolean][api.type.Boolean]
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          Amazon, IAP, in-app purchases, verify, drm
-> __See also__			[store.*][plugin.amazon-iap-v2]
+> __See also__			[store.*][plugin.amazon-iap-v3]
 > --------------------- ------------------------------------------------------------------------------------------
 
-
-## Overview
-
-In order to use Amazon's App Store DRM, you need add the `AppstoreAuthenticationKey.pem` file to your in project root folder. This file can be found in your online Amazon Dev portal in your App `APK File` section by clicking on `Public Key`. More info on setup can be found [here](https://developer.amazon.com/docs/in-app-purchasing/integrate-appstore-sdk.html#configure_key).
 
 
 ## Syntax
@@ -19,12 +15,12 @@ In order to use Amazon's App Store DRM, you need add the `AppstoreAuthentication
 	store.verify(listener)
 
 ##### listener ~^(required)^~
-	_[Listener][api.type.Listener]._ The listener that will handle [licensing][plugin.amazon-iap-v2.event.licensing] events.
+_[Listener][api.type.Listener]._ The listener that will handle [licensing][plugin.amazon-iap-v3.event.licensing] events.
 
 ## Example
 
 	``````lua
-	local store = require( "plugin.amazon.iap" )
+	local store = require( "plugin.amazon.iap.v3" )
 	local json = require( "json" )
 
 	local function transactionListener( event )

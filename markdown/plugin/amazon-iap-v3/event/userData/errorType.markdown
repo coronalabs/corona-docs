@@ -1,21 +1,14 @@
-# event.response
+# event.errorType
 
 > --------------------- ------------------------------------------------------------------------------------------
 > __Type__              [String][api.type.String]
-> __Event__             [licensing][plugin.amazon-iap-v2.event.licensing]
+> __Event__             [userData][plugin.amazon-iap-v3.event.userData]
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          Amazon, IAP, in-app purchases, userData, errorType
-> __See also__			[store.verify()][plugin.amazon-iap-v2.verify]
->						[store.*][plugin.amazon-iap-v2]
+> __See also__			[userData][plugin.amazon-iap-v3.event.userData]
+>						[store.*][plugin.amazon-iap-v3]
 > --------------------- ------------------------------------------------------------------------------------------
 
 ## Overview
 
-This is a translated response from the licensing server. The value may be one of the following strings:
-
-* `"Licensed"`
-* `"Not licensed"`
-* `"Error with verification"`
-* `"Invalid licensing keys"`
-* `"Expired"`
-* `"Unknown error"`
+If an [error][plugin.amazon-iap-v3.event.userData.isError] occurred, a [string][api.type.String] value stating the type of error.

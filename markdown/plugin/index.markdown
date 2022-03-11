@@ -210,7 +210,7 @@ Interested in [creating a plugin][native.plugin]? Please see our [Plugins][nativ
 <div class="category-title">In-App Purchasing</div>
 </div>
 
-* [Amazon IAP][plugin.amazon-iap-v2]
+* [Amazon IAP][plugin.amazon-iap-v3]
 * [Apple IAP][plugin.apple-iap]
 * [Google IAP][plugin.google-iap-billing]
 * [Samsung IAP][plugin.samsung-iap]

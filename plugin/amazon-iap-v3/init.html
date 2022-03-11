@@ -9,10 +9,10 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — Plugins | Amazon IAP | licensing</title>
+  <title>Solar2D Documentation — Plugins | amazon-iap-v3 | init</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -30,13 +30,13 @@
 	<span class="titleimg" onclick="window.location='https://docs.coronalabs.com/'"></span>
 	<div id="nav">
 		<ul>
-<li><a href="../../../../guide/programming/index.html">Getting Started</a></li>
-<li><a href="../../../../guide/index.html">Guides</a></li>
-<li><a href="../../../../api/index.html">API Reference</a></li>
-<li><a href="../../../../tutorial/index.html">Tutorials</a></li>
-<li><a href="../../../../plugin/index.html">Plugins</a></li>
-<li><a href="../../../../native/index.html">Solar2D Native</a></li>
-<li><a href="../../../../coronacards/index.html">CoronaCards</a></li>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Solar2D Native</a></li>
+<li><a href="../../coronacards/index.html">CoronaCards</a></li>
 </ul>
 
 		<!--
@@ -55,69 +55,86 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#licensing">licensing</a><ul>
+<li><a href="#store.init">store.init()</a><ul>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#properties">Properties</a><ul>
-<li><a href="#event.nameplugin.amazon-iap-v2.event.licensing.name"><a href="../../../../plugin/amazon-iap-v2/event/licensing/name.html">event.name</a></a></li>
-<li><a href="#event.iserrorplugin.amazon-iap-v2.event.userdata.iserror"><a href="../../../../plugin/amazon-iap-v2/event/userData/isError.html">event.isError</a></a></li>
-<li><a href="#event.isverifiedplugin.amazon-iap-v2.event.userdata.isverified">[event.isVerified][plugin.amazon-iap-v2.event.userData.isVerified]</a></li>
-<li><a href="#event.providerplugin.amazon-iap-v2.event.userdata.provider">[event.provider][plugin.amazon-iap-v2.event.userData.provider]</a></li>
-<li><a href="#event.responseplugin.amazon-iap-v2.event.userdata.response">[event.response][plugin.amazon-iap-v2.event.userData.response]</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#listener-required">listener <sub><sup>(required)</sup></sub></a></li>
 </ul></li>
+<li><a href="#example">Example</a></li>
 </ul></li>
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../../plugin/index.html">Plugins</a>  ▸  <a href="../../../../plugin/amazon-iap-v2/index.html">Amazon IAP</a>  ▸  <a href="../../../../plugin/amazon-iap-v2/event/licensing/index.html">licensing</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/amazon-iap-v3/index.html">amazon-iap-v3</a>  ▸  <a href="../../plugin/amazon-iap-v3/init.html">init</a>
 </div>
-<div id="licensing" class="section level1">
-<h1>licensing</h1>
+<div id="store.init" class="section level1">
+<h1>store.init()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
 <td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../../api/type/Event.html">Event</a></td>
+<td align="left"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
+<td align="left"><strong>Return value</strong></td>
+<td align="left">none</td>
+</tr>
+<tr class="odd">
 <td align="left"><strong>Revision</strong></td>
 <td align="left"><a href="https://solar2d.com/download/">Release 2021.3646</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><strong>Keywords</strong></td>
-<td align="left">Amazon, IAP, in-app purchases, licensing</td>
+<td align="left">Amazon, IAP, in-app purchases, init</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>See also</strong></td>
+<td align="left"><a href="../../plugin/amazon-iap-v3/isActive.html">store.isActive</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../../plugin/amazon-iap-v2/verify.html">store.verify()</a></td>
-</tr>
-<tr class="odd">
 <td align="left"></td>
-<td align="left"><a href="../../../../plugin/amazon-iap-v2/index.html">store.*</a></td>
+<td align="left"><a href="../../plugin/amazon-iap-v3/index.html">store.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>The following event properties are passed to the listener function specified in <a href="../../../../plugin/amazon-iap-v2/verify.html">store.verify()</a>.</p>
+<p>This call is required and must be executed before making other Amazon IAP calls. This prepares the Amazon IAP library and, upon successful initialization, sets <a href="../../plugin/amazon-iap-v3/isActive.html">store.isActive</a> to <code>true</code>.</p>
+<p>This also initiates the process to retrieve any pending/future purchases, dispatching a <a href="../../plugin/amazon-iap-v3/event/storeTransaction/index.html">storeTransaction</a> event to the listener defined as <code>listener</code>.</p>
 </div>
-<div id="properties" class="section level2">
-<h2>Properties</h2>
-<div id="event.nameplugin.amazon-iap-v2.event.licensing.name" class="section level4">
-<h4><a href="../../../../plugin/amazon-iap-v2/event/licensing/name.html">event.name</a></h4>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">store.init( listener )</pre>
+<div id="listener-required" class="section level5">
+<h5>listener <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/Listener.html">Listener</a>.</em> The listener that will handle <a href="../../plugin/amazon-iap-v3/event/storeTransaction/index.html">storeTransaction</a> events.</p>
 </div>
-<div id="event.iserrorplugin.amazon-iap-v2.event.userdata.iserror" class="section level4">
-<h4><a href="../../../../plugin/amazon-iap-v2/event/userData/isError.html">event.isError</a></h4>
 </div>
-<div id="event.isverifiedplugin.amazon-iap-v2.event.userdata.isverified" class="section level4">
-<h4>[event.isVerified][plugin.amazon-iap-v2.event.userData.isVerified]</h4>
-</div>
-<div id="event.providerplugin.amazon-iap-v2.event.userdata.provider" class="section level4">
-<h4>[event.provider][plugin.amazon-iap-v2.event.userData.provider]</h4>
-</div>
-<div id="event.responseplugin.amazon-iap-v2.event.userdata.response" class="section level4">
-<h4>[event.response][plugin.amazon-iap-v2.event.userData.response]</h4>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="brush: lua;">local store = require( "plugin.amazon.iap.v3" )
+local json = require( "json" )
+
+-- Transaction listener function
+local function transactionListener( event )
+
+    if not ( event.isError ) then  -- Successful transaction
+        print( json.prettify( event ) )     
+        print( "event.transaction: " .. json.prettify( event.transaction ) )
+
+    else  -- Unsuccessful transaction; output error details
+        print( event.errorType )
+        print( event.errorString )
+    end
+
+    -- Notify Amazon about the transaction being processed
+    store.finishTransaction( event.transaction )
+end
+
+-- Initialize Amazon IAP
+store.init( transactionListener )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -127,7 +144,6 @@
 Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
-</div>
 </div>
 </div>
 </div>

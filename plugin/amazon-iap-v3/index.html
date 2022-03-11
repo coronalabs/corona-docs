@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — Plugins | Amazon IAP</title>
+  <title>Solar2D Documentation — Plugins | amazon-iap-v3</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
@@ -55,28 +55,30 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#amazon.iap.">amazon.iap.*</a><ul>
+<li><a href="#amazon.iap.v3.">amazon.iap.v3.*</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#registration">Registration</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#properties">Properties</a><ul>
-<li><a href="#store.targetplugin.amazon-iap-v2.target"><a href="../../plugin/amazon-iap-v2/target.html">store.target</a></a></li>
-<li><a href="#store.isactiveplugin.amazon-iap-v2.isactive"><a href="../../plugin/amazon-iap-v2/isActive.html">store.isActive</a></a></li>
+<li><a href="#store.targetplugin.amazon-iap-v3.target"><a href="../../plugin/amazon-iap-v3/target.html">store.target</a></a></li>
+<li><a href="#store.isactiveplugin.amazon-iap-v3.isactive"><a href="../../plugin/amazon-iap-v3/isActive.html">store.isActive</a></a></li>
 </ul></li>
 <li><a href="#functions">Functions</a><ul>
-<li><a href="#store.initplugin.amazon-iap-v2.init"><a href="../../plugin/amazon-iap-v2/init.html">store.init()</a></a></li>
-<li><a href="#store.loadproductsplugin.amazon-iap-v2.loadproducts"><a href="../../plugin/amazon-iap-v2/loadProducts.html">store.loadProducts()</a></a></li>
-<li><a href="#store.purchaseplugin.amazon-iap-v2.purchase"><a href="../../plugin/amazon-iap-v2/purchase.html">store.purchase()</a></a></li>
-<li><a href="#store.finishtransactionplugin.amazon-iap-v2.finishtransaction"><a href="../../plugin/amazon-iap-v2/finishTransaction.html">store.finishTransaction()</a></a></li>
-<li><a href="#store.restoreplugin.amazon-iap-v2.restore"><a href="../../plugin/amazon-iap-v2/restore.html">store.restore()</a></a></li>
-<li><a href="#store.getuseridplugin.amazon-iap-v2.getuserid"><a href="../../plugin/amazon-iap-v2/getUserId.html">store.getUserId()</a></a></li>
-<li><a href="#store.getuserdataplugin.amazon-iap-v2.getuserdata"><a href="../../plugin/amazon-iap-v2/getUserData.html">store.getUserData()</a></a></li>
-<li><a href="#store.issandboxmodeplugin.amazon-iap-v2.issandboxmode"><a href="../../plugin/amazon-iap-v2/isSandboxMode.html">store.isSandboxMode()</a></a></li>
+<li><a href="#store.initplugin.amazon-iap-v3.init"><a href="../../plugin/amazon-iap-v3/init.html">store.init()</a></a></li>
+<li><a href="#store.loadproductsplugin.amazon-iap-v3.loadproducts"><a href="../../plugin/amazon-iap-v3/loadProducts.html">store.loadProducts()</a></a></li>
+<li><a href="#store.purchaseplugin.amazon-iap-v3.purchase"><a href="../../plugin/amazon-iap-v3/purchase.html">store.purchase()</a></a></li>
+<li><a href="#store.finishtransactionplugin.amazon-iap-v3.finishtransaction"><a href="../../plugin/amazon-iap-v3/finishTransaction.html">store.finishTransaction()</a></a></li>
+<li><a href="#store.restoreplugin.amazon-iap-v3.restore"><a href="../../plugin/amazon-iap-v3/restore.html">store.restore()</a></a></li>
+<li><a href="#store.getuseridplugin.amazon-iap-v3.getuserid"><a href="../../plugin/amazon-iap-v3/getUserId.html">store.getUserId()</a></a></li>
+<li><a href="#store.getuserdataplugin.amazon-iap-v3.getuserdata"><a href="../../plugin/amazon-iap-v3/getUserData.html">store.getUserData()</a></a></li>
+<li><a href="#store.issandboxmodeplugin.amazon-iap-v3.issandboxmode"><a href="../../plugin/amazon-iap-v3/isSandboxMode.html">store.isSandboxMode()</a></a></li>
+<li><a href="#store.verifyplugin.amazon-iap-v3.verify"><a href="../../plugin/amazon-iap-v3/verify.html">store.verify()</a></a></li>
 </ul></li>
 <li><a href="#events">Events</a><ul>
-<li><a href="#storetransactionplugin.amazon-iap-v2.event.storetransaction"><a href="../../plugin/amazon-iap-v2/event/storeTransaction/index.html">storeTransaction</a></a></li>
-<li><a href="#productlistplugin.amazon-iap-v2.event.productlist"><a href="../../plugin/amazon-iap-v2/event/productList/index.html">productList</a></a></li>
-<li><a href="#userdataplugin.amazon-iap-v2.event.userdata"><a href="../../plugin/amazon-iap-v2/event/userData/index.html">userData</a></a></li>
+<li><a href="#storetransactionplugin.amazon-iap-v3.event.storetransaction"><a href="../../plugin/amazon-iap-v3/event/storeTransaction/index.html">storeTransaction</a></a></li>
+<li><a href="#productlistplugin.amazon-iap-v3.event.productlist"><a href="../../plugin/amazon-iap-v3/event/productList/index.html">productList</a></a></li>
+<li><a href="#userdataplugin.amazon-iap-v3.event.userdata"><a href="../../plugin/amazon-iap-v3/event/userData/index.html">userData</a></a></li>
+<li><a href="#licensingplugin.amazon-iap-v3.event.licensing"><a href="../../plugin/amazon-iap-v3/event/licensing/index.html">licensing</a></a></li>
 </ul></li>
 <li><a href="#project-settings">Project Settings</a></li>
 <li><a href="#solar2d-native">Solar2D Native</a></li>
@@ -84,10 +86,10 @@
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/amazon-iap-v2/index.html">Amazon IAP</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/amazon-iap-v3/index.html">amazon-iap-v3</a>
 </div>
-<div id="amazon.iap." class="section level1">
-<h1>amazon.iap.*</h1>
+<div id="amazon.iap.v3." class="section level1">
+<h1>amazon.iap.v3.*</h1>
 <blockquote>
 <table>
 <tbody>
@@ -112,14 +114,13 @@
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>The Amazon IAP plugin lets you sell digital content and subscriptions from within your apps, including <nobr>in-game</nobr> currency, expansion packs, upgrades, magazine issues, and more.</p>
+<p>The Amazon IAP plugin lets you sell digital content and subscriptions from within your apps, including <nobr>in-game</nobr> currency, expansion packs, upgrades, magazine issues, and more. The plugin also includes optional DRM support as well. See <a href="../../plugin/amazon-iap-v3/verify.html">store.verify()</a> for information on implementing Amazon DRM/Licensing.</p>
 <div class="guide-notebox">
 <div class="notebox-title">
 Notes
 </div>
 <ul>
-<li><p>This is the legacy version of the plugin Amazon IAP, please see the new <a href="../../plugin/amazon-iap-v3/index.html">Amazon IAP V3</a></p></li>
-<li><p>If you are using the older v1 Solar2d plugin from Amazon see the <a href="../../plugin/amazon-iap-v2/migration.html">migration</a> page for a summary of changes.</p></li>
+<li><p>This plugin now uses the Appstore SDK adds the api store.verify() to check DRM. No codes changes are required to use the Appstore SDK for IAP but you must include 'AppstoreAuthenticationKey.pem' in your project root to use IAP. This file can be found in your online Amazon Dev portal in your App APK File section by clicking on Public Key. See <a href="../../plugin/amazon-iap-v2/index.html">Legacy Plugin</a> for use of Amazon IAP V2.</p></li>
 <li><p>If you're new to <nobr>Amazon In-App Purchasing</nobr>, read Amazon's <a href="https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs-v2/understanding-in-app-purchasing">Understanding In-App Purchasing</a> guide.</p></li>
 <li><p>You must install the <a href="https://developer.amazon.com/docs/in-app-purchasing/iap-install-and-configure-app-tester.html">Amazon App Tester</a> or publish your app in the Amazon Appstore to use this plugin. Details on testing can be found <a href="https://developer.amazon.com/docs/in-app-purchasing/iap-install-and-configure-app-tester.html">here</a>.</p></li>
 </ul>
@@ -141,54 +142,60 @@ Notes
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">local store = require( "plugin.amazon.iap" )</pre>
+<pre class="brush: lua;">local store = require( "plugin.amazon.iap.v3" )</pre>
 </div>
 <div id="properties" class="section level2">
 <h2>Properties</h2>
-<div id="store.targetplugin.amazon-iap-v2.target" class="section level4">
-<h4><a href="../../plugin/amazon-iap-v2/target.html">store.target</a></h4>
+<div id="store.targetplugin.amazon-iap-v3.target" class="section level4">
+<h4><a href="../../plugin/amazon-iap-v3/target.html">store.target</a></h4>
 </div>
-<div id="store.isactiveplugin.amazon-iap-v2.isactive" class="section level4">
-<h4><a href="../../plugin/amazon-iap-v2/isActive.html">store.isActive</a></h4>
+<div id="store.isactiveplugin.amazon-iap-v3.isactive" class="section level4">
+<h4><a href="../../plugin/amazon-iap-v3/isActive.html">store.isActive</a></h4>
 </div>
 </div>
 <div id="functions" class="section level2">
 <h2>Functions</h2>
-<div id="store.initplugin.amazon-iap-v2.init" class="section level4">
-<h4><a href="../../plugin/amazon-iap-v2/init.html">store.init()</a></h4>
+<div id="store.initplugin.amazon-iap-v3.init" class="section level4">
+<h4><a href="../../plugin/amazon-iap-v3/init.html">store.init()</a></h4>
 </div>
-<div id="store.loadproductsplugin.amazon-iap-v2.loadproducts" class="section level4">
-<h4><a href="../../plugin/amazon-iap-v2/loadProducts.html">store.loadProducts()</a></h4>
+<div id="store.loadproductsplugin.amazon-iap-v3.loadproducts" class="section level4">
+<h4><a href="../../plugin/amazon-iap-v3/loadProducts.html">store.loadProducts()</a></h4>
 </div>
-<div id="store.purchaseplugin.amazon-iap-v2.purchase" class="section level4">
-<h4><a href="../../plugin/amazon-iap-v2/purchase.html">store.purchase()</a></h4>
+<div id="store.purchaseplugin.amazon-iap-v3.purchase" class="section level4">
+<h4><a href="../../plugin/amazon-iap-v3/purchase.html">store.purchase()</a></h4>
 </div>
-<div id="store.finishtransactionplugin.amazon-iap-v2.finishtransaction" class="section level4">
-<h4><a href="../../plugin/amazon-iap-v2/finishTransaction.html">store.finishTransaction()</a></h4>
+<div id="store.finishtransactionplugin.amazon-iap-v3.finishtransaction" class="section level4">
+<h4><a href="../../plugin/amazon-iap-v3/finishTransaction.html">store.finishTransaction()</a></h4>
 </div>
-<div id="store.restoreplugin.amazon-iap-v2.restore" class="section level4">
-<h4><a href="../../plugin/amazon-iap-v2/restore.html">store.restore()</a></h4>
+<div id="store.restoreplugin.amazon-iap-v3.restore" class="section level4">
+<h4><a href="../../plugin/amazon-iap-v3/restore.html">store.restore()</a></h4>
 </div>
-<div id="store.getuseridplugin.amazon-iap-v2.getuserid" class="section level4">
-<h4><a href="../../plugin/amazon-iap-v2/getUserId.html">store.getUserId()</a></h4>
+<div id="store.getuseridplugin.amazon-iap-v3.getuserid" class="section level4">
+<h4><a href="../../plugin/amazon-iap-v3/getUserId.html">store.getUserId()</a></h4>
 </div>
-<div id="store.getuserdataplugin.amazon-iap-v2.getuserdata" class="section level4">
-<h4><a href="../../plugin/amazon-iap-v2/getUserData.html">store.getUserData()</a></h4>
+<div id="store.getuserdataplugin.amazon-iap-v3.getuserdata" class="section level4">
+<h4><a href="../../plugin/amazon-iap-v3/getUserData.html">store.getUserData()</a></h4>
 </div>
-<div id="store.issandboxmodeplugin.amazon-iap-v2.issandboxmode" class="section level4">
-<h4><a href="../../plugin/amazon-iap-v2/isSandboxMode.html">store.isSandboxMode()</a></h4>
+<div id="store.issandboxmodeplugin.amazon-iap-v3.issandboxmode" class="section level4">
+<h4><a href="../../plugin/amazon-iap-v3/isSandboxMode.html">store.isSandboxMode()</a></h4>
+</div>
+<div id="store.verifyplugin.amazon-iap-v3.verify" class="section level4">
+<h4><a href="../../plugin/amazon-iap-v3/verify.html">store.verify()</a></h4>
 </div>
 </div>
 <div id="events" class="section level2">
 <h2>Events</h2>
-<div id="storetransactionplugin.amazon-iap-v2.event.storetransaction" class="section level4">
-<h4><a href="../../plugin/amazon-iap-v2/event/storeTransaction/index.html">storeTransaction</a></h4>
+<div id="storetransactionplugin.amazon-iap-v3.event.storetransaction" class="section level4">
+<h4><a href="../../plugin/amazon-iap-v3/event/storeTransaction/index.html">storeTransaction</a></h4>
 </div>
-<div id="productlistplugin.amazon-iap-v2.event.productlist" class="section level4">
-<h4><a href="../../plugin/amazon-iap-v2/event/productList/index.html">productList</a></h4>
+<div id="productlistplugin.amazon-iap-v3.event.productlist" class="section level4">
+<h4><a href="../../plugin/amazon-iap-v3/event/productList/index.html">productList</a></h4>
 </div>
-<div id="userdataplugin.amazon-iap-v2.event.userdata" class="section level4">
-<h4><a href="../../plugin/amazon-iap-v2/event/userData/index.html">userData</a></h4>
+<div id="userdataplugin.amazon-iap-v3.event.userdata" class="section level4">
+<h4><a href="../../plugin/amazon-iap-v3/event/userData/index.html">userData</a></h4>
+</div>
+<div id="licensingplugin.amazon-iap-v3.event.licensing" class="section level4">
+<h4><a href="../../plugin/amazon-iap-v3/event/licensing/index.html">licensing</a></h4>
 </div>
 </div>
 <div id="project-settings" class="section level2">
@@ -198,9 +205,9 @@ Notes
 {
     plugins =
     {
-        ["plugin.amazon.iap"] =
+        ["plugin.amazon.iap.v3"] =
         {
-            publisherId = "com.coronalabs"
+            publisherId = "com.solar2d"
         },
     },
 }</pre>
@@ -209,7 +216,7 @@ Notes
 <h2>Solar2D Native</h2>
 <p>To use this plugin with Solar2D Native:</p>
 <ol style="list-style-type: decimal">
-<li><p>Copy <code>plugin.amazon.iap.jar</code> and <code>plugin.amazon.iap.jar</code> into the <code>libs/</code> directory of your project.</p></li>
+<li><p>Copy <code>plugin.amazon.iap.v3.jar</code> into the <code>libs/</code> directory of your project and add <code>implementation 'com.amazon.device:amazon-appstore-sdk:3.0.2'</code> to your App Gradle dependencies.</p></li>
 <li><p>Add the following section into your <code>AndroidManifest.xml</code> file, inside the <code>application</code> tag:</p></li>
 </ol>
 <div class="code-indent">

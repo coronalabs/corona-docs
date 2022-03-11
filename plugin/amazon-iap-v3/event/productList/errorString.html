@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — Plugins | Amazon IAP | licensing | isVerified</title>
+  <title>Solar2D Documentation — Plugins | amazon-iap-v3 | productList | errorString</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../../../css/shCoreDefault.css" type="text/css" />
@@ -55,16 +55,16 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#event.isverified">event.isVerified</a><ul>
+<li><a href="#event.errorstring">event.errorString</a><ul>
 <li><a href="#overview">Overview</a></li>
 </ul></li>
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../../plugin/index.html">Plugins</a>  ▸  <a href="../../../../plugin/amazon-iap-v2/index.html">Amazon IAP</a>  ▸  <a href="../../../../plugin/amazon-iap-v2/event/licensing/index.html">licensing</a>  ▸  <a href="../../../../plugin/amazon-iap-v2/event/licensing/isVerified.html">isVerified</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../../plugin/index.html">Plugins</a>  ▸  <a href="../../../../plugin/amazon-iap-v3/index.html">amazon-iap-v3</a>  ▸  <a href="../../../../plugin/amazon-iap-v3/event/productList/index.html">productList</a>  ▸  <a href="../../../../plugin/amazon-iap-v3/event/productList/errorString.html">errorString</a>
 </div>
-<div id="event.isverified" class="section level1">
-<h1>event.isVerified</h1>
+<div id="event.errorstring" class="section level1">
+<h1>event.errorString</h1>
 <blockquote>
 <table>
 <tbody>
@@ -74,7 +74,7 @@
 </tr>
 <tr class="even">
 <td align="left"><strong>Event</strong></td>
-<td align="left"><a href="../../../../plugin/amazon-iap-v2/event/licensing/index.html">licensing</a></td>
+<td align="left"><a href="../../../../plugin/amazon-iap-v3/event/productList/index.html">productList</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>Revision</strong></td>
@@ -82,22 +82,22 @@
 </tr>
 <tr class="even">
 <td align="left"><strong>Keywords</strong></td>
-<td align="left">Amazon, IAP, in-app purchases, userData, isError</td>
+<td align="left">Amazon, IAP, in-app purchases, productList, errorString</td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../../plugin/amazon-iap-v2/verify.html">store.verify()</a></td>
+<td align="left"><a href="../../../../plugin/amazon-iap-v3/event/productList/index.html">productList</a></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
-<td align="left"><a href="../../../../plugin/amazon-iap-v2/index.html">store.*</a></td>
+<td align="left"><a href="../../../../plugin/amazon-iap-v3/index.html">store.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>If the app was verified as being purchased from the provider, returns <code>true</code>. Otherwise returns <code>false</code>.</p>
+<p>If an <a href="../../../../plugin/amazon-iap-v3/event/productList/isError.html">error</a> occurred, a <a href="../../../../api/type/String.html">string</a> value stating the cause of the error. Possible values include <code>&quot;failed&quot;</code> or <nobr><code>&quot;not supported&quot;</code></nobr>.</p>
 <hr>
 <div id="footer">
 <p class="copyright">

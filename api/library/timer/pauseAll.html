@@ -57,6 +57,7 @@
 <ul>
 <li><a href="#timer.pauseall">timer.pauseAll()</a><ul>
 <li><a href="#overview">Overview</a></li>
+<li><a href="#gotchas">Gotchas</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#example">Example</a></li>
 </ul></li>
@@ -96,18 +97,22 @@
 <div id="overview" class="section level2">
 <h2>Overview</h2>
 <p>Pauses all timers started with <a href="../../../api/library/timer/performWithDelay.html">timer.performWithDelay()</a>.</p>
-<p>Note: Using <a href="../../../api/library/timer/pauseAll.html">timer.pauseAll()</a> requires <code>Solar2D 2020.3611</code> or a newer build.</p>
+</div>
+<div id="gotchas" class="section level2">
+<h2>Gotchas</h2>
+<p>Using <a href="../../../api/library/timer/pauseAll.html">timer.pauseAll()</a> requires <code>Solar2D 2020.3611</code> or a newer build.</p>
+<p>For multiple timers, a tag or id is needed to use <a href="../../../api/library/timer/resumeAll.html">timer.resumeAll()</a>, <a href="../../../api/library/timer/pauseAll.html">timer.pauseAll()</a>, or <a href="../../../api/library/timer/cancelAll.html">timer.cancelAll()</a></p>
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">timer.pauseAll( timerId )</pre>
+<pre class="brush: lua;">timer.pauseAll( )</pre>
 </div>
 <div id="example" class="section level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local function listener( event )
     print( "listener called" )
 end
- 
+
 timer1 = timer.performWithDelay( 2000, listener )  -- wait 2 seconds
 timer2 = timer.performWithDelay( 3000, listener )  -- wait 3 seconds
 

@@ -1,4 +1,7 @@
 # Changelog
+##### 2022-03-23  Scott Harrison
+ * retiring this plugin in favor of new v4 plugin
+
 ##### 2020-04-20  Vlad Shcherban
  * unityads 3.4.2
 
@@ -73,4 +76,3 @@ Android: Release listeners on app exit
 
 ##### 2016-12-20  Brent Sorrentino
  * Initial docs.
-

@@ -1,4 +1,4 @@
-# unityads.*
+# unityads.v4.*
 
 > --------------------- ------------------------------------------------------------------------------------------
 > __Type__              [Library][api.type.Library]
@@ -15,11 +15,11 @@ The Unity Ads plugin allows developers to monetize users through Unity Ads video
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Important</div>
 
-This is a legacy Unity Ads plugin using Unity SDK v3, see [Unity SDK v4][plugin.unityads-v4]
+This documentation is for the new Unity Ads SDK(v4), click to view the [Unity Ads legacy plugin][plugin.unityads]
 
-On a per-app basis, the first time a Unity ad appears, the user will see a banner with the option to opt-out of behaviorally targeted advertising. Thereafter, the user can click an information button to receive the opt-out again.
+Notable changes from old plugin include now needing to load placement IDs via [unityads.load()][plugin.unityads-v4.load] and the `placementStatus` [event.phase][plugin.unityads-v4.event.adsRequest.phase] removal.
 
-Although UnityAds will automatically present users with an opportunity to opt-out of targeted advertising, with no implementation needed from the publisher, check out new `setHasUserConsent` method to enable manual GDPR data collection restrictions.
+On a per-app basis, the first time a Unity ad appears, the user will see a banner with the option to opt-out of behaviorally targeted advertising. Thereafter, the user can click an information button to receive the opt-out again. Although UnityAds will automatically present users with an opportunity to opt-out of targeted advertising, with no implementation needed from the publisher, check out new `setHasUserConsent` method to enable manual GDPR data collection restrictions.
 
 See more at [Unity Ads GDPR Compliance doc page](https://unityads.unity3d.com/help/legal/gdpr)
 
@@ -33,23 +33,29 @@ Before you can use this plugin, you must [register](https://unity3d.com/services
 
 ## Syntax
 
-	local unityads = require( "plugin.unityads" )
+	local unityads = require( "plugin.unityads.v4" )
 
 
 ## Functions
 
-#### [unityads.init()][plugin.unityads.init]
+#### [unityads.init()][plugin.unityads-v4.init]
 
-#### [unityads.isLoaded()][plugin.unityads.isLoaded]
+#### [unityads.isLoaded()][plugin.unityads-v4.isLoaded]
 
-#### [unityads.show()][plugin.unityads.show]
+#### [unityads.load()][plugin.unityads-v4.load]
 
-#### [unityads.setHasUserConsent()][plugin.unityads.setHasUserConsent]
+#### [unityads.show()][plugin.unityads-v4.show]
+
+#### [unityads.setHasUserConsent()][plugin.unityads-v4.setHasUserConsent]
+
+#### [unityads.setPersonalizedAds()][plugin.unityads-v4.setPersonalizedAds]
+
+#### [unityads.setPrivacyMode()][plugin.unityads-v4.setPrivacyMode]
 
 
 ## Events
 
-#### [adsRequest][plugin.unityads.event.adsRequest]
+#### [adsRequest][plugin.unityads-v4.event.adsRequest]
 
 
 ## Project Settings
@@ -76,9 +82,9 @@ settings =
 	},
 	plugins =
 	{
-		["plugin.unityads"] =
+		["plugin.unityads.v4"] =
 		{
-			publisherId = "com.coronalabs"
+			publisherId = "com.solar2d"
 		},
 	},
 }

@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — Plugins | Unity Ads</title>
+  <title>Solar2D Documentation — Plugins | unityads-v4</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
@@ -55,18 +55,21 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#unityads.">unityads.*</a><ul>
+<li><a href="#unityads.v4.">unityads.v4.*</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#registration">Registration</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#functions">Functions</a><ul>
-<li><a href="#unityads.initplugin.unityads.init"><a href="../../plugin/unityads/init.html">unityads.init()</a></a></li>
-<li><a href="#unityads.isloadedplugin.unityads.isloaded"><a href="../../plugin/unityads/isLoaded.html">unityads.isLoaded()</a></a></li>
-<li><a href="#unityads.showplugin.unityads.show"><a href="../../plugin/unityads/show.html">unityads.show()</a></a></li>
-<li><a href="#unityads.sethasuserconsentplugin.unityads.sethasuserconsent"><a href="../../plugin/unityads/setHasUserConsent.html">unityads.setHasUserConsent()</a></a></li>
+<li><a href="#unityads.initplugin.unityads-v4.init"><a href="../../plugin/unityads-v4/init.html">unityads.init()</a></a></li>
+<li><a href="#unityads.isloadedplugin.unityads-v4.isloaded"><a href="../../plugin/unityads-v4/isLoaded.html">unityads.isLoaded()</a></a></li>
+<li><a href="#unityads.loadplugin.unityads-v4.load"><a href="../../plugin/unityads-v4/load.html">unityads.load()</a></a></li>
+<li><a href="#unityads.showplugin.unityads-v4.show"><a href="../../plugin/unityads-v4/show.html">unityads.show()</a></a></li>
+<li><a href="#unityads.sethasuserconsentplugin.unityads-v4.sethasuserconsent"><a href="../../plugin/unityads-v4/setHasUserConsent.html">unityads.setHasUserConsent()</a></a></li>
+<li><a href="#unityads.setpersonalizedadsplugin.unityads-v4.setpersonalizedads"><a href="../../plugin/unityads-v4/setPersonalizedAds.html">unityads.setPersonalizedAds()</a></a></li>
+<li><a href="#unityads.setprivacymodeplugin.unityads-v4.setprivacymode"><a href="../../plugin/unityads-v4/setPrivacyMode.html">unityads.setPrivacyMode()</a></a></li>
 </ul></li>
 <li><a href="#events">Events</a><ul>
-<li><a href="#adsrequestplugin.unityads.event.adsrequest"><a href="../../plugin/unityads/event/adsRequest/index.html">adsRequest</a></a></li>
+<li><a href="#adsrequestplugin.unityads-v4.event.adsrequest"><a href="../../plugin/unityads-v4/event/adsRequest/index.html">adsRequest</a></a></li>
 </ul></li>
 <li><a href="#project-settings">Project Settings</a></li>
 <li><a href="#support">Support</a></li>
@@ -74,10 +77,10 @@
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/unityads/index.html">Unity Ads</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/unityads-v4/index.html">unityads-v4</a>
 </div>
-<div id="unityads." class="section level1">
-<h1>unityads.*</h1>
+<div id="unityads.v4." class="section level1">
+<h1>unityads.v4.*</h1>
 <blockquote>
 <table>
 <tbody>
@@ -107,9 +110,9 @@
 <div class="notebox-title-imp">
 Important
 </div>
-<p>This is a legacy Unity Ads plugin using Unity SDK v3, see <a href="../../plugin/unityads-v4/index.html">Unity SDK v4</a></p>
-<p>On a per-app basis, the first time a Unity ad appears, the user will see a banner with the option to opt-out of behaviorally targeted advertising. Thereafter, the user can click an information button to receive the opt-out again.</p>
-<p>Although UnityAds will automatically present users with an opportunity to opt-out of targeted advertising, with no implementation needed from the publisher, check out new <code>setHasUserConsent</code> method to enable manual GDPR data collection restrictions.</p>
+<p>This documentation is for the new Unity Ads SDK(v4), click to view the <a href="../../plugin/unityads/index.html">Unity Ads legacy plugin</a></p>
+<p>Notable changes from old plugin include now needing to load placement IDs via <a href="../../plugin/unityads-v4/load.html">unityads.load()</a> and the <code>placementStatus</code> <a href="../../plugin/unityads-v4/event/adsRequest/phase.html">event.phase</a> removal.</p>
+<p>On a per-app basis, the first time a Unity ad appears, the user will see a banner with the option to opt-out of behaviorally targeted advertising. Thereafter, the user can click an information button to receive the opt-out again. Although UnityAds will automatically present users with an opportunity to opt-out of targeted advertising, with no implementation needed from the publisher, check out new <code>setHasUserConsent</code> method to enable manual GDPR data collection restrictions.</p>
 <p>See more at <a href="https://unityads.unity3d.com/help/legal/gdpr">Unity Ads GDPR Compliance doc page</a></p>
 </div>
 </div>
@@ -119,27 +122,36 @@ Important
 </div>
 <div id="syntax" class="section level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">local unityads = require( "plugin.unityads" )</pre>
+<pre class="brush: lua;">local unityads = require( "plugin.unityads.v4" )</pre>
 </div>
 <div id="functions" class="section level2">
 <h2>Functions</h2>
-<div id="unityads.initplugin.unityads.init" class="section level4">
-<h4><a href="../../plugin/unityads/init.html">unityads.init()</a></h4>
+<div id="unityads.initplugin.unityads-v4.init" class="section level4">
+<h4><a href="../../plugin/unityads-v4/init.html">unityads.init()</a></h4>
 </div>
-<div id="unityads.isloadedplugin.unityads.isloaded" class="section level4">
-<h4><a href="../../plugin/unityads/isLoaded.html">unityads.isLoaded()</a></h4>
+<div id="unityads.isloadedplugin.unityads-v4.isloaded" class="section level4">
+<h4><a href="../../plugin/unityads-v4/isLoaded.html">unityads.isLoaded()</a></h4>
 </div>
-<div id="unityads.showplugin.unityads.show" class="section level4">
-<h4><a href="../../plugin/unityads/show.html">unityads.show()</a></h4>
+<div id="unityads.loadplugin.unityads-v4.load" class="section level4">
+<h4><a href="../../plugin/unityads-v4/load.html">unityads.load()</a></h4>
 </div>
-<div id="unityads.sethasuserconsentplugin.unityads.sethasuserconsent" class="section level4">
-<h4><a href="../../plugin/unityads/setHasUserConsent.html">unityads.setHasUserConsent()</a></h4>
+<div id="unityads.showplugin.unityads-v4.show" class="section level4">
+<h4><a href="../../plugin/unityads-v4/show.html">unityads.show()</a></h4>
+</div>
+<div id="unityads.sethasuserconsentplugin.unityads-v4.sethasuserconsent" class="section level4">
+<h4><a href="../../plugin/unityads-v4/setHasUserConsent.html">unityads.setHasUserConsent()</a></h4>
+</div>
+<div id="unityads.setpersonalizedadsplugin.unityads-v4.setpersonalizedads" class="section level4">
+<h4><a href="../../plugin/unityads-v4/setPersonalizedAds.html">unityads.setPersonalizedAds()</a></h4>
+</div>
+<div id="unityads.setprivacymodeplugin.unityads-v4.setprivacymode" class="section level4">
+<h4><a href="../../plugin/unityads-v4/setPrivacyMode.html">unityads.setPrivacyMode()</a></h4>
 </div>
 </div>
 <div id="events" class="section level2">
 <h2>Events</h2>
-<div id="adsrequestplugin.unityads.event.adsrequest" class="section level4">
-<h4><a href="../../plugin/unityads/event/adsRequest/index.html">adsRequest</a></h4>
+<div id="adsrequestplugin.unityads-v4.event.adsrequest" class="section level4">
+<h4><a href="../../plugin/unityads-v4/event/adsRequest/index.html">adsRequest</a></h4>
 </div>
 </div>
 <div id="project-settings" class="section level2">
@@ -164,9 +176,9 @@ Important
     },
     plugins =
     {
-        ["plugin.unityads"] =
+        ["plugin.unityads.v4"] =
         {
-            publisherId = "com.coronalabs"
+            publisherId = "com.solar2d"
         },
     },
 }</pre>

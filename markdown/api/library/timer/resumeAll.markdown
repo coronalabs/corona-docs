@@ -14,7 +14,12 @@
 
 Resumes all timers that were paused with [timer.pause()][api.library.timer.pause].
 
-Note: Using [timer.resumeAll()][api.library.timer.resumeAll] requires `Solar2D 2020.3611` or a newer build.
+
+## Gotchas
+
+Using [timer.resumeAll()][api.library.timer.resumeAll] requires `Solar2D 2020.3611` or a newer build.
+
+For multiple timers, a tag or id is needed to use [timer.resumeAll()][api.library.timer.resumeAll], [timer.pauseAll()][api.library.timer.pauseAll], or [timer.cancelAll()][api.library.timer.cancelAll]
 
 ## Syntax
 
@@ -27,7 +32,7 @@ Note: Using [timer.resumeAll()][api.library.timer.resumeAll] requires `Solar2D 2
 local function listener( event )
     print( "listener called" )
 end
- 
+
 timer1 = timer.performWithDelay( 2000, listener )  -- wait 2 seconds
 timer2 = timer.performWithDelay( 3000, listener )  -- wait 3 seconds
 

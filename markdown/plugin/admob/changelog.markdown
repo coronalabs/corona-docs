@@ -1,4 +1,7 @@
 # Changelog
+##### 2022-03-27  Scott Harrison
+ * Added Rewarded Interstitials
+
 ##### 2020-02-13  Vlad Shcherban
  * framework update
 
@@ -187,4 +190,3 @@ Added event.data
 
 ##### 2016-12-16  Michael Wallar
  * Initial plugin state.
-

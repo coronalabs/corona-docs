@@ -1,7 +1,7 @@
 # event.data
 
 > --------------------- ------------------------------------------------------------------------------------------
-> __Type__              [String][api.type.String]
+> __Type__              [String][api.type.string]
 > __Event__             [adsRequest][plugin.admob.event.adsRequest]
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          ads, advertising, AdMob, adsRequest, data

@@ -14,7 +14,7 @@
 
 ## Overview
 
-Shows an AdMob interstitial, banner, or rewarded video ad that was previously loaded with [admob.load()][plugin.admob.load].
+Shows an AdMob interstitial, banner, rewarded interstitial, or rewarded video ad that was previously loaded with [admob.load()][plugin.admob.load].
 
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Important</div>
@@ -33,6 +33,7 @@ _[String][api.type.String]._ One of the following values:
 * `"interstitial"`
 * `"banner"`
 * `"rewardedVideo"`
+* `"rewardedInterstitial"`
 
 ##### params ~^(optional)^~
 _[Table][api.type.Table]._ Table containing additional parameters for the specified ad type — see the next section for details.

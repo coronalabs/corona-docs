@@ -13,7 +13,7 @@
 
 ## Overview
 
-Pre-loads an AdMob interstitial, banner, or rewarded video ad for instant display upon a future call to [admob.show()][plugin.admob.show].
+Pre-loads an AdMob interstitial, banner, rewarded interstitial, or rewarded video ad for instant display upon a future call to [admob.show()][plugin.admob.show].
 
 
 <div class="guide-notebox-imp">
@@ -45,6 +45,7 @@ _[String][api.type.String]._ One of the following ad type values:
 * `"interstitial"` &nbsp;(includes both static interstitials and video interstitials)
 * `"banner"`
 * `"rewardedVideo"`
+* `"rewardedInterstitial"`
 
 ##### params ~^(required)^~
 _[Table][api.type.Table]._ Table containing additional parameters for the specified ad type — see the next section for details.
@@ -70,7 +71,7 @@ _[Array][api.type.Array]._ An array of strings to be given to the AdMob request 
 _[Boolean][api.type.Boolean]._ If set to `false`, Admob will enable GDPR data collection restrictions, set to `true` for opposite.
 
 ##### maxAdContentRating ~^(optional)^~
-_[String][api.type.String]._ maximum raiting for Ad contents. Should be one of `"G"`, `"PG"`, `"T"` or `"MA"`. For details see official [documentation](https://developers.google.com/admob/android/targeting#ad_content_filtering).
+_[Boolean][api.type.String]._ maximum raiting for Ad contents. Should be one of `"G"`, `"PG"`, `"T"` or `"MA"`. For details see official [documentation](https://developers.google.com/admob/android/targeting#ad_content_filtering).
 
 
 ## Example

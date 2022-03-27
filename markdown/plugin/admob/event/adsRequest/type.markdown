@@ -11,4 +11,4 @@
 
 ## Overview
 
-Indicates the type of ad the event refers to. Possible values are `"banner"`, `"interstitial"`, and `"rewardedVideo"`.
+Indicates the type of ad the event refers to. Possible values are `"banner"`, `"interstitial"`, `"rewardedInterstitial"`, and `"rewardedVideo"`.

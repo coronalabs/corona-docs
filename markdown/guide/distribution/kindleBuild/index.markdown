@@ -157,6 +157,6 @@ Once your app is compiled via Solar2D, the next step is to register as an [Amazo
 
 1. If you haven't already signed up for an [Amazon Developer](https://developer.amazon.com/home.html) account, please do so first.
 
-2. Next, you'll need to set up your Kindle&nbsp;Fire tablet for testing. You can use <nobr>__Android Debug Bridge__</nobr> to connect your Kindle&nbsp;Fire tablet to a development computer for testing and debugging. Please refer to Amazon's [instructional guide](https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/05-setting-up-your-kindle-fire-tablet-for-testing) for details.
+2. Next, you'll need to set up your Kindle&nbsp;Fire tablet for testing. You can use <nobr>__Android Debug Bridge__</nobr> to connect your Kindle&nbsp;Fire tablet to a development computer for testing and debugging. Please refer to Amazon's [instructional guide](https://developer.amazon.com/docs/fire-tablets/connecting-adb-to-device.html) for details.
 
-3. Finally, you can refer to [this guide](https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/06-testing-your-app-on-an-emulator-or-tablet) for details on testing your app.
+3. Finally, you can refer to [this guide](https://developer.amazon.com/docs/fire-tablets/ft-test-app-on-emulator-or-tablet.html) for details on testing your app.

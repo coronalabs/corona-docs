@@ -234,7 +234,7 @@ Plugin													Unit Types																				Unique Features
 ------------------------------------------------------	--------------------------------------------------------------------------------------	----------------------
 [AdColony][plugin.adcolony]								video interstitial; rewarded&nbsp;video
 [AdMob][plugin.admob]									banner; static&nbsp;interstitial; video&nbsp;interstitial								child-safe
-[AppLovin][plugin.applovin]								static&nbsp;interstitial; video&nbsp;interstitial; rewarded&nbsp;video
+[AppLovin Max][plugin.applovinMax]								static&nbsp;interstitial; video&nbsp;interstitial; rewarded&nbsp;video			ad&nbsp;mediation
 [Appnext][plugin.appnext]								static interstitial; video&nbsp;interstitial; rewarded&nbsp;video; other
 [Appodeal][plugin.appodeal]								banner; static&nbsp;interstitial; video&nbsp;interstitial; rewarded&nbsp;video			ad&nbsp;mediation
 [Chartboost][plugin.chartboost]							static interstitial; video&nbsp;interstitial; rewarded&nbsp;video; other
@@ -249,7 +249,7 @@ Plugin													Unit Types																				Unique Features
 [SuperAwesome][plugin.superawesome]						banner; static&nbsp;interstitial; video&nbsp;interstitial								child-safe
 [Supersonic][plugin.supersonic]							static interstitial; rewarded&nbsp;video; offer&nbsp;wall
 [TrialPay][plugin.trialPay]								static interstitial; video&nbsp;interstitial; rewarded&nbsp;video; offer&nbsp;wall
-[Unity Ads][plugin.unityads]							video interstitial; rewarded&nbsp;video
+[Unity Ads][plugin.unityads-v4]							video interstitial; rewarded&nbsp;video
 [Vungle][plugin.vungle]									video interstitial; rewarded&nbsp;video
 ------------------------------------------------------	--------------------------------------------------------------------------------------	----------------------
 

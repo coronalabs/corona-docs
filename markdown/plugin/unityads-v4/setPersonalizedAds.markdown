@@ -19,7 +19,7 @@ Set a user-specific flag that indicates whether a user should receive personaliz
 	unityads.setPersonalizedAds( showPersonalizedAds )
 
 ##### showPersonalizedAds ~^(required)^~
-_[Boolean][api.type.Boolean]._ `true` indicates that the user may not receive personalized ads and `false` indicates that the user may receive personalized ads
+_[Boolean][api.type.Boolean]._ `false` indicates that the user may not receive personalized ads and `true` indicates that the user may receive personalized ads
 
 
 ## Example

@@ -23,7 +23,7 @@ For Android, all __new__ apps, or existing apps being updated with push notifica
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Important</div>
 
-To use Firebase notifications on iOS make sure to include `plugin.notifications.v2.firebase` plugin in your `build.settings`. This plugin is identical to the `plugin.notifications.v2` and also includes libraries required to operate  notification through Firebase on iOS.
+To use Firebase notifications on iOS make sure to include `plugin.notifications.v2.firebase` plugin in your `build.settings`. This plugin is identical to the `plugin.notifications.v2` and also includes libraries required to operate notification through Firebase on iOS. Note you that to use Firebase for iOS you need to configure your Firebase project with the necessary Apple Push Notfication Auth or Keys, [Read More Here](https://firebase.google.com/docs/cloud-messaging/ios/client#upload_your_apns_authentication_key). 
 
 </div>
 

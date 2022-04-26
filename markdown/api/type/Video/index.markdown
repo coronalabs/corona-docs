@@ -40,3 +40,12 @@ _(Inherits methods from [NativeDisplayObject][api.type.NativeDisplayObject])_
 #### [object:play()][api.type.Video.play]
 
 #### [object:seek()][api.type.Video.seek]
+
+
+## Also
+
+Setting [Native Property][api.type.NativeDisplayObject.setNativeProperty] `"IgnoreErrors"` to `true` would prevent error alert going off on Android:
+
+``````lua
+video:setNativeProperty( "IgnoreErrors", true )
+``````

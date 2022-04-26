@@ -14,3 +14,4 @@ A string identifying where in the video sequence the event occurred. Can be one 
 
 * `"ready"` — indicates that the video is loaded and ready to play.
 * `"ended"` — indicates that the video has completed on its own total play time \([object.totalTime][api.type.Video.totalTime]\).
+* `"failed"` — error had occured while loading or playing back the video.

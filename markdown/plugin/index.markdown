@@ -128,8 +128,7 @@ Interested in [creating a plugin][native.plugin]? Please see our [Plugins][nativ
 * [Supersonic][plugin.supersonic]
 * [TrialPay][plugin.trialPay]
 * [Unity Ads][plugin.unityads-v4]
-* [Vungle 5][plugin.vungle]
-* [Vungle 4][plugin.vungle-v4]
+* [Vungle][plugin.vungle-v6]
 
 
 <div class="clear"></div>

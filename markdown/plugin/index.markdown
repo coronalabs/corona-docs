@@ -112,15 +112,16 @@ Interested in [creating a plugin][native.plugin]? Please see our [Plugins][nativ
 * [AdMob][plugin.admob]
 * [AppLovin Max][plugin.applovinMax]
 * [Appodeal][plugin.appodeal]
+* [AdSense][plugin.adSense]
 * [Chartboost][plugin.chartboost]
 * [Facebook Audience Network][plugin.fbAudienceNetwork]
 * [InMobi][plugin.inmobi]
 * [KIDOZ][plugin.kidoz]
 * [MediaBrix][plugin.mediaBrix]
-* [Peanut Labs][plugin.peanutlabs]
 
 </span>
 
+* [Peanut Labs][plugin.peanutlabs]
 * [Persona.ly][plugin.personaly]
 * [Pollfish][plugin.pollfish]
 * [StartApp][plugin.startapp]

@@ -375,6 +375,7 @@ Interested in [creating a plugin][native.plugin]? Please see our [Plugins][nativ
 #### [HockeyApp][plugin.hockey]
 #### [iCloud][plugin.iCloud]
 #### [iTunes][plugin.iTunes]
+#### [Material You Colors][plugin.materialYouColors]
 #### [Memory Bitmap][plugin.memoryBitmap]
 #### [Nano SVG][plugin.nanosvg]
 #### [Notifications][plugin.notifications-v2]

@@ -15,7 +15,6 @@ The Material You Colors plugin get Material UI colors set in System Settings by 
 
 
 
-
 ## Gotchas
 
 This plugin is only supported on Android 12+ (Android API Level 31+) and only works with Solar2D 3672+
@@ -34,7 +33,7 @@ This plugin is only supported on Android 12+ (Android API Level 31+) and only wo
 
 returns a 3d Array of all system colors: 1d contains 5 color groups accent colors 1,2,3 and neutral colors 1,2, 2d contains 13 different shades of the color with 1 being the lightest, and 13 being the darkest, and 3d contains red, greed, blue(in that order)
 
-![](colors.png)
+![](plugin.materialYouColors.colors.png)
 
 
 

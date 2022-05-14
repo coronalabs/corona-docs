@@ -5,7 +5,7 @@
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          Material You Colors, Material UI
 > __Platforms__			Android
-> __Sample__			[https://github.com/solar2d/plugins-sample-samsung-iap](https://github.com/solar2d/plugins-sample-samsung-iap)
+> __Sample__			[https://github.com/solar2d/com.solar2d-plugin.materialYouColors/tree/master/demo](https://github.com/solar2d/com.solar2d-plugin.materialYouColors/tree/master/demo)
 > --------------------- ------------------------------------------------------------------------------------------
 
 
@@ -18,7 +18,7 @@ The Material You Colors plugin get Material UI colors set in System Settings by 
 
 ## Gotchas
 
-This features is only supported on Android 12+ (Android API Level 31+) and only works with Solar2D 3672+
+This plugin is only supported on Android 12+ (Android API Level 31+) and only works with Solar2D 3672+
 
 
 ## Syntax

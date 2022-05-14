@@ -18,7 +18,7 @@ The Material You Colors plugin get Material UI colors set in System Settings by 
 
 ## Gotchas
 
-This features is only supported on Android 12+ (Android API Level 31+)
+This features is only supported on Android 12+ (Android API Level 31+) and only works with Solar2D 3672+
 
 
 ## Syntax

@@ -17,6 +17,8 @@
 
 This documentation is for the Facebook __v4a__ plugin, an updated version of the [v4][plugin.facebook-v4] plugin. This updated version is asynchronous and includes a new [facebook.init()][plugin.facebook-v4a.init] API which gives you a chance to define a specific function that will be called when initialization completes.
 
+Facebook now requires you to include a Client Token from your App Page (Under App Settings>Advanced>Security), <nobr>(see [Project Settings](#settings) for where to put the Token)</nobr>
+
 To utilize this version, you should update your `build.settings` to include `"plugin.facebook.v4a"` <nobr>(see [Project Settings](#settings))</nobr>, require `"plugin.facebook.v4a"` in all Lua modules which use Facebook <nobr>(see [Syntax](#syntax))</nobr>, and integrate [facebook.init()][plugin.facebook-v4a.init] into your existing project code.
 
 </div>
@@ -123,6 +125,7 @@ settings = {
 			{
 				{ CFBundleURLSchemes = { "fbXXXXXXXXXX", } }  -- Replace XXXXXXXXXX with your Facebook App ID
 			},
+			FacebookClientToken = "XXXXXXXXXX",  -- Replace XXXXXXXXXX with your Facebook Client ID
 			-- Whitelist Facebook apps
 			LSApplicationQueriesSchemes =
 			{
@@ -152,7 +155,7 @@ Notice that there are several critical parts which must be specified:
 If your app is for Android, you must also include a <nobr>Facebook App ID</nobr> in `build.settings`:
 
 ``````lua
-settings = 
+settings =
 {
 	android =
 	{
@@ -164,7 +167,10 @@ settings =
                 <provider android:authorities="com.facebook.app.FacebookContentProviderXXXXXXXXXX"
                           android:name="com.facebook.FacebookContentProvider" android:exported="true"/>
             ]],
-        }, -- Replace XXXXXXXXXX with your Facebook App ID
+						[[
+                <meta-data android:name="com.facebook.sdk.ClientToken" android:value="YYYYYYYYYYYYYYYYYYYYY"/>
+            ]],
+        }, -- Replace XXXXXXXXXX with your Facebook App ID and YYYYYYYYYYYYYYYYYYYYY with Facebook Client Token
 	},
 }
 ``````
@@ -256,13 +262,15 @@ The rest of the binaries in the Facebook plugin package will be copied/rebuilt f
 
 </div>
 
-3. In the `application` element of your `AndroidManifest.xml`, add a <nobr>`meta-data`</nobr> tag containing your Facebook&nbsp;App&nbsp;ID.
+3. In the `application` element of your `AndroidManifest.xml`, add a <nobr>`meta-data`</nobr> tag containing your Facebook&nbsp;App&nbsp;ID and Facebook&nbsp;Client&nbsp;Token.
 
 <div class="code-indent">
 
 ``````xml
 <!-- Replace XXXXXXXXXX with your Facebook App ID -->
 <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="\ XXXXXXXXXX"/>
+<!-- Replace XXXXXXXXXX with your Facebook ClientToken-->
+<meta-data android:name="com.facebook.sdk.ClientToken" android:value="\ XXXXXXXXXX"/>
 ``````
 
 <div class="guide-notebox">
@@ -301,7 +309,7 @@ The `ApplicationName` <nobr>`meta-data`</nobr> tag is required for using the [Sh
 		android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
 		android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 <activity android:name="plugin.facebook.v4a.FacebookFragmentActivity"
-		android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+		android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
 		android:configChanges="keyboardHidden|screenSize|orientation"/>
 ``````
 

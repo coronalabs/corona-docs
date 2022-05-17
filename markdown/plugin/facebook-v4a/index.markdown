@@ -125,7 +125,7 @@ settings = {
 			{
 				{ CFBundleURLSchemes = { "fbXXXXXXXXXX", } }  -- Replace XXXXXXXXXX with your Facebook App ID
 			},
-			FacebookClientToken = "XXXXXXXXXX",  -- Replace XXXXXXXXXX with your Facebook Client ID
+			FacebookClientToken = "XXXXXXXXXX",  -- Replace XXXXXXXXXX with your Facebook Client Token
 			-- Whitelist Facebook apps
 			LSApplicationQueriesSchemes =
 			{

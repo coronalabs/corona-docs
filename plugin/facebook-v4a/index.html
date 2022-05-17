@@ -131,6 +131,7 @@
 </div>
 <div class="docs-tip-inner-right">
 <p>This documentation is for the Facebook <strong>v4a</strong> plugin, an updated version of the <a href="../../plugin/facebook-v4/index.html">v4</a> plugin. This updated version is asynchronous and includes a new <a href="../../plugin/facebook-v4a/init.html">facebook.init()</a> API which gives you a chance to define a specific function that will be called when initialization completes.</p>
+<p>Facebook now requires you to include a Client Token from your App Page (Under App Settings&gt;Advanced&gt;Security), <nobr>(see <a href="#settings">Project Settings</a> for where to put the Token)</nobr></p>
 <p>To utilize this version, you should update your <code>build.settings</code> to include <code>&quot;plugin.facebook.v4a&quot;</code> <nobr>(see <a href="#settings">Project Settings</a>)</nobr>, require <code>&quot;plugin.facebook.v4a&quot;</code> in all Lua modules which use Facebook <nobr>(see <a href="#syntax">Syntax</a>)</nobr>, and integrate <a href="../../plugin/facebook-v4a/init.html">facebook.init()</a> into your existing project code.</p>
 </div>
 </div>
@@ -233,6 +234,7 @@ The Facebook platform evolves very quickly and changes frequently. Because of th
             {
                 { CFBundleURLSchemes = { "fbXXXXXXXXXX", } }  -- Replace XXXXXXXXXX with your Facebook App ID
             },
+            FacebookClientToken = "XXXXXXXXXX",  -- Replace XXXXXXXXXX with your Facebook Client ID
             -- Whitelist Facebook apps
             LSApplicationQueriesSchemes =
             {
@@ -256,7 +258,7 @@ The Facebook platform evolves very quickly and changes frequently. Because of th
 <div id="android" class="section level3">
 <h3>Android</h3>
 <p>If your app is for Android, you must also include a <nobr>Facebook App ID</nobr> in <code>build.settings</code>:</p>
-<pre class="brush: lua;">settings = 
+<pre class="brush: lua;">settings =
 {
     android =
     {
@@ -268,7 +270,10 @@ The Facebook platform evolves very quickly and changes frequently. Because of th
                 &lt;provider android:authorities="com.facebook.app.FacebookContentProviderXXXXXXXXXX"
                           android:name="com.facebook.FacebookContentProvider" android:exported="true"/>
             ]],
-        }, -- Replace XXXXXXXXXX with your Facebook App ID
+                        [[
+                &lt;meta-data android:name="com.facebook.sdk.ClientToken" android:value="YYYYYYYYYYYYYYYYYYYYY"/>
+            ]],
+        }, -- Replace XXXXXXXXXX with your Facebook App ID and YYYYYYYYYYYYYYYYYYYYY with Facebook Client Token
     },
 }</pre>
 <div class="guide-notebox">
@@ -346,11 +351,13 @@ Note
 <pre class="brush: xml;">&lt;uses-permission android:name="android.permission.INTERNET"/></pre>
 </div>
 <ol start="3" style="list-style-type: decimal">
-<li>In the <code>application</code> element of your <code>AndroidManifest.xml</code>, add a <nobr><code>meta-data</code></nobr> tag containing your Facebook App ID.</li>
+<li>In the <code>application</code> element of your <code>AndroidManifest.xml</code>, add a <nobr><code>meta-data</code></nobr> tag containing your Facebook App ID and Facebook Client Token.</li>
 </ol>
 <div class="code-indent">
 <pre class="brush: xml;">&lt;!-- Replace XXXXXXXXXX with your Facebook App ID -->
-&lt;meta-data android:name="com.facebook.sdk.ApplicationId" android:value="\ XXXXXXXXXX"/></pre>
+&lt;meta-data android:name="com.facebook.sdk.ApplicationId" android:value="\ XXXXXXXXXX"/>
+&lt;!-- Replace XXXXXXXXXX with your Facebook ClientToken-->
+&lt;meta-data android:name="com.facebook.sdk.ClientToken" android:value="\ XXXXXXXXXX"/></pre>
 <div class="guide-notebox">
 <div class="notebox-title">
 Note
@@ -380,7 +387,7 @@ Note
         android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
         android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 &lt;activity android:name="plugin.facebook.v4a.FacebookFragmentActivity"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
         android:configChanges="keyboardHidden|screenSize|orientation"/></pre>
 </div>
 <ol start="6" style="list-style-type: decimal">

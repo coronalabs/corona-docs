@@ -39,7 +39,7 @@ Your app must work properly with <nobr>single-sign-on</nobr> (SSO). Please read 
 
 <!---
 
-## Changes / Updates 
+## Changes / Updates
 
 The Facebook platform evolves very quickly and changes frequently. Because of this, the Facebook plugin must also evolve, and sometimes these changes will alter the behavior of your apps. Consult our [Facebook Versioning/Upgrading][plugin.facebook-v4a.fbUpgrade] guide for more info on moving between different versions of the Facebook plugin.
 
@@ -75,6 +75,8 @@ Developing for Facebook requires that you register in the [Facebook Developer Po
 #### [facebook.setFBConnectListener()][plugin.facebook-v4a.setFBConnectListener]
 
 #### [facebook.showDialog()][plugin.facebook-v4a.showDialog]
+
+#### [facebook.logEvent()][plugin.facebook-v4a.logEvent]
 
 
 ## Properties
@@ -119,13 +121,12 @@ settings = {
 	{
 		plist =
 		{
-			UIApplicationExitsOnSuspend = false,
 			FacebookAppID = "XXXXXXXXXX",  -- Replace XXXXXXXXXX with your Facebook App ID
 			CFBundleURLTypes =
 			{
 				{ CFBundleURLSchemes = { "fbXXXXXXXXXX", } }  -- Replace XXXXXXXXXX with your Facebook App ID
 			},
-			FacebookClientToken = "XXXXXXXXXX",  -- Replace XXXXXXXXXX with your Facebook Client Token
+			FacebookClientToken = "YYYYYYYYYYYYYY",  -- Replace YYYYYYYYYYYYYY with your Facebook Client Token
 			-- Whitelist Facebook apps
 			LSApplicationQueriesSchemes =
 			{
@@ -142,9 +143,9 @@ settings = {
 
 Notice that there are several critical parts which must be specified:
 
-* `UIApplicationExitsOnSuspend` &mdash; To ensure that Facebook can resume your app properly, you must include `UIApplicationExitsOnSuspend = false`. If you've set this parameter to `true` for some other reason, you must revert it to `false` (default).
-
 * `FacebookAppID` &mdash; Set this key to `FacebookAppID = "XXXXXXXXXX"` and replace `XXXXXXXXXX` with your unique Facebook App&nbsp;ID.
+
+* `FacebookClientToken` &mdash; Set this key to `FacebookClientToken = "YYYYYYYYYYYYYY"` and replace `YYYYYYYYYYYYYY` with your unique Facebook Client&nbsp;Token.
 
 * `CFBundleURLTypes` &mdash; The `CFBundleURLTypes` table must be declared exactly as shown and it must include a table named `CFBundleURLSchemes`. Inside this, include your Facebook&nbsp;App&nbsp;ID and prefix it with `fb`. Thus, if your App&nbsp;ID is __1234567890__, you should specify: `"fb1234567890"`.
 
@@ -204,11 +205,12 @@ If you're using CORONA_NATIVE_PRODUCT for iOS, you should ensure that the follow
 In addition, you'll need to add several properties to your `Info.plist`. Open the file in an external text editor and add the following XML code into it:
 
 ``````xml
-<key>UIApplicationExitsOnSuspend</key>
-<false/>
 <key>FacebookAppID</key>
 <!-- Replace XXXXXXXXXX with your Facebook App ID -->
 <string>XXXXXXXXXX</string>
+<key>FacebookClientToken</key>
+<!-- Replace YYYYYYYYYYYYYYYYYYYYY with your Facebook Client Token -->
+<string>YYYYYYYYYYYYYYYYYYYYY</string>
 <key>CFBundleURLTypes</key>
 <array>
 	<dict>

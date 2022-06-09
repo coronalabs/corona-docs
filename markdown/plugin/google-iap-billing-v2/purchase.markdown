@@ -50,14 +50,3 @@ _[String][api.type.String]._ Specifies an optional obfuscated string that is uni
 
 ##### offerPersonalized ~^(optional)^~
 _[Boolean][api.type.Boolean]._ Specifies whether the offer is personalized to the buyer see [documentation](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setIsOfferPersonalized(boolean)).
-
-##### subscriptionUpdate ~^(optional)^~
-_[Table][api.type.Table]._  Params used to upgrade or downgrade a subscription. [documentation](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setIsOfferPersonalized(boolean)).
-
-## subscriptionUpdate Reference
-
-##### purchaseToken ~^(required)^~
-_[String][api.type.String]._ Value which is Google Play Billing purchase token that the user is upgrading or downgrading from
-
-##### prorationMode ~^(required)^~
-_[String][api.type.String]._ Specifies the Google Play Billing mode of proration during subscription upgrade/downgrade. Supported values for `prorationMode`: `unknownSubscriptionUpgrade`, `deferred`, `immediateAndChargeFullPrice`, `immediateAndChargeProratedPrice`, `immediateWithoutProration`, and `immediateWithTimeProration`. i.e `{purchaseToken="abcd123",prorationMode="immediateWithoutProration" }`

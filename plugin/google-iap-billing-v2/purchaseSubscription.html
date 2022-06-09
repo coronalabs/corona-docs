@@ -67,6 +67,12 @@
 <li><a href="#obfuscatedaccountid-optional">obfuscatedAccountId <sub><sup>(optional)</sup></sub></a></li>
 <li><a href="#profileid-optional">profileId <sub><sup>(optional)</sup></sub></a></li>
 <li><a href="#obfuscatedprofileid-optional">obfuscatedProfileId <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#offerpersonalized-optional">offerPersonalized <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#subscriptionupdate-optional">subscriptionUpdate <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
+<li><a href="#subscriptionupdate-reference">subscriptionUpdate Reference</a><ul>
+<li><a href="#purchasetoken-required">purchaseToken <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#prorationmode-required">prorationMode <sub><sup>(required)</sup></sub></a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -144,6 +150,25 @@
 <div id="obfuscatedprofileid-optional" class="section level5">
 <h5>obfuscatedProfileId <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> Specifies an optional obfuscated string that is uniquely associated with the user's profile in your app. If set, <code>profileId</code> would be ignored. For more details see <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setObfuscatedProfileId%28java.lang.String%29">documentation</a>).</p>
+</div>
+<div id="offerpersonalized-optional" class="section level5">
+<h5>offerPersonalized <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> Specifies whether the offer is personalized to the buyer see <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setIsOfferPersonalized(boolean)">documentation</a>.</p>
+</div>
+<div id="subscriptionupdate-optional" class="section level5">
+<h5>subscriptionUpdate <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> Params used to upgrade or downgrade a subscription. <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setIsOfferPersonalized(boolean)">documentation</a>.</p>
+</div>
+</div>
+<div id="subscriptionupdate-reference" class="section level2">
+<h2>subscriptionUpdate Reference</h2>
+<div id="purchasetoken-required" class="section level5">
+<h5>purchaseToken <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> Value which is Google Play Billing purchase token that the user is upgrading or downgrading from</p>
+</div>
+<div id="prorationmode-required" class="section level5">
+<h5>prorationMode <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> Specifies the Google Play Billing mode of proration during subscription upgrade/downgrade. Supported values for <code>prorationMode</code>: <code>unknownSubscriptionUpgrade</code>, <code>deferred</code>, <code>immediateAndChargeFullPrice</code>, <code>immediateAndChargeProratedPrice</code>, <code>immediateWithoutProration</code>, and <code>immediateWithTimeProration</code>. i.e <code>{purchaseToken=&quot;abcd123&quot;,prorationMode=&quot;immediateWithoutProration&quot; }</code></p>
 <hr>
 <div id="footer">
 <p class="copyright">

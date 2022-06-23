@@ -19,4 +19,6 @@ Displays a sheet that enables users to redeem subscription offer codes that can 
 
 	store.presentCodeRedemptionSheet( listener )
 
-For more information consult Apple Documentation on [Promo Codes](https://help.apple.com/app-store-connect/#/dev50869de4a) or the [API](https://developer.apple.com/documentation/storekit/skpaymentqueue/3566726-presentcoderedemptionsheet).
+This method applies to subscription offer codes only; it doesn’t apply to promo codes for apps or in-app purchases.
+
+For more information consult [Apple Documentation](https://developer.apple.com/documentation/storekit/skpaymentqueue/3566726-presentcoderedemptionsheet).

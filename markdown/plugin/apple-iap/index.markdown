@@ -64,6 +64,7 @@ For in-app purchasing on other platforms, see the documentation for [Google IAP]
 #### [store.deferStorePurchases()][plugin.apple-iap.deferStorePurchases]
 #### [store.proceedToPayment()][plugin.apple-iap.proceedToPayment]
 
+#### [store.presentCodeRedemptionSheet()][plugin.apple-iap.presentCodeRedemptionSheet]
 
 ## Events
 

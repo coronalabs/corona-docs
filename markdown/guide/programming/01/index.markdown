@@ -42,9 +42,9 @@ If you don't already have a favorite text editor, the following options are reco
 
 Editor																Add-On Package																					 macOS		 Windows
 ------------------------------------------------------------------	----------------------------------------------------------------------------------------------	----------	----------
-[Sublime Text](https://www.sublimetext.com)							[Solar2D Editor](https://github.com/coronalabs/CoronaSDK-SublimeText)														&#x2713;	 &#x2713;
-[Atom](https://atom.io)												[autocomplete-corona](https://atom.io/packages/autocomplete-corona)											&#x2713;	 &#x2713;
-[Visual Studio Code](https://code.visualstudio.com/)				[Solar2d-companion](https://github.com/m4adan/solar2d-companion)															 &#x2713;	 &#x2713;
+[Sublime Text](https://www.sublimetext.com)					[Solar2D Editor](https://github.com/coronalabs/CoronaSDK-SublimeText)						&#x2713;      	 &#x2713;
+[Atom](https://atom.io)												[autocomplete-corona](https://atom.io/packages/autocomplete-corona)											&#x2713;	     &#x2713;
+[Visual Studio Code](https://code.visualstudio.com/)			[Solar2d Autocomplete](https://marketplace.visualstudio.com/items?itemName=solar2d.solar2d-autocomplete)  &#x2713;	    &#x2713;
 [Xcode](https://developer.apple.com/xcode/)							[Xcode Editor](https://github.com/jcbnlsn/Xcode-Corona-Editor)														 &#x2713;
 [Vim](https://www.vim.org)																																			 &#x2713;	 &#x2713;
 [ZeroBrane Studio](https://studio.zerobrane.com)																													 &#x2713;	 &#x2713;

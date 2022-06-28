@@ -259,8 +259,7 @@ Thinking of <nobr>e-books</nobr> or educational apps? Want to build something <n
 
 Here are a few of the amazing apps built with Solar2D by creative dreamers just like you!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AVcKdr6ODpM?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ewMCwyxr6P4?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 
 
@@ -286,11 +285,10 @@ As we mentioned in the beginning, the Solar2D community is friendly and helpful.
 * [Solar2D Forums](https://forums.solar2d.com/) &mdash; Get help from Solar2D developers and staff, or see how others tackled similar challenges.
 * [Discord](https://discord.gg/QTD4g4w) &mdash; `Solar2D Developer Network` on Discord.
 
-<a href="https://www.facebook.com/CoronaLabs" target="_new"><div class="social-button"><div class="fa fa-facebook-official"></div></div></a>
-<a href="https://twitter.com/coronalabs" target="_new"><div class="social-button"><div class="fa fa-twitter" style="padding-left: 2px;"></div></div></a>
-<a href="https://plus.google.com/+Coronalabsinc" target="_new"><div class="social-button"><div class="fa fa-google-plus" style="font-size: 22px; padding-top: 11px; padding-left: 2px;"></div></div></a>
-<a href="https://www.linkedin.com/company/corona-labs" target="_new"><div class="social-button"><div class="fa fa-linkedin" style="padding-top: 8px; padding-left: 1px;"></div></div></a>
-<a href="https://www.youtube.com/user/CoronaLabs" target="_new"><div class="social-button"><div class="fa fa-youtube" style="font-size: 23px; padding-top: 10px; padding-left: 1px;"></div></div></a>
+<a href="https://www.facebook.com/Solar2D/" target="_new"><div class="social-button"><div class="fa fa-facebook-official"></div></div></a>
+<a href="https://twitter.com/solar2dev" target="_new"><div class="social-button"><div class="fa fa-twitter" style="padding-left: 2px;"></div></div></a>
+<a href="https://www.linkedin.com/company/solar2d" target="_new"><div class="social-button"><div class="fa fa-linkedin" style="padding-top: 8px; padding-left: 1px;"></div></div></a>
+<a href="https://www.youtube.com/channel/UC5YQ-hK6xR-g4KlgMImTEvg" target="_new"><div class="social-button"><div class="fa fa-youtube" style="font-size: 23px; padding-top: 10px; padding-left: 1px;"></div></div></a>
 <a href="https://github.com/coronalabs" target="_new"><div class="social-button"><div class="fa fa-github" style="font-size: 30px; padding-top: 7px; padding-left: 1px;"></div></div></a>
 <div class="clear"></div>
 

@@ -1,4 +1,7 @@
 # Changelog
+##### 2022-06-21  Scott Harrison
+ * Add iOS Support notes
+
 ##### 2017-06-05  Brent Sorrentino
  * Minor edits.
 
@@ -40,4 +43,3 @@
 
 ##### 2016-01-25  Vlad Shcherban
  * initial commit
-

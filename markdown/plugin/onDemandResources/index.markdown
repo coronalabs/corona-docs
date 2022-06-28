@@ -4,7 +4,7 @@
 > __Type__              [Library][api.type.Library]
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__			on-demand resources, onDemandResources
-> __Platforms__			tvOS
+> __Platforms__			tvOS, iOS
 > __See also__			[Apple TV and tvOS][guide.distribution.tvos] _(guide)_
 > --------------------- ------------------------------------------------------------------------------------------
 
@@ -66,7 +66,7 @@ settings =
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Important</div>
 
-To configure <nobr>on-demand</nobr> resources, include the `onDemandResources` table within the `tvos` table of `build.settings`. This table should consist of a series of entries ([tables][api.type.Table]) which define the packages for <nobr>on-demand</nobr> resources. Each of these tables must include a required `tag` key ([string][api.type.String]) and a required `resource` key ([string][api.type.String]) which can reference either a specific file or a folder containing multiple resources.
+To configure <nobr>on-demand</nobr> resources, include the `onDemandResources` table within the `tvos` and/or `ios` table of `build.settings`. This table should consist of a series of entries ([tables][api.type.Table]) which define the packages for <nobr>on-demand</nobr> resources. Each of these tables must include a required `tag` key ([string][api.type.String]) and a required `resource` key ([string][api.type.String]) which can reference either a specific file or a folder containing multiple resources.
 
 In addition, you can include an optional `type` key equal to either of these values:
 
@@ -77,7 +77,7 @@ In addition, you can include an optional `type` key equal to either of these val
 ``````lua
 settings =
 {
-	tvos = 
+	tvos =
 	{
 		onDemandResources =
 		{
@@ -86,6 +86,16 @@ settings =
 			{ tag="imgL1", resource="img/level1" },
 		},
 	},
+	iphone = 
+	{
+		onDemandResources =
+		{
+			{ tag="introMusic", resource="intro.mp4", type="prefetch" },
+			{ tag="imgTutorial", resource="img/tutorial", type="install" },
+			{ tag="imgL1", resource="img/level1" },
+		},
+	},
+
 }
 ``````
 

@@ -101,7 +101,7 @@
 </tr>
 <tr class="even">
 <td align="left"><strong>Platforms</strong></td>
-<td align="left">tvOS</td>
+<td align="left">tvOS, iOS</td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>See also</strong></td>
@@ -157,7 +157,7 @@ Important
 <div class="notebox-title-imp">
 Important
 </div>
-<p>To configure <nobr>on-demand</nobr> resources, include the <code>onDemandResources</code> table within the <code>tvos</code> table of <code>build.settings</code>. This table should consist of a series of entries (<a href="../../api/type/Table.html">tables</a>) which define the packages for <nobr>on-demand</nobr> resources. Each of these tables must include a required <code>tag</code> key (<a href="../../api/type/String.html">string</a>) and a required <code>resource</code> key (<a href="../../api/type/String.html">string</a>) which can reference either a specific file or a folder containing multiple resources.</p>
+<p>To configure <nobr>on-demand</nobr> resources, include the <code>onDemandResources</code> table within the <code>tvos</code> and/or <code>ios</code> table of <code>build.settings</code>. This table should consist of a series of entries (<a href="../../api/type/Table.html">tables</a>) which define the packages for <nobr>on-demand</nobr> resources. Each of these tables must include a required <code>tag</code> key (<a href="../../api/type/String.html">string</a>) and a required <code>resource</code> key (<a href="../../api/type/String.html">string</a>) which can reference either a specific file or a folder containing multiple resources.</p>
 <p>In addition, you can include an optional <code>type</code> key equal to either of these values:</p>
 <ul>
 <li><p><code>&quot;install&quot;</code> — These resources will be downloaded immediately when the app is downloaded from the App Store. This is useful for resources which may be required immediately when the app is first launched. In contrast to assets which are simply <nobr>pre-bundled</nobr> within your project folder for persistent availability, <nobr>on-demand</nobr> resources tagged with <code>&quot;install&quot;</code> may still be evicted from local storage at some point.</p></li>
@@ -165,7 +165,7 @@ Important
 </ul>
 <pre class="brush: lua;">settings =
 {
-    tvos = 
+    tvos =
     {
         onDemandResources =
         {
@@ -174,6 +174,16 @@ Important
             { tag="imgL1", resource="img/level1" },
         },
     },
+    iphone = 
+    {
+        onDemandResources =
+        {
+            { tag="introMusic", resource="intro.mp4", type="prefetch" },
+            { tag="imgTutorial", resource="img/tutorial", type="install" },
+            { tag="imgL1", resource="img/level1" },
+        },
+    },
+
 }</pre>
 </div>
 </div>

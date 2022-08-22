@@ -127,7 +127,6 @@ Interested in [creating a plugin][native.plugin]? Please see our [Plugins][nativ
 * [StartApp][plugin.startapp]
 * [SuperAwesome][plugin.superawesome]
 * [Supersonic][plugin.supersonic]
-* [TrialPay][plugin.trialPay]
 * [Unity Ads][plugin.unityads-v4]
 * [Vungle][plugin.vungle-v6]
 
@@ -279,12 +278,12 @@ Interested in [creating a plugin][native.plugin]? Please see our [Plugins][nativ
 * [Bit][plugin.bit]
 * [Collision Filters][plugin.collisionFilters]
 * [Splash Screen Control][plugin.CoronaSplashControl]
-* [HockeyApp][plugin.hockey]
 * [iCloud][plugin.iCloud]
 * [iTunes][plugin.iTunes]
 
 </span>
 
+* [Material You Colors][plugin.materialYouColors]
 * [Memory Bitmap][plugin.memoryBitmap]
 * [Nano SVG][plugin.nanosvg]
 * [Notifications][plugin.notifications-v2]
@@ -309,8 +308,9 @@ Interested in [creating a plugin][native.plugin]? Please see our [Plugins][nativ
 
 #### [AdColony][plugin.adcolony]
 #### [AdMob][plugin.admob]
-#### [AppLovin][plugin.applovin]
+#### [AppLovin Max][plugin.applovinMax]
 #### [Appodeal][plugin.appodeal]
+#### [AdSense][plugin.adSense]
 #### [Chartboost][plugin.chartboost]
 #### [Facebook Audience Network][plugin.fbAudienceNetwork]
 #### [InMobi][plugin.inmobi]
@@ -322,10 +322,13 @@ Interested in [creating a plugin][native.plugin]? Please see our [Plugins][nativ
 #### [StartApp][plugin.startapp]
 #### [SuperAwesome][plugin.superawesome]
 #### [Supersonic][plugin.supersonic]
-#### [TrialPay][plugin.trialPay]
 #### [Unity Ads][plugin.unityads]
-#### [Vungle 5][plugin.vungle]
-#### [Vungle 4][plugin.vungle-v4]
+#### [Vungle 6][plugin.vungle-v6]
+
+
+
+
+
 
 ## Analytics / Attribution
 

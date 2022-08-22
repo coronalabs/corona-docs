@@ -76,6 +76,32 @@ settings =
 }
 ``````
 
+## Strict Mode
+
+["Strict Mode SDK to completely remove IDFA collection functionality and AdSupport framework dependencies (for example, when developing apps for kids)"](https://dev.appsflyer.com/hc/docs/install-ios-sdk#strict-mode-sdk)
+
+To use [strict mode](https://dev.appsflyer.com/hc/docs/install-ios-sdk#strict-mode-sdk) for iOS include this in `build.settings` instead for the above. The strict mode version of the plugin include the regular `plugin.appsflyer` for Android so there is no need to include both plugins.
+
+``````lua
+settings =
+{
+	plugins =
+	{
+		["plugin.appsflyer.strict"] =
+		{
+			publisherId = "com.coronalabs"
+		},
+	},
+}
+``````
+
+
+Lastly you need to tweak the module name for require function
+``````lua
+local appsflyer = require( "plugin.appsflyer.strict" )
+``````
+
+
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Important</div>
 
@@ -95,6 +121,21 @@ For Android, the following permissions/features are automatically added when usi
 * `"android.permission.INTERNET"`
 * `"android.permission.ACCESS_NETWORK_STATE"`
 * `"android.permission.ACCESS_WIFI_STATE"`
+* `"com.google.android.gms.permission.AD_ID"`
 
+To remove `"com.google.android.gms.permission.AD_ID"` add the following to you build.settings
+``````lua
+settings =
+{
+    android =
+    {
+        manifestChildElements =
+        {
+            [[
+            <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove"/>
+            ]],
+        },
+    },
+}
+``````
 </div>
-

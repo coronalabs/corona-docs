@@ -1,4 +1,7 @@
 # Changelog
+##### 2022-08-22  Vlad Shcherban
+ * Updated SDK to 8.6.0, added strict mode
+
 ##### 2020-06-24  Vlad Shcherban
  * Updating some methods
 
@@ -40,4 +43,3 @@
 
 ##### 2018-07-26  Pavel Karpov
  * Base ios builds / stubs for other platforms
-

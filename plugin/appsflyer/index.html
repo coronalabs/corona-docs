@@ -71,6 +71,7 @@
 <li><a href="#analyticsrequestplugin.appsflyer.event.analyticsrequest"><a href="../../plugin/appsflyer/event/analyticsRequest/index.html">analyticsRequest</a></a></li>
 </ul></li>
 <li><a href="#project-settings">Project Settings</a></li>
+<li><a href="#strict-mode">Strict Mode</a></li>
 </ul></li>
 </ul>
 </div>
@@ -166,6 +167,23 @@ Important
         },
     },
 }</pre>
+</div>
+<div id="strict-mode" class="section level2">
+<h2>Strict Mode</h2>
+<p><a href="https://dev.appsflyer.com/hc/docs/install-ios-sdk#strict-mode-sdk">&quot;Strict Mode SDK to completely remove IDFA collection functionality and AdSupport framework dependencies (for example, when developing apps for kids)&quot;</a></p>
+<p>To use <a href="https://dev.appsflyer.com/hc/docs/install-ios-sdk#strict-mode-sdk">strict mode</a> for iOS include this in <code>build.settings</code> instead for the above. The strict mode version of the plugin include the regular <code>plugin.appsflyer</code> for Android so there is no need to include both plugins.</p>
+<pre class="brush: lua;">settings =
+{
+    plugins =
+    {
+        ["plugin.appsflyer.strict"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+    },
+}</pre>
+<p>Lastly you need to tweak the module name for require function</p>
+<pre class="brush: lua;">local appsflyer = require( "plugin.appsflyer.strict" )</pre>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
 Important
@@ -186,7 +204,21 @@ Note
 <li><code>&quot;android.permission.INTERNET&quot;</code></li>
 <li><code>&quot;android.permission.ACCESS_NETWORK_STATE&quot;</code></li>
 <li><code>&quot;android.permission.ACCESS_WIFI_STATE&quot;</code></li>
+<li><code>&quot;com.google.android.gms.permission.AD_ID&quot;</code></li>
 </ul>
+<p>To remove <code>&quot;com.google.android.gms.permission.AD_ID&quot;</code> add the following to you build.settings</p>
+<pre class="brush: lua;">settings =
+{
+    android =
+    {
+        manifestChildElements =
+        {
+            [[
+            &lt;uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove"/>
+            ]],
+        },
+    },
+}</pre>
 </div>
 <hr>
 <div id="footer">

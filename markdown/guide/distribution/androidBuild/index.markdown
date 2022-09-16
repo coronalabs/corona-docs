@@ -124,7 +124,7 @@ For release builds, you must sign with your __private&nbsp;key__. You can genera
 
 <div class="code-indent">
 
-`keytool -genkey -v -keystore mykeystore.keystore -alias aliasname -keyalg RSA -validity 999999`
+`keytool -genkey -v -keystore mykeystore.keystore -alias aliasname -keyalg RSA -validity 999999 -deststoretype JKS`
 
 </div>
     

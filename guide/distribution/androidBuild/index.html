@@ -164,7 +164,7 @@ Signing for Release Build
 <li><p>Type the following command at the prompt, replacing <code>mykeystore</code> with the name of your application and <code>aliasname</code> with a similar or equal alias name.</p></li>
 </ol>
 <div class="code-indent">
-<p><code>keytool -genkey -v -keystore mykeystore.keystore -alias aliasname -keyalg RSA -validity 999999</code></p>
+<p><code>keytool -genkey -v -keystore mykeystore.keystore -alias aliasname -keyalg RSA -validity 999999 -deststoretype JKS</code></p>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>You'll be prompted for your credentials. Supply the requested information and tap <strong>enter</strong> to sign your Android app.</li>

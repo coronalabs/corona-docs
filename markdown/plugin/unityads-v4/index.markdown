@@ -104,6 +104,7 @@ For Android, the following permissions/features are automatically added when usi
 
 * `"android.permission.INTERNET"`
 * `"android.permission.ACCESS_NETWORK_STATE"`
+* `"com.google.android.gms.permission.AD_ID"`
 
 Also, minimum Android API level required is 19
 

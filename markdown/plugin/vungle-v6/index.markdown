@@ -38,6 +38,10 @@ Using Vungle video ads requires a free account &mdash; please [register](https:/
 
 #### [vungle.setHasUserConsent()][plugin.vungle-v6.setHasUserConsent]
 
+#### [vungle.updateCCPAStatus()][plugin.vungle-v6.updateCCPAStatus]
+
+#### [vungle.updateCOPPAStatus()][plugin.vungle-v6.updateCOPPAStatus]
+
 #### [vungle.getVersionString()][plugin.vungle-v6.getVersionString]
 
 

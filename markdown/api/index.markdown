@@ -1439,6 +1439,12 @@
 
 <p class="index">[event.url][api.event.system.url]</p>
 
+#### [windowState][api.event.windowState]
+
+<p class="index">[event.name][api.event.windowState.name]</p>
+
+<p class="index">[event.phase][api.event.windowState.phase]</p>
+
 
 #### [tap][api.event.tap]
 

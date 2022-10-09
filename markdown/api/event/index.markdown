@@ -76,6 +76,8 @@
 
 #### [system][api.event.system]
 
+#### [windowState][api.event.windowState]
+
 #### [tap][api.event.tap]
 
 #### [timer][api.event.timer]

@@ -31,6 +31,8 @@ __Runtime events__ are dispatched to the global Runtime listener. These events a
 
 * `orientation` events \([documentation][api.event.orientation]\) occur when the device orientation changes from portrait to landscape or <nobr>vice-versa</nobr>.
 
+* `windowState` events \([documentation][api.event.windowState]\) occur when the application window is sent to background or activated again (Win32 and macOS only).
+
 The following code shows how an app can respond to `system` events:
 
 ``````lua

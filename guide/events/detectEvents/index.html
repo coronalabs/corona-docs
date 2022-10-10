@@ -94,6 +94,7 @@
 <li><p><code>system</code> events (<a href="../../../api/event/system/index.html">documentation</a>) are dispatched when certain external events occur, such as when the device suspends or exits the application.</p></li>
 <li><p><code>resize</code> events (<a href="../../../api/event/resize/index.html">documentation</a>) occur when the width or height of the app's view has been changed.</p></li>
 <li><p><code>orientation</code> events (<a href="../../../api/event/orientation/index.html">documentation</a>) occur when the device orientation changes from portrait to landscape or <nobr>vice-versa</nobr>.</p></li>
+<li><p><code>windowState</code> events (<a href="../../../api/event/windowState/index.html">documentation</a>) occur when the application window is sent to background or activated again (Win32 and macOS only).</p></li>
 </ul>
 <p>The following code shows how an app can respond to <code>system</code> events:</p>
 <pre class="brush: lua;">local function onSystemEvent( event )

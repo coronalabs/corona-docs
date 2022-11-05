@@ -11,7 +11,9 @@
 
 ## Overview
 
-Fades an object to alpha of `0.0` over the specified time.
+Moves an object to the specified `x` and `y` coordinates and back, creating a loop.
+
+`time` is used for a full cycle and the easing is reversed in the second half of the transition.
 
 ## Syntax
 

@@ -59,6 +59,8 @@ The transition library provides functions and methods to transition/tween displa
 
 #### [transition.scaleTo()][api.library.transition.scaleTo]
 
+#### [transition.loop()][api.library.transition.loop]
+
 ## Properties
 
 #### [transition.ignoreEmptyReference][api.library.transition.ignoreEmptyReference]

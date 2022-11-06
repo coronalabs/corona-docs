@@ -57,7 +57,7 @@ local picWidth = 32
 local pic = display.newImageRect( "pic.png", picWidth, 64 )
 ``````
 
-In this example, we call a common Corona function, `display.newImageRect()`, and pass to it:
+In this example, we call a common CORONA_CORE_PRODUCT function, `display.newImageRect()`, and pass to it:
 
 1. A string value (`"pic.png"`).
 2. A variable (`picWidth`).
@@ -180,7 +180,7 @@ local value1, value2 = returnTwoNumbers()
 
 Notice that because the second function returns __two__ values, it logically needs two variables, `value1` and `value2`, to store the returned values.
 
-This multiple return concept can be directly observed via the Corona API `myObject:getLinearVelocity()`, a physics function which retrieves the current linear velocity of a physical object. Because a physical linear velocity always consists of two velocity values, horizontal&nbsp;(__x__) and vertical&nbsp;(__y__), this function is typically called like this:
+This multiple return concept can be directly observed via the CORONA_CORE_PRODUCT API `myObject:getLinearVelocity()`, a physics function which retrieves the current linear velocity of a physical object. Because a physical linear velocity always consists of two velocity values, horizontal&nbsp;(__x__) and vertical&nbsp;(__y__), this function is typically called like this:
 
 ``````lua
 local linearVelocityX, linearVelocityY = myObject:getLinearVelocity()

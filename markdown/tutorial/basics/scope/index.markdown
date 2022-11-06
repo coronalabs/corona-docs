@@ -1,6 +1,6 @@
 # Scope for Beginners
 
-As a new &mdash; or relatively new&nbsp;&mdash; Lua/Corona programmer, are you confused by console errors like this?
+As a new &mdash; or relatively new&nbsp;&mdash; Lua/CORONA_CORE_PRODUCT programmer, are you confused by console errors like this?
 
 ``````
 Runtime error /Users/yourname/Projects/AwesomeGame\menu.lua:4: attempt to index global 'button' (a nil value)

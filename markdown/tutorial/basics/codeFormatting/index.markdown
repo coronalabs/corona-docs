@@ -1,6 +1,6 @@
 # The Value of <nobr>Well-Formatted</nobr> Code
 
-Inevitably, there will be a time in your app development where you'll need to show your code to someone else. Perhaps it's because you're asking for help in the forums or you're working on a team and your teammates need to read your code. Maybe you want to share a useful module with someone, or even sell a game template in the [Corona Marketplace](https://marketplace.coronalabs.com).
+Inevitably, there will be a time in your app development where you'll need to show your code to someone else. Perhaps it's because you're asking for help in the forums or you're working on a team and your teammates need to read your code. Maybe you want to share a useful module with someone, or even sell a game template.
 
 In all of these instances, having <nobr>well-formatted</nobr> code is a major aspect of how successful you'll be as a programmer. Unfortunately, code formatting can prompt a heated argument between different programmers: do you use 3 spaces or 4 spaces per indent? Do you indent with tabs or spaces? Do you put your opening curly&nbsp;brace&nbsp;(`{`) on the end of the line or the beginning? And so forth...
 
@@ -169,7 +169,7 @@ end
 
 Using a full-featured code/text editor application will greatly improve your code. These will usually manage your indentations automatically as you move down further into a block of code. In addition, they will often provide full Lua syntax coloring where keywords, values, and variables are colored differently to assist in readability. For example, an editor might label strings in green, and if you forget to include a string's ending quote (`"`), a much larger block of code may turn green, indicating you forgot that ending quote.
 
-Another important feature of a proper editor is the ability to show line numbers. When Corona encounters an error in code, it reports the line number where the problem occurred (see&nbsp;the [Debugging Guide][guide.basics.debugging] for more&nbsp;information). Thus, if your editor shows line numbers, it's much easier to track down the issue.
+Another important feature of a proper editor is the ability to show line numbers. When CORONA_CORE_PRODUCT encounters an error in code, it reports the line number where the problem occurred (see&nbsp;the [Debugging Guide][guide.basics.debugging] for more&nbsp;information). Thus, if your editor shows line numbers, it's much easier to track down the issue.
 
 See our [Getting Started][guide.programming.01] guide for a list of recommended text editors.
 

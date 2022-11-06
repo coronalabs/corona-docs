@@ -26,7 +26,7 @@ So why should you explicity put global variables in the `_G` table as in the exa
 
 ## No Harm, No Foul?
 
-Some developers have reported that when they `print()` variables to the console, Corona's error and warning messages have stopped functioning. The likely cause is that the developer created a global variable named `debug`, meaning&nbsp;`_G.debug`, and doing so inadvertently "trashed" access to a critical internal library that Corona uses to output debug messages.
+Some developers have reported that when they `print()` variables to the console, CORONA_CORE_PRODUCT's error and warning messages have stopped functioning. The likely cause is that the developer created a global variable named `debug`, meaning&nbsp;`_G.debug`, and doing so inadvertently "trashed" access to a critical internal library that CORONA_CORE_PRODUCT uses to output debug messages.
 
 To inspect this concept further, you can `print()` the entire `_G` table using the following method:
 
@@ -60,9 +60,9 @@ _G.type = "Gold"
 _G.timer = timer.performWithDelay( 1000, doSomething )
 ``````
 
-However, all this does is "trash" these internal Corona libraries, meaning you won't be able to play audio or use the `type()` function&nbsp;&mdash; and that timer isn't going to time anything!
+However, all this does is "trash" these internal CORONA_CORE_PRODUCT libraries, meaning you won't be able to play audio or use the `type()` function&nbsp;&mdash; and that timer isn't going to time anything!
 
-You may think that the solution is to simply avoid __those__ global names. Not so fast! The list output by the loop above indicates the libraries that you shouldn't overwrite today, based on an otherwise empty `main.lua` file. That list also assumes that you haven't <nobr>`require()`-d</nobr> any additional libraries or modules, whether they be Corona libraries like [physics][api.library.physics], your own modules, or <nobr>third-party</nobr> libraries/plugins. In addition, other things may slip into the global space that you're simply not aware of.
+You may think that the solution is to simply avoid __those__ global names. Not so fast! The list output by the loop above indicates the libraries that you shouldn't overwrite today, based on an otherwise empty `main.lua` file. That list also assumes that you haven't <nobr>`require()`-d</nobr> any additional libraries or modules, whether they be CORONA_CORE_PRODUCT libraries like [physics][api.library.physics], your own modules, or <nobr>third-party</nobr> libraries/plugins. In addition, other things may slip into the global space that you're simply not aware of.
 
 <div class="docs-tip-outer docs-tip-color-alert">
 <div class="docs-tip-inner-left">
@@ -82,7 +82,7 @@ Some developers use&nbsp;&mdash; and sometimes abuse&nbsp;&mdash; globals as a w
 
 ### Forward Declarations
 
-The first case&nbsp;&mdash; accessing something you haven't declared yet&nbsp;&mdash; can be solved by the __forward&nbsp;declaration__ method. As a Lua/Corona programmer, understanding __scope__ is essential. If you need to use a variable (usually&nbsp;a&nbsp;function) before you declare it, simply <nobr>forward-declare</nobr> a variable and use the alternate function declaration syntax like this:
+The first case&nbsp;&mdash; accessing something you haven't declared yet&nbsp;&mdash; can be solved by the __forward&nbsp;declaration__ method. As a Lua/CORONA_CORE_PRODUCT programmer, understanding __scope__ is essential. If you need to use a variable (usually&nbsp;a&nbsp;function) before you declare it, simply <nobr>forward-declare</nobr> a variable and use the alternate function declaration syntax like this:
 
 ``````{ brush="lua" gutter="true" first-line="1" }
 local doSomething  -- Forward declaration

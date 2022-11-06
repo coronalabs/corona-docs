@@ -73,7 +73,7 @@ Anonymous functions are most useful when you need to code an `onComplete` or cal
 </div>
 <div class="docs-tip-inner-right">
 
-Note that there are times when you can __not__ use anonymous functions. One specific instance is when you assign functions to event listeners. Because the event listener system in Corona is based around storing the address of functions that are specified to handle events, the address that you pass in when removing an event listener via `object:removeEventListener()` must match the address that was passed in to `object:addEventListener()`.
+Note that there are times when you can __not__ use anonymous functions. One specific instance is when you assign functions to event listeners. Because the event listener system in CORONA_CORE_PRODUCT is based around storing the address of functions that are specified to handle events, the address that you pass in when removing an event listener via `object:removeEventListener()` must match the address that was passed in to `object:addEventListener()`.
 
 </div>
 </div>
@@ -170,4 +170,4 @@ Essentially, each version of the anonymous function holds its own `i` and keeps 
 
 ## Conclusion
 
-As you can see, anonymous functions and closures provide a powerful way to keep track of variable instances on a <nobr>per-function</nobr> basis. In the context of Corona, this allows you to pass parameters to functions in which you normally don't control the <nobr>passed-in</nobr> content.
+As you can see, anonymous functions and closures provide a powerful way to keep track of variable instances on a <nobr>per-function</nobr> basis. In the context of CORONA_CORE_PRODUCT, this allows you to pass parameters to functions in which you normally don't control the <nobr>passed-in</nobr> content.

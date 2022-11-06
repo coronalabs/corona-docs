@@ -113,7 +113,7 @@ print( calculateAngle( -4, 80 ) )</pre>
 <p>Data is sent to functions as <strong>parameters</strong>, or &quot;arguments&quot; as some developers refer to them. These are passed to the function as a <nobr>comma-separated</nobr> list of values/variables within the function's parentheses (<code>()</code>), for example:</p>
 <pre class="brush: lua;">local picWidth = 32
 local pic = display.newImageRect( "pic.png", picWidth, 64 )</pre>
-<p>In this example, we call a common Corona function, <code>display.newImageRect()</code>, and pass to it:</p>
+<p>In this example, we call a common Solar2D function, <code>display.newImageRect()</code>, and pass to it:</p>
 <ol style="list-style-type: decimal">
 <li>A string value (<code>&quot;pic.png&quot;</code>).</li>
 <li>A variable (<code>picWidth</code>).</li>
@@ -193,7 +193,7 @@ end
 
 local value1, value2 = returnTwoNumbers() </pre>
 <p>Notice that because the second function returns <strong>two</strong> values, it logically needs two variables, <code>value1</code> and <code>value2</code>, to store the returned values.</p>
-<p>This multiple return concept can be directly observed via the Corona API <code>myObject:getLinearVelocity()</code>, a physics function which retrieves the current linear velocity of a physical object. Because a physical linear velocity always consists of two velocity values, horizontal (<strong>x</strong>) and vertical (<strong>y</strong>), this function is typically called like this:</p>
+<p>This multiple return concept can be directly observed via the Solar2D API <code>myObject:getLinearVelocity()</code>, a physics function which retrieves the current linear velocity of a physical object. Because a physical linear velocity always consists of two velocity values, horizontal (<strong>x</strong>) and vertical (<strong>y</strong>), this function is typically called like this:</p>
 <pre class="brush: lua;">local linearVelocityX, linearVelocityY = myObject:getLinearVelocity()</pre>
 <p>Note, however, that you don't need to store <strong>all</strong> returned values as separate variables. For example, if you only care about the linear <strong>x</strong> velocity of the physical object, just store that value and the linear <strong>y</strong> value will be discarded:</p>
 <pre class="brush: lua;">local linearVelocityX = myObject:getLinearVelocity()</pre>

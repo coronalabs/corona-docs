@@ -80,17 +80,17 @@
 </div>
 <div id="implementing-ads" class="section level1">
 <h1>Implementing Ads</h1>
-<p>Corona supports multiple plugins that allow you to show in-app advertising. These plugins all basically work the same way, however there are subtle differences you have to pay close attention to.</p>
+<p>Solar2D supports multiple plugins that allow you to show in-app advertising. These plugins all basically work the same way, however there are subtle differences you have to pay close attention to.</p>
 <div id="basic-concepts" class="section level2">
 <h2>Basic Concepts</h2>
 <p>There are some common concepts for all ad providers. Let's start with dashboard setup.</p>
-<p>Each ad provider has a dashboard that you have to create an account for, set up your apps and then get various identifiers for... and they are all different. Between the vast differences in the dashboards and the frequency that the ad providers update their dashboards, it's impossible for Corona Labs to document their usage. None of them have Corona specific information, so following their guides and documentation will help you get set up on their platform.</p>
-<p>You will need to create an &quot;App&quot; for each Corona app you're going to implement ads for. In almost every case, within their dashboard you will define separate apps for the iOS version and the Android version. The ad providers will target iOS specific ads to iOS apps and Android specific ads to Android apps, so it makes sense if you're building for both platforms you will have two applications even though you will only have one physical Corona app.</p>
-<p>Each vendor may use a different identifier for this, but for the purpose of this tutorial, we will refer to this as an &quot;AppId&quot;. It will be a string. The string could be all numbers, code with hex digits, or a long string with symbols in it. To Corona these will all be strings.</p>
+<p>Each ad provider has a dashboard that you have to create an account for, set up your apps and then get various identifiers for... and they are all different. Following their guides and documentation will help you get set up on their platform.</p>
+<p>You will need to create an &quot;App&quot; for each app/game you're going to implement ads for. In almost every case, within their dashboard you will define separate apps for the iOS version and the Android version. The ad providers will target iOS specific ads to iOS apps and Android specific ads to Android apps, so it makes sense if you're building for both platforms you will have two applications even though you will only have one Solar2D app.</p>
+<p>Each vendor may use a different identifier for this, but for the purpose of this tutorial, we will refer to this as an &quot;AppId&quot;. It will be a string. The string could be all numbers, code with hex digits, or a long string with symbols in it. To Solar2D these will all be strings.</p>
 <p>Next, you will most likely have to define what types of ads you want to show, such as banner ads, interstitial, or rewarded video ads. Depending on your app design, there may be times where you need to have multiple ads of the same type that are tracked separately. For instance, you might offer two rewards in your game for watching a rewarded video. Each reward has a different amount like 10 coins for one rewarded video and 5 gems for another.</p>
-<p>You need to set up different values that your app needs to process. Because of this, each separately tracked ad placement will have its own identifier. This may be called a PlacementId, or and adUnitId or some other term. For this tutorial, we will refer them as <code>PlacementId</code>. Like the <code>AppId</code>, these may look like numbers, but they are all treated as strings in Corona. NOTE: The code in this tutorial uses <code>adUnitId</code> since it uses AdMob as the implementation example.</p>
+<p>You need to set up different values that your app needs to process. Because of this, each separately tracked ad placement will have its own identifier. This may be called a PlacementId, or and adUnitId or some other term. For this tutorial, we will refer them as <code>PlacementId</code>. Like the <code>AppId</code>, these may look like numbers, but they are all treated as strings in Solar2D. NOTE: The code in this tutorial uses <code>adUnitId</code> since it uses AdMob as the implementation example.</p>
 <p>These placements go with the app. If you have both an iOS app and an Android app and each app has three placements, you will have two <code>AppId</code>s and six <code>PlacementId</code>s.</p>
-<p>In your Corona code you will need to test to see what platform you're on and initialize your plugin using the appropriate IDs for each placement.</p>
+<p>In your code you will need to test to see what platform you're on and initialize your plugin using the appropriate IDs for each placement.</p>
 </div>
 <div id="build.settings" class="section level2">
 <h2>build.settings</h2>
@@ -341,7 +341,7 @@ local function adListener( event )
     end
 end</pre>
 <p>Going into how to give these rewards to your user is beyond the scope of this tutorial.</p>
-<p>To show the rewarded video, create a button in your user interface in whatever button method you like (i.e., [widget.newButton()][api/library/widget/newButton.html], [display.newImageRect()][api/library/display/newImageRect.html] with a <code>touch</code> or <code>tap</code> listener, etc.) and in the function that handles the button interaction, call the <code>.show()</code> function.</p>
+<p>To show the rewarded video, create a button in your user interface in whatever button method you like (i.e., <a href="../../../api/library/widget/newButton.html">widget.newButton()</a>, <a href="../../../api/library/display/newImageRect.html">display.newImageRect()</a> with a <code>touch</code> or <code>tap</code> listener, etc.) and in the function that handles the button interaction, call the <code>.show()</code> function.</p>
 <pre class="brush: lua;">local function handleRewardedVideoButton( event )
     if "began" == event.phase then -- touch type event
         admob.show( "rewardedVideo" )
@@ -349,17 +349,17 @@ end</pre>
     return true
 end</pre>
 <p>You should consider also testing to see if the ad is available before presenting the UI button to the user.</p>
-<p>To learn more about rewarded ads and implementation strategies <a href="https://www.appsflyer.com/blog/game-developers-6-tips-making-rewarded-video/">view this article from AppsFlyer</a>.</p>
+<p>To learn more about rewarded ads and implementation strategies <a href="https://www.appsflyer.com/blog/videos/rewarded-video-ad-monetization/">view this article from AppsFlyer</a>.</p>
 </div>
 </div>
 <div id="debugging-ads" class="section level2">
 <h2>Debugging ads</h2>
-<p>Because ad plugins only work on Android and iOS devices, you can only test them on a real device. Corona Live Builds can help with the building and testing phase, but unless you're on a Mac and still have the Corona simulator's console log reading your device's console log, you can't get information from the device to see what's going on.</p>
-<p>If you're on a Mac, you can just have Corona install the app to your device that's tethered via USB as long as you don't close the &quot;build complete&quot; dialog box. Messages from your device and app will show in the Corona console log. If you close that dialog or you do not have a Mac, then you have to use other tools to watch the device's console log.</p>
+<p>Because ad plugins only work on Android and iOS devices, you can only test them on a real device. Live Builds can help with the building and testing phase, but unless you're on a Mac and still have the Simulator's console log reading your device's console log, you can't get information from the device to see what's going on.</p>
+<p>If you're on a Mac, you can just have Solar2D install the app to your device that's tethered via USB as long as you don't close the &quot;build complete&quot; dialog box. Messages from your device and app will show in the Solar2D console log. If you close that dialog or you do not have a Mac, then you have to use other tools to watch the device's console log.</p>
 <p>For iOS, you can use Xcode's <code>Devices &amp; Simulators</code> window and watch the device's console log. For Android, you can install a command line tool called <code>adb</code> or Android Debug Bridge. How to install <code>adb</code> is beyond the scope of this tutorial as is learning how to run it on your computer. There are plenty of general tutorials on the Internet for setting this up.</p>
 <p>Assuming you can now see the device's console log, what are you looking for?</p>
 <p>All ad plugin providers return information with each event they generate: information like the <code>phase</code> of the event, if it's an error or not, a text response as to what any errors were about, and more information.</p>
-<p>The easiest way for you to learn what's going on with your app is to read this information. This is done simply by printing out the contents of the event table. Corona offers a very simple API call that lets you easily dump the contents of any table. If you look at the beginning of the <code>adListener()</code> function you will find this code:</p>
+<p>The easiest way for you to learn what's going on with your app is to read this information. This is done simply by printing out the contents of the event table. Solar2D offers a very simple API call that lets you easily dump the contents of any table. If you look at the beginning of the <code>adListener()</code> function you will find this code:</p>
 <pre class="brush: lua;">-- AdMob listener function
 local function adListener( event )
     local json = require( "json" )
@@ -367,7 +367,7 @@ local function adListener( event )
     print( json.prettify( event ) )
 end</pre>
 <p>This includes the JSON library. You can of course move the line that requires the library to the top of your <code>main.lua</code> or if you're already including it, you can skip it here. The magic happens on the second print statement.</p>
-<p>Using the [json.prettify][api/library/json/prettify.html] function along with a print statement, Corona will take the Lua table, convert it to a JSON string for you and then print the JSON string in a very readable format. You should get something that looks like:</p>
+<p>Using the <a href="../../../api/library/json/prettify.html">json.prettify</a> function along with a print statement, Solar2D will take the Lua table, convert it to a JSON string for you and then print the JSON string in a very readable format. You should get something that looks like:</p>
 <pre class="brush: lua;">Nexus 9: {
 Nexus 9:   "data":"{"errorMsg":"No Ads Available","errorCode":3,"adUnitId":"ca-app-pub-xxxxxxxxxxxxxxxxx/xxxxxxxxxxx"}",
 Nexus 9:   "name":"adsRequest",
@@ -384,7 +384,7 @@ Nexus 9: }</pre>
 <h2>Conclusion</h2>
 <p>Implementing ads has a lot of moving parts between the ad provider portal setup, the minimum implementation code and of course your ad placement. But through some patience and understanding your apps flow, you can build a successful monetization plan in your app or game.</p>
 <p>Just remember: Don't annoy your users. Don't waste your advertisers inventory. Don't violate the stores' guidelines by building an app that's more ads than content or other violations <a href="https://blog.appodeal.com/how-do-i-keep-app-from-getting-banned/">that can get you banned</a>. To get more context on these concepts look at <a href="https://gameanalytics.com/blog/popular-mobile-game-ad-formats.html">this article from GameAnalytics</a> and scroll down to the &quot;The 5 Essentials Of Running Ads In Mobile Games&quot; section.</p>
-<p>Don't hesitate to ask for help. Corona has a great group of community developers who are willing to help you out.</p>
+<p>Don't hesitate to ask for help. We have a great community of developers who are willing to help you out in <a href="https://forums.solar2d.com/">forums</a> and <a href="https://discord.com/invite/Abf5V9G">Discord</a>.</p>
 <hr>
 <div id="footer">
 <p class="copyright">

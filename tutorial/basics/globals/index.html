@@ -85,7 +85,7 @@ print( myVariable )  --> Prints 20 to the console</pre>
 </div>
 <div id="no-harm-no-foul" class="section level2">
 <h2>No Harm, No Foul?</h2>
-<p>Some developers have reported that when they <code>print()</code> variables to the console, Corona's error and warning messages have stopped functioning. The likely cause is that the developer created a global variable named <code>debug</code>, meaning <code>_G.debug</code>, and doing so inadvertently &quot;trashed&quot; access to a critical internal library that Corona uses to output debug messages.</p>
+<p>Some developers have reported that when they <code>print()</code> variables to the console, Solar2D's error and warning messages have stopped functioning. The likely cause is that the developer created a global variable named <code>debug</code>, meaning <code>_G.debug</code>, and doing so inadvertently &quot;trashed&quot; access to a critical internal library that Solar2D uses to output debug messages.</p>
 <p>To inspect this concept further, you can <code>print()</code> the entire <code>_G</code> table using the following method:</p>
 <pre class="brush: lua;">for k,v in pairs( _G ) do
     print( k .. " : ", v )
@@ -106,8 +106,8 @@ debug :     table: 0x600000270a80</pre>
 <pre class="brush: lua;">_G.audio = true  -- Play audio if true, don't play if false
 _G.type = "Gold"
 _G.timer = timer.performWithDelay( 1000, doSomething )</pre>
-<p>However, all this does is &quot;trash&quot; these internal Corona libraries, meaning you won't be able to play audio or use the <code>type()</code> function — and that timer isn't going to time anything!</p>
-<p>You may think that the solution is to simply avoid <strong>those</strong> global names. Not so fast! The list output by the loop above indicates the libraries that you shouldn't overwrite today, based on an otherwise empty <code>main.lua</code> file. That list also assumes that you haven't <nobr><code>require()</code>-d</nobr> any additional libraries or modules, whether they be Corona libraries like <a href="../../../api/library/physics/index.html">physics</a>, your own modules, or <nobr>third-party</nobr> libraries/plugins. In addition, other things may slip into the global space that you're simply not aware of.</p>
+<p>However, all this does is &quot;trash&quot; these internal Solar2D libraries, meaning you won't be able to play audio or use the <code>type()</code> function — and that timer isn't going to time anything!</p>
+<p>You may think that the solution is to simply avoid <strong>those</strong> global names. Not so fast! The list output by the loop above indicates the libraries that you shouldn't overwrite today, based on an otherwise empty <code>main.lua</code> file. That list also assumes that you haven't <nobr><code>require()</code>-d</nobr> any additional libraries or modules, whether they be Solar2D libraries like <a href="../../../api/library/physics/index.html">physics</a>, your own modules, or <nobr>third-party</nobr> libraries/plugins. In addition, other things may slip into the global space that you're simply not aware of.</p>
 <div class="docs-tip-outer docs-tip-color-alert">
 <div class="docs-tip-inner-left">
 <div class="fa fa-exclamation-circle" style="font-size: 35px;">
@@ -124,7 +124,7 @@ _G.timer = timer.performWithDelay( 1000, doSomething )</pre>
 <p>Some developers use — and sometimes abuse — globals as a way to access something they haven't declared yet, or access variables/functions between modules. Fortunately, both of these tasks are easy to accomplish <strong>without</strong> using globals!</p>
 <div id="forward-declarations" class="section level3">
 <h3>Forward Declarations</h3>
-<p>The first case — accessing something you haven't declared yet — can be solved by the <strong>forward declaration</strong> method. As a Lua/Corona programmer, understanding <strong>scope</strong> is essential. If you need to use a variable (usually a function) before you declare it, simply <nobr>forward-declare</nobr> a variable and use the alternate function declaration syntax like this:</p>
+<p>The first case — accessing something you haven't declared yet — can be solved by the <strong>forward declaration</strong> method. As a Lua/Solar2D programmer, understanding <strong>scope</strong> is essential. If you need to use a variable (usually a function) before you declare it, simply <nobr>forward-declare</nobr> a variable and use the alternate function declaration syntax like this:</p>
 <pre class="brush: lua; gutter: true; first-line: 1;">local doSomething  -- Forward declaration
 
 local function makeSomethingHappen()

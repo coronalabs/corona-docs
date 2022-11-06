@@ -116,7 +116,7 @@ timer.performWithDelay( 1000, myFunction, 10 )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Note that there are times when you can <strong>not</strong> use anonymous functions. One specific instance is when you assign functions to event listeners. Because the event listener system in Corona is based around storing the address of functions that are specified to handle events, the address that you pass in when removing an event listener via <code>object:removeEventListener()</code> must match the address that was passed in to <code>object:addEventListener()</code>.</p>
+<p>Note that there are times when you can <strong>not</strong> use anonymous functions. One specific instance is when you assign functions to event listeners. Because the event listener system in Solar2D is based around storing the address of functions that are specified to handle events, the address that you pass in when removing an event listener via <code>object:removeEventListener()</code> must match the address that was passed in to <code>object:addEventListener()</code>.</p>
 </div>
 </div>
 </div>
@@ -187,7 +187,7 @@ print( counter2() )  --> 2</pre>
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
-<p>As you can see, anonymous functions and closures provide a powerful way to keep track of variable instances on a <nobr>per-function</nobr> basis. In the context of Corona, this allows you to pass parameters to functions in which you normally don't control the <nobr>passed-in</nobr> content.</p>
+<p>As you can see, anonymous functions and closures provide a powerful way to keep track of variable instances on a <nobr>per-function</nobr> basis. In the context of Solar2D, this allows you to pass parameters to functions in which you normally don't control the <nobr>passed-in</nobr> content.</p>
 <hr>
 <div id="footer">
 <p class="copyright">

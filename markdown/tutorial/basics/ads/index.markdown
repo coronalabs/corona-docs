@@ -1,25 +1,25 @@
 
 # Implementing Ads
 
-Corona supports multiple plugins that allow you to show in-app advertising. These plugins all basically work the same way, however there are subtle differences you have to pay close attention to. 
+CORONA_CORE_PRODUCT supports multiple plugins that allow you to show in-app advertising. These plugins all basically work the same way, however there are subtle differences you have to pay close attention to. 
 
 ## Basic Concepts
 
 There are some common concepts for all ad providers. Let's start with dashboard setup.
 
-Each ad provider has a dashboard that you have to create an account for, set up your apps and then get various identifiers for... and they are all different. Between the vast differences in the dashboards and the frequency that the ad providers update their dashboards, it's impossible for Corona Labs to document their usage. None of them have Corona specific information, so following their guides and documentation will help you get set up on their platform.
+Each ad provider has a dashboard that you have to create an account for, set up your apps and then get various identifiers for... and they are all different. Following their guides and documentation will help you get set up on their platform.
 
-You will need to create an "App" for each Corona app you're going to implement ads for. In almost every case, within their dashboard you will define separate apps for the iOS version and the Android version. The ad providers will target iOS specific ads to iOS apps and Android specific ads to Android apps, so it makes sense if you're building for both platforms you will have two applications even though you will only have one physical Corona app. 
+You will need to create an "App" for each app/game you're going to implement ads for. In almost every case, within their dashboard you will define separate apps for the iOS version and the Android version. The ad providers will target iOS specific ads to iOS apps and Android specific ads to Android apps, so it makes sense if you're building for both platforms you will have two applications even though you will only have one CORONA_CORE_PRODUCT app. 
 
-Each vendor may use a different identifier for this, but for the purpose of this tutorial, we will refer to this as an "AppId". It will be a string. The string could be all numbers, code with hex digits, or a long string with symbols in it. To Corona these will all be strings.
+Each vendor may use a different identifier for this, but for the purpose of this tutorial, we will refer to this as an "AppId". It will be a string. The string could be all numbers, code with hex digits, or a long string with symbols in it. To CORONA_CORE_PRODUCT these will all be strings.
 
 Next, you will most likely have to define what types of ads you want to show, such as banner ads, interstitial, or rewarded video ads. Depending on your app design, there may be times where you need to have multiple ads of the same type that are tracked separately. For instance, you might offer two rewards in your game for watching a rewarded video. Each reward has a different amount like 10 coins for one rewarded video and 5 gems for another. 
 
-You need to set up different values that your app needs to process. Because of this, each separately tracked ad placement will have its own identifier. This may be called a PlacementId, or and adUnitId or some other term. For this tutorial, we will refer them as `PlacementId`. Like the `AppId`, these may look like numbers, but they are all treated as strings in Corona. NOTE: The code in this tutorial uses `adUnitId` since it uses AdMob as the implementation example.
+You need to set up different values that your app needs to process. Because of this, each separately tracked ad placement will have its own identifier. This may be called a PlacementId, or and adUnitId or some other term. For this tutorial, we will refer them as `PlacementId`. Like the `AppId`, these may look like numbers, but they are all treated as strings in CORONA_CORE_PRODUCT. NOTE: The code in this tutorial uses `adUnitId` since it uses AdMob as the implementation example.
 
 These placements go with the app. If you have both an iOS app and an Android app and each app has three placements, you will have two `AppId`s and six `PlacementId`s.
 
-In your Corona code you will need to test to see what platform you're on and initialize your plugin using the appropriate IDs for each placement. 
+In your code you will need to test to see what platform you're on and initialize your plugin using the appropriate IDs for each placement. 
 
 ## build.settings
 
@@ -335,7 +335,7 @@ end
 
 Going into how to give these rewards to your user is beyond the scope of this tutorial.
 
-To show the rewarded video, create a button in your user interface in whatever button method you like (i.e., [widget.newButton()][api/library/widget/newButton.html], [display.newImageRect()][api/library/display/newImageRect.html] with a `touch` or `tap` listener, etc.) and in the function that handles the button interaction, call the `.show()` function.
+To show the rewarded video, create a button in your user interface in whatever button method you like (i.e., [widget.newButton()][api.library.widget.newButton], [display.newImageRect()][api.library.display.newImageRect] with a `touch` or `tap` listener, etc.) and in the function that handles the button interaction, call the `.show()` function.
 
 ``````lua
 local function handleRewardedVideoButton( event )
@@ -348,13 +348,13 @@ end
 
 You should consider also testing to see if the ad is available before presenting the UI button to the user.
 
-To learn more about rewarded ads and implementation strategies [view this article from AppsFlyer](https://www.appsflyer.com/blog/game-developers-6-tips-making-rewarded-video/).
+To learn more about rewarded ads and implementation strategies [view this article from AppsFlyer](https://www.appsflyer.com/blog/videos/rewarded-video-ad-monetization/).
 
 ## Debugging ads
 
-Because ad plugins only work on Android and iOS devices, you can only test them on a real device. Corona Live Builds can help with the building and testing phase, but unless you're on a Mac and still have the Corona simulator's console log reading your device's console log, you can't get information from the device to see what's going on.
+Because ad plugins only work on Android and iOS devices, you can only test them on a real device. Live Builds can help with the building and testing phase, but unless you're on a Mac and still have the Simulator's console log reading your device's console log, you can't get information from the device to see what's going on.
 
-If you're on a Mac, you can just have Corona install the app to your device that's tethered via USB as long as you don't close the "build complete" dialog box. Messages from your device and app will show in the Corona console log. If you close that dialog or you do not have a Mac, then you have to use other tools to watch the device's console log.
+If you're on a Mac, you can just have CORONA_CORE_PRODUCT install the app to your device that's tethered via USB as long as you don't close the "build complete" dialog box. Messages from your device and app will show in the CORONA_CORE_PRODUCT console log. If you close that dialog or you do not have a Mac, then you have to use other tools to watch the device's console log.
 
 For iOS, you can use Xcode's `Devices & Simulators` window and watch the device's console log. For Android, you can install a command line tool called `adb` or Android Debug Bridge. How to install `adb` is beyond the scope of this tutorial as is learning how to run it on your computer. There are plenty of general tutorials on the Internet for setting this up.
 
@@ -362,7 +362,7 @@ Assuming you can now see the device's console log, what are you looking for?
 
 All ad plugin providers return information with each event they generate: information like the `phase` of the event, if it's an error or not, a text response as to what any errors were about, and more information.
 
-The easiest way for you to learn what's going on with your app is to read this information. This is done simply by printing out the contents of the event table. Corona offers a very simple API call that lets you easily dump the contents of any table. If you look at the beginning of the `adListener()` function you will find this code:
+The easiest way for you to learn what's going on with your app is to read this information. This is done simply by printing out the contents of the event table. CORONA_CORE_PRODUCT offers a very simple API call that lets you easily dump the contents of any table. If you look at the beginning of the `adListener()` function you will find this code:
 
 ``````lua
 -- AdMob listener function
@@ -375,7 +375,7 @@ end
 
 This includes the JSON library. You can of course move the line that requires the library to the top of your `main.lua` or if you're already including it, you can skip it here. The magic happens on the second print statement.
 
-Using the [json.prettify][api/library/json/prettify.html] function along with a print statement, Corona will take the Lua table, convert it to a JSON string for you and then print the JSON string in a very readable format. You should get something that looks like:
+Using the [json.prettify][api.library.json.prettify] function along with a print statement, CORONA_CORE_PRODUCT will take the Lua table, convert it to a JSON string for you and then print the JSON string in a very readable format. You should get something that looks like:
 ``````lua
 Nexus 9: {
 Nexus 9:   "data":"{"errorMsg":"No Ads Available","errorCode":3,"adUnitId":"ca-app-pub-xxxxxxxxxxxxxxxxx/xxxxxxxxxxx"}",
@@ -398,5 +398,5 @@ Implementing ads has a lot of moving parts between the ad provider portal setup,
 
 Just remember: Don't annoy your users. Don't waste your advertisers inventory. Don't violate the stores' guidelines by building an app that's more ads than content or other violations [that can get you banned](https://blog.appodeal.com/how-do-i-keep-app-from-getting-banned/). To get more context on these concepts look at [this article from GameAnalytics](https://gameanalytics.com/blog/popular-mobile-game-ad-formats.html) and scroll down to the "The 5 Essentials Of Running Ads In Mobile Games" section. 
 
-Don't hesitate to ask for help. Corona has a great group of community developers who are willing to help you out.
+Don't hesitate to ask for help. We have a great community of developers who are willing to help you out in [forums](https://forums.solar2d.com/) and [Discord](https://discord.com/invite/Abf5V9G).
 

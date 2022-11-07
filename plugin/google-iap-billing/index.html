@@ -108,6 +108,12 @@
 </tbody>
 </table>
 </blockquote>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>This plugin is deprecated. Please migrate to <a href="../../plugin/google-iap-billing-v2/index.html">Google Billing v2</a>.</p>
+</div>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
 <p>The Google Play Billing plugin allows you to support <nobr>in-app</nobr> purchasing on Android, including <nobr>in-game</nobr> currency, upgrades, and more.</p>
@@ -212,7 +218,7 @@ When building an app using the Google&nbsp;IAP plugin, ensure that the following
 }</pre>
 <p>This will add mandatory <code>com.android.vending.BILLING</code> permission to your app.</p>
 <p>Finally, the <code>license</code> table may be added to the project <code>config.lua</code> file if you want your purchases to be verified. Inside this table, the <code>key</code> value should be set to the corresponding key obtained from the <a href="https://play.google.com/apps/publish">Google Play Developer Console</a>. In the Console, select your app, then click on &quot;Monetization setup&quot; section. Copy key from the &quot;Licensing&quot; section.</p>
-<pre class="brush: lua; gutter: false; highlight: [3,4,5,6,7,8,9]; first-line: 1;">application = 
+<pre class="brush: lua; gutter: false; highlight: [3,4,5,6,7,8,9]; first-line: 1;">application =
 {
     license =
     {

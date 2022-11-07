@@ -138,13 +138,13 @@ The following steps pertain to <nobr>in-app</nobr> purchasing on __iOS__.
 
 The following steps pertain to in-app purchasing on __Android__.
 
-1. Start by setting up your Google merchant account and link it to the [Google Play Developer Console](https://play.google.com/apps/publish/). <nobr>In-app</nobr> purchases will __not__ work until these steps are cleared, and you won't get an error message reporting so. Please see [here](https://support.google.com/payments/merchant/answer/7161426) for detailed instructions. 
+1. Start by setting up your Google merchant account and link it to the [Google Play Developer Console](https://play.google.com/apps/publish/). <nobr>In-app</nobr> purchases will __not__ work until these steps are cleared, and you won't get an error message reporting so. Please see [here](https://support.google.com/payments/merchant/answer/7161426) for detailed instructions.
 
 2. While still in console, create a new app and fill out all of the information needed for publishing the app&nbsp;&mdash; note,&nbsp;however, that some details don't need to be final for simply testing <nobr>in-app</nobr> purchasing.
 
 3. Configure your <nobr>in-app</nobr> purchases (products). This task is beyond the scope of this guide, so please see Google's [Administering In-App Billing](https://developer.android.com/google/play/billing/billing_admin.html) guide for further assistance.
 
-4. On the Solar2D side, integrate the [Google Billing][plugin.google-iap-billing] plugin by adding an entry into the `plugins` table of the project's `build.settings` file:
+4. On the Solar2D side, integrate the [Google Billing][plugin.google-iap-billing-v2] plugin by adding an entry into the `plugins` table of the project's `build.settings` file:
 
 <div class="code-indent">
 
@@ -168,7 +168,7 @@ settings =
 <div class="code-indent">
 
 ``````{ brush="lua" gutter="false" first-line="1" highlight="[3,4,5,6,7,8,9]" }
-application = 
+application =
 {
 	license =
 	{
@@ -201,7 +201,7 @@ The following steps pertain to in-app purchasing on __Amazon__.
 
 3. Configure your <nobr>in-app</nobr> purchases (products). This task is beyond the scope of this guide, so please see Amazon's [Submitting IAP Items](https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs-v2/submitting-iap-items) guide for further assistance.
 
-4. On the Solar2D side, integrate the [Amazon IAP][plugin.amazon-iap-v2] plugin by adding an entry into the `plugins` table of the project's `build.settings` file:
+4. On the Solar2D side, integrate the [Amazon IAP][plugin.amazon-iap-v3] plugin by adding an entry into the `plugins` table of the project's `build.settings` file:
 
 <div class="code-indent">
 
@@ -365,7 +365,7 @@ The `store.init()` call is required and must be executed before you attempt to c
 </div>
 <div class="docs-tip-inner-right">
 
-For Google IAP, this same transaction listener function also handles initialization ([init][plugin.google-iap-billing.event.init]) events. Thus, if you're using Google&nbsp;IAP, you should differentiate store transaction events from initialization events by conditionally checking the value of [event.name][plugin.google-iap-billing.event.storeTransaction.name]. Please see the Google&nbsp;IAP [store.init()][plugin.google-iap-billing.init] documentation for an example of doing so.
+For Google IAP, this same transaction listener function also handles initialization ([init][plugin.google-iap-billing-v2.event.init]) events. Thus, if you're using Google&nbsp;IAP, you should differentiate store transaction events from initialization events by conditionally checking the value of [event.name][plugin.google-iap-billing-v2.event.storeTransaction.name]. Please see the Google&nbsp;IAP [store.init()][plugin.google-iap-billing-v2.init] documentation for an example of doing so.
 
 </div>
 </div>
@@ -376,7 +376,7 @@ For Google IAP, this same transaction listener function also handles initializat
 </div>
 <div class="docs-tip-inner-right">
 
-Sometime after calling `store.init()`, you may check the `store.isActive` property to confirm that the store has successfully initialized (value&nbsp;of&nbsp;`true`). 
+Sometime after calling `store.init()`, you may check the `store.isActive` property to confirm that the store has successfully initialized (value&nbsp;of&nbsp;`true`).
 
 </div>
 </div>
@@ -483,7 +483,7 @@ For each instance within `event.products`, various properties will be available 
 </div>
 <div class="docs-tip-inner-right">
 
-Together, the above properties should be sufficient to display an informative product listing to the user/player, but you may want to consult the documentation for [iOS][api.library.store.event.productList.products], [Android][plugin.google-iap-billing.event.productList.products], and [Amazon][plugin.amazon-iap-v2.event.productList.products] to inspect additional properties.
+Together, the above properties should be sufficient to display an informative product listing to the user/player, but you may want to consult the documentation for [iOS][api.library.store.event.productList.products], [Android][plugin.google-iap-billing-v2.event.productList.products], and [Amazon][plugin.amazon-iap-v3.event.productList.products] to inspect additional properties.
 
 </div>
 </div>
@@ -560,7 +560,7 @@ store.init( transactionListener )
 </div>
 <div class="docs-tip-inner-right">
 
-For Google IAP, this same transaction listener function also handles initialization ([init][plugin.google-iap-billing.event.init]) events. Thus, if you're using Google&nbsp;IAP, you should differentiate store transaction events from initialization events by conditionally checking the value of [event.name][plugin.google-iap-billing.event.storeTransaction.name]. Please see the Google&nbsp;IAP [store.init()][plugin.google-iap-billing.init] documentation for an example of doing so.
+For Google IAP, this same transaction listener function also handles initialization ([init][plugin.google-iap-billing-v2.event.init]) events. Thus, if you're using Google&nbsp;IAP, you should differentiate store transaction events from initialization events by conditionally checking the value of [event.name][plugin.google-iap-billing-v2.event.storeTransaction.name]. Please see the Google&nbsp;IAP [store.init()][plugin.google-iap-billing-v2.init] documentation for an example of doing so.
 
 </div>
 </div>
@@ -592,7 +592,7 @@ end
 </div>
 <div class="docs-tip-inner-right">
 
-As noted above, the properties and values returned will vary slightly because of core variances in store functionality. For example, Apple will return `"restored"` for the `state` property of restored purchases, but Google&nbsp;Play and Amazon will group normal purchases and restored purchases collectively under the `"purchased"` state. In&nbsp;addition, each store returns an assortment of unique properties which you may need to inspect, so please consult the documentation for [iOS][api.library.store.event.storeTransaction.transaction], [Android][plugin.google-iap-billing.event.storeTransaction.transaction], and [Amazon][plugin.amazon-iap-v2.event.storeTransaction.transaction] respectively.
+As noted above, the properties and values returned will vary slightly because of core variances in store functionality. For example, Apple will return `"restored"` for the `state` property of restored purchases, but Google&nbsp;Play and Amazon will group normal purchases and restored purchases collectively under the `"purchased"` state. In&nbsp;addition, each store returns an assortment of unique properties which you may need to inspect, so please consult the documentation for [iOS][api.library.store.event.storeTransaction.transaction], [Android][plugin.google-iap-billing-v2.event.storeTransaction.transaction], and [Amazon][plugin.amazon-iap-v3.event.storeTransaction.transaction] respectively.
 
 </div>
 </div>
@@ -652,7 +652,7 @@ if ( transaction.state == "purchased" or transaction.state == "restored" ) then
 
 ## Store-Specific Functionality
 
-Each marketplace offers some unique and potentially critical functionality which you must be aware of. The following list summarizes these, but you should always consult the documentation for [iOS][api.library.store], [Android][plugin.google-iap-billing], and [Amazon][plugin.amazon-iap-v2] to inspect <nobr>platform-specific</nobr> functionality in detail.
+Each marketplace offers some unique and potentially critical functionality which you must be aware of. The following list summarizes these, but you should always consult the documentation for [iOS][api.library.store], [Android][plugin.google-iap-billing-v2], and [Amazon][plugin.amazon-iap-v3] to inspect <nobr>platform-specific</nobr> functionality in detail.
 
 ### Purchasing Disabled (Apple)
 
@@ -662,7 +662,7 @@ iOS devices have a setting which can disable <nobr>in-app</nobr> purchasing enti
 
 Google IAP requires that you __consume__ purchases to make item(s) available for purchase again. Essentially, once a product is purchased, it is considered "owned" and it cannot be purchased again. However, since you'll almost certainly want to encourage players to buy certain items again&nbsp;&mdash; gem/coin&nbsp;packs, extra&nbsp;lives,&nbsp;etc.&nbsp;&mdash; you must send a consumption request to revert "owned" products to "unowned" products so that they become available for purchase again. Consuming products also discards their previous purchase data.
 
-To consume items, call [store.consumePurchase()][plugin.google-iap-billing.consumePurchase] with the associated product identifier:
+To consume items, call [store.consumePurchase()][plugin.google-iap-billing-v2.consumePurchase] with the associated product identifier:
 
 ``````lua
 store.consumePurchase( productIdentifier )
@@ -687,5 +687,4 @@ Google IAP allows for transactions to be refunded ([instructions](https://suppor
 
 ### Sandbox Mode (Amazon)
 
-Amazon lets you test <nobr>in-app</nobr> purchasing via a "sandbox" mode in which no real purchases are made. If you want to implement some form of debugging in your Solar2D app, you can use the [store.isSandboxMode()][plugin.amazon-iap-v2.isSandboxMode] API to check if the app is currently in testing mode.
-
+Amazon lets you test <nobr>in-app</nobr> purchasing via a "sandbox" mode in which no real purchases are made. If you want to implement some form of debugging in your Solar2D app, you can use the [store.isSandboxMode()][plugin.amazon-iap-v3.isSandboxMode] API to check if the app is currently in testing mode.

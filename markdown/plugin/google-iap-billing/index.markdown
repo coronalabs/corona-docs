@@ -8,6 +8,13 @@
 > __Platforms__			Android
 > --------------------- ------------------------------------------------------------------------------------------
 
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">Important</div>
+
+This plugin is deprecated. Please migrate to [Google Billing v2][plugin.google-iap-billing-v2].
+
+</div>
+
 ## Overview
 
 The Google Play Billing plugin allows you to support <nobr>in-app</nobr> purchasing on Android, including <nobr>in-game</nobr> currency, upgrades, and more.
@@ -112,7 +119,7 @@ This will add mandatory `com.android.vending.BILLING` permission to your app.
 Finally, the `license` table may be added to the project `config.lua` file if you want your purchases to be verified. Inside this table, the `key` value should be set to the corresponding key obtained from the [Google Play Developer Console](https://play.google.com/apps/publish). In the Console, select your app, then click on "Monetization setup" section. Copy key from the "Licensing" section.
 
 ``````{ brush="lua" gutter="false" first-line="1" highlight="[3,4,5,6,7,8,9]" }
-application = 
+application =
 {
 	license =
 	{

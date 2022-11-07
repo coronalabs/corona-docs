@@ -29,7 +29,7 @@ The Amazon IAP plugin lets you sell digital content and subscriptions from withi
 </div>
 <div class="docs-tip-inner-right">
 
-For in-app purchasing on other platforms, see the documentation for [Google IAP][plugin.google-iap-billing], [Apple IAP][plugin.apple-iap], [Samsung IAP][plugin.samsung-iap], or [Store API][api.library.store].
+For in-app purchasing on other platforms, see the documentation for [Google IAP][plugin.google-iap-billing-v2], [Apple IAP][plugin.apple-iap], [Samsung IAP][plugin.samsung-iap], or [Store API][api.library.store].
 
 </div>
 </div>

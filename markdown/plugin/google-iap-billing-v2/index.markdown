@@ -12,12 +12,12 @@
 
 The [Google IAP](https://plugins.solar2d.com/?search=plugin.google.iap.billing.v2) plugin allows you to support <nobr>in-app</nobr> purchasing on Android, including <nobr>in-game</nobr> currency, upgrades, and more.
 
-For in-app purchasing on other platforms, see the documentation for [Apple IAP][api.library.store] or [Amazon IAP][plugin.amazon-iap-v3].
+For in-app purchasing on other platforms, see the documentation for [Apple IAP][api.library.store], [Samsung IAP][plugin.samsung-iap] or [Amazon IAP][plugin.amazon-iap-v3].
 
 <div class="guide-notebox">
 <div class="notebox-title">Notes</div>
 
-* The only code change between Google API Billing v2 and [Billing v1][plugin.google-iap-billing] is removal [event.productList.products.originalJson][plugin.google-iap-billing-v2.event.productList.products] and new publisherId in `build.settings`
+* The only code change between Google API Billing v2 and [Billing v1][plugin.google-iap-billing] is changing to a publisherId in `build.settings`
 
 * To use Google IAP, begin by setting up your [Google Payments Merchant Center](https://support.google.com/wallet/business/answer/1619772) account and linking it to the [Google Play Developer Console](https://play.google.com/apps/publish).
 

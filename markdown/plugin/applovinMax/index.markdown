@@ -280,6 +280,7 @@ settings =
 		["plugin.applovinMax.Smaato"] = {publisherId = "com.solar2d"},
 		["plugin.applovinMax.Tapjoy"] = {publisherId = "com.solar2d"},
 		["plugin.applovinMax.UnityAds"] = {publisherId = "com.solar2d"},
+		["plugin.applovinMax.Vungle"] = {publisherId = "com.solar2d"},
 
 
 	},

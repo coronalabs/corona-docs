@@ -34,7 +34,7 @@ This plugin is a drop in replacement for [previous][plugin.google-iap-v3] IAP pl
 
 * [storeTransaction.transaction][plugin.google-iap-billing-v2.event.storeTransaction.transaction] event have additional values of `state` field.
 
-* [store.finishTransaction][plugin.google-iap-billing-v2.event.storeTransaction.transaction] function is no longer no-op. It will acknowledge the purchase. If purchase is not acknowledged or consumed over three days it would be [refunded](https://developer.android.com/google/play/billing/integrate#process) to user.
+* [store.finishTransaction][plugin.google-iap-billing-v2.finishTransaction] function is no longer no-op. It will acknowledge the purchase. If purchase is not acknowledged or consumed over three days it would be [refunded](https://developer.android.com/google/play/billing/integrate#process) to user.
 
 </div>
 
@@ -79,6 +79,8 @@ When building an app using the Google&nbsp;IAP plugin, ensure that the following
 #### [store.restore()][plugin.google-iap-billing-v2.restore]
 
 #### [store.consumePurchase()][plugin.google-iap-billing-v2.consumePurchase]
+
+#### [store.finishTransaction()][plugin.google-iap-billing-v2.finishTransaction]
 
 
 ## Events

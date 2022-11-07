@@ -70,6 +70,7 @@
 <li><a href="#store.purchasesubscriptionplugin.google-iap-billing-v2.purchasesubscription"><a href="../../plugin/google-iap-billing-v2/purchaseSubscription.html">store.purchaseSubscription()</a></a></li>
 <li><a href="#store.restoreplugin.google-iap-billing-v2.restore"><a href="../../plugin/google-iap-billing-v2/restore.html">store.restore()</a></a></li>
 <li><a href="#store.consumepurchaseplugin.google-iap-billing-v2.consumepurchase"><a href="../../plugin/google-iap-billing-v2/consumePurchase.html">store.consumePurchase()</a></a></li>
+<li><a href="#store.finishtransactionplugin.google-iap-billing-v2.finishtransaction"><a href="../../plugin/google-iap-billing-v2/finishTransaction.html">store.finishTransaction()</a></a></li>
 </ul></li>
 <li><a href="#events">Events</a><ul>
 <li><a href="#initplugin.google-iap-billing-v2.event.init"><a href="../../plugin/google-iap-billing-v2/event/init/index.html">init</a></a></li>
@@ -129,7 +130,7 @@ Compatibility with IAPv3
 <ul>
 <li><p><a href="../../plugin/google-iap-billing-v2/event/storeTransaction/transaction.html">storeTransaction.transaction</a> would not have data about purchase when error occurs.</p></li>
 <li><p><a href="../../plugin/google-iap-billing-v2/event/storeTransaction/transaction.html">storeTransaction.transaction</a> event have additional values of <code>state</code> field.</p></li>
-<li><p><a href="../../plugin/google-iap-billing-v2/event/storeTransaction/transaction.html">store.finishTransaction</a> function is no longer no-op. It will acknowledge the purchase. If purchase is not acknowledged or consumed over three days it would be <a href="https://developer.android.com/google/play/billing/integrate#process">refunded</a> to user.</p></li>
+<li><p><a href="../../plugin/google-iap-billing-v2/finishTransaction.html">store.finishTransaction</a> function is no longer no-op. It will acknowledge the purchase. If purchase is not acknowledged or consumed over three days it would be <a href="https://developer.android.com/google/play/billing/integrate#process">refunded</a> to user.</p></li>
 </ul>
 </div>
 <!---
@@ -180,6 +181,9 @@ When building an app using the Google&nbsp;IAP plugin, ensure that the following
 </div>
 <div id="store.consumepurchaseplugin.google-iap-billing-v2.consumepurchase" class="section level4">
 <h4><a href="../../plugin/google-iap-billing-v2/consumePurchase.html">store.consumePurchase()</a></h4>
+</div>
+<div id="store.finishtransactionplugin.google-iap-billing-v2.finishtransaction" class="section level4">
+<h4><a href="../../plugin/google-iap-billing-v2/finishTransaction.html">store.finishTransaction()</a></h4>
 </div>
 </div>
 <div id="events" class="section level2">

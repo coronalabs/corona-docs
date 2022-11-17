@@ -17,9 +17,10 @@ links to markdown files, and converting markdown source files to html.
 ### External Resources:
 
 - Lua: http://lua.org
-- LuaFileSystem: http://keplerproject.github.com/luafilesystem/
+- LuaFileSystem: https://lunarmodules.github.io/luafilesystem/
 - Pandoc: http://johnmacfarlane.net/pandoc/
 
+- LuaFileSystem(dead link): http://keplerproject.github.com/luafilesystem/
 
 ## USAGE:
 

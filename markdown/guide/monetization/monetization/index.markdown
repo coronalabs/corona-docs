@@ -16,7 +16,7 @@
 
 # Monetization Guide
 
-This guide will help you navigate options for monetization in <nobr>Corona-built</nobr> apps.
+This guide will help you navigate options for monetization.
 
 <div class="guides-toc">
 
@@ -36,7 +36,7 @@ __Monetize__ is a tech jargon term which basically means "make&nbsp;money," but 
 
 As the mobile app marketplace has evolved, pressure has increased on pushing costs down. Many users expect apps to be free, and most want to use/play an app before they potentially pay money for it. In other segments like console gaming, it's common to pay <nobr>$20-$50</nobr> for a game before you ever see it, and even paying hundreds of dollars for a business or <nobr>productivity-related</nobr> desktop application isn't out of the realm of possibility.
 
-This guide will help you understand the monetization options and methods available to Corona developers.
+This guide will help you understand the monetization options and methods available to CORONA_CORE_PRODUCT developers.
 
 
 
@@ -45,7 +45,7 @@ This guide will help you understand the monetization options and methods availab
 
 ## Monetization Methods
 
-With a <nobr>Corona-built</nobr> app, you have an opportunity to use three primary forms of monetization, or a combination of all of them.
+You have an opportunity to use three primary forms of monetization, or a combination of all of them.
 
 ### Paid App
 
@@ -82,7 +82,7 @@ In the next section, we'll discuss the options, benefits, and other consideratio
 
 ## In-App Advertising Options
 
-Corona supports a wide variety of __ad&nbsp;providers__, each offering a variety of __unit&nbsp;types__ to suit your design/UI needs and monetization goals. The following sections outline the core options.
+CORONA_CORE_PRODUCT supports a wide variety of __ad&nbsp;providers__, each offering a variety of __unit&nbsp;types__ to suit your design/UI needs and monetization goals. The following sections outline the core options.
 
 <div class="float-right" style="margin-top: 16px; margin-bottom: 12px; margin-right: 0px; margin-left: 10px; clear: left;">
 <div class="inner-table compact">
@@ -226,7 +226,18 @@ Not sure where to start? Explore [Appodeal][plugin.appodeal] as a provider for a
 
 ## Ad Provider Comparison
 
-Corona supports a variety of [plugins][plugin] for <nobr>in-app</nobr> advertising and monetization. The following chart outlines the basic unit types and features for each plugin, allowing you to choose the best provider(s) for your needs.
+CORONA_CORE_PRODUCT supports a variety of [plugins][plugin] for <nobr>in-app</nobr> advertising and monetization. The following chart outlines the basic unit types and features for each plugin, allowing you to choose the best provider(s) for your needs.
+
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-shopping-bag" style="font-size: 29px; margin-top: 2px;"></div>
+</div>
+<div class="docs-tip-inner-right">
+
+In addition to the CORONA_CORE_PRODUCT supported plugins below, a large selection of <nobr>third-party</nobr> plugins are also available in the [Free Plugins Directory](PLUGINS_DIR) and other third-party marketplaces such as [Solar2D Marketplace](https://solar2dmarketplace.com/) and [Solar2D Plugins](https://www.solar2dplugins.com/).
+
+</div>
+</div>
 
 <div class="inner-table">
 
@@ -266,7 +277,7 @@ Plugin													Unit Types																				Unique Features
 
 Many providers that offer rewards to end users need a way to keep track of those rewards and notify you (the&nbsp;developer) so that you can process the transaction. Because each user is unique, you may need to come up with a unique user&nbsp;ID&nbsp;&mdash; this could be a value that users enter within the app, or if you're using Facebook as a login tool, you could use their Facebook&nbsp;ID. You should __not__ tie identifiers to physical device&nbsp;IDs.
 
-The ad provider may also ask&nbsp;&mdash; or in some cases require&nbsp;&mdash; that you have a <nobr>web-based</nobr> database to track and record the results of reward transactions. In this case, you might have a PHP or .NET script running on your web host that the ad provider can call from their servers. Essentially, they pass information to your database regarding the reward transaction, such as the ID of the user, how much he/she earned in rewards, and other useful data. Your Corona app can then use [network.request()][api.library.network.request] to call a second script that queries the database and finds the user's most recent record (reward&nbsp;data). Finally, your app grants them the reward, completing the transaction.
+The ad provider may also ask&nbsp;&mdash; or in some cases require&nbsp;&mdash; that you have a <nobr>web-based</nobr> database to track and record the results of reward transactions. In this case, you might have a PHP or .NET script running on your web host that the ad provider can call from their servers. Essentially, they pass information to your database regarding the reward transaction, such as the ID of the user, how much he/she earned in rewards, and other useful data. Your CORONA_CORE_PRODUCT app can then use [network.request()][api.library.network.request] to call a second script that queries the database and finds the user's most recent record (reward&nbsp;data). Finally, your app grants them the reward, completing the transaction.
 
 Most providers that have these requirements guide you through the setup process in their developer dashboard.
 

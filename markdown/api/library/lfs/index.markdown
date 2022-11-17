@@ -4,7 +4,7 @@
 > __Type__              [Library][api.type.Library]
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          lfs, LuaFileSystem, files, file system
-> __See also__          [LuaFileSystem Reference](https://keplerproject.github.io/luafilesystem/manual.html#reference)
+> __See also__          [LuaFileSystem Reference](https://lunarmodules.github.io/luafilesystem/manual.html#reference)
 > --------------------- ------------------------------------------------------------------------------------------
 
 ## Overview

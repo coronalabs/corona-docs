@@ -96,7 +96,7 @@
 </style>
 <div id="monetization-guide" class="section level1">
 <h1>Monetization Guide</h1>
-<p>This guide will help you navigate options for monetization in <nobr>Corona-built</nobr> apps.</p>
+<p>This guide will help you navigate options for monetization.</p>
 <div class="guides-toc">
 <ul>
 <li><a href="#overview">What is Monetization?</a></li>
@@ -110,12 +110,12 @@
 <h2>What is Monetization?</h2>
 <p><strong>Monetize</strong> is a tech jargon term which basically means &quot;make money,&quot; but in a somewhat kinder tone. When applied to building software applications (apps), some people are willing to create them as a hobby, but if you're a business or even an individual, it's usually necessary to earn income from your hard work.</p>
 <p>As the mobile app marketplace has evolved, pressure has increased on pushing costs down. Many users expect apps to be free, and most want to use/play an app before they potentially pay money for it. In other segments like console gaming, it's common to pay <nobr>$20-$50</nobr> for a game before you ever see it, and even paying hundreds of dollars for a business or <nobr>productivity-related</nobr> desktop application isn't out of the realm of possibility.</p>
-<p>This guide will help you understand the monetization options and methods available to Corona developers.</p>
+<p>This guide will help you understand the monetization options and methods available to Solar2D developers.</p>
 <p><a id="methods"></a></p>
 </div>
 <div id="monetization-methods" class="section level2">
 <h2>Monetization Methods</h2>
-<p>With a <nobr>Corona-built</nobr> app, you have an opportunity to use three primary forms of monetization, or a combination of all of them.</p>
+<p>You have an opportunity to use three primary forms of monetization, or a combination of all of them.</p>
 <div id="paid-app" class="section level3">
 <h3>Paid App</h3>
 <p>Under the <strong>paid app</strong> model, customers pay an initial price for an app, usually in the range of $0.99 to $4.99. This model was the standard during the early days of the &quot;app revolution&quot; and it remains common today. However, many customers like to try apps before they buy, so the paid app model has decreased in favor compared to the following monetization models.</p>
@@ -144,7 +144,7 @@ To initially satisfy this desire, many app developers would offer two versions o
 </div>
 <div id="in-app-advertising-options" class="section level2">
 <h2>In-App Advertising Options</h2>
-<p>Corona supports a wide variety of <strong>ad providers</strong>, each offering a variety of <strong>unit types</strong> to suit your design/UI needs and monetization goals. The following sections outline the core options.</p>
+<p>Solar2D supports a wide variety of <strong>ad providers</strong>, each offering a variety of <strong>unit types</strong> to suit your design/UI needs and monetization goals. The following sections outline the core options.</p>
 <div class="float-right" style="margin-top: 16px; margin-bottom: 12px; margin-right: 0px; margin-left: 10px; clear: left;">
 <div class="inner-table compact">
 <table>
@@ -301,7 +301,17 @@ Audio ads can be thought of like radio commercials and sponsorships. They can be
 </div>
 <div id="ad-provider-comparison" class="section level2">
 <h2>Ad Provider Comparison</h2>
-<p>Corona supports a variety of <a href="../../../plugin/index.html">plugins</a> for <nobr>in-app</nobr> advertising and monetization. The following chart outlines the basic unit types and features for each plugin, allowing you to choose the best provider(s) for your needs.</p>
+<p>Solar2D supports a variety of <a href="../../../plugin/index.html">plugins</a> for <nobr>in-app</nobr> advertising and monetization. The following chart outlines the basic unit types and features for each plugin, allowing you to choose the best provider(s) for your needs.</p>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-shopping-bag" style="font-size: 29px; margin-top: 2px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>In addition to the Solar2D supported plugins below, a large selection of <nobr>third-party</nobr> plugins are also available in the <a href="https://plugins.solar2d.com/">Free Plugins Directory</a> and other third-party marketplaces such as <a href="https://solar2dmarketplace.com/">Solar2D Marketplace</a> and <a href="https://www.solar2dplugins.com/">Solar2D Plugins</a>.</p>
+</div>
+</div>
 <div class="inner-table">
 <table>
 <thead>
@@ -418,7 +428,7 @@ Audio ads can be thought of like radio commercials and sponsorships. They can be
 
 Many providers that offer rewards to end users need a way to keep track of those rewards and notify you (the&nbsp;developer) so that you can process the transaction. Because each user is unique, you may need to come up with a unique user&nbsp;ID&nbsp;&mdash; this could be a value that users enter within the app, or if you're using Facebook as a login tool, you could use their Facebook&nbsp;ID. You should __not__ tie identifiers to physical device&nbsp;IDs.
 
-The ad provider may also ask&nbsp;&mdash; or in some cases require&nbsp;&mdash; that you have a <nobr>web-based</nobr> database to track and record the results of reward transactions. In this case, you might have a PHP or .NET script running on your web host that the ad provider can call from their servers. Essentially, they pass information to your database regarding the reward transaction, such as the ID of the user, how much he/she earned in rewards, and other useful data. Your Corona app can then use [network.request()][api.library.network.request] to call a second script that queries the database and finds the user's most recent record (reward&nbsp;data). Finally, your app grants them the reward, completing the transaction.
+The ad provider may also ask&nbsp;&mdash; or in some cases require&nbsp;&mdash; that you have a <nobr>web-based</nobr> database to track and record the results of reward transactions. In this case, you might have a PHP or .NET script running on your web host that the ad provider can call from their servers. Essentially, they pass information to your database regarding the reward transaction, such as the ID of the user, how much he/she earned in rewards, and other useful data. Your Solar2D app can then use [network.request()][api.library.network.request] to call a second script that queries the database and finds the user's most recent record (reward&nbsp;data). Finally, your app grants them the reward, completing the transaction.
 
 Most providers that have these requirements guide you through the setup process in their developer dashboard.
 

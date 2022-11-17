@@ -20,7 +20,7 @@ links to markdown files, and converting markdown source files to html.
 - LuaFileSystem: https://lunarmodules.github.io/luafilesystem/
 - Pandoc: http://johnmacfarlane.net/pandoc/
 
-- LuaFileSystem(dead link): http://keplerproject.github.com/luafilesystem/
+- LuaFileSystem(old link): http://keplerproject.github.com/luafilesystem/
 
 ## USAGE:
 
@@ -66,7 +66,7 @@ local output_images_dir = html_dir .. "/images"
 
 -- strings to substitute throughout docs content (not headers or footers though)
 local title_prefix = "Solar2D Documentation"
-local default_rev_label = "Release 2022.3682"
+local default_rev_label = "Release 2022.3683"
 local REV_LABEL = default_rev_label
 
 local CORONA_CORE_PRODUCT = "Solar2D"

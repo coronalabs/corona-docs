@@ -10,9 +10,9 @@ This guide discusses implementing __Android&nbsp;Adaptive&nbsp;Icons__ on Androi
 
 <a id="background"></a>
 
-With 64-bit compatible versions of Solar2D (2019.3492 or later), Android icons are handled in a completely different way, even for Android 7 and earlier.
+With 64-bit compatible versions of CORONA_CORE_PRODUCT (2019.3492 or later), Android icons are handled in a completely different way, even for Android 7 and earlier.
 
-With Android 7 and earlier, Android icons were single layer `.PNG files` that were conveniently named for simplicity and Solar2D would in the background process them into a way Android would find them. These icons were located in the main project folder alongside `main.lua` and as long as you named them correctly and they were the right size, you didn't have to do much more.
+With Android 7 and earlier, Android icons were single layer `.PNG files` that were conveniently named for simplicity and CORONA_CORE_PRODUCT would in the background process them into a way Android would find them. These icons were located in the main project folder alongside `main.lua` and as long as you named them correctly and they were the right size, you didn't have to do much more.
 
 Android 8 and later provide a way to have launch icons more flexible. To give device manufacturers more flexibility, Google split the icon into two layers: a background layer and a foreground later. Then the OEM (Original Equipment Manufacturer) provides a mask to make the icons look unique in their system. One maker may provide square icons, while another rounded corners or another circular icons. Using a combination of background, foreground and mask, there can be different looks for different devices, as well as allowing cool animation effects like parallax when dragging icon or tapping on it.
 
@@ -30,7 +30,7 @@ For more information on this, please see [Adaptive Icons](https://developer.andr
 
 <a id="androidresources"></a>
 
-Solar2D has to manage icons based on Android 7 and earlier, and now Android 8 and later. Solar2D's "Let's do this for you" no longer works. You now have to work with a folder named `AndroidResources`. This is a Solar2D specific folder that actually holds the icon information in an Android standard way.
+CORONA_CORE_PRODUCT has to manage icons based on Android 7 and earlier, and now Android 8 and later. CORONA_CORE_PRODUCT's "Let's do this for you" no longer works. You now have to work with a folder named `AndroidResources`. This is a CORONA_CORE_PRODUCT specific folder that actually holds the icon information in an Android standard way.
 
 Inside the AndroidResources folder will be the standard Android `res` folder. Inside that folder will be several other folders of importance:
 
@@ -40,7 +40,16 @@ Inside the AndroidResources folder will be the standard Android `res` folder. In
 
 Where `Icon-*dpi.png` will be one of `mipmap-mdpi`, `mipmap-hdpi`, `mipmap-xxxdpi`, etc. based on Android standard screen densities.
 
-To keep it simple, Solar2D provides example `AndroidResources` folders when you create a new project from the Welcome screen, menu or you can copy the folder out of a Solar2D SampleApp. Copy the `AndoidResources` folder from one of these locations to your project in the same folder as `main.lua`. This will get you a base structure to work from.
+<div class="docs-tip-outer">
+<div class="docs-tip-inner-left">
+<div class="fa fa-cog"></div>
+</div>
+<div class="docs-tip-inner-right">
+
+To keep it simple, CORONA_CORE_PRODUCT provides example `AndroidResources` folders when you create a new project from the Welcome screen, menu or you can copy the folder out of a CORONA_CORE_PRODUCT SampleApp. Copy the `AndoidResources` folder from one of these locations to your project in the same folder as `main.lua`. This will get you a base structure to work from.
+
+</div>
+</div>
 
 ## Android 7 and earlier
 
@@ -120,7 +129,7 @@ Afterwards, all of your Android icon resources should be inside the various fold
 
 ### Using different tools to create Android icons
 
-You can also use Android Studio to create icons([official guide](https://developer.android.com/studio/write/image-asset-studio)). However, it may create excessive files that are not used by Solar2D and may interfere with the building process. In particular, if it creates a style.xml file, for now, simply delete it.
+You can also use Android Studio to create icons([official guide](https://developer.android.com/studio/write/image-asset-studio)). However, it may create excessive files that are not used by CORONA_CORE_PRODUCT and may interfere with the building process. In particular, if it creates a style.xml file, for now, simply delete it.
 
 Again, we recommend the simple process of simply copying the right sized files over top of the `AndroidResources/res` folder that we generate and use a simple color background when possible.
 

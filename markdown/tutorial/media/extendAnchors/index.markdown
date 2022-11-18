@@ -1,7 +1,7 @@
 
 # Extending Anchor Points
 
-In Corona, all display objects have an __anchor&nbsp;point__. Essentially, this can be imagined as a "pin" point within the object's bounds around which all transforms occur&nbsp;&mdash; __x__/__y__ positioning, rotation, scaling, etc. For example, if an object's anchor point is set at the <nobr>top-left</nobr> corner, rotation of the object will cause it to rotate around that point.
+In CORONA_CORE_PRODUCT, all display objects have an __anchor&nbsp;point__. Essentially, this can be imagined as a "pin" point within the object's bounds around which all transforms occur&nbsp;&mdash; __x__/__y__ positioning, rotation, scaling, etc. For example, if an object's anchor point is set at the <nobr>top-left</nobr> corner, rotation of the object will cause it to rotate around that point.
 
 
 ## Anchor Overview

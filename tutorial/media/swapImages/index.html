@@ -76,7 +76,7 @@
 
 -- After some time or upon some event
 myImage:swapImage( "image2.png" )</pre>
-<p>However, this is not how Corona works because <code>:swapImage()</code> is <strong>not</strong> a <nobr>built-in</nobr> Corona method. When Corona builds an image, it has to read the file in from the app bundle's file system, allocate texture memory for the image, render the PNG or JPG compressed data into four color channels, and return a display object. To &quot;swap&quot; that image, Corona would need to destroy the object and create a new image, effectively resulting in the same amount of work as illustrated in this example:</p>
+<p>However, this is not how Solar2D works because <code>:swapImage()</code> is <strong>not</strong> a <nobr>built-in</nobr> method. When Solar2D builds an image, it has to read the file in from the app bundle's file system, allocate texture memory for the image, render the PNG or JPG compressed data into four color channels, and return a display object. To &quot;swap&quot; that image, Solar2D would need to destroy the object and create a new image, effectively resulting in the same amount of work as illustrated in this example:</p>
 <pre class="brush: lua;">local myImage = display.newImageRect( "image1.png", 64, 64 )
 
 -- After some time or upon some event
@@ -197,7 +197,7 @@ balls[imageGroup.isShowing].isVisible = true</pre>
 <p>From a code perspective, this is not much different from the array method above, other than the efficiencies gained from using image sheets — but image sheets are a gateway to <strong>sprites</strong>, an excellent way swap images!</p>
 <div id="sprite-frame-swapping" class="section level3">
 <h3>Sprite Frame Swapping</h3>
-<p>Corona includes a comprehensive <a href="../../../guide/media/spriteAnimation/index.html">sprite</a> engine. While the term &quot;sprite&quot; may seem to indicate only an <strong>animated</strong> object in a game, you should consider it as simply an ordered sequence of images which can be used for multiple purposes, including swapping images.</p>
+<p>Solar2D includes a comprehensive <a href="../../../guide/media/spriteAnimation/index.html">sprite</a> engine. While the term &quot;sprite&quot; may seem to indicate only an <strong>animated</strong> object in a game, you should consider it as simply an ordered sequence of images which can be used for multiple purposes, including swapping images.</p>
 <p>Let's look at a <nobr>sprite-based</nobr> version which builds upon the image sheet version above:</p>
 <pre class="brush: lua; gutter: false; highlight: [10,11]; first-line: 1;">local sheetOptions = {
     width = 128,
@@ -217,7 +217,7 @@ ball.y = display.contentCenterY</pre>
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
-<p>As you can see, there are various approaches and methods to the &quot;swap images&quot; concept and it depends on your needs and design specifics as to which method is most suitable. From individual images to fills to sprites, Corona has you covered!</p>
+<p>As you can see, there are various approaches and methods to the &quot;swap images&quot; concept and it depends on your needs and design specifics as to which method is most suitable. From individual images to fills to sprites, Solar2D has you covered!</p>
 <hr>
 <div id="footer">
 <p class="copyright">

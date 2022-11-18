@@ -54,9 +54,9 @@ A color key indicates which default color value is set.
 
 ## Texture Keys
 
-* `"magTextureFilter"` &mdash; The default magnification sampling filter applied whenever an image is loaded by Corona. Values include `"linear"` or `"nearest"`.
+* `"magTextureFilter"` &mdash; The default magnification sampling filter applied whenever an image is loaded. Values include `"linear"` or `"nearest"`.
 
-* `"minTextureFilter"` &mdash; The default minification sampling filter applied whenever an image is loaded by Corona. Values include `"linear"` or `"nearest"`.
+* `"minTextureFilter"` &mdash; The default minification sampling filter applied whenever an image is loaded. Values include `"linear"` or `"nearest"`.
 
 * `"textureWrapX"` &mdash; The texture wrap mode along the __x__ direction. Values include `"clampToEdge"`, `"repeat"`, or `"mirroredRepeat"`.
 

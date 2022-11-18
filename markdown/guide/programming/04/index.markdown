@@ -10,7 +10,7 @@ __&lang;__ [Previous][guide.programming.03] _|_ [Next][guide.programming.05] __&
 </div>
 
 
-Just as movies, television shows, and plays are organized into scenes for the telling of a story, apps are similarly arranged. In&nbsp;this chapter, you'll learn the basics of __scene&nbsp;management__ in Corona.
+Just as movies, television shows, and plays are organized into scenes for the telling of a story, apps are similarly arranged. In&nbsp;this chapter, you'll learn the basics of __scene&nbsp;management__ in CORONA_CORE_PRODUCT.
 
 <div class="guides-toc">
 
@@ -47,7 +47,7 @@ This game will have three core scenes:
 
 ## Scene Management
 
-Corona uses a system called __Composer__ to handle moving from scene to scene. To make development easier, each Composer scene is a separate Lua file&nbsp;&mdash; this helps keep your game more organized.
+CORONA_CORE_PRODUCT uses a system called __Composer__ to handle moving from scene to scene. To make development easier, each Composer scene is a separate Lua file&nbsp;&mdash; this helps keep your game more organized.
 
 <div class="docs-tip-outer docs-tip-color-alert">
 <div class="docs-tip-inner-left">
@@ -87,13 +87,13 @@ composer.gotoScene( "menu" )
 
 Let's inspect these commands in a little more detail:
 
-* The first line, <nobr>`local composer = require( "composer" )`</nobr>, creates a local variable called `composer`, and the `require()` command tells Corona to load all of the information about the Composer scene management library into the app.
+* The first line, <nobr>`local composer = require( "composer" )`</nobr>, creates a local variable called `composer`, and the `require()` command tells CORONA_CORE_PRODUCT to load all of the information about the Composer scene management library into the app.
 
 * The next command hides the status bar at the top of the device. Although you included this line in the previous chapter's code, it's logical to hide the status bar within `main.lua` of any <nobr>Composer-enabled</nobr> app so that it never appears in any scene.
 
 * Next, we set the "seed" for the <nobr>pseudo-random</nobr> number generator (recall&nbsp;that this command was included in our original&nbsp;project). Essentially, if you're using [math.random()][api.library.math.random] anywhere in an app, it's a good idea to call [math.randomseed()][api.library.math.randomseed] inside `main.lua` so that the seed is reset each and every time the app runs.
 
-* Just one more command and we're finished with `main.lua`. The <nobr>`composer.gotoScene( "menu" )`</nobr> command takes advantage of the first line where we loaded Composer into the app. By doing so, we can now use this `composer.gotoScene()` command to tell Corona to load a different scene. As mentioned earlier, each of our scenes will be contained in their own Lua files: `menu.lua`, `game.lua`, and `highscores.lua`.
+* Just one more command and we're finished with `main.lua`. The <nobr>`composer.gotoScene( "menu" )`</nobr> command takes advantage of the first line where we loaded Composer into the app. By doing so, we can now use this `composer.gotoScene()` command to tell CORONA_CORE_PRODUCT to load a different scene. As mentioned earlier, each of our scenes will be contained in their own Lua files: `menu.lua`, `game.lua`, and `highscores.lua`.
 
 <div class="code-indent">
 <div class="docs-tip-outer">
@@ -102,7 +102,7 @@ Let's inspect these commands in a little more detail:
 </div>
 <div class="docs-tip-inner-right">
 
-For this command, you don't need to include `.lua` in the quotation marks because Corona already expects the file to have the `.lua` extension. Thus, you can simply use `"menu"` to go to the scene that will be contained in `menu.lua`.
+For this command, you don't need to include `.lua` in the quotation marks because CORONA_CORE_PRODUCT already expects the file to have the `.lua` extension. Thus, you can simply use `"menu"` to go to the scene that will be contained in `menu.lua`.
 
 ``````lua
 composer.gotoScene( "menu" )
@@ -159,7 +159,7 @@ local composer = require( "composer" )
 local scene = composer.newScene()
 ``````
 
-The first line, <nobr>`local composer = require( "composer" )`</nobr>, tells Corona to utilize the Composer library in this Lua file. This line must be included in every Composer scene.
+The first line, <nobr>`local composer = require( "composer" )`</nobr>, tells CORONA_CORE_PRODUCT to utilize the Composer library in this Lua file. This line must be included in every Composer scene.
 
 The second line, <nobr>`local scene = composer.newScene()`</nobr>, essentially creates a new variable named `scene` that holds a Composer scene object. This variable (`scene`) will become important later in the file, as you'll see shortly.
 
@@ -223,7 +223,7 @@ function scene:create( event )
 end
 ``````
 
-As you recall, the keyword `function` tells Corona that this block of code is a function. However, this declaration varies slightly&nbsp;&mdash; instead of prefacing `function` with the `local` keyword, we use the Lua __object&nbsp;method__ discussed in the first chapter to associate this function with the `scene` variable created near the top of the file <nobr>(`local scene = composer.newScene()`)</nobr>.
+As you recall, the keyword `function` tells CORONA_CORE_PRODUCT that this block of code is a function. However, this declaration varies slightly&nbsp;&mdash; instead of prefacing `function` with the `local` keyword, we use the Lua __object&nbsp;method__ discussed in the first chapter to associate this function with the `scene` variable created near the top of the file <nobr>(`local scene = composer.newScene()`)</nobr>.
 
 Essentially, <nobr>`:create( event )`</nobr> indicates that this function will be associated with the Composer __create__ scene event and that a table of data that we reference with `event` will be passed to the function.
 

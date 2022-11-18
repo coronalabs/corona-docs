@@ -10,7 +10,7 @@ local myImage = display.newImageRect( "image1.png", 64, 64 )
 myImage:swapImage( "image2.png" )
 ``````
 
-However, this is not how Corona works because `:swapImage()` is __not__ a <nobr>built-in</nobr> Corona method. When Corona builds an image, it has to read the file in from the app bundle's file system, allocate texture memory for the image, render the PNG or JPG compressed data into four color channels, and return a display object. To "swap" that image, Corona would need to destroy the object and create a new image, effectively resulting in the same amount of work as illustrated in this example:
+However, this is not how CORONA_CORE_PRODUCT works because `:swapImage()` is __not__ a <nobr>built-in</nobr> method. When CORONA_CORE_PRODUCT builds an image, it has to read the file in from the app bundle's file system, allocate texture memory for the image, render the PNG or JPG compressed data into four color channels, and return a display object. To "swap" that image, CORONA_CORE_PRODUCT would need to destroy the object and create a new image, effectively resulting in the same amount of work as illustrated in this example:
 
 ``````lua
 local myImage = display.newImageRect( "image1.png", 64, 64 )
@@ -168,7 +168,7 @@ From a code perspective, this is not much different from the array method above,
 
 ### Sprite Frame Swapping
 
-Corona includes a comprehensive [sprite][guide.media.spriteAnimation] engine. While the term "sprite" may seem to indicate only an __animated__ object in a game, you should consider it as simply an ordered sequence of images which can be used for multiple purposes, including swapping images.
+CORONA_CORE_PRODUCT includes a comprehensive [sprite][guide.media.spriteAnimation] engine. While the term "sprite" may seem to indicate only an __animated__ object in a game, you should consider it as simply an ordered sequence of images which can be used for multiple purposes, including swapping images.
 
 Let's look at a <nobr>sprite-based</nobr> version which builds upon the image sheet version above:
 
@@ -193,4 +193,4 @@ Like the version using graphics fills, we no longer need the display group (`ima
 
 ## Conclusion
 
-As you can see, there are various approaches and methods to the "swap&nbsp;images" concept and it depends on your needs and design specifics as to which method is most suitable. From individual images to fills to sprites, Corona has you covered!
+As you can see, there are various approaches and methods to the "swap&nbsp;images" concept and it depends on your needs and design specifics as to which method is most suitable. From individual images to fills to sprites, CORONA_CORE_PRODUCT has you covered!

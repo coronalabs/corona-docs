@@ -80,7 +80,7 @@
 <p><strong>⟨</strong> <a href="../../../guide/programming/03/index.html">Previous</a> <em>|</em> <a href="../../../guide/programming/05/index.html">Next</a> <strong>⟩</strong></p>
 </div>
 </div>
-<p>Just as movies, television shows, and plays are organized into scenes for the telling of a story, apps are similarly arranged. In this chapter, you'll learn the basics of <strong>scene management</strong> in Corona.</p>
+<p>Just as movies, television shows, and plays are organized into scenes for the telling of a story, apps are similarly arranged. In this chapter, you'll learn the basics of <strong>scene management</strong> in Solar2D.</p>
 <div class="guides-toc">
 <ul>
 <li><a href="#scenes">Game Flow</a></li>
@@ -109,7 +109,7 @@
 </div>
 <div id="scene-management" class="section level2">
 <h2>Scene Management</h2>
-<p>Corona uses a system called <strong>Composer</strong> to handle moving from scene to scene. To make development easier, each Composer scene is a separate Lua file — this helps keep your game more organized.</p>
+<p>Solar2D uses a system called <strong>Composer</strong> to handle moving from scene to scene. To make development easier, each Composer scene is a separate Lua file — this helps keep your game more organized.</p>
 <div class="docs-tip-outer docs-tip-color-alert">
 <div class="docs-tip-inner-left">
 <div class="fa fa-exclamation-circle" style="font-size: 35px;">
@@ -140,10 +140,10 @@ composer.gotoScene( "menu" )</pre>
 </div>
 <p>Let's inspect these commands in a little more detail:</p>
 <ul>
-<li><p>The first line, <nobr><code>local composer = require( &quot;composer&quot; )</code></nobr>, creates a local variable called <code>composer</code>, and the <code>require()</code> command tells Corona to load all of the information about the Composer scene management library into the app.</p></li>
+<li><p>The first line, <nobr><code>local composer = require( &quot;composer&quot; )</code></nobr>, creates a local variable called <code>composer</code>, and the <code>require()</code> command tells Solar2D to load all of the information about the Composer scene management library into the app.</p></li>
 <li><p>The next command hides the status bar at the top of the device. Although you included this line in the previous chapter's code, it's logical to hide the status bar within <code>main.lua</code> of any <nobr>Composer-enabled</nobr> app so that it never appears in any scene.</p></li>
 <li><p>Next, we set the &quot;seed&quot; for the <nobr>pseudo-random</nobr> number generator (recall that this command was included in our original project). Essentially, if you're using <a href="../../../api/library/math/random.html">math.random()</a> anywhere in an app, it's a good idea to call <a href="../../../api/library/math/randomseed.html">math.randomseed()</a> inside <code>main.lua</code> so that the seed is reset each and every time the app runs.</p></li>
-<li><p>Just one more command and we're finished with <code>main.lua</code>. The <nobr><code>composer.gotoScene( &quot;menu&quot; )</code></nobr> command takes advantage of the first line where we loaded Composer into the app. By doing so, we can now use this <code>composer.gotoScene()</code> command to tell Corona to load a different scene. As mentioned earlier, each of our scenes will be contained in their own Lua files: <code>menu.lua</code>, <code>game.lua</code>, and <code>highscores.lua</code>.</p></li>
+<li><p>Just one more command and we're finished with <code>main.lua</code>. The <nobr><code>composer.gotoScene( &quot;menu&quot; )</code></nobr> command takes advantage of the first line where we loaded Composer into the app. By doing so, we can now use this <code>composer.gotoScene()</code> command to tell Solar2D to load a different scene. As mentioned earlier, each of our scenes will be contained in their own Lua files: <code>menu.lua</code>, <code>game.lua</code>, and <code>highscores.lua</code>.</p></li>
 </ul>
 <div class="code-indent">
 <div class="docs-tip-outer">
@@ -153,7 +153,7 @@ composer.gotoScene( "menu" )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>For this command, you don't need to include <code>.lua</code> in the quotation marks because Corona already expects the file to have the <code>.lua</code> extension. Thus, you can simply use <code>&quot;menu&quot;</code> to go to the scene that will be contained in <code>menu.lua</code>.</p>
+<p>For this command, you don't need to include <code>.lua</code> in the quotation marks because Solar2D already expects the file to have the <code>.lua</code> extension. Thus, you can simply use <code>&quot;menu&quot;</code> to go to the scene that will be contained in <code>menu.lua</code>.</p>
 <pre class="brush: lua;">composer.gotoScene( "menu" )</pre>
 </div>
 </div>
@@ -203,7 +203,7 @@ composer.gotoScene( "menu" )</pre>
 <pre class="brush: lua; gutter: true; highlight: [2,4]; first-line: 2;">local composer = require( "composer" )
 
 local scene = composer.newScene()</pre>
-<p>The first line, <nobr><code>local composer = require( &quot;composer&quot; )</code></nobr>, tells Corona to utilize the Composer library in this Lua file. This line must be included in every Composer scene.</p>
+<p>The first line, <nobr><code>local composer = require( &quot;composer&quot; )</code></nobr>, tells Solar2D to utilize the Composer library in this Lua file. This line must be included in every Composer scene.</p>
 <p>The second line, <nobr><code>local scene = composer.newScene()</code></nobr>, essentially creates a new variable named <code>scene</code> that holds a Composer scene object. This variable (<code>scene</code>) will become important later in the file, as you'll see shortly.</p>
 </div>
 <div id="accessible-code" class="section level3">
@@ -272,7 +272,7 @@ function scene:create( event )
     -- Code here runs when the scene is first created but has not yet appeared on screen
 
 end</pre>
-<p>As you recall, the keyword <code>function</code> tells Corona that this block of code is a function. However, this declaration varies slightly — instead of prefacing <code>function</code> with the <code>local</code> keyword, we use the Lua <strong>object method</strong> discussed in the first chapter to associate this function with the <code>scene</code> variable created near the top of the file <nobr>(<code>local scene = composer.newScene()</code>)</nobr>.</p>
+<p>As you recall, the keyword <code>function</code> tells Solar2D that this block of code is a function. However, this declaration varies slightly — instead of prefacing <code>function</code> with the <code>local</code> keyword, we use the Lua <strong>object method</strong> discussed in the first chapter to associate this function with the <code>scene</code> variable created near the top of the file <nobr>(<code>local scene = composer.newScene()</code>)</nobr>.</p>
 <p>Essentially, <nobr><code>:create( event )</code></nobr> indicates that this function will be associated with the Composer <strong>create</strong> scene event and that a table of data that we reference with <code>event</code> will be passed to the function.</p>
 </div>
 <div id="scene-creation" class="section level3">

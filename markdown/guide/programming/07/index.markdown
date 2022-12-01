@@ -27,7 +27,7 @@ Sound effects and background music are an important part of the gameplay experie
 
 ## Preloading and Streaming
 
-There are two ways to load audio in your Solar2D app. Which one you use typically depends on how the audio file will be utilized.
+There are two ways to load audio in your CORONA_CORE_PRODUCT app. Which one you use typically depends on how the audio file will be utilized.
 
 ### Preloading
 
@@ -339,7 +339,7 @@ math.randomseed( os.time() )
 audio.reserveChannels( 1 )
 ``````
 
-Basically, the <nobr>`audio.reserveChannels( 1 )`</nobr> command tells the Solar2D audio library to reserve channel `1`. While reserved, no audio file will play on the channel unless we explicitly command it to.
+Basically, the <nobr>`audio.reserveChannels( 1 )`</nobr> command tells the CORONA_CORE_PRODUCT audio library to reserve channel `1`. While reserved, no audio file will play on the channel unless we explicitly command it to.
 
 </div>
 

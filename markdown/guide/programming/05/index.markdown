@@ -468,7 +468,7 @@ Here, in addition to creating the groups, we also __insert__ each group into the
 </div>
 <div class="docs-tip-inner-right">
 
-As you recall, most Corona display object APIs accept a valid display group variable as a convenient inline shortcut for inserting the object into that group. However, [display.newGroup()][api.library.display.newGroup] is one of the exceptions to this shortcut&nbsp;&mdash; you can't simply supply an inline group reference to insert the new display group into an existing group. Instead, you must use the `object:insert()` command.
+As you recall, most CORONA_CORE_PRODUCT display object APIs accept a valid display group variable as a convenient inline shortcut for inserting the object into that group. However, [display.newGroup()][api.library.display.newGroup] is one of the exceptions to this shortcut&nbsp;&mdash; you can't simply supply an inline group reference to insert the new display group into an existing group. Instead, you must use the `object:insert()` command.
 
 </div>
 </div>

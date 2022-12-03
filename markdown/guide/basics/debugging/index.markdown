@@ -5,7 +5,7 @@ As a developer, you will occasionally encounter problems in your code, including
 <div class="guides-toc">
 
 * [Background](#background)
-* [Using Corona Editor](#coronaeditor)
+* [Using CORONA_CORE_PRODUCT Editor](#editor)
 * [Console/Device Debugging](#consoledebugging)
 * [Tips and Common Pitfalls](#common)
 * [Community Support](#support)
@@ -35,13 +35,13 @@ This excerpt from [The Practice of Programming](https://en.wikipedia.org/wiki/Th
 
 
 
-<a id="coronaeditor"></a>
+<a id="editor"></a>
 
-## Using Corona Editor
+## Using CORONA_CORE_PRODUCT Editor
 
-[Corona Editor](https://github.com/coronalabs/CoronaSDK-SublimeText) is an <nobr>add-on</nobr> feature for [Sublime Text](https://www.sublimetext.com/). This allows you to see debugging messages in Sublime Text without needing a console window. It also allows you to validate your code using an interactive debugger.
+[CORONA_CORE_PRODUCT Editor](https://github.com/coronalabs/CoronaSDK-SublimeText) is an <nobr>add-on</nobr> feature for [Sublime Text](https://www.sublimetext.com/). This allows you to see debugging messages in Sublime Text without needing a console window. It also allows you to validate your code using an interactive debugger.
 
-Once you have Sublime Text and Corona Editor installed, it can help you debug your code. For example, you can stop the Solar2D Simulator at certain points and examine the state of your code, or you can step through the code and inspect variable values along the way. In addition, you can follow the __stack&nbsp;trace__ of the app for more comprehensive debugging purposes.
+Once you have Sublime Text and CORONA_CORE_PRODUCT Editor installed, it can help you debug your code. For example, you can stop the Solar2D Simulator at certain points and examine the state of your code, or you can step through the code and inspect variable values along the way. In addition, you can follow the __stack&nbsp;trace__ of the app for more comprehensive debugging purposes.
 
 ### Using Break Points
 
@@ -49,11 +49,11 @@ One key concept in using an interactive debugger is the ability to stop your pro
 
 You can enable or disable (toggle) break points in one of two ways:
 
-* Click on the line of code and select __Corona&nbsp;Editor__ &rarr; __Corona&nbsp;Debugger__ &rarr; __Toggle&nbsp;Breakpoint__ from the main menu.
+* Click on the line of code and select __CORONA_CORE_PRODUCT&nbsp;Editor__ &rarr; __Debugger__ &rarr; __Toggle&nbsp;Breakpoint__ from the main menu.
 
 * Right-click the line of code and choose __Toggle&nbsp;Breakpoint__ from the popup context menu.
 
-When you set a break point, a small Corona logo will appear on the line. Then, when you run your app from Sublime Text via __Corona&nbsp;Editor__ &rarr; __Corona&nbsp;Debugger__ &rarr; __Run__, it will stop when it reaches this line of code and return to Sublime Text. At this point, you have several options:
+When you set a break point, a small logo will appear on the line. Then, when you run your app from Sublime Text via __CORONA_CORE_PRODUCT&nbsp;Editor__ &rarr; __Debugger__ &rarr; __Run__, it will stop when it reaches this line of code and return to Sublime Text. At this point, you have several options:
 
 * __Run__ &mdash; Run the code until the next break point or until completion.
 
@@ -71,9 +71,9 @@ When you set a break point, a small Corona logo will appear on the line. Then, w
 
 ### Watching Variables
 
-When Sublime Text with Corona Editor runs, it opens up several windows by default. One window is your code, another is the __Console__ log where errors and `print()` statements appear, another window is the __Lua&nbsp;Stack__ trace, and the last one is __Variables__ to watch.
+When Sublime Text with CORONA_CORE_PRODUCT Editor runs, it opens up several windows by default. One window is your code, another is the __Console__ log where errors and `print()` statements appear, another window is the __Lua&nbsp;Stack__ trace, and the last one is __Variables__ to watch.
 
-Any variable that is in scope will show in the Watch variables window. Instead of using print() statements to watch your variables, Corona Debugger will show you the variables and their values.  You can watch the variables as you step through your code.
+Any variable that is in scope will show in the Watch variables window. Instead of using print() statements to watch your variables, Debugger will show you the variables and their values.  You can watch the variables as you step through your code.
 
 -->
 
@@ -87,7 +87,7 @@ Watching variables only shows you variables in scope.  It does not show global v
 
 -->
 
-From the main menu, select __Corona&nbsp;Debugger__ &rarr; __Inspect&nbsp;Variable__. A search bar will open at the bottom of Sublime Text and you can enter any valid variable. You will then see the details of that variable, and if it's a table, this can provide a better visual representation compared to what is typically available.
+From the main menu, select __Debugger__ &rarr; __Inspect&nbsp;Variable__. A search bar will open at the bottom of Sublime Text and you can enter any valid variable. You will then see the details of that variable, and if it's a table, this can provide a better visual representation compared to what is typically available.
 
 ### Stack Tracing
 

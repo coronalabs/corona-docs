@@ -57,7 +57,7 @@
 <ul>
 <li><a href="#debugging-guide">Debugging Guide</a><ul>
 <li><a href="#background">Background</a></li>
-<li><a href="#using-corona-editor">Using Corona Editor</a><ul>
+<li><a href="#using-solar2d-editor">Using Solar2D Editor</a><ul>
 <li><a href="#using-break-points">Using Break Points</a></li>
 <li><a href="#inspecting-variables">Inspecting Variables</a></li>
 <li><a href="#stack-tracing">Stack Tracing</a></li>
@@ -93,7 +93,7 @@
 <div class="guides-toc">
 <ul>
 <li><a href="#background">Background</a></li>
-<li><a href="#coronaeditor">Using Corona Editor</a></li>
+<li><a href="#editor">Using Solar2D Editor</a></li>
 <li><a href="#consoledebugging">Console/Device Debugging</a></li>
 <li><a href="#common">Tips and Common Pitfalls</a></li>
 <li><a href="#support">Community Support</a></li>
@@ -109,21 +109,21 @@
 <p><em>Debugging involves backwards reasoning, like solving murder mysteries. Something impossible occurred, and the only solid information is that it really did occur. So we must think backwards from the result to discover the reasons. Once we have a full explanation, we'll know what to fix and, along the way, likely discover a few other things we hadn't expected.</em></p>
 </div>
 <p>This excerpt from <a href="https://en.wikipedia.org/wiki/The_Practice_of_Programming">The Practice of Programming</a> emphasizes the importance of gathering sufficient data and facts before undertaking the task of debugging. Sometimes, this means eliminating possible causes in order to find the real problem. Other times, it's an indirect way to resolve the issue.</p>
-<p><a id="coronaeditor"></a></p>
+<p><a id="editor"></a></p>
 </div>
-<div id="using-corona-editor" class="section level2">
-<h2>Using Corona Editor</h2>
-<p><a href="https://github.com/coronalabs/CoronaSDK-SublimeText">Corona Editor</a> is an <nobr>add-on</nobr> feature for <a href="https://www.sublimetext.com/">Sublime Text</a>. This allows you to see debugging messages in Sublime Text without needing a console window. It also allows you to validate your code using an interactive debugger.</p>
-<p>Once you have Sublime Text and Corona Editor installed, it can help you debug your code. For example, you can stop the Solar2D Simulator at certain points and examine the state of your code, or you can step through the code and inspect variable values along the way. In addition, you can follow the <strong>stack trace</strong> of the app for more comprehensive debugging purposes.</p>
+<div id="using-solar2d-editor" class="section level2">
+<h2>Using Solar2D Editor</h2>
+<p><a href="https://github.com/coronalabs/CoronaSDK-SublimeText">Solar2D Editor</a> is an <nobr>add-on</nobr> feature for <a href="https://www.sublimetext.com/">Sublime Text</a>. This allows you to see debugging messages in Sublime Text without needing a console window. It also allows you to validate your code using an interactive debugger.</p>
+<p>Once you have Sublime Text and Solar2D Editor installed, it can help you debug your code. For example, you can stop the Solar2D Simulator at certain points and examine the state of your code, or you can step through the code and inspect variable values along the way. In addition, you can follow the <strong>stack trace</strong> of the app for more comprehensive debugging purposes.</p>
 <div id="using-break-points" class="section level3">
 <h3>Using Break Points</h3>
 <p>One key concept in using an interactive debugger is the ability to stop your program at certain points so you can observe the current state. This includes looking at the value of variables in scope, stepping through the code one line or one function at a time, and checking the stack trace. This is known as <strong>using break points</strong> and it all revolves around stopping your program at the points you want to inspect.</p>
 <p>You can enable or disable (toggle) break points in one of two ways:</p>
 <ul>
-<li><p>Click on the line of code and select <strong>Corona Editor</strong> → <strong>Corona Debugger</strong> → <strong>Toggle Breakpoint</strong> from the main menu.</p></li>
+<li><p>Click on the line of code and select <strong>CORONA_CORE_PRODUCT Editor</strong> → <strong>Debugger</strong> → <strong>Toggle Breakpoint</strong> from the main menu.</p></li>
 <li><p>Right-click the line of code and choose <strong>Toggle Breakpoint</strong> from the popup context menu.</p></li>
 </ul>
-<p>When you set a break point, a small Corona logo will appear on the line. Then, when you run your app from Sublime Text via <strong>Corona Editor</strong> → <strong>Corona Debugger</strong> → <strong>Run</strong>, it will stop when it reaches this line of code and return to Sublime Text. At this point, you have several options:</p>
+<p>When you set a break point, a small logo will appear on the line. Then, when you run your app from Sublime Text via <strong>CORONA_CORE_PRODUCT Editor</strong> → <strong>Debugger</strong> → <strong>Run</strong>, it will stop when it reaches this line of code and return to Sublime Text. At this point, you have several options:</p>
 <ul>
 <li><p><strong>Run</strong> — Run the code until the next break point or until completion.</p></li>
 <li><p><strong>Step Over</strong> — This will step forward one line of code, and if it's a function, it will complete the function and stop on the next line of code.</p></li>
@@ -136,9 +136,9 @@
 
 ### Watching Variables
 
-When Sublime Text with Corona Editor runs, it opens up several windows by default. One window is your code, another is the __Console__ log where errors and `print()` statements appear, another window is the __Lua&nbsp;Stack__ trace, and the last one is __Variables__ to watch.
+When Sublime Text with Solar2D Editor runs, it opens up several windows by default. One window is your code, another is the __Console__ log where errors and `print()` statements appear, another window is the __Lua&nbsp;Stack__ trace, and the last one is __Variables__ to watch.
 
-Any variable that is in scope will show in the Watch variables window. Instead of using print() statements to watch your variables, Corona Debugger will show you the variables and their values.  You can watch the variables as you step through your code.
+Any variable that is in scope will show in the Watch variables window. Instead of using print() statements to watch your variables, Debugger will show you the variables and their values.  You can watch the variables as you step through your code.
 
 -->
 <p><a id="inspecting"></a></p>
@@ -150,7 +150,7 @@ Any variable that is in scope will show in the Watch variables window. Instead o
 Watching variables only shows you variables in scope.  It does not show global variables, or other variables.  You can also look at a specific variable by inspecting a variable.
 
 -->
-<p>From the main menu, select <strong>Corona Debugger</strong> → <strong>Inspect Variable</strong>. A search bar will open at the bottom of Sublime Text and you can enter any valid variable. You will then see the details of that variable, and if it's a table, this can provide a better visual representation compared to what is typically available.</p>
+<p>From the main menu, select <strong>Debugger</strong> → <strong>Inspect Variable</strong>. A search bar will open at the bottom of Sublime Text and you can enter any valid variable. You will then see the details of that variable, and if it's a table, this can provide a better visual representation compared to what is typically available.</p>
 </div>
 <div id="stack-tracing" class="section level3">
 <h3>Stack Tracing</h3>

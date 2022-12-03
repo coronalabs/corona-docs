@@ -114,16 +114,16 @@
 <div id="using-solar2d-editor" class="section level2">
 <h2>Using Solar2D Editor</h2>
 <p><a href="https://github.com/coronalabs/CoronaSDK-SublimeText">Solar2D Editor</a> is an <nobr>add-on</nobr> feature for <a href="https://www.sublimetext.com/">Sublime Text</a>. This allows you to see debugging messages in Sublime Text without needing a console window. It also allows you to validate your code using an interactive debugger.</p>
-<p>Once you have Sublime Text and Solar2D Editor installed, it can help you debug your code. For example, you can stop the Solar2D Simulator at certain points and examine the state of your code, or you can step through the code and inspect variable values along the way. In addition, you can follow the <strong>stack trace</strong> of the app for more comprehensive debugging purposes.</p>
+<p>Once you have Sublime Text and Solar2D Editor installed, it can help you debug your code. For example, you can stop the Simulator at certain points and examine the state of your code, or you can step through the code and inspect variable values along the way. In addition, you can follow the <strong>stack trace</strong> of the app for more comprehensive debugging purposes.</p>
 <div id="using-break-points" class="section level3">
 <h3>Using Break Points</h3>
 <p>One key concept in using an interactive debugger is the ability to stop your program at certain points so you can observe the current state. This includes looking at the value of variables in scope, stepping through the code one line or one function at a time, and checking the stack trace. This is known as <strong>using break points</strong> and it all revolves around stopping your program at the points you want to inspect.</p>
 <p>You can enable or disable (toggle) break points in one of two ways:</p>
 <ul>
-<li><p>Click on the line of code and select <strong>CORONA_CORE_PRODUCT Editor</strong> → <strong>Debugger</strong> → <strong>Toggle Breakpoint</strong> from the main menu.</p></li>
+<li><p>Click on the line of code and select <strong>Solar2D Editor</strong> → <strong>Debugger</strong> → <strong>Toggle Breakpoint</strong> from the main menu.</p></li>
 <li><p>Right-click the line of code and choose <strong>Toggle Breakpoint</strong> from the popup context menu.</p></li>
 </ul>
-<p>When you set a break point, a small logo will appear on the line. Then, when you run your app from Sublime Text via <strong>CORONA_CORE_PRODUCT Editor</strong> → <strong>Debugger</strong> → <strong>Run</strong>, it will stop when it reaches this line of code and return to Sublime Text. At this point, you have several options:</p>
+<p>When you set a break point, a small logo will appear on the line. Then, when you run your app from Sublime Text via <strong>Solar2D Editor</strong> → <strong>Debugger</strong> → <strong>Run</strong>, it will stop when it reaches this line of code and return to Sublime Text. At this point, you have several options:</p>
 <ul>
 <li><p><strong>Run</strong> — Run the code until the next break point or until completion.</p></li>
 <li><p><strong>Step Over</strong> — This will step forward one line of code, and if it's a function, it will complete the function and stop on the next line of code.</p></li>
@@ -164,7 +164,7 @@ Watching variables only shows you variables in scope.  It does not show global v
 <p><a id="runtimeerrors"></a></p>
 <div id="viewing-runtime-errors" class="section level3">
 <h3>Viewing Runtime Errors</h3>
-<p>If you have <strong>Show Runtime Errors</strong> enabled in the Solar2D Simulator preferences, runtime errors (those that crash your app) will abort the program and reveal a message dialog box with more information about the error, including:</p>
+<p>If you have <strong>Show Runtime Errors</strong> enabled in the Simulator preferences, runtime errors (those that crash your app) will abort the program and reveal a message dialog box with more information about the error, including:</p>
 <ul>
 <li>The filename in which the error occurred in, for example <code>main.lua</code>.</li>
 <li>The line number within that file where the error occurred, for instance <nobr><code>Line 218</code></nobr>.</li>
@@ -196,11 +196,11 @@ Debug Symbols
 </div>
 <div id="solar2d-simulator-console" class="section level3">
 <h3>Solar2D Simulator Console</h3>
-<p>Diagnostic output can also be viewed within the <strong>Solar2D Simulator Console</strong>. Here, useful debugging messages will be shown, along with the value of <code>print()</code> statements within your code. While this practice may be considered outdated to some developers, tracking the output of <code>print()</code> commands can often reveal the cause of an error or an issue with conditional logic.</p>
+<p>Diagnostic output can also be viewed within the <strong>Simulator Console</strong>. Here, useful debugging messages will be shown, along with the value of <code>print()</code> statements within your code. While this practice may be considered outdated to some developers, tracking the output of <code>print()</code> commands can often reveal the cause of an error or an issue with conditional logic.</p>
 </div>
 <div id="xcode-simulator-macos" class="section level3">
 <h3>Xcode Simulator — macOS</h3>
-<p>The above methods can help diagnose most coding issues, but the <strong>Xcode Simulator</strong> for macOS may be necessary to preview how the app will function on actual iOS devices. This helps simulate some device features that the Solar2D Simulator cannot, but it's still not as accurate as a real device.</p>
+<p>The above methods can help diagnose most coding issues, but the <strong>Xcode Simulator</strong> for macOS may be necessary to preview how the app will function on actual iOS devices. This helps simulate some device features that the Simulator cannot, but it's still not as accurate as a real device.</p>
 <p>To test an app in the Xcode Simulator:</p>
 <ol style="list-style-type: decimal">
 <li><p>Select <strong>File</strong> → <strong>Build</strong> → <strong>Build for iOS...</strong> from within the Solar2D Simulator.</p></li>
@@ -290,9 +290,9 @@ end</pre>
 </div>
 <div id="device-considerations" class="section level3">
 <h3>Device Considerations</h3>
-<p>Some developers are dismayed to find that their project works in the Solar2D Simulator but not on their actual device. Usually, one of the following factors is at fault:</p>
+<p>Some developers are dismayed to find that their project works in the Simulator but not on their actual device. Usually, one of the following factors is at fault:</p>
 <ul>
-<li><p>File names are not <nobr><strong>case-sensitive</strong></nobr>. When testing on macOS or Windows, file names are not <nobr>case-sensitive</nobr>, but when running on a device, the file names <strong>must</strong> match in case. For example, the file name <code>titleimage.png</code> and <code>TitleImage.PNG</code> are the same in the Solar2D Simulator, but they are considered different on a device.</p></li>
+<li><p>File names are not <nobr><strong>case-sensitive</strong></nobr>. When testing on macOS or Windows, file names are not <nobr>case-sensitive</nobr>, but when running on a device, the file names <strong>must</strong> match in case. For example, the file name <code>titleimage.png</code> and <code>TitleImage.PNG</code> are the same in the Simulator, but they are considered different on a device.</p></li>
 <li><p>There is an error in the <code>build.settings</code> file, and often this is because the various blocks and tables are not properly nested. Please see the <a href="../../../guide/distribution/buildSettings/index.html">Project Build Settings</a> guide for instructions on how to properly construct the <code>build.settings</code> file and each section within it.</p></li>
 <li><p>There's a problem with a <a href="../../../plugin/index.html">plugin</a>. Each plugin must be included exactly as specified, and several plugins require device <strong>permissions</strong> in order to function properly. Please see the appropriate <a href="../../../plugin/index.html">plugin documentation</a> for details.</p></li>
 </ul>
@@ -311,7 +311,7 @@ end</pre>
 <h2>Community Support</h2>
 <div id="locating-solutions" class="section level3">
 <h3>Locating Solutions</h3>
-<p>If you have exhausted all of the above debugging methods, proceed to the <a href="https://forums.solar2d.com/">Solar2D Forums</a>. There you can search for topics which describe the same issue you're struggling with. Often, another developer will have reported the same issue and, in many cases, the thread will contain the solution — as such, please do not post a new topic without first searching for the answer in existing threads.</p>
+<p>If you have exhausted all of the above debugging methods, proceed to the <a href="https://forums.solar2d.com/">Forums</a>. There you can search for topics which describe the same issue you're struggling with. Often, another developer will have reported the same issue and, in many cases, the thread will contain the solution — as such, please do not post a new topic without first searching for the answer in existing threads.</p>
 <p>Note that new contributors will have their first post moderated — these will be entered into the system, but they will not be visible to others until approved by a moderator.</p>
 </div>
 <div id="requesting-assistance" class="section level3">

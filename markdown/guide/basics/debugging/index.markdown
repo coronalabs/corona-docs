@@ -41,7 +41,7 @@ This excerpt from [The Practice of Programming](https://en.wikipedia.org/wiki/Th
 
 [CORONA_CORE_PRODUCT Editor](https://github.com/coronalabs/CoronaSDK-SublimeText) is an <nobr>add-on</nobr> feature for [Sublime Text](https://www.sublimetext.com/). This allows you to see debugging messages in Sublime Text without needing a console window. It also allows you to validate your code using an interactive debugger.
 
-Once you have Sublime Text and CORONA_CORE_PRODUCT Editor installed, it can help you debug your code. For example, you can stop the Solar2D Simulator at certain points and examine the state of your code, or you can step through the code and inspect variable values along the way. In addition, you can follow the __stack&nbsp;trace__ of the app for more comprehensive debugging purposes.
+Once you have Sublime Text and CORONA_CORE_PRODUCT Editor installed, it can help you debug your code. For example, you can stop the Simulator at certain points and examine the state of your code, or you can step through the code and inspect variable values along the way. In addition, you can follow the __stack&nbsp;trace__ of the app for more comprehensive debugging purposes.
 
 ### Using Break Points
 
@@ -49,11 +49,11 @@ One key concept in using an interactive debugger is the ability to stop your pro
 
 You can enable or disable (toggle) break points in one of two ways:
 
-* Click on the line of code and select __CORONA_CORE_PRODUCT&nbsp;Editor__ &rarr; __Debugger__ &rarr; __Toggle&nbsp;Breakpoint__ from the main menu.
+* Click on the line of code and select __Solar2D&nbsp;Editor__ &rarr; __Debugger__ &rarr; __Toggle&nbsp;Breakpoint__ from the main menu.
 
 * Right-click the line of code and choose __Toggle&nbsp;Breakpoint__ from the popup context menu.
 
-When you set a break point, a small logo will appear on the line. Then, when you run your app from Sublime Text via __CORONA_CORE_PRODUCT&nbsp;Editor__ &rarr; __Debugger__ &rarr; __Run__, it will stop when it reaches this line of code and return to Sublime Text. At this point, you have several options:
+When you set a break point, a small logo will appear on the line. Then, when you run your app from Sublime Text via __Solar2D&nbsp;Editor__ &rarr; __Debugger__ &rarr; __Run__, it will stop when it reaches this line of code and return to Sublime Text. At this point, you have several options:
 
 * __Run__ &mdash; Run the code until the next break point or until completion.
 
@@ -106,7 +106,7 @@ For more information on the stack trace, see [Viewing Runtime Errors](#runtimeer
 
 ### Viewing Runtime Errors
 
-If you have __Show&nbsp;Runtime&nbsp;Errors__ enabled in the Solar2D Simulator preferences, runtime errors (those&nbsp;that crash your&nbsp;app) will abort the program and reveal a message dialog box with more information about the error, including:
+If you have __Show&nbsp;Runtime&nbsp;Errors__ enabled in the Simulator preferences, runtime errors (those&nbsp;that crash your&nbsp;app) will abort the program and reveal a message dialog box with more information about the error, including:
 
 * The filename in which the error occurred in, for example `main.lua`.
 * The line number within that file where the error occurred, for instance <nobr>`Line 218`</nobr>.
@@ -117,8 +117,8 @@ If you have __Show&nbsp;Runtime&nbsp;Errors__ enabled in the Solar2D Simulator p
 
 ``````
 stack traceback:
-	main.lua:218: in function 'start'
-	main.lua:222: in main chunk
+    main.lua:218: in function 'start'
+    main.lua:222: in main chunk
 ``````
 
 </div>
@@ -129,8 +129,8 @@ Sometimes, the stack trace is less specific and must be followed carefully. For 
 
 ``````
 ?: in function <?:221>
-	main.lua:218: in function 'start'
-	main.lua:222: in main chunk
+    main.lua:218: in function 'start'
+    main.lua:222: in main chunk
 ``````
 
 From this, you know that the error resides on line `221`, but you must trace backwards for more details. In this case, the problem occurred on line `221`, and that line was called from a function named `start` at line `218` of `main.lua`. Thus, even if the first line of the stack trace doesn't pinpoint exactly where the problem occurred, it can usually expose the root of the error.
@@ -140,25 +140,25 @@ From this, you know that the error resides on line `221`, but you must trace bac
 
 When [building for iOS][guide.distribution.iOSBuild] you have the choice of a __Development__ build or a __Distribution__ build. When [building for Android][guide.distribution.androidBuild], you either build with a __Debug__ keystore or a __Release__ keystore. Typically, your choice impacts the information available in the stack trace as follows:
 
-* If you build with a development profile or a debug keystore, Solar2D will retain debug symbols within the Lua code. This results in a minimal performance impact and a larger application bundle.
+* If you build with a development profile or a debug keystore, CORONA_CORE_PRODUCT will retain debug symbols within the Lua code. This results in a minimal performance impact and a larger application bundle.
 
-* If you build with a distribution profile or a release keystore, Solar2D will strip debug symbols out of the Lua code.
+* If you build with a distribution profile or a release keystore, CORONA_CORE_PRODUCT will strip debug symbols out of the Lua code.
 
-If you wish to retain these symbols regardless of the build type, simply override the default behavior as illustrated [here][guide.distribution.advancedSettings#build-control]. This will make it easier to trace the code, but if the error occurs inside of core Solar2D code, debug symbols will still not be available. In these cases, you'll need to trace backwards and determine why the information you're passing to a Solar2D library function is causing an error.
+If you wish to retain these symbols regardless of the build type, simply override the default behavior as illustrated [here][guide.distribution.advancedSettings#build-control]. This will make it easier to trace the code, but if the error occurs inside of core CORONA_CORE_PRODUCT code, debug symbols will still not be available. In these cases, you'll need to trace backwards and determine why the information you're passing to a CORONA_CORE_PRODUCT library function is causing an error.
 
 </div>
 
-### Solar2D Simulator Console
+### CORONA_CORE_PRODUCT Simulator Console
 
-Diagnostic output can also be viewed within the __Solar2D&nbsp;Simulator&nbsp;Console__. Here, useful debugging messages will be shown, along with the value of `print()` statements within your code. While this practice may be considered outdated to some developers, tracking the output of `print()` commands can often reveal the cause of an error or an issue with conditional logic.
+Diagnostic output can also be viewed within the __Simulator&nbsp;Console__. Here, useful debugging messages will be shown, along with the value of `print()` statements within your code. While this practice may be considered outdated to some developers, tracking the output of `print()` commands can often reveal the cause of an error or an issue with conditional logic.
 
 ### Xcode Simulator &mdash; macOS
 
-The above methods can help diagnose most coding issues, but the __Xcode&nbsp;Simulator__ for macOS may be necessary to preview how the app will function on actual iOS devices. This helps simulate some device features that the Solar2D Simulator cannot, but it's still not as accurate as a real device.
+The above methods can help diagnose most coding issues, but the __Xcode&nbsp;Simulator__ for macOS may be necessary to preview how the app will function on actual iOS devices. This helps simulate some device features that the Simulator cannot, but it's still not as accurate as a real device.
 
 To test an app in the Xcode Simulator:
 
-1. Select __File__ &rarr; __Build__ &rarr; __Build&nbsp;for&nbsp;iOS...__ from within the Solar2D Simulator.
+1. Select __File__ &rarr; __Build__ &rarr; __Build&nbsp;for&nbsp;iOS...__ from within the CORONA_CORE_PRODUCT Simulator.
 
 2. In the dialog window, under the __Build&nbsp;for:__ <nobr>pull-down</nobr> menu, select __Xcode&nbsp;Simulator__.
 
@@ -191,19 +191,19 @@ First, you must install some free tools from Google called __Android&nbsp;Debug&
 
 3. Follow the instructions for [Adding SDK Packages](https://developer.android.com/studio#downloads). Install at least the __Android&nbsp;SDK&nbsp;Tools__ and <nobr>__Android SDK Platform-tools__.</nobr>
 
-Once the tools are installed, you can use the command line tools. With your Android device connected, simply type the following command in the __Terminal__ (macOS) or __Command&nbsp;Prompt__ (Windows) and watch the messages appear. This command will filter out all messages except those generated by Solar2D.
+Once the tools are installed, you can use the command line tools. With your Android device connected, simply type the following command in the __Terminal__ (macOS) or __Command&nbsp;Prompt__ (Windows) and watch the messages appear. This command will filter out all messages except those generated by CORONA_CORE_PRODUCT.
 
 ``````
 adb logcat Corona:v *:s
 ``````
 
-Sometimes errors are generated by things besides Solar2D, for example messages from Google Play related to Google <nobr>In-App</nobr> Purchases. To see the entire log, use this command instead:
+Sometimes errors are generated by things besides CORONA_CORE_PRODUCT, for example messages from Google Play related to Google <nobr>In-App</nobr> Purchases. To see the entire log, use this command instead:
 
 ``````
 adb logcat
 ``````
 
-This will prevent filtering for <nobr>Solar2D-specific</nobr> activity, but it will generate a large number of messages and it will be difficult to locate those relevant to the problem. Thus, it may be helpful to include some `print()` statements within your code near the area which you suspect is problematic. For&nbsp;example:
+This will prevent filtering for <nobr>CORONA_CORE_PRODUCT-specific</nobr> activity, but it will generate a large number of messages and it will be difficult to locate those relevant to the problem. Thus, it may be helpful to include some `print()` statements within your code near the area which you suspect is problematic. For&nbsp;example:
 
 ``````lua
 print( "MYAPP - Purchase: *********************************************" )
@@ -246,11 +246,11 @@ Without indenting the lines to show the various blocks of code, it's very diffic
 
 ``````lua
 local function doSomething( params )
-	if params.someValue == 10 then
-		if params.someOtherValue == "test" then
-			params.yetAnotherValue = params.someValue
-		end
-	end
+    if params.someValue == 10 then
+        if params.someOtherValue == "test" then
+            params.yetAnotherValue = params.someValue
+        end
+    end
 ``````
 
 As you can see, there is a missing `end` keyword for the `doSomething` function, and this is clearly revealed when the code is properly indented.
@@ -263,21 +263,21 @@ Another important aspect is naming variables and functions so that you and other
 
 ``````lua
 local function a( b )
-	local c = b.target
-	if c.x < 100 then
-		c.alpha = 0
-	end
-	return true
+    local c = b.target
+    if c.x < 100 then
+        c.alpha = 0
+    end
+    return true
 end
 ``````
 
 ``````lua
 local function touchEventHandler( event )
-	local target = event.target
-	if target.x < 100 then
-		target.alpha = 0
-	end
-	return true
+    local target = event.target
+    if target.x < 100 then
+        target.alpha = 0
+    end
+    return true
 end
 ``````
 
@@ -285,9 +285,9 @@ These functions are identical in behavior, but by using clearer variable and fun
 
 ### Device Considerations
 
-Some developers are dismayed to find that their project works in the Solar2D Simulator but not on their actual device. Usually, one of the following factors is at fault:
+Some developers are dismayed to find that their project works in the Simulator but not on their actual device. Usually, one of the following factors is at fault:
 
-* File names are not <nobr>__case-sensitive__</nobr>. When testing on macOS or Windows, file names are not <nobr>case-sensitive</nobr>, but when running on a device, the file names __must__ match in case. For example, the file name `titleimage.png` and `TitleImage.PNG` are the same in the Solar2D Simulator, but they are considered different on a device.
+* File names are not <nobr>__case-sensitive__</nobr>. When testing on macOS or Windows, file names are not <nobr>case-sensitive</nobr>, but when running on a device, the file names __must__ match in case. For example, the file name `titleimage.png` and `TitleImage.PNG` are the same in the Simulator, but they are considered different on a device.
 
 * There is an error in the `build.settings` file, and often this is because the various blocks and tables are not properly nested. Please see the [Project Build Settings][guide.distribution.buildSettings] guide for instructions on how to properly construct the `build.settings` file and each section within it.
 
@@ -295,13 +295,13 @@ Some developers are dismayed to find that their project works in the Solar2D Sim
 
 ### Listener Removal
 
-In some cases, an [event][api.event] listener function may still be running when you attempt to remove the listener, or a Solar2D library will be completing an internal process when you attempt to call a certain action. For example, you may attempt to remove a [GPS][api.event.location] listener while the GPS event is still being processed, or you may try to [deactivate][api.type.Body.isBodyActive] a physics body at the exact moment it collides with another object. Both of these are liable to cause an error/warning.
+In some cases, an [event][api.event] listener function may still be running when you attempt to remove the listener, or a CORONA_CORE_PRODUCT library will be completing an internal process when you attempt to call a certain action. For example, you may attempt to remove a [GPS][api.event.location] listener while the GPS event is still being processed, or you may try to [deactivate][api.type.Body.isBodyActive] a physics body at the exact moment it collides with another object. Both of these are liable to cause an error/warning.
 
 The solution to these type of issues is to perform the necessary action after a short [timer][api.library.timer.performWithDelay] delay:
 
 ``````lua
 local function handleGPS( event )
-	timer.performWithDelay( 10, function() Runtime:removeEventListener( "location", handleGPS ); end )
+    timer.performWithDelay( 10, function() Runtime:removeEventListener( "location", handleGPS ); end )
 end
 ``````
 
@@ -314,7 +314,7 @@ end
 
 ### Locating Solutions
 
-If you have exhausted all of the above debugging methods, proceed to the [Solar2D Forums](https://forums.solar2d.com/). There you can search for topics which describe the same issue you're struggling with. Often, another developer will have reported the same issue and, in many cases, the thread will contain the solution &mdash; as&nbsp;such, please do not post a new topic without first searching for the answer in existing threads.
+If you have exhausted all of the above debugging methods, proceed to the [Forums](https://forums.solar2d.com/). There you can search for topics which describe the same issue you're struggling with. Often, another developer will have reported the same issue and, in many cases, the thread will contain the solution &mdash; as&nbsp;such, please do not post a new topic without first searching for the answer in existing threads.
 
 Note that new contributors will have their first post moderated &mdash; these will be entered into the system, but they will not be visible to others until approved by a moderator.
 
@@ -326,11 +326,11 @@ If you cannot locate the solution in any previous forum threads, please post a n
 
 * Include enough information so that the community can help. You should provide the following:
 
-	* &nbsp;A detailed description of the problem you're having.  
-	* &nbsp;A concise amount of code around the problematic area, if necessary.  
+    * &nbsp;A detailed description of the problem you're having.  
+    * &nbsp;A concise amount of code around the problematic area, if necessary.  
     * &nbsp;Whether you are using macOS or Windows.  
     * &nbsp;Whether you are building for iOS, Android, macOS desktop, or Windows desktop.  
-    * &nbsp;Which version/build of Solar2D you're using.  
+    * &nbsp;Which version/build of CORONA_CORE_PRODUCT you're using.  
     * &nbsp;The relevant error messages from your console log.  
     * &nbsp;Screenshots/images which can help the community visualize the problem.  
 

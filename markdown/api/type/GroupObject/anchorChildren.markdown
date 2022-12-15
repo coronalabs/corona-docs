@@ -16,8 +16,7 @@ By default, display groups do not respect anchor points. However, you can achiev
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Note</div>
 
-Setting this property does not force an immediate update of the group, although other display properties will do so. This was assumed to be an oversight and fixed along with some sprite trimming issues. To opt-in
-to these fixes, set the [default][api.library.display.setDefault] of `"isImageSheetFrameTrimCorrected"` to `true`.
+Setting this property does not force an immediate update of the group, although other display properties will do so. This was assumed to be an oversight and fixed along with some sprite trimming issues. To opt-in to these fixes, set the [default][api.library.display.setDefault] of `"isImageSheetFrameTrimCorrected"` to `true`.
 
 </div>
 

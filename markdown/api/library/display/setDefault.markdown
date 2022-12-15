@@ -87,11 +87,9 @@ A color key specifies which default color value to set.
 
 * `"preloadTextures"` — The default behavior for texture loading is to load the texture when the display object is created or when the display object uses it. Setting this value to `false` will delay loading of the texture to when the object appears on screen or to when it becomes visible.
 
-* `"isExternalTextureRetina"` — The default behavior for external textures is to be sampled like retina textures, applying content scaling to the `width` and `height` when resolving texture coordinates. Setting
-this value to `false` will simply use `width` and `height` as is.
+* `"isExternalTextureRetina"` — The default behavior for external textures is to be sampled like retina textures, applying content scaling to the `width` and `height` when resolving texture coordinates. Setting this value to `false` will simply use `width` and `height` as is.
 
-* `"isImageSheetFrameTrimCorrected"` — The default (legacy) behavior for trimmed sprites can lead to strange behavior when doing rotation or scaling on them. Setting this value to `true` will apply appropriate
-corrections. (It will also slightly affect how [object.anchorChildren][api.type.GroupObject.anchorChildren] updates. See the link for further details.)
+* `"isImageSheetFrameTrimCorrected"` — The default (legacy) behavior for trimmed sprites can lead to strange behavior when doing rotation or scaling on them. Setting this value to `true` will apply appropriate corrections. (It will also slightly affect how [object.anchorChildren][api.type.GroupObject.anchorChildren] updates. See the link for further details.)
 
 * `"isImageSheetSampledInsideFrame"` — Affects how [image sheet][api.type.ImageSheet] frames are sampled. If set to `true`, sampling is intruded by half of the source texture pixel size to avoid border artifacts. Default is `false`.
 

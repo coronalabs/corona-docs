@@ -1,6 +1,6 @@
 # Image Effects — Filters, Generators, Composites
 
-In Solar2D, visual effects can be applied to display objects with unprecedented ease. This guide contains a list of all <nobr>built-in</nobr> shader effects. Alternatively, to create your own custom effects, please refer to the [Custom Shader Effects][guide.graphics.customEffects] guide.
+In Corona, visual effects can be applied to display objects with unprecedented ease. This guide contains a list of all <nobr>built-in</nobr> shader effects. Alternatively, to create your own custom effects, please refer to the [Custom Shader Effects][guide.graphics.customEffects] guide.
 
 <div class="guides-toc">
 
@@ -216,8 +216,6 @@ object.fill.effect = "filter.blurGaussianLinearHorizontal"
 <!--- FILTER.BLUR-GAUSSIAN-LINEAR-VERTICAL -->
 
 <a id="blurGaussianLinearVertical"></a>
-+
-219
 <div class="newline"></div>
 
 <div class="side-by-side">
@@ -248,8 +246,6 @@ object.fill.effect = "filter.blurGaussianLinearVertical"
 ----------------------------------------	------------------	----------------------------------------
 ![][images.simulator.fx-base-cloth]			&nbsp;&rarr;&nbsp;	![][images.simulator.fx-blurhorizontal]
 ----------------------------------------	------------------	----------------------------------------
-
-</div>
 
 ### filter.blurHorizontal
 
@@ -2024,7 +2020,7 @@ This composite effect renders a point light upon a surface. In this effect, `poi
 
 The `pointLightColor` parameter is a table containing RGB+A values, and `ambientLightIntensity` specifies the intensity from `0` (dark) to `1` (full&nbsp;brightness).
 
-The `attenuationFactors` parameter is a table containing the diffuse light's distance attenuation factors. In this case, `{x,y,z}` are the constant, linear, and quadratic attenuation factors. Note that distance attenuation does __not__ affect ambient light intensity. For a better understanding of attenuation factors, read about [Falloff](https://developer.valvesoftware.com/wiki/Constant-Linear-Quadratic_Falloff) and [Attenuation&nbsp;of&nbsp;Light](https://learnopengl.com/PBR/Lighting).
+The `attenuationFactors` parameter is a table containing the diffuse light's distance attenuation factors. In this case, `{x,y,z}` are the constant, linear, and quadratic attenuation factors. Note that distance attenuation does __not__ affect ambient light intensity. For a better understanding of attenuation factors, read about [Falloff](https://developer.valvesoftware.com/wiki/Constant-Linear-Quadratic_Falloff) and [Attenuation&nbsp;of&nbsp;Light](http://www.felixgers.de/teaching/jogl/lightAttenuation.html).
 
 * `pointLightPos` — default = `{1,0,0}` ; min = `{0,0,0}` ; max = `{1,1,1}`
 * `pointLightColor` — default = `{1,1,1,1}` ; min = `{0,0,0,0}` ; max = `{1,1,1,1}`

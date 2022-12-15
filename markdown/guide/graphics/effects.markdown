@@ -1,6 +1,6 @@
 # Image Effects — Filters, Generators, Composites
 
-In Corona, visual effects can be applied to display objects with unprecedented ease. This guide contains a list of all <nobr>built-in</nobr> shader effects. Alternatively, to create your own custom effects, please refer to the [Custom Shader Effects][guide.graphics.customEffects] guide.
+In Solar2D, visual effects can be applied to display objects with unprecedented ease. This guide contains a list of all <nobr>built-in</nobr> shader effects. Alternatively, to create your own custom effects, please refer to the [Custom Shader Effects][guide.graphics.customEffects] guide.
 
 <div class="guides-toc">
 

@@ -163,6 +163,81 @@ object.fill.effect.vertical.sigma = 140
 ``````
 
 
+<!--- FILTER.BLUR-GAUSSIAN-LINEAR -->
+
+<a id="blurGaussianLinear"></a>
+<div class="newline"></div>
+
+<div class="side-by-side">
+
+----------------------------------------	------------------	------------------------------------
+![][images.simulator.fx-base-statue]		&nbsp;&rarr;&nbsp;	![][images.simulator.fx-blurlinear]
+----------------------------------------	------------------	------------------------------------
+
+</div>
+
+### filter.blurGaussianLinear
+
+A lightweight approach to Gaussian blur, as described in [this RasterGrid article](https://www.rastergrid.com/blog/2010/09/efficient-gaussian-blur-with-linear-sampling/).
+
+* `horizontal.offset1` — default = `1.3846153846` ; min = `0` ; max = `100`
+* `horizontal.offset2` — default = `3.2307692308` ; min = `0` ; max = `100`
+* `vertical.offset1` — default = `1.3846153846` ; min = `0` ; max = `100`
+* `vertical.offset2` — default = `3.2307692308` ; min = `0` ; max = `100`
+
+``````lua
+object.fill.effect = "filter.blurGaussianLinear"
+``````
+
+
+<!--- FILTER.BLUR-GAUSSIAN-LINEAR-HORIZONTAL -->
+
+<a id="blurGaussianLinearHorizontal"></a>
+<div class="newline"></div>
+
+<div class="side-by-side">
+
+----------------------------------------	------------------	----------------------------------------------
+![][images.simulator.fx-base-cloth]			&nbsp;&rarr;&nbsp;	![][images.simulator.fx-blurlinearhorizontal]
+----------------------------------------	------------------	----------------------------------------------
+
+</div>
+
+### filter.blurGaussianLinearHorizontal
+
+* `offset1` — default = `1.3846153846` ; min = `0` ; max = `100`
+* `offset2` — default = `3.2307692308` ; min = `0` ; max = `100`
+
+``````lua
+object.fill.effect = "filter.blurGaussianLinearHorizontal"
+``````
+
+
+<!--- FILTER.BLUR-GAUSSIAN-LINEAR-VERTICAL -->
+
+<a id="blurGaussianLinearVertical"></a>
++
+219
+<div class="newline"></div>
+
+<div class="side-by-side">
+
+----------------------------------------	------------------	--------------------------------------------
+![][images.simulator.fx-base-cloth]			&nbsp;&rarr;&nbsp;	![][images.simulator.fx-blurlinearvertical]
+----------------------------------------	------------------	--------------------------------------------
+
+</div>
+
+### filter.blurGaussianLinearVertical
+
+* `offset1` — default = `1.3846153846` ; min = `0` ; max = `100`
+* `offset2` — default = `3.2307692308` ; min = `0` ; max = `100`
+
+``````lua
+object.fill.effect = "filter.blurGaussianLinearVertical"
+``````
+
+
 <!--- FILTER.BLUR-HORIZONTAL -->
 
 <a id="blurHorizontal"></a>

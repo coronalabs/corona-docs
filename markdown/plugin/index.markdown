@@ -181,7 +181,7 @@ Interested in [creating a plugin][native.plugin]? Please see our [Plugins][nativ
 
 * [Amazon GameCircle][plugin.gamecircle]
 * [Apple Game Center][plugin.gameNetwork-apple]
-* [Google Play Games Services][plugin.gpgs2]
+* [Google Play Games Services][plugin.gpgs3]
 
 </span>
 
@@ -343,7 +343,7 @@ Interested in [creating a plugin][native.plugin]? Please see our [Plugins][nativ
 
 #### [Amazon GameCircle][plugin.gamecircle]
 #### [Apple Game Center][plugin.gameNetwork-apple]
-#### [Google Play Games Services][plugin.gpgs2]
+#### [Google Play Games Services][plugin.gpgs3]
 #### [Photon (real-time multiplayer)][plugin.photon]
 #### [Steamworks][plugin.steamworks]
 

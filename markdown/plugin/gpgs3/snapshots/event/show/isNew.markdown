@@ -1,0 +1,14 @@
+# event.isError
+
+> --------------------- ------------------------------------------------------------------------------------------
+> __Type__              [Boolean][api.type.Boolean]
+> __Event__             [show][snapshots.event.show]
+> __Revision__          [REVISION_LABEL](REVISION_URL)
+> __Keywords__          Google Play Games Services, game network, gpgs
+> __See also__          [gpgs.snapshots.*][plugin.gpgs3.snapshots]
+>                       [gpgs.*][plugin.gpgs3]
+> --------------------- ------------------------------------------------------------------------------------------
+
+## Overview
+
+_[Boolean][api.type.Boolean]._ `true` if the snapshot was just created.

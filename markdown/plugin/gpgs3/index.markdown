@@ -13,6 +13,7 @@
 
 This plugin enables access to Google Play Games Services API, such as achievements, leaderboards and snapshots(Saved Games).
 
+
 <div class="docs-tip-outer docs-tip-color-alert">
 <div class="docs-tip-inner-left">
 <div class="fa fa-exclamation-circle" style="font-size: 35px;"></div>
@@ -24,10 +25,10 @@ If you encounter <nobr>Google Play Games Services</nobr> login issues/errors aft
 
 Also in order to use [snapshots][plugin.gpgs3.snapshots] you must add __Drive&nbsp;API__ within the [Google Play Developer Console](https://console.developers.google.com/).
 
+</div>
+</div>
 
-</div>
-</div>
-</div>
+
 
 
 ## Changes from GPGS V2 to V3

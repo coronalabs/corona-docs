@@ -24,5 +24,8 @@ _[Table][api.type.Table]._ Contains parameters — see the next section for deta
 ##### userInitiated ~^(optional)^~
 _[Boolean][api.type.Boolean]._ If `true`, will show sign in dialog if user is not logged in. Use it when user specifically wants to log in (presses log in button for instance) instead of being logged in automatically.
 
+##### useDrive ~^(optional)^~
+_[Boolean][api.type.Boolean]._ If `true` will request Google Drive Access. This is needed for [Snapshots][plugin.gpgs3.snapshots].
+
 ##### listener ~^(optional)^~
 _[Listener][api.type.Listener]._ Receives [login][plugin.gpgs3.event.login] event.

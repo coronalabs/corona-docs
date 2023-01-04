@@ -35,24 +35,32 @@ Also in order to use [snapshots][plugin.gpgs3.snapshots] you must add __Drive&nb
 
 
 ### Changed Apis
-[gpgs.init()][plugin.gpgs3.init]
-Init is now required and will try sign in the player automatically
 
-[gpgs.isConnected(listener)][plugin.gpgs3.isConnected]
+#### [gpgs.init()][plugin.gpgs3.init]
+Initialize is now required and will attempt to sign in the player automatically
+
+#### [gpgs.isConnected(listener)][plugin.gpgs3.isConnected]
 isConnected is now async and has a callback. use isConnected to check if a player is automatically connected via [init][plugin.gpgs3.init] or manually [login][plugin.gpgs3.login] functions
 
-[gpgs.isAuthenticated()][plugin.gpgs3.isAuthenticated]
-isAuthenticated is actually the same but should be noted that isAuthenticated only applies when a logins in via [gpgs.login()][plugin.gpgs3.login]. This is important for [snapshots][plugin.gpgs3.snapshots] which need to use [gpgs.login()][plugin.gpgs3.login] for requesting __Drive&nbsp;API__ access.
+#### [gpgs.isAuthenticated()][plugin.gpgs3.isAuthenticated]
+isAuthenticated is actually the same but should be noted that isAuthenticated only applies for logins in via [gpgs.login()][plugin.gpgs3.login]. This is important for [Snapshots][plugin.gpgs3.snapshots] which is needed to use [gpgs.login()][plugin.gpgs3.login] for requesting __Drive&nbsp;API__ access.
+
+#### [gpgs.login()][plugin.gpgs3.login]
+There is a new `useDrive` param which is need for [Snapshots][plugin.gpgs3.snapshots]. It is import to note that the Drive scope is not added by default and you must set the `useDrive` param to `true`.
 
 ### No longer supported functions
 
-gpgs.setPopupPosition()
-gpgs.showSettings()
-gpgs.loadGame()
-gpgs.clearNotifications()
-gpgs.videos.*
+#### gpgs.setPopupPosition()
 
-Revert back [gpgs.v2][plugin.gpgs2] for this functionality
+#### gpgs.showSettings()
+
+#### gpgs.loadGame()
+
+#### gpgs.clearNotifications()
+
+#### gpgs.videos.*
+
+### Revert back to [gpgs.v2][plugin.gpgs2] to use these functions
 
 
 

@@ -1,7 +1,7 @@
 # Google Play Games Services
 
 > --------------------- ------------------------------------------------------------------------------------------
-> __Type__              [Library][api.type.library]
+> __Type__              [Library][api.type.Library]
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          google, google play games services, achievements, leaderboards
 > __Platforms__         Android

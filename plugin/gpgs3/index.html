@@ -58,8 +58,20 @@
 <li><a href="#google-play-games-services">Google Play Games Services</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#changes-from-gpgs-v2-to-v3">Changes from GPGS V2 to V3</a><ul>
-<li><a href="#changed-apis">Changed Apis</a></li>
-<li><a href="#no-longer-supported-functions">No longer supported functions</a></li>
+<li><a href="#changed-apis">Changed Apis</a><ul>
+<li><a href="#gpgs.initplugin.gpgs3.init"><a href="../../plugin/gpgs3/init.html">gpgs.init()</a></a></li>
+<li><a href="#gpgs.isconnectedlistenerplugin.gpgs3.isconnected"><a href="../../plugin/gpgs3/isConnected.html">gpgs.isConnected(listener)</a></a></li>
+<li><a href="#gpgs.isauthenticatedplugin.gpgs3.isauthenticated"><a href="../../plugin/gpgs3/isAuthenticated.html">gpgs.isAuthenticated()</a></a></li>
+<li><a href="#gpgs.loginplugin.gpgs3.login"><a href="../../plugin/gpgs3/login.html">gpgs.login()</a></a></li>
+</ul></li>
+<li><a href="#no-longer-supported-functions">No longer supported functions</a><ul>
+<li><a href="#gpgs.setpopupposition">gpgs.setPopupPosition()</a></li>
+<li><a href="#gpgs.showsettings">gpgs.showSettings()</a></li>
+<li><a href="#gpgs.loadgame">gpgs.loadGame()</a></li>
+<li><a href="#gpgs.clearnotifications">gpgs.clearNotifications()</a></li>
+<li><a href="#gpgs.videos.">gpgs.videos.*</a></li>
+</ul></li>
+<li><a href="#revert-back-to-gpgs.v2plugin.gpgs2-to-use-these-functions">Revert back to <a href="../../plugin/gpgs2/index.html">gpgs.v2</a> to use these functions</a></li>
 </ul></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#project-settings">Project Settings</a></li>
@@ -73,10 +85,10 @@
 <li><a href="#gpgs.">gpgs.*</a></li>
 <li><a href="#overview-1">Overview</a></li>
 <li><a href="#functions">Functions</a><ul>
-<li><a href="#gpgs.initplugin.gpgs3.init">[gpgs.init()][plugin.gpgs3.init]</a></li>
+<li><a href="#gpgs.initplugin.gpgs3.init-1"><a href="../../plugin/gpgs3/init.html">gpgs.init()</a></a></li>
 <li><a href="#gpgs.enabledebugplugin.gpgs3.enabledebug"><a href="../../plugin/gpgs3/enableDebug.html">gpgs.enableDebug()</a></a></li>
-<li><a href="#gpgs.isconnectedlistenerplugin.gpgs3.isconnected"><a href="../../plugin/gpgs3/isConnected.html">gpgs.isConnected(listener)</a></a></li>
-<li><a href="#gpgs.isauthenticatedplugin.gpgs3.isauthenticated"><a href="../../plugin/gpgs3/isAuthenticated.html">gpgs.isAuthenticated()</a></a></li>
+<li><a href="#gpgs.isconnectedlistenerplugin.gpgs3.isconnected-1"><a href="../../plugin/gpgs3/isConnected.html">gpgs.isConnected(listener)</a></a></li>
+<li><a href="#gpgs.isauthenticatedplugin.gpgs3.isauthenticated-1"><a href="../../plugin/gpgs3/isAuthenticated.html">gpgs.isAuthenticated()</a></a></li>
 <li><a href="#gpgs.loginparamsplugin.gpgs3.login"><a href="../../plugin/gpgs3/login.html">gpgs.login(params)</a></a></li>
 <li><a href="#gpgs.logoutplugin.gpgs3.logout"><a href="../../plugin/gpgs3/logout.html">gpgs.logout()</a></a></li>
 <li><a href="#gpgs.getaccountnamelistenerplugin.gpgs3.getaccountname"><a href="../../plugin/gpgs3/getAccountName.html">gpgs.getAccountName(listener)</a></a></li>
@@ -146,14 +158,43 @@
 <h2>Changes from GPGS V2 to V3</h2>
 <div id="changed-apis" class="section level3">
 <h3>Changed Apis</h3>
-<p>[gpgs.init()][plugin.gpgs3.init] Init is now required and will try sign in the player automatically</p>
-<p><a href="../../plugin/gpgs3/isConnected.html">gpgs.isConnected(listener)</a> isConnected is now async and has a callback. use isConnected to check if a player is automatically connected via [init][plugin.gpgs3.init] or manually <a href="../../plugin/gpgs3/login.html">login</a> functions</p>
-<p><a href="../../plugin/gpgs3/isAuthenticated.html">gpgs.isAuthenticated()</a> isAuthenticated is actually the same but should be noted that isAuthenticated only applies when a logins in via <a href="../../plugin/gpgs3/login.html">gpgs.login()</a>. This is important for <a href="../../plugin/gpgs3/snapshots/index.html">snapshots</a> which need to use <a href="../../plugin/gpgs3/login.html">gpgs.login()</a> for requesting <strong>Drive API</strong> access.</p>
+<div id="gpgs.initplugin.gpgs3.init" class="section level4">
+<h4><a href="../../plugin/gpgs3/init.html">gpgs.init()</a></h4>
+<p>Initialize is now required and will attempt to sign in the player automatically</p>
+</div>
+<div id="gpgs.isconnectedlistenerplugin.gpgs3.isconnected" class="section level4">
+<h4><a href="../../plugin/gpgs3/isConnected.html">gpgs.isConnected(listener)</a></h4>
+<p>isConnected is now async and has a callback. use isConnected to check if a player is automatically connected via <a href="../../plugin/gpgs3/init.html">init</a> or manually <a href="../../plugin/gpgs3/login.html">login</a> functions</p>
+</div>
+<div id="gpgs.isauthenticatedplugin.gpgs3.isauthenticated" class="section level4">
+<h4><a href="../../plugin/gpgs3/isAuthenticated.html">gpgs.isAuthenticated()</a></h4>
+<p>isAuthenticated is actually the same but should be noted that isAuthenticated only applies for logins in via <a href="../../plugin/gpgs3/login.html">gpgs.login()</a>. This is important for <a href="../../plugin/gpgs3/snapshots/index.html">Snapshots</a> which is needed to use <a href="../../plugin/gpgs3/login.html">gpgs.login()</a> for requesting <strong>Drive API</strong> access.</p>
+</div>
+<div id="gpgs.loginplugin.gpgs3.login" class="section level4">
+<h4><a href="../../plugin/gpgs3/login.html">gpgs.login()</a></h4>
+<p>There is a new <code>useDrive</code> param which is need for <a href="../../plugin/gpgs3/snapshots/index.html">Snapshots</a>. It is import to note that the Drive scope is not added by default and you must set the <code>useDrive</code> param to <code>true</code>.</p>
+</div>
 </div>
 <div id="no-longer-supported-functions" class="section level3">
 <h3>No longer supported functions</h3>
-<p>gpgs.setPopupPosition() gpgs.showSettings() gpgs.loadGame() gpgs.clearNotifications() gpgs.videos.*</p>
-<p>Revert back <a href="../../plugin/gpgs2/index.html">gpgs.v2</a> for this functionality</p>
+<div id="gpgs.setpopupposition" class="section level4">
+<h4>gpgs.setPopupPosition()</h4>
+</div>
+<div id="gpgs.showsettings" class="section level4">
+<h4>gpgs.showSettings()</h4>
+</div>
+<div id="gpgs.loadgame" class="section level4">
+<h4>gpgs.loadGame()</h4>
+</div>
+<div id="gpgs.clearnotifications" class="section level4">
+<h4>gpgs.clearNotifications()</h4>
+</div>
+<div id="gpgs.videos." class="section level4">
+<h4>gpgs.videos.*</h4>
+</div>
+</div>
+<div id="revert-back-to-gpgs.v2plugin.gpgs2-to-use-these-functions" class="section level3">
+<h3>Revert back to <a href="../../plugin/gpgs2/index.html">gpgs.v2</a> to use these functions</h3>
 </div>
 </div>
 <div id="syntax" class="section level2">
@@ -199,16 +240,16 @@
 </div>
 <div id="functions" class="section level2">
 <h2>Functions</h2>
-<div id="gpgs.initplugin.gpgs3.init" class="section level4">
-<h4>[gpgs.init()][plugin.gpgs3.init]</h4>
+<div id="gpgs.initplugin.gpgs3.init-1" class="section level4">
+<h4><a href="../../plugin/gpgs3/init.html">gpgs.init()</a></h4>
 </div>
 <div id="gpgs.enabledebugplugin.gpgs3.enabledebug" class="section level4">
 <h4><a href="../../plugin/gpgs3/enableDebug.html">gpgs.enableDebug()</a></h4>
 </div>
-<div id="gpgs.isconnectedlistenerplugin.gpgs3.isconnected" class="section level4">
+<div id="gpgs.isconnectedlistenerplugin.gpgs3.isconnected-1" class="section level4">
 <h4><a href="../../plugin/gpgs3/isConnected.html">gpgs.isConnected(listener)</a></h4>
 </div>
-<div id="gpgs.isauthenticatedplugin.gpgs3.isauthenticated" class="section level4">
+<div id="gpgs.isauthenticatedplugin.gpgs3.isauthenticated-1" class="section level4">
 <h4><a href="../../plugin/gpgs3/isAuthenticated.html">gpgs.isAuthenticated()</a></h4>
 </div>
 <div id="gpgs.loginparamsplugin.gpgs3.login" class="section level4">

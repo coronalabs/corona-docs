@@ -35,15 +35,15 @@ Android raises key events for all keyboard keys, navigation buttons, volume butt
 
 ### iOS
 
-Only supports key events from an MFi game controller \([guide][guide.hardware.mfiControllers]\). Does not support key events from a keyboard.
+Supports key events from an MFi game controller \([guide][guide.hardware.mfiControllers]\) and keyboards key if build with Solar 3685+
 
 ### macOS
 
-The Corona Simulator for macOS and macOS desktop apps support all keyboard keys and gamepad/joystick buttons. Note that the Corona Simulator will provide key events when simulating an iOS device, however iOS itself does not support key events.
+The Corona Simulator for macOS and macOS desktop apps support all keyboard keys and gamepad/joystick buttons.
 
 ### Win32 Desktop
 
-The Corona Simulator for Windows and Win32 desktop apps support all keyboard keys. The Corona Simulator for Windows only provides key events when simulating an Android device, as iOS does not support key events.
+The Corona Simulator for Windows and Win32 desktop apps support all keyboard keys. The Corona Simulator for Windows only provides key events when simulating an Android device.
 
 
 ## Gotchas

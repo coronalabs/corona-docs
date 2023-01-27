@@ -15,4 +15,4 @@ Used for checking if user isConnected
 
 #### [event.name][plugin.gpgs3.event.isConnected.name]
 
-#### [event.isError][plugin.gpgs3.event.isConnected.isConnected]
+#### [event.isConnected][plugin.gpgs3.event.isConnected.isConnected]

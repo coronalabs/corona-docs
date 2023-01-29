@@ -4,6 +4,7 @@
 
 * [Tap/Touch Anatomy][tutorial.events.tapTouchAnatomy]
 * [Continuous Actions in Corona][tutorial.events.continuousActions]
+* [Setting up and using URL Schemes][tutorial.events.urlScheme]
 
 </div>
 
@@ -11,5 +12,6 @@
 
 ### [Tap/Touch Anatomy][tutorial.events.tapTouchAnatomy]
 ### [Continuous Actions in Corona][tutorial.events.continuousActions]
+### [Setting up and using URL Schemes][tutorial.events.urlScheme]
 
 </div>

@@ -42,6 +42,7 @@ Contained here are useful tutorials on selected topics.
 
 * [Tap/Touch Anatomy][tutorial.events.tapTouchAnatomy]
 * [Continuous Actions][tutorial.events.continuousActions]
+* [Setting up and using URL Schemes][tutorial.events.urlScheme]
 
 </div>
 

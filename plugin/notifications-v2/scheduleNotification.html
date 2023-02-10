@@ -159,7 +159,7 @@
 <p>The <code>options</code> table contains details about the notification to be scheduled.</p>
 <div id="alert-optional" class="section level5">
 <h5>alert <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> The notification message to be displayed to the user. If the application is not currently running, a system alert will display this message.</p>
+<p><em><a href="../../api/type/String.html">String</a>.</em> or <em><a href="../../api/type/Table.html">Table</a>.</em> If String notification message to be displayed to the user. If the application is not currently running, a system alert will display this message. For table, you can pass in a <code>title</code> and/or <code>body</code> for the notification.</p>
 </div>
 <div id="badge-optional" class="section level5">
 <h5>badge <sub><sup>(optional)</sup></sub></h5>
@@ -191,7 +191,7 @@ local options = {
 
 -- Schedule a notification to occur 60 seconds from now
 local notification1 = notifications.scheduleNotification( 60, options )
- 
+
 -- Schedule a notification using Coordinated Universal Time (UTC)
 local utcTime = os.date( "!*t", os.time() + 60 )
 local notification2 = notifications.scheduleNotification( utcTime, options )

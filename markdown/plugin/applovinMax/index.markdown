@@ -269,6 +269,7 @@ settings =
 		["plugin.applovinMax.Facebook"] = {publisherId = "com.solar2d"},
 		["plugin.applovinMax.Fyber"] = {publisherId = "com.solar2d"},
 		["plugin.applovinMax.GoogleAdMob"] = {publisherId = "com.solar2d"},
+		["plugin.applovinMax.GoogleAdManager"] = {publisherId = "com.solar2d"},
 		["plugin.applovinMax.HyprMX"] = {publisherId = "com.solar2d"},
 		["plugin.applovinMax.InMobi"] = {publisherId = "com.solar2d"},
 		["plugin.applovinMax.IronSource"] = {publisherId = "com.solar2d"},

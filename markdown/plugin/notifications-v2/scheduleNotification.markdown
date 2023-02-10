@@ -64,7 +64,7 @@ _[Table][api.type.Table]._ A table that specifies details about the notification
 The `options` table contains details about the notification to be scheduled.
 
 ##### alert ~^(optional)^~
-_[String][api.type.String]._ The notification message to be displayed to the user. If the application is not currently running, a system alert will display this message.
+_[String][api.type.String]._ or _[Table][api.type.Table]._  If String notification message to be displayed to the user. If the application is not currently running, a system alert will display this message. For table, you can pass in a `title` and/or `body` for the notification. 
 
 ##### badge ~^(optional)^~
 _[Number][api.type.Number]._ The badge number to be displayed on the application icon when the scheduled notification triggers. This replaces the last badge number that was applied. Set to `0` to omit the badge number. This option is not supported on Android.
@@ -94,7 +94,7 @@ local options = {
 
 -- Schedule a notification to occur 60 seconds from now
 local notification1 = notifications.scheduleNotification( 60, options )
- 
+
 -- Schedule a notification using Coordinated Universal Time (UTC)
 local utcTime = os.date( "!*t", os.time() + 60 )
 local notification2 = notifications.scheduleNotification( utcTime, options )

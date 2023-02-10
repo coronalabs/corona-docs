@@ -217,6 +217,11 @@ Density			 DPI
 
 `"androidDisplayYDpi"` returns the DPI (dots&nbsp;per&nbsp;inch) of the screen along the __y__ axis, relative to the orientation of the application. This can be used to convert pixels to inches and vice-versa. Returns `nil` on all other platforms.
 
+### hasSoftwareKeys
+
+`"hasSoftwareKeys"` returns boolean, `true` if Android device has a Software Keys(i.e for Home and Back Button) instead of Physical Keys. Returns `nil` on all other platforms. Note this is only supported on Solar2D v3686+
+
+
 
 ## iOS
 

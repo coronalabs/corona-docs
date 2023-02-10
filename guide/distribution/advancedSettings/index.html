@@ -68,7 +68,9 @@
 <li><a href="#large-heap">Large Heap</a></li>
 <li><a href="#android-directives">Android Directives</a></li>
 </ul></li>
-<li><a href="#plugins-supported-platforms">Plugins — Supported Platforms</a></li>
+<li><a href="#plugins-supported-platforms">Plugins — Supported Platforms</a><ul>
+<li><a href="#forcing-plugin-versions">Forcing Plugin versions</a></li>
+</ul></li>
 <li><a href="#build-control">Build Control</a></li>
 </ul></li>
 </ul>
@@ -289,7 +291,7 @@ Important
 {
     android =
     {
-        manifestChildElements = 
+        manifestChildElements =
         {
             -- Array of strings
             [[
@@ -445,7 +447,17 @@ Note
 </div>
 <p>Omitting the <code>supportedPlatforms</code> table effectively includes the plugin on all platforms that it inherently supports.</p>
 </div>
+<div id="forcing-plugin-versions" class="section level3">
+<h3>Forcing Plugin versions</h3>
+<p>You can set versions to be the same as GitHub tag name for the release for plugin found on <a href="https://plugins.solar2d.com">the Solar2D Free Plugins Directory</a>. For the plugin in example <a href="https://github.com/coronalabs/com.coronalabs-CoronaProvider.native.popup.activity/releases">here are available releases</a> Note this requires Solar2D 3676+</p>
+<pre class="brush: lua;">plugins = {
+     ["com.coronalabs-CoronaProvider.native.popup.activity"] = {
+                publisherId = "com.coronalabs",
+                version = "v3",
+     },
+},</pre>
 <p><a id="buildcontrol"></a></p>
+</div>
 </div>
 <div id="build-control" class="section level2">
 <h2>Build Control</h2>

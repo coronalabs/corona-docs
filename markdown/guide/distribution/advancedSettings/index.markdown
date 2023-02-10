@@ -257,7 +257,7 @@ settings =
 {
 	android =
 	{
-		manifestChildElements = 
+		manifestChildElements =
 		{
 			-- Array of strings
 			[[
@@ -390,6 +390,19 @@ Key						Platform(s)
 Omitting the `supportedPlatforms` table effectively includes the plugin on all platforms that it inherently supports.
 
 </div>
+
+### Forcing Plugin versions
+
+You can set versions to be the same as GitHub tag name for the release for plugin found on [the Solar2D Free Plugins Directory](https://plugins.solar2d.com). For the plugin in example [here are available releases](https://github.com/coronalabs/com.coronalabs-CoronaProvider.native.popup.activity/releases) Note this requires Solar2D 3676+
+
+``````lua
+plugins = {
+	 ["com.coronalabs-CoronaProvider.native.popup.activity"] = {
+				publisherId = "com.coronalabs",
+				version = "v3",
+	 },
+},
+``````
 
 
 

@@ -13,12 +13,14 @@
 
 This plugin enables access to Google Play Games Services API, such as achievements, leaderboards and snapshots(Saved Games).
 
+Make sure you check out [Google's Setup Guide](https://developers.google.com/games/services/console/enabling) to get before getting started with the plugin
 
 <div class="docs-tip-outer docs-tip-color-alert">
 <div class="docs-tip-inner-left">
 <div class="fa fa-exclamation-circle" style="font-size: 35px;"></div>
 </div>
 <div class="docs-tip-inner-right">
+
 
 If you encounter <nobr>Google Play Games Services</nobr> login issues/errors after implementing this plugin, ensure that you have enabled <nobr>__Google Play Developer API__</nobr> within the [Google Play Developer Console](https://console.developers.google.com/).
 
@@ -27,8 +29,6 @@ Also in order to use [snapshots][plugin.gpgs3.snapshots] you must add __Drive&nb
 
 </div>
 </div>
-
-
 
 
 ## Changes from GPGS V2 to V3
@@ -71,15 +71,29 @@ There is a new `useDrive` param which is need for [Snapshots][plugin.gpgs3.snaps
 ## Project Settings
 
 To use this plugin, add an entry into the `plugins` table of `build.settings`. When added, the build server will integrate the plugin during the build phase.
+``````{ brush="lua" gutter="false" first-line="1" highlight="[5,6,7,8]" }
+settings = {
 
-	settings = {
-		plugins = {
-			["plugin.gpgs.v3"] = {
-				publisherId = "com.solar2d",
-			}
-		}
-	}
+	plugins =
+	{
+		["plugin.gpgs.v3"] =
+		{
+			publisherId = "com.solar2d",
+		},
+	},
+}
+``````
+Additionally, you must specify the <nobr>Google Play Games App ID</nobr> in the `android` table of `build.settings` as the `googlePlayGamesAppId` key:
 
+``````{ brush="lua" gutter="false" first-line="1" highlight="[5]" }
+settings = {
+
+	android =
+	{
+		googlePlayGamesAppId = "YOUR_APPLICATION_ID",
+	},
+}
+``````
 ## Nodes
 
 The plugin is divided into API nodes for better organization.

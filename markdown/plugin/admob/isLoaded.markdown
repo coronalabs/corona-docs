@@ -26,6 +26,7 @@ _[String][api.type.String]._ One of the following values:
 * `"banner"`
 * `"rewardedVideo"`
 * `"rewardedInterstitial"`
+* `"appOpen"`
 
 
 ## Example

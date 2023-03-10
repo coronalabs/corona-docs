@@ -34,6 +34,7 @@ _[String][api.type.String]._ One of the following values:
 * `"banner"`
 * `"rewardedVideo"`
 * `"rewardedInterstitial"`
+* `"appOpen"`
 
 ##### params ~^(optional)^~
 _[Table][api.type.Table]._ Table containing additional parameters for the specified ad type — see the next section for details.

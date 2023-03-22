@@ -33,7 +33,7 @@ _[String][api.type.String]._ The name of the property corresponding to the desir
 
 * Android &mdash; Returns the app's __Version Name__.
 * iOS &mdash; Returns the app's __CFBundleVersionString__.
-* Solar2D Simulator &mdash; (not supported)
+* CORONA_CORE_PRODUCT Simulator &mdash; (not supported)
 * Windows desktop app &mdash; Returns the version entered into the build window.
 
 ### architectureInfo
@@ -47,7 +47,7 @@ _[String][api.type.String]._ The name of the property corresponding to the desir
 
 ### build
 
-`"build"` returns the Solar2D build string as it appears in the __About__ box of the Solar2D Simulator.
+`"build"` returns the build string as it appears in the __About__ box of the CORONA_CORE_PRODUCT Simulator.
 
 ### bundleID
 
@@ -70,7 +70,7 @@ _[String][api.type.String]._ The name of the property corresponding to the desir
 
 `"environment"` returns the environment that the app is running in. These include:
 
-* `simulator` for the Solar2D Simulator.
+* `simulator` for the CORONA_CORE_PRODUCT Simulator.
 * `device` for iOS, the Xcode iOS Simulator, Android devices, the Android emulator, macOS desktop apps, and Windows desktop apps.
 * `browser` for HTML5 apps.
 
@@ -123,7 +123,7 @@ _[String][api.type.String]._ The name of the property corresponding to the desir
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>
 
-In the Solar2D Simulator, the value returned depends on the skin selected, allowing you to test <nobr>platform-dependent</nobr> logic by changing skins.
+In the CORONA_CORE_PRODUCT Simulator, the value returned depends on the skin selected, allowing you to test <nobr>platform-dependent</nobr> logic by changing skins.
 
 </div>
 
@@ -143,7 +143,7 @@ This option is deprecated; use `"platform"` instead (see above).
 * `amazon` &mdash; targets the Amazon app store (only returned on Android).
 * `google` &mdash; targets Google Play (only returned on Android).
 * `windows` &mdash; targets the Windows app store.
-* `none` &mdash; indicates that the app is not targeting a specific app store. This is always returned by the Solar2D&nbsp;Simulator.
+* `none` &mdash; indicates that the app is not targeting a specific app store. This is always returned by the CORONA_CORE_PRODUCT Simulator.
 
 
 ## Android
@@ -219,7 +219,7 @@ Density			 DPI
 
 ### hasSoftwareKeys
 
-`"hasSoftwareKeys"` returns boolean, `true` if Android device has a Software Keys(i.e for Home and Back Button) instead of Physical Keys. Returns `nil` on all other platforms. Note this is only supported on Solar2D v3686+
+`"hasSoftwareKeys"` returns boolean, `true` if Android device has a Software Keys(i.e for Home and Back Button) instead of Physical Keys. Returns `nil` on all other platforms. Requires `CORONA_CORE_PRODUCT 2023.3686` or a newer build.
 
 
 

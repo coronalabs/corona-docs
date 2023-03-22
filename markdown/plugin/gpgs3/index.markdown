@@ -5,7 +5,7 @@
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          google, google play games services, achievements, leaderboards
 > __Platforms__         Android
-> __Sample__            [https://github.com/coronalabs/gpgs.sample](https://github.com/coronalabs/gpgs.sample)
+> __Sample__            [GitHub](https://github.com/solar2d/com.solar2d-plugin.gpgs.v3/tree/master/src/Corona)
 > --------------------- ------------------------------------------------------------------------------------------
 
 
@@ -13,7 +13,7 @@
 
 This plugin enables access to Google Play Games Services API, such as achievements, leaderboards and snapshots(Saved Games).
 
-Make sure you check out [Google's Setup Guide](https://developers.google.com/games/services/console/enabling) to get before getting started with the plugin
+Make sure you check out [Google's Setup Guide](https://developers.google.com/games/services/console/enabling) to get before getting started with the plugin.
 
 <div class="docs-tip-outer docs-tip-color-alert">
 <div class="docs-tip-inner-left">
@@ -25,9 +25,16 @@ Make sure you check out [Google's Setup Guide](https://developers.google.com/gam
 If you encounter <nobr>Google Play Games Services</nobr> login issues/errors after implementing this plugin, ensure that you have enabled <nobr>__Google Play Developer API__</nobr> within the [Google Play Developer Console](https://console.developers.google.com/).
 
 
-Also in order to use [snapshots][plugin.gpgs3.snapshots] you must add __Drive&nbsp;API__ within the [Google Play Developer Console](https://console.developers.google.com/).
+Also, in order to use [snapshots][plugin.gpgs3.snapshots] you must add __Drive&nbsp;API__ within the [Google Play Developer Console](https://console.developers.google.com/).
 
 </div>
+</div>
+
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">Important</div>
+
+If you deploy the application locally using `Copy to device`, <nobr>Google Play Games Services</nobr> will not work. You must use Google Play's testing tracks(internal, closed or open testing) to deploy your application.
+
 </div>
 
 

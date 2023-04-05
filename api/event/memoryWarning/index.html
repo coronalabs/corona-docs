@@ -96,7 +96,7 @@
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>This event is currently only available on iOS. It is exposed as a Corona event type named <code>&quot;memoryWarning&quot;</code>, sent to the global <a href="../../../api/type/Runtime/index.html">Runtime</a> object. This event has no fields.</p>
+<p>This event is currently only available on iOS and Android. It is exposed as a Corona event type named <code>&quot;memoryWarning&quot;</code>, sent to the global <a href="../../../api/type/Runtime/index.html">Runtime</a> object. This event has no fields.</p>
 <p>When this event fires, the OS reserves the right to forcibly shut down the application in about five seconds, although it may not actually do so. Apple advises developers to listen for this warning and to handle it by freeing as much memory as possible when received.</p>
 <p>Note that you can monitor texture memory usage by calling <code>system.getInfo( &quot;textureMemoryUsed&quot; )</code>. Texture memory for graphics/images tends to be the most limited resource in mobile development because it typically runs out before normal memory.</p>
 </div>

@@ -10,7 +10,7 @@
 
 ## Overview
 
-This event is currently only available on iOS. It is exposed as a Corona event type named `"memoryWarning"`, sent to the global [Runtime][api.type.Runtime] object. This event has no fields.
+This event is currently only available on iOS and Android. It is exposed as a Corona event type named `"memoryWarning"`, sent to the global [Runtime][api.type.Runtime] object. This event has no fields.
 
 When this event fires, the OS reserves the right to forcibly shut down the application in about five seconds, although it may not actually do so. Apple advises developers to listen for this warning and to handle it by freeing as much memory as possible when received.
 

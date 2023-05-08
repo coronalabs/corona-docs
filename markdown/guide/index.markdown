@@ -20,7 +20,7 @@ These are current guides on selected topics. For the most current <nobr>API-spec
 </div>
 
 
-## Corona Basics
+## Basics
 
 <div class="guides-toc">
 

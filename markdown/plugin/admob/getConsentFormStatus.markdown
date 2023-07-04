@@ -14,9 +14,9 @@
 
 Returns two [Strings][api.type.String] `formStatus` and `consentStatus`
 
-`formStatus` can be `"obtained"`, `"required"`, `"notRequired"`, or `"unknown"`
+`formStatus` can be `"available"`, `"unavailable"`, or `"unknown"`
 
-`consentStatus` can be `"available"`, `"unavailable"`, or `"unknown"`
+`consentStatus` can be `"obtained"`, `"required"`, `"notRequired"`, or `"unknown"`
 
 
 ## Syntax

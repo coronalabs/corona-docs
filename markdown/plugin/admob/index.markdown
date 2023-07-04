@@ -17,6 +17,8 @@ The AdMob plugin allows developers to monetize users through AdMob static inters
 
 Check out new `hasUserConsent`  [admob.load()][plugin.admob.load] parameter to enable GDPR data collection restrictions.
 
+The new UMP/CMP apis `updateConsentForm`, `loadConsentForm`, `showConsentForm`, and `getConsentFormStatus` are only available on Solar2D Sim 2023.3686+
+
 </div>
 
 
@@ -45,6 +47,14 @@ Before you can use this plugin, you must [register](https://www.google.com/admob
 #### [admob.height()][plugin.admob.height]
 
 #### [admob.setVideoAdVolume()][plugin.admob.setVideoAdVolume]
+
+#### [admob.updateConsentForm()][plugin.admob.updateConsentForm]
+
+#### [admob.loadConsentForm()][plugin.admob.loadConsentForm]
+
+#### [admob.showConsentForm()][plugin.admob.showConsentForm]
+
+#### [admob.getConsentFormStatus()][plugin.admob.getConsentFormStatus]
 
 
 ## Events

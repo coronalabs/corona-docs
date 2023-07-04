@@ -86,6 +86,25 @@ settings =
 }
 ``````
 
+### Alternate Icon
+
+If you want to include alternate icons with your xassets project, use `alternateIcons` and include array of the icon names. Only available in Solar2D Sim 2023.3692+
+
+``````{ brush="lua" gutter="false" first-line="1" highlight="[9]" }
+settings =
+{
+	iphone =
+	{
+		plist =
+		{
+
+		},
+		xcassets = "Images.xcassets",
+		alternateIcons = {"Icon1", "Icon2"},
+	},
+}
+``````
+
 
 
 

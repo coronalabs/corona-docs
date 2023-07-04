@@ -20,6 +20,7 @@ This function updates Consent Manager with information that helps determine if a
 	admob.updateConsentForm( [options] )
 
 ##### options ~^(optional)^~
+
 _[Table][api.type.Table]._ Table containing additional parameters for the specified ad type — see the next section for details.
 
 ## Parameter Reference
@@ -30,7 +31,8 @@ The `options` table includes parameters
  [boolean][api.type.Boolean], set tag for under the age of consent. True means users are underage.
 
 ##### debug ~^(optional)^~
-	_[Table][api.type.Table]._, accepts `geography` and `testDeviceIdentifiers` fields. The `geography` valid types are `"EEA"`, `"notEEA"`, `"disabled"`. The `testDeviceIdentifiers` takes an [Array][api.type.Array] of [Strings][api.type.Strings] of the Test Devices Hash Id.
+
+[Table][api.type.Table], accepts `geography` and `testDeviceIdentifiers` fields. The `geography` valid types are `"EEA"`, `"notEEA"`, `"disabled"`. The `testDeviceIdentifiers` takes an [Array][api.type.Array] of [Strings][api.type.Strings] of the Test Devices Hash Id.
 
 
 
@@ -40,7 +42,7 @@ The `options` table includes parameters
 local admob = require( "plugin.admob" )
 
 local function adListener( event )
-		
+
 end
 -- Initialize the AdMob plugin
 admob.init( adListener, { appId="YOUR_ADMOB_APP_ID" } )

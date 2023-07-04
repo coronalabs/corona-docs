@@ -32,7 +32,7 @@ The `options` table includes parameters
 
 ##### debug ~^(optional)^~
 
-[Table][api.type.Table], accepts `geography` and `testDeviceIdentifiers` fields. The `geography` valid types are `"EEA"`, `"notEEA"`, `"disabled"`. The `testDeviceIdentifiers` takes an [Array][api.type.Array] of [Strings][api.type.Strings] of the Test Devices Hash Id.
+[Table][api.type.Table], accepts `geography` and `testDeviceIdentifiers` fields. The `geography` valid types are `"EEA"`, `"notEEA"`, `"disabled"`. The `testDeviceIdentifiers` takes an [Array][api.type.Array] of [Strings][api.type.String] of the Test Devices Hash Id.
 
 
 

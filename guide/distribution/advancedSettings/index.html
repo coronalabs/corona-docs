@@ -59,6 +59,7 @@
 <li><a href="#advanced-settings-ios">Advanced Settings — iOS</a><ul>
 <li><a href="#device-capabilities">Device Capabilities</a></li>
 <li><a href="#png-processing">PNG Processing</a></li>
+<li><a href="#alternate-icon">Alternate Icon</a></li>
 </ul></li>
 <li><a href="#advanced-settings-android">Advanced Settings — Android</a><ul>
 <li><a href="#minimum-sdk-version">Minimum SDK Version</a></li>
@@ -149,6 +150,22 @@ Notes
 
         },
         skipPNGCrush = true,
+    },
+}</pre>
+</div>
+<div id="alternate-icon" class="section level3">
+<h3>Alternate Icon</h3>
+<p>If you want to include alternate icons with your xassets project, use <code>alternateIcons</code> and include array of the icon names. Only available in Solar2D Sim 2023.3692+</p>
+<pre class="brush: lua; gutter: false; highlight: [9]; first-line: 1;">settings =
+{
+    iphone =
+    {
+        plist =
+        {
+
+        },
+        xcassets = "Images.xcassets",
+        alternateIcons = {"Icon1", "Icon2"},
     },
 }</pre>
 <p><a id="android"></a></p>

@@ -30,15 +30,17 @@ local admob = require( "plugin.admob" )
 -- Initialize the AdMob plugin
 
 local function adListener( event )
+		if ( event.phase == "init" ) then  -- Successful initialization
+			local formStatus, consentStatus = admob.getConsentFormStatus()
+
+			if(formStatus == "available")then -- recommend (not required)
+				admob.loadConsentForm()
+			end
+		end
 		if(event.phase == "loaded" and event.type == "ump")then
 			admob.showConsentForm()
 		end
 end
 
 admob.init( adListener, { appId="YOUR_ADMOB_APP_ID" } )
-local formStatus, consentStatus = admob.getConsentFormStatus()
-
-if(formStatus == "available")then -- recommend (not required)
-	admob.loadConsentForm()
-end
 ``````

@@ -40,6 +40,8 @@ _(Inherits properties from [NativeDisplayObject][api.type.NativeDisplayObject])_
 
 #### [object.spellCheckingType][api.type.TextField.spellCheckingType]
 
+#### [object.clearButtonMode][api.type.TextField.clearButtonMode]
+
 
 ## Methods
 
@@ -54,6 +56,3 @@ _(Inherits methods from [NativeDisplayObject][api.type.NativeDisplayObject])_
 #### [object:setSelection()][api.type.TextField.setSelection]
 
 #### [object:setReturnKey()][api.type.TextField.setReturnKey]
-
-
-

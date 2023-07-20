@@ -23,7 +23,7 @@ This property will be `true` if the store supports the loading of products. Foll
 ## Example
 
 ``````lua
-local store = require( "store" )
+local store = require( "plugin.apple.iap" )
 
 -- Transaction listener function
 local function transactionListener( event )

@@ -31,7 +31,7 @@ _[Listener][api.type.Listener]._ The listener that will receive the [appStorePur
 ## Example
 
 ``````lua
-local store = require( "store" )
+local store = require( "plugin.apple.iap" )
 
 local function transactionListener( event )
 	-- ...

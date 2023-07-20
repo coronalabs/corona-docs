@@ -27,7 +27,7 @@ _[Table][api.type.Table]._ Payment object. This value must be obtained from the 
 ## Example
 
 ``````lua
-local store = require( "store" )
+local store = require( "plugin.apple.iap" )
 
 local function transactionListener( event )
 	-- ...

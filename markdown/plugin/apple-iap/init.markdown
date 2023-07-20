@@ -31,7 +31,7 @@ For compatibility with Google IAP plugin, `store.init()` will call listener with
 ## Example
 
 ``````lua
-local store = require( "store" )
+local store = require( "plugin.apple.iap" )
 local json = require( "json" )
 
 -- Transaction listener function

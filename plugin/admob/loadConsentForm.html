@@ -113,13 +113,16 @@
 -- Initialize the AdMob plugin
 local function adListener( event )
 
-end
-admob.init( adListener, { appId="YOUR_ADMOB_APP_ID" } )
-local formStatus, consentStatus = admob.getConsentFormStatus()
+    if ( event.phase == "init" ) then  -- Successful initialization
+        local formStatus, consentStatus = admob.getConsentFormStatus()
 
-if(formStatus == "available")then -- recommend (not required)
-    admob.loadConsentForm()
-end</pre>
+        if(formStatus == "available")then -- recommend (not required)
+            admob.loadConsentForm()
+        end
+    end
+
+end
+admob.init( adListener, { appId="YOUR_ADMOB_APP_ID" } )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

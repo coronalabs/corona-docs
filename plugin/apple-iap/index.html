@@ -84,6 +84,7 @@
 <li><a href="#productlistplugin.apple-iap.event.productlist"><a href="../../plugin/apple-iap/event/productList/index.html">productList</a></a></li>
 <li><a href="#appstorepurchaseplugin.apple-iap.event.appstorepurchase"><a href="../../plugin/apple-iap/event/appStorePurchase/index.html">appStorePurchase</a></a></li>
 </ul></li>
+<li><a href="#project-settings">Project Settings</a></li>
 </ul></li>
 </ul>
 </div>
@@ -109,7 +110,7 @@
 </tr>
 <tr class="even">
 <td align="left"><strong>Platforms</strong></td>
-<td align="left">iOS</td>
+<td align="left">iOS, macOS, tvOS</td>
 </tr>
 </tbody>
 </table>
@@ -199,6 +200,21 @@ Notes
 </div>
 <div id="appstorepurchaseplugin.apple-iap.event.appstorepurchase" class="section level4">
 <h4><a href="../../plugin/apple-iap/event/appStorePurchase/index.html">appStorePurchase</a></h4>
+</div>
+</div>
+<div id="project-settings" class="section level2">
+<h2>Project Settings</h2>
+<p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
+<pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
+{
+    plugins =
+    {
+        ["plugin.apple.iap"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+    },
+}</pre>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -208,7 +224,6 @@ Notes
 Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
-</div>
 </div>
 </div>
 </div>

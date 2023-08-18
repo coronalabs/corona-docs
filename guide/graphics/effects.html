@@ -60,6 +60,9 @@
 <li><a href="#filter.bloom">filter.bloom</a></li>
 <li><a href="#filter.blur">filter.blur</a></li>
 <li><a href="#filter.blurgaussian">filter.blurGaussian</a></li>
+<li><a href="#filter.blurgaussianlinear">filter.blurGaussianLinear</a></li>
+<li><a href="#filter.blurgaussianlinearhorizontal">filter.blurGaussianLinearHorizontal</a></li>
+<li><a href="#filter.blurgaussianlinearvertical">filter.blurGaussianLinearVertical</a></li>
 <li><a href="#filter.blurhorizontal">filter.blurHorizontal</a></li>
 <li><a href="#filter.blurvertical">filter.blurVertical</a></li>
 <li><a href="#filter.brightness">filter.brightness</a></li>
@@ -299,8 +302,35 @@ object.fill.effect.horizontal.blurSize = 20
 object.fill.effect.horizontal.sigma = 140
 object.fill.effect.vertical.blurSize = 20
 object.fill.effect.vertical.sigma = 140</pre>
-<!--- FILTER.BLUR-HORIZONTAL -->
-<a id="blurHorizontal"></a>
+<!--- FILTER.BLUR-GAUSSIAN-LINEAR -->
+<a id="blurGaussianLinear"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-statue.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-blurlinear.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.blurgaussianlinear" class="section level3">
+<h3>filter.blurGaussianLinear</h3>
+<p>A lightweight approach to Gaussian blur, as described in <a href="https://www.rastergrid.com/blog/2010/09/efficient-gaussian-blur-with-linear-sampling/">this RasterGrid article</a>.</p>
+<ul>
+<li><code>horizontal.offset1</code> — default = <code>1.3846153846</code> ; min = <code>0</code> ; max = <code>100</code></li>
+<li><code>horizontal.offset2</code> — default = <code>3.2307692308</code> ; min = <code>0</code> ; max = <code>100</code></li>
+<li><code>vertical.offset1</code> — default = <code>1.3846153846</code> ; min = <code>0</code> ; max = <code>100</code></li>
+<li><code>vertical.offset2</code> — default = <code>3.2307692308</code> ; min = <code>0</code> ; max = <code>100</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.blurGaussianLinear"</pre>
+<!--- FILTER.BLUR-GAUSSIAN-LINEAR-HORIZONTAL -->
+<a id="blurGaussianLinearHorizontal"></a>
 <div class="newline">
 
 </div>
@@ -310,11 +340,59 @@ object.fill.effect.vertical.sigma = 140</pre>
 <tr class="odd">
 <td align="left"><img src="../../images/simulator/fx-base-cloth.png" /></td>
 <td> → </td>
-<td align="left"><img src="../../images/simulator/fx-blurhorizontal.png" /></td>
+<td align="left"><img src="../../images/simulator/fx-blurlinearhorizontal.png" /></td>
 </tr>
 </tbody>
 </table>
 </div>
+</div>
+<div id="filter.blurgaussianlinearhorizontal" class="section level3">
+<h3>filter.blurGaussianLinearHorizontal</h3>
+<ul>
+<li><code>offset1</code> — default = <code>1.3846153846</code> ; min = <code>0</code> ; max = <code>100</code></li>
+<li><code>offset2</code> — default = <code>3.2307692308</code> ; min = <code>0</code> ; max = <code>100</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.blurGaussianLinearHorizontal"</pre>
+<!--- FILTER.BLUR-GAUSSIAN-LINEAR-VERTICAL -->
+<a id="blurGaussianLinearVertical"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-cloth.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-blurlinearvertical.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="filter.blurgaussianlinearvertical" class="section level3">
+<h3>filter.blurGaussianLinearVertical</h3>
+<ul>
+<li><code>offset1</code> — default = <code>1.3846153846</code> ; min = <code>0</code> ; max = <code>100</code></li>
+<li><code>offset2</code> — default = <code>3.2307692308</code> ; min = <code>0</code> ; max = <code>100</code></li>
+</ul>
+<pre class="brush: lua;">object.fill.effect = "filter.blurGaussianLinearVertical"</pre>
+<!--- FILTER.BLUR-HORIZONTAL -->
+<a id="blurHorizontal"></a>
+<div class="newline">
+
+</div>
+<div class="side-by-side">
+
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="../../images/simulator/fx-base-cloth.png" /></td>
+<td> → </td>
+<td align="left"><img src="../../images/simulator/fx-blurhorizontal.png" /></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="filter.blurhorizontal" class="section level3">
 <h3>filter.blurHorizontal</h3>
@@ -2111,7 +2189,7 @@ object.fill.effect.ambientLightIntensity = 1</pre>
 <h3>composite.normalMapWith1PointLight</h3>
 <p>This composite effect renders a point light upon a surface. In this effect, <code>pointLightPos</code> is a table containing the light position in texture space. This <code>{x,y,z}</code> origin is the upper left corner <code>{0,0,0}</code>. Positive <strong>x</strong> moves to the right, positive <strong>y</strong> moves towards the bottom, and positive <strong>z</strong> moves &quot;out of the screen&quot; towards the viewer, representing the distance from the surface. There's no maximum value for <strong>z</strong>, but typically this value will be between <code>0</code> and <code>1</code>.</p>
 <p>The <code>pointLightColor</code> parameter is a table containing RGB+A values, and <code>ambientLightIntensity</code> specifies the intensity from <code>0</code> (dark) to <code>1</code> (full brightness).</p>
-<p>The <code>attenuationFactors</code> parameter is a table containing the diffuse light's distance attenuation factors. In this case, <code>{x,y,z}</code> are the constant, linear, and quadratic attenuation factors. Note that distance attenuation does <strong>not</strong> affect ambient light intensity. For a better understanding of attenuation factors, read about <a href="https://developer.valvesoftware.com/wiki/Constant-Linear-Quadratic_Falloff">Falloff</a> and <a href="https://learnopengl.com/PBR/Lighting">Attenuation of Light</a>.</p>
+<p>The <code>attenuationFactors</code> parameter is a table containing the diffuse light's distance attenuation factors. In this case, <code>{x,y,z}</code> are the constant, linear, and quadratic attenuation factors. Note that distance attenuation does <strong>not</strong> affect ambient light intensity. For a better understanding of attenuation factors, read about <a href="https://developer.valvesoftware.com/wiki/Constant-Linear-Quadratic_Falloff">Falloff</a> and <a href="http://www.felixgers.de/teaching/jogl/lightAttenuation.html">Attenuation of Light</a>.</p>
 <ul>
 <li><code>pointLightPos</code> — default = <code>{1,0,0}</code> ; min = <code>{0,0,0}</code> ; max = <code>{1,1,1}</code></li>
 <li><code>pointLightColor</code> — default = <code>{1,1,1,1}</code> ; min = <code>{0,0,0,0}</code> ; max = <code>{1,1,1,1}</code></li>

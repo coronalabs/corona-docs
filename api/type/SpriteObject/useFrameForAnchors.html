@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — API Reference | type | GroupObject | anchorChildren</title>
+  <title>Solar2D Documentation — API Reference | type | SpriteObject | useFrameForAnchors</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
@@ -55,74 +55,63 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#object.anchorchildren">object.anchorChildren</a><ul>
+<li><a href="#objectuseframeforanchors">object:useFrameForAnchors()</a><ul>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#example">Example</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#frameindex-optional">frameIndex <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/GroupObject/index.html">GroupObject</a>  ▸  <a href="../../../api/type/GroupObject/anchorChildren.html">anchorChildren</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/SpriteObject/index.html">SpriteObject</a>  ▸  <a href="../../../api/type/SpriteObject/useFrameForAnchors.html">useFrameForAnchors</a>
 </div>
-<div id="object.anchorchildren" class="section level1">
-<h1>object.anchorChildren</h1>
+<div id="objectuseframeforanchors" class="section level1">
+<h1>object:useFrameForAnchors()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Number.html">Number</a></td>
+<td><strong>Type</strong> [Function][ap</td>
+<td align="left">i.type.Function]</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Object</strong></td>
-<td align="left"><a href="../../../api/type/GroupObject/index.html">GroupObject</a></td>
+<td><strong>Object</strong> [SpriteObje</td>
+<td align="left">ct]<a href="../../../api/type/SpriteObject/index.html">api.type.SpriteObject</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+<td><strong>Library</strong> [display.*</td>
+<td align="left">]<a href="../../../api/library/display/index.html">api.library.display</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2023.3686</a></td>
+<td><strong>Return value</strong> none</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">anchorChildren, anchor</td>
+<td><strong>Revision</strong> [Release</td>
+<td align="left">2023.3686](https://solar2d.com/download/)</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../guide/graphics/group.html">Group Programming</a> <em>(guide)</em></td>
+<td><strong>Keywords</strong> sprite, u</td>
+<td align="left">seFrameForAnchors, anchor</td>
+</tr>
+<tr class="odd">
+<td><strong>See also</strong> [display.</td>
+<td align="left">newSprite()]<a href="../../../api/library/display/newSprite.html">api.library.display.newSprite</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>By default, display groups do not respect anchor points. However, you can achieve anchor behavior on a display group by setting this property to <code>true</code>.</p>
-<div class="guide-notebox-imp">
-<div class="notebox-title-imp">
-Note
+<p>Sets a frame in the currently loaded sequence as the reference for anchor points. Anchor point calculations will be performed as if this was the current frame, even when another is actually being displayed. Without this, sequences with variable-sized frames (possibly with trimming) can jump around during scaling and rotation, due to the anchor point resolving to a different position.</p>
 </div>
-<p>Setting this property does not force an immediate update of the group, although other display properties will do so. This was assumed to be an oversight and fixed along with some sprite trimming issues. To opt-in to these fixes, set the <a href="../../../api/library/display/setDefault.html">default</a> of <code>&quot;isImageSheetFrameTrimCorrected&quot;</code> to <code>true</code>.</p>
-</div>
-</div>
-<div id="example" class="section level2">
-<h2>Example</h2>
-<pre class="brush: lua;">local myGroup = display.newGroup()
-
-local myBox = display.newRect( 100, 100, 80, 80 )
-myBox:setFillColor( 1, 0, 0, 0.8 )
-myGroup:insert( myBox )
-
-myGroup.x = 50
-myGroup.y = 50
-
---Add a smaller blue box
-local blueBox = display.newRect( 50, 50, 50, 50 )
-blueBox:setFillColor( 0, 0, 1, 0.8 )
-myGroup:insert( blueBox )
-
-myGroup.anchorChildren = true</pre>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<p>object:useFrameForAnchors( [frameIndex] )</p>
+<div id="frameindex-optional" class="section level5">
+<h5>frameIndex <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame index in the currently loaded sequence you want to use as reference. The default is the current frame, or 1 is none has been set. In a sprite sequence, <code>1</code> indicates the first frame <nobr>(not <code>0</code>)</nobr>.</p>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -132,6 +121,7 @@ myGroup.anchorChildren = true</pre>
 Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
+</div>
 </div>
 </div>
 </div>

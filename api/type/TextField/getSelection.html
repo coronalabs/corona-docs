@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — API Reference | type | TextBox</title>
+  <title>Solar2D Documentation — API Reference | type | TextField | getSelection</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
@@ -55,42 +55,36 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#textbox">TextBox</a><ul>
+<li><a href="#objectgetselection">object:getSelection()</a><ul>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#properties">Properties</a><ul>
-<li><a href="#object.alignapi.type.textbox.align"><a href="../../../api/type/TextBox/align.html">object.align</a></a></li>
-<li><a href="#object.fontapi.type.textbox.font"><a href="../../../api/type/TextBox/font.html">object.font</a></a></li>
-<li><a href="#object.hasbackgroundapi.type.textbox.hasbackground"><a href="../../../api/type/TextBox/hasBackground.html">object.hasBackground</a></a></li>
-<li><a href="#object.iseditableapi.type.textbox.iseditable"><a href="../../../api/type/TextBox/isEditable.html">object.isEditable</a></a></li>
-<li><a href="#object.isfontsizescaledapi.type.textbox.isfontsizescaled"><a href="../../../api/type/TextBox/isFontSizeScaled.html">object.isFontSizeScaled</a></a></li>
-<li><a href="#object.placeholderapi.type.textbox.placeholder"><a href="../../../api/type/TextBox/placeholder.html">object.placeholder</a></a></li>
-<li><a href="#object.sizeapi.type.textbox.size"><a href="../../../api/type/TextBox/size.html">object.size</a></a></li>
-<li><a href="#object.textapi.type.textbox.text"><a href="../../../api/type/TextBox/text.html">object.text</a></a></li>
-</ul></li>
-<li><a href="#methods">Methods</a><ul>
-<li><a href="#objectsetreturnkeyapi.type.textbox.setreturnkey"><a href="../../../api/type/TextBox/setReturnKey.html">object:setReturnKey()</a></a></li>
-<li><a href="#objectsetselectionapi.type.textbox.setselection"><a href="../../../api/type/TextBox/setSelection.html">object:setSelection()</a></a></li>
-<li><a href="#objectgetselectionapi.type.textbox.getselection">[object:getSelection()][api.type.TextBox.getSelection]</a></li>
-<li><a href="#objectsettextcolorapi.type.textbox.settextcolor"><a href="../../../api/type/TextBox/setTextColor.html">object:setTextColor()</a></a></li>
-</ul></li>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#example">Example</a></li>
 </ul></li>
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/TextBox/index.html">TextBox</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/TextField/index.html">TextField</a>  ▸  <a href="../../../api/type/TextField/getSelection.html">getSelection</a>
 </div>
-<div id="textbox" class="section level1">
-<h1>TextBox</h1>
+<div id="objectgetselection" class="section level1">
+<h1>object:getSelection()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Parent</strong></td>
-<td align="left"><a href="../../../api/type/NativeDisplayObject/index.html">NativeDisplayObject</a></td>
+<td align="left"><strong>Type</strong></td>
+<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
+<td align="left"><strong>Object</strong></td>
+<td align="left"><a href="../../../api/type/TextField/index.html">TextField</a></td>
+</tr>
+<tr class="odd">
 <td align="left"><strong>Library</strong></td>
 <td align="left"><a href="../../../api/library/native/index.html">native.*</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Return value</strong></td>
+<td align="left">none</td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>Revision</strong></td>
@@ -98,14 +92,10 @@
 </tr>
 <tr class="even">
 <td align="left"><strong>Keywords</strong></td>
-<td align="left">text input, text box, native text</td>
+<td align="left">getSelection</td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../api/library/native/newTextBox.html">native.newTextBox()</a></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
 <td align="left"><a href="../../../api/library/native/newTextField.html">native.newTextField()</a></td>
 </tr>
 </tbody>
@@ -113,50 +103,22 @@
 </blockquote>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>A native text box is a scrollable, <nobr>multi-line</nobr> input field for displaying <nobr>text-based</nobr> content. See <a href="../../../api/library/native/newTextBox.html">native.newTextBox()</a> for more details.</p>
+<p>Returns the cursors first and last position.</p>
 </div>
-<div id="properties" class="section level2">
-<h2>Properties</h2>
-<p><em>(Inherits properties from <a href="../../../api/type/NativeDisplayObject/index.html">NativeDisplayObject</a>)</em></p>
-<div id="object.alignapi.type.textbox.align" class="section level4">
-<h4><a href="../../../api/type/TextBox/align.html">object.align</a></h4>
+<div id="syntax" class="section level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">object:getSelection()</pre>
 </div>
-<div id="object.fontapi.type.textbox.font" class="section level4">
-<h4><a href="../../../api/type/TextBox/font.html">object.font</a></h4>
-</div>
-<div id="object.hasbackgroundapi.type.textbox.hasbackground" class="section level4">
-<h4><a href="../../../api/type/TextBox/hasBackground.html">object.hasBackground</a></h4>
-</div>
-<div id="object.iseditableapi.type.textbox.iseditable" class="section level4">
-<h4><a href="../../../api/type/TextBox/isEditable.html">object.isEditable</a></h4>
-</div>
-<div id="object.isfontsizescaledapi.type.textbox.isfontsizescaled" class="section level4">
-<h4><a href="../../../api/type/TextBox/isFontSizeScaled.html">object.isFontSizeScaled</a></h4>
-</div>
-<div id="object.placeholderapi.type.textbox.placeholder" class="section level4">
-<h4><a href="../../../api/type/TextBox/placeholder.html">object.placeholder</a></h4>
-</div>
-<div id="object.sizeapi.type.textbox.size" class="section level4">
-<h4><a href="../../../api/type/TextBox/size.html">object.size</a></h4>
-</div>
-<div id="object.textapi.type.textbox.text" class="section level4">
-<h4><a href="../../../api/type/TextBox/text.html">object.text</a></h4>
-</div>
-</div>
-<div id="methods" class="section level2">
-<h2>Methods</h2>
-<p><em>(Inherits methods from <a href="../../../api/type/NativeDisplayObject/index.html">NativeDisplayObject</a>)</em></p>
-<div id="objectsetreturnkeyapi.type.textbox.setreturnkey" class="section level4">
-<h4><a href="../../../api/type/TextBox/setReturnKey.html">object:setReturnKey()</a></h4>
-</div>
-<div id="objectsetselectionapi.type.textbox.setselection" class="section level4">
-<h4><a href="../../../api/type/TextBox/setSelection.html">object:setSelection()</a></h4>
-</div>
-<div id="objectgetselectionapi.type.textbox.getselection" class="section level4">
-<h4>[object:getSelection()][api.type.TextBox.getSelection]</h4>
-</div>
-<div id="objectsettextcolorapi.type.textbox.settextcolor" class="section level4">
-<h4><a href="../../../api/type/TextBox/setTextColor.html">object:setTextColor()</a></h4>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="brush: lua;">local textField = native.newTextField( 160, 240, 280, 40 )
+
+textField.text = "asdf"
+native.setKeyboardFocus( textField )
+
+local start, finish = textField:getSelection()
+-- if native cursor is placed after the "f" in the text, start and finish would return 4, 4
+-- if native cursor is selecting the whole text, start and finish would return, 0, 4</pre>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -166,7 +128,6 @@
 Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
-</div>
 </div>
 </div>
 </div>

@@ -2326,6 +2326,8 @@
 
 <p class="index">[object:setSelection()][api.type.TextField.setSelection]</p>
 
+<p class="index">[object:getSelection()][api.type.TextField.getSelection]</p>
+
 <p class="index">[object:setTextColor()][api.type.TextField.setTextColor]</p>
 
 <p class="index">[object.size][api.type.TextField.size]</p>

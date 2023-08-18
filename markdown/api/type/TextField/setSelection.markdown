@@ -25,10 +25,6 @@ _[Number][api.type.Number]._ The cursor position or the beginning of the selecti
 ##### endPosition ~^(required)^~
 _[Number][api.type.Number]._ The end of the selection area (if greater than `startPosition`). The last character will be used if this number is greater than the length of the current string in the text field.
 
-## Gotchas
-
-This API does not work in the Corona Simulator for macOS.
-
 ## Example
 
 ``````lua

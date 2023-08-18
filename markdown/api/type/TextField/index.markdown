@@ -55,4 +55,6 @@ _(Inherits methods from [NativeDisplayObject][api.type.NativeDisplayObject])_
 
 #### [object:setSelection()][api.type.TextField.setSelection]
 
+#### [object:getSelection()][api.type.TextField.getSelection]
+
 #### [object:setReturnKey()][api.type.TextField.setReturnKey]

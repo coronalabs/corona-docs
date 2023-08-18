@@ -43,6 +43,4 @@ _(Inherits methods from [NativeDisplayObject][api.type.NativeDisplayObject])_
 
 #### [object:setSelection()][api.type.TextBox.setSelection]
 
-#### [object:getSelection()][api.type.TextBox.getSelection]
-
 #### [object:setTextColor()][api.type.TextBox.setTextColor]

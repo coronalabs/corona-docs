@@ -61,8 +61,8 @@ settings =
 
 ## Sample project
 
-* [View on GitHub](https://github.com/coronalabs/plugins-source-pasteboard/tree/master/Corona)
+* [View on GitHub](https://github.com/coronalabs/com.coronalabs-plugin.pasteboard/tree/master/src/Corona)
 
 ## Source code
 
-* [View on GitHub](https://github.com/coronalabs/plugins-source-pasteboard)
+* [View on GitHub](https://github.com/coronalabs/com.coronalabs-plugin.pasteboard/)

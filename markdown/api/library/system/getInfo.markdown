@@ -223,11 +223,23 @@ Density			 DPI
 
 
 
-## iOS
+## iOS / iPadOS / tvOS / macOS
 
 ### iosIdentifierForVendor
 
-`"iosIdentifierForVendor"` returns the value of `"identifierForVendor"` (see [here](https://developer.apple.com/documentation/uikit/uidevice)).
+`"iosIdentifierForVendor"` returns an alphanumeric string that uniquely identifies a device to the app’s vendor. (See [Apple documentation](https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor)).
+
+### reduceMotion
+
+`"reduceMotion"` returns a boolean indicating whether the system preference for Reduce Motion is enabled. (See [Apple documentation](https://developer.apple.com/documentation/swiftui/environmentvalues/accessibilityreducemotion)) Requires `Solar2D 2023.3693` or later.
+
+### reduceTransparency
+
+`"reduceTransparency"` returns a boolean indicating whether the system preference for Reduce Transparency is enabled. (See [Apple documentation](https://developer.apple.com/documentation/swiftui/environmentvalues/accessibilityreducetransparency)) Requires `Solar2D 2023.3693` or later.
+
+### differentiateWithoutColor
+
+`"differentiateWithoutColor"` returns a boolean indicating whether the system preference for Differentiate without Color is enabled. (See [Apple documentation](https://developer.apple.com/documentation/swiftui/environmentvalues/accessibilitydifferentiatewithoutcolor/)) Requires `Solar2D 2023.3693` or later.
 
 <!---
 

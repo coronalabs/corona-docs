@@ -2293,6 +2293,8 @@
 
 <p class="index">[object:setSelection()][api.type.TextBox.setSelection]</p>
 
+<p class="index">[object:getSelection()][api.type.TextBox.getSelection]</p>
+
 <p class="index">[object:setTextColor()][api.type.TextBox.setTextColor]</p>
 
 <p class="index">[object.size][api.type.TextBox.size]</p>

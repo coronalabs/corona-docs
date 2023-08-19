@@ -35,6 +35,8 @@ _(Inherits properties from [DisplayObject][api.type.DisplayObject])_
 
 _(Inherits methods from [DisplayObject][api.type.DisplayObject])_
 
+#### [object:useFrameForAnchors()][api.type.SpriteObject.useFrameForAnchors]
+
 #### [object:pause()][api.type.SpriteObject.pause]
 
 #### [object:play()][api.type.SpriteObject.play]

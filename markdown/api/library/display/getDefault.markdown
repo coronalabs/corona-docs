@@ -54,6 +54,12 @@ A color key indicates which default color value is set.
 
 ## Texture Keys
 
+* `"isExternalTextureRetina"` &mdash; The default [Boolean][api.type.Boolean] value to be assigned as a [external texture][api.type.TextureResourceExternal]'s sampling behavior whenever a new one is created, say
+by a plugin. This is `true` by default.
+
+* `"isImageSheetFrameTrimCorrected"` &mdash; The default [Boolean][api.type.Boolean] value to be assigned as a new [sprite][api.type.SpriteObject]'s frame trim correction behavior whenever a sprite is loaded by
+Solar2D. This is `false` by default.
+
 * `"magTextureFilter"` &mdash; The default magnification sampling filter applied whenever an image is loaded. Values include `"linear"` or `"nearest"`.
 
 * `"minTextureFilter"` &mdash; The default minification sampling filter applied whenever an image is loaded. Values include `"linear"` or `"nearest"`.

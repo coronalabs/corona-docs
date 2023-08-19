@@ -163,6 +163,79 @@ object.fill.effect.vertical.sigma = 140
 ``````
 
 
+<!--- FILTER.BLUR-GAUSSIAN-LINEAR -->
+
+<a id="blurGaussianLinear"></a>
+<div class="newline"></div>
+
+<div class="side-by-side">
+
+----------------------------------------	------------------	------------------------------------
+![][images.simulator.fx-base-statue]		&nbsp;&rarr;&nbsp;	![][images.simulator.fx-blurlinear]
+----------------------------------------	------------------	------------------------------------
+
+</div>
+
+### filter.blurGaussianLinear
+
+A lightweight approach to Gaussian blur, as described in [this RasterGrid article](https://www.rastergrid.com/blog/2010/09/efficient-gaussian-blur-with-linear-sampling/).
+
+* `horizontal.offset1` — default = `1.3846153846` ; min = `0` ; max = `100`
+* `horizontal.offset2` — default = `3.2307692308` ; min = `0` ; max = `100`
+* `vertical.offset1` — default = `1.3846153846` ; min = `0` ; max = `100`
+* `vertical.offset2` — default = `3.2307692308` ; min = `0` ; max = `100`
+
+``````lua
+object.fill.effect = "filter.blurGaussianLinear"
+``````
+
+
+<!--- FILTER.BLUR-GAUSSIAN-LINEAR-HORIZONTAL -->
+
+<a id="blurGaussianLinearHorizontal"></a>
+<div class="newline"></div>
+
+<div class="side-by-side">
+
+----------------------------------------	------------------	----------------------------------------------
+![][images.simulator.fx-base-cloth]			&nbsp;&rarr;&nbsp;	![][images.simulator.fx-blurlinearhorizontal]
+----------------------------------------	------------------	----------------------------------------------
+
+</div>
+
+### filter.blurGaussianLinearHorizontal
+
+* `offset1` — default = `1.3846153846` ; min = `0` ; max = `100`
+* `offset2` — default = `3.2307692308` ; min = `0` ; max = `100`
+
+``````lua
+object.fill.effect = "filter.blurGaussianLinearHorizontal"
+``````
+
+
+<!--- FILTER.BLUR-GAUSSIAN-LINEAR-VERTICAL -->
+
+<a id="blurGaussianLinearVertical"></a>
+<div class="newline"></div>
+
+<div class="side-by-side">
+
+----------------------------------------	------------------	--------------------------------------------
+![][images.simulator.fx-base-cloth]			&nbsp;&rarr;&nbsp;	![][images.simulator.fx-blurlinearvertical]
+----------------------------------------	------------------	--------------------------------------------
+
+</div>
+
+### filter.blurGaussianLinearVertical
+
+* `offset1` — default = `1.3846153846` ; min = `0` ; max = `100`
+* `offset2` — default = `3.2307692308` ; min = `0` ; max = `100`
+
+``````lua
+object.fill.effect = "filter.blurGaussianLinearVertical"
+``````
+
+
 <!--- FILTER.BLUR-HORIZONTAL -->
 
 <a id="blurHorizontal"></a>
@@ -173,8 +246,6 @@ object.fill.effect.vertical.sigma = 140
 ----------------------------------------	------------------	----------------------------------------
 ![][images.simulator.fx-base-cloth]			&nbsp;&rarr;&nbsp;	![][images.simulator.fx-blurhorizontal]
 ----------------------------------------	------------------	----------------------------------------
-
-</div>
 
 ### filter.blurHorizontal
 
@@ -1949,7 +2020,7 @@ This composite effect renders a point light upon a surface. In this effect, `poi
 
 The `pointLightColor` parameter is a table containing RGB+A values, and `ambientLightIntensity` specifies the intensity from `0` (dark) to `1` (full&nbsp;brightness).
 
-The `attenuationFactors` parameter is a table containing the diffuse light's distance attenuation factors. In this case, `{x,y,z}` are the constant, linear, and quadratic attenuation factors. Note that distance attenuation does __not__ affect ambient light intensity. For a better understanding of attenuation factors, read about [Falloff](https://developer.valvesoftware.com/wiki/Constant-Linear-Quadratic_Falloff) and [Attenuation&nbsp;of&nbsp;Light](https://learnopengl.com/PBR/Lighting).
+The `attenuationFactors` parameter is a table containing the diffuse light's distance attenuation factors. In this case, `{x,y,z}` are the constant, linear, and quadratic attenuation factors. Note that distance attenuation does __not__ affect ambient light intensity. For a better understanding of attenuation factors, read about [Falloff](https://developer.valvesoftware.com/wiki/Constant-Linear-Quadratic_Falloff) and [Attenuation&nbsp;of&nbsp;Light](http://www.felixgers.de/teaching/jogl/lightAttenuation.html).
 
 * `pointLightPos` — default = `{1,0,0}` ; min = `{0,0,0}` ; max = `{1,1,1}`
 * `pointLightColor` — default = `{1,1,1,1}` ; min = `{0,0,0,0}` ; max = `{1,1,1,1}`

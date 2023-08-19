@@ -4,7 +4,7 @@
 > __Type__              [Library][api.type.Library]
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          socket, LuaSocket, networking
-> __See also__          [LuaSocket Documentation](https://rawgit.com/diegonehab/luasocket/master/doc/reference.html)
+> __See also__          [LuaSocket Documentation](https://lunarmodules.github.io/luasocket/reference.html)
 >						[network.request()][api.library.network.request]
 >						[network.download()][api.library.network.download]
 >						[network.canDetectNetworkStatusChanges][api.library.network.canDetectNetworkStatusChanges]

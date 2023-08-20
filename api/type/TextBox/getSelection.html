@@ -111,9 +111,14 @@
 </div>
 <div id="example" class="section level2">
 <h2>Example</h2>
-<p>``````lua local textBox = native.newTextBox( 160, 240, 280, 40 )</p>
-<p>textBox.text = &quot;asdf&quot; native.setKeyboardFocus( textBox )</p>
-<p>local start, finish = textBox:getSelection() -- if native cursor is placed after the &quot;f&quot; in the text, start and finish would return 4, 4 -- if native cursor is selecting the whole text, start and finish would return, 0, 4</p>
+<pre class="brush: lua;">local textBox = native.newTextBox( 160, 240, 280, 40 )
+
+textBox.text = "asdf"
+native.setKeyboardFocus( textBox )
+
+local start, finish = textBox:getSelection()
+-- if native cursor is placed after the "f" in the text, start and finish would return 4, 4
+-- if native cursor is selecting the whole text, start and finish would return, 0, 4</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

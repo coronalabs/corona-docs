@@ -30,3 +30,4 @@ native.setKeyboardFocus( textBox )
 local start, finish = textBox:getSelection()
 -- if native cursor is placed after the "f" in the text, start and finish would return 4, 4
 -- if native cursor is selecting the whole text, start and finish would return, 0, 4
+``````

@@ -198,7 +198,7 @@ _[Numbers][api.type.Number]._ The flexible width and height of the 9-slice butto
 ##### sheet ~^(required)^~
 _[ImageSheet][api.type.ImageSheet]._ The [image&nbsp;sheet][api.library.graphics.newImageSheet] object for the button.
 
-##### middleFrame, middleFrameOver ~^(required)^~
+##### middleFrame, middleOverFrame ~^(required)^~
 _[Numbers][api.type.Number]._ The __default__ <nobr>(un-pressed)</nobr> and __over__ (pressed) frames of the middle fill region.
 
 ##### topLeftFrame, topLeftOverFrame ~^(required)^~

@@ -709,6 +709,16 @@ Important
 </div>
 <div id="excluding-files" class="section level2">
 <h2>Excluding Files</h2>
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;">
+
+</div>
+</div>
+<div class="docs-tip-inner-right">
+<p>Excluding files is a feature of Solar2D — it does not work for Solar2D Native builds.</p>
+</div>
+</div>
 <p>More sophisticated apps may have files which are needed on one platform but not another. For example, the icon files for each platform are different and you might want to include only the appropriate files on each platform. This is not something Solar2D handles automatically, since file naming may vary and unique situations can't be predicted. Most developers will not need to specify files which should be excluded from builds, but the option is available if necessary.</p>
 <p>Files to be excluded are specified <nobr>per-platform —</nobr> <code>ios</code>, <code>android</code>, <code>macos</code>, <code>win32</code>, <code>tvos</code>, <nobr>or <code>all</code> —</nobr> using simple pattern matching where <code>*</code> means any string of characters, sometimes including <code>/</code>. In other words, these patterns match the path names of files in the app bundle as strings. This generally only matters if you have an elaborate directory structure with multiple instances of directories with the same name at different levels, for example <code>a/music</code>, <code>a/b/music</code>, <code>a/b/c/music</code>, etc. Note that the directory separator character is always a forward slash <code>/</code>, even if building on Windows.</p>
 <p>File exclusion is a powerful facility and it's possible to corrupt your app bundle if you use this procedure unwisely and accidentally exclude files critical to its operation. After making any changes to the <code>excludeFiles</code> setup, monitor the console carefully during the next build and watch for any issues. You should also examine the contents of your app bundle carefully and check exactly which files are included.</p>
@@ -757,16 +767,6 @@ Important
         win32 = { "Icon*.icns" },
     },
 }</pre>
-<div class="docs-tip-outer docs-tip-color-alert">
-<div class="docs-tip-inner-left">
-<div class="fa fa-exclamation-circle" style="font-size: 35px;">
-
-</div>
-</div>
-<div class="docs-tip-inner-right">
-<p>Excluding files is a feature of Solar2D — it does not work for Solar2D Native builds.</p>
-</div>
-</div>
 <hr>
 <div id="footer">
 <p class="copyright">

@@ -676,6 +676,17 @@ settings =
 
 ## Excluding Files
 
+<div class="docs-tip-outer docs-tip-color-alert">
+<div class="docs-tip-inner-left">
+<div class="fa fa-exclamation-circle" style="font-size: 35px;"></div>
+</div>
+<div class="docs-tip-inner-right">
+
+Excluding files is a feature of CORONA_CORE_PRODUCT&nbsp;&mdash; it does not work for CORONA_NATIVE_PRODUCT builds.
+
+</div>
+</div>
+
 More sophisticated apps may have files which are needed on one platform but not another. For example, the icon files for each platform are different and you might want to include only the appropriate files on each platform. This is not something CORONA_CORE_PRODUCT handles automatically, since file naming may vary and unique situations can't be predicted. Most developers will not need to specify files which should be excluded from builds, but the option is available if necessary.
 
 Files to be excluded are specified <nobr>per-platform &mdash;</nobr> `ios`, `android`, `macos`, `win32`, `tvos`, <nobr>or `all` &mdash;</nobr> using simple pattern matching where `*` means any string of characters, sometimes including `/`. In other words, these patterns match the path names of files in the app bundle as strings. This generally only matters if you have an elaborate directory structure with multiple instances of directories with the same name at different levels, for example `a/music`, `a/b/music`, `a/b/c/music`, etc. Note that the directory separator character is always a forward slash `/`, even if building on Windows.
@@ -743,13 +754,4 @@ settings =
 }
 ``````
 
-<div class="docs-tip-outer docs-tip-color-alert">
-<div class="docs-tip-inner-left">
-<div class="fa fa-exclamation-circle" style="font-size: 35px;"></div>
-</div>
-<div class="docs-tip-inner-right">
 
-Excluding files is a feature of CORONA_CORE_PRODUCT&nbsp;&mdash; it does not work for CORONA_NATIVE_PRODUCT builds.
-
-</div>
-</div>

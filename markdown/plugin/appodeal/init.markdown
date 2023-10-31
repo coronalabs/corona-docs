@@ -80,7 +80,7 @@ _[Array][api.type.Array]._ For advanced use only. Prevent the Appodeal SDK from 
 _[Array][api.type.Array]._ For advanced use only. Disable autocache for specified ad types during Appodeal SDK initialization. Valid values include `"banner"`, `"interstitial"`, `"rewardedVideo"`.
 
 ##### hasUserConsent ~^(optional)^~
-_[Boolean][api.type.Boolean]._ If set to `false`, Appodeal will enable GDPR data collection restrictions, set to `true` for opposite. Default is `false`.
+_[Boolean][api.type.Boolean]._ If set to `false`, Appodeal will enable GDPR data collection restrictions, set to `true` for opposite. Default is `false`. In beta version and 3.2.0+ plus use this hide default Consent form by passing in `true` or `false`
 
 
 ## Example

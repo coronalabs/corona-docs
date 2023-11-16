@@ -65,6 +65,8 @@
 <li><a href="#xalign-optional">xAlign <sub><sup>(optional)</sup></sub></a></li>
 <li><a href="#padding-optional">padding <sub><sup>(optional)</sup></sub></a></li>
 <li><a href="#custommode-optional">customMode <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#rewardmode-optional">rewardMode <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#offerwallmode-optional">offerwallMode <sub><sup>(optional)</sup></sub></a></li>
 </ul></li>
 <li><a href="#example">Example</a></li>
 </ul></li>
@@ -140,6 +142,15 @@
 <li><p>Setting this to <code>false</code> (default) is the standard way of using Pollfish in your apps. This option enables controlling behavior (intrusiveness) of the Pollfish panel in an app from the <a href="https://www.pollfish.com/publisher">Pollfish portal</a>. In this mode, the survey panel/button will automatically be shown according to the settings in the Pollfish dashboard.</p></li>
 <li><p>Setting this to <code>true</code> ignores the Pollfish panel behavior settings in the <a href="https://www.pollfish.com/publisher">Pollfish portal</a>. It always omits the Pollfish button and you must explicitly call <a href="../../plugin/pollfish/show.html">pollfish.show()</a> to display the loaded survey.</p></li>
 </ul>
+</div>
+<div id="rewardmode-optional" class="section level5">
+<h5>rewardMode <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> Setting this to <code>true</code> activates &quot;custom mode&quot; as detailed below. Default is <code>false</code>.</p>
+<p>Enables Pollfish in offerwall mode. If not specified Pollfish shows one survey at a time</p>
+</div>
+<div id="offerwallmode-optional" class="section level5">
+<h5>offerwallMode <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> Setting this to <code>true</code> activates &quot;offerwall mode&quot; which will show an offerwall of surveys. Default is <code>false</code>.</p>
 </div>
 </div>
 <div id="example" class="section level2">

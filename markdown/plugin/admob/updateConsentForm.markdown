@@ -56,5 +56,5 @@ local function adListener( event )
 end
 
 -- Initialize the AdMob plugin
-admob.init( adListener, { appId="YOUR_ADMOB_APP_ID", testMode=true } )
+admob.init( adListener, { testMode=true } )
 ``````

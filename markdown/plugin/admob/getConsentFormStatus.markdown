@@ -49,7 +49,7 @@ local function adListener( event )
 end
 
 -- Initialize the AdMob plugin.
-admob.init( adListener, { appId="YOUR_ADMOB_APP_ID", testMode=true } )
+admob.init( adListener, { testMode=true } )
 
 -- Sometime later, get the form and consent status:
 -- (If you don't wait for the consent form to update, then both of these values will be nil.)

@@ -90,7 +90,6 @@ You'll need a text editor or IDE to write code for your CORONA_CORE_PRODUCT proj
 Editor																Add-On Package
 ------------------------------------------------------------------	---------------------------------------------
 [Sublime Text](https://www.sublimetext.com)							[CORONA_CORE_PRODUCT Editor](https://github.com/coronalabs/CoronaSDK-SublimeText)
-[Atom](https://atom.io)												[autocomplete-corona](https://atom.io/packages/autocomplete-corona)
 [Visual Studio Code](https://code.visualstudio.com/)				[CORONA_CORE_PRODUCT-companion](https://marketplace.visualstudio.com/items?itemName=M4adan.solar2d-companion)
 [Notepad++](https://notepad-plus-plus.org)
 [ZeroBrane Studio](https://studio.zerobrane.com)

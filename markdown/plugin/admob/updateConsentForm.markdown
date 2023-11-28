@@ -12,8 +12,13 @@
 
 ## Overview
 
-This function updates Consent Manager with information that helps determine if a message needs to be displayed.
+This function updates the Consent Manager with information that helps determine if a message needs to be displayed.
 
+## Gotchas
+
+* AdMob needs to initialize before you can run `admob.updateConsentForm()`.
+
+* The Consent Form is a legal document and underage users cannot consent to its contents. This means `formStatus` will always be `"unavailable"` for underaged users and `consentStatus` will always be `"obtained"`. AdMob does not specify what the user has consented to.
 
 ## Syntax
 
@@ -43,9 +48,13 @@ local admob = require( "plugin.admob" )
 
 local function adListener( event )
 
-end
--- Initialize the AdMob plugin
-admob.init( adListener, { appId="YOUR_ADMOB_APP_ID" } )
+	if ( event.phase == "init" ) then
+		-- Wait until "init" phase to update the Consent Form.
+		admob.updateConsentForm({ underage=true, debug={ geography = "EEA", testDeviceIdentifiers={"Your-Device-Hash"} } })
+	end
 
-admob.updateConsentForm({ underage=true, debug={ geography = "EEA", testDeviceIdentifiers={"Your-Device-Hash"} } })
+end
+
+-- Initialize the AdMob plugin
+admob.init( adListener, { appId="YOUR_ADMOB_APP_ID", testMode=true } )
 ``````

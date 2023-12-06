@@ -1,6 +1,6 @@
 # Using Custom Fonts
 
-This guide outlines how to include and use custom embedded fonts in CORONA_CORE_PRODUCT, allowing you to stylize your app more consistently across platforms.
+This guide outlines how to include and use custom embedded fonts, allowing you to stylize your app more consistently across platforms.
 
 <div class="guides-toc">
 

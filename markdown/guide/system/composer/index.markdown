@@ -1,6 +1,6 @@
 # Composer Library
 
-The [Composer][api.library.composer] library is the official scene (screen) creation and management system in Corona. This library provides developers with an easy way to create and transition between individual scenes.
+The [Composer][api.library.composer] library is the official scene (screen) creation and management system in CORONA_CORE_PRODUCT. This library provides developers with an easy way to create and transition between individual scenes.
 
 <div class="guides-toc">
 
@@ -88,7 +88,7 @@ Once [composer.gotoScene()][api.library.composer.gotoScene] is called, the scene
 
 3. Immediately before the scene transitions "on&nbsp;screen," a [show][api.event.scene.show] event is dispatched to the scene's `scene:show()` function with a `phase` parameter equal to `"will"`. This is a great opportunity to reset variable values or reposition objects that may have moved from their intended starting position since the scene was last shown (like restarting a game level).
 
-4. Once the scene is fully on screen, another [show][api.event.scene.show] event is dispatched to the `scene:show()` function with a `phase` parameter equal to `"did"` and this scene is now considered the active scene. This is a good place to start transitions/timers, play <nobr>scene-specific</nobr> music that was loaded in `scene:create()`, and start the physics simulation if you're using Corona's [physics][api.library.physics] engine.
+4. Once the scene is fully on screen, another [show][api.event.scene.show] event is dispatched to the `scene:show()` function with a `phase` parameter equal to `"did"` and this scene is now considered the active scene. This is a good place to start transitions/timers, play <nobr>scene-specific</nobr> music that was loaded in `scene:create()`, and start the physics simulation if you're using CORONA_CORE_PRODUCT's [physics][api.library.physics] engine.
 
 5. If this active scene is exited by going to another scene, for instance, a [hide][api.event.scene.hide] event is dispatched to the scene's `scene:hide()` function with a `phase` parameter equal to `"will"`. This is a great opportunity to pause or stop physics, cancel timers and transitions, and stop <nobr>scene-specific</nobr> audio that was played in `scene:show()`.
 
@@ -500,4 +500,4 @@ The [composer.stage][api.library.composer.stage] property returns a reference to
 
 ### Debugging
 
-The [composer.isDebug][api.library.composer.isDebug] property toggles "Composer Debug Mode" which, if set to `true`, prints useful debugging information to the Corona Simulator Console in certain situations. This should be set to `false` (default) before building the project for deployment.
+The [composer.isDebug][api.library.composer.isDebug] property toggles "Composer Debug Mode" which, if set to `true`, prints useful debugging information to the Simulator Console in certain situations. This should be set to `false` (default) before building the project for deployment.

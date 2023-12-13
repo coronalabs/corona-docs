@@ -13,7 +13,7 @@
 
 This library allows you to support <nobr>in-app</nobr> purchasing on iOS, tvOS and macOS, including <nobr>in-game</nobr> currency, upgrades, and more.
 
-For in-app purchasing on other platforms, see the documentation for [Google IAP][plugin.google-iap-v3] or [Amazon IAP][plugin.amazon-iap-v2].
+For in-app purchasing on other platforms, see the documentation for [Google IAP][plugin.google-iap-billing-v2] or [Amazon IAP][plugin.amazon-iap-v2].
 
 <div class="guide-notebox">
 <div class="notebox-title">Notes</div>

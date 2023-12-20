@@ -100,6 +100,14 @@
 <div id="overview" class="section level2">
 <h2>Overview</h2>
 <p><a href="https://developer.apple.com/game-center/">Game Center</a> lets friends in on the action with leaderboards and achievements. The nomenclature used in the Solar2D APIs for Game Center attempt to match the official Game Center APIs as much as possible, allowing you to <nobr>cross-reference</nobr> with official Game Center documentation.</p>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<ul>
+<li>As of August 16, 2023, new apps and app updates that offer Game Center features need to include the Game Center entitlement. See Project Settings below and enable Game Center Support for Apple App ID Configuration.</li>
+</ul>
+</div>
 </div>
 <div id="gotchas" class="section level2">
 <h2>Gotchas</h2>
@@ -124,6 +132,7 @@
 <div id="project-settings" class="section level2">
 <h2>Project Settings</h2>
 <p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
+<p>Also be sure to add the iPhone entitlement table as seen below</p>
 <pre class="brush: lua;">settings =
 {
     plugins =
@@ -133,6 +142,11 @@
             publisherId = "com.coronalabs"
         },
     },
+    iphone = {
+        entitlements = {
+            ["com.apple.developer.game-center"] = true,
+        },
+    }
 }</pre>
 </div>
 <div id="sample-project" class="section level2">

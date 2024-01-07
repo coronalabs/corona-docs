@@ -34,7 +34,7 @@ Beta version of Appodeal plugin is now available! Check latest note in Project S
 #### Version info
 Current plugin versions are:
 
-* Stable plugins is `3.0.2` for both Android and iOS. The Beta plugin is on `3.2.1`
+* Stable plugins is `3.0.2` for both Android and iOS. The Beta plugin is on `3.2.0-beta.1`
 
 </div>
 

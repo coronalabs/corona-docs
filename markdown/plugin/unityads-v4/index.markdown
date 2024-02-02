@@ -21,14 +21,14 @@ Notable changes from old plugin include now needing to load placement IDs via [u
 
 On a per-app basis, the first time a Unity ad appears, the user will see a banner with the option to opt-out of behaviorally targeted advertising. Thereafter, the user can click an information button to receive the opt-out again. Although UnityAds will automatically present users with an opportunity to opt-out of targeted advertising, with no implementation needed from the publisher, check out new `setHasUserConsent` method to enable manual GDPR data collection restrictions.
 
-See more at [Unity Ads GDPR Compliance doc page](https://unityads.unity3d.com/help/legal/gdpr)
+See more at [Unity Ads privacy consent documentation](https://docs.unity.com/ads/en-us/manual/ImplementingDataPrivacy).
 
 </div>
 
 
 ## Registration
 
-Before you can use this plugin, you must [register](https://unity3d.com/services/ads) with Unity&nbsp;Ads.
+Before you can use this plugin, you must [register](https://unity.com/products/unity-ads) with Unity&nbsp;Ads.
 
 
 ## Syntax

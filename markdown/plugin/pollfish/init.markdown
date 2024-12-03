@@ -62,7 +62,7 @@ local function adListener( event )
 	if ( event.phase == "init" ) then  -- Successful initialization
 		pollfish.load()
     end
-    
+
 end
 
 -- Initialize the Pollfish plugin

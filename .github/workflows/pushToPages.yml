@@ -10,11 +10,11 @@ jobs:
     container: scottrules44/corona-container-doc-2
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v2
       with:
         persist-credentials: false
     - name: Add Git safe directory
-      run: git config --global --add safe.directory /__w/corona-docs/corona-docs
+      run: git config --global --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
     - name: Checkout Submodules
       run: |
         git submodule sync --recursive

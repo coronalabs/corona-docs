@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Graphics/Audio/Animation</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -76,7 +76,7 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/media/index.html">Graphics/Audio/Animation</a>
 </div>
-<div id="display-objects-images-text-shapes-etc." class="section level1">
+<section id="display-objects-images-text-shapes-etc." class="level1">
 <h1>Display Objects — Images, Text, Shapes, etc.</h1>
 <p>Corona <strong>display objects</strong> encompass a wide range of visual objects that you place on the stage or within display groups. These include images, text, shapes, lines, animated sprites, and more.</p>
 <div class="guides-toc">
@@ -92,77 +92,77 @@
 </ul>
 </div>
 <p><a id="creating"></a></p>
-<div id="creating-display-objects" class="section level2">
+<section id="creating-display-objects" class="level2">
 <h2>Creating Display Objects</h2>
-<p>Display objects are easily created using methods from Corona's <a href="../../../api/library/display/index.html">display</a> library:</p>
+<p>Display objects are easily created using methods from Corona’s <a href="../../../api/library/display/index.html">display</a> library:</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Object</th>
-<th align="left">Method</th>
+<th style="text-align: left;">Object</th>
+<th style="text-align: left;">Method</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Display Group</td>
-<td align="left"><a href="../../../api/library/display/newGroup.html">display.newGroup()</a></td>
+<td style="text-align: left;">Display Group</td>
+<td style="text-align: left;"><a href="../../../api/library/display/newGroup.html">display.newGroup()</a></td>
 </tr>
 <tr class="even">
-<td align="left">Standard Image</td>
-<td align="left"><a href="../../../api/library/display/newImage.html">display.newImage()</a></td>
+<td style="text-align: left;">Standard Image</td>
+<td style="text-align: left;"><a href="../../../api/library/display/newImage.html">display.newImage()</a></td>
 </tr>
 <tr class="odd">
-<td align="left">Dynamically-Selected Image</td>
-<td align="left"><a href="../../../api/library/display/newImageRect.html">display.newImageRect()</a></td>
+<td style="text-align: left;">Dynamically-Selected Image</td>
+<td style="text-align: left;"><a href="../../../api/library/display/newImageRect.html">display.newImageRect()</a></td>
 </tr>
 <tr class="even">
-<td align="left">Text</td>
-<td align="left"><a href="../../../api/library/display/newText.html">display.newText()</a></td>
+<td style="text-align: left;">Text</td>
+<td style="text-align: left;"><a href="../../../api/library/display/newText.html">display.newText()</a></td>
 </tr>
 <tr class="odd">
-<td align="left">Animated Sprite</td>
-<td align="left"><a href="../../../api/library/display/newSprite.html">display.newSprite()</a></td>
+<td style="text-align: left;">Animated Sprite</td>
+<td style="text-align: left;"><a href="../../../api/library/display/newSprite.html">display.newSprite()</a></td>
 </tr>
 <tr class="even">
-<td align="left">Rectangle</td>
-<td align="left"><a href="../../../api/library/display/newRect.html">display.newRect()</a></td>
+<td style="text-align: left;">Rectangle</td>
+<td style="text-align: left;"><a href="../../../api/library/display/newRect.html">display.newRect()</a></td>
 </tr>
 <tr class="odd">
-<td align="left">Circle</td>
-<td align="left"><a href="../../../api/library/display/newCircle.html">display.newCircle()</a></td>
+<td style="text-align: left;">Circle</td>
+<td style="text-align: left;"><a href="../../../api/library/display/newCircle.html">display.newCircle()</a></td>
 </tr>
 <tr class="even">
-<td align="left">Rounded Rectangle</td>
-<td align="left"><a href="../../../api/library/display/newRoundedRect.html">display.newRoundedRect()</a></td>
+<td style="text-align: left;">Rounded Rectangle</td>
+<td style="text-align: left;"><a href="../../../api/library/display/newRoundedRect.html">display.newRoundedRect()</a></td>
 </tr>
 <tr class="odd">
-<td align="left">Line</td>
-<td align="left"><a href="../../../api/library/display/newLine.html">display.newLine()</a></td>
+<td style="text-align: left;">Line</td>
+<td style="text-align: left;"><a href="../../../api/library/display/newLine.html">display.newLine()</a></td>
 </tr>
 <tr class="even">
-<td align="left">Polygon</td>
-<td align="left"><a href="../../../api/library/display/newPolygon.html">display.newPolygon()</a></td>
+<td style="text-align: left;">Polygon</td>
+<td style="text-align: left;"><a href="../../../api/library/display/newPolygon.html">display.newPolygon()</a></td>
 </tr>
 <tr class="odd">
-<td align="left">Embossed Text</td>
-<td align="left"><a href="../../../api/library/display/newEmbossedText.html">display.newEmbossedText()</a></td>
+<td style="text-align: left;">Embossed Text</td>
+<td style="text-align: left;"><a href="../../../api/library/display/newEmbossedText.html">display.newEmbossedText()</a></td>
 </tr>
 <tr class="even">
-<td align="left">Container</td>
-<td align="left"><a href="../../../api/library/display/newContainer.html">display.newContainer()</a></td>
+<td style="text-align: left;">Container</td>
+<td style="text-align: left;"><a href="../../../api/library/display/newContainer.html">display.newContainer()</a></td>
 </tr>
 <tr class="odd">
-<td align="left">Snapshot</td>
-<td align="left"><a href="../../../api/library/display/newSnapshot.html">display.newSnapshot()</a></td>
+<td style="text-align: left;">Snapshot</td>
+<td style="text-align: left;"><a href="../../../api/library/display/newSnapshot.html">display.newSnapshot()</a></td>
 </tr>
 <tr class="even">
-<td align="left">Particle Emitter</td>
-<td align="left"><a href="../../../api/library/display/newEmitter.html">display.newEmitter()</a></td>
+<td style="text-align: left;">Particle Emitter</td>
+<td style="text-align: left;"><a href="../../../api/library/display/newEmitter.html">display.newEmitter()</a></td>
 </tr>
 <tr class="odd">
-<td align="left">Mesh</td>
-<td align="left"><a href="../../../api/library/display/newMesh.html">display.newMesh()</a></td>
+<td style="text-align: left;">Mesh</td>
+<td style="text-align: left;"><a href="../../../api/library/display/newMesh.html">display.newMesh()</a></td>
 </tr>
 </tbody>
 </table>
@@ -172,13 +172,13 @@
 Notes
 </div>
 <ul>
-<li><p>Display objects behave essentially like normal Lua tables. This means that you can add your own properties to an object, as long as they don't conflict with reserved property or method names. A minor exception is that you cannot index into a display object as an array using numerical indices. See <a href="#technotes">Technical Notes</a> at the end of this guide for more information.</p></li>
-<li><p>Most display objects have an <a href="../../../guide/graphics/transform-anchor.html">anchor point</a> which defaults to the object's <strong>center</strong>. In contrast, display groups do not, by default, respect anchor points. Also, the default origin of display groups is <code>0,0</code> which is located at the <nobr><strong>top-left corner</strong></nobr> of the stage, not the center. Thus, if you simply place a <nobr>non-group</nobr> display object on the stage at coordinates <code>0,0</code>, its center point will be positioned in the <nobr>top-left</nobr> corner of the stage. For more information, please see <a href="../../../guide/graphics/transform-anchor.html">Transforms and Anchors</a> and the <a href="../../../guide/graphics/group.html">Group Programming</a> guide.</p></li>
+<li><p>Display objects behave essentially like normal Lua tables. This means that you can add your own properties to an object, as long as they don’t conflict with reserved property or method names. A minor exception is that you cannot index into a display object as an array using numerical indices. See <a href="#technotes">Technical Notes</a> at the end of this guide for more information.</p></li>
+<li><p>Most display objects have an <a href="../../../guide/graphics/transform-anchor.html">anchor point</a> which defaults to the object’s <strong>center</strong>. In contrast, display groups do not, by default, respect anchor points. Also, the default origin of display groups is <code>0,0</code> which is located at the <nobr><strong>top-left corner</strong></nobr> of the stage, not the center. Thus, if you simply place a <nobr>non-group</nobr> display object on the stage at coordinates <code>0,0</code>, its center point will be positioned in the <nobr>top-left</nobr> corner of the stage. For more information, please see <a href="../../../guide/graphics/transform-anchor.html">Transforms and Anchors</a> and the <a href="../../../guide/graphics/group.html">Group Programming</a> guide.</p></li>
 </ul>
 </div>
 <p><a id="propertiesmethods"></a></p>
-</div>
-<div id="properties-and-methods" class="section level2">
+</section>
+<section id="properties-and-methods" class="level2">
 <h2>Properties and Methods</h2>
 <p>Display objects are all first-class citizens. You can move them, rotate them, animate (transition) them, and much more using <a href="../../../api/type/DisplayObject/index.html">common properties and methods</a>.</p>
 <p><strong>Properties</strong> are accessed via the <strong>dot operator</strong>. For example, you can change the alpha of an object to 50% by coding:</p>
@@ -188,22 +188,22 @@ myImage.alpha = 0.5  --change the alpha property</pre>
 <pre class="brush: lua;">local myImage = display.newImage( "image.png" )
 myImage:translate( 10, 50 )  --move the object 10 pixels right and 50 pixels down.</pre>
 <p><a id="hierarchy"></a></p>
-</div>
-<div id="display-hierarchy" class="section level2">
+</section>
+<section id="display-hierarchy" class="level2">
 <h2>Display Hierarchy</h2>
 <p>The screen/display in Corona consists of the <a href="../../../api/type/StageObject/index.html">stage</a> and an optional hierarchy of child <a href="../../../api/type/GroupObject/index.html">display groups</a>. A display group is a special kind of display object that can contain child objects. This makes it possible to organize your display objects into groups and build relationships between other groups. Please refer to the <a href="../../../guide/graphics/group.html">Group Programming</a> guide for more information on this topic.</p>
-<p>Display objects are added to the stage by default. However, you'll usually need to insert a display object into a specific display group. This is accomplished through two methods:</p>
-<div id="inline-method" class="section level3">
+<p>Display objects are added to the stage by default. However, you’ll usually need to insert a display object into a specific display group. This is accomplished through two methods:</p>
+<section id="inline-method" class="level3">
 <h3>Inline Method</h3>
 <p>As a convenience, most display objects accept a display group as the first argument to the API call. This will insert the object into that group.</p>
 <pre class="brush: lua;">local myGroup = display.newGroup()
 
 --create object in 'myGroup'
 local myImage = display.newImage( myGroup, "image.png" )</pre>
-</div>
-<div id="direct-method" class="section level3">
+</section>
+<section id="direct-method" class="level3">
 <h3>Direct Method</h3>
-<p>The direct method inserts a display object into the specified group. This method can also be used to move an object from one group to another. Note that an object can't exist in two groups at once, so inserting it into a different group also removes it from its current group.</p>
+<p>The direct method inserts a display object into the specified group. This method can also be used to move an object from one group to another. Note that an object can’t exist in two groups at once, so inserting it into a different group also removes it from its current group.</p>
 <pre class="brush: lua;">local myGroup = display.newGroup()
 
 --create object on the stage (default)
@@ -218,12 +218,12 @@ Note
 <p>Although display groups are essentially tables, Lua library functions like <code>table.insert()</code> and <code>ipairs()</code> are <strong>not</strong> compatible with groups. In addition, you cannot get the number of children in a display group using <code>#myGroup</code>. Instead, use <code>myGroup.numChildren</code>.</p>
 </div>
 <p><a id="objectorder"></a></p>
-</div>
-</div>
-<div id="object-order" class="section level2">
+</section>
+</section>
+<section id="object-order" class="level2">
 <h2>Object Order</h2>
 <p>Within a particular display group, objects are drawn in back-to-front order. Thus, the <strong>first</strong> object you create will reside <strong>behind</strong> objects created later.</p>
-<p>Fortunately, the ordering of display objects is not set in stone. You can change the relative ordering of an object at any time. The order in which a display group's children are drawn is determined by the order of the array. Using the <code>group:insert()</code> method, you can reorder the position of an object within its parent group.</p>
+<p>Fortunately, the ordering of display objects is not set in stone. You can change the relative ordering of an object at any time. The order in which a display group’s children are drawn is determined by the order of the array. Using the <code>group:insert()</code> method, you can reorder the position of an object within its parent group.</p>
 <pre class="brush: lua;">local square = display.newRect( myGroup, 0, 0, 100, 100 )  --red square is at the bottom
 square:setFillColor( 1, 0, 0 )
 local circle = display.newCircle( myGroup, 80, 120, 50 )  --green circle is in the middle
@@ -242,17 +242,17 @@ parent:insert( square )
 parent:insert( 1, circle )</pre>
 <p>In addition, objects can also be moved within a group using the <code>object:toBack</code> and <code>object:toFront</code> methods.</p>
 <p><a id="screenupdates"></a></p>
-</div>
-<div id="screen-updates" class="section level2">
+</section>
+<section id="screen-updates" class="level2">
 <h2>Screen Updates</h2>
 <p>The basic drawing model involves a cycle of executing Lua code and rendering objects in the display hierarchy. During this cycle, the screen only updates when objects in the display change. These changes occur by adding, removing, or changing properties of the child display objects.</p>
 <p>The screen never updates while a block of Lua code is executing. Therefore, if you modify a display object multiple times in a code block — updating the <code>x</code> position, for example — only the <strong>last</strong> change (the final <code>x</code> setting) will reflect when the screen updates.</p>
 <p><a id="reference"></a></p>
-</div>
-<div id="object-references" class="section level2">
+</section>
+<section id="object-references" class="level2">
 <h2>Object References</h2>
 <p>Because objects can be reordered in the hierarchy, using integer indices to access display group children is fragile. If you move a child above its sibling, all integer indices in your code must be updated.</p>
-<p>In most cases, it's easiest to refer to a display object by its variable name. Variables can be named whatever you wish <strong>except</strong> for names that begin with a number or names that are reserved by Lua or Corona. These naming rules apply to all variables in Lua, so please commit them to memory.</p>
+<p>In most cases, it’s easiest to refer to a display object by its variable name. Variables can be named whatever you wish <strong>except</strong> for names that begin with a number or names that are reserved by Lua or Corona. These naming rules apply to all variables in Lua, so please commit them to memory.</p>
 <pre class="brush: lua;">local yellowDuck = display.newText( "Quack!", 50, 50, "Arial", 60 )  --OK!
 
 local orangeTiger22 = display.newText( "Roar!", 50, 50, "Arial", 60 )  --OK!
@@ -285,12 +285,12 @@ local redSquares = { redSquare1, redSquare2, redSquare3 }</pre>
 end</pre>
 <p>Note that if you use this method to store/organize display objects, you <strong>must</strong> remove the references from the table when the objects are cleared from the screen.</p>
 <p><a id="remove"></a></p>
-</div>
-<div id="removing-display-objects" class="section level2">
+</section>
+<section id="removing-display-objects" class="level2">
 <h2>Removing Display Objects</h2>
-<p>Because devices have limited memory, it's important to remove display objects from the display hierarchy when you no longer need them. This helps overall system performance by reducing memory consumption (especially texture memory) as well as eliminating unnecessary screen drawing.</p>
+<p>Because devices have limited memory, it’s important to remove display objects from the display hierarchy when you no longer need them. This helps overall system performance by reducing memory consumption (especially texture memory) as well as eliminating unnecessary screen drawing.</p>
 <p>There are two basic methods to remove display objects from the display hierarchy.</p>
-<div id="direct-removal" class="section level3">
+<section id="direct-removal" class="level3">
 <h3>Direct Removal</h3>
 <p>This method targets a particular display object and removes it from the display.</p>
 <pre class="brush: lua;">display.remove( myObject )
@@ -315,8 +315,8 @@ myObject = nil  --set reference to nil!
 
 myGroup:remove( myObject )
 myObject = nil  --set reference to nil!</pre>
-</div>
-<div id="group-removal" class="section level3">
+</section>
+<section id="group-removal" class="level3">
 <h3>Group Removal</h3>
 <p>This method removes all children in a display group — all you need to do is remove the display group itself and then <code>nil</code> its reference.</p>
 <pre class="brush: lua;">display.remove( myGroup )
@@ -333,18 +333,18 @@ Important
 <ul>
 <li><p>As mentioned in the <a href="#reference">Object References</a> section above, if there are other variables or references that point to a display object, it cannot be completely freed from memory. The solution is to <code>nil</code> out <strong>all</strong> of these external references. Once that is done, Lua can free the memory allocation.</p></li>
 <li><p>Global variables are never automatically freed from memory, so if a global variable points to a display object, it will continue to occupy memory even if the object is no longer in the display hierarchy. Remember to <code>nil</code> all global references to display objects.</p></li>
-<li><p>When you remove a display object, event listeners that are attached to it — tap and touch listeners, for example — are also freed from memory. You don't need to explicitly remove event listeners that are isolated to the object.</p></li>
+<li><p>When you remove a display object, event listeners that are attached to it — tap and touch listeners, for example — are also freed from memory. You don’t need to explicitly remove event listeners that are isolated to the object.</p></li>
 <li><p><a href="../../../api/library/transition/index.html">Transitions</a> that are applied to an object should be cancelled and set to <code>nil</code> before you remove the object. Since display objects are essentially Lua tables, one convenient method is to set the transition as a property of the display object itself. This allows you to easily access and cancel it.</p></li>
 </ul>
 </div>
 <p><a id="technotes"></a></p>
-</div>
-</div>
-<div id="technical-notes" class="section level2">
+</section>
+</section>
+<section id="technical-notes" class="level2">
 <h2>Technical Notes</h2>
-<p>Near the beginning of this guide, we mentioned that display objects behave &quot;essentially&quot; like Lua tables. An exception to this rule is that you cannot set the metatables of display objects. This is due to the nature of our C++/Lua integration in this particular case.</p>
-<p>Corona display objects are native C++ objects internally. Lua implements binding of native pointers with &quot;userdata,&quot; which sets the metatable. Userdata metatables cannot be replaced by Lua code; this is a measure defined by Lua itself.</p>
-<p>Normally, native objects bound to Lua in this way do not behave like tables. There are several examples of this in Corona. Such objects may have properties and/or methods, but they are not extensible. In contrast, Corona display objects do behave like tables — this is a convenience feature, and the alternative would have been a field of &quot;userdata&quot; providing access to custom data associated with the display object. Merging this functionality directly into the display object is easier and more extensible for the end user.</p>
+<p>Near the beginning of this guide, we mentioned that display objects behave “essentially” like Lua tables. An exception to this rule is that you cannot set the metatables of display objects. This is due to the nature of our C++/Lua integration in this particular case.</p>
+<p>Corona display objects are native C++ objects internally. Lua implements binding of native pointers with “userdata,” which sets the metatable. Userdata metatables cannot be replaced by Lua code; this is a measure defined by Lua itself.</p>
+<p>Normally, native objects bound to Lua in this way do not behave like tables. There are several examples of this in Corona. Such objects may have properties and/or methods, but they are not extensible. In contrast, Corona display objects do behave like tables — this is a convenience feature, and the alternative would have been a field of “userdata” providing access to custom data associated with the display object. Merging this functionality directly into the display object is easier and more extensible for the end user.</p>
 <p>Essentially, the underlying native bridge is constrained by what is allowed in Lua, and we consider this architectural choice as a fundamental Corona feature. Ultimately, Corona is a C++/OpenGL engine with frameworks designed for rapid development, and these advantages justify the use of metatables for display objects.</p>
 <hr>
 <div id="footer">
@@ -356,8 +356,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

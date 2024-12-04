@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | AdMob</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -60,20 +60,20 @@
 <li><a href="#registration">Registration</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#functions">Functions</a><ul>
-<li><a href="#admob.initplugin.admob.init"><a href="../../plugin/admob/init.html">admob.init()</a></a></li>
-<li><a href="#admob.loadplugin.admob.load"><a href="../../plugin/admob/load.html">admob.load()</a></a></li>
-<li><a href="#admob.isloadedplugin.admob.isloaded"><a href="../../plugin/admob/isLoaded.html">admob.isLoaded()</a></a></li>
-<li><a href="#admob.showplugin.admob.show"><a href="../../plugin/admob/show.html">admob.show()</a></a></li>
-<li><a href="#admob.hideplugin.admob.hide"><a href="../../plugin/admob/hide.html">admob.hide()</a></a></li>
-<li><a href="#admob.heightplugin.admob.height"><a href="../../plugin/admob/height.html">admob.height()</a></a></li>
-<li><a href="#admob.setvideoadvolumeplugin.admob.setvideoadvolume"><a href="../../plugin/admob/setVideoAdVolume.html">admob.setVideoAdVolume()</a></a></li>
-<li><a href="#admob.updateconsentformplugin.admob.updateconsentform"><a href="../../plugin/admob/updateConsentForm.html">admob.updateConsentForm()</a></a></li>
-<li><a href="#admob.loadconsentformplugin.admob.loadconsentform"><a href="../../plugin/admob/loadConsentForm.html">admob.loadConsentForm()</a></a></li>
-<li><a href="#admob.showconsentformplugin.admob.showconsentform"><a href="../../plugin/admob/showConsentForm.html">admob.showConsentForm()</a></a></li>
-<li><a href="#admob.getconsentformstatusplugin.admob.getconsentformstatus"><a href="../../plugin/admob/getConsentFormStatus.html">admob.getConsentFormStatus()</a></a></li>
+<li><a href="#admob.initplugin.admob.init"><span>admob.init()</span></a></li>
+<li><a href="#admob.loadplugin.admob.load"><span>admob.load()</span></a></li>
+<li><a href="#admob.isloadedplugin.admob.isloaded"><span>admob.isLoaded()</span></a></li>
+<li><a href="#admob.showplugin.admob.show"><span>admob.show()</span></a></li>
+<li><a href="#admob.hideplugin.admob.hide"><span>admob.hide()</span></a></li>
+<li><a href="#admob.heightplugin.admob.height"><span>admob.height()</span></a></li>
+<li><a href="#admob.setvideoadvolumeplugin.admob.setvideoadvolume"><span>admob.setVideoAdVolume()</span></a></li>
+<li><a href="#admob.updateconsentformplugin.admob.updateconsentform"><span>admob.updateConsentForm()</span></a></li>
+<li><a href="#admob.loadconsentformplugin.admob.loadconsentform"><span>admob.loadConsentForm()</span></a></li>
+<li><a href="#admob.showconsentformplugin.admob.showconsentform"><span>admob.showConsentForm()</span></a></li>
+<li><a href="#admob.getconsentformstatusplugin.admob.getconsentformstatus"><span>admob.getConsentFormStatus()</span></a></li>
 </ul></li>
 <li><a href="#events">Events</a><ul>
-<li><a href="#adsrequestplugin.admob.event.adsrequest"><a href="../../plugin/admob/event/adsRequest/index.html">adsRequest</a></a></li>
+<li><a href="#adsrequestplugin.admob.event.adsrequest"><span>adsRequest</span></a></li>
 </ul></li>
 <li><a href="#project-settings">Project Settings</a></li>
 <li><a href="#google-admob-mediation-setup">Google AdMob Mediation setup</a></li>
@@ -84,31 +84,31 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/admob/index.html">AdMob</a>
 </div>
-<div id="admob." class="section level1">
+<section id="admob." class="level1">
 <h1>admob.*</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Library.html">Library</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Library.html">Library</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">ads, advertising, AdMob</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">ads, advertising, AdMob</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Platforms</strong></td>
-<td align="left">Android, iOS</td>
+<td style="text-align: left;"><strong>Platforms</strong></td>
+<td style="text-align: left;">Android, iOS</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>The AdMob plugin allows developers to monetize users through AdMob static interstitial ads, video interstitial ads, rewarded video ads, and banner ads.</p>
 <div class="guide-notebox-imp">
@@ -118,61 +118,61 @@ Important
 <p>Check out new <code>hasUserConsent</code> <a href="../../plugin/admob/load.html">admob.load()</a> parameter to enable GDPR data collection restrictions.</p>
 <p>The new UMP/CMP apis <code>updateConsentForm</code>, <code>loadConsentForm</code>, <code>showConsentForm</code>, and <code>getConsentFormStatus</code> are only available on Solar2D Sim 2023.3686+</p>
 </div>
-</div>
-<div id="registration" class="section level2">
+</section>
+<section id="registration" class="level2">
 <h2>Registration</h2>
 <p>Before you can use this plugin, you must <a href="https://www.google.com/admob/">register</a> with AdMob.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">local admob = require( "plugin.admob" )</pre>
-</div>
-<div id="functions" class="section level2">
+</section>
+<section id="functions" class="level2">
 <h2>Functions</h2>
-<div id="admob.initplugin.admob.init" class="section level4">
+<section id="admob.initplugin.admob.init" class="level4">
 <h4><a href="../../plugin/admob/init.html">admob.init()</a></h4>
-</div>
-<div id="admob.loadplugin.admob.load" class="section level4">
+</section>
+<section id="admob.loadplugin.admob.load" class="level4">
 <h4><a href="../../plugin/admob/load.html">admob.load()</a></h4>
-</div>
-<div id="admob.isloadedplugin.admob.isloaded" class="section level4">
+</section>
+<section id="admob.isloadedplugin.admob.isloaded" class="level4">
 <h4><a href="../../plugin/admob/isLoaded.html">admob.isLoaded()</a></h4>
-</div>
-<div id="admob.showplugin.admob.show" class="section level4">
+</section>
+<section id="admob.showplugin.admob.show" class="level4">
 <h4><a href="../../plugin/admob/show.html">admob.show()</a></h4>
-</div>
-<div id="admob.hideplugin.admob.hide" class="section level4">
+</section>
+<section id="admob.hideplugin.admob.hide" class="level4">
 <h4><a href="../../plugin/admob/hide.html">admob.hide()</a></h4>
-</div>
-<div id="admob.heightplugin.admob.height" class="section level4">
+</section>
+<section id="admob.heightplugin.admob.height" class="level4">
 <h4><a href="../../plugin/admob/height.html">admob.height()</a></h4>
-</div>
-<div id="admob.setvideoadvolumeplugin.admob.setvideoadvolume" class="section level4">
+</section>
+<section id="admob.setvideoadvolumeplugin.admob.setvideoadvolume" class="level4">
 <h4><a href="../../plugin/admob/setVideoAdVolume.html">admob.setVideoAdVolume()</a></h4>
-</div>
-<div id="admob.updateconsentformplugin.admob.updateconsentform" class="section level4">
+</section>
+<section id="admob.updateconsentformplugin.admob.updateconsentform" class="level4">
 <h4><a href="../../plugin/admob/updateConsentForm.html">admob.updateConsentForm()</a></h4>
-</div>
-<div id="admob.loadconsentformplugin.admob.loadconsentform" class="section level4">
+</section>
+<section id="admob.loadconsentformplugin.admob.loadconsentform" class="level4">
 <h4><a href="../../plugin/admob/loadConsentForm.html">admob.loadConsentForm()</a></h4>
-</div>
-<div id="admob.showconsentformplugin.admob.showconsentform" class="section level4">
+</section>
+<section id="admob.showconsentformplugin.admob.showconsentform" class="level4">
 <h4><a href="../../plugin/admob/showConsentForm.html">admob.showConsentForm()</a></h4>
-</div>
-<div id="admob.getconsentformstatusplugin.admob.getconsentformstatus" class="section level4">
+</section>
+<section id="admob.getconsentformstatusplugin.admob.getconsentformstatus" class="level4">
 <h4><a href="../../plugin/admob/getConsentFormStatus.html">admob.getConsentFormStatus()</a></h4>
-</div>
-</div>
-<div id="events" class="section level2">
+</section>
+</section>
+<section id="events" class="level2">
 <h2>Events</h2>
-<div id="adsrequestplugin.admob.event.adsrequest" class="section level4">
+<section id="adsrequestplugin.admob.event.adsrequest" class="level4">
 <h4><a href="../../plugin/admob/event/adsRequest/index.html">adsRequest</a></h4>
-</div>
-</div>
-<div id="project-settings" class="section level2">
+</section>
+</section>
+<section id="project-settings" class="level2">
 <h2>Project Settings</h2>
 <p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
-<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9,10,11,15,16,17,18,19,20,21,22,26,27,28,29,30]; first-line: 1;">settings =
+<pre class="highlight: [5,6,7,8,9,10,11,15,16,17,18,19,20,21,22,26,27,28,29,30]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     android =
     {
@@ -214,7 +214,7 @@ Important
 <div class="notebox-title-imp">
 Important
 </div>
-<p>If you are building for Android, you should <strong>remove</strong> any legacy inclusion of the <code>[&quot;plugin.google.play.services&quot;]</code> plugin from your <code>build.settings</code>.</p>
+<p>If you are building for Android, you should <strong>remove</strong> any legacy inclusion of the <code>["plugin.google.play.services"]</code> plugin from your <code>build.settings</code>.</p>
 </div>
 <div class="guide-notebox">
 <div class="notebox-title">
@@ -222,23 +222,23 @@ Note
 </div>
 <p>For Android, the following permissions/features are automatically added when using this plugin:</p>
 <ul>
-<li><code>&quot;android.permission.INTERNET&quot;</code></li>
-<li><code>&quot;android.permission.ACCESS_NETWORK_STATE&quot;</code></li>
+<li><code>"android.permission.INTERNET"</code></li>
+<li><code>"android.permission.ACCESS_NETWORK_STATE"</code></li>
 </ul>
 </div>
-</div>
-<div id="google-admob-mediation-setup" class="section level2">
+</section>
+<section id="google-admob-mediation-setup" class="level2">
 <h2>Google AdMob Mediation setup</h2>
 <p>AdMob plugin can be used to serve ads from other networks to give your monetization a boost on Android.</p>
 <p>To use this feature, you would have to connect each individual network manually using AdMob interface. List of available networks with links to set up instructions can be found <a href="https://developers.google.com/admob/android/mediate#mediation-networks">here</a>.</p>
-<p>Most of the networks would have &quot;Import the SDK and adapter&quot; step. To implement it, add Gradle dependencies to special file <code>corona.gradle</code> within <code>AndroidResource</code> directory inside your Solar2D Project.</p>
+<p>Most of the networks would have “Import the SDK and adapter” step. To implement it, add Gradle dependencies to special file <code>corona.gradle</code> within <code>AndroidResource</code> directory inside your Solar2D Project.</p>
 <p>For example, to use Facebook and AppLoving networks contents of the <code>AndroidResources/corona.gradle</code> file should be:</p>
 <pre class="brush: lua;">dependencies {
     implementation 'com.google.ads.mediation:facebook:6.2.0.0'
     implementation 'com.google.ads.mediation:applovin:9.14.5.0'
 }</pre>
-</div>
-<div id="sample-project" class="section level2">
+</section>
+<section id="sample-project" class="level2">
 <h2>Sample project</h2>
 <ul>
 <li><a href="https://github.com/coronalabs/plugins-sample-admob">View on GitHub</a></li>
@@ -253,8 +253,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

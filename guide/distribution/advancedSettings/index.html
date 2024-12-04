@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Building/Distribution</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -79,7 +79,7 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/distribution/index.html">Building/Distribution</a>
 </div>
-<div id="advanced-build-settings" class="section level1">
+<section id="advanced-build-settings" class="level1">
 <h1>Advanced Build Settings</h1>
 <p>This guide outlines various advanced build options for Solar2D apps.</p>
 <div class="docs-tip-outer docs-tip-color-alert">
@@ -89,7 +89,7 @@
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>This guide is intended for those who require more specialized configuration options and customized app settings. If you're looking for general/basic build settings and options, please consult the <a href="../../../guide/distribution/buildSettings/index.html">Project Build Settings</a> guide.</p>
+<p>This guide is intended for those who require more specialized configuration options and customized app settings. If you’re looking for general/basic build settings and options, please consult the <a href="../../../guide/distribution/buildSettings/index.html">Project Build Settings</a> guide.</p>
 </div>
 </div>
 <div class="guides-toc">
@@ -101,12 +101,12 @@
 </ul>
 </div>
 <p><a id="ios"></a></p>
-<div id="advanced-settings-ios" class="section level2">
+<section id="advanced-settings-ios" class="level2">
 <h2>Advanced Settings — iOS</h2>
-<div id="device-capabilities" class="section level3">
+<section id="device-capabilities" class="level3">
 <h3>Device Capabilities</h3>
-<p>If you wish to limit your iOS app to devices with specific capabilities, you can include the optional <code>UIRequiredDeviceCapabilities</code> key within the <nobr><code>iphone</code> → <code>plist</code></nobr> table. The value of this key should be a table containing specific keys matching Apple's <a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html#//apple_ref/doc/uid/TP40009252-SW3">documentation</a>. For example:</p>
-<pre class="brush: lua; gutter: false; highlight: [7,8,9,10]; first-line: 1;">settings =
+<p>If you wish to limit your iOS app to devices with specific capabilities, you can include the optional <code>UIRequiredDeviceCapabilities</code> key within the <nobr><code>iphone</code> → <code>plist</code></nobr> table. The value of this key should be a table containing specific keys matching Apple’s <a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html#//apple_ref/doc/uid/TP40009252-SW3">documentation</a>. For example:</p>
+<pre class="highlight: [7,8,9,10]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     iphone =
     {
@@ -129,19 +129,19 @@
 Notes
 </div>
 <ul>
-<li><p>You should only include a specific key if you absolutely <strong>must</strong> limit the app's target devices — if it doesn't matter whether a device supports a certain capability, omit its key.</p></li>
-<li><p>Omitting a key's <strong>value</strong> will yield the same result as setting it to <code>true</code>. For instance, the following are equivalent:</p></li>
+<li><p>You should only include a specific key if you absolutely <strong>must</strong> limit the app’s target devices — if it doesn’t matter whether a device supports a certain capability, omit its key.</p></li>
+<li><p>Omitting a key’s <strong>value</strong> will yield the same result as setting it to <code>true</code>. For instance, the following are equivalent:</p></li>
 </ul>
 <div class="code-indent">
-<p><code>UIRequiredDeviceCapabilities = { &quot;gyroscope&quot; }</code></p>
-<p><code>UIRequiredDeviceCapabilities = { [&quot;gyroscope&quot;] = true }</code></p>
+<p><code>UIRequiredDeviceCapabilities = { "gyroscope" }</code></p>
+<p><code>UIRequiredDeviceCapabilities = { ["gyroscope"] = true }</code></p>
 </div>
 </div>
-</div>
-<div id="png-processing" class="section level3">
+</section>
+<section id="png-processing" class="level3">
 <h3>PNG Processing</h3>
 <p>If you need to circumvent PNG file processing (<code>pngcrush</code>) at build time, you can include the <code>skipPNGCrush</code> key with a value of <code>true</code>. This key should be specified outside of the <code>plist</code> table but inside the <code>iphone</code> table:</p>
-<pre class="brush: lua; gutter: false; highlight: [9]; first-line: 1;">settings =
+<pre class="highlight: [9]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     iphone =
     {
@@ -152,11 +152,11 @@ Notes
         skipPNGCrush = true,
     },
 }</pre>
-</div>
-<div id="alternate-icon" class="section level3">
+</section>
+<section id="alternate-icon" class="level3">
 <h3>Alternate Icon</h3>
 <p>If you want to include alternate icons with your xassets project, use <code>alternateIcons</code> and include array of the icon names. Only available in Solar2D Sim 2023.3692+</p>
-<pre class="brush: lua; gutter: false; highlight: [9]; first-line: 1;">settings =
+<pre class="highlight: [9]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     iphone =
     {
@@ -169,14 +169,14 @@ Notes
     },
 }</pre>
 <p><a id="android"></a></p>
-</div>
-</div>
-<div id="advanced-settings-android" class="section level2">
+</section>
+</section>
+<section id="advanced-settings-android" class="level2">
 <h2>Advanced Settings — Android</h2>
-<div id="minimum-sdk-version" class="section level3">
+<section id="minimum-sdk-version" class="level3">
 <h3>Minimum SDK Version</h3>
 <p>Providing a minimum SDK version with the <code>minSdkVersion</code> key value allows you to exclude your app from being installed on devices with older versions of the Android OS. It corresponds to the <code>minSdkVersion</code> item detailed <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html">here</a>. This setting is invisible to users.</p>
-<pre class="brush: lua; gutter: false; highlight: [5]; first-line: 1;">settings =
+<pre class="highlight: [5]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     android =
     {
@@ -189,16 +189,16 @@ Notes
 </div>
 <ul>
 <li><p>The minimum SDK version must be specified as an <strong>integer</strong> — it cannot contain any decimal points.</p></li>
-<li><p>Solar2D only allows values as low as <code>&quot;15&quot;</code> for Android <strong>4.0.3</strong> (the oldest version supported by Solar2D). For details on the various Android SDK versions and API levels, see <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">here</a>.</p></li>
-<li><p>The minimum SDK version defaults to <code>&quot;15&quot;</code> if not specified otherwise.</p></li>
+<li><p>Solar2D only allows values as low as <code>"15"</code> for Android <strong>4.0.3</strong> (the oldest version supported by Solar2D). For details on the various Android SDK versions and API levels, see <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">here</a>.</p></li>
+<li><p>The minimum SDK version defaults to <code>"15"</code> if not specified otherwise.</p></li>
 </ul>
 </div>
-</div>
-<div id="android-tv" class="section level3">
+</section>
+<section id="android-tv" class="level3">
 <h3>Android TV</h3>
 <p>If you are deploying an app to Android TV, you should include the <code>supportsTV</code> key with a value of <code>true</code>. This will make the app available to Android TV devices via purchase through Google Play.</p>
 <p>In addition, you can set the <code>isGame</code> key with a value of <code>true</code> to categorize the app under the <strong>games</strong> section of Google Play. If this key is omitted or set to <code>false</code>, the app will be categorized under the <strong>apps</strong> section.</p>
-<pre class="brush: lua; gutter: false; highlight: [5,6]; first-line: 1;">settings =
+<pre class="highlight: [5,6]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     android =
     {
@@ -206,11 +206,11 @@ Notes
         isGame = true,
     },
 }</pre>
-</div>
-<div id="screen-support" class="section level3">
+</section>
+<section id="screen-support" class="level3">
 <h3>Screen Support</h3>
 <p>The optional <code>supportsScreens</code> table specifies/limits which screens an Android app supports. See the Android <a href="https://developer.android.com/guide/topics/manifest/supports-screens-element.html">documentation</a> for detailed descriptions and more options.</p>
-<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9,10,11,12]; first-line: 1;">settings =
+<pre class="highlight: [5,6,7,8,9,10,11,12]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     android =
     {
@@ -224,11 +224,11 @@ Notes
         },
     },
 }</pre>
-</div>
-<div id="disabling-file-access" class="section level3">
+</section>
+<section id="disabling-file-access" class="level3">
 <h3>Disabling File Access</h3>
-<p>By default, other apps are granted <nobr>read-only</nobr> access to your app's files via an Android <code>content://</code> URL. This is required to attach your app's files to <nobr>e-mails</nobr>, post photos via the <a href="../../../plugin/CoronaProvider_native_popup_social/index.html">social</a> plugin, or open your files via the <a href="../../../api/library/system/openURL.html">system.openURL()</a> function. If you want to block all access to your app's files, set the following in the <code>build.settings</code> file:</p>
-<pre class="brush: lua; gutter: false; highlight: [5]; first-line: 1;">settings =
+<p>By default, other apps are granted <nobr>read-only</nobr> access to your app’s files via an Android <code>content://</code> URL. This is required to attach your app’s files to <nobr>e-mails</nobr>, post photos via the <a href="../../../plugin/CoronaProvider_native_popup_social/index.html">social</a> plugin, or open your files via the <a href="../../../api/library/system/openURL.html">system.openURL()</a> function. If you want to block all access to your app’s files, set the following in the <code>build.settings</code> file:</p>
+<pre class="highlight: [5]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     android =
     {
@@ -239,34 +239,34 @@ Notes
 <div class="notebox-title">
 Note
 </div>
-<p>You cannot block file access on Android devices which have been rooted. This applies to all Android apps, including those not built with Solar2D. Thus, if your app's files contain any sensitive information, it's recommended that you encrypt this information yourself.</p>
+<p>You cannot block file access on Android devices which have been rooted. This applies to all Android apps, including those not built with Solar2D. Thus, if your app’s files contain any sensitive information, it’s recommended that you encrypt this information yourself.</p>
 </div>
-</div>
-<div id="large-heap" class="section level3">
+</section>
+<section id="large-heap" class="level3">
 <h3>Large Heap</h3>
 <p>You can request that the Android OS provides your app with more heap memory in Java by adding the <code>largeHeap</code> key with a value of <code>true</code>. For example, it may raise the max heap size on a particular device from 32 MB to 256 MB. This parameter might be a viable option if your app is triggering <nobr>out-of-memory</nobr> exceptions on <nobr>low-end</nobr> devices.</p>
-<pre class="brush: lua; gutter: false; highlight: [5]; first-line: 1;">settings =
+<pre class="highlight: [5]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     android =
     {
         largeHeap = true,
     },
 }</pre>
-</div>
-<div id="android-directives" class="section level3">
+</section>
+<section id="android-directives" class="level3">
 <h3>Android Directives</h3>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
 Important
 </div>
-<p>This section details additional directives which can be used to <nobr>fine-tune</nobr> the <code>AndroidManifest.xml</code> in your application. They are rarely needed and if you don't understand what they do, you can break your application or cause unexpected behavior. Essentially, use of these directives is <strong>not</strong> recommended unless you're familiar with the concepts involved.</p>
+<p>This section details additional directives which can be used to <nobr>fine-tune</nobr> the <code>AndroidManifest.xml</code> in your application. They are rarely needed and if you don’t understand what they do, you can break your application or cause unexpected behavior. Essentially, use of these directives is <strong>not</strong> recommended unless you’re familiar with the concepts involved.</p>
 </div>
 <p>The following specialized directives are available for <nobr>Solar2D-built</nobr> Android apps:</p>
 <ul>
 <li><code>strings</code> — This directive enables the creation of a <code>strings.xml</code> file in the <code>.apk</code>.</li>
 </ul>
 <div class="code-indent" style="margin-bottom: 20px;">
-<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9]; first-line: 1;">settings =
+<pre class="highlight: [5,6,7,8,9]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     android =
     {
@@ -282,7 +282,7 @@ Important
 <li><code>permissions</code> — This directive enables the creation of custom Android permissions.</li>
 </ul>
 <div class="code-indent" style="margin-bottom: 20px;">
-<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9,10,11,12,13,14,15]; first-line: 1;">settings =
+<pre class="highlight: [5,6,7,8,9,10,11,12,13,14,15]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     android =
     {
@@ -304,7 +304,7 @@ Important
 <li><code>manifestChildElements</code> — This directive adds XML elements to the <code>manifest</code> element of <code>AndroidManifest.xml</code>.</li>
 </ul>
 <div class="code-indent" style="margin-bottom: 20px;">
-<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9,10,11]; first-line: 1;">settings =
+<pre class="highlight: [5,6,7,8,9,10,11]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     android =
     {
@@ -322,7 +322,7 @@ Important
 <li><code>applicationChildElements</code> — This directive adds XML elements to the <code>application</code> element of <code>AndroidManifest.xml</code>.</li>
 </ul>
 <div class="code-indent" style="margin-bottom: 20px;">
-<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9,10,11,12]; first-line: 1;">settings =
+<pre class="highlight: [5,6,7,8,9,10,11,12]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     android =
     {
@@ -341,7 +341,7 @@ Important
 <li><code>apkFiles</code> — This directive causes files to be copied from the project directory to the root of the <code>.apk</code> file, preserving any directory hierarchy. In the following example, <nobr><code>google-play-services.json</code></nobr> is copied to the root of the <code>.apk</code> and <code>res/raw/mypage.html</code> is copied to <code>res/raw</code>. The file paths are always relative to the base directory of the project.</li>
 </ul>
 <div class="code-indent">
-<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9]; first-line: 1;">settings =
+<pre class="highlight: [5,6,7,8,9]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     android =
     {
@@ -354,7 +354,7 @@ Important
 }</pre>
 </div>
 <ul>
-<li><code>coronaActivityFlags</code> — This directive allows attributes to be added to the <code>com.ansca.corona.CoronaActivity</code> activity definition in the app's <code>AndroidManifest.xml</code>. Activity attributes are documented <a href="https://developer.android.com/guide/topics/manifest/activity-element.html">here</a>.</li>
+<li><code>coronaActivityFlags</code> — This directive allows attributes to be added to the <code>com.ansca.corona.CoronaActivity</code> activity definition in the app’s <code>AndroidManifest.xml</code>. Activity attributes are documented <a href="https://developer.android.com/guide/topics/manifest/activity-element.html">here</a>.</li>
 </ul>
 <div class="code-indent">
 <p>Solar2D uses the following attributes for its own purposes and they cannot be overridden:</p>
@@ -362,39 +362,39 @@ Important
 <table>
 <thead>
 <tr class="header">
-<th align="left">Attribute</th>
+<th style="text-align: left;">Attribute</th>
 <th></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>android:configChanges</code></td>
+<td style="text-align: left;"><code>android:configChanges</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td align="left"><code>android:label</code></td>
+<td style="text-align: left;"><code>android:label</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>android:launchMode</code></td>
+<td style="text-align: left;"><code>android:launchMode</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td align="left"><code>android:name</code></td>
+<td style="text-align: left;"><code>android:name</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>android:screenOrientation</code></td>
+<td style="text-align: left;"><code>android:screenOrientation</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td align="left"><code>android:theme</code></td>
+<td style="text-align: left;"><code>android:theme</code></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 </div>
-<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9]; first-line: 1;">settings =
+<pre class="highlight: [5,6,7,8,9]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     android =
     {
@@ -407,9 +407,9 @@ Important
 }</pre>
 </div>
 <p><a id="plugins"></a></p>
-</div>
-</div>
-<div id="plugins-supported-platforms" class="section level2">
+</section>
+</section>
+<section id="plugins-supported-platforms" class="level2">
 <h2>Plugins — Supported Platforms</h2>
 <p>If necessary, you may fine-tune a plugin to be supported only on specific platforms. This is done by including a <code>supportedPlatforms</code> table with <nobr>key-value</nobr> pairs <nobr>(value of <code>true</code>)</nobr> which indicate the platform(s) that a plugin should be supported on. For example:</p>
 <pre class="brush: lua;">["plugin.gpgs"] =
@@ -422,38 +422,38 @@ Important
 <table>
 <thead>
 <tr class="header">
-<th align="left">Key</th>
-<th align="left">Platform(s)</th>
+<th style="text-align: left;">Key</th>
+<th style="text-align: left;">Platform(s)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>iphone</code></td>
-<td align="left">all iOS devices</td>
+<td style="text-align: left;"><code>iphone</code></td>
+<td style="text-align: left;">all iOS devices</td>
 </tr>
 <tr class="even">
-<td align="left"><code>android</code></td>
-<td align="left">all Android devices</td>
+<td style="text-align: left;"><code>android</code></td>
+<td style="text-align: left;">all Android devices</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>appletvos</code></td>
-<td align="left">Apple TV</td>
+<td style="text-align: left;"><code>appletvos</code></td>
+<td style="text-align: left;">Apple TV</td>
 </tr>
 <tr class="even">
-<td align="left"><code>macos</code></td>
-<td align="left">macOS desktop</td>
+<td style="text-align: left;"><code>macos</code></td>
+<td style="text-align: left;">macOS desktop</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>win32</code></td>
-<td align="left">Windows desktop</td>
+<td style="text-align: left;"><code>win32</code></td>
+<td style="text-align: left;">Windows desktop</td>
 </tr>
 <tr class="even">
-<td align="left"><code>[&quot;android-kindle&quot;]</code></td>
-<td align="left">Amazon Kindle</td>
+<td style="text-align: left;"><code>["android-kindle"]</code></td>
+<td style="text-align: left;">Amazon Kindle</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>[&quot;iphone-sim&quot;]</code></td>
-<td align="left">Xcode iOS Simulator</td>
+<td style="text-align: left;"><code>["iphone-sim"]</code></td>
+<td style="text-align: left;">Xcode iOS Simulator</td>
 </tr>
 </tbody>
 </table>
@@ -464,7 +464,7 @@ Note
 </div>
 <p>Omitting the <code>supportedPlatforms</code> table effectively includes the plugin on all platforms that it inherently supports.</p>
 </div>
-<div id="forcing-plugin-versions" class="section level3">
+<section id="forcing-plugin-versions" class="level3">
 <h3>Forcing Plugin versions</h3>
 <p>You can set versions to be the same as GitHub tag name for the release for plugin found on <a href="https://plugins.solar2d.com">the Solar2D Free Plugins Directory</a>. For the plugin in example <a href="https://github.com/coronalabs/com.coronalabs-CoronaProvider.native.popup.activity/releases">here are available releases</a> Note this requires Solar2D 3676+</p>
 <pre class="brush: lua;">plugins = {
@@ -474,14 +474,14 @@ Note
      },
 },</pre>
 <p><a id="buildcontrol"></a></p>
-</div>
-</div>
-<div id="build-control" class="section level2">
+</section>
+</section>
+<section id="build-control" class="level2">
 <h2>Build Control</h2>
 <p>Normally, distribution builds of an app (those intended for app stores) have Lua debug info stripped from the compiled code, while development builds are not stripped. Generally, stripping debug symbols is preferred for distribution because it reduces app size and provides a small performance gain, but this entirely depends on the type of app and how you prefer to do error reporting.</p>
 <p>In iOS, distribution builds are made by using a provisioning profile whose name contains <strong>iPhone Distribution:</strong> and on Android they are made by using a keystore with any name except <strong>Debug</strong>.</p>
-<p>Sometimes it can be useful to have debug symbols available in distribution builds of your app. This means that you get more detail in stack traces and runtime error messages. Depending on your needs, the <code>neverStripDebugInfo</code> setting can be used to turn off debug symbol stripping altogether. In theory, there's no reason why an app built with this setting could not be submitted to an app store, but policies vary and there are no guarantees — just be aware that the debug info may reveal details of your app that you may prefer remain proprietary.</p>
-<pre class="brush: lua; gutter: false; highlight: [3,4,5,6]; first-line: 1;">settings =
+<p>Sometimes it can be useful to have debug symbols available in distribution builds of your app. This means that you get more detail in stack traces and runtime error messages. Depending on your needs, the <code>neverStripDebugInfo</code> setting can be used to turn off debug symbol stripping altogether. In theory, there’s no reason why an app built with this setting could not be submitted to an app store, but policies vary and there are no guarantees — just be aware that the debug info may reveal details of your app that you may prefer remain proprietary.</p>
+<pre class="highlight: [3,4,5,6]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     build =
     {
@@ -498,8 +498,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Tutorials | Events/Listeners</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -78,13 +78,13 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/events/index.html">Events/Listeners</a>
 </div>
-<div id="continuous-actions" class="section level1">
+<section id="continuous-actions" class="level1">
 <h1>Continuous Actions</h1>
-<p>In some apps, you'll need to perform some <strong>continuous action</strong> while the user's touch remains on the screen. This could include a space ship firing its lasers while the player holds down a &quot;fire&quot; button or the <nobr>commonly-used</nobr> &quot;move buttons&quot; found in most 2D platformers.</p>
-<p>For beginner developers, this process can be elusive, so let's explore some techniques for implementing continuous actions.</p>
-<div id="enabling-multitouch" class="section level2">
+<p>In some apps, you’ll need to perform some <strong>continuous action</strong> while the user’s touch remains on the screen. This could include a space ship firing its lasers while the player holds down a “fire” button or the <nobr>commonly-used</nobr> “move buttons” found in most 2D platformers.</p>
+<p>For beginner developers, this process can be elusive, so let’s explore some techniques for implementing continuous actions.</p>
+<section id="enabling-multitouch" class="level2">
 <h2>Enabling Multitouch</h2>
-<p>Most games which require continuous actions will also require <strong>multitouch</strong>, allowing the player to manipulate more than one <nobr>on-screen</nobr> control using multiple fingers. For instance, a 2D platformer with both &quot;move&quot; buttons and a &quot;jump&quot; button will usually let the player control one set with the left thumb and the other with the right thumb.</p>
+<p>Most games which require continuous actions will also require <strong>multitouch</strong>, allowing the player to manipulate more than one <nobr>on-screen</nobr> control using multiple fingers. For instance, a 2D platformer with both “move” buttons and a “jump” button will usually let the player control one set with the left thumb and the other with the right thumb.</p>
 <p>As outlined in the <a href="../../../guide/events/touchMultitouch/index.html">Tap/Touch/Multitouch</a> guide, multitouch is <strong>disabled</strong> by default, but enabling it is simple:</p>
 <pre class="brush: lua;">-- Activate multitouch
 system.activate( "multitouch" )</pre>
@@ -92,26 +92,23 @@ system.activate( "multitouch" )</pre>
 <div class="notebox-title">
 Note
 </div>
-<p>Depending on your game design, you should carefully consider where this command should be called. While it could be called as one of the first lines within <code>main.lua</code>, that may not be optimal — for instance, if your game begins with a menu scene <nobr>(most games do)</nobr> then you probably won't need multitouch capability at that point and, in that case, this command should be deferred until multitouch is actually needed.</p>
+<p>Depending on your game design, you should carefully consider where this command should be called. While it could be called as one of the first lines within <code>main.lua</code>, that may not be optimal — for instance, if your game begins with a menu scene <nobr>(most games do)</nobr> then you probably won’t need multitouch capability at that point and, in that case, this command should be deferred until multitouch is actually needed.</p>
 </div>
-<p>Now let's explore some common elements where <strong>continuous actions</strong> may apply:</p>
-</div>
-<div id="virtual-buttons" class="section level2">
+<p>Now let’s explore some common elements where <strong>continuous actions</strong> may apply:</p>
+</section>
+<section id="virtual-buttons" class="level2">
 <h2>Virtual Buttons</h2>
 <div class="float-right" style="max-width: 230px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/cont-actions-1.png" />
-
+<p><img src="../../../images/docs/cont-actions-1.png" /></p>
 </div>
-</div>
-<p>In mobile games which clearly lack a physical controller like a gamepad, a common UI element is a <strong>virtual button</strong>. These can range anywhere from &quot;jump&quot; buttons to &quot;fire&quot; buttons or nearly anything the game designer comes up with. In some cases, these offer a <nobr>one-press</nobr> type of behavior — tap/touch the button and the action occurs once, like a jump. In other cases, these perform an action for the entire time the player holds their touch over the button, like firing a continuous stream of lasers. This latter case is where continuous actions come into play.</p>
-<div id="creating-the-button-region" class="section level3">
+<p>In mobile games which clearly lack a physical controller like a gamepad, a common UI element is a <strong>virtual button</strong>. These can range anywhere from “jump” buttons to “fire” buttons or nearly anything the game designer comes up with. In some cases, these offer a <nobr>one-press</nobr> type of behavior — tap/touch the button and the action occurs once, like a jump. In other cases, these perform an action for the entire time the player holds their touch over the button, like firing a continuous stream of lasers. This latter case is where continuous actions come into play.</p>
+<section id="creating-the-button-region" class="level3">
 <h3>Creating the Button Region</h3>
-<p>Instead of creating dedicated buttons via a method like <a href="../../../api/library/widget/newButton.html">widget.newButton()</a>, we'll create a button <strong>region</strong> that can accommodate <strong>one or more</strong> buttons. This is necessary to achieve all of the continuous action functionality, as you'll learn in the course of this tutorial. It's also a convenient way to &quot;group&quot; related sets of buttons, for example a &quot;jump&quot; button directly beside a &quot;fire&quot; button.</p>
-<p>First, let's create a new <a href="../../../api/type/GroupObject/index.html">display group</a> to contain the region:</p>
-<pre class="brush: lua; gutter: true; highlight: [1]; first-line: 1;">local buttonGroup = display.newGroup()</pre>
-<p>Now, let's create a visual &quot;button&quot; for the region which is, in fact, just a standard image:</p>
-<pre class="brush: lua; gutter: true; highlight: [3,4,5]; first-line: 1;">local buttonGroup = display.newGroup()
+<p>Instead of creating dedicated buttons via a method like <a href="../../../api/library/widget/newButton.html">widget.newButton()</a>, we’ll create a button <strong>region</strong> that can accommodate <strong>one or more</strong> buttons. This is necessary to achieve all of the continuous action functionality, as you’ll learn in the course of this tutorial. It’s also a convenient way to “group” related sets of buttons, for example a “jump” button directly beside a “fire” button.</p>
+<p>First, let’s create a new <a href="../../../api/type/GroupObject/index.html">display group</a> to contain the region:</p>
+<pre class="highlight: [1]; first-line: 1; gutter: true; brush: lua;">local buttonGroup = display.newGroup()</pre>
+<p>Now, let’s create a visual “button” for the region which is, in fact, just a standard image:</p>
+<pre class="highlight: [3,4,5]; first-line: 1; gutter: true; brush: lua;">local buttonGroup = display.newGroup()
 
 local fireButton = display.newImageRect( buttonGroup, "fireButton.png", 64, 64 )
 fireButton.x, fireButton.y = 60, display.contentHeight-60</pre>
@@ -121,11 +118,11 @@ Important
 </div>
 <ul>
 <li><p>Note that this image is inserted into the button group via the specification of <code>buttonGroup</code> as the first parameter to <a href="../../../api/library/display/newImageRect.html">display.newImageRect()</a>.</p></li>
-<li><p>Once again, this is <strong>not</strong> a functional button, but rather just an image that defines the area within the button region where the player's touch interaction will be handled. Thus, it does not require the addition of a touch or tap event listener.</p></li>
+<li><p>Once again, this is <strong>not</strong> a functional button, but rather just an image that defines the area within the button region where the player’s touch interaction will be handled. Thus, it does not require the addition of a touch or tap event listener.</p></li>
 </ul>
 </div>
-<p>Now, let's create an object which will actually <strong>detect touches</strong> on/around the button. This object is merely an invisible vector rectangle which overlays the button image, and its size is automatically calculated by the image(s) previously inserted into <code>buttonGroup</code> like the <code>fireButton</code> image above.</p>
-<pre class="brush: lua; gutter: true; highlight: [6,7,8,9,10,11]; first-line: 3;">local fireButton = display.newImageRect( buttonGroup, "fireButton.png", 64, 64 )
+<p>Now, let’s create an object which will actually <strong>detect touches</strong> on/around the button. This object is merely an invisible vector rectangle which overlays the button image, and its size is automatically calculated by the image(s) previously inserted into <code>buttonGroup</code> like the <code>fireButton</code> image above.</p>
+<pre class="highlight: [6,7,8,9,10,11]; first-line: 3; gutter: true; brush: lua;">local fireButton = display.newImageRect( buttonGroup, "fireButton.png", 64, 64 )
 fireButton.x, fireButton.y = 60, display.contentHeight-60
 
 local groupBounds = buttonGroup.contentBounds
@@ -139,15 +136,15 @@ groupRegion.isHitTestable = true</pre>
 Notes
 </div>
 <ul>
-<li><p>The size of this <code>groupRegion</code> vector rectangle is actually 200 pixels <strong>larger</strong> than the button image, both horizontally and vertically. This is because, as discussed further on in this tutorial, we also need to handle when the player's touch moves from inside the button's region to outside it, or <nobr><strong>slide-off</strong></nobr>. While it might seem excessive to extend the rectangle so far outside the button on all sides, this helps ensure that the player can't swipe or move their touch very quickly off the button and still cause Solar2D to assume the touch is active. <nobr>Don't worry —</nobr> this large vector object will <strong>not</strong> block touch propagation to other objects in the scene unless the touch point is inside the bounds of a button image.</p></li>
+<li><p>The size of this <code>groupRegion</code> vector rectangle is actually 200 pixels <strong>larger</strong> than the button image, both horizontally and vertically. This is because, as discussed further on in this tutorial, we also need to handle when the player’s touch moves from inside the button’s region to outside it, or <nobr><strong>slide-off</strong></nobr>. While it might seem excessive to extend the rectangle so far outside the button on all sides, this helps ensure that the player can’t swipe or move their touch very quickly off the button and still cause Solar2D to assume the touch is active. <nobr>Don’t worry —</nobr> this large vector object will <strong>not</strong> block touch propagation to other objects in the scene unless the touch point is inside the bounds of a button image.</p></li>
 <li><p>On <nobr>lines 10 and 11</nobr>, we make the rectangle invisible <strong>and</strong> <nobr>hit-testable</nobr>. The <nobr><code>groupRegion.isHitTestable = true</code></nobr> command is especially important in this case because, by default, invisible objects will <strong>not</strong> detect touches. This command ensures that it <strong>will</strong> receive touch events.</p></li>
 </ul>
 </div>
-</div>
-<div id="region-detection-function" class="section level3">
+</section>
+<section id="region-detection-function" class="level3">
 <h3>Region Detection Function</h3>
-<p>To detect when a touch point on the <code>groupRegion</code> rectangle intersects the bounds of the <code>fireButton</code> image, we'll use a function. Essentially, when called, this function will loop through the image objects inserted into <code>buttonGroup</code> and, for each, check if the touch point is within that object's <strong>content bounds</strong>. If it detects that the touch point <strong>is</strong> within any button image's bounds, it returns a reference to that object.</p>
-<pre class="brush: lua; gutter: true; first-line: 13;">local function detectButton( event )
+<p>To detect when a touch point on the <code>groupRegion</code> rectangle intersects the bounds of the <code>fireButton</code> image, we’ll use a function. Essentially, when called, this function will loop through the image objects inserted into <code>buttonGroup</code> and, for each, check if the touch point is within that object’s <strong>content bounds</strong>. If it detects that the touch point <strong>is</strong> within any button image’s bounds, it returns a reference to that object.</p>
+<pre class="first-line: 13; gutter: true; brush: lua;">local function detectButton( event )
 
     for i = 1,buttonGroup.numChildren do
         local bounds = buttonGroup[i].contentBounds
@@ -165,18 +162,18 @@ end</pre>
 <div class="notebox-title">
 Note
 </div>
-<p>This code will only accurately test if the touch point is inside the rectangular edge bounds of a button. If you have a button which is visually circular as in the example button images shown above, this will not be perfectly accurate. In most games, however, it's sufficient to test that the touch point is within a rectangular region surrounding the button.</p>
-<p>Optionally, these conditions can be adjusted to be more (or less) forgiving in regards to where an active touch is acknowledged. For example, we can reduce the size of the valid region slightly to ensure that the touch is truly &quot;inside&quot; a button, insetting all four edges by 4 pixels as follows:</p>
+<p>This code will only accurately test if the touch point is inside the rectangular edge bounds of a button. If you have a button which is visually circular as in the example button images shown above, this will not be perfectly accurate. In most games, however, it’s sufficient to test that the touch point is within a rectangular region surrounding the button.</p>
+<p>Optionally, these conditions can be adjusted to be more (or less) forgiving in regards to where an active touch is acknowledged. For example, we can reduce the size of the valid region slightly to ensure that the touch is truly “inside” a button, insetting all four edges by 4 pixels as follows:</p>
 <pre class="brush: lua;">event.x > bounds.xMin + 4 and
 event.x &lt; bounds.xMax - 4 and
 event.y > bounds.yMin + 4 and
 event.y &lt; bounds.yMax - 4</pre>
 </div>
-</div>
-<div id="button-listener" class="section level3">
+</section>
+<section id="button-listener" class="level3">
 <h3>Button Listener</h3>
-<p>Now let's construct the listener function to handle touch events on the button region object:</p>
-<pre class="brush: lua; gutter: true; highlight: [30,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,50,51,52,53,54]; first-line: 28;">local function handleController( event )
+<p>Now let’s construct the listener function to handle touch events on the button region object:</p>
+<pre class="highlight: [30,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,50,51,52,53,54]; first-line: 28; gutter: true; brush: lua;">local function handleController( event )
 
     local touchOverButton = detectButton( event )
 
@@ -205,21 +202,21 @@ event.y &lt; bounds.yMax - 4</pre>
         return true
     end
 end</pre>
-<p>Let's inspect this function in more detail:</p>
-<ol style="list-style-type: decimal">
+<p>Let’s inspect this function in more detail:</p>
+<ol type="1">
 <li><p>On line 30, we call the <code>detectButton()</code> function from the previous step which, as you recall, returns a reference if the touch point intersects the bounds of any button within <code>buttonGroup</code>.</p></li>
-<li><p>For the <code>&quot;began&quot;</code> phase of a touch <nobr>(lines 32-44)</nobr>, if that touch point intersects a button, we first confirm that there is <strong>not</strong> an existing <code>touchID</code> property assigned to the <nobr>button group (line 35) —</nobr> this is an important aspect when multitouch is enabled because we don't want the player to be able to manipulate the same button with multiple fingers (touches) at the same time.</p></li>
+<li><p>For the <code>"began"</code> phase of a touch <nobr>(lines 32-44)</nobr>, if that touch point intersects a button, we first confirm that there is <strong>not</strong> an existing <code>touchID</code> property assigned to the <nobr>button group (line 35) —</nobr> this is an important aspect when multitouch is enabled because we don’t want the player to be able to manipulate the same button with multiple fingers (touches) at the same time.</p></li>
 <li><p>If this condition passes, and this touch is the first/only touch on the button group, we then assign the unique touch ID tracked by Solar2D (<code>event.id</code>) to the <code>touchID</code> property of the group (line 37).</p></li>
 <li><p>Following this, we set <code>buttonGroup.activeButton</code> to the button reference, then we take the proper action (in this case, start firing the weapon). Additionally, on line 43, we <nobr><code>return true</code></nobr> so that the touch will <strong>not</strong> propagate past the button to any <nobr>touch-sensitive</nobr> objects behind it.</p></li>
-<li><p>For the <code>&quot;ended&quot;</code> phase of a touch <nobr>(lines 46-54)</nobr>, if a button is active, we first &quot;release&quot; the touch ID associated with the button group by setting <code>buttonGroup.touchID</code> <nobr>to <code>nil</code> (line 49)</nobr>. We then set <code>buttonGroup.activeButton</code> to <code>nil</code>, then take the proper action (here, stop firing the weapon). Like the <code>&quot;began&quot;</code> phase, we also <nobr><code>return true</code></nobr> so that the touch will not propagate past the button to any <nobr>touch-sensitive</nobr> objects behind it.</p></li>
+<li><p>For the <code>"ended"</code> phase of a touch <nobr>(lines 46-54)</nobr>, if a button is active, we first “release” the touch ID associated with the button group by setting <code>buttonGroup.touchID</code> <nobr>to <code>nil</code> (line 49)</nobr>. We then set <code>buttonGroup.activeButton</code> to <code>nil</code>, then take the proper action (here, stop firing the weapon). Like the <code>"began"</code> phase, we also <nobr><code>return true</code></nobr> so that the touch will not propagate past the button to any <nobr>touch-sensitive</nobr> objects behind it.</p></li>
 </ol>
-</div>
-<div id="handling-slide-off" class="section level3">
+</section>
+<section id="handling-slide-off" class="level3">
 <h3>Handling <nobr>Slide-Off</nobr></h3>
-<p>As you can see, the <code>handleController()</code> function currently handles the <code>&quot;began&quot;</code> and <code>&quot;ended&quot;</code> phases of the touch — when the player touches within the bounds of a button, we can start firing the weapon and, when the player lifts off, we can stop firing. However, there is a <strong>very</strong> important case which you must account for: the <nobr><strong>slide-off</strong></nobr> case.</p>
-<p>Internally, Solar2D generates an <code>&quot;ended&quot;</code> phase when the user's touch lifts off an object, but this only occurs if the touch location is <nobr><strong>over the object</strong></nobr> at that point. By default, Solar2D will <strong>not</strong> generate an <code>&quot;ended&quot;</code> event if the user touches an object, slides their finger outside of its content bounds, and then releases. Thus, unless we take steps to account for this, the player can slide their touch outside of the bounds of the button region rectangle, release, and the weapon will continue firing!</p>
-<p>To prevent this, we can add another check using the <code>&quot;moved&quot;</code> event phase. As its name implies, this phase is triggered every time the player's finger moves from the initial touch point. Using it, we can ensure that the weapon stops firing when the player slides their touch outside the bounds of a button:</p>
-<pre class="brush: lua; gutter: true; highlight: [46,47,48,49,50,51,52]; first-line: 28;">local function handleController( event )
+<p>As you can see, the <code>handleController()</code> function currently handles the <code>"began"</code> and <code>"ended"</code> phases of the touch — when the player touches within the bounds of a button, we can start firing the weapon and, when the player lifts off, we can stop firing. However, there is a <strong>very</strong> important case which you must account for: the <nobr><strong>slide-off</strong></nobr> case.</p>
+<p>Internally, Solar2D generates an <code>"ended"</code> phase when the user’s touch lifts off an object, but this only occurs if the touch location is <nobr><strong>over the object</strong></nobr> at that point. By default, Solar2D will <strong>not</strong> generate an <code>"ended"</code> event if the user touches an object, slides their finger outside of its content bounds, and then releases. Thus, unless we take steps to account for this, the player can slide their touch outside of the bounds of the button region rectangle, release, and the weapon will continue firing!</p>
+<p>To prevent this, we can add another check using the <code>"moved"</code> event phase. As its name implies, this phase is triggered every time the player’s finger moves from the initial touch point. Using it, we can ensure that the weapon stops firing when the player slides their touch outside the bounds of a button:</p>
+<pre class="highlight: [46,47,48,49,50,51,52]; first-line: 28; gutter: true; brush: lua;">local function handleController( event )
 
     local touchOverButton = detectButton( event )
 
@@ -257,20 +254,20 @@ end</pre>
     end
 end</pre>
 <p>Basically, with this additional code, we conditionally check if the touch point is outside the button <strong>and</strong> that <code>buttonGroup.activeButton</code> is <nobr>currently not <code>nil</code> —</nobr> this second condition is especially important because we need to know that the button is <strong>already pressed</strong> when the <nobr>slide-off</nobr> occurs.</p>
-<p>If both conditions are met, we use the convenient <a href="../../../api/type/EventDispatcher/dispatchEvent.html">object:dispatchEvent()</a> method to dispatch a <nobr>&quot;pseudo-event&quot;</nobr> of <code>&quot;ended&quot;</code> to the same listener function, making Solar2D think that the touch ended even if the player's finger is physically still touching the screen.</p>
-</div>
-<div id="activating-the-controller" class="section level3">
+<p>If both conditions are met, we use the convenient <a href="../../../api/type/EventDispatcher/dispatchEvent.html">object:dispatchEvent()</a> method to dispatch a <nobr>“pseudo-event”</nobr> of <code>"ended"</code> to the same listener function, making Solar2D think that the touch ended even if the player’s finger is physically still touching the screen.</p>
+</section>
+<section id="activating-the-controller" class="level3">
 <h3>Activating the Controller</h3>
-<p>The fundamental detection code is now complete, but the controller itself won't do anything. This is because we haven't &quot;activated&quot; it yet!</p>
+<p>The fundamental detection code is now complete, but the controller itself won’t do anything. This is because we haven’t “activated” it yet!</p>
 <p>To make it active, simply add a standard touch event listener to the <code>groupRegion</code> object, triggering the <code>handleController()</code> function on each touch event:</p>
-<pre class="brush: lua; gutter: true; highlight: [66]; first-line: 66;">groupRegion:addEventListener( "touch", handleController )</pre>
-</div>
-<div id="responding-to-action" class="section level3">
+<pre class="highlight: [66]; first-line: 66; gutter: true; brush: lua;">groupRegion:addEventListener( "touch", handleController )</pre>
+</section>
+<section id="responding-to-action" class="level3">
 <h3>Responding to Action</h3>
-<p>Depending on whether the button is pressed or not, we need to take some associated action. Since we're dealing with <strong>continuous</strong> actions, the event itself should be continuous in some way.</p>
-<p>While one approach is to perform an action <nobr>(like firing a laser)</nobr> on every runtime frame using an <code>&quot;enterFrame&quot;</code> listener, that's probably too often for most purposes — after all, should a ship really fire <nobr>30 or 60 lasers</nobr> <strong>per second</strong> in a typical shooter game?</p>
-<p>A more practical approach is to use a <strong>timer</strong> and toggle it on/off depending on the button state, allowing us to control the rate of the continuous action. Thus, let's integrate a timer into our existing code:</p>
-<pre class="brush: lua; gutter: true; highlight: [28,30,31,32,48,69]; first-line: 28;">local fireTimer
+<p>Depending on whether the button is pressed or not, we need to take some associated action. Since we’re dealing with <strong>continuous</strong> actions, the event itself should be continuous in some way.</p>
+<p>While one approach is to perform an action <nobr>(like firing a laser)</nobr> on every runtime frame using an <code>"enterFrame"</code> listener, that’s probably too often for most purposes — after all, should a ship really fire <nobr>30 or 60 lasers</nobr> <strong>per second</strong> in a typical shooter game?</p>
+<p>A more practical approach is to use a <strong>timer</strong> and toggle it on/off depending on the button state, allowing us to control the rate of the continuous action. Thus, let’s integrate a timer into our existing code:</p>
+<pre class="highlight: [28,30,31,32,48,69]; first-line: 28; gutter: true; brush: lua;">local fireTimer
 
 local function fireLaser( event )
     print( "FIRE A LASER!" )
@@ -317,29 +314,26 @@ local function handleController( event )
 end
 
 groupRegion:addEventListener( "touch", handleController )</pre>
-<p>Let's inspect the highlighted additions in more detail:</p>
-<ol style="list-style-type: decimal">
+<p>Let’s inspect the highlighted additions in more detail:</p>
+<ol type="1">
 <li><p>On line 28, we <nobr>forward-declare</nobr> a variable <code>fireTimer</code>. This will be used as a persistent reference to the timer which controls the action.</p></li>
-<li><p>On <nobr>lines 30-32</nobr>, we add the foundational function for firing lasers (<code>fireLaser()</code>). How you actually fire lasers (or perform whatever continuous action) is completely dependent on your game, so for now we'll just <code>print()</code> a string for testing.</p></li>
+<li><p>On <nobr>lines 30-32</nobr>, we add the foundational function for firing lasers (<code>fireLaser()</code>). How you actually fire lasers (or perform whatever continuous action) is completely dependent on your game, so for now we’ll just <code>print()</code> a string for testing.</p></li>
 <li><p>On line 48, when the button is effectively pressed, we <strong>start</strong> a new timer, assigning it to the <code>fireTimer</code> reference we created on line 28. This timer will repeat every 100 milliseconds, triggering the <code>fireLaser()</code> function on each iteration.</p></li>
 <li><p>On line 69, when the button is effectively released, we <strong>cancel</strong> the timer using the <code>fireTimer</code> reference it was created with.</p></li>
 </ol>
-</div>
-</div>
-<div id="virtual-directional-pad" class="section level2">
+</section>
+</section>
+<section id="virtual-directional-pad" class="level2">
 <h2>Virtual Directional Pad</h2>
 <div class="float-right" style="max-width: 230px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/cont-actions-2.png" />
-
-</div>
+<p><img src="../../../images/docs/cont-actions-2.png" /></p>
 </div>
 <p>Another common UI element is a <strong>virtual directional pad</strong>. These usually consist of <nobr>2-directional</nobr> or <nobr>4-directional</nobr> virtual buttons arranged <nobr>side-by-side</nobr> or in a <nobr>plus-shaped</nobr> configuration, similar to the physical directional pad on a game controller.</p>
 <p>Creating a control set like this in Solar2D can be done similarly to the virtual button method above, but in this case, the player will usually keep their finger touched down on the screen in the region of the control pad, simply sliding around (not releasing) to activate another directional button. Thus, in addition to the <nobr>slide-off</nobr>, we must handle the <nobr><strong>slide-on</strong></nobr> action where the player simply moves their touch point from one directional button to another.</p>
-<div id="creating-the-controller" class="section level3">
+<section id="creating-the-controller" class="level3">
 <h3>Creating the Controller</h3>
-<p>This time, let's use <strong>two</strong> images <nobr>side-by-side</nobr> to construct a basic <nobr>2-directional</nobr> controller:</p>
-<pre class="brush: lua; gutter: true; highlight: [3,4,5,6,8,9,10,11]; first-line: 1;">local buttonGroup = display.newGroup()
+<p>This time, let’s use <strong>two</strong> images <nobr>side-by-side</nobr> to construct a basic <nobr>2-directional</nobr> controller:</p>
+<pre class="highlight: [3,4,5,6,8,9,10,11]; first-line: 1; gutter: true; brush: lua;">local buttonGroup = display.newGroup()
 
 local leftButton = display.newImageRect( buttonGroup, "leftButton.png", 64, 64 )
 leftButton.x, leftButton.y = 60, display.contentHeight-60
@@ -373,15 +367,15 @@ local function detectButton( event )
     end
 end</pre>
 <p>This code is similar to the virtual button example above, with two very important distinctions:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>For each button, we set a boolean <code>canSlideOn</code> property, initially set to <code>true</code>. Because players manipulating a directional pad will typically slide their touch from button to button, this will let us handle <nobr><strong>slide-on</strong></nobr> behavior.</p></li>
-<li><p>We assign an <code>ID</code> property of <code>&quot;left&quot;</code> or <code>&quot;right&quot;</code> to each button — later, this will help us identify the &quot;direction&quot; it represents.</p></li>
+<li><p>We assign an <code>ID</code> property of <code>"left"</code> or <code>"right"</code> to each button — later, this will help us identify the “direction” it represents.</p></li>
 </ol>
-</div>
-<div id="button-listener-1" class="section level3">
+</section>
+<section id="button-listener-1" class="level3">
 <h3>Button Listener</h3>
-<p>Now let's construct the listener function to handle touch events, adapting the code from the first example to handle multiple buttons. We'll start with the <code>&quot;began&quot;</code> phase block:</p>
-<pre class="brush: lua; gutter: true; highlight: [39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55]; first-line: 35;">local function handleController( event )
+<p>Now let’s construct the listener function to handle touch events, adapting the code from the first example to handle multiple buttons. We’ll start with the <code>"began"</code> phase block:</p>
+<pre class="highlight: [39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55]; first-line: 35; gutter: true; brush: lua;">local function handleController( event )
 
     local touchOverButton = detectButton( event )
 
@@ -402,9 +396,9 @@ end</pre>
             end
             return true
         end</pre>
-<p>This is similar to the first example, but we've added some conditional checks on the active button's <code>ID</code> property <nobr>(lines 48 and 50)</nobr> to determine which action to take.</p>
-<p>Now let's expand upon the <code>&quot;moved&quot;</code> phase block:</p>
-<pre class="brush: lua; gutter: true; highlight: [64,65,66,67]; first-line: 57;">    elseif ( event.phase == "moved" ) then
+<p>This is similar to the first example, but we’ve added some conditional checks on the active button’s <code>ID</code> property <nobr>(lines 48 and 50)</nobr> to determine which action to take.</p>
+<p>Now let’s expand upon the <code>"moved"</code> phase block:</p>
+<pre class="highlight: [64,65,66,67]; first-line: 57; gutter: true; brush: lua;">    elseif ( event.phase == "moved" ) then
 
         -- Handle slide off
         if ( touchOverButton == nil and buttonGroup.activeButton ~= nil ) then
@@ -431,13 +425,13 @@ end
 
 groupRegion:addEventListener( "touch", handleController )</pre>
 <p>With this additional check <nobr>(lines 64-67)</nobr>, we check for <nobr><strong>slide-on</strong></nobr> by testing if the touch point is inside the bounds of a button <strong>and</strong> that <code>buttonGroup.activeButton</code> is <nobr>currently <code>nil</code> —</nobr> this second condition is especially important because we need to know that the button is <strong>not</strong> already pressed when the <nobr>slide-on</nobr> occurs. As a third condition, we confirm that the button accepts <nobr>slide-on</nobr> behavior by testing for a <code>canSlideOn</code> property value of <code>true</code>.</p>
-<p>If all conditions are met, we use the <a href="../../../api/type/EventDispatcher/dispatchEvent.html">object:dispatchEvent()</a> method to dispatch a <nobr>pseudo-event</nobr> of <code>&quot;began&quot;</code> to the same listener function, making Solar2D think that a new touch began on the button, even though the player's finger is already physically touching the screen.</p>
-</div>
-<div id="frame-based-movement" class="section level3">
+<p>If all conditions are met, we use the <a href="../../../api/type/EventDispatcher/dispatchEvent.html">object:dispatchEvent()</a> method to dispatch a <nobr>pseudo-event</nobr> of <code>"began"</code> to the same listener function, making Solar2D think that a new touch began on the button, even though the player’s finger is already physically touching the screen.</p>
+</section>
+<section id="frame-based-movement" class="level3">
 <h3><nobr>Frame-Based</nobr> Movement</h3>
 <p>Responding to interaction with directional buttons may differ from typical buttons. Usually, if a directional button is pressed, a steady and consistent action should occur until the button is released (or a neighboring button is interacted with).</p>
-<p>One way to continuously move a character/object is to simply update its <strong>x</strong> or <strong>y</strong> position in a runtime <code>&quot;enterFrame&quot;</code> function. We can combine this approach with our directional controller by creating a simple test object, writing a basic listener function, and including some &quot;control&quot; code within the <code>handleController()</code> function:</p>
-<pre class="brush: lua; gutter: true; highlight: [35,36,38,39,40,41,42,58,60]; first-line: 35;">local testObj = display.newRect( display.contentCenterX, display.contentCenterY, 20, 20 )
+<p>One way to continuously move a character/object is to simply update its <strong>x</strong> or <strong>y</strong> position in a runtime <code>"enterFrame"</code> function. We can combine this approach with our directional controller by creating a simple test object, writing a basic listener function, and including some “control” code within the <code>handleController()</code> function:</p>
+<pre class="highlight: [35,36,38,39,40,41,42,58,60]; first-line: 35; gutter: true; brush: lua;">local testObj = display.newRect( display.contentCenterX, display.contentCenterY, 20, 20 )
 testObj.deltaPerFrame = { 0, 0 }
 
 local function frameUpdate()
@@ -469,7 +463,7 @@ local function handleController( event )
         end
 
     elseif ( event.phase == "moved" ) then</pre>
-<pre class="brush: lua; gutter: true; highlight: [86]; first-line: 79;">    elseif ( event.phase == "ended" and buttonGroup.activeButton ~= nil ) then
+<pre class="highlight: [86]; first-line: 79; gutter: true; brush: lua;">    elseif ( event.phase == "ended" and buttonGroup.activeButton ~= nil ) then
 
         -- Release this touch ID
         buttonGroup.touchID = nil
@@ -480,20 +474,20 @@ local function handleController( event )
         return true
     end
 end</pre>
-<p>Let's explore the highlighted code in more detail:</p>
-<ol style="list-style-type: decimal">
+<p>Let’s explore the highlighted code in more detail:</p>
+<ol type="1">
 <li><p>On <nobr>lines 35 and 36</nobr>, we create a simple test object (vector square) positioned in the center of the content area. We also assign a property to the object, <code>deltaPerFrame</code>, which is a table of two values, <nobr>one for <strong>x</strong></nobr> and <nobr>one for <strong>y</strong></nobr>. Our object will begin in a stopped/stationary state, so we initially set both of these to <code>0</code>.</p></li>
-<li><p>On <nobr>lines 38-41</nobr>, we add a basic function (<code>frameUpdate()</code>) to update the object's <strong>x</strong> and <strong>y</strong> position, based on the values in its <code>deltaPerFrame</code> property. Then, on line 42, we start that function running/executing on each runtime frame by adding an <code>&quot;enterFrame&quot;</code> event listener.</p></li>
-<li><p>On <nobr>lines 58 and 60</nobr>, we change the object's <code>deltaPerFrame</code> property values based on which directional button is pressed. If the <strong>left</strong> button is pressed, the first value (<strong>x</strong>) is set to <code>-2</code>, meaning that the object will begin moving 2 pixels to the left on each runtime frame. Similarly, if the <strong>right</strong> button is pressed, we set the first value to <code>2</code> so that the object will move 2 pixels to the right per frame. Note that you can increase/decrease these values if you want the object to move faster or slower.</p></li>
-<li><p>Finally, on line 86, we reset the <code>deltaPerFrame</code> values to <code>0</code> to stop the object's movement if the player's touch drifts off a directional button.</p></li>
+<li><p>On <nobr>lines 38-41</nobr>, we add a basic function (<code>frameUpdate()</code>) to update the object’s <strong>x</strong> and <strong>y</strong> position, based on the values in its <code>deltaPerFrame</code> property. Then, on line 42, we start that function running/executing on each runtime frame by adding an <code>"enterFrame"</code> event listener.</p></li>
+<li><p>On <nobr>lines 58 and 60</nobr>, we change the object’s <code>deltaPerFrame</code> property values based on which directional button is pressed. If the <strong>left</strong> button is pressed, the first value (<strong>x</strong>) is set to <code>-2</code>, meaning that the object will begin moving 2 pixels to the left on each runtime frame. Similarly, if the <strong>right</strong> button is pressed, we set the first value to <code>2</code> so that the object will move 2 pixels to the right per frame. Note that you can increase/decrease these values if you want the object to move faster or slower.</p></li>
+<li><p>Finally, on line 86, we reset the <code>deltaPerFrame</code> values to <code>0</code> to stop the object’s movement if the player’s touch drifts off a directional button.</p></li>
 </ol>
-</div>
-<div id="physics-based-movement" class="section level3">
+</section>
+<section id="physics-based-movement" class="level3">
 <h3><nobr>Physics-Based</nobr> Movement</h3>
 <p>Another way to continuously move a character/object is via <strong>physics</strong>. Of course, this assumes that the object is a physical object being managed by the physics engine, a topic beyond the scope of this tutorial (if you need assistance on physics, start with the <a href="../../../guide/physics/physicsSetup/index.html">Physics Setup</a> guide).</p>
-<p>In terms of integrating <nobr>physics-based</nobr> movement with a directional controller, the best option is usually to set the object's <nobr><strong>linear velocity</strong> — this is</nobr> because it applies a consistent, steady rate of movement to the object instead of stacking force values or applying momentary impulses.</p>
-<p>Let's adjust the code to use physics and linear velocity:</p>
-<pre class="brush: lua; gutter: true; highlight: [36,37,39,40,56,58]; first-line: 35;">-- Set up physics engine
+<p>In terms of integrating <nobr>physics-based</nobr> movement with a directional controller, the best option is usually to set the object’s <nobr><strong>linear velocity</strong> — this is</nobr> because it applies a consistent, steady rate of movement to the object instead of stacking force values or applying momentary impulses.</p>
+<p>Let’s adjust the code to use physics and linear velocity:</p>
+<pre class="highlight: [36,37,39,40,56,58]; first-line: 35; gutter: true; brush: lua;">-- Set up physics engine
 local physics = require( "physics" )
 physics.start()
 
@@ -523,7 +517,7 @@ local function handleController( event )
         end
 
     elseif ( event.phase == "moved" ) then</pre>
-<pre class="brush: lua; gutter: true; highlight: [84]; first-line: 77;">    elseif ( event.phase == "ended" and buttonGroup.activeButton ~= nil ) then
+<pre class="highlight: [84]; first-line: 77; gutter: true; brush: lua;">    elseif ( event.phase == "ended" and buttonGroup.activeButton ~= nil ) then
 
         -- Release this touch ID
         buttonGroup.touchID = nil
@@ -535,17 +529,17 @@ local function handleController( event )
     end
 end</pre>
 <p>Exploring the highlighted code in more depth, we perform these actions:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>On <nobr>lines 36 and 37</nobr>, we <code>require()</code> the physics engine and start it running.</p></li>
 <li><p>On <nobr>lines 39 and 40</nobr>, we create a simple test object (vector square) positioned in the center of the content area. We also tell the physics engine to manage this object by assigning it a physical body of <a href="../../../api/type/Body/bodyType.html">kinematic</a> type.</p></li>
-<li><p>On <nobr>lines 56 and 58</nobr>, we set the object's linear velocity using <a href="../../../api/type/Body/setLinearVelocity.html">object:setLinearVelocity()</a>. If the <strong>left</strong> button is pressed, we assign a value of <code>-100</code> to the <strong>x</strong> parameter, causing the object to start moving left. Similarly, if the <strong>right</strong> button is pressed, we assign a value of <code>100</code> to the <strong>x</strong> parameter, causing the object to begin moving right. Note that you can increase/decrease these values if you want the object to move faster or slower.</p></li>
-<li><p>Finally, on line 84, we reset both of the object's linear velocity values to <code>0</code> to stop its movement if the player's touch drifts off a directional button.</p></li>
+<li><p>On <nobr>lines 56 and 58</nobr>, we set the object’s linear velocity using <a href="../../../api/type/Body/setLinearVelocity.html">object:setLinearVelocity()</a>. If the <strong>left</strong> button is pressed, we assign a value of <code>-100</code> to the <strong>x</strong> parameter, causing the object to start moving left. Similarly, if the <strong>right</strong> button is pressed, we assign a value of <code>100</code> to the <strong>x</strong> parameter, causing the object to begin moving right. Note that you can increase/decrease these values if you want the object to move faster or slower.</p></li>
+<li><p>Finally, on line 84, we reset both of the object’s linear velocity values to <code>0</code> to stop its movement if the player’s touch drifts off a directional button.</p></li>
 </ol>
-</div>
-</div>
-<div id="conclusion" class="section level2">
+</section>
+</section>
+<section id="conclusion" class="level2">
 <h2>Conclusion</h2>
-<p>Hopefully, this tutorial has provided a foundation for handling continuous actions in Solar2D. This practice may apply to many scenarios beyond those presented and you'll find that, with a little creativity, the sky is the limit!</p>
+<p>Hopefully, this tutorial has provided a foundation for handling continuous actions in Solar2D. This practice may apply to many scenarios beyond those presented and you’ll find that, with a little creativity, the sky is the limit!</p>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -556,8 +550,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

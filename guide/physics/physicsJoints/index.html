@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Physics</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -112,7 +112,7 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/physics/index.html">Physics</a>
 </div>
-<div id="physics-joints" class="section level1">
+<section id="physics-joints" class="level1">
 <h1>Physics Joints</h1>
 <p>This guide discusses how to configure the various physical Box2D joints available in Corona.</p>
 <div class="guides-toc">
@@ -137,12 +137,12 @@
 </ul>
 </div>
 <p><a id="overview"></a></p>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Joints can be used to assemble complex physical objects from multiple rigid bodies. For example, joints can be used to join the limbs of a ragdoll figure, attach the wheels of a vehicle to its body, create a moving elevator platform, and more.</p>
 <p><a id="createremove"></a></p>
-</div>
-<div id="creation-and-removal" class="section level2">
+</section>
+<section id="creation-and-removal" class="level2">
 <h2>Creation and Removal</h2>
 <p>Most joints are used to connect two rigid physical bodies, so you must create these bodies first and then submit them as arguments to the <a href="../../../api/library/physics/newJoint.html">physics.newJoint()</a> constructor function, along with other properties that vary depending on the joint type (see details below).</p>
 <pre class="brush: lua;">physics.newJoint( jointType, ... )</pre>
@@ -160,8 +160,8 @@
 </div>
 </div>
 <p><a id="common"></a></p>
-</div>
-<div id="shared-propertiesmethods" class="section level2">
+</section>
+<section id="shared-propertiesmethods" class="level2">
 <h2>Shared Properties/Methods</h2>
 <p>The following properties and methods apply to all joint types:</p>
 <ul>
@@ -190,16 +190,13 @@ local bx, by = myJoint:getLocalAnchorB()</pre>
 <li><p><a href="../../../api/type/Joint/reactionTorque.html">joint.reactionTorque</a> — This read-only value indicates the reaction torque in N*m at the joint anchor in the second body.</p></li>
 </ul>
 <p><a id="pivot"></a></p>
-</div>
-<div id="pivot-joint" class="section level2">
+</section>
+<section id="pivot-joint" class="level2">
 <h2>Pivot Joint</h2>
 <p>A pivot joint, known as a <strong>revolute</strong> joint in Box2D terms, joins two bodies at an overlapping point, like two boards joined by a rotating peg. The initial arguments are bodies <code>A</code> and <code>B</code> to join, followed by the <strong>x</strong> and <strong>y</strong> coordinates for the anchor point, declared in content space coordinates.</p>
 <pre class="brush: lua;">local pivotJoint = physics.newJoint( "pivot", bodyA, bodyB, anchor_x, anchor_y )</pre>
 <div class="float-right" style="max-width: 308px; margin-top: 12px;">
-<div class="figure">
-<img src="../../../images/simulator/joint-pivot.png" />
-
-</div>
+<p><img src="../../../images/simulator/joint-pivot.png" /></p>
 </div>
 <div class="docs-tip-outer">
 <div class="docs-tip-inner-left">
@@ -208,20 +205,20 @@ local bx, by = myJoint:getLocalAnchorB()</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>If you're building a complex assembly like a ragdoll with pivot joints and you're experiencing instability issues, consider setting <a href="../../../api/library/physics/setContinuous.html">physics.setContinuous()</a> to <code>true</code>.</p>
+<p>If you’re building a complex assembly like a ragdoll with pivot joints and you’re experiencing instability issues, consider setting <a href="../../../api/library/physics/setContinuous.html">physics.setContinuous()</a> to <code>true</code>.</p>
 </div>
 </div>
-<div id="joint-motor" class="section level3">
+<section id="joint-motor" class="level3">
 <h3>Joint Motor</h3>
-<p>Optionally, object <code>B</code> joined with a pivot joint to object <code>A</code> can be driven (rotated) with a joint motor. This rotation can be either clockwise or <nobr>counter-clockwise,</nobr> depending on the <code>motorSpeed</code> value. Note that joint motors have a fairly weak maximum torque by default, so setting <code>motorSpeed</code> may appear to have little visible effect. Therefore, you should generally set <code>maxMotorTorque</code> to a high value such as <code>100000</code> if you're trying to move any significant mass, such as rotating a wheel to power a car.</p>
+<p>Optionally, object <code>B</code> joined with a pivot joint to object <code>A</code> can be driven (rotated) with a joint motor. This rotation can be either clockwise or <nobr>counter-clockwise,</nobr> depending on the <code>motorSpeed</code> value. Note that joint motors have a fairly weak maximum torque by default, so setting <code>motorSpeed</code> may appear to have little visible effect. Therefore, you should generally set <code>maxMotorTorque</code> to a high value such as <code>100000</code> if you’re trying to move any significant mass, such as rotating a wheel to power a car.</p>
 <ul>
 <li><p><a href="../../../api/type/Joint/isMotorEnabled.html">pivotJoint.isMotorEnabled</a> — This must be set to <code>true</code> to enable any motor action on a pivot joint.</p></li>
 <li><p><a href="../../../api/type/Joint/motorSpeed.html">pivotJoint.motorSpeed</a> — This <a href="../../../api/type/Number.html">number</a> value specifies the intended rotational motor speed.</p></li>
 <li><p><a href="../../../api/type/Joint/maxMotorTorque.html">pivotJoint.maxMotorTorque</a> — This <a href="../../../api/type/Number.html">number</a> value specifies the maximum allowed torque for the joint motor.</p></li>
 <li><p><a href="../../../api/type/Joint/motorTorque.html">pivotJoint.motorTorque</a> — Read-only <a href="../../../api/type/Number.html">number</a> value indicating the current motor torque.</p></li>
 </ul>
-</div>
-<div id="rotation-limits" class="section level3">
+</section>
+<section id="rotation-limits" class="level3">
 <h3>Rotation Limits</h3>
 <p>Pivot joints can optionally be constrained in their range of rotation. For example, if constructing a ragdoll figure, the head/neck joint would likely have a limited range of angular motion in either the clockwise or <nobr>counter-clockwise</nobr> direction.</p>
 <ul>
@@ -239,8 +236,8 @@ pivotJoint:setRotationLimits( -20, 20 )</pre>
 <pre class="brush: lua;">local negLimit, posLimit = pivotJoint:getRotationLimits()
 print( negLimit, posLimit )</pre>
 </div>
-</div>
-<div id="other" class="section level3">
+</section>
+<section id="other" class="level3">
 <h3>Other</h3>
 <ul>
 <li><p><a href="../../../api/type/Joint/jointAngle.html">pivotJoint.jointAngle</a> — Read-only <a href="../../../api/type/Number.html">number</a> value indicating the current angle of a pivot joint, in degrees.</p></li>
@@ -248,40 +245,34 @@ print( negLimit, posLimit )</pre>
 <li><p><a href="../../../api/type/Joint/referenceAngle.html">pivotJoint.referenceAngle</a> — Read-only <a href="../../../api/type/Number.html">number</a> value indicating the joint angle between the bodies at time of creation.</p></li>
 </ul>
 <p><a id="distance"></a></p>
-</div>
-</div>
-<div id="distance-joint" class="section level2">
+</section>
+</section>
+<section id="distance-joint" class="level2">
 <h2>Distance Joint</h2>
 <p>A distance joint attaches two bodies at a fixed distance. The initial arguments are bodies <code>A</code> and <code>B</code> to join, followed by an <strong>x</strong> and <strong>y</strong> anchor point coordinate for each body, declared in content space coordinates.</p>
 <pre class="brush: lua;">local distanceJoint = physics.newJoint( "distance", bodyA, bodyB, anchorA_x, anchorA_y, anchorB_x, anchorB_y )</pre>
 <div class="float-right" style="max-width: 308px; margin-top: 12px;">
-<div class="figure">
-<img src="../../../images/simulator/joint-distance.png" />
-
+<p><img src="../../../images/simulator/joint-distance.png" /></p>
 </div>
-</div>
-<div id="dampingfrequency" class="section level3">
+<section id="dampingfrequency" class="level3">
 <h3>Damping/Frequency</h3>
 <p>Optionally, the distance joint can be made soft, like a <nobr>spring-damper</nobr> connection. Many factors can influence the behavior of a soft distance joint, including the mass of the attached bodies and forces upon them, so you should carefully test the specified values to achieve the desired simulation.</p>
 <ul>
 <li><p><a href="../../../api/type/Joint/dampingRatio.html">distanceJoint.dampingRatio</a> — This <a href="../../../api/type/Number.html">number</a> value can range from <code>0</code> (no damping) to <code>1</code> (critical damping). With critical damping, all oscillations should vanish.</p></li>
 <li><p><a href="../../../api/type/Joint/frequency.html">distanceJoint.frequency</a> — This <a href="../../../api/type/Number.html">number</a> specifies the <nobr>mass-spring</nobr> damping frequency in Hz. A low value will make the joint extremely soft and cause it to contract with very low force.</p></li>
-<li><p><a href="../../../api/type/Joint/length.html">distanceJoint.length</a> — This <a href="../../../api/type/Number.html">number</a> specifies the distance between the anchor points, which should not be zero or very short. If you position the bodies before applying a distance joint to them, this length will automatically be set as the distance between the anchor points, so it's usually not necessary to set this parameter.</p></li>
+<li><p><a href="../../../api/type/Joint/length.html">distanceJoint.length</a> — This <a href="../../../api/type/Number.html">number</a> specifies the distance between the anchor points, which should not be zero or very short. If you position the bodies before applying a distance joint to them, this length will automatically be set as the distance between the anchor points, so it’s usually not necessary to set this parameter.</p></li>
 </ul>
 <p><a id="piston"></a></p>
-</div>
-</div>
-<div id="piston-joint" class="section level2">
+</section>
+</section>
+<section id="piston-joint" class="level2">
 <h2>Piston Joint</h2>
 <p>A piston joint, known as a <strong>prismatic</strong> joint in Box2D terms, joins two bodies along a single, restricted axis of motion, like engine pistons or an elevator platform that is restricted to movement along a vertical axis. The initial arguments are bodies <code>A</code> and <code>B</code> to join, followed by an <strong>x</strong> and <strong>y</strong> coordinate for an anchor point on either body, followed by values which define the axis along which linear motion is allowed.</p>
 <pre class="brush: lua;">local pistonJoint = physics.newJoint( "piston", bodyA, bodyB, anchor_x, anchor_y, axisX, axisY )</pre>
 <div class="float-right" style="max-width: 308px; margin-top: 12px;">
-<div class="figure">
-<img src="../../../images/simulator/joint-piston.png" />
-
+<p><img src="../../../images/simulator/joint-piston.png" /></p>
 </div>
-</div>
-<div id="motion-axis" class="section level3">
+<section id="motion-axis" class="level3">
 <h3>Motion Axis</h3>
 <p>As stated, piston joints have a restricted axis of linear motion, defined by <code>axisX</code> and <code>axisY</code>. This axis can be considered a directional vector indicating which way the object will move when driven by a positive <a href="../../../api/type/Joint/motorSpeed.html">pistonJoint.motorSpeed</a> value.</p>
 <p>The following chart provides examples of the relationship between <code>axisX</code>, <code>axisY</code>, and a <strong>positive</strong> motor speed. However, both <code>axisX</code> and <code>axisY</code> values can be decimal values ranging between <code>-1.0</code> and <code>1.0</code> — you are not restricted to these eight directions.</p>
@@ -289,51 +280,51 @@ print( negLimit, posLimit )</pre>
 <table>
 <thead>
 <tr class="header">
-<th align="left">axisX</th>
-<th align="left">axisY</th>
-<th align="left"><nobr>Direction / Angle</nobr></th>
+<th style="text-align: left;">axisX</th>
+<th style="text-align: left;">axisY</th>
+<th style="text-align: left;"><nobr>Direction / Angle</nobr></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>0</code></td>
-<td align="left"><code>-1</code></td>
-<td align="left">up / 0°</td>
+<td style="text-align: left;"><code>0</code></td>
+<td style="text-align: left;"><code>-1</code></td>
+<td style="text-align: left;">up / 0°</td>
 </tr>
 <tr class="even">
-<td align="left"><code>1</code></td>
-<td align="left"><code>-1</code></td>
-<td align="left">right-up / 45°</td>
+<td style="text-align: left;"><code>1</code></td>
+<td style="text-align: left;"><code>-1</code></td>
+<td style="text-align: left;">right-up / 45°</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>1</code></td>
-<td align="left"><code>0</code></td>
-<td align="left">right / 90°</td>
+<td style="text-align: left;"><code>1</code></td>
+<td style="text-align: left;"><code>0</code></td>
+<td style="text-align: left;">right / 90°</td>
 </tr>
 <tr class="even">
-<td align="left"><code>1</code></td>
-<td align="left"><code>1</code></td>
-<td align="left">right-down / 135°</td>
+<td style="text-align: left;"><code>1</code></td>
+<td style="text-align: left;"><code>1</code></td>
+<td style="text-align: left;">right-down / 135°</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>0</code></td>
-<td align="left"><code>1</code></td>
-<td align="left">down / 180°</td>
+<td style="text-align: left;"><code>0</code></td>
+<td style="text-align: left;"><code>1</code></td>
+<td style="text-align: left;">down / 180°</td>
 </tr>
 <tr class="even">
-<td align="left"><code>-1</code></td>
-<td align="left"><code>1</code></td>
-<td align="left">left-down / 225°</td>
+<td style="text-align: left;"><code>-1</code></td>
+<td style="text-align: left;"><code>1</code></td>
+<td style="text-align: left;">left-down / 225°</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>-1</code></td>
-<td align="left"><code>0</code></td>
-<td align="left">left / 270°</td>
+<td style="text-align: left;"><code>-1</code></td>
+<td style="text-align: left;"><code>0</code></td>
+<td style="text-align: left;">left / 270°</td>
 </tr>
 <tr class="even">
-<td align="left"><code>-1</code></td>
-<td align="left"><code>-1</code></td>
-<td align="left">left-up / 315°</td>
+<td style="text-align: left;"><code>-1</code></td>
+<td style="text-align: left;"><code>-1</code></td>
+<td style="text-align: left;">left-up / 315°</td>
 </tr>
 </tbody>
 </table>
@@ -349,8 +340,8 @@ Notes
 </ul>
 </div>
 <p><a id="piston-motor"></a></p>
-</div>
-<div id="joint-motor-1" class="section level3">
+</section>
+<section id="joint-motor-1" class="level3">
 <h3>Joint Motor</h3>
 <p>Optionally, the piston joint can be driven with a joint motor. Unlike the rotational motor of the <a href="#pivot">pivot</a> joint, this motion will be linear, restricted along the defined axis. For example, a piston joint motor can be used to move an elevator platform up and down along its axis.</p>
 <ul>
@@ -359,8 +350,8 @@ Notes
 <li><p><a href="../../../api/type/Joint/maxMotorForce.html">pistonJoint.maxMotorForce</a> — This <a href="../../../api/type/Number.html">number</a> value specifies the maximum allowed force for the joint motor.</p></li>
 <li><p><a href="../../../api/type/Joint/motorForce.html">pistonJoint.motorForce</a> — Read-only <a href="../../../api/type/Number.html">number</a> value indicating the current motor force.</p></li>
 </ul>
-</div>
-<div id="motion-limits" class="section level3">
+</section>
+<section id="motion-limits" class="level3">
 <h3>Motion Limits</h3>
 <p>Piston joints can optionally be constrained in their range of linear motion. The limits take the form of a lower and upper limit which define the range of motion (distance) along the axis defined by <code>axisX</code> and <code>axisY</code>.</p>
 <ul>
@@ -378,8 +369,8 @@ pistonJoint:setLimits( -40, 120 )</pre>
 <pre class="brush: lua;">local negLimit, posLimit = pistonJoint:getLimits()
 print( negLimit, posLimit )</pre>
 </div>
-</div>
-<div id="other-1" class="section level3">
+</section>
+<section id="other-1" class="level3">
 <h3>Other</h3>
 <ul>
 <li><p><a href="../../../api/type/Joint/getLocalAxisA.html">pistonJoint:getLocalAxisA()</a> — This function returns the current coordinates of the anchor point along the defined axis, in content space.</p></li>
@@ -388,13 +379,13 @@ print( negLimit, posLimit )</pre>
 <li><p><a href="../../../api/type/Joint/referenceAngle.html">pistonJoint.referenceAngle</a> — Read-only <a href="../../../api/type/Number.html">number</a> value indicating the joint angle between the bodies at time of creation.</p></li>
 </ul>
 <p><a id="friction"></a></p>
-</div>
-</div>
-<div id="friction-joint" class="section level2">
+</section>
+</section>
+<section id="friction-joint" class="level2">
 <h2>Friction Joint</h2>
 <p>The friction joint is used to simulate <nobr>top-down</nobr> friction between two objects. This can be useful for simulating both translational (directional) friction and angular (rotational) friction between two joined objects. The initial arguments are bodies <code>A</code> and <code>B</code> to join, followed by an <strong>x</strong> and <strong>y</strong> coordinate for the anchor point.</p>
 <pre class="brush: lua;">local frictionJoint = physics.newJoint( "friction", bodyA, bodyB, anchor_x, anchor_y )</pre>
-<div id="friction-values" class="section level3">
+<section id="friction-values" class="level3">
 <h3>Friction Values</h3>
 <p>When creating a friction joint, simulated friction can be applied via maximum force and torque values:</p>
 <ul>
@@ -402,62 +393,56 @@ print( negLimit, posLimit )</pre>
 <li><p><a href="../../../api/type/Joint/maxTorque.html">frictionJoint.maxTorque</a> — This <a href="../../../api/type/Number.html">number</a> specifies the maximum rotational friction which may be applied to the joined body. A higher value simulates higher friction.</p></li>
 </ul>
 <p><a id="weld"></a></p>
-</div>
-</div>
-<div id="weld-joint" class="section level2">
+</section>
+</section>
+<section id="weld-joint" class="level2">
 <h2>Weld Joint</h2>
 <p>The weld joint rigidly attaches two bodies at a specified anchor point in content space coordinates.</p>
 <pre class="brush: lua;">local weldJoint = physics.newJoint( "weld", bodyA, bodyB, anchor_x, anchor_y )</pre>
 <div class="float-right" style="max-width: 308px; margin-top: 12px;">
-<div class="figure">
-<img src="../../../images/simulator/joint-weld.png" />
-
+<p><img src="../../../images/simulator/joint-weld.png" /></p>
 </div>
-</div>
-<div id="dampingfrequency-1" class="section level3">
+<section id="dampingfrequency-1" class="level3">
 <h3>Damping/Frequency</h3>
 <p>Due to mathematical approximation, this joint may appear slightly soft during simulation, even if <code>dampingRatio</code> and <code>frequency</code> are set to prevent this behavior. If you want to assemble multiple shapes without any risk of flexing, consider creating a <nobr>multi-element</nobr> body as illustrated in the <a href="../../../guide/physics/physicsBodies/index.html">Physics Bodies</a> guide.</p>
 <ul>
 <li><p><a href="../../../api/type/Joint/dampingRatio.html">weldJoint.dampingRatio</a> — This <a href="../../../api/type/Number.html">number</a> value can range from <code>0</code> (no damping) to <code>1</code> (critical damping). With critical damping, all oscillations should vanish.</p></li>
 <li><p><a href="../../../api/type/Joint/frequency.html">weldJoint.frequency</a> — This <a href="../../../api/type/Number.html">number</a> value specifies the <nobr>mass-spring</nobr> damping frequency in Hz. A low value will make the joint extremely soft and allow for rotation around the anchor point.</p></li>
 </ul>
-</div>
-<div id="positioning" class="section level3">
+</section>
+<section id="positioning" class="level3">
 <h3>Positioning</h3>
-<p>Notice in the diagram that the two bodies don't necessarily need to overlap, and the joint anchor doesn't necessarily need to reside within one of the bodies. In fact, the two bodies can be completely separated and the weld joint will still join the bodies together as if a rigid, invisible link exists between them.</p>
-</div>
-<div id="other-2" class="section level3">
+<p>Notice in the diagram that the two bodies don’t necessarily need to overlap, and the joint anchor doesn’t necessarily need to reside within one of the bodies. In fact, the two bodies can be completely separated and the weld joint will still join the bodies together as if a rigid, invisible link exists between them.</p>
+</section>
+<section id="other-2" class="level3">
 <h3>Other</h3>
 <ul>
 <li><a href="../../../api/type/Joint/referenceAngle.html">weldJoint.referenceAngle</a> — Read-only <a href="../../../api/type/Number.html">number</a> value indicating the joint angle between the bodies at time of creation.</li>
 </ul>
 <p><a id="wheel"></a></p>
-</div>
-</div>
-<div id="wheel-joint" class="section level2">
+</section>
+</section>
+<section id="wheel-joint" class="level2">
 <h2>Wheel Joint</h2>
 <p>A wheel joint, known as a <strong>line</strong> joint in Box2D terms, is similar to a <a href="#piston">piston</a> joint, except that the attached body can rotate freely like a wheel mounted to the shock absorber of a car. Most of its properties are inherited from the standard piston joint, but you can specify a <nobr>mass-spring</nobr> frequency and damping ratio. The initial arguments are bodies <code>A</code> and <code>B</code> to join, followed by an <strong>x</strong> and <strong>y</strong> coordinate for an anchor point on either body, followed by values which define the axis along which linear motion is allowed.</p>
 <pre class="brush: lua;">local wheelJoint = physics.newJoint( "wheel", bodyA, bodyB, anchor_x, anchor_y, axisX, axisY )</pre>
 <div class="float-right" style="max-width: 308px; margin-top: 12px;">
-<div class="figure">
-<img src="../../../images/simulator/joint-wheel.png" />
-
+<p><img src="../../../images/simulator/joint-wheel.png" /></p>
 </div>
-</div>
-<div id="motion-axis-1" class="section level3">
+<section id="motion-axis-1" class="level3">
 <h3>Motion Axis</h3>
-<p>Like the <a href="#piston">piston</a> joint, wheel joints have a restricted axis of linear motion, defined by <code>axisX</code> and <code>axisY</code>. However, unlike piston joints, wheel joints aren't driven by a motor, so you can't send the wheel <nobr>(body <code>B</code> in the diagram)</nobr> moving in a specific direction based on the defined axis values. For example, setting these values to either <code>0,1</code> or <code>0,-1</code> will restrict motion to a vertical axis, but not restrict it to either upward <strong>or</strong> downward along that axis. Similarly, values of either <code>1,0</code> or <code>-1,0</code> will restrict linear motion to either left <strong>or</strong> right along a horizontal axis.</p>
+<p>Like the <a href="#piston">piston</a> joint, wheel joints have a restricted axis of linear motion, defined by <code>axisX</code> and <code>axisY</code>. However, unlike piston joints, wheel joints aren’t driven by a motor, so you can’t send the wheel <nobr>(body <code>B</code> in the diagram)</nobr> moving in a specific direction based on the defined axis values. For example, setting these values to either <code>0,1</code> or <code>0,-1</code> will restrict motion to a vertical axis, but not restrict it to either upward <strong>or</strong> downward along that axis. Similarly, values of either <code>1,0</code> or <code>-1,0</code> will restrict linear motion to either left <strong>or</strong> right along a horizontal axis.</p>
 <p>Essentially, the wheel — or rather the object that represents the wheel — is prone to whatever forces might be upon it, for instance gravity. The object will attempt to stay upon the defined axis, but other forces may pull/push the wheel off of that axis in unpredictable ways.</p>
-</div>
-<div id="dampingfrequency-2" class="section level3">
+</section>
+<section id="dampingfrequency-2" class="level3">
 <h3>Damping/Frequency</h3>
 <p>Optionally, the wheel joint can be made soft, like a <nobr>spring-damper</nobr> connection. Many factors can influence the behavior of a soft wheel joint, including the mass of the attached bodies and forces upon them, so you should carefully test the specified values to achieve the desired simulation.</p>
 <ul>
 <li><p><a href="../../../api/type/Joint/springDampingRatio.html">wheelJoint.springDampingRatio</a> — This <a href="../../../api/type/Number.html">number</a> value can range from <code>0</code> (no damping) to <code>1</code> (critical damping). With critical damping, all oscillations should vanish.</p></li>
 <li><p><a href="../../../api/type/Joint/springFrequency.html">wheelJoint.springFrequency</a> — This <a href="../../../api/type/Number.html">number</a> value specifies the <nobr>mass-spring</nobr> damping frequency in Hz. A low value will decrease simulated suspension. This value must be greater than <code>0</code>.</p></li>
 </ul>
-</div>
-<div id="other-3" class="section level3">
+</section>
+<section id="other-3" class="level3">
 <h3>Other</h3>
 <ul>
 <li><p><a href="../../../api/type/Joint/getLocalAxisA.html">wheelJoint:getLocalAxisA()</a> — This function returns the current coordinates of the anchor point along the defined axis, in content space.</p></li>
@@ -465,117 +450,105 @@ print( negLimit, posLimit )</pre>
 <li><p><a href="../../../api/type/Joint/jointSpeed.html">wheelJoint.jointSpeed</a> — Read-only <a href="../../../api/type/Number.html">number</a> value indicating the current linear movement speed of a wheel joint.</p></li>
 </ul>
 <p><a id="pulley"></a></p>
-</div>
-</div>
-<div id="pulley-joint" class="section level2">
+</section>
+</section>
+<section id="pulley-joint" class="level2">
 <h2>Pulley Joint</h2>
 <p>A pulley joint attaches two bodies with an imaginary rope whose length remains constant. If one body is pulled or pushed by some force, the other body will compensate according to the simulated rope. The initial arguments are bodies <code>A</code> and <code>B</code> to join, followed by two coordinate pairs which represent the stationary anchor points from where each side of the rope hangs. The next four arguments are the <strong>x</strong> and <strong>y</strong> anchor point coordinates <nobr>(one for each body),</nobr> followed by the final <code>ratio</code> value which can be adjusted to simulate a block and tackle setup.</p>
 <pre class="brush: lua;">local pulleyJoint = physics.newJoint( "pulley", bodyA, bodyB, statA_x, statA_y, statB_x, statB_y, bodyA_x, bodyA_y, bodyB_x, bodyB_y, 1.0 )</pre>
 <div class="float-right" style="max-width: 308px; margin-top: 12px;">
-<div class="figure">
-<img src="../../../images/simulator/joint-pulley.png" />
-
+<p><img src="../../../images/simulator/joint-pulley.png" /></p>
 </div>
-</div>
-<div id="pulley-ratio" class="section level3">
+<section id="pulley-ratio" class="level3">
 <h3>Pulley Ratio</h3>
 <p>The pulley joint features a <code>ratio</code> property as the final parameter in the constructor. This ratio can be adjusted to simulate a block and tackle arrangement. In such a scenario, one side of the pulley rope moves faster than the other. The default ratio is <code>1.0</code> which simulates a simple pulley.</p>
 <ul>
 <li><a href="../../../api/type/Joint/ratio.html">pulleyJoint.ratio</a> — Read-only <a href="../../../api/type/Number.html">number</a> value indicating the current ratio for the pulley joint.</li>
 </ul>
-</div>
-<div id="other-4" class="section level3">
+</section>
+<section id="other-4" class="level3">
 <h3>Other</h3>
 <ul>
-<li><p><a href="../../../api/type/Joint/getGroundAnchorA.html">pulleyJoint:getGroundAnchorA()</a> — This function returns the <strong>x</strong> and <strong>y</strong> coordinates of the joint's first ground anchor in content coordinates.</p></li>
-<li><p><a href="../../../api/type/Joint/getGroundAnchorB.html">pulleyJoint:getGroundAnchorB()</a> — This function returns the <strong>x</strong> and <strong>y</strong> coordinates of the joint's second ground anchor in content coordinates.</p></li>
+<li><p><a href="../../../api/type/Joint/getGroundAnchorA.html">pulleyJoint:getGroundAnchorA()</a> — This function returns the <strong>x</strong> and <strong>y</strong> coordinates of the joint’s first ground anchor in content coordinates.</p></li>
+<li><p><a href="../../../api/type/Joint/getGroundAnchorB.html">pulleyJoint:getGroundAnchorB()</a> — This function returns the <strong>x</strong> and <strong>y</strong> coordinates of the joint’s second ground anchor in content coordinates.</p></li>
 <li><p><a href="../../../api/type/Joint/length1.html">pulleyJoint.length1</a> — Read-only <a href="../../../api/type/Number.html">number</a> value that, upon instantiation, indicates the distance in pixels between the first joint anchor point and its stationary pulley anchor point.</p></li>
 <li><p><a href="../../../api/type/Joint/length2.html">pulleyJoint.length2</a> — Read-only <a href="../../../api/type/Number.html">number</a> value that, upon instantiation, indicates the distance in pixels between the second joint anchor point and its stationary pulley anchor point.</p></li>
 </ul>
 <p><a id="touch"></a></p>
-</div>
-</div>
-<div id="touch-joint" class="section level2">
+</section>
+</section>
+<section id="touch-joint" class="level2">
 <h2>Touch Joint</h2>
 <p>A touch joint, known as a <strong>mouse</strong> joint in Box2D, connects a single object to an <nobr>on-screen</nobr> target point. This can be used to move an object to a target point by a theoretical elastic joint with variable strength and elasticity. The initial arguments are the body <code>A</code> to connect followed by the <strong>x</strong> and <strong>y</strong> anchor point coordinates in content space.</p>
 <pre class="brush: lua;">local touchJoint = physics.newJoint( "touch", body, anchor_x, anchor_y )</pre>
 <div class="float-right" style="max-width: 308px; margin-top: 12px;">
-<div class="figure">
-<img src="../../../images/simulator/joint-touch.png" />
-
+<p><img src="../../../images/simulator/joint-touch.png" /></p>
 </div>
-</div>
-<div id="anchor-point" class="section level3">
+<section id="anchor-point" class="level3">
 <h3>Anchor Point</h3>
-<p>For touch joints, the anchor point can be considered the point at which to &quot;connect&quot; the body. For example, to connect a body by its center point, specify <code>body.x</code> and <code>body.y</code> as the last two arguments. Alternatively, to drag an object by the point it was touched on, use the <code>event.x</code> and <code>event.y</code> values returned by the <a href="../../../api/event/touch/index.html">touch</a> event. This anchor point is commonly configured as a point within the bounds of the body, although it can reside outside the bounds if desired.</p>
+<p>For touch joints, the anchor point can be considered the point at which to “connect” the body. For example, to connect a body by its center point, specify <code>body.x</code> and <code>body.y</code> as the last two arguments. Alternatively, to drag an object by the point it was touched on, use the <code>event.x</code> and <code>event.y</code> values returned by the <a href="../../../api/event/touch/index.html">touch</a> event. This anchor point is commonly configured as a point within the bounds of the body, although it can reside outside the bounds if desired.</p>
 <p>Note that the body connected by the touch joint remains under simulation, so it will interact fully with the other bodies in the world. Also, the body will rotate realistically under gravity when connected by a <nobr>non-center</nobr> anchor point.</p>
-</div>
-<div id="joint-target" class="section level3">
+</section>
+<section id="joint-target" class="level3">
 <h3>Joint Target</h3>
 <p>The target-following behavior of a touch joint is set by passing <strong>x</strong> and <strong>y</strong> coordinates to the <a href="../../../api/type/Joint/setTarget.html">touchJoint:setTarget()</a> function:</p>
 <ul>
-<li><a href="../../../api/type/Joint/setTarget.html">touchJoint:setTarget()</a> — Sets the current target (follow) point of the touch joint as represented by <code>targetX</code> and <code>targetY</code> in content space coordinates. This can be any specific content point, the location of the user's touch, the coordinates of some other object to follow, successive points along a path, etc.</li>
+<li><a href="../../../api/type/Joint/setTarget.html">touchJoint:setTarget()</a> — Sets the current target (follow) point of the touch joint as represented by <code>targetX</code> and <code>targetY</code> in content space coordinates. This can be any specific content point, the location of the user’s touch, the coordinates of some other object to follow, successive points along a path, etc.</li>
 </ul>
 <div class="code-indent" style="width:450px;">
 <pre class="brush: lua;">touchJoint:setTarget( targetX, targetY )</pre>
 </div>
-</div>
-<div id="dampingfrequency-3" class="section level3">
+</section>
+<section id="dampingfrequency-3" class="level3">
 <h3>Damping/Frequency</h3>
 <ul>
 <li><p><a href="../../../api/type/Joint/dampingRatio.html">touchJoint.dampingRatio</a> — This <a href="../../../api/type/Number.html">number</a> value can range from <code>0</code> (no damping) to <code>1</code> (critical damping). With critical damping, all oscillations should vanish.</p></li>
 <li><p><a href="../../../api/type/Joint/frequency.html">touchJoint.frequency</a> — This <a href="../../../api/type/Number.html">number</a> value specifies the <nobr>mass-spring</nobr> damping frequency in Hz. A low value will result in very low force for target following.</p></li>
 <li><p><a href="../../../api/type/Joint/maxForce.html">touchJoint.maxForce</a> — This <a href="../../../api/type/Number.html">number</a> value specifies the maximum allowed force for the touch joint. By default, this attribute is 1000 × the mass of the body, allowing for fairly rapid target following.</p></li>
 </ul>
-</div>
-<div id="other-5" class="section level3">
+</section>
+<section id="other-5" class="level3">
 <h3>Other</h3>
 <ul>
 <li><a href="../../../api/type/Joint/getTarget.html">touchJoint:getTarget()</a> — This function returns the current target coordinates of the touch joint as specified by <a href="../../../api/type/Joint/setTarget.html">touchJoint:setTarget()</a>.</li>
 </ul>
 <p><a id="rope"></a></p>
-</div>
-</div>
-<div id="rope-joint" class="section level2">
+</section>
+</section>
+<section id="rope-joint" class="level2">
 <h2>Rope Joint</h2>
 <p>A rope joint connects two objects by a theoretical <nobr>non-elastic</nobr> rope. This restricts the maximum distance between the two bodies even if there are other significant forces upon them. The initial arguments are bodies <code>A</code> and <code>B</code> to join, followed by optional localized offset points which can be used to set <nobr>non-center</nobr> anchor points for each end of the rope.</p>
 <pre class="brush: lua;">local ropeJoint = physics.newJoint( "rope", bodyA, bodyB, offsetA_x, offsetA_y, offsetB_x, offsetB_y )</pre>
 <div class="float-right" style="max-width: 308px; margin-top: 12px;">
-<div class="figure">
-<img src="../../../images/simulator/joint-rope.png" />
-
+<p><img src="../../../images/simulator/joint-rope.png" /></p>
 </div>
-</div>
-<div id="offset-ends" class="section level3">
+<section id="offset-ends" class="level3">
 <h3>Offset Ends</h3>
 <p>When configuring a rope joint, the offset values are optional and default to <code>0</code> unless set otherwise. Unlike other joints, these <strong>x</strong> and <strong>y</strong> values should not be specified in content space. Instead, they should be considered as localized offset values related to either body. For example, if you specify <nobr><code>( ..., 0, 0, 0, 0 )</code></nobr>, the rope ends will be attached to the center of each body. However, if you specify <nobr><code>( ..., -20, -20, 10, 10 )</code></nobr>, the rope end attached to body <code>A</code> will be offset 20 pixels left and upward of its center point, while the rope end attached to body <code>B</code> will be offset 10 pixels right and downward of its center point.</p>
-</div>
-<div id="maximum-length" class="section level3">
+</section>
+<section id="maximum-length" class="level3">
 <h3>Maximum Length</h3>
 <p>The maximum length of the rope can be set via the <a href="../../../api/type/Joint/maxLength.html">ropeJoint.maxLength</a> property. Unlike a <a href="#distance">distance</a> joint which can be used to keep two bodies at a fixed distance apart, the theoretical rope can bend/flex like an actual rope, but the maximum distance will always be constrained to this value.</p>
 <ul>
 <li><a href="../../../api/type/Joint/maxLength.html">ropeJoint.maxLength</a> — This <a href="../../../api/type/Number.html">number</a> specifies the maximum separation length of the two bodies (rope length), in pixels.</li>
 </ul>
-</div>
-<div id="other-6" class="section level3">
+</section>
+<section id="other-6" class="level3">
 <h3>Other</h3>
 <ul>
-<li><a href="../../../api/type/Joint/limitState.html">ropeJoint.limitState</a> — Read-only <a href="../../../api/type/String.html">string</a> value that indicates the current limit state of the rope joint: <code>&quot;inactive&quot;</code>, <code>&quot;lower&quot;</code>, <code>&quot;upper&quot;</code>, or <code>&quot;equal&quot;</code>.</li>
+<li><a href="../../../api/type/Joint/limitState.html">ropeJoint.limitState</a> — Read-only <a href="../../../api/type/String.html">string</a> value that indicates the current limit state of the rope joint: <code>"inactive"</code>, <code>"lower"</code>, <code>"upper"</code>, or <code>"equal"</code>.</li>
 </ul>
 <p><a id="gear"></a></p>
-</div>
-</div>
-<div id="gear-joint" class="section level2">
+</section>
+</section>
+<section id="gear-joint" class="level2">
 <h2>Gear Joint</h2>
 <p>To simulate sophisticated mechanical contraptions involving gears, consider using gear joints. This joint can link two bodies — or multiple bodies in sequence — in a <nobr>gear-like</nobr> setup. Then, one <nobr>motor-driven</nobr> body can realistically power the other bodies just like a real machine.</p>
 <pre class="brush: lua;">local gearJoint = physics.newJoint( "gear", bodyA, bodyB, joint1, joint2, ratio )</pre>
 <div class="float-right" style="max-width: 308px; margin-top: 12px;">
-<div class="figure">
-<img src="../../../images/simulator/joint-gear.png" />
-
+<p><img src="../../../images/simulator/joint-gear.png" /></p>
 </div>
-</div>
-<div id="setup-requirements" class="section level3">
+<section id="setup-requirements" class="level3">
 <h3>Setup Requirements</h3>
 <p>The most important distinction of the gear joint is that it operates directly upon two other joints. These two joints must be created before instantiating the gear joint, and they must be either <a href="#pivot">pivot</a> or <a href="#piston">piston</a> joints. Once declared, one of pivot/piston joints can be powered by its motor and impact the other pivot/piston joint attached to the parent gear joint. The same principle applies to successive joints in a more complex chain configuration, assuming they are properly chained together by other gear joints.</p>
 <div class="docs-tip-outer docs-tip-color-alert">
@@ -588,15 +561,15 @@ print( negLimit, posLimit )</pre>
 <p>Always destroy gear joints <strong>before</strong> destroying the associated pivot/piston joints or their bodies. Otherwise, Box2D is liable to crash due to the orphaned gear joint pointers.</p>
 </div>
 </div>
-</div>
-<div id="gear-ratio" class="section level3">
+</section>
+<section id="gear-ratio" class="level3">
 <h3>Gear Ratio</h3>
 <p>Another important aspect of the gear joint is the <code>ratio</code> property. This indicates the ratio at which the <nobr>motor-driven</nobr> joint drives the corresponding joint in the gear configuration. The value can be either positive or negative, depending on the direction required to create an accurate simulation.</p>
 <ul>
 <li><a href="../../../api/type/Joint/ratio.html">gearJoint.ratio</a> — This <a href="../../../api/type/Number.html">number</a> specifies the gear ratio, either positive or negative. It can be either set or read. Note that setting the correct ratio can be challenging when setting up a <nobr><a href="#pivot">pivot</a>-joined</nobr> object which drives a <nobr><a href="#piston">piston</a>-joined</nobr> object, as shown in the diagram. In this case, the gear joint ratio between wheel <code>B</code> and wheel <code>C</code> are <code>1.0</code> since wheel <code>B</code> directly drives <code>C</code>. However, you must calculate the ratio for the gear joint which links wheel <code>C</code> to the vertical bar (<code>D</code>), and because wheel <code>C</code> has a larger circumference than wheel <code>B</code>, this ratio would not be <code>1.0</code>.</li>
 </ul>
-</div>
-<div id="other-7" class="section level3">
+</section>
+<section id="other-7" class="level3">
 <h3>Other</h3>
 <ul>
 <li><p><a href="../../../api/type/Joint/joint1.html">gearJoint.joint1</a> — Read-only <a href="../../../api/type/Userdata.html">Userdata</a> reference to the first <a href="#pivot">pivot</a> or <a href="#piston">piston</a> joint associated with the gear joint.</p></li>
@@ -612,9 +585,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

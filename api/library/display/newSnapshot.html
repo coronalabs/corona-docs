@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | display | newSnapshot</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -71,68 +71,65 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/display/index.html">display</a>  ▸  <a href="../../../api/library/display/newSnapshot.html">newSnapshot</a>
 </div>
-<div id="display.newsnapshot" class="section level1">
+<section id="display.newsnapshot" class="level1">
 <h1>display.newSnapshot()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/display/index.html">display.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Return value</strong></td>
-<td align="left"><a href="../../../api/type/SnapshotObject/index.html">SnapshotObject</a></td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/SnapshotObject/index.html">SnapshotObject</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">snapshot</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">snapshot</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../guide/graphics/snapshot.html">Snapshots</a> <em>(guide)</em></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../guide/graphics/snapshot.html">Snapshots</a> <em>(guide)</em></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
-<p>Snapshot objects let you capture a group of display objects and render them into a flattened image. The image is defined by objects that are added to the snapshot's <a href="../../../api/type/SnapshotObject/group.html">group</a> property.</p>
+<p>Snapshot objects let you capture a group of display objects and render them into a flattened image. The image is defined by objects that are added to the snapshot’s <a href="../../../api/type/SnapshotObject/group.html">group</a> property.</p>
 <p>Learn more about snapshots in the <a href="../../../guide/graphics/snapshot.html">Snapshots</a> guide.</p>
-</div>
-<div id="gotchas" class="section level2">
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
-<div id="android" class="section level3">
+<section id="android" class="level3">
 <h3>Android</h3>
-<p>When an app is suspended, the Android OS removes all OpenGL textures from memory. When the app is resumed, Corona must reload all images, but the capture image no longer exists in memory. If you need to restore a snapshot image in Android, one solution is to save the returned capture image to file via the <a href="../../../api/library/display/save.html">display.save()</a> function. Note that this should be done immediately, not during the <code>&quot;applicationSuspend&quot;</code> or <code>&quot;applicationExit&quot;</code> <a href="../../../api/event/system/type.html">system</a> events (at those times, there will be no OpenGL textures in memory to save).</p>
-</div>
-</div>
-<div id="syntax" class="section level2">
+<p>When an app is suspended, the Android OS removes all OpenGL textures from memory. When the app is resumed, Corona must reload all images, but the capture image no longer exists in memory. If you need to restore a snapshot image in Android, one solution is to save the returned capture image to file via the <a href="../../../api/library/display/save.html">display.save()</a> function. Note that this should be done immediately, not during the <code>"applicationSuspend"</code> or <code>"applicationExit"</code> <a href="../../../api/event/system/type.html">system</a> events (at those times, there will be no OpenGL textures in memory to save).</p>
+</section>
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">display.newSnapshot( [parent,] w, h )</pre>
-<div id="parent-optional" class="section level5">
+<section id="parent-optional" class="level5">
 <h5>parent <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/GroupObject/index.html">GroupObject</a>.</em> An optional display group in which to insert the snapshot.</p>
-</div>
-<div id="w-h-required" class="section level5">
+</section>
+<section id="w-h-required" class="level5">
 <h5>w / h <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> Width and height of the snapshot.</p>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
-<div class="figure">
-<img src="../../../images/sdk/graphics/Snapshot-alpha.png" />
-
-</div>
+<p><img src="../../../images/sdk/graphics/Snapshot-alpha.png" /></p>
 <pre class="brush: lua;">local snapshot = display.newSnapshot( 200, 200 )
 
 math.randomseed( 0 )
@@ -161,8 +158,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | type | TableViewWidget | insertRow</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -72,78 +72,78 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/TableViewWidget/index.html">TableViewWidget</a>  ▸  <a href="../../../api/type/TableViewWidget/insertRow.html">insertRow</a>
 </div>
-<div id="objectinsertrow" class="section level1">
+<section id="objectinsertrow" class="level1">
 <h1>object:insertRow()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/widget/index.html">widget.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/widget/index.html">widget.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">table view, list view, TableViewWidget, insertRow</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">table view, list view, TableViewWidget, insertRow</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../api/library/widget/newTableView.html">widget.newTableView()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/widget/newTableView.html">widget.newTableView()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/type/TableViewWidget/index.html">TableViewWidget</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/type/TableViewWidget/index.html">TableViewWidget</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>This method is used for inserting rows into a <a href="../../../api/type/TableViewWidget/index.html">TableViewWidget</a>.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">object:insertRow( options )</pre>
 <p>This function requires a single argument, <code>options</code>, which is a table that accepts the following parameters:</p>
-<div id="id-optional" class="section level5">
+<section id="id-optional" class="level5">
 <h5>id <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../../api/type/String.html">String</a>.</em> An optional identification to assign to the row. Default value is the row's index.</p>
-</div>
-<div id="rowheight-optional" class="section level5">
+<p><em><a href="../../../api/type/String.html">String</a>.</em> An optional identification to assign to the row. Default value is the row’s index.</p>
+</section>
+<section id="rowheight-optional" class="level5">
 <h5>rowHeight <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The total height of the row in pixels.</p>
-</div>
-<div id="rowcolor-optional" class="section level5">
+</section>
+<section id="rowcolor-optional" class="level5">
 <h5>rowColor <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Table.html">Table</a>.</em> Table of two RGB+A color settings, one each for the default and over states.</p>
 <div class="code-indent" style="width:500px;">
 <pre class="brush: lua;">rowColor = { default={ 1, 1, 1 }, over={ 1, 0.5, 0, 0.2 } }</pre>
 </div>
-</div>
-<div id="linecolor-optional" class="section level5">
+</section>
+<section id="linecolor-optional" class="level5">
 <h5>lineColor <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Table.html">Table</a>.</em> A table of RGB+A values that define the color of the separator line, assuming lines are set to visible.</p>
 <div class="code-indent" style="width:500px;">
 <pre class="brush: lua;">lineColor = { 0.5, 0.5, 0.5 }</pre>
 </div>
-</div>
-<div id="iscategory-optional" class="section level5">
+</section>
+<section id="iscategory-optional" class="level5">
 <h5>isCategory <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../../api/type/Boolean.html">Boolean</a>.</em> If <code>true</code>, the row will be rendered as a category row. Category rows &quot;stick&quot; to the top of the table view as the user scrolls, indicating that the rows underneath are part of that category.</p>
-</div>
-<div id="params-optional" class="section level5">
+<p><em><a href="../../../api/type/Boolean.html">Boolean</a>.</em> If <code>true</code>, the row will be rendered as a category row. Category rows “stick” to the top of the table view as the user scrolls, indicating that the rows underneath are part of that category.</p>
+</section>
+<section id="params-optional" class="level5">
 <h5>params <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Table.html">Table</a>.</em> A table which can contain information pertaining to the specific row. This information can then be accessed (read) in the row rendering function via <code>event.row.params</code> and in the row touch listener via <code>event.target.params</code>.</p>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">-- Insert 40 rows
 for i = 1, 40 do
@@ -182,8 +182,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

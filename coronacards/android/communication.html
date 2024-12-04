@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — CoronaCards | Android | communication</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -69,36 +69,36 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../coronacards/index.html">CoronaCards</a>  ▸  <a href="../../coronacards/android/index.html">Android</a>  ▸  <a href="../../coronacards/android/communication.html">communication</a>
 </div>
-<div id="coronacards-nativelua-communication-android" class="section level1">
+<section id="coronacards-nativelua-communication-android" class="level1">
 <h1>CoronaCards: Native/Lua Communication — Android</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">CoronaCards, Android</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">CoronaCards, Android</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../coronacards/android/project.html">Project Integration — Android</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../coronacards/android/project.html">Project Integration — Android</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Communication between Lua and the Java environment is done through CoronaView instances which allow <strong>events</strong> to be sent from one environment to the other.</p>
-<p>In Java, these events are represented by <code>Hashtable</code> instances. In Lua, they are basic Lua tables. Both follow the Corona convention for events with a required <code>&quot;name&quot;</code> key along with a string value that identifies the key. Further information can additionally be passed via a series of <nobr>key-value</nobr> pairs.</p>
+<p>In Java, these events are represented by <code>Hashtable</code> instances. In Lua, they are basic Lua tables. Both follow the Corona convention for events with a required <code>"name"</code> key along with a string value that identifies the key. Further information can additionally be passed via a series of <nobr>key-value</nobr> pairs.</p>
 <p>The central router for events between the two environments is the global <a href="../../api/type/Runtime/index.html">Runtime</a> object which exists on the Lua side.</p>
-</div>
-<div id="java-to-lua" class="section level2">
+</section>
+<section id="java-to-lua" class="level2">
 <h2>Java to Lua</h2>
-<p>You can send events to Lua from Java by constructing a Corona-style event. In the example below, we create a custom event type (<code>&quot;pauseEvent&quot;</code>) by instantiating an instance of <code>HashMap</code>. We fill this with the proper field (the key/value pair <code>&quot;name&quot;</code>/<code>&quot;pauseEvent&quot;</code>) and a custom field <code>&quot;otherKey&quot;</code>/<code>&quot;otherValue&quot;</code>. We then call the CoronaView method <code>sendEvent</code>, passing in the <code>Hashtable</code>. The CoronaView will automatically translate this to a Lua table and dispatch it to any Lua listener that has been registered with the global <a href="../../api/type/Runtime/index.html">Runtime</a> object.</p>
-<div id="example" class="section level5">
+<p>You can send events to Lua from Java by constructing a Corona-style event. In the example below, we create a custom event type (<code>"pauseEvent"</code>) by instantiating an instance of <code>HashMap</code>. We fill this with the proper field (the key/value pair <code>"name"</code>/<code>"pauseEvent"</code>) and a custom field <code>"otherKey"</code>/<code>"otherValue"</code>. We then call the CoronaView method <code>sendEvent</code>, passing in the <code>Hashtable</code>. The CoronaView will automatically translate this to a Lua table and dispatch it to any Lua listener that has been registered with the global <a href="../../api/type/Runtime/index.html">Runtime</a> object.</p>
+<section id="example" class="level5">
 <h5>Example</h5>
 <pre class="brush: lua;">// [Java]
 
@@ -120,12 +120,12 @@ local function handlePause( event )
 end
 
 Runtime:addEventListener( "pauseEvent", handlePause )</pre>
-</div>
-</div>
-<div id="lua-to-java" class="section level2">
+</section>
+</section>
+<section id="lua-to-java" class="level2">
 <h2>Lua to Java</h2>
 <p>Lua code within a CoronaView instance can send events to the <code>CoronaView</code>. These events should be of the type <code>coronaView</code> and you must register a <code>CoronaEventListener</code> with <code>setCoronaEventListener</code> to listen for them. The Lua <code>event</code> table will be converted to a <code>Hashtable</code> by the time the listener is called.</p>
-<div id="example-1" class="section level5">
+<section id="example-1" class="level5">
 <h5>Example</h5>
 <pre class="brush: lua;">// [Java]
 
@@ -160,9 +160,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

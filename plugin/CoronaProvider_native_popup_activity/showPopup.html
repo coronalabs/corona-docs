@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Activity Popup | showPopup</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -82,183 +82,183 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/CoronaProvider_native_popup_activity/index.html">Activity Popup</a>  ▸  <a href="../../plugin/CoronaProvider_native_popup_activity/showPopup.html">showPopup</a>
 </div>
-<div id="native.showpopup-activity-popup" class="section level1">
+<section id="native.showpopup-activity-popup" class="level1">
 <h1>native.showPopup() — Activity Popup</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../api/library/native/index.html">native.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../api/library/native/index.html">native.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">native, showPopup, activity</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">native, showPopup, activity</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Displays the activity popup window which corresponds to <code>UIActivityViewController</code> on iOS. The set of activities depends on the items you specify.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">native.showPopup( name, options )</pre>
-<div id="name-required" class="section level5">
+<section id="name-required" class="level5">
 <h5>name <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> The string name of the popup to be shown. For the Activity Popup plugin, use <code>&quot;activity&quot;</code>.</p>
-</div>
-<div id="options-required" class="section level5">
+<p><em><a href="../../api/type/String.html">String</a>.</em> The string name of the popup to be shown. For the Activity Popup plugin, use <code>"activity"</code>.</p>
+</section>
+<section id="options-required" class="level5">
 <h5>options <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> A table that specifies parameters for the popup — see the next section for details.</p>
-</div>
-</div>
-<div id="options-reference" class="section level2">
+</section>
+</section>
+<section id="options-reference" class="level2">
 <h2>Options Reference</h2>
-<div id="items-required" class="section level5">
+<section id="items-required" class="level5">
 <h5>items <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Array.html">Array</a>.</em> Array of individual items. See <a href="#itemarray">Item Array</a> below.</p>
-</div>
-<div id="excludedactivities-optional" class="section level5">
+</section>
+<section id="excludedactivities-optional" class="level5">
 <h5>excludedActivities <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Array.html">Array</a>.</em> By default, all built-in and compatible activities are shown. You can exclude an activity by specifying an array of strings where each corresponds to an activity. See <a href="#activities">Supported Activities</a> below for valid string values.</p>
-</div>
-<div id="origin-optional" class="section level5">
+</section>
+<section id="origin-optional" class="level5">
 <h5>origin <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../api/type/Table.html">Table</a>.</em> Only applicable on iPad. Defines the bounds of the object (typically a button) from which the iPad's popup emerges from. A convenience pattern is to pass the <code>contentBounds</code> property of the object.</p>
-</div>
-<div id="permittedarrowdirections-optional" class="section level5">
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> Only applicable on iPad. Defines the bounds of the object (typically a button) from which the iPad’s popup emerges from. A convenience pattern is to pass the <code>contentBounds</code> property of the object.</p>
+</section>
+<section id="permittedarrowdirections-optional" class="level5">
 <h5>permittedArrowDirections <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../api/type/Table.html">Table</a>.</em> Only applicable on iPad. An array of values which defines the directions in which the iPad's popup arrow may point. Valid values are <code>&quot;up&quot;</code>, <code>&quot;down&quot;</code>, <code>&quot;left&quot;</code>, <code>&quot;right&quot;</code>, or <code>&quot;any&quot;</code>. The default is <code>&quot;any&quot;</code>.</p>
-</div>
-<div id="listener-optional" class="section level5">
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> Only applicable on iPad. An array of values which defines the directions in which the iPad’s popup arrow may point. Valid values are <code>"up"</code>, <code>"down"</code>, <code>"left"</code>, <code>"right"</code>, or <code>"any"</code>. The default is <code>"any"</code>.</p>
+</section>
+<section id="listener-optional" class="level5">
 <h5>listener <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Listener.html">Listener</a>.</em> Listener which supports basic <a href="../../api/event/popup/index.html">popup events</a>. In addition, it supports the following additional properties:</p>
 <ul>
-<li><code>event.action</code> (<a href="../../api/type/String.html">string</a>) — Value of <code>&quot;sent&quot;</code> or <code>&quot;cancelled&quot;</code>.</li>
+<li><code>event.action</code> (<a href="../../api/type/String.html">string</a>) — Value of <code>"sent"</code> or <code>"cancelled"</code>.</li>
 <li><code>event.activity</code> (<a href="../../api/type/String.html">string</a>) — Value corresponding to the <a href="#activities">Supported Activities</a>.</li>
 </ul>
 <p><a id="itemarray"></a></p>
-</div>
-</div>
-<div id="item-array" class="section level2">
+</section>
+</section>
+<section id="item-array" class="level2">
 <h2>Item Array</h2>
 <p>The item array is an <a href="../../api/type/Array.html">array</a> of individual items, where each item is a <a href="../../api/type/Table.html">table</a> that contains data on which activity is to be performed. Each individual item table must contain both <code>type</code> and <code>value</code> properties.</p>
-<p>Different activities support different item types. Please refer to Apple's <a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIActivity_Class/index.html#//apple_ref/doc/constant_group/Built_in_Activity_Types">documentation</a> for a reference of supported activity types.</p>
+<p>Different activities support different item types. Please refer to Apple’s <a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIActivity_Class/index.html#//apple_ref/doc/constant_group/Built_in_Activity_Types">documentation</a> for a reference of supported activity types.</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Type</th>
-<th align="left">Value</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;string&quot;</code></td>
-<td align="left"><a href="../../api/type/String.html">String</a> value which will be converted to a <code>NSString</code>.</td>
+<td style="text-align: left;"><code>"string"</code></td>
+<td style="text-align: left;"><a href="../../api/type/String.html">String</a> value which will be converted to a <code>NSString</code>.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;url&quot;</code></td>
-<td align="left"><a href="../../api/type/String.html">String</a> value which will be converted to a <code>NSURL</code>.</td>
+<td style="text-align: left;"><code>"url"</code></td>
+<td style="text-align: left;"><a href="../../api/type/String.html">String</a> value which will be converted to a <code>NSURL</code>.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;image&quot;</code></td>
-<td align="left"><a href="../../api/type/Table.html">Table</a> in the form of <nobr><code>{ baseDir=, filename= }</code></nobr> which specifies the image file to post. This will be converted to a <code>UIImage</code>.</td>
+<td style="text-align: left;"><code>"image"</code></td>
+<td style="text-align: left;"><a href="../../api/type/Table.html">Table</a> in the form of <nobr><code>{ baseDir=, filename= }</code></nobr> which specifies the image file to post. This will be converted to a <code>UIImage</code>.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <p><a id="activities"></a></p>
-</div>
-<div id="supported-activities" class="section level2">
+</section>
+<section id="supported-activities" class="level2">
 <h2>Supported Activities</h2>
 <p>The Activity plugin supports the following activity string values, each corresponding to a <a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIActivity_Class/index.html#//apple_ref/doc/constant_group/Built_in_Activity_Types">built-in activity</a> on iOS.</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">String</th>
-<th align="left">Corresponding iOS Activity</th>
+<th style="text-align: left;">String</th>
+<th style="text-align: left;">Corresponding iOS Activity</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;UIActivityTypePostToFacebook&quot;</code></td>
-<td align="left"><code>UIActivityTypePostToFacebook</code>  </td>
+<td style="text-align: left;"><code>"UIActivityTypePostToFacebook"</code></td>
+<td style="text-align: left;"><code>UIActivityTypePostToFacebook</code>  </td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;UIActivityTypePostToTwitter&quot;</code></td>
-<td align="left"><code>UIActivityTypePostToTwitter</code>  </td>
+<td style="text-align: left;"><code>"UIActivityTypePostToTwitter"</code></td>
+<td style="text-align: left;"><code>UIActivityTypePostToTwitter</code>  </td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;UIActivityTypePostToWeibo&quot;</code></td>
-<td align="left"><code>UIActivityTypePostToWeibo</code>  </td>
+<td style="text-align: left;"><code>"UIActivityTypePostToWeibo"</code></td>
+<td style="text-align: left;"><code>UIActivityTypePostToWeibo</code>  </td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;UIActivityTypeMessage&quot;</code></td>
-<td align="left"><code>UIActivityTypeMessage</code>  </td>
+<td style="text-align: left;"><code>"UIActivityTypeMessage"</code></td>
+<td style="text-align: left;"><code>UIActivityTypeMessage</code>  </td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;UIActivityTypeMail&quot;</code></td>
-<td align="left"><code>UIActivityTypeMail</code>  </td>
+<td style="text-align: left;"><code>"UIActivityTypeMail"</code></td>
+<td style="text-align: left;"><code>UIActivityTypeMail</code>  </td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;UIActivityTypePrint&quot;</code></td>
-<td align="left"><code>UIActivityTypePrint</code>  </td>
+<td style="text-align: left;"><code>"UIActivityTypePrint"</code></td>
+<td style="text-align: left;"><code>UIActivityTypePrint</code>  </td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;UIActivityTypeCopyToPasteboard&quot;</code></td>
-<td align="left"><code>UIActivityTypeCopyToPasteboard</code>  </td>
+<td style="text-align: left;"><code>"UIActivityTypeCopyToPasteboard"</code></td>
+<td style="text-align: left;"><code>UIActivityTypeCopyToPasteboard</code>  </td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;UIActivityTypeAssignToContact&quot;</code></td>
-<td align="left"><code>UIActivityTypeAssignToContact</code>  </td>
+<td style="text-align: left;"><code>"UIActivityTypeAssignToContact"</code></td>
+<td style="text-align: left;"><code>UIActivityTypeAssignToContact</code>  </td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;UIActivityTypeSaveToCameraRoll&quot;</code></td>
-<td align="left"><code>UIActivityTypeSaveToCameraRoll</code>  </td>
+<td style="text-align: left;"><code>"UIActivityTypeSaveToCameraRoll"</code></td>
+<td style="text-align: left;"><code>UIActivityTypeSaveToCameraRoll</code>  </td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;UIActivityTypeAddToReadingList&quot;</code></td>
-<td align="left"><code>UIActivityTypeAddToReadingList</code>  </td>
+<td style="text-align: left;"><code>"UIActivityTypeAddToReadingList"</code></td>
+<td style="text-align: left;"><code>UIActivityTypeAddToReadingList</code>  </td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;UIActivityTypePostToFlickr&quot;</code></td>
-<td align="left"><code>UIActivityTypePostToFlickr</code>  </td>
+<td style="text-align: left;"><code>"UIActivityTypePostToFlickr"</code></td>
+<td style="text-align: left;"><code>UIActivityTypePostToFlickr</code>  </td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;UIActivityTypePostToVimeo&quot;</code></td>
-<td align="left"><code>UIActivityTypePostToVimeo</code>  </td>
+<td style="text-align: left;"><code>"UIActivityTypePostToVimeo"</code></td>
+<td style="text-align: left;"><code>UIActivityTypePostToVimeo</code>  </td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;UIActivityTypePostToTencentWeibo&quot;</code></td>
-<td align="left"><code>UIActivityTypePostToTencentWeibo</code>  </td>
+<td style="text-align: left;"><code>"UIActivityTypePostToTencentWeibo"</code></td>
+<td style="text-align: left;"><code>UIActivityTypePostToTencentWeibo</code>  </td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;UIActivityTypeAirDrop&quot;</code></td>
-<td align="left"><code>UIActivityTypeAirDrop</code>  </td>
+<td style="text-align: left;"><code>"UIActivityTypeAirDrop"</code></td>
+<td style="text-align: left;"><code>UIActivityTypeAirDrop</code>  </td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="examples" class="section level2">
+</section>
+<section id="examples" class="level2">
 <h2>Examples</h2>
-<div id="string-items" class="section level5">
+<section id="string-items" class="level5">
 <h5>String Items</h5>
 <pre class="brush: lua;">local popupListener = {}
 function popupListener:popup( event )
@@ -276,8 +276,8 @@ local textItems = {
 local options = { items=textItems, listener=popupListener }
 
 native.showPopup( "activity", options )</pre>
-</div>
-<div id="url-items" class="section level5">
+</section>
+<section id="url-items" class="level5">
 <h5>URL Items</h5>
 <pre class="brush: lua;">local popupListener = {}
 function popupListener:popup( event )
@@ -295,8 +295,8 @@ local urlItems = {
 local options = { items=urlItems, listener=popupListener }
 
 native.showPopup( "activity", options )</pre>
-</div>
-<div id="image-items" class="section level5">
+</section>
+<section id="image-items" class="level5">
 <h5>Image Items</h5>
 <pre class="brush: lua;">local popupListener = {}
 function popupListener:popup( event )
@@ -320,8 +320,8 @@ local imageItems = {
 local options = { items=imageItems, listener=popupListener }
 
 native.showPopup( "activity", options )</pre>
-</div>
-<div id="combined-items" class="section level5">
+</section>
+<section id="combined-items" class="level5">
 <h5>Combined Items</h5>
 <pre class="brush: lua;">local popupListener = {}
 function popupListener:popup( event )
@@ -353,9 +353,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

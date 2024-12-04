@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Google Play Games Services | leaderboards</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,20 +58,20 @@
 <li><a href="#gpgs.leaderboards">gpgs.leaderboards</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#functions">Functions</a><ul>
-<li><a href="#gpgs.leaderboards.loadplugin.gpgs.leaderboards.load"><a href="../../../plugin/gpgs/leaderboards/load.html">gpgs.leaderboards.load()</a></a></li>
-<li><a href="#gpgs.leaderboards.loadscoresplugin.gpgs.leaderboards.loadscores"><a href="../../../plugin/gpgs/leaderboards/loadScores.html">gpgs.leaderboards.loadScores()</a></a></li>
-<li><a href="#gpgs.leaderboards.showplugin.gpgs.leaderboards.show"><a href="../../../plugin/gpgs/leaderboards/show.html">gpgs.leaderboards.show()</a></a></li>
-<li><a href="#gpgs.leaderboards.submitplugin.gpgs.leaderboards.submit"><a href="../../../plugin/gpgs/leaderboards/submit.html">gpgs.leaderboards.submit()</a></a></li>
+<li><a href="#gpgs.leaderboards.loadplugin.gpgs.leaderboards.load"><span>gpgs.leaderboards.load()</span></a></li>
+<li><a href="#gpgs.leaderboards.loadscoresplugin.gpgs.leaderboards.loadscores"><span>gpgs.leaderboards.loadScores()</span></a></li>
+<li><a href="#gpgs.leaderboards.showplugin.gpgs.leaderboards.show"><span>gpgs.leaderboards.show()</span></a></li>
+<li><a href="#gpgs.leaderboards.submitplugin.gpgs.leaderboards.submit"><span>gpgs.leaderboards.submit()</span></a></li>
 </ul></li>
 <li><a href="#events">Events</a><ul>
-<li><a href="#loadplugin.gpgs.leaderboards.event.load"><a href="../../../plugin/gpgs/leaderboards/event/load/index.html">load</a></a></li>
-<li><a href="#loadscoresplugin.gpgs.leaderboards.event.loadscores"><a href="../../../plugin/gpgs/leaderboards/event/loadScores/index.html">loadScores</a></a></li>
-<li><a href="#showplugin.gpgs.leaderboards.event.show"><a href="../../../plugin/gpgs/leaderboards/event/show/index.html">show</a></a></li>
-<li><a href="#submitplugin.gpgs.leaderboards.event.submit"><a href="../../../plugin/gpgs/leaderboards/event/submit/index.html">submit</a></a></li>
+<li><a href="#loadplugin.gpgs.leaderboards.event.load"><span>load</span></a></li>
+<li><a href="#loadscoresplugin.gpgs.leaderboards.event.loadscores"><span>loadScores</span></a></li>
+<li><a href="#showplugin.gpgs.leaderboards.event.show"><span>show</span></a></li>
+<li><a href="#submitplugin.gpgs.leaderboards.event.submit"><span>submit</span></a></li>
 </ul></li>
 <li><a href="#types">Types</a><ul>
-<li><a href="#leaderboardplugin.gpgs.leaderboards.type.leaderboard"><a href="../../../plugin/gpgs/leaderboards/type/Leaderboard/index.html">Leaderboard</a></a></li>
-<li><a href="#scoreplugin.gpgs.leaderboards.type.score"><a href="../../../plugin/gpgs/leaderboards/type/Score/index.html">Score</a></a></li>
+<li><a href="#leaderboardplugin.gpgs.leaderboards.type.leaderboard"><span>Leaderboard</span></a></li>
+<li><a href="#scoreplugin.gpgs.leaderboards.type.score"><span>Score</span></a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -79,70 +79,70 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../plugin/index.html">Plugins</a>  ▸  <a href="../../../plugin/gpgs/index.html">Google Play Games Services</a>  ▸  <a href="../../../plugin/gpgs/leaderboards/index.html">leaderboards</a>
 </div>
-<div id="gpgs.leaderboards" class="section level1">
+<section id="gpgs.leaderboards" class="level1">
 <h1>gpgs.leaderboards</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Table.html">Table</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Table.html">Table</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">Google Play Games Services, game network, gpgs, leaderboards</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">Google Play Games Services, game network, gpgs, leaderboards</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../plugin/gpgs/index.html">gpgs.*</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../plugin/gpgs/index.html">gpgs.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>These functions, events, and types pertain to the leaderboards node.</p>
-</div>
-<div id="functions" class="section level2">
+</section>
+<section id="functions" class="level2">
 <h2>Functions</h2>
-<div id="gpgs.leaderboards.loadplugin.gpgs.leaderboards.load" class="section level4">
+<section id="gpgs.leaderboards.loadplugin.gpgs.leaderboards.load" class="level4">
 <h4><a href="../../../plugin/gpgs/leaderboards/load.html">gpgs.leaderboards.load()</a></h4>
-</div>
-<div id="gpgs.leaderboards.loadscoresplugin.gpgs.leaderboards.loadscores" class="section level4">
+</section>
+<section id="gpgs.leaderboards.loadscoresplugin.gpgs.leaderboards.loadscores" class="level4">
 <h4><a href="../../../plugin/gpgs/leaderboards/loadScores.html">gpgs.leaderboards.loadScores()</a></h4>
-</div>
-<div id="gpgs.leaderboards.showplugin.gpgs.leaderboards.show" class="section level4">
+</section>
+<section id="gpgs.leaderboards.showplugin.gpgs.leaderboards.show" class="level4">
 <h4><a href="../../../plugin/gpgs/leaderboards/show.html">gpgs.leaderboards.show()</a></h4>
-</div>
-<div id="gpgs.leaderboards.submitplugin.gpgs.leaderboards.submit" class="section level4">
+</section>
+<section id="gpgs.leaderboards.submitplugin.gpgs.leaderboards.submit" class="level4">
 <h4><a href="../../../plugin/gpgs/leaderboards/submit.html">gpgs.leaderboards.submit()</a></h4>
-</div>
-</div>
-<div id="events" class="section level2">
+</section>
+</section>
+<section id="events" class="level2">
 <h2>Events</h2>
-<div id="loadplugin.gpgs.leaderboards.event.load" class="section level4">
+<section id="loadplugin.gpgs.leaderboards.event.load" class="level4">
 <h4><a href="../../../plugin/gpgs/leaderboards/event/load/index.html">load</a></h4>
-</div>
-<div id="loadscoresplugin.gpgs.leaderboards.event.loadscores" class="section level4">
+</section>
+<section id="loadscoresplugin.gpgs.leaderboards.event.loadscores" class="level4">
 <h4><a href="../../../plugin/gpgs/leaderboards/event/loadScores/index.html">loadScores</a></h4>
-</div>
-<div id="showplugin.gpgs.leaderboards.event.show" class="section level4">
+</section>
+<section id="showplugin.gpgs.leaderboards.event.show" class="level4">
 <h4><a href="../../../plugin/gpgs/leaderboards/event/show/index.html">show</a></h4>
-</div>
-<div id="submitplugin.gpgs.leaderboards.event.submit" class="section level4">
+</section>
+<section id="submitplugin.gpgs.leaderboards.event.submit" class="level4">
 <h4><a href="../../../plugin/gpgs/leaderboards/event/submit/index.html">submit</a></h4>
-</div>
-</div>
-<div id="types" class="section level2">
+</section>
+</section>
+<section id="types" class="level2">
 <h2>Types</h2>
-<div id="leaderboardplugin.gpgs.leaderboards.type.leaderboard" class="section level4">
+<section id="leaderboardplugin.gpgs.leaderboards.type.leaderboard" class="level4">
 <h4><a href="../../../plugin/gpgs/leaderboards/type/Leaderboard/index.html">Leaderboard</a></h4>
-</div>
-<div id="scoreplugin.gpgs.leaderboards.type.score" class="section level4">
+</section>
+<section id="scoreplugin.gpgs.leaderboards.type.score" class="level4">
 <h4><a href="../../../plugin/gpgs/leaderboards/type/Score/index.html">Score</a></h4>
 <hr>
 <div id="footer">
@@ -154,9 +154,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

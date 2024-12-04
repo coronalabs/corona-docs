@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | sqlite3</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -69,43 +69,43 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/sqlite3/index.html">sqlite3</a>
 </div>
-<div id="sqlite3.-database" class="section level1">
+<section id="sqlite3.-database" class="level1">
 <h1>sqlite3.* (database)</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Library.html">Library</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Library.html">Library</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">sqlite3, database, sqlite</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">sqlite3, database, sqlite</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="http://lua.sqlite.org/index.cgi/doc/tip/doc/lsqlite3.wiki">LuaSQLite Documentation</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="http://lua.sqlite.org/index.cgi/doc/tip/doc/lsqlite3.wiki">LuaSQLite Documentation</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="https://www.sqlite.org/lang.html">SQLite Language Reference</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="https://www.sqlite.org/lang.html">SQLite Language Reference</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Solar2D includes support for SQLite databases on all platforms. The documentation for LuaSQLite can be viewed <a href="http://lua.sqlite.org/index.cgi/doc/tip/doc/lsqlite3.wiki">here</a>.</p>
-</div>
-<div id="gotchas" class="section level2">
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
 <p>When providing a file path to <code>open()</code>, make sure to use <a href="../../../api/library/system/pathForFile.html">system.pathForFile()</a>. Providing just a plain file name such as <code>my.db</code> will not work consistently across the Simulator and devices, especially on Android.</p>
-</div>
-<div id="quick-start" class="section level2">
+</section>
+<section id="quick-start" class="level2">
 <h2>Quick Start</h2>
 <ul>
 <li><p><code>sqlite3.open( path )</code> — Opens the SQLite file. Note that the path should be the full path to the database, not just the file name. In case of an error, the function returns <code>nil</code>, an error code, and an error message.</p></li>
@@ -114,10 +114,10 @@
 <li><p><code>file:nrows( SQL_Command )</code> — Returns successive rows from the SQL statement. Each call to the iterator returns a table in which the named fields correspond to the columns in the database.</p></li>
 <li><p><code>file:close()</code> — Closes the database. In case of an error, this function returns a numerical <a href="http://lua.sqlite.org/index.cgi/doc/tip/doc/lsqlite3.wiki#numerical_error_and_result_codes">error code</a>.</p></li>
 </ul>
-</div>
-<div id="examples" class="section level2">
+</section>
+<section id="examples" class="level2">
 <h2>Examples</h2>
-<div id="create-table" class="section level5">
+<section id="create-table" class="level5">
 <h5>Create Table</h5>
 <pre class="brush: lua;">local sqlite3 = require( "sqlite3" )
 local db = sqlite3.open_memory()
@@ -135,8 +135,8 @@ for row in db:nrows("SELECT * FROM test") do
   local t = display.newText( row.content, 20, 30*row.id, nil, 16 )
   t:setFillColor( 1, 0, 1 )
 end</pre>
-</div>
-<div id="open-file-based-database" class="section level5">
+</section>
+<section id="open-file-based-database" class="level5">
 <h5>Open File-Based Database</h5>
 <pre class="brush: lua;">local sqlite3 = require( "sqlite3" )
 
@@ -190,9 +190,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Quick Look | showPopup</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -73,50 +73,50 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/CoronaProvider_native_popup_quickLook/index.html">Quick Look</a>  ▸  <a href="../../plugin/CoronaProvider_native_popup_quickLook/showPopup.html">showPopup</a>
 </div>
-<div id="native.showpopup-quick-look" class="section level1">
+<section id="native.showpopup-quick-look" class="level1">
 <h1>native.showPopup() — Quick Look</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../plugin/CoronaProvider_native_popup_quickLook/index.html">native.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../plugin/CoronaProvider_native_popup_quickLook/index.html">native.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">native, showPopup, quick look, preview</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">native, showPopup, quick look, preview</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
-<p>Displays the operating system's default popup window for previewing/viewing documents.</p>
-</div>
-<div id="syntax" class="section level2">
+<p>Displays the operating system’s default popup window for previewing/viewing documents.</p>
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">native.showPopup( name, options )</pre>
-<div id="name-required" class="section level5">
+<section id="name-required" class="level5">
 <h5>name <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> The string name of the popup to be shown. For the Quick Look plugin, use <code>&quot;quickLook&quot;</code>.</p>
-</div>
-<div id="options-required" class="section level5">
+<p><em><a href="../../api/type/String.html">String</a>.</em> The string name of the popup to be shown. For the Quick Look plugin, use <code>"quickLook"</code>.</p>
+</section>
+<section id="options-required" class="level5">
 <h5>options <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> A table that specifies the properties for the popup — see the next section for details.</p>
-</div>
-</div>
-<div id="options-reference" class="section level2">
+</section>
+</section>
+<section id="options-reference" class="level2">
 <h2>Options Reference</h2>
 <p>Valid properties in the <code>options</code> table include the following:</p>
-<div id="files-required" class="section level5">
+<section id="files-required" class="level5">
 <h5>files <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> A table of sub-tables, each specifying a file to view. Within each <nobr>sub-table,</nobr> <code>filename</code> indicates the file and <code>baseDir</code> indicates the system directory <a href="../../api/type/Constant.html">constant</a> in which the file resides.</p>
 <div class="code-indent" style="width:600px;">
@@ -125,23 +125,23 @@
     { filename="myFile.txt", baseDir=system.ResourceDirectory },
 }</pre>
 </div>
-</div>
-<div id="startindex-optional" class="section level5">
+</section>
+<section id="startindex-optional" class="level5">
 <h5>startIndex <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> The file index at which the preview will start. For instance, if you have two file <nobr>sub-tables</nobr> in the <code>files</code> table and you set this value to <code>2</code>, it will preview the second file first, as opposed to starting at the first file. Default is <code>1</code>, indicating the first file.</p>
-</div>
-<div id="listener-optional" class="section level5">
+</section>
+<section id="listener-optional" class="level5">
 <h5>listener <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Function.html">Function</a>.</em> Listener function to be called when the popup is dismissed. This function is passed an <code>event</code> table which contains the following properties:</p>
 <ul>
-<li><code>event.name</code> (<a href="../../api/type/String.html">string</a>) — Value of <code>&quot;popup&quot;</code>.</li>
-<li><code>event.type</code> (<a href="../../api/type/String.html">string</a>) — Value of <code>&quot;quickLook&quot;</code>.</li>
-<li><code>event.action</code> (<a href="../../api/type/String.html">string</a>) — Value of <code>&quot;done&quot;</code>.</li>
+<li><code>event.name</code> (<a href="../../api/type/String.html">string</a>) — Value of <code>"popup"</code>.</li>
+<li><code>event.type</code> (<a href="../../api/type/String.html">string</a>) — Value of <code>"quickLook"</code>.</li>
+<li><code>event.action</code> (<a href="../../api/type/String.html">string</a>) — Value of <code>"done"</code>.</li>
 <li><code>event.file</code> (<a href="../../api/type/Table.html">table</a>) — File table of the last item previewed prior to dismissing.</li>
 </ul>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local function quickLookListener( event )
     print( event.name )    --"popup"
@@ -173,8 +173,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

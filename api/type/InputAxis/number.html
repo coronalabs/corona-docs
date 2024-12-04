@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | type | InputAxis | number</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -65,39 +65,39 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/InputAxis/index.html">InputAxis</a>  ▸  <a href="../../../api/type/InputAxis/number.html">number</a>
 </div>
-<div id="object.number" class="section level1">
+<section id="object.number" class="level1">
 <h1>object.number</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Number.html">Number</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Number.html">Number</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Object</strong></td>
-<td align="left"><a href="../../../api/type/InputAxis/index.html">InputAxis</a></td>
+<td style="text-align: left;"><strong>Object</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/InputAxis/index.html">InputAxis</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">device, input, axis, number</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">device, input, axis, number</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
-<p>The number assigned to an input device's axis. This number is based on the number of axes found on one input device. For example, if an input device has 4 axes, then they will be assigned numbers <code>1</code>, <code>2</code>, <code>3</code>, and <code>4</code> in the order that they were found. You can use this number to uniquely identify an axis belonging to one input device. This axis number can be used as an index with the array returned by its input device's <a href="../../../api/type/InputDevice/getAxes.html">getAxes()</a> function.</p>
-</div>
-<div id="gotchas" class="section level2">
+<p>The number assigned to an input device’s axis. This number is based on the number of axes found on one input device. For example, if an input device has 4 axes, then they will be assigned numbers <code>1</code>, <code>2</code>, <code>3</code>, and <code>4</code> in the order that they were found. You can use this number to uniquely identify an axis belonging to one input device. This axis number can be used as an index with the array returned by its input device’s <a href="../../../api/type/InputDevice/getAxes.html">getAxes()</a> function.</p>
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
-<p>This axis number is the only reliable means of identifying an axis belonging to one input device. This is because it's possible for the axis <a href="../../../api/type/InputAxis/type.html">type</a> property to return duplicate type names, and this is especially true if the types are <code>&quot;unknown&quot;</code>. This is also because the <a href="../../../api/type/InputAxis/type.html">type</a> names do not always match what was actually pressed on the device (especially true for gamepads and joysticks designed for another platform). If you need to display the axis name to the user, you should display this axis number instead of the <a href="../../../api/type/InputAxis/type.html">type</a> property.</p>
-</div>
-<div id="example" class="section level2">
+<p>This axis number is the only reliable means of identifying an axis belonging to one input device. This is because it’s possible for the axis <a href="../../../api/type/InputAxis/type.html">type</a> property to return duplicate type names, and this is especially true if the types are <code>"unknown"</code>. This is also because the <a href="../../../api/type/InputAxis/type.html">type</a> names do not always match what was actually pressed on the device (especially true for gamepads and joysticks designed for another platform). If you need to display the axis name to the user, you should display this axis number instead of the <a href="../../../api/type/InputAxis/type.html">type</a> property.</p>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">-- Fetch all input devices currently connected to the system
 local inputDevices = system.getInputDevices()
@@ -123,8 +123,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

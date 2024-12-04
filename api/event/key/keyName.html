@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Events | key | keyName</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -81,42 +81,42 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/event/index.html">Events</a>  ▸  <a href="../../../api/event/key/index.html">key</a>  ▸  <a href="../../../api/event/key/keyName.html">keyName</a>
 </div>
-<div id="event.keyname" class="section level1">
+<section id="event.keyname" class="level1">
 <h1>event.keyName</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/String.html">String</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/String.html">String</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Event</strong></td>
-<td align="left"><a href="../../../api/event/key/index.html">key</a></td>
+<td style="text-align: left;"><strong>Event</strong></td>
+<td style="text-align: left;"><a href="../../../api/event/key/index.html">key</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">key, keyName</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">key, keyName</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>The unique string name of the key. Used to identify which key was pressed down or released.</p>
-</div>
-<div id="gotchas" class="section level2">
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
 <ul>
-<li><p>The value will be <code>&quot;unknown&quot;</code> if Corona could not identify the key. This can happen when the user presses a custom OEM key on a keyboard. In this case, you can only identify the key by its numeric <a href="../../../api/event/key/nativeKeyCode.html">event.nativeKeyCode</a> value.</p></li>
-<li><p>The key name does not represent the character or string that is produced when pressing a key. A key name is just a unique string ID assigned to the key that was pressed or released according to the key position on an <nobr>ANSI-standard</nobr> US keyboard. For example, if you press the &quot;A&quot; key on a US keyboard, <code>event.keyName</code> will always be <code>&quot;a&quot;</code>, regardless of whether the &quot;Shift&quot; key was held down (that is, you will never receive a capital <code>&quot;A&quot;</code> value). In contrast, if you press the &quot;A&quot; key on a French keyboard, you will get <code>&quot;q&quot;</code> because <code>event.keyName</code> returns the &quot;key code&quot; instead of the local representation of that key.</p></li>
+<li><p>The value will be <code>"unknown"</code> if Corona could not identify the key. This can happen when the user presses a custom OEM key on a keyboard. In this case, you can only identify the key by its numeric <a href="../../../api/event/key/nativeKeyCode.html">event.nativeKeyCode</a> value.</p></li>
+<li><p>The key name does not represent the character or string that is produced when pressing a key. A key name is just a unique string ID assigned to the key that was pressed or released according to the key position on an <nobr>ANSI-standard</nobr> US keyboard. For example, if you press the “A” key on a US keyboard, <code>event.keyName</code> will always be <code>"a"</code>, regardless of whether the “Shift” key was held down (that is, you will never receive a capital <code>"A"</code> value). In contrast, if you press the “A” key on a French keyboard, you will get <code>"q"</code> because <code>event.keyName</code> returns the “key code” instead of the local representation of that key.</p></li>
 </ul>
-</div>
-<div id="example" class="section level2">
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">-- Called when a key event has been received
 local function onKeyEvent( event )
@@ -139,1032 +139,1032 @@ end
 
 -- Add the key event listener
 Runtime:addEventListener( "key", onKeyEvent )</pre>
-</div>
-<div id="key-names" class="section level2">
+</section>
+<section id="key-names" class="level2">
 <h2>Key Names</h2>
-<div id="letter-keys" class="section level3">
+<section id="letter-keys" class="level3">
 <h3>Letter Keys</h3>
 <div class="inner-table">
 
 <table>
 <thead>
 <tr class="header">
-<th align="left">keyName</th>
-<th align="left">Description</th>
+<th style="text-align: left;">keyName</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;a&quot;</code></td>
-<td align="left">The &quot;A&quot; key.</td>
+<td style="text-align: left;"><code>"a"</code></td>
+<td style="text-align: left;">The “A” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;b&quot;</code></td>
-<td align="left">The &quot;B&quot; key.</td>
+<td style="text-align: left;"><code>"b"</code></td>
+<td style="text-align: left;">The “B” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;c&quot;</code></td>
-<td align="left">The &quot;C&quot; key.</td>
+<td style="text-align: left;"><code>"c"</code></td>
+<td style="text-align: left;">The “C” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;d&quot;</code></td>
-<td align="left">The &quot;D&quot; key.</td>
+<td style="text-align: left;"><code>"d"</code></td>
+<td style="text-align: left;">The “D” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;e&quot;</code></td>
-<td align="left">The &quot;E&quot; key.</td>
+<td style="text-align: left;"><code>"e"</code></td>
+<td style="text-align: left;">The “E” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;f&quot;</code></td>
-<td align="left">The &quot;F&quot; key.</td>
+<td style="text-align: left;"><code>"f"</code></td>
+<td style="text-align: left;">The “F” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;g&quot;</code></td>
-<td align="left">The &quot;G&quot; key.</td>
+<td style="text-align: left;"><code>"g"</code></td>
+<td style="text-align: left;">The “G” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;h&quot;</code></td>
-<td align="left">The &quot;H&quot; key.</td>
+<td style="text-align: left;"><code>"h"</code></td>
+<td style="text-align: left;">The “H” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;i&quot;</code></td>
-<td align="left">The &quot;I&quot; key.</td>
+<td style="text-align: left;"><code>"i"</code></td>
+<td style="text-align: left;">The “I” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;j&quot;</code></td>
-<td align="left">The &quot;J&quot; key.</td>
+<td style="text-align: left;"><code>"j"</code></td>
+<td style="text-align: left;">The “J” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;k&quot;</code></td>
-<td align="left">The &quot;K&quot; key.</td>
+<td style="text-align: left;"><code>"k"</code></td>
+<td style="text-align: left;">The “K” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;l&quot;</code></td>
-<td align="left">The &quot;L&quot; key.</td>
+<td style="text-align: left;"><code>"l"</code></td>
+<td style="text-align: left;">The “L” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;m&quot;</code></td>
-<td align="left">The &quot;M&quot; key.</td>
+<td style="text-align: left;"><code>"m"</code></td>
+<td style="text-align: left;">The “M” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;n&quot;</code></td>
-<td align="left">The &quot;N&quot; key.</td>
+<td style="text-align: left;"><code>"n"</code></td>
+<td style="text-align: left;">The “N” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;o&quot;</code></td>
-<td align="left">The &quot;O&quot; key.</td>
+<td style="text-align: left;"><code>"o"</code></td>
+<td style="text-align: left;">The “O” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;p&quot;</code></td>
-<td align="left">The &quot;P&quot; key.</td>
+<td style="text-align: left;"><code>"p"</code></td>
+<td style="text-align: left;">The “P” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;q&quot;</code></td>
-<td align="left">The &quot;Q&quot; key.</td>
+<td style="text-align: left;"><code>"q"</code></td>
+<td style="text-align: left;">The “Q” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;r&quot;</code></td>
-<td align="left">The &quot;R&quot; key.</td>
+<td style="text-align: left;"><code>"r"</code></td>
+<td style="text-align: left;">The “R” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;s&quot;</code></td>
-<td align="left">The &quot;S&quot; key.</td>
+<td style="text-align: left;"><code>"s"</code></td>
+<td style="text-align: left;">The “S” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;t&quot;</code></td>
-<td align="left">The &quot;T&quot; key.</td>
+<td style="text-align: left;"><code>"t"</code></td>
+<td style="text-align: left;">The “T” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;u&quot;</code></td>
-<td align="left">The &quot;U&quot; key.</td>
+<td style="text-align: left;"><code>"u"</code></td>
+<td style="text-align: left;">The “U” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;v&quot;</code></td>
-<td align="left">The &quot;V&quot; key.</td>
+<td style="text-align: left;"><code>"v"</code></td>
+<td style="text-align: left;">The “V” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;w&quot;</code></td>
-<td align="left">The &quot;W&quot; key.</td>
+<td style="text-align: left;"><code>"w"</code></td>
+<td style="text-align: left;">The “W” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;x&quot;</code></td>
-<td align="left">The &quot;X&quot; key.</td>
+<td style="text-align: left;"><code>"x"</code></td>
+<td style="text-align: left;">The “X” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;y&quot;</code></td>
-<td align="left">The &quot;Y&quot; key.</td>
+<td style="text-align: left;"><code>"y"</code></td>
+<td style="text-align: left;">The “Y” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;z&quot;</code></td>
-<td align="left">The &quot;Z&quot; key.</td>
+<td style="text-align: left;"><code>"z"</code></td>
+<td style="text-align: left;">The “Z” key.</td>
 </tr>
 </tbody>
 </table>
 <div>
 
-</div>
-<div id="number-keys" class="section level3">
+</section>
+<section id="number-keys" class="level3">
 <h3>Number Keys</h3>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">keyName</th>
-<th align="left">Description</th>
+<th style="text-align: left;">keyName</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;0&quot;</code></td>
-<td align="left">The &quot;0&quot; key belonging to the keyboard's top row of number keys.</td>
+<td style="text-align: left;"><code>"0"</code></td>
+<td style="text-align: left;">The “0” key belonging to the keyboard’s top row of number keys.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;1&quot;</code></td>
-<td align="left">The &quot;1&quot; key belonging to the keyboard's top row of number keys.</td>
+<td style="text-align: left;"><code>"1"</code></td>
+<td style="text-align: left;">The “1” key belonging to the keyboard’s top row of number keys.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;2&quot;</code></td>
-<td align="left">The &quot;2&quot; key belonging to the keyboard's top row of number keys.</td>
+<td style="text-align: left;"><code>"2"</code></td>
+<td style="text-align: left;">The “2” key belonging to the keyboard’s top row of number keys.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;3&quot;</code></td>
-<td align="left">The &quot;3&quot; key belonging to the keyboard's top row of number keys.</td>
+<td style="text-align: left;"><code>"3"</code></td>
+<td style="text-align: left;">The “3” key belonging to the keyboard’s top row of number keys.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;4&quot;</code></td>
-<td align="left">The &quot;4&quot; key belonging to the keyboard's top row of number keys.</td>
+<td style="text-align: left;"><code>"4"</code></td>
+<td style="text-align: left;">The “4” key belonging to the keyboard’s top row of number keys.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;5&quot;</code></td>
-<td align="left">The &quot;5&quot; key belonging to the keyboard's top row of number keys.</td>
+<td style="text-align: left;"><code>"5"</code></td>
+<td style="text-align: left;">The “5” key belonging to the keyboard’s top row of number keys.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;6&quot;</code></td>
-<td align="left">The &quot;6&quot; key belonging to the keyboard's top row of number keys.</td>
+<td style="text-align: left;"><code>"6"</code></td>
+<td style="text-align: left;">The “6” key belonging to the keyboard’s top row of number keys.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;7&quot;</code></td>
-<td align="left">The &quot;7&quot; key belonging to the keyboard's top row of number keys.</td>
+<td style="text-align: left;"><code>"7"</code></td>
+<td style="text-align: left;">The “7” key belonging to the keyboard’s top row of number keys.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;8&quot;</code></td>
-<td align="left">The &quot;8&quot; key belonging to the keyboard's top row of number keys.</td>
+<td style="text-align: left;"><code>"8"</code></td>
+<td style="text-align: left;">The “8” key belonging to the keyboard’s top row of number keys.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;9&quot;</code></td>
-<td align="left">The &quot;9&quot; key belonging to the keyboard's top row of number keys.</td>
+<td style="text-align: left;"><code>"9"</code></td>
+<td style="text-align: left;">The “9” key belonging to the keyboard’s top row of number keys.</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="number-pad-keys" class="section level3">
+</section>
+<section id="number-pad-keys" class="level3">
 <h3>Number Pad Keys</h3>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">keyName</th>
-<th align="left">Description</th>
+<th style="text-align: left;">keyName</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;numPad0&quot;</code></td>
-<td align="left">The number pad's &quot;0&quot; key.</td>
+<td style="text-align: left;"><code>"numPad0"</code></td>
+<td style="text-align: left;">The number pad’s “0” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;numPad1&quot;</code></td>
-<td align="left">The number pad's &quot;1&quot; key.</td>
+<td style="text-align: left;"><code>"numPad1"</code></td>
+<td style="text-align: left;">The number pad’s “1” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;numPad2&quot;</code></td>
-<td align="left">The number pad's &quot;2&quot; key.</td>
+<td style="text-align: left;"><code>"numPad2"</code></td>
+<td style="text-align: left;">The number pad’s “2” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;numPad3&quot;</code></td>
-<td align="left">The number pad's &quot;3&quot; key.</td>
+<td style="text-align: left;"><code>"numPad3"</code></td>
+<td style="text-align: left;">The number pad’s “3” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;numPad4&quot;</code></td>
-<td align="left">The number pad's &quot;4&quot; key.</td>
+<td style="text-align: left;"><code>"numPad4"</code></td>
+<td style="text-align: left;">The number pad’s “4” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;numPad5&quot;</code></td>
-<td align="left">The number pad's &quot;5&quot; key.</td>
+<td style="text-align: left;"><code>"numPad5"</code></td>
+<td style="text-align: left;">The number pad’s “5” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;numPad6&quot;</code></td>
-<td align="left">The number pad's &quot;6&quot; key.</td>
+<td style="text-align: left;"><code>"numPad6"</code></td>
+<td style="text-align: left;">The number pad’s “6” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;numPad7&quot;</code></td>
-<td align="left">The number pad's &quot;7&quot; key.</td>
+<td style="text-align: left;"><code>"numPad7"</code></td>
+<td style="text-align: left;">The number pad’s “7” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;numPad8&quot;</code></td>
-<td align="left">The number pad's &quot;8&quot; key.</td>
+<td style="text-align: left;"><code>"numPad8"</code></td>
+<td style="text-align: left;">The number pad’s “8” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;numPad9&quot;</code></td>
-<td align="left">The number pad's &quot;9&quot; key.</td>
+<td style="text-align: left;"><code>"numPad9"</code></td>
+<td style="text-align: left;">The number pad’s “9” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;numPad+&quot;</code></td>
-<td align="left">The number pad's plus key.</td>
+<td style="text-align: left;"><code>"numPad+"</code></td>
+<td style="text-align: left;">The number pad’s plus key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;numPad-&quot;</code></td>
-<td align="left">The number pad's minus key.</td>
+<td style="text-align: left;"><code>"numPad-"</code></td>
+<td style="text-align: left;">The number pad’s minus key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;numPad*&quot;</code></td>
-<td align="left">The number pad's multiplication key.</td>
+<td style="text-align: left;"><code>"numPad*"</code></td>
+<td style="text-align: left;">The number pad’s multiplication key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;numPad/&quot;</code></td>
-<td align="left">The number pad's division key.</td>
+<td style="text-align: left;"><code>"numPad/"</code></td>
+<td style="text-align: left;">The number pad’s division key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;numPad=&quot;</code></td>
-<td align="left">The number pad's equals key.</td>
+<td style="text-align: left;"><code>"numPad="</code></td>
+<td style="text-align: left;">The number pad’s equals key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;numPadEnter&quot;</code></td>
-<td align="left">The number pad's enter or return key.</td>
+<td style="text-align: left;"><code>"numPadEnter"</code></td>
+<td style="text-align: left;">The number pad’s enter or return key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;numPad.&quot;</code></td>
-<td align="left">The number pad's decimal separator key.</td>
+<td style="text-align: left;"><code>"numPad."</code></td>
+<td style="text-align: left;">The number pad’s decimal separator key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;numPad,&quot;</code></td>
-<td align="left">The number pad's thousands separator key.</td>
+<td style="text-align: left;"><code>"numPad,"</code></td>
+<td style="text-align: left;">The number pad’s thousands separator key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;numPad(&quot;</code></td>
-<td align="left">The number pad's left parentheses key.</td>
+<td style="text-align: left;"><code>"numPad("</code></td>
+<td style="text-align: left;">The number pad’s left parentheses key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;numPad)&quot;</code></td>
-<td align="left">The number pad's right parentheses key.</td>
+<td style="text-align: left;"><code>"numPad)"</code></td>
+<td style="text-align: left;">The number pad’s right parentheses key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;numLock&quot;</code></td>
-<td align="left">The number pad's &quot;Num Lock&quot; key.</td>
+<td style="text-align: left;"><code>"numLock"</code></td>
+<td style="text-align: left;">The number pad’s “Num Lock” key.</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="arrow-keys" class="section level3">
+</section>
+<section id="arrow-keys" class="level3">
 <h3>Arrow Keys</h3>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">keyName</th>
-<th align="left">Description</th>
+<th style="text-align: left;">keyName</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;up&quot;</code></td>
-<td align="left">The up arrow key on the keyboard or D-pad.</td>
+<td style="text-align: left;"><code>"up"</code></td>
+<td style="text-align: left;">The up arrow key on the keyboard or D-pad.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;down&quot;</code></td>
-<td align="left">The down arrow key on the keyboard or D-pad.</td>
+<td style="text-align: left;"><code>"down"</code></td>
+<td style="text-align: left;">The down arrow key on the keyboard or D-pad.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;left&quot;</code></td>
-<td align="left">The left arrow key on the keyboard or D-pad.</td>
+<td style="text-align: left;"><code>"left"</code></td>
+<td style="text-align: left;">The left arrow key on the keyboard or D-pad.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;right&quot;</code></td>
-<td align="left">The right arrow key on the keyboard or D-pad.</td>
+<td style="text-align: left;"><code>"right"</code></td>
+<td style="text-align: left;">The right arrow key on the keyboard or D-pad.</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="modifier-keys" class="section level3">
+</section>
+<section id="modifier-keys" class="level3">
 <h3>Modifier Keys</h3>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">keyName</th>
-<th align="left">Description</th>
+<th style="text-align: left;">keyName</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;leftAlt&quot;</code></td>
-<td align="left">The left &quot;Alt&quot; modifier key.</td>
+<td style="text-align: left;"><code>"leftAlt"</code></td>
+<td style="text-align: left;">The left “Alt” modifier key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;rightAlt&quot;</code></td>
-<td align="left">The right &quot;Alt&quot; modifier key.</td>
+<td style="text-align: left;"><code>"rightAlt"</code></td>
+<td style="text-align: left;">The right “Alt” modifier key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;leftCtrl&quot;</code></td>
-<td align="left">The left &quot;Control&quot; modifier key.</td>
+<td style="text-align: left;"><code>"leftCtrl"</code></td>
+<td style="text-align: left;">The left “Control” modifier key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;rightCtrl&quot;</code></td>
-<td align="left">The right &quot;Control&quot; modifier key.</td>
+<td style="text-align: left;"><code>"rightCtrl"</code></td>
+<td style="text-align: left;">The right “Control” modifier key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;leftShift&quot;</code></td>
-<td align="left">The left &quot;Shift&quot; modifier key.</td>
+<td style="text-align: left;"><code>"leftShift"</code></td>
+<td style="text-align: left;">The left “Shift” modifier key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;rightShift&quot;</code></td>
-<td align="left">The right &quot;Shift&quot; modifier key.</td>
+<td style="text-align: left;"><code>"rightShift"</code></td>
+<td style="text-align: left;">The right “Shift” modifier key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;leftCommand&quot;</code></td>
-<td align="left">The left &quot;Command&quot; or &quot;Windows&quot; key.</td>
+<td style="text-align: left;"><code>"leftCommand"</code></td>
+<td style="text-align: left;">The left “Command” or “Windows” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;rightCommand&quot;</code></td>
-<td align="left">The right &quot;Command&quot; or &quot;Windows&quot; key.</td>
+<td style="text-align: left;"><code>"rightCommand"</code></td>
+<td style="text-align: left;">The right “Command” or “Windows” key.</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="function-keys" class="section level3">
+</section>
+<section id="function-keys" class="level3">
 <h3>Function Keys</h3>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">keyName</th>
-<th align="left">Description</th>
+<th style="text-align: left;">keyName</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;function&quot;</code></td>
-<td align="left">The &quot;function&quot; or &quot;fn&quot; modifier key (not supported on Windows).</td>
+<td style="text-align: left;"><code>"function"</code></td>
+<td style="text-align: left;">The “function” or “fn” modifier key (not supported on Windows).</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;f1&quot;</code></td>
-<td align="left">The &quot;F1&quot; function key.</td>
+<td style="text-align: left;"><code>"f1"</code></td>
+<td style="text-align: left;">The “F1” function key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;f2&quot;</code></td>
-<td align="left">The &quot;F2&quot; function key.</td>
+<td style="text-align: left;"><code>"f2"</code></td>
+<td style="text-align: left;">The “F2” function key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;f3&quot;</code></td>
-<td align="left">The &quot;F3&quot; function key.</td>
+<td style="text-align: left;"><code>"f3"</code></td>
+<td style="text-align: left;">The “F3” function key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;f4&quot;</code></td>
-<td align="left">The &quot;F4&quot; function key.</td>
+<td style="text-align: left;"><code>"f4"</code></td>
+<td style="text-align: left;">The “F4” function key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;f5&quot;</code></td>
-<td align="left">The &quot;F5&quot; function key.</td>
+<td style="text-align: left;"><code>"f5"</code></td>
+<td style="text-align: left;">The “F5” function key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;f6&quot;</code></td>
-<td align="left">The &quot;F6&quot; function key.</td>
+<td style="text-align: left;"><code>"f6"</code></td>
+<td style="text-align: left;">The “F6” function key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;f7&quot;</code></td>
-<td align="left">The &quot;F7&quot; function key.</td>
+<td style="text-align: left;"><code>"f7"</code></td>
+<td style="text-align: left;">The “F7” function key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;f8&quot;</code></td>
-<td align="left">The &quot;F8&quot; function key.</td>
+<td style="text-align: left;"><code>"f8"</code></td>
+<td style="text-align: left;">The “F8” function key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;f9&quot;</code></td>
-<td align="left">The &quot;F9&quot; function key.</td>
+<td style="text-align: left;"><code>"f9"</code></td>
+<td style="text-align: left;">The “F9” function key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;f10&quot;</code></td>
-<td align="left">The &quot;F10&quot; function key.</td>
+<td style="text-align: left;"><code>"f10"</code></td>
+<td style="text-align: left;">The “F10” function key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;f11&quot;</code></td>
-<td align="left">The &quot;F11&quot; function key.</td>
+<td style="text-align: left;"><code>"f11"</code></td>
+<td style="text-align: left;">The “F11” function key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;f12&quot;</code></td>
-<td align="left">The &quot;F12&quot; function key.</td>
+<td style="text-align: left;"><code>"f12"</code></td>
+<td style="text-align: left;">The “F12” function key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;f13&quot;</code></td>
-<td align="left">The &quot;F13&quot; function key.</td>
+<td style="text-align: left;"><code>"f13"</code></td>
+<td style="text-align: left;">The “F13” function key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;f14&quot;</code></td>
-<td align="left">The &quot;F14&quot; function key.</td>
+<td style="text-align: left;"><code>"f14"</code></td>
+<td style="text-align: left;">The “F14” function key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;f15&quot;</code></td>
-<td align="left">The &quot;F15&quot; function key.</td>
+<td style="text-align: left;"><code>"f15"</code></td>
+<td style="text-align: left;">The “F15” function key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;f16&quot;</code></td>
-<td align="left">The &quot;F16&quot; function key.</td>
+<td style="text-align: left;"><code>"f16"</code></td>
+<td style="text-align: left;">The “F16” function key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;f17&quot;</code></td>
-<td align="left">The &quot;F17&quot; function key.</td>
+<td style="text-align: left;"><code>"f17"</code></td>
+<td style="text-align: left;">The “F17” function key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;f18&quot;</code></td>
-<td align="left">The &quot;F18&quot; function key.</td>
+<td style="text-align: left;"><code>"f18"</code></td>
+<td style="text-align: left;">The “F18” function key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;f19&quot;</code></td>
-<td align="left">The &quot;F19&quot; function key.</td>
+<td style="text-align: left;"><code>"f19"</code></td>
+<td style="text-align: left;">The “F19” function key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;f20&quot;</code></td>
-<td align="left">The &quot;F20&quot; function key.</td>
+<td style="text-align: left;"><code>"f20"</code></td>
+<td style="text-align: left;">The “F20” function key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;f21&quot;</code></td>
-<td align="left">The &quot;F21&quot; function key.</td>
+<td style="text-align: left;"><code>"f21"</code></td>
+<td style="text-align: left;">The “F21” function key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;f22&quot;</code></td>
-<td align="left">The &quot;F22&quot; function key.</td>
+<td style="text-align: left;"><code>"f22"</code></td>
+<td style="text-align: left;">The “F22” function key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;f23&quot;</code></td>
-<td align="left">The &quot;F23&quot; function key.</td>
+<td style="text-align: left;"><code>"f23"</code></td>
+<td style="text-align: left;">The “F23” function key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;f24&quot;</code></td>
-<td align="left">The &quot;F24&quot; function key.</td>
+<td style="text-align: left;"><code>"f24"</code></td>
+<td style="text-align: left;">The “F24” function key.</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="navigation-keys" class="section level3">
+</section>
+<section id="navigation-keys" class="level3">
 <h3>Navigation Keys</h3>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">keyName</th>
-<th align="left">Description</th>
+<th style="text-align: left;">keyName</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;back&quot;</code></td>
-<td align="left">The &quot;navigate back&quot; key (typically provided on all Android devices).</td>
+<td style="text-align: left;"><code>"back"</code></td>
+<td style="text-align: left;">The “navigate back” key (typically provided on all Android devices).</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;forward&quot;</code></td>
-<td align="left">The &quot;navigate forward&quot; key.</td>
+<td style="text-align: left;"><code>"forward"</code></td>
+<td style="text-align: left;">The “navigate forward” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;homePage&quot;</code></td>
-<td align="left">The &quot;navigate to home page&quot; key (this is not the &quot;home&quot; button on Android).</td>
+<td style="text-align: left;"><code>"homePage"</code></td>
+<td style="text-align: left;">The “navigate to home page” key (this is not the “home” button on Android).</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="media-keys" class="section level3">
+</section>
+<section id="media-keys" class="level3">
 <h3>Media Keys</h3>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">keyName</th>
-<th align="left">Description</th>
+<th style="text-align: left;">keyName</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;mediaPlay&quot;</code></td>
-<td align="left">The button used to play media such as music or video.</td>
+<td style="text-align: left;"><code>"mediaPlay"</code></td>
+<td style="text-align: left;">The button used to play media such as music or video.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;mediaPlayPause&quot;</code></td>
-<td align="left">The button used to play/pause media such as music or video.</td>
+<td style="text-align: left;"><code>"mediaPlayPause"</code></td>
+<td style="text-align: left;">The button used to play/pause media such as music or video.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;mediaPause&quot;</code></td>
-<td align="left">The button used to pause media such as music or video.</td>
+<td style="text-align: left;"><code>"mediaPause"</code></td>
+<td style="text-align: left;">The button used to pause media such as music or video.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;mediaStop&quot;</code></td>
-<td align="left">The button used to stop media such as music or video.</td>
+<td style="text-align: left;"><code>"mediaStop"</code></td>
+<td style="text-align: left;">The button used to stop media such as music or video.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;mediaNext&quot;</code></td>
-<td align="left">The button used to select the next music track or chapter in a video.</td>
+<td style="text-align: left;"><code>"mediaNext"</code></td>
+<td style="text-align: left;">The button used to select the next music track or chapter in a video.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;mediaPrevious&quot;</code></td>
-<td align="left">The button used to select the previous music track or chapter in a video.</td>
+<td style="text-align: left;"><code>"mediaPrevious"</code></td>
+<td style="text-align: left;">The button used to select the previous music track or chapter in a video.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;mediaFastForward&quot;</code></td>
-<td align="left">The button used to fast forward music or video.</td>
+<td style="text-align: left;"><code>"mediaFastForward"</code></td>
+<td style="text-align: left;">The button used to fast forward music or video.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;mediaRewind&quot;</code></td>
-<td align="left">The button used to go backwards in a song or video.</td>
+<td style="text-align: left;"><code>"mediaRewind"</code></td>
+<td style="text-align: left;">The button used to go backwards in a song or video.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;mediaRecord&quot;</code></td>
-<td align="left">The button used to start audio or video recording.</td>
+<td style="text-align: left;"><code>"mediaRecord"</code></td>
+<td style="text-align: left;">The button used to start audio or video recording.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;mediaEject&quot;</code></td>
-<td align="left">The button used to eject a CD or DVD.</td>
+<td style="text-align: left;"><code>"mediaEject"</code></td>
+<td style="text-align: left;">The button used to eject a CD or DVD.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;mediaClose&quot;</code></td>
-<td align="left">The button used to close the CD or DVD tray on a PC.</td>
+<td style="text-align: left;"><code>"mediaClose"</code></td>
+<td style="text-align: left;">The button used to close the CD or DVD tray on a PC.</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="volume-keys" class="section level3">
+</section>
+<section id="volume-keys" class="level3">
 <h3>Volume Keys</h3>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">keyName</th>
-<th align="left">Description</th>
+<th style="text-align: left;">keyName</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;volumeUp&quot;</code></td>
-<td align="left">The volume up button.</td>
+<td style="text-align: left;"><code>"volumeUp"</code></td>
+<td style="text-align: left;">The volume up button.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;volumeDown&quot;</code></td>
-<td align="left">The volume down button.</td>
+<td style="text-align: left;"><code>"volumeDown"</code></td>
+<td style="text-align: left;">The volume down button.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;volumeMute&quot;</code></td>
-<td align="left">The button used to mute and unmute audio playback.</td>
+<td style="text-align: left;"><code>"volumeMute"</code></td>
+<td style="text-align: left;">The button used to mute and unmute audio playback.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;microphoneMute&quot;</code></td>
-<td align="left">The button used to mute and unmute the microphone.</td>
+<td style="text-align: left;"><code>"microphoneMute"</code></td>
+<td style="text-align: left;">The button used to mute and unmute the microphone.</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="gamepadjoystick-buttons" class="section level3">
+</section>
+<section id="gamepadjoystick-buttons" class="level3">
 <h3>Gamepad/Joystick Buttons</h3>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">keyName</th>
-<th align="left">Description</th>
+<th style="text-align: left;">keyName</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;button1&quot;</code></td>
-<td align="left">Button &quot;1&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"button1"</code></td>
+<td style="text-align: left;">Button “1” on a gamepad or joystick.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;button2&quot;</code></td>
-<td align="left">Button &quot;2&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"button2"</code></td>
+<td style="text-align: left;">Button “2” on a gamepad or joystick.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;button3&quot;</code></td>
-<td align="left">Button &quot;3&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"button3"</code></td>
+<td style="text-align: left;">Button “3” on a gamepad or joystick.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;button4&quot;</code></td>
-<td align="left">Button &quot;4&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"button4"</code></td>
+<td style="text-align: left;">Button “4” on a gamepad or joystick.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;button5&quot;</code></td>
-<td align="left">Button &quot;5&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"button5"</code></td>
+<td style="text-align: left;">Button “5” on a gamepad or joystick.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;button6&quot;</code></td>
-<td align="left">Button &quot;6&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"button6"</code></td>
+<td style="text-align: left;">Button “6” on a gamepad or joystick.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;button7&quot;</code></td>
-<td align="left">Button &quot;7&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"button7"</code></td>
+<td style="text-align: left;">Button “7” on a gamepad or joystick.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;button8&quot;</code></td>
-<td align="left">Button &quot;8&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"button8"</code></td>
+<td style="text-align: left;">Button “8” on a gamepad or joystick.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;button9&quot;</code></td>
-<td align="left">Button &quot;9&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"button9"</code></td>
+<td style="text-align: left;">Button “9” on a gamepad or joystick.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;button10&quot;</code></td>
-<td align="left">Button &quot;10&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"button10"</code></td>
+<td style="text-align: left;">Button “10” on a gamepad or joystick.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;button11&quot;</code></td>
-<td align="left">Button &quot;11&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"button11"</code></td>
+<td style="text-align: left;">Button “11” on a gamepad or joystick.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;button12&quot;</code></td>
-<td align="left">Button &quot;12&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"button12"</code></td>
+<td style="text-align: left;">Button “12” on a gamepad or joystick.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;button13&quot;</code></td>
-<td align="left">Button &quot;13&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"button13"</code></td>
+<td style="text-align: left;">Button “13” on a gamepad or joystick.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;button14&quot;</code></td>
-<td align="left">Button &quot;14&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"button14"</code></td>
+<td style="text-align: left;">Button “14” on a gamepad or joystick.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;button15&quot;</code></td>
-<td align="left">Button &quot;15&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"button15"</code></td>
+<td style="text-align: left;">Button “15” on a gamepad or joystick.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;button16&quot;</code></td>
-<td align="left">Button &quot;16&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"button16"</code></td>
+<td style="text-align: left;">Button “16” on a gamepad or joystick.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;buttonA&quot;</code></td>
-<td align="left">Button &quot;A&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"buttonA"</code></td>
+<td style="text-align: left;">Button “A” on a gamepad or joystick.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;buttonB&quot;</code></td>
-<td align="left">Button &quot;B&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"buttonB"</code></td>
+<td style="text-align: left;">Button “B” on a gamepad or joystick.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;buttonC&quot;</code></td>
-<td align="left">Button &quot;C&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"buttonC"</code></td>
+<td style="text-align: left;">Button “C” on a gamepad or joystick.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;buttonX&quot;</code></td>
-<td align="left">Button &quot;X&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"buttonX"</code></td>
+<td style="text-align: left;">Button “X” on a gamepad or joystick.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;buttonY&quot;</code></td>
-<td align="left">Button &quot;Y&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"buttonY"</code></td>
+<td style="text-align: left;">Button “Y” on a gamepad or joystick.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;buttonZ&quot;</code></td>
-<td align="left">Button &quot;Z&quot; on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"buttonZ"</code></td>
+<td style="text-align: left;">Button “Z” on a gamepad or joystick.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;buttonSelect&quot;</code></td>
-<td align="left">The &quot;select&quot; button on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"buttonSelect"</code></td>
+<td style="text-align: left;">The “select” button on a gamepad or joystick.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;buttonStart&quot;</code></td>
-<td align="left">The &quot;start&quot; button on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"buttonStart"</code></td>
+<td style="text-align: left;">The “start” button on a gamepad or joystick.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;buttonMode&quot;</code></td>
-<td align="left">The &quot;mode&quot; button on a gamepad or joystick.</td>
+<td style="text-align: left;"><code>"buttonMode"</code></td>
+<td style="text-align: left;">The “mode” button on a gamepad or joystick.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;leftShoulderButton1&quot;</code></td>
-<td align="left">The first left shoulder button (aka &quot;L1&quot;) on a gamepad.</td>
+<td style="text-align: left;"><code>"leftShoulderButton1"</code></td>
+<td style="text-align: left;">The first left shoulder button (aka “L1”) on a gamepad.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;leftShoulderButton2&quot;</code></td>
-<td align="left">The second left shoulder button (aka &quot;L2&quot;) on a gamepad.</td>
+<td style="text-align: left;"><code>"leftShoulderButton2"</code></td>
+<td style="text-align: left;">The second left shoulder button (aka “L2”) on a gamepad.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;rightShoulderButton1&quot;</code></td>
-<td align="left">The first right shoulder button (aka &quot;R1&quot;) on a gamepad.</td>
+<td style="text-align: left;"><code>"rightShoulderButton1"</code></td>
+<td style="text-align: left;">The first right shoulder button (aka “R1”) on a gamepad.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;rightShoulderButton2&quot;</code></td>
-<td align="left">The second right shoulder button (aka &quot;R2&quot;) on a gamepad.</td>
+<td style="text-align: left;"><code>"rightShoulderButton2"</code></td>
+<td style="text-align: left;">The second right shoulder button (aka “R2”) on a gamepad.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;leftJoystickButton&quot;</code></td>
-<td align="left">The &quot;left thumbstick&quot; button on a gamepad (typically occurs when depressing the left thumbstick).</td>
+<td style="text-align: left;"><code>"leftJoystickButton"</code></td>
+<td style="text-align: left;">The “left thumbstick” button on a gamepad (typically occurs when depressing the left thumbstick).</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;rightJoystickButton&quot;</code></td>
-<td align="left">The &quot;right thumbstick&quot; button on a gamepad (typically occurs when depressing the right thumbstick).</td>
+<td style="text-align: left;"><code>"rightJoystickButton"</code></td>
+<td style="text-align: left;">The “right thumbstick” button on a gamepad (typically occurs when depressing the right thumbstick).</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="remote-control-buttons" class="section level3">
+</section>
+<section id="remote-control-buttons" class="level3">
 <h3>Remote Control Buttons</h3>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">keyName</th>
-<th align="left">Description</th>
+<th style="text-align: left;">keyName</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;3D&quot;</code></td>
-<td align="left">The &quot;3D&quot; button on a remote control.</td>
+<td style="text-align: left;"><code>"3D"</code></td>
+<td style="text-align: left;">The “3D” button on a remote control.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;blue&quot;</code></td>
-<td align="left">The &quot;blue&quot; button on a remote control.</td>
+<td style="text-align: left;"><code>"blue"</code></td>
+<td style="text-align: left;">The “blue” button on a remote control.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;green&quot;</code></td>
-<td align="left">The &quot;green&quot; button on a remote control.</td>
+<td style="text-align: left;"><code>"green"</code></td>
+<td style="text-align: left;">The “green” button on a remote control.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;red&quot;</code></td>
-<td align="left">The &quot;red&quot; button on a remote control.</td>
+<td style="text-align: left;"><code>"red"</code></td>
+<td style="text-align: left;">The “red” button on a remote control.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;yellow&quot;</code></td>
-<td align="left">The &quot;yellow&quot; button on a remote control.</td>
+<td style="text-align: left;"><code>"yellow"</code></td>
+<td style="text-align: left;">The “yellow” button on a remote control.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;captions&quot;</code></td>
-<td align="left">The &quot;captions&quot; button on a remote control.</td>
+<td style="text-align: left;"><code>"captions"</code></td>
+<td style="text-align: left;">The “captions” button on a remote control.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;channelUp&quot;</code></td>
-<td align="left">The &quot;channel up&quot; button on a remote control.</td>
+<td style="text-align: left;"><code>"channelUp"</code></td>
+<td style="text-align: left;">The “channel up” button on a remote control.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;channelDown&quot;</code></td>
-<td align="left">The &quot;channel down&quot; button on a remote control.</td>
+<td style="text-align: left;"><code>"channelDown"</code></td>
+<td style="text-align: left;">The “channel down” button on a remote control.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;dvr&quot;</code></td>
-<td align="left">The &quot;DVR&quot; button on a remote control.</td>
+<td style="text-align: left;"><code>"dvr"</code></td>
+<td style="text-align: left;">The “DVR” button on a remote control.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;guide&quot;</code></td>
-<td align="left">The &quot;guide&quot; button on a remote control.</td>
+<td style="text-align: left;"><code>"guide"</code></td>
+<td style="text-align: left;">The “guide” button on a remote control.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;info&quot;</code></td>
-<td align="left">The &quot;info&quot; button on a remote control.</td>
+<td style="text-align: left;"><code>"info"</code></td>
+<td style="text-align: left;">The “info” button on a remote control.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;tv&quot;</code></td>
-<td align="left">The &quot;TV&quot; button on a remote control.</td>
+<td style="text-align: left;"><code>"tv"</code></td>
+<td style="text-align: left;">The “TV” button on a remote control.</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="application-keys" class="section level3">
+</section>
+<section id="application-keys" class="level3">
 <h3>Application Keys</h3>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">keyName</th>
-<th align="left">Description</th>
+<th style="text-align: left;">keyName</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;bookmark&quot;</code></td>
-<td align="left">The web page bookmark key.</td>
+<td style="text-align: left;"><code>"bookmark"</code></td>
+<td style="text-align: left;">The web page bookmark key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;calculator&quot;</code></td>
-<td align="left">The key used to display the Calculator application.</td>
+<td style="text-align: left;"><code>"calculator"</code></td>
+<td style="text-align: left;">The key used to display the Calculator application.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;calendar&quot;</code></td>
-<td align="left">The key used to display the Calendar application.</td>
+<td style="text-align: left;"><code>"calendar"</code></td>
+<td style="text-align: left;">The key used to display the Calendar application.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;call&quot;</code></td>
-<td align="left">The key used to make a phone call.</td>
+<td style="text-align: left;"><code>"call"</code></td>
+<td style="text-align: left;">The key used to make a phone call.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;camera&quot;</code></td>
-<td align="left">The key used to display the Camera application.</td>
+<td style="text-align: left;"><code>"camera"</code></td>
+<td style="text-align: left;">The key used to display the Camera application.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;contacts&quot;</code></td>
-<td align="left">The key used to display the Contacts (Address Book) application.</td>
+<td style="text-align: left;"><code>"contacts"</code></td>
+<td style="text-align: left;">The key used to display the Contacts (Address Book) application.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;endCall&quot;</code></td>
-<td align="left">The key used to end a phone call on a mobile phone.</td>
+<td style="text-align: left;"><code>"endCall"</code></td>
+<td style="text-align: left;">The key used to end a phone call on a mobile phone.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;explorer&quot;</code></td>
-<td align="left">The key used to display the &quot;Windows Explorer&quot; or file &quot;Finder&quot; application.</td>
+<td style="text-align: left;"><code>"explorer"</code></td>
+<td style="text-align: left;">The key used to display the “Windows Explorer” or file “Finder” application.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;focusCamera&quot;</code></td>
-<td align="left">The button used to focus the camera.</td>
+<td style="text-align: left;"><code>"focusCamera"</code></td>
+<td style="text-align: left;">The button used to focus the camera.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;mail&quot;</code></td>
-<td align="left">The key used to display the e-mail application.</td>
+<td style="text-align: left;"><code>"mail"</code></td>
+<td style="text-align: left;">The key used to display the e-mail application.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;menu&quot;</code></td>
-<td align="left">The button used to display an application's menu (common on older Android devices).</td>
+<td style="text-align: left;"><code>"menu"</code></td>
+<td style="text-align: left;">The button used to display an application’s menu (common on older Android devices).</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;music&quot;</code></td>
-<td align="left">The key used to display the music application.</td>
+<td style="text-align: left;"><code>"music"</code></td>
+<td style="text-align: left;">The key used to display the music application.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;notification&quot;</code></td>
-<td align="left">The key used to display Android's notifications in the status bar.</td>
+<td style="text-align: left;"><code>"notification"</code></td>
+<td style="text-align: left;">The key used to display Android’s notifications in the status bar.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;search&quot;</code></td>
-<td align="left">The &quot;search&quot; button on an Android device.</td>
+<td style="text-align: left;"><code>"search"</code></td>
+<td style="text-align: left;">The “search” button on an Android device.</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="other-keys" class="section level3">
+</section>
+<section id="other-keys" class="level3">
 <h3>Other Keys</h3>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">keyName</th>
-<th align="left">Description</th>
+<th style="text-align: left;">keyName</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;`&quot;</code></td>
-<td align="left">The back tick key.</td>
+<td style="text-align: left;"><code>“`”</code></td>
+<td style="text-align: left;">The back tick key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;'&quot;</code></td>
-<td align="left">The apostrophe and double quote key.</td>
+<td style="text-align: left;"><code>"'"</code></td>
+<td style="text-align: left;">The apostrophe and double quote key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;@&quot;</code></td>
-<td align="left">The &quot;at&quot; key on an Android keyboard.</td>
+<td style="text-align: left;"><code>"@"</code></td>
+<td style="text-align: left;">The “at” key on an Android keyboard.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;\&quot;</code></td>
-<td align="left">The backslash &quot;\&quot; and &quot;|&quot; key.</td>
+<td style="text-align: left;"><code>"\"</code></td>
+<td style="text-align: left;">The backslash “\” and “|” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;/&quot;</code></td>
-<td align="left">The forward slash &quot;/&quot; and &quot;?&quot; key.</td>
+<td style="text-align: left;"><code>"/"</code></td>
+<td style="text-align: left;">The forward slash “/” and “?” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;[&quot;</code></td>
-<td align="left">The left bracket &quot;[&quot; and &quot;{&quot; key on the keyboard.</td>
+<td style="text-align: left;"><code>"["</code></td>
+<td style="text-align: left;">The left bracket “[” and “{” key on the keyboard.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;]&quot;</code></td>
-<td align="left">The right bracket &quot;]&quot; and &quot;}&quot; key on the keyboard.</td>
+<td style="text-align: left;"><code>"]"</code></td>
+<td style="text-align: left;">The right bracket “]” and “}” key on the keyboard.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;+&quot;</code></td>
-<td align="left">The plus key.</td>
+<td style="text-align: left;"><code>"+"</code></td>
+<td style="text-align: left;">The plus key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;-&quot;</code></td>
-<td align="left">The minus key.</td>
+<td style="text-align: left;"><code>"-"</code></td>
+<td style="text-align: left;">The minus key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;*&quot;</code></td>
-<td align="left">The asterisk key on an Android keyboard.</td>
+<td style="text-align: left;"><code>"*"</code></td>
+<td style="text-align: left;">The asterisk key on an Android keyboard.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;.&quot;</code></td>
-<td align="left">The &quot;.&quot; and &quot;&gt;&quot; key on the keyboard.</td>
+<td style="text-align: left;"><code>"."</code></td>
+<td style="text-align: left;">The “.” and “&gt;” key on the keyboard.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;=&quot;</code></td>
-<td align="left">The &quot;=&quot; and &quot;+&quot; key on the keyboard.</td>
+<td style="text-align: left;"><code>"="</code></td>
+<td style="text-align: left;">The “=” and “+” key on the keyboard.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;#&quot;</code></td>
-<td align="left">The &quot;#&quot; key on an Android keyboard.</td>
+<td style="text-align: left;"><code>"#"</code></td>
+<td style="text-align: left;">The “#” key on an Android keyboard.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;;&quot;</code></td>
-<td align="left">The &quot;;&quot; and &quot;:&quot; key on the keyboard.</td>
+<td style="text-align: left;"><code>";"</code></td>
+<td style="text-align: left;">The “;” and “:” key on the keyboard.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;,&quot;</code></td>
-<td align="left">The &quot;,&quot; and &quot;&lt;&quot; key on the keyboard.</td>
+<td style="text-align: left;"><code>","</code></td>
+<td style="text-align: left;">The “,” and “&lt;” key on the keyboard.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;break&quot;</code></td>
-<td align="left">The &quot;break&quot; key.</td>
+<td style="text-align: left;"><code>"break"</code></td>
+<td style="text-align: left;">The “break” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;capsLock&quot;</code></td>
-<td align="left">The &quot;Caps Lock&quot; key.</td>
+<td style="text-align: left;"><code>"capsLock"</code></td>
+<td style="text-align: left;">The “Caps Lock” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;clear&quot;</code></td>
-<td align="left">The number pad's &quot;Clear&quot; key.</td>
+<td style="text-align: left;"><code>"clear"</code></td>
+<td style="text-align: left;">The number pad’s “Clear” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;deleteBack&quot;</code></td>
-<td align="left">The &quot;Backspace&quot; key on a Windows keyboard or &quot;Delete&quot; key on an Apple keyboard.</td>
+<td style="text-align: left;"><code>"deleteBack"</code></td>
+<td style="text-align: left;">The “Backspace” key on a Windows keyboard or “Delete” key on an Apple keyboard.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;deleteForward&quot;</code></td>
-<td align="left">The &quot;Delete&quot; key on a Windows keyboard or &quot;Delete Forward&quot; key on an Apple keyboard.</td>
+<td style="text-align: left;"><code>"deleteForward"</code></td>
+<td style="text-align: left;">The “Delete” key on a Windows keyboard or “Delete Forward” key on an Apple keyboard.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;end&quot;</code></td>
-<td align="left">The &quot;end&quot; key on a keyboard.</td>
+<td style="text-align: left;"><code>"end"</code></td>
+<td style="text-align: left;">The “end” key on a keyboard.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;enter&quot;</code></td>
-<td align="left">The &quot;Enter&quot; or &quot;Return&quot; key on a keyboard.</td>
+<td style="text-align: left;"><code>"enter"</code></td>
+<td style="text-align: left;">The “Enter” or “Return” key on a keyboard.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;escape&quot;</code></td>
-<td align="left">The &quot;escape&quot; or &quot;esc&quot; key.</td>
+<td style="text-align: left;"><code>"escape"</code></td>
+<td style="text-align: left;">The “escape” or “esc” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;headsetHook&quot;</code></td>
-<td align="left">The button on a headset earpiece (typically used to mute/unmute).</td>
+<td style="text-align: left;"><code>"headsetHook"</code></td>
+<td style="text-align: left;">The button on a headset earpiece (typically used to mute/unmute).</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;insert&quot;</code></td>
-<td align="left">The &quot;insert&quot; key.</td>
+<td style="text-align: left;"><code>"insert"</code></td>
+<td style="text-align: left;">The “insert” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;home&quot;</code></td>
-<td align="left">The &quot;home&quot; key on a keyboard (this is not the &quot;Home&quot; button on an Android device).</td>
+<td style="text-align: left;"><code>"home"</code></td>
+<td style="text-align: left;">The “home” key on a keyboard (this is not the “Home” button on an Android device).</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;pageUp&quot;</code></td>
-<td align="left">The &quot;page up&quot; key.</td>
+<td style="text-align: left;"><code>"pageUp"</code></td>
+<td style="text-align: left;">The “page up” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;pageDown&quot;</code></td>
-<td align="left">The &quot;page down&quot; key.</td>
+<td style="text-align: left;"><code>"pageDown"</code></td>
+<td style="text-align: left;">The “page down” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;printScreen&quot;</code></td>
-<td align="left">The &quot;Print Screen&quot; key.</td>
+<td style="text-align: left;"><code>"printScreen"</code></td>
+<td style="text-align: left;">The “Print Screen” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;scrollLock&quot;</code></td>
-<td align="left">The &quot;Scroll Lock&quot; key.</td>
+<td style="text-align: left;"><code>"scrollLock"</code></td>
+<td style="text-align: left;">The “Scroll Lock” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;space&quot;</code></td>
-<td align="left">The space bar.</td>
+<td style="text-align: left;"><code>"space"</code></td>
+<td style="text-align: left;">The space bar.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;tab&quot;</code></td>
-<td align="left">The &quot;tab&quot; key.</td>
+<td style="text-align: left;"><code>"tab"</code></td>
+<td style="text-align: left;">The “tab” key.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;zoomIn&quot;</code></td>
-<td align="left">The &quot;zoom-in&quot; key.</td>
+<td style="text-align: left;"><code>"zoomIn"</code></td>
+<td style="text-align: left;">The “zoom-in” key.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;zoomOut&quot;</code></td>
-<td align="left">The &quot;zoom-out&quot; key.</td>
+<td style="text-align: left;"><code>"zoomOut"</code></td>
+<td style="text-align: left;">The “zoom-out” key.</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="unknown-keys" class="section level3">
+</section>
+<section id="unknown-keys" class="level3">
 <h3>Unknown Keys</h3>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">keyName</th>
-<th align="left">Description</th>
+<th style="text-align: left;">keyName</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;unknown&quot;</code></td>
-<td align="left">The key name used if Corona is unable to recognize the received key code. In this case, you can only identify the key by its <a href="../../../api/event/key/nativeKeyCode.html">event.nativeKeyCode</a> value.</td>
+<td style="text-align: left;"><code>"unknown"</code></td>
+<td style="text-align: left;">The key name used if Corona is unable to recognize the received key code. In this case, you can only identify the key by its <a href="../../../api/event/key/nativeKeyCode.html">event.nativeKeyCode</a> value.</td>
 </tr>
 </tbody>
 </table>
@@ -1179,9 +1179,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

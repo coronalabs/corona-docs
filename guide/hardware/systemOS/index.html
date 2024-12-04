@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | System/Hardware</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -64,7 +64,7 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/hardware/index.html">System/Hardware</a>
 </div>
-<div id="systemos-libraries" class="section level1">
+<section id="systemos-libraries" class="level1">
 <h1>System/OS Libraries</h1>
 <p>This guide summarizes the Corona <a href="../../../api/library/system/index.html">system</a> and <a href="../../../api/library/os/index.html">os</a> libraries. Collectively, the following calls are used to gather system information and control system functions — get device information, enable multitouch, control the idle time, accelerometer, GPS, etc. — and deal with system time, date, and other <nobr>OS-related</nobr> information.</p>
 <div class="guides-toc">
@@ -74,164 +74,164 @@
 </ul>
 </div>
 <p><a id="systemlib"></a></p>
-<div id="system-library" class="section level2">
+<section id="system-library" class="level2">
 <h2>System Library</h2>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">API</th>
-<th align="left">Description</th>
+<th style="text-align: left;">API</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/system/getInfo.html">system.getInfo()</a></td>
-<td align="left">Returns information about the system on which the application is running.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/getInfo.html">system.getInfo()</a></td>
+<td style="text-align: left;">Returns information about the system on which the application is running.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/system/openURL.html">system.openURL()</a></td>
-<td align="left">Opens a web page in the device browser, creates an email, calls a phone number, or opens a file.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/openURL.html">system.openURL()</a></td>
+<td style="text-align: left;">Opens a web page in the device browser, creates an email, calls a phone number, or opens a file.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/system/canOpenURL.html">system.canOpenURL()</a></td>
-<td align="left">Returns a boolean value confirming whether a URL can be opened via <a href="../../../api/library/system/openURL.html">system.openURL()</a>.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/canOpenURL.html">system.canOpenURL()</a></td>
+<td style="text-align: left;">Returns a boolean value confirming whether a URL can be opened via <a href="../../../api/library/system/openURL.html">system.openURL()</a>.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/system/pathForFile.html">system.pathForFile()</a></td>
-<td align="left">Generates an absolute path using <nobr>system-defined</nobr> directories as the base. See <a href="../../../guide/data/readWriteFiles/index.html">Reading and Writing Files</a> for more information.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/pathForFile.html">system.pathForFile()</a></td>
+<td style="text-align: left;">Generates an absolute path using <nobr>system-defined</nobr> directories as the base. See <a href="../../../guide/data/readWriteFiles/index.html">Reading and Writing Files</a> for more information.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/system/CachesDirectory.html">system.CachesDirectory</a></td>
-<td align="left">Used with <a href="../../../api/library/system/pathForFile.html">system.pathForFile()</a> to create a path for storing and retrieving files that are available across application launches.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/CachesDirectory.html">system.CachesDirectory</a></td>
+<td style="text-align: left;">Used with <a href="../../../api/library/system/pathForFile.html">system.pathForFile()</a> to create a path for storing and retrieving files that are available across application launches.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/system/DocumentsDirectory.html">system.DocumentsDirectory</a></td>
-<td align="left">Used with <a href="../../../api/library/system/pathForFile.html">system.pathForFile()</a> to create a path for storing and retrieving files that need to persist between application sessions.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/DocumentsDirectory.html">system.DocumentsDirectory</a></td>
+<td style="text-align: left;">Used with <a href="../../../api/library/system/pathForFile.html">system.pathForFile()</a> to create a path for storing and retrieving files that need to persist between application sessions.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/system/ResourceDirectory.html">system.ResourceDirectory</a></td>
-<td align="left">Used with <a href="../../../api/library/system/pathForFile.html">system.pathForFile()</a> to create a path for retrieving files where all the application assets exist.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/ResourceDirectory.html">system.ResourceDirectory</a></td>
+<td style="text-align: left;">Used with <a href="../../../api/library/system/pathForFile.html">system.pathForFile()</a> to create a path for retrieving files where all the application assets exist.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/system/TemporaryDirectory.html">system.TemporaryDirectory</a></td>
-<td align="left">Used with <a href="../../../api/library/system/pathForFile.html">system.pathForFile()</a> to create a path for storing and retrieving files that only need to persist while the application is running.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/TemporaryDirectory.html">system.TemporaryDirectory</a></td>
+<td style="text-align: left;">Used with <a href="../../../api/library/system/pathForFile.html">system.pathForFile()</a> to create a path for storing and retrieving files that only need to persist while the application is running.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/system/getPreference.html">system.getPreference()</a></td>
-<td align="left">Returns a system preference value (<code>ui</code> or <code>locale</code>) as a string.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/getPreference.html">system.getPreference()</a></td>
+<td style="text-align: left;">Returns a system preference value (<code>ui</code> or <code>locale</code>) as a string.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/system/getInputDevices.html">system.getInputDevices()</a></td>
-<td align="left">Returns an array of <a href="../../../api/type/InputDevice/index.html">InputDevice</a> devices that are currently connected to the system, such as a touchscreen, keyboard, mouse, joystick, etc.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/getInputDevices.html">system.getInputDevices()</a></td>
+<td style="text-align: left;">Returns an array of <a href="../../../api/type/InputDevice/index.html">InputDevice</a> devices that are currently connected to the system, such as a touchscreen, keyboard, mouse, joystick, etc.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/system/getTimer.html">system.getTimer()</a></td>
-<td align="left">Returns the time in milliseconds since application launch.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/getTimer.html">system.getTimer()</a></td>
+<td style="text-align: left;">Returns the time in milliseconds since application launch.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/system/orientation.html">system.orientation</a></td>
-<td align="left">Returns a string identifying the orientation of the device.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/orientation.html">system.orientation</a></td>
+<td style="text-align: left;">Returns a string identifying the orientation of the device.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/system/setTapDelay.html">system.setTapDelay()</a></td>
-<td align="left">Sets the delay time between when a tap is detected and when the tap event is delivered.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/setTapDelay.html">system.setTapDelay()</a></td>
+<td style="text-align: left;">Sets the delay time between when a tap is detected and when the tap event is delivered.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/system/activate.html">system.activate()</a></td>
-<td align="left">Activates a system-level feature such as multitouch.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/activate.html">system.activate()</a></td>
+<td style="text-align: left;">Activates a system-level feature such as multitouch.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/system/deactivate.html">system.deactivate()</a></td>
-<td align="left">Deactivates a system-level feature activated by <code>system.activate()</code>.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/deactivate.html">system.deactivate()</a></td>
+<td style="text-align: left;">Deactivates a system-level feature activated by <code>system.activate()</code>.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/system/scheduleNotification.html">system.scheduleNotification()</a></td>
-<td align="left">Schedules a local notification event to be delivered at a future time.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/scheduleNotification.html">system.scheduleNotification()</a></td>
+<td style="text-align: left;">Schedules a local notification event to be delivered at a future time.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/system/cancelNotification.html">system.cancelNotification()</a></td>
-<td align="left">Removes the specified notification from the scheduler, status bar, or notification center.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/cancelNotification.html">system.cancelNotification()</a></td>
+<td style="text-align: left;">Removes the specified notification from the scheduler, status bar, or notification center.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/system/setIdleTimer.html">system.setIdleTimer()</a></td>
-<td align="left">Controls whether the system idle timer is enabled (automatic screen dim and sleep).</td>
+<td style="text-align: left;"><a href="../../../api/library/system/setIdleTimer.html">system.setIdleTimer()</a></td>
+<td style="text-align: left;">Controls whether the system idle timer is enabled (automatic screen dim and sleep).</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/system/getIdleTimer.html">system.getIdleTimer()</a></td>
-<td align="left">Determines whether the system idle timer is enabled.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/getIdleTimer.html">system.getIdleTimer()</a></td>
+<td style="text-align: left;">Determines whether the system idle timer is enabled.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/system/setLocationAccuracy.html">system.setLocationAccuracy()</a></td>
-<td align="left">Sets the desired accuracy of <a href="../../../api/event/location/index.html">location (GPS)</a> events to distance in meters.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/setLocationAccuracy.html">system.setLocationAccuracy()</a></td>
+<td style="text-align: left;">Sets the desired accuracy of <a href="../../../api/event/location/index.html">location (GPS)</a> events to distance in meters.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/system/setLocationThreshold.html">system.setLocationThreshold()</a></td>
-<td align="left">Sets the distance in meters between each <a href="../../../api/event/location/index.html">location (GPS)</a> event.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/setLocationThreshold.html">system.setLocationThreshold()</a></td>
+<td style="text-align: left;">Sets the distance in meters between each <a href="../../../api/event/location/index.html">location (GPS)</a> event.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/system/setAccelerometerInterval.html">system.setAccelerometerInterval()</a></td>
-<td align="left">Sets the frequency of <a href="../../../api/event/accelerometer/index.html">accelerometer</a> events.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/setAccelerometerInterval.html">system.setAccelerometerInterval()</a></td>
+<td style="text-align: left;">Sets the frequency of <a href="../../../api/event/accelerometer/index.html">accelerometer</a> events.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/system/setGyroscopeInterval.html">system.setGyroscopeInterval()</a></td>
-<td align="left">Sets the frequency of <a href="../../../api/event/gyroscope/index.html">gyroscope</a> events in Hertz.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/setGyroscopeInterval.html">system.setGyroscopeInterval()</a></td>
+<td style="text-align: left;">Sets the frequency of <a href="../../../api/event/gyroscope/index.html">gyroscope</a> events in Hertz.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/system/hasEventSource.html">system.hasEventSource()</a></td>
-<td align="left">Returns whether the system delivers events corresponding to <code>eventName</code>.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/hasEventSource.html">system.hasEventSource()</a></td>
+<td style="text-align: left;">Returns whether the system delivers events corresponding to <code>eventName</code>.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/system/vibrate.html">system.vibrate()</a></td>
-<td align="left">Vibrates the phone. On the Corona Simulator, this triggers a system beep.</td>
+<td style="text-align: left;"><a href="../../../api/library/system/vibrate.html">system.vibrate()</a></td>
+<td style="text-align: left;">Vibrates the phone. On the Corona Simulator, this triggers a system beep.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <p><a id="oslib"></a></p>
-</div>
-<div id="os-library" class="section level2">
+</section>
+<section id="os-library" class="level2">
 <h2>OS Library</h2>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">API</th>
-<th align="left">Description</th>
+<th style="text-align: left;">API</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/os/clock.html">os.clock()</a></td>
-<td align="left">Returns an approximation of the amount in seconds of CPU time used by the program.</td>
+<td style="text-align: left;"><a href="../../../api/library/os/clock.html">os.clock()</a></td>
+<td style="text-align: left;">Returns an approximation of the amount in seconds of CPU time used by the program.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/os/date.html">os.date()</a></td>
-<td align="left">Returns a formatted string or a table containing date and time.</td>
+<td style="text-align: left;"><a href="../../../api/library/os/date.html">os.date()</a></td>
+<td style="text-align: left;">Returns a formatted string or a table containing date and time.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/os/time.html">os.time()</a></td>
-<td align="left">Returns the current time in seconds from 1970, or the date and time specified by a table.</td>
+<td style="text-align: left;"><a href="../../../api/library/os/time.html">os.time()</a></td>
+<td style="text-align: left;">Returns the current time in seconds from 1970, or the date and time specified by a table.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/os/difftime.html">os.difftime()</a></td>
-<td align="left">Returns the number of seconds from time &quot;t1&quot; to time &quot;t2&quot;.</td>
+<td style="text-align: left;"><a href="../../../api/library/os/difftime.html">os.difftime()</a></td>
+<td style="text-align: left;">Returns the number of seconds from time “t1” to time “t2”.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/os/execute.html">os.execute()</a></td>
-<td align="left">Passes a string to the OS for execution and returns a system-dependent status code.</td>
+<td style="text-align: left;"><a href="../../../api/library/os/execute.html">os.execute()</a></td>
+<td style="text-align: left;">Passes a string to the OS for execution and returns a system-dependent status code.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/os/exit.html">os.exit()</a></td>
-<td align="left">Calls the C function <code>exit()</code> to terminate the host program.</td>
+<td style="text-align: left;"><a href="../../../api/library/os/exit.html">os.exit()</a></td>
+<td style="text-align: left;">Calls the C function <code>exit()</code> to terminate the host program.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/os/remove.html">os.remove()</a></td>
-<td align="left">Deletes a file or directory in the documents or temporary directory.</td>
+<td style="text-align: left;"><a href="../../../api/library/os/remove.html">os.remove()</a></td>
+<td style="text-align: left;">Deletes a file or directory in the documents or temporary directory.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/os/rename.html">os.rename()</a></td>
-<td align="left">Renames a file or directory in the documents or temporary directory.</td>
+<td style="text-align: left;"><a href="../../../api/library/os/rename.html">os.rename()</a></td>
+<td style="text-align: left;">Renames a file or directory in the documents or temporary directory.</td>
 </tr>
 </tbody>
 </table>
@@ -246,8 +246,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

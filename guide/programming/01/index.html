@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Getting Started</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -79,7 +79,7 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/programming/index.html">Getting Started</a>
 </div>
-<div id="chapter-1-creating-a-project" class="section level1">
+<section id="chapter-1-creating-a-project" class="level1">
 <h1>Chapter 1 — Creating a project</h1>
 <div class="walkthrough-nav">
 <div class="walkthrough-nav-upper-right">
@@ -96,133 +96,130 @@
 </ul>
 </div>
 <p><a id="using"></a></p>
-<div id="using-solar2d" class="section level2">
+<section id="using-solar2d" class="level2">
 <h2>Using Solar2D</h2>
-<div id="scripting" class="section level3">
+<section id="scripting" class="level3">
 <h3>Scripting</h3>
-<p>Solar2D uses <a href="https://www.lua.org/">Lua</a> scripting language. If you've ever programmed in any language, you will find Lua an easy transition. <a href="../../../guide/start/introLua/index.html">Introduction to Lua</a> guide provides an overview of Lua, or you can <a href="https://www.youtube.com/playlist?list=PLxgtJR7f0RBKGid7F2dfv7qc-xWwSee2O">learn Lua on YouTube</a>. In a very short time, you will find yourself writing that great app that you've dreamed of creating!</p>
-<p>If you're completely new to programming, Lua is still easy to learn and this guide will help you along.</p>
-</div>
-<div id="text-editors" class="section level3">
+<p>Solar2D uses <a href="https://www.lua.org/">Lua</a> scripting language. If you’ve ever programmed in any language, you will find Lua an easy transition. <a href="../../../guide/start/introLua/index.html">Introduction to Lua</a> guide provides an overview of Lua, or you can <a href="https://www.youtube.com/playlist?list=PLxgtJR7f0RBKGid7F2dfv7qc-xWwSee2O">learn Lua on YouTube</a>. In a very short time, you will find yourself writing that great app that you’ve dreamed of creating!</p>
+<p>If you’re completely new to programming, Lua is still easy to learn and this guide will help you along.</p>
+</section>
+<section id="text-editors" class="level3">
 <h3>Text Editors</h3>
 <p>In addition to Solar2D, you will need a <strong>text editor</strong>. There are several editors available and choosing one is much like choosing a car — everybody has their own preferences and you should explore which one suits you best.</p>
-<p>If you don't already have a favorite text editor, the following options are recommended:</p>
+<p>If you don’t already have a favorite text editor, the following options are recommended:</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Editor</th>
-<th align="left">Add-On Package</th>
-<th align="center">macOS</th>
-<th align="center">Windows</th>
+<th style="text-align: left;">Editor</th>
+<th style="text-align: left;">Add-On Package</th>
+<th style="text-align: center;">macOS</th>
+<th style="text-align: center;">Windows</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><a href="https://www.sublimetext.com">Sublime Text</a></td>
-<td align="left"><a href="https://github.com/coronalabs/CoronaSDK-SublimeText">Solar2D Editor</a></td>
-<td align="center">✓</td>
-<td align="center">✓</td>
+<td style="text-align: left;"><a href="https://www.sublimetext.com">Sublime Text</a></td>
+<td style="text-align: left;"><a href="https://github.com/coronalabs/CoronaSDK-SublimeText">Solar2D Editor</a></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="https://code.visualstudio.com/">Visual Studio Code</a></td>
-<td align="left"><a href="https://bit.ly/3IfNx6e">Solar2d Autocomplete</a></td>
-<td align="center">✓</td>
-<td align="center">✓</td>
+<td style="text-align: left;"><a href="https://code.visualstudio.com/">Visual Studio Code</a></td>
+<td style="text-align: left;"><a href="https://bit.ly/3IfNx6e">Solar2d Autocomplete</a></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="https://developer.apple.com/xcode/">Xcode</a></td>
-<td align="left"><a href="https://github.com/jcbnlsn/Xcode-Corona-Editor">Xcode Editor</a></td>
-<td align="center">✓</td>
-<td align="center"></td>
+<td style="text-align: left;"><a href="https://developer.apple.com/xcode/">Xcode</a></td>
+<td style="text-align: left;"><a href="https://github.com/jcbnlsn/Xcode-Corona-Editor">Xcode Editor</a></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
 </tr>
 <tr class="even">
-<td align="left"><a href="https://www.vim.org">Vim</a></td>
-<td align="left"></td>
-<td align="center">✓</td>
-<td align="center">✓</td>
+<td style="text-align: left;"><a href="https://www.vim.org">Vim</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="https://studio.zerobrane.com">ZeroBrane Studio</a></td>
-<td align="left"></td>
-<td align="center">✓</td>
-<td align="center">✓</td>
+<td style="text-align: left;"><a href="https://studio.zerobrane.com">ZeroBrane Studio</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="https://notepad-plus-plus.org">Notepad++</a></td>
-<td align="left"></td>
-<td align="center"></td>
-<td align="center">✓</td>
+<td style="text-align: left;"><a href="https://notepad-plus-plus.org">Notepad++</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="https://macromates.com">TextMate</a></td>
-<td align="left"></td>
-<td align="center">✓</td>
-<td align="center"></td>
+<td style="text-align: left;"><a href="https://macromates.com">TextMate</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <p><a id="createapp"></a></p>
-</div>
-</div>
-<div id="creating-a-project" class="section level2">
+</section>
+</section>
+<section id="creating-a-project" class="level2">
 <h2>Creating a project</h2>
 <div class="float-right" style="max-width: 240px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/sbs-balloon-0.png" />
-
+<p><img src="../../../images/docs/sbs-balloon-0.png" /></p>
 </div>
-</div>
-<p>Your first project is going to be very simple, but it will demonstrate some important concepts. We are going to make a simple tapping game to keep a balloon in the air. Each time the balloon is tapped, we will &quot;push&quot; it a little higher.</p>
+<p>Your first project is going to be very simple, but it will demonstrate some important concepts. We are going to make a simple tapping game to keep a balloon in the air. Each time the balloon is tapped, we will “push” it a little higher.</p>
 <div class="guide-notebox">
 <div class="notebox-title">
 Notes
 </div>
 <ul>
 <li><p>The best way to use this guide is to follow every step — type in the code, add the images, and see your project gradually come to life. It may take a little more time, but you will gain a much better understanding.</p></li>
-<li><p>Included with each chapter is a downloadable file which contains all of the images, audio files, and other assets related to that chapter. This chapter's source files are available <a href="https://github.com/coronalabs/GettingStarted01/archive/master.zip">here</a>.</p></li>
+<li><p>Included with each chapter is a downloadable file which contains all of the images, audio files, and other assets related to that chapter. This chapter’s source files are available <a href="https://github.com/coronalabs/GettingStarted01/archive/master.zip">here</a>.</p></li>
 </ul>
 </div>
-<div id="starting-a-project" class="section level3">
+<section id="starting-a-project" class="level3">
 <h3>Starting a Project</h3>
-<p>Creating a new project in Solar2D is easy. In just a few simple steps you'll be ready to make your first game!</p>
-<ol style="list-style-type: decimal">
+<p>Creating a new project in Solar2D is easy. In just a few simple steps you’ll be ready to make your first game!</p>
+<ol type="1">
 <li><p>Open the <strong>Solar2D Simulator</strong>.</p></li>
-<li><p>Click <strong>New Project</strong> from the welcome window or select <strong>New Project...</strong> from the <strong>File</strong> menu.</p></li>
+<li><p>Click <strong>New Project</strong> from the welcome window or select <strong>New Project…</strong> from the <strong>File</strong> menu.</p></li>
 </ol>
 <!--- TODO: Fix the platform-different citation below -->
-<ol start="3" style="list-style-type: decimal">
-<li>For the project/application name, type <code>BalloonTap</code> and ensure that the <strong>Blank</strong> template option is selected. Leave the other settings at default and click <strong>OK</strong> (Windows) or <strong>Next</strong> (Mac). This will create the basic files for your first game in the location (folder) that you specified. This is also the folder in which you'll place all of your app files/assets, including images, program files, etc.</li>
+<ol start="3" type="1">
+<li>For the project/application name, type <code>BalloonTap</code> and ensure that the <strong>Blank</strong> template option is selected. Leave the other settings at default and click <strong>OK</strong> (Windows) or <strong>Next</strong> (Mac). This will create the basic files for your first game in the location (folder) that you specified. This is also the folder in which you’ll place all of your app files/assets, including images, program files, etc.</li>
 </ol>
-</div>
-<div id="including-images" class="section level3">
+</section>
+<section id="including-images" class="level3">
 <h3>Including Images</h3>
 <p>For this project, you will need three <strong>image files</strong>, placed within the <code>BalloonTap</code> project folder created above:</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">File</th>
-<th align="left">Size (w×h)</th>
-<th align="left">Usage</th>
+<th style="text-align: left;">File</th>
+<th style="text-align: left;">Size (w×h)</th>
+<th style="text-align: left;">Usage</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>background.png</code></td>
-<td align="left">360 × 570</td>
-<td align="left">The background — purely decorative so that we're not staring at a black background.</td>
+<td style="text-align: left;"><code>background.png</code></td>
+<td style="text-align: left;">360 × 570</td>
+<td style="text-align: left;">The background — purely decorative so that we’re not staring at a black background.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>platform.png</code></td>
-<td align="left">300 × 50</td>
-<td align="left">The platform/floor — keeps the balloon from falling off the bottom of the screen.</td>
+<td style="text-align: left;"><code>platform.png</code></td>
+<td style="text-align: left;">300 × 50</td>
+<td style="text-align: left;">The platform/floor — keeps the balloon from falling off the bottom of the screen.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>balloon.png</code></td>
-<td align="left">112 × 112</td>
-<td align="left">The balloon.</td>
+<td style="text-align: left;"><code>balloon.png</code></td>
+<td style="text-align: left;">112 × 112</td>
+<td style="text-align: left;">The balloon.</td>
 </tr>
 </tbody>
 </table>
@@ -234,7 +231,7 @@ Notes
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>To get going quickly, you can download and use the default images included with this chapter's <a href="https://github.com/coronalabs/GettingStarted01/archive/master.zip">source files</a>. Inside the archive, you'll find the three images outlined above.</p>
+<p>To get going quickly, you can download and use the default images included with this chapter’s <a href="https://github.com/coronalabs/GettingStarted01/archive/master.zip">source files</a>. Inside the archive, you’ll find the three images outlined above.</p>
 </div>
 </div>
 <div class="docs-tip-outer">
@@ -252,20 +249,20 @@ Notes
 </ul>
 </div>
 </div>
-</div>
-<div id="loading-the-background" class="section level3">
+</section>
+<section id="loading-the-background" class="level3">
 <h3>Loading the Background</h3>
-<p>The first image that we need to load is the background. Solar2D places everything on the screen from back to front in regards to layering, so the first image we load will exist behind other images that are loaded afterward. While there are ways to change the layering order of images and send them to the back or front of the display stack, we'll keep this project simple and load them in a logical order.</p>
-<p>Using your chosen text editor, locate and open the <code>main.lua</code> file within your project folder. The <code>main.lua</code> file is the foundational <nobr>&quot;core program file&quot;</nobr> of every Solar2D project and you cannot create an app without it. This is the Lua file with which the application starts, every time you run the app.</p>
+<p>The first image that we need to load is the background. Solar2D places everything on the screen from back to front in regards to layering, so the first image we load will exist behind other images that are loaded afterward. While there are ways to change the layering order of images and send them to the back or front of the display stack, we’ll keep this project simple and load them in a logical order.</p>
+<p>Using your chosen text editor, locate and open the <code>main.lua</code> file within your project folder. The <code>main.lua</code> file is the foundational <nobr>“core program file”</nobr> of every Solar2D project and you cannot create an app without it. This is the Lua file with which the application starts, every time you run the app.</p>
 <p>In this <code>main.lua</code> file, type in the highlighted command:</p>
-<pre class="brush: lua; gutter: true; highlight: [7]; first-line: 1;">-----------------------------------------------------------------------------------------
+<pre class="highlight: [7]; first-line: 1; gutter: true; brush: lua;">-----------------------------------------------------------------------------------------
 --
 -- main.lua
 --
 -----------------------------------------------------------------------------------------
 
 local background = display.newImageRect( "background.png", 360, 570 )</pre>
-<p>There are a several aspects involved with this command. Let's break it down:</p>
+<p>There are a several aspects involved with this command. Let’s break it down:</p>
 <ul>
 <li>The first word, <code>local</code>, is a Lua command indicating that the next word will be a <strong>variable</strong>. A variable, just like you learned in math class, is used to store a value. In this case, that value will be an image used as your background.</li>
 </ul>
@@ -277,7 +274,7 @@ local background = display.newImageRect( "background.png", 360, 570 )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Note that <code>local</code> is always lowercase and it's used here to declare a variable; for example, the first time you use the variable, you should add the word <code>local</code> in front of it.</p>
+<p>Note that <code>local</code> is always lowercase and it’s used here to declare a variable; for example, the first time you use the variable, you should add the word <code>local</code> in front of it.</p>
 </div>
 </div>
 </div>
@@ -292,7 +289,7 @@ local background = display.newImageRect( "background.png", 360, 570 )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Remember to always use different variable names each time you use a variable. Just as it gets confusing if everyone in a classroom is named &quot;John,&quot; using the same variable name for all of your objects creates confusion in your program.</p>
+<p>Remember to always use different variable names each time you use a variable. Just as it gets confusing if everyone in a classroom is named “John,” using the same variable name for all of your objects creates confusion in your program.</p>
 </div>
 </div>
 </div>
@@ -309,22 +306,19 @@ local background = display.newImageRect( "background.png", 360, 570 )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>The specified name must match the actual file name exactly, including case-sensitive matching! For instance, if the actual file name is <code>background.png</code>, do <strong>not</strong> enter it as <code>&quot;BackGround.PNG&quot;</code>.</p>
+<p>The specified name must match the actual file name exactly, including case-sensitive matching! For instance, if the actual file name is <code>background.png</code>, do <strong>not</strong> enter it as <code>"BackGround.PNG"</code>.</p>
 </div>
 </div>
-<p>The next two parameters, <code>360</code> and <code>570</code> specify the size that we want the background image to be. In this case, we'll simply use the image's pixel dimensions, although as noted above, <code>display.newImageRect()</code> allows you to resize/scale the image via these numbers.</p>
+<p>The next two parameters, <code>360</code> and <code>570</code> specify the size that we want the background image to be. In this case, we’ll simply use the image’s pixel dimensions, although as noted above, <code>display.newImageRect()</code> allows you to resize/scale the image via these numbers.</p>
 </div>
 <p>The final step for the background is to position it at the correct location on the screen. Immediately following the line you just entered, add the two highlighted commands:</p>
-<pre class="brush: lua; gutter: true; highlight: [8,9]; first-line: 7;">local background = display.newImageRect( "background.png", 360, 570 )
+<pre class="highlight: [8,9]; first-line: 7; gutter: true; brush: lua;">local background = display.newImageRect( "background.png", 360, 570 )
 background.x = display.contentCenterX
 background.y = display.contentCenterY</pre>
-<p>By default, Solar2D will position the center of an object at the coordinate point of <code>0,0</code> which is located in the <nobr>upper-left</nobr> corner of the screen. By changing the object's <code>x</code> and <code>y</code> properties, however, we can move the background image to a new location.</p>
-<p>For this project, we'll place the background in the center of the screen — but what if we don't know exactly which coordinate values represent the center? Fortunately, Solar2D provides some convenient shortcuts for this. When you specify the values <code>display.contentCenterX</code> and <code>display.contentCenterY</code>, Solar2D will set the center coordinates of the screen as the <code>background.x</code> and <code>background.y</code> properties.</p>
+<p>By default, Solar2D will position the center of an object at the coordinate point of <code>0,0</code> which is located in the <nobr>upper-left</nobr> corner of the screen. By changing the object’s <code>x</code> and <code>y</code> properties, however, we can move the background image to a new location.</p>
+<p>For this project, we’ll place the background in the center of the screen — but what if we don’t know exactly which coordinate values represent the center? Fortunately, Solar2D provides some convenient shortcuts for this. When you specify the values <code>display.contentCenterX</code> and <code>display.contentCenterY</code>, Solar2D will set the center coordinates of the screen as the <code>background.x</code> and <code>background.y</code> properties.</p>
 <div class="float-right" style="max-width: 240px; margin-top: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/sbs-balloon-1.png" />
-
-</div>
+<p><img src="../../../images/docs/sbs-balloon-1.png" /></p>
 </div>
 <div class="docs-tip-outer docs-tip-color-action">
 <div class="docs-tip-inner-left">
@@ -333,12 +327,12 @@ background.y = display.contentCenterY</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Let's check the result of your code! Save your modified <code>main.lua</code> file and then, from within the Simulator, &quot;relaunch&quot; it using <nobr>⌘-R</nobr> <nobr>(Command-R)</nobr>. If all went well, the background should now be showing, centered on the screen.</p>
-<p>If you get an error or can't see the background, there are a few possibilities as to the cause:</p>
+<p>Let’s check the result of your code! Save your modified <code>main.lua</code> file and then, from within the Simulator, “relaunch” it using <nobr>⌘-R</nobr> <nobr>(Command-R)</nobr>. If all went well, the background should now be showing, centered on the screen.</p>
+<p>If you get an error or can’t see the background, there are a few possibilities as to the cause:</p>
 <div style="margin-bottom: -10px;">
 <ul>
 <li>One of the commands was typed incorrectly.</li>
-<li>The image file isn't in the same folder as <code>main.lua</code>.</li>
+<li>The image file isn’t in the same folder as <code>main.lua</code>.</li>
 <li>The specified filename and/or extension is incorrect or mismatched in case.</li>
 </ul>
 </div>
@@ -351,14 +345,14 @@ background.y = display.contentCenterY</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Remember that the <nobr><strong>Simulator Console</strong></nobr> window is a valuable place to check for and diagnose potential errors in your code. On Windows, this panel is always accessible in the Simulator. On Mac, if this window isn't already open, you can view it by selecting <nobr><strong>Window</strong> → <strong>Console</strong></nobr>.</p>
+<p>Remember that the <nobr><strong>Simulator Console</strong></nobr> window is a valuable place to check for and diagnose potential errors in your code. On Windows, this panel is always accessible in the Simulator. On Mac, if this window isn’t already open, you can view it by selecting <nobr><strong>Window</strong> → <strong>Console</strong></nobr>.</p>
 </div>
 </div>
-</div>
-<div id="loading-the-platform" class="section level3">
+</section>
+<section id="loading-the-platform" class="level3">
 <h3>Loading the Platform</h3>
-<p>Time to load the platform. This is very similar to loading the background. Following the three lines of code you've already typed, enter the following highlighted commands:</p>
-<pre class="brush: lua; gutter: true; highlight: [11,12,13]; first-line: 7;">local background = display.newImageRect( "background.png", 360, 570 )
+<p>Time to load the platform. This is very similar to loading the background. Following the three lines of code you’ve already typed, enter the following highlighted commands:</p>
+<pre class="highlight: [11,12,13]; first-line: 7; gutter: true; brush: lua;">local background = display.newImageRect( "background.png", 360, 570 )
 background.x = display.contentCenterX
 background.y = display.contentCenterY
 
@@ -367,45 +361,42 @@ platform.x = display.contentCenterX
 platform.y = display.contentHeight-25</pre>
 <p>As you probably noticed, there is one minor change compared to the background: instead of positioning the platform in the vertical center, we want it near the bottom of the screen. By using the command <code>display.contentHeight</code>, we know the height of the content area. But remember that <code>platform.y</code> places the <strong>center</strong> of the object at the specified location. So, because the height of this object is 50 pixels, we subtract 25 pixels from the value, ensuring that the entire platform can be seen on screen.</p>
 <div class="float-right" style="max-width: 240px; margin-top: 12px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/sbs-balloon-2.png" />
-
-</div>
+<p><img src="../../../images/docs/sbs-balloon-2.png" /></p>
 </div>
 <p>Save your <code>main.lua</code> file and relaunch the Simulator to see the platform graphic.</p>
-</div>
-<div id="loading-the-balloon" class="section level3">
+</section>
+<section id="loading-the-balloon" class="level3">
 <h3>Loading the Balloon</h3>
-<p>To load the balloon, we'll follow the same process. Below the previous commands, type these lines:</p>
-<pre class="brush: lua; gutter: true; highlight: [15,16,17]; first-line: 15;">local balloon = display.newImageRect( "balloon.png", 112, 112 )
+<p>To load the balloon, we’ll follow the same process. Below the previous commands, type these lines:</p>
+<pre class="highlight: [15,16,17]; first-line: 15; gutter: true; brush: lua;">local balloon = display.newImageRect( "balloon.png", 112, 112 )
 balloon.x = display.contentCenterX
 balloon.y = display.contentCenterY</pre>
-<p>In addition, to give the balloon a slightly transparent appearance, we'll reduce the object's opacity (alpha) slightly. On the next line, set the balloon's <code>alpha</code> property to 80% (<code>0.8</code>):</p>
-<pre class="brush: lua; gutter: true; highlight: [18]; first-line: 15;">local balloon = display.newImageRect( "balloon.png", 112, 112 )
+<p>In addition, to give the balloon a slightly transparent appearance, we’ll reduce the object’s opacity (alpha) slightly. On the next line, set the balloon’s <code>alpha</code> property to 80% (<code>0.8</code>):</p>
+<pre class="highlight: [18]; first-line: 15; gutter: true; brush: lua;">local balloon = display.newImageRect( "balloon.png", 112, 112 )
 balloon.x = display.contentCenterX
 balloon.y = display.contentCenterY
 balloon.alpha = 0.8</pre>
 <p>Save your <code>main.lua</code> file and relaunch the Simulator. There should now be a balloon in the center of the screen.</p>
-</div>
-<div id="adding-physics" class="section level3">
+</section>
+<section id="adding-physics" class="level3">
 <h3>Adding Physics</h3>
 <p>Time to get into physics! <a href="https://www.box2d.org/">Box2D</a> is the included physics engine for your use in building apps and games. While using physics is not required to make a game, it makes it much easier to handle many game situations.</p>
 <p>Including physics is very easy. Below the previous lines, add these commands:</p>
-<pre class="brush: lua; gutter: true; highlight: [20,21]; first-line: 20;">local physics = require( "physics" )
+<pre class="highlight: [20,21]; first-line: 20; gutter: true; brush: lua;">local physics = require( "physics" )
 physics.start()</pre>
-<p>Let's explain these two lines in a little more detail:</p>
+<p>Let’s explain these two lines in a little more detail:</p>
 <ul>
-<li><p>The command <nobr><code>local physics = require( &quot;physics&quot; )</code></nobr> loads the Box2D physics engine into your app and associates it with the local variable <code>physics</code> for later reference. This gives you the ability to call other commands within the physics library using the <code>physics</code> namespace variable, as you'll see in a moment.</p></li>
+<li><p>The command <nobr><code>local physics = require( "physics" )</code></nobr> loads the Box2D physics engine into your app and associates it with the local variable <code>physics</code> for later reference. This gives you the ability to call other commands within the physics library using the <code>physics</code> namespace variable, as you’ll see in a moment.</p></li>
 <li><p><code>physics.start()</code> does exactly what you might guess — it starts the physics engine.</p></li>
 </ul>
-<p>If you save and relaunch you won't see any difference in your <nobr>game... yet</nobr>. That is because we haven't given the physics engine anything to do. For physics to work, we need to convert the images/objects that were created into physical objects. This is done with the command <code>physics.addBody</code>:</p>
-<pre class="brush: lua; gutter: true; highlight: [23]; first-line: 20;">local physics = require( "physics" )
+<p>If you save and relaunch you won’t see any difference in your <nobr>game… yet</nobr>. That is because we haven’t given the physics engine anything to do. For physics to work, we need to convert the images/objects that were created into physical objects. This is done with the command <code>physics.addBody</code>:</p>
+<pre class="highlight: [23]; first-line: 20; gutter: true; brush: lua;">local physics = require( "physics" )
 physics.start()
 
 physics.addBody( platform, "static" )</pre>
-<p>This tells the physics engine to add a physical <strong>&quot;body&quot;</strong> to the image that is stored in <code>platform</code>. In addition, the second parameter tells Solar2D to treat it as a <strong>static</strong> physical object. What does this mean? Basically, static physical objects are not affected by gravity or other physical forces, so anytime you have an object which shouldn't move, set its type to <code>&quot;static&quot;</code>.</p>
+<p>This tells the physics engine to add a physical <strong>“body”</strong> to the image that is stored in <code>platform</code>. In addition, the second parameter tells Solar2D to treat it as a <strong>static</strong> physical object. What does this mean? Basically, static physical objects are not affected by gravity or other physical forces, so anytime you have an object which shouldn’t move, set its type to <code>"static"</code>.</p>
 <p>Now add a physical body to the balloon:</p>
-<pre class="brush: lua; gutter: true; highlight: [24]; first-line: 20;">local physics = require( "physics" )
+<pre class="highlight: [24]; first-line: 20; gutter: true; brush: lua;">local physics = require( "physics" )
 physics.start()
 
 physics.addBody( platform, "static" )
@@ -417,10 +408,10 @@ physics.addBody( balloon, "dynamic", { radius=50, bounce=0.3 } )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>In contrast to the platform, the balloon is a <strong>dynamic</strong> physical object. This means that it's affected by gravity, that it will respond physically to collisions with other physical objects, etc. In this case, the second parameter (<code>&quot;dynamic&quot;</code>) is actually optional because the default body type is already dynamic, but we include it here to help with the learning process.</p>
+<p>In contrast to the platform, the balloon is a <strong>dynamic</strong> physical object. This means that it’s affected by gravity, that it will respond physically to collisions with other physical objects, etc. In this case, the second parameter (<code>"dynamic"</code>) is actually optional because the default body type is already dynamic, but we include it here to help with the learning process.</p>
 </div>
 </div>
-<p>The final part of this <code>physics.addBody</code> command is used to adjust the balloon's body properties — in this case we'll give it a round shape and adjust its bounce/restitution value. Parameters must be placed in curly brackets (<code>{}</code>) (referred to as a <strong>table</strong> in the Lua programming language).</p>
+<p>The final part of this <code>physics.addBody</code> command is used to adjust the balloon’s body properties — in this case we’ll give it a round shape and adjust its bounce/restitution value. Parameters must be placed in curly brackets (<code>{}</code>) (referred to as a <strong>table</strong> in the Lua programming language).</p>
 <ul>
 <li><p>Because the balloon is a round object, we assign it a <code>radius</code> property with a value of <code>50</code>. This value basically matches the size of our balloon image, but you may need to adjust it slightly if you created your own balloon image.</p></li>
 <li><p>The <code>bounce</code> value can be any <nobr>non-negative</nobr> decimal or integer value. A value of <code>0</code> means that the balloon has no bounce, while a value of <code>1</code> will make it bounce back with 100% of its collision energy. A value of <code>0.3</code>, as seen above, will make it bounce back with 30% of its energy.</p></li>
@@ -431,7 +422,7 @@ Notes
 </div>
 <ul>
 <li><p>A <code>bounce</code> value greater than <code>1</code> will make an object bounce back with more than 100% of its collision energy. Be careful if you set values above <code>1</code> since the object may quickly gain momentum beyond what is typical or expected.</p></li>
-<li><p>Even if you change the balloon's <code>bounce</code> property to <code>0</code>, it will still bounce off the <code>platform</code> object because, by default, objects have a bounce value of <code>0.2</code>. To completely remove bouncing in this game, set both the balloon <strong>and</strong> the platform to <code>bounce=0</code>.</p></li>
+<li><p>Even if you change the balloon’s <code>bounce</code> property to <code>0</code>, it will still bounce off the <code>platform</code> object because, by default, objects have a bounce value of <code>0.2</code>. To completely remove bouncing in this game, set both the balloon <strong>and</strong> the platform to <code>bounce=0</code>.</p></li>
 </ul>
 </div>
 <div class="docs-tip-outer docs-tip-color-action">
@@ -444,13 +435,13 @@ Notes
 <p>Save your <code>main.lua</code> file and relaunch the Simulator. As a fun experiment, you can try adjusting the <code>bounce</code> value and relaunch the project to see the effect.</p>
 </div>
 </div>
-</div>
-<div id="functions" class="section level3">
+</section>
+<section id="functions" class="level3">
 <h3>Functions</h3>
-<p>At this point, we have a balloon that drops onto a platform and bounces slightly. That's not very fun, so let's make this into a game! For our balloon tap game to work, we need to be able to push the balloon up a little each time it's tapped.</p>
+<p>At this point, we have a balloon that drops onto a platform and bounces slightly. That’s not very fun, so let’s make this into a game! For our balloon tap game to work, we need to be able to push the balloon up a little each time it’s tapped.</p>
 <p>To perform this kind of feature, programming languages use what are called <strong>functions</strong>. Functions are short (usually) sections of code that only run when we tell them to, like when the player taps the balloon.</p>
-<p>Let's create our first function:</p>
-<pre class="brush: lua; gutter: true; highlight: [26,27,28]; first-line: 26;">local function pushBalloon()
+<p>Let’s create our first function:</p>
+<pre class="highlight: [26,27,28]; first-line: 26; gutter: true; brush: lua;">local function pushBalloon()
 
 end</pre>
 <div class="docs-tip-outer">
@@ -460,7 +451,7 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Functions are essential for both app and game development, so let's examine the basic structure:</p>
+<p>Functions are essential for both app and game development, so let’s examine the basic structure:</p>
 <div style="margin-bottom: -10px;">
 <ul>
 <li><p>As before, we use the keyword <code>local</code> to declare the function.</p></li>
@@ -471,8 +462,8 @@ end</pre>
 </div>
 </div>
 </div>
-<p>Excellent, we now have a function! However, it's currently an empty function so it won't actually do anything if we run it. Let's fix that by adding the following line of code <strong>inside</strong> the function, between where we declare the function (its opening line) and the closing <code>end</code> keyword:</p>
-<pre class="brush: lua; gutter: true; highlight: [27]; first-line: 26;">local function pushBalloon()
+<p>Excellent, we now have a function! However, it’s currently an empty function so it won’t actually do anything if we run it. Let’s fix that by adding the following line of code <strong>inside</strong> the function, between where we declare the function (its opening line) and the closing <code>end</code> keyword:</p>
+<pre class="highlight: [27]; first-line: 26; gutter: true; brush: lua;">local function pushBalloon()
     balloon:applyLinearImpulse( 0, -0.75, balloon.x, balloon.y )
 end</pre>
 <div class="docs-tip-outer">
@@ -482,16 +473,13 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>It's considered good programming practice to indent at least one <strong>tab</strong> or <nobr>3-4</nobr> spaces when you add lines of code inside functions. This makes your code more readable and it's easier to recognize functions in longer programs.</p>
+<p>It’s considered good programming practice to indent at least one <strong>tab</strong> or <nobr>3-4</nobr> spaces when you add lines of code inside functions. This makes your code more readable and it’s easier to recognize functions in longer programs.</p>
 </div>
 </div>
-<p><code>balloon:applyLinearImpulse</code> is a really cool command. When applied to a dynamic physical object like the balloon, it applies a &quot;push&quot; to the object in any direction. The parameters that we pass tell the physics engine how much force to apply (both horizontally and vertically) and also where on the object's body to apply the force.</p>
+<p><code>balloon:applyLinearImpulse</code> is a really cool command. When applied to a dynamic physical object like the balloon, it applies a “push” to the object in any direction. The parameters that we pass tell the physics engine how much force to apply (both horizontally and vertically) and also where on the object’s body to apply the force.</p>
 <p>The first two parameters, <code>0</code> and <code>-0.75</code>, indicate the amount of directional force. The first number is the horizontal, or <strong>x</strong> direction, and the second number is the vertical, or <strong>y</strong> direction. Since we only want to push the balloon upwards <nobr>(not left or right)</nobr>, we use <code>0</code> as the first parameter. For the second parameter, with a value of <code>-0.75</code>, we tell the physics engine to push the balloon up a little bit. The value of this number determines the amount of force that is applied: the bigger the number, the higher the force.</p>
 <div class="float-right" style="max-width: 360px; margin-top: 16px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/simulator/axes.png" />
-
-</div>
+<p><img src="../../../images/simulator/axes.png" /></p>
 </div>
 <div class="docs-tip-outer docs-tip-color-alert">
 <div class="docs-tip-inner-left">
@@ -504,22 +492,22 @@ end</pre>
 </div>
 </div>
 <p>The third and fourth parameters, <code>balloon.x</code> and <code>balloon.y</code>, tell the physics engine where to apply the force, relative to the balloon itself. If you apply the force at a location which is not the center of the balloon, it may cause the balloon to move in an unexpected direction or spin around. For this game, we will keep the force focused on the center of the balloon.</p>
-<p>That's it! We could, if needed, add additional commands inside the <code>pushBalloon()</code> function, but for this simple game, we only need to push the balloon upward with a small amount of force.</p>
-</div>
-<div id="events" class="section level3">
+<p>That’s it! We could, if needed, add additional commands inside the <code>pushBalloon()</code> function, but for this simple game, we only need to push the balloon upward with a small amount of force.</p>
+</section>
+<section id="events" class="level3">
 <h3>Events</h3>
 <p>Events are what create interactivity and, in many ways, Solar2D is an <nobr>event-based</nobr> framework where information is dispatched during a specific event to an <strong>event listener</strong>. Whether that event is the user touching an object/button, tapping the screen, or (in this game) tapping the balloon, Solar2D can react by triggering an event.</p>
 <p>Adding an event listener is easy — do so now, following the function:</p>
-<pre class="brush: lua; gutter: true; highlight: [30]; first-line: 26;">local function pushBalloon()
+<pre class="highlight: [30]; first-line: 26; gutter: true; brush: lua;">local function pushBalloon()
     balloon:applyLinearImpulse( 0, -0.75, balloon.x, balloon.y )
 end
 
 balloon:addEventListener( "tap", pushBalloon )</pre>
-<p>Let's inspect the structure of this new command:</p>
+<p>Let’s inspect the structure of this new command:</p>
 <ul>
 <li><p>First, we must tell Solar2D which object is involved in the event listener. For this game, we want to detect an event related directly to the <code>balloon</code> object.</p></li>
 <li><p>Immediately following this, add a colon (<code>:</code>), then <code>addEventListener</code>. In Lua, this is called an <strong>object method</strong>. Essentially, <code>addEventListener</code>, following the colon, tells Solar2D that we want to add an event listener to <code>balloon</code>, specified before the colon.</p></li>
-<li><p>Inside the parentheses are two parameters which complete the command. The first parameter is the <strong>event type</strong> which Solar2D will listen for, in this case <code>&quot;tap&quot;</code>. The second parameter is the <strong>function</strong> which should be run (called) when the event occurs, in this case the <code>pushBalloon()</code> function which we wrote in the previous section. Essentially, we're telling Solar2D to run the <code>pushBalloon()</code> function every time the user taps the balloon.</p></li>
+<li><p>Inside the parentheses are two parameters which complete the command. The first parameter is the <strong>event type</strong> which Solar2D will listen for, in this case <code>"tap"</code>. The second parameter is the <strong>function</strong> which should be run (called) when the event occurs, in this case the <code>pushBalloon()</code> function which we wrote in the previous section. Essentially, we’re telling Solar2D to run the <code>pushBalloon()</code> function every time the user taps the balloon.</p></li>
 </ul>
 <div class="docs-tip-outer docs-tip-color-action">
 <div class="docs-tip-inner-left">
@@ -532,7 +520,7 @@ balloon:addEventListener( "tap", pushBalloon )</pre>
 </div>
 </div>
 <p>Here is the complete program, just in case you missed something:</p>
-<pre class="brush: lua; gutter: true; first-line: 1;">-----------------------------------------------------------------------------------------
+<pre class="first-line: 1; gutter: true; brush: lua;">-----------------------------------------------------------------------------------------
 --
 -- main.lua
 --
@@ -563,48 +551,42 @@ end
 
 balloon:addEventListener( "tap", pushBalloon )</pre>
 <div class="float-right" style="max-width: 140px; margin-top: 36px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/simulator/pastel-rocket.png" />
-
-</div>
+<p><img src="../../../images/simulator/pastel-rocket.png" /></p>
 </div>
 <p><a id="extracredit"></a></p>
-</div>
-</div>
-<div id="extra-credit" class="section level2">
+</section>
+</section>
+<section id="extra-credit" class="level2">
 <h2>Extra Credit</h2>
-<p>Congratulations, you have created a basic game in just 30 lines of code! But there is something missing, isn't there? Wouldn't it be nice if the game kept track of how many times the balloon was tapped? Fortunately that's easy to add!</p>
-<p>First, let's create a local Lua variable to keep track of the tap count. You can add this at the very top of your existing code. In this case, we'll use it to store an <strong>integer</strong> instead of associating it with an image. Since the player should begin the game with no score, we'll initially set its value to <code>0</code>, but this can change later.</p>
-<pre class="brush: lua; gutter: true; highlight: [7]; first-line: 7;">local tapCount = 0
+<p>Congratulations, you have created a basic game in just 30 lines of code! But there is something missing, isn’t there? Wouldn’t it be nice if the game kept track of how many times the balloon was tapped? Fortunately that’s easy to add!</p>
+<p>First, let’s create a local Lua variable to keep track of the tap count. You can add this at the very top of your existing code. In this case, we’ll use it to store an <strong>integer</strong> instead of associating it with an image. Since the player should begin the game with no score, we’ll initially set its value to <code>0</code>, but this can change later.</p>
+<pre class="highlight: [7]; first-line: 7; gutter: true; brush: lua;">local tapCount = 0
 
 local background = display.newImageRect( "background.png", 360, 570 )
 background.x = display.contentCenterX
 background.y = display.contentCenterY</pre>
-<p>Next, let's create a visual object to display the number of taps on the balloon. Remember the rules of layering discussed earlier in this chapter? New objects will be placed in front of other objects which were loaded previously, so this object should be loaded <strong>after</strong> you load the background (otherwise it will be placed behind the background and you won't see it).</p>
+<p>Next, let’s create a visual object to display the number of taps on the balloon. Remember the rules of layering discussed earlier in this chapter? New objects will be placed in front of other objects which were loaded previously, so this object should be loaded <strong>after</strong> you load the background (otherwise it will be placed behind the background and you won’t see it).</p>
 <p>After the three lines which load/position the background, add the following highlighted command:</p>
-<pre class="brush: lua; gutter: true; highlight: [13]; first-line: 7;">local tapCount = 0
+<pre class="highlight: [13]; first-line: 7; gutter: true; brush: lua;">local tapCount = 0
 
 local background = display.newImageRect( "background.png", 360, 570 )
 background.x = display.contentCenterX
 background.y = display.contentCenterY
 
 local tapText = display.newText( tapCount, display.contentCenterX, 20, native.systemFont, 40 )</pre>
-<p>Let's inspect this command in more detail:</p>
+<p>Let’s inspect this command in more detail:</p>
 <ul>
 <li><p>The command begins with <nobr><code>local tapText</code></nobr> which you should easily recognize as the declaration of a variable <code>tapText</code>.</p></li>
-<li><p><code>display.newText()</code> is another API, but instead of loading an image as we did earlier, this command creates a <strong>text</strong> object. Because we are assigning the variable <code>tapText</code> to this object, we'll be able to make changes to the text during our game, such as changing the printed number to match how many times the balloon was tapped.</p></li>
-<li><p>Inside the parentheses are the parameters which we pass to <code>display.newText()</code>. The first parameter is the initial printed value for the text, but notice that instead of setting a direct string value like <code>&quot;0&quot;</code>, we actually assign the <strong>variable</strong> which we declared earlier (<code>tapCount</code>). In Solar2D, it's perfectly valid to specify a variable as a parameter of an API, as long as it's a valid variable and the API accepts the variable's type as that parameter.</p></li>
+<li><p><code>display.newText()</code> is another API, but instead of loading an image as we did earlier, this command creates a <strong>text</strong> object. Because we are assigning the variable <code>tapText</code> to this object, we’ll be able to make changes to the text during our game, such as changing the printed number to match how many times the balloon was tapped.</p></li>
+<li><p>Inside the parentheses are the parameters which we pass to <code>display.newText()</code>. The first parameter is the initial printed value for the text, but notice that instead of setting a direct string value like <code>"0"</code>, we actually assign the <strong>variable</strong> which we declared earlier (<code>tapCount</code>). In Solar2D, it’s perfectly valid to specify a variable as a parameter of an API, as long as it’s a valid variable and the API accepts the variable’s type as that parameter.</p></li>
 </ul>
 <div class="code-indent">
-<p>The second two parameters, <code>display.contentCenterX</code> and <code>20</code>, are used to position this text object on the screen. You'll notice that we use the same shortcut of <code>display.contentCenterX</code> to position the object in the horizontal center of the screen, and <code>20</code> to set its vertical <strong>y</strong> position near the top of the screen.</p>
-<p>The fourth parameter for this API is the <strong>font</strong> in which to render the text. Solar2D supports <a href="../../../guide/system/customFont/index.html">custom fonts</a> across all platforms, but for this game we'll use the default system font by specifying <code>native.systemFont</code>.</p>
+<p>The second two parameters, <code>display.contentCenterX</code> and <code>20</code>, are used to position this text object on the screen. You’ll notice that we use the same shortcut of <code>display.contentCenterX</code> to position the object in the horizontal center of the screen, and <code>20</code> to set its vertical <strong>y</strong> position near the top of the screen.</p>
+<p>The fourth parameter for this API is the <strong>font</strong> in which to render the text. Solar2D supports <a href="../../../guide/system/customFont/index.html">custom fonts</a> across all platforms, but for this game we’ll use the default system font by specifying <code>native.systemFont</code>.</p>
 <p>The final parameter (<code>40</code>) is the intended <strong>size</strong> of the rendered text.</p>
 </div>
 <div class="float-right" style="max-width: 240px; margin-top: 16px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/sbs-balloon-3.png" />
-
-</div>
+<p><img src="../../../images/docs/sbs-balloon-3.png" /></p>
 </div>
 <div class="docs-tip-outer docs-tip-color-action">
 <div class="docs-tip-inner-left">
@@ -613,31 +595,25 @@ local tapText = display.newText( tapCount, display.contentCenterX, 20, native.sy
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Let's check the result of this new code. Save your modified <code>main.lua</code> file and relaunch the Simulator. If all went well, the text object should now be showing, positioned near the top of the screen.</p>
+<p>Let’s check the result of this new code. Save your modified <code>main.lua</code> file and relaunch the Simulator. If all went well, the text object should now be showing, positioned near the top of the screen.</p>
 </div>
 </div>
-<p>Continuing with our program — by default, text created with <code>display.newText()</code> will be white. Fortunately, it's easy to change this. Directly following the line you just added, type the highlighted command:</p>
-<pre class="brush: lua; gutter: true; highlight: [14]; first-line: 13;">local tapText = display.newText( tapCount, display.contentCenterX, 20, native.systemFont, 40 )
+<p>Continuing with our program — by default, text created with <code>display.newText()</code> will be white. Fortunately, it’s easy to change this. Directly following the line you just added, type the highlighted command:</p>
+<pre class="highlight: [14]; first-line: 13; gutter: true; brush: lua;">local tapText = display.newText( tapCount, display.contentCenterX, 20, native.systemFont, 40 )
 tapText:setFillColor( 0, 0, 0 )</pre>
 <div class="float-right" style="max-width: 240px; margin-top: 16px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/sbs-balloon-4.png" />
-
+<p><img src="../../../images/docs/sbs-balloon-4.png" /></p>
 </div>
-</div>
-<p>Simply put, this <code>setFillColor()</code> command modifies the fill color of the object <code>tapText</code>. The <code>setFillColor()</code> command accepts up to four numeric parameters in the range of <nobr><code>0</code> to <code>1</code></nobr>, one each for the color channels <strong>red</strong>, <strong>green</strong>, <strong>blue</strong>, and <strong>alpha</strong>. In this game, we're filling the object with solid black, so the first three channels are set to <code>0</code> (alpha defaults to <code>1</code> and it can be omitted in this case).</p>
-<p>Let's move on! The new text object looks nice, but it doesn't actually do anything. To make it update when the player taps the balloon, we'll need to modify our <code>pushBalloon()</code> function. Inside this function, following the <code>balloon:applyLinearImpulse()</code> command, insert the two highlighted lines:</p>
-<pre class="brush: lua; gutter: true; highlight: [33,34]; first-line: 31;">local function pushBalloon()
+<p>Simply put, this <code>setFillColor()</code> command modifies the fill color of the object <code>tapText</code>. The <code>setFillColor()</code> command accepts up to four numeric parameters in the range of <nobr><code>0</code> to <code>1</code></nobr>, one each for the color channels <strong>red</strong>, <strong>green</strong>, <strong>blue</strong>, and <strong>alpha</strong>. In this game, we’re filling the object with solid black, so the first three channels are set to <code>0</code> (alpha defaults to <code>1</code> and it can be omitted in this case).</p>
+<p>Let’s move on! The new text object looks nice, but it doesn’t actually do anything. To make it update when the player taps the balloon, we’ll need to modify our <code>pushBalloon()</code> function. Inside this function, following the <code>balloon:applyLinearImpulse()</code> command, insert the two highlighted lines:</p>
+<pre class="highlight: [33,34]; first-line: 31; gutter: true; brush: lua;">local function pushBalloon()
     balloon:applyLinearImpulse( 0, -0.75, balloon.x, balloon.y )
     tapCount = tapCount + 1
     tapText.text = tapCount
 end</pre>
-<p>Let's examine these lines individually:</p>
+<p>Let’s examine these lines individually:</p>
 <div class="float-right" style="max-width: 240px; margin-top: 12px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/sbs-balloon-0.png" />
-
-</div>
+<p><img src="../../../images/docs/sbs-balloon-0.png" /></p>
 </div>
 <ul>
 <li><p>The <nobr><code>tapCount = tapCount + 1</code></nobr> command increases the <code>tapCount</code> variable by 1 each time the balloon is tapped.</p></li>
@@ -660,7 +636,7 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>That's it! If you save your <code>main.lua</code> file and relaunch the Simulator, your game is essentially finished — now, each time you tap the balloon, the counter at the top of the screen will increase by 1, effectively keeping score.</p>
+<p>That’s it! If you save your <code>main.lua</code> file and relaunch the Simulator, your game is essentially finished — now, each time you tap the balloon, the counter at the top of the screen will increase by 1, effectively keeping score.</p>
 </div>
 </div>
 <div class="docs-tip-outer" style="background-color: #ffa752;">
@@ -670,81 +646,81 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>The complete <code>BalloonTap</code> program is available for download <a href="https://github.com/coronalabs/GettingStarted01/archive/master.zip">here</a>. If your project isn't working as expected, please download this source code and compare it with what you've created.</p>
+<p>The complete <code>BalloonTap</code> program is available for download <a href="https://github.com/coronalabs/GettingStarted01/archive/master.zip">here</a>. If your project isn’t working as expected, please download this source code and compare it with what you’ve created.</p>
 </div>
 </div>
 <p><a id="concepts"></a></p>
-</div>
-<div id="chapter-concepts" class="section level2">
+</section>
+<section id="chapter-concepts" class="level2">
 <h2>Chapter Concepts</h2>
-<p>We've covered many concepts in this chapter. It may seem a bit overwhelming, but be patient, look at your code, and read through the sections again if necessary. If you need help, <a href="https://discord.com/invite/Abf5V9G">Discord</a> and <a href="https://forums.solar2d.com/">the forums</a> are a friendly venue to communicate with other developers.</p>
-<p>Here's a quick overview of what you learned in this chapter:</p>
+<p>We’ve covered many concepts in this chapter. It may seem a bit overwhelming, but be patient, look at your code, and read through the sections again if necessary. If you need help, <a href="https://discord.com/invite/Abf5V9G">Discord</a> and <a href="https://forums.solar2d.com/">the forums</a> are a friendly venue to communicate with other developers.</p>
+<p>Here’s a quick overview of what you learned in this chapter:</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Command/Property</th>
-<th align="left">Description</th>
+<th style="text-align: left;">Command/Property</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/display/newImageRect.html">display.newImageRect()</a></td>
-<td align="left">Loads and displays an image on the screen.</td>
+<td style="text-align: left;"><a href="../../../api/library/display/newImageRect.html">display.newImageRect()</a></td>
+<td style="text-align: left;">Loads and displays an image on the screen.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/type/DisplayObject/x.html">object.x</a></td>
-<td align="left">Sets the horizontal <strong>x</strong> position of an object.</td>
+<td style="text-align: left;"><a href="../../../api/type/DisplayObject/x.html">object.x</a></td>
+<td style="text-align: left;">Sets the horizontal <strong>x</strong> position of an object.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/type/DisplayObject/y.html">object.y</a></td>
-<td align="left">Sets the vertical <strong>y</strong> position of an object.</td>
+<td style="text-align: left;"><a href="../../../api/type/DisplayObject/y.html">object.y</a></td>
+<td style="text-align: left;">Sets the vertical <strong>y</strong> position of an object.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/display/contentCenterX.html">display.contentCenterX</a></td>
-<td align="left">Shortcut for the center of the content area along the <strong>x</strong> axis.</td>
+<td style="text-align: left;"><a href="../../../api/library/display/contentCenterX.html">display.contentCenterX</a></td>
+<td style="text-align: left;">Shortcut for the center of the content area along the <strong>x</strong> axis.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/display/contentCenterY.html">display.contentCenterY</a></td>
-<td align="left">Shortcut for the center of the content area along the <strong>y</strong> axis.</td>
+<td style="text-align: left;"><a href="../../../api/library/display/contentCenterY.html">display.contentCenterY</a></td>
+<td style="text-align: left;">Shortcut for the center of the content area along the <strong>y</strong> axis.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/type/DisplayObject/alpha.html">object.alpha</a></td>
-<td align="left">Sets the alpha level of an object (opacity/transparency).</td>
+<td style="text-align: left;"><a href="../../../api/type/DisplayObject/alpha.html">object.alpha</a></td>
+<td style="text-align: left;">Sets the alpha level of an object (opacity/transparency).</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/package/require.html">require()</a></td>
-<td align="left">Loads a given module or library, for example <code>&quot;physics&quot;</code>.</td>
+<td style="text-align: left;"><a href="../../../api/library/package/require.html">require()</a></td>
+<td style="text-align: left;">Loads a given module or library, for example <code>"physics"</code>.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/physics/start.html">physics.start()</a></td>
-<td align="left">Starts the physics engine.</td>
+<td style="text-align: left;"><a href="../../../api/library/physics/start.html">physics.start()</a></td>
+<td style="text-align: left;">Starts the physics engine.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/physics/addBody.html">physics.addBody()</a></td>
-<td align="left">Adds a physical body to an object.</td>
+<td style="text-align: left;"><a href="../../../api/library/physics/addBody.html">physics.addBody()</a></td>
+<td style="text-align: left;">Adds a physical body to an object.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/type/Body/applyLinearImpulse.html">object:applyLinearImpulse()</a></td>
-<td align="left">Applies a simulated impulse force to a physical object.</td>
+<td style="text-align: left;"><a href="../../../api/type/Body/applyLinearImpulse.html">object:applyLinearImpulse()</a></td>
+<td style="text-align: left;">Applies a simulated impulse force to a physical object.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/type/EventDispatcher/addEventListener.html">object:addEventListener()</a></td>
-<td align="left">Adds an event listener to an object, for example <code>&quot;tap&quot;</code>.</td>
+<td style="text-align: left;"><a href="../../../api/type/EventDispatcher/addEventListener.html">object:addEventListener()</a></td>
+<td style="text-align: left;">Adds an event listener to an object, for example <code>"tap"</code>.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/display/newText.html">display.newText()</a></td>
-<td align="left">Creates a text object on the screen.</td>
+<td style="text-align: left;"><a href="../../../api/library/display/newText.html">display.newText()</a></td>
+<td style="text-align: left;">Creates a text object on the screen.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/type/ShapeObject/setFillColor.html">object:setFillColor()</a></td>
-<td align="left">Sets the fill color for text and vector objects.</td>
+<td style="text-align: left;"><a href="../../../api/type/ShapeObject/setFillColor.html">object:setFillColor()</a></td>
+<td style="text-align: left;">Sets the fill color for text and vector objects.</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="section" class="section level2">
+</section>
+<section id="section" class="level2">
 <h2></h2>
 <div class="walkthrough-nav">
 <p><strong>⟨</strong> <a href="../../../guide/programming/intro/index.html">Introduction to Solar2D</a> <em>|</em> <a href="../../../guide/programming/02/index.html">Chapter 2 — Upward &amp; Onward</a> <strong>⟩</strong></p>
@@ -759,8 +735,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

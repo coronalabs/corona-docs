@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Events | networkRequest | bytesEstimated</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -64,43 +64,43 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/event/index.html">Events</a>  ▸  <a href="../../../api/event/networkRequest/index.html">networkRequest</a>  ▸  <a href="../../../api/event/networkRequest/bytesEstimated.html">bytesEstimated</a>
 </div>
-<div id="event.bytesestimated" class="section level1">
+<section id="event.bytesestimated" class="level1">
 <h1>event.bytesEstimated</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Number.html">Number</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Number.html">Number</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Event</strong></td>
-<td align="left"><a href="../../../api/event/networkRequest/index.html">networkRequest</a></td>
+<td style="text-align: left;"><strong>Event</strong></td>
+<td style="text-align: left;"><a href="../../../api/event/networkRequest/index.html">networkRequest</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">networkRequest, bytesEstimated</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">networkRequest, bytesEstimated</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>This value indicates the number of bytes expected to be processed by the given request, if known, otherwise it will be <code>-1</code>.</p>
-</div>
-<div id="gotchas" class="section level2">
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
 <ul>
 <li><p>The meaning of this value depends on the type of <code>progress</code> indicated for the request.</p></li>
-<li><p>If <code>&quot;upload&quot;</code> progress is specified, then this value corresponds to the size of the request body to be uploaded, if any. A value of 0 indicates no request body.</p></li>
-<li><p>If <code>&quot;download&quot;</code> progress is specified, or if no progress is specified, then this value corresponds to the size of the response body to be downloaded, if any. A value of 0 indicates no response body, and a value of -1 indicates that the response body size is unknown.</p></li>
+<li><p>If <code>"upload"</code> progress is specified, then this value corresponds to the size of the request body to be uploaded, if any. A value of 0 indicates no request body.</p></li>
+<li><p>If <code>"download"</code> progress is specified, or if no progress is specified, then this value corresponds to the size of the response body to be downloaded, if any. A value of 0 indicates no response body, and a value of -1 indicates that the response body size is unknown.</p></li>
 <li><p>Web servers will typically report the expected size of the transfer when sending binary files, and will typically not report the expected size for text files (including HTML documents, XML, JSON, etc), but there are exceptions to this rule.</p></li>
 <li><p>This byte count represents the number of bytes projected to actually be sent over the wire, and may not correlate to the final size of the response content. For example, many web servers will compress content before sending, and in those cases the byte count will be of the bytes of compressed content to be sent.</p></li>
-<li><p>In some cases web servers may provide an &quot;estimate&quot; of the transfer size, which not only may not match the actual content size due to compression (as explained above), but which also may not correlate as expected to the bytesReceived values. For example, during the <code>&quot;progress&quot;</code> phase of a request, it is entirely possible that the bytesReceived value will exceed the bytesTotal value. And likewise, it is possible that in the <code>&quot;ended&quot;</code> phase of a request you may have a bytesReceived value that is either greater than or less than the bytesTotal value.</p></li>
+<li><p>In some cases web servers may provide an “estimate” of the transfer size, which not only may not match the actual content size due to compression (as explained above), but which also may not correlate as expected to the bytesReceived values. For example, during the <code>"progress"</code> phase of a request, it is entirely possible that the bytesReceived value will exceed the bytesTotal value. And likewise, it is possible that in the <code>"ended"</code> phase of a request you may have a bytesReceived value that is either greater than or less than the bytesTotal value.</p></li>
 </ul>
 <hr>
 <div id="footer">
@@ -112,8 +112,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

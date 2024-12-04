@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | audio | fade</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -70,73 +70,73 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/audio/index.html">audio</a>  ▸  <a href="../../../api/library/audio/fade.html">fade</a>
 </div>
-<div id="audio.fade" class="section level1">
+<section id="audio.fade" class="level1">
 <h1>audio.fade()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/audio/index.html">audio.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/audio/index.html">audio.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Return value</strong></td>
-<td align="left"><a href="../../../api/type/Number.html">Number</a></td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Number.html">Number</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">audio, fade</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">audio, fade</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../api/library/audio/fadeOut.html">audio.fadeOut()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/audio/fadeOut.html">audio.fadeOut()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/audio/play.html">audio.play()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/audio/play.html">audio.play()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/audio/setVolume.html">audio.setVolume()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/audio/setVolume.html">audio.setVolume()</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>This fades a playing sound in a specified amount to a specified volume. The audio will continue playing after the fade completes.</p>
 <p>This function returns the number of channels fade is actually applied to.</p>
-</div>
-<div id="gotchas" class="section level2">
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
-<p>When you fade the volume, you are changing the volume of the channel. This value is persistent and it's your responsibility to reset the volume on the channel if you want to use the channel again later (see <a href="../../../api/library/audio/setVolume.html">audio.setVolume()</a>).</p>
-</div>
-<div id="syntax" class="section level2">
+<p>When you fade the volume, you are changing the volume of the channel. This value is persistent and it’s your responsibility to reset the volume on the channel if you want to use the channel again later (see <a href="../../../api/library/audio/setVolume.html">audio.setVolume()</a>).</p>
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">audio.fade( [ { [channel=c] [, time=t] [, volume=v ] } ] )</pre>
 <p>This function takes a single table as a parameter, with the following optional keys:</p>
-<div id="channel-optional" class="section level5">
+<section id="channel-optional" class="level5">
 <h5>channel <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The channel number you want to fade on. <code>1</code> to the maximum number of channels are valid channels. Specify <code>0</code> to apply fade to all channels.</p>
-</div>
-<div id="time-optional" class="section level5">
+</section>
+<section id="time-optional" class="level5">
 <h5>time <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The amount of time (in milliseconds) over which you want the audio to fade. Omitting this parameter invokes a default fade time which is currently 1000 milliseconds.</p>
-</div>
-<div id="volume-optional" class="section level5">
+</section>
+<section id="volume-optional" class="level5">
 <h5>volume <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The target volume you want to change (fade) to. Valid numbers are <code>0.0</code> to <code>1.0</code> where <code>1.0</code> is the max volume. If this parameter is omitted, the default value is currently <code>0.0</code>.</p>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">audio.fade( { channel=1, time=5000, volume=0.5 } )</pre>
 <hr>
@@ -149,8 +149,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

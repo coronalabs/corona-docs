@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | package | require</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -72,39 +72,39 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/package/index.html">package</a>  ▸  <a href="../../../api/library/package/require.html">require</a>
 </div>
-<div id="requirxe" class="section level1">
+<section id="requirxe" class="level1">
 <h1>requir<span style="display: none;">X</span>e()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/package/index.html">package</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/package/index.html">package</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Return value</strong></td>
-<td align="left"><a href="../../../api/type/Library.html">Library</a></td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Library.html">Library</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">module, require</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">module, require</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../api/library/package/loaded.html">package.loaded</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/package/loaded.html">package.loaded</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Loads the given module.</p>
 <p>The function starts by looking into the <a href="../../../api/library/package/loaded.html">package.loaded</a> table to determine whether <code>modname</code> is already loaded. If it is, <code>require()</code> returns the value stored at <code>package.loaded[modname]</code>. Otherwise, it tries to find a loader for the module.</p>
@@ -112,34 +112,34 @@
 <p>First, <code>require()</code> queries <code>package.preload[modname]</code>. If it has a value, this value (which should be a function) is the loader. Otherwise, <code>require()</code> searches for a Lua loader using the path stored in <code>package.path</code>. If that also fails, it tries an <nobr>all-in-one</nobr> loader (see <a href="../../../api/library/package/loaders.html">package.loaders</a>).</p>
 <p>Once a loader is found, <code>require()</code> calls the loader with a single argument of <code>modname</code>. If the loader returns any value, <code>require()</code> assigns the returned value to <code>package.loaded[modname]</code>. If the loader returns no value and has not assigned any value to <code>package.loaded[modname]</code>, <code>require()</code> assigns <code>true</code> to this entry. In any case, <code>require()</code> returns the final value of <code>package.loaded[modname]</code>.</p>
 <p>If there is any error loading or running the module, or if it cannot find any loader for the module, <code>require()</code> signals an error.</p>
-</div>
-<div id="simulator-vs-device" class="section level2">
+</section>
+<section id="simulator-vs-device" class="level2">
 <h2>Simulator vs Device</h2>
 <p>There are critical differences in behavior depending on whether your code is running in the Simulator or on device. These differences are a result of fundamental OS differences between file system behavior.</p>
 <p>On many systems, the OS file system is <strong>not</strong> case sensitive. Therefore, modules will load correctly even though the actual file name and the Lua string passed to <code>require()</code> have different case. On devices, however, the file name is typically case sensitive. In this case, the modules will <strong>fail</strong> to load if the case of the actual file name and the Lua string do not match.</p>
-</div>
-<div id="naming-restrictions" class="section level2">
+</section>
+<section id="naming-restrictions" class="level2">
 <h2>Naming Restrictions</h2>
-<div id="forbidden-characters" class="section level3">
+<section id="forbidden-characters" class="level3">
 <h3>Forbidden Characters</h3>
-<p>The <code>module</code> string can't have any <code>.</code> characters except when specifying subdirectories (iOS only). For example, the following will load the <code>bar.lua</code> file from the <code>foo</code> subdirectory:</p>
+<p>The <code>module</code> string can’t have any <code>.</code> characters except when specifying subdirectories (iOS only). For example, the following will load the <code>bar.lua</code> file from the <code>foo</code> subdirectory:</p>
 <pre class="brush: lua;">local fooBar = require( "foo.bar" )</pre>
-</div>
-<div id="reserved-names" class="section level3">
+</section>
+<section id="reserved-names" class="level3">
 <h3>Reserved Names</h3>
-<p>On iOS, you cannot name the subdirectory <code>resources</code> or you will get a code signing error when you do a build. This is not a problem on Android, but it's best to avoid using this directory name.</p>
-</div>
-</div>
-<div id="syntax" class="section level2">
+<p>On iOS, you cannot name the subdirectory <code>resources</code> or you will get a code signing error when you do a build. This is not a problem on Android, but it’s best to avoid using this directory name.</p>
+</section>
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">local name = require( "moduleName" )
 local name = require "moduleName"</pre>
-<div id="modulename-required" class="section level5">
+<section id="modulename-required" class="level5">
 <h5>moduleName <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/String.html">String</a>.</em> The name of the module to load. Do <strong>not</strong> append the <code>.lua</code> extension to this string.</p>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">-- Require the physics library and assign it to the local variable "physics"
 local physics = require( "physics" )</pre>
@@ -153,8 +153,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | iCloud | recordFetchMultiple</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -68,59 +68,59 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/iCloud/index.html">iCloud</a>  ▸  <a href="../../plugin/iCloud/recordFetchMultiple.html">recordFetchMultiple</a>
 </div>
-<div id="icloud.recordfetchmultiple" class="section level1">
+<section id="icloud.recordfetchmultiple" class="level1">
 <h1>iCloud.recordFetchMultiple()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">iCloud, sync, storage, CloudKit, recordFetchMultiple</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">iCloud, sync, storage, CloudKit, recordFetchMultiple</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../plugin/iCloud/recordFetch.html">iCloud.recordFetch()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../plugin/iCloud/recordFetch.html">iCloud.recordFetch()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/iCloud/recordQuery.html">iCloud.recordQuery()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/iCloud/recordQuery.html">iCloud.recordQuery()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/iCloud/event/iCloudRecordEvent/index.html">iCloudRecordEvent</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/iCloud/event/iCloudRecordEvent/index.html">iCloudRecordEvent</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/iCloud/index.html">iCloud.*</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/iCloud/index.html">iCloud.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Retrieves multiple records. <nobr>Per-record</nobr> results are passed to the <code>onRecord</code> listener function and final results are passed to the <code>onComplete</code> listener function, both as an <a href="../../plugin/iCloud/event/iCloudRecordEvent/index.html">iCloudRecordEvent</a>.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">iCloud.recordFetchMultiple( params )</pre>
-<div id="params-required" class="section level5">
+<section id="params-required" class="level5">
 <h5>params <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> Table containing <nobr>method-specific</nobr> parameters — see the next section for details.</p>
-</div>
-</div>
-<div id="parameter-reference" class="section level2">
+</section>
+</section>
+<section id="parameter-reference" class="level2">
 <h2>Parameter Reference</h2>
 <p>Valid keys for the <code>params</code> table include:</p>
 <ul>
@@ -145,8 +145,8 @@
 <li><p><code>database</code> — Optional <a href="../../api/type/String.html">string</a> value indicating the database.</p></li>
 <li><p><code>containerId</code> — Optional <a href="../../api/type/String.html">string</a> value indicating a specific iCloud Container in which the record is contained. Do not pass this parameter if you have only one iCloud Container associated with your app.</p></li>
 </ul>
-</div>
-<div id="example" class="section level2">
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">-- Listener function to handle per-record events
 local function recordFetched( event )
@@ -182,8 +182,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

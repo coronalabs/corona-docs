@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Tutorials | Graphics/Audio/Animation</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -69,21 +69,21 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/media/index.html">Graphics/Audio/Animation</a>
 </div>
-<div id="techniques-for-swapping-images" class="section level1">
+<section id="techniques-for-swapping-images" class="level1">
 <h1>Techniques for Swapping Images</h1>
-<p>Sometimes, the design of an app dictates the need for &quot;image swapping&quot; in which the developer displays an image at a given location and then, after some time or some action, swaps that image for another. Here's a theoretical example:</p>
+<p>Sometimes, the design of an app dictates the need for “image swapping” in which the developer displays an image at a given location and then, after some time or some action, swaps that image for another. Here’s a theoretical example:</p>
 <pre class="brush: lua;">local myImage = display.newImageRect( "image1.png", 64, 64 )
 
 -- After some time or upon some event
 myImage:swapImage( "image2.png" )</pre>
-<p>However, this is not how Solar2D works because <code>:swapImage()</code> is <strong>not</strong> a <nobr>built-in</nobr> method. When Solar2D builds an image, it has to read the file in from the app bundle's file system, allocate texture memory for the image, render the PNG or JPG compressed data into four color channels, and return a display object. To &quot;swap&quot; that image, Solar2D would need to destroy the object and create a new image, effectively resulting in the same amount of work as illustrated in this example:</p>
+<p>However, this is not how Solar2D works because <code>:swapImage()</code> is <strong>not</strong> a <nobr>built-in</nobr> method. When Solar2D builds an image, it has to read the file in from the app bundle’s file system, allocate texture memory for the image, render the PNG or JPG compressed data into four color channels, and return a display object. To “swap” that image, Solar2D would need to destroy the object and create a new image, effectively resulting in the same amount of work as illustrated in this example:</p>
 <pre class="brush: lua;">local myImage = display.newImageRect( "image1.png", 64, 64 )
 
 -- After some time or upon some event
 display.remove( myImage )
 myImage = display.newImageRect( "image2.png", 64, 64 )</pre>
-<p>In this theoretical scenario, by destroying <code>image1.png</code> with the <a href="../../../api/library/display/remove.html">display.remove()</a> call, you're probably not planning on using it again soon. The advantage to this method is that it minimizes texture memory since only one of the two images is loaded at once. However, if you want to get the original image back, you're caught in this cycle of image loading and unloading over and over. In itself, this is an inefficient process that can impact performance. Thus, if you need to swap images more frequently, you should explore other techniques. Let's look at a few options:</p>
-<div id="image-swap" class="section level2">
+<p>In this theoretical scenario, by destroying <code>image1.png</code> with the <a href="../../../api/library/display/remove.html">display.remove()</a> call, you’re probably not planning on using it again soon. The advantage to this method is that it minimizes texture memory since only one of the two images is loaded at once. However, if you want to get the original image back, you’re caught in this cycle of image loading and unloading over and over. In itself, this is an inefficient process that can impact performance. Thus, if you need to swap images more frequently, you should explore other techniques. Let’s look at a few options:</p>
+<section id="image-swap" class="level2">
 <h2>2-Image Swap</h2>
 <p>If you have two images, you can simply load them both, add them to a display group, and reference the images as parameters of the group. In this example, we load two images, <code>redBall</code> and <code>blueBall</code>. We then position them at the same location, making one visible and the other not.</p>
 <pre class="brush: lua;">-- Create a basic display group
@@ -101,7 +101,7 @@ blueBall.y = display.contentCenterY
 
 -- Make the blue ball invisible
 blueBall.isVisible = false</pre>
-<p>Now let's focus on the swapping code:</p>
+<p>Now let’s focus on the swapping code:</p>
 <pre class="brush: lua;">for i = 1,imageGroup.numChildren do
     if ( imageGroup[i].isVisible == false ) then
         imageGroup[i].isVisible = true
@@ -109,11 +109,11 @@ blueBall.isVisible = false</pre>
         imageGroup[i].isVisible = false
     end
 end</pre>
-<p>Simply enough, this code loops through the children of <code>imageGroup</code> which are obviously <code>redBall</code> and <code>blueBall</code>. If the child is invisible, it's toggled back to visible and <nobr>vice-versa</nobr> <nobr>(visible to invisible)</nobr>.</p>
-</div>
-<div id="fill-swap" class="section level2">
+<p>Simply enough, this code loops through the children of <code>imageGroup</code> which are obviously <code>redBall</code> and <code>blueBall</code>. If the child is invisible, it’s toggled back to visible and <nobr>vice-versa</nobr> <nobr>(visible to invisible)</nobr>.</p>
+</section>
+<section id="fill-swap" class="level2">
 <h2>Fill Swap</h2>
-<p>You can also take advantage of the graphics &quot;fill&quot; methods to swap images:</p>
+<p>You can also take advantage of the graphics “fill” methods to swap images:</p>
 <pre class="brush: lua;">local image1 = { type="image", filename="red-ball.png" }
 local image2 = { type="image", filename="blue-ball.png" }
 
@@ -128,10 +128,10 @@ else
     ball.fill = image1
     ball.isShowing = "image1"
 end</pre>
-</div>
-<div id="multi-image-swap" class="section level2">
+</section>
+<section id="multi-image-swap" class="level2">
 <h2>Multi-Image Swap</h2>
-<p>Sometimes you'll want to swap more than two images. In this case, we can go back to the display group model, load all of the images into an array, and access them via their index number. Here, we iterate through the <code>imageCache</code> table to create the display objects, storing them in the <code>balls</code> table as we go along, and make each one invisible. Then, we make the first one visible again.</p>
+<p>Sometimes you’ll want to swap more than two images. In this case, we can go back to the display group model, load all of the images into an array, and access them via their index number. Here, we iterate through the <code>imageCache</code> table to create the display objects, storing them in the <code>balls</code> table as we go along, and make each one invisible. Then, we make the first one visible again.</p>
 <pre class="brush: lua;">local imageGroup = display.newGroup()
 
 local imageCache = {
@@ -162,18 +162,15 @@ for i = 1,imageGroup.numChildren do
         imageGroup[i].isVisible = false
     end
 end</pre>
-</div>
-<div id="image-sheets-and-sprites" class="section level2">
+</section>
+<section id="image-sheets-and-sprites" class="level2">
 <h2>Image Sheets and Sprites</h2>
 <p>While the above methods are all perfectly valid, using individual image files is not the best use of memory and loading time. Also, creating/storing a large amount of individual files in your project directory can get chaotic. This is why we encourage the use of <a href="../../../guide/media/imageSheets/index.html">image sheets</a> in which you load a single image sheet/atlas containing all of the individual images and then display a specific frame from it. Image sheets take a little more initial setup but the the benefits are well worth it.</p>
 <div style="max-width: 320px;">
-<div class="figure">
-<img src="../../../images/docs/colored-balls.png" />
-
-</div>
+<p><img src="../../../images/docs/colored-balls.png" /></p>
 </div>
 <p>Converting the above code to an image sheet may look like this:</p>
-<pre class="brush: lua; gutter: false; highlight: [3,4,5,6,7,8,9,10,13,14]; first-line: 1;">local imageGroup = display.newGroup()
+<pre class="highlight: [3,4,5,6,7,8,9,10,13,14]; first-line: 1; gutter: false; brush: lua;">local imageGroup = display.newGroup()
 
 local sheetOptions = {
     width = 128,
@@ -195,11 +192,11 @@ end
 imageGroup.isShowing = 2
 balls[imageGroup.isShowing].isVisible = true</pre>
 <p>From a code perspective, this is not much different from the array method above, other than the efficiencies gained from using image sheets — but image sheets are a gateway to <strong>sprites</strong>, an excellent way swap images!</p>
-<div id="sprite-frame-swapping" class="section level3">
+<section id="sprite-frame-swapping" class="level3">
 <h3>Sprite Frame Swapping</h3>
-<p>Solar2D includes a comprehensive <a href="../../../guide/media/spriteAnimation/index.html">sprite</a> engine. While the term &quot;sprite&quot; may seem to indicate only an <strong>animated</strong> object in a game, you should consider it as simply an ordered sequence of images which can be used for multiple purposes, including swapping images.</p>
-<p>Let's look at a <nobr>sprite-based</nobr> version which builds upon the image sheet version above:</p>
-<pre class="brush: lua; gutter: false; highlight: [10,11]; first-line: 1;">local sheetOptions = {
+<p>Solar2D includes a comprehensive <a href="../../../guide/media/spriteAnimation/index.html">sprite</a> engine. While the term “sprite” may seem to indicate only an <strong>animated</strong> object in a game, you should consider it as simply an ordered sequence of images which can be used for multiple purposes, including swapping images.</p>
+<p>Let’s look at a <nobr>sprite-based</nobr> version which builds upon the image sheet version above:</p>
+<pre class="highlight: [10,11]; first-line: 1; gutter: false; brush: lua;">local sheetOptions = {
     width = 128,
     height = 128,
     numFrames = 5,
@@ -213,11 +210,11 @@ ball:setFrame( 2 )
 ball.x = display.contentCenterX
 ball.y = display.contentCenterY</pre>
 <p>Like the version using graphics fills, we no longer need the display group (<code>imageGroup</code>) since the sprite is, by definition, a <nobr>multi-frame</nobr> object than can reside in any group by itself. Once the image sheet is set up, simply call <a href="../../../api/library/display/newSprite.html">display.newSprite()</a> with the image sheet and the sequence data. Next, use the <a href="../../../api/type/SpriteObject/setFrame.html">object:setFrame()</a> method to pick which frame to display and the sprite engine handles the rest — no need to toggle the visibility of other images as in some of the other examples.</p>
-</div>
-</div>
-<div id="conclusion" class="section level2">
+</section>
+</section>
+<section id="conclusion" class="level2">
 <h2>Conclusion</h2>
-<p>As you can see, there are various approaches and methods to the &quot;swap images&quot; concept and it depends on your needs and design specifics as to which method is most suitable. From individual images to fills to sprites, Solar2D has you covered!</p>
+<p>As you can see, there are various approaches and methods to the “swap images” concept and it depends on your needs and design specifics as to which method is most suitable. From individual images to fills to sprites, Solar2D has you covered!</p>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -228,8 +225,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

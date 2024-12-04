@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Events/Listeners</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -68,9 +68,9 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/events/index.html">Events/Listeners</a>
 </div>
-<div id="basic-interactivity-and-event-detection" class="section level1">
+<section id="basic-interactivity-and-event-detection" class="level1">
 <h1>Basic Interactivity and Event Detection</h1>
-<p><strong>Events</strong> are the foundation of interactive applications in Corona. They're used to trigger responses in your app like a tap on the screen, detection of a specific system event, completion of a timer, collision of two physical bodies, etc. Events are detected using the <a href="../../../api/type/EventDispatcher/addEventListener.html">object:addEventListener()</a> method which directs Corona to track (listen for) the associated event within a listener function. See the <a href="#registerevents">Registering Events</a> section for details.</p>
+<p><strong>Events</strong> are the foundation of interactive applications in Corona. They’re used to trigger responses in your app like a tap on the screen, detection of a specific system event, completion of a timer, collision of two physical bodies, etc. Events are detected using the <a href="../../../api/type/EventDispatcher/addEventListener.html">object:addEventListener()</a> method which directs Corona to track (listen for) the associated event within a listener function. See the <a href="#registerevents">Registering Events</a> section for details.</p>
 <div class="guides-toc">
 <ul>
 <li><a href="#basic-interactivity-and-event-detection">Basic Interactivity and Event Detection</a>
@@ -85,14 +85,14 @@
 </ul>
 </div>
 <p><a id="runtime"></a></p>
-<div id="runtime-events" class="section level2">
+<section id="runtime-events" class="level2">
 <h2>Runtime Events</h2>
 <p><strong>Runtime events</strong> are dispatched to the global Runtime listener. These events are not directed at any particular object; rather, they are broadcast to all interested listeners. Common Runtime events include the following:</p>
 <ul>
 <li><p><code>enterFrame</code> events (<a href="../../../api/event/enterFrame/index.html">documentation</a>) occur at the <nobr>frames-per-second</nobr> interval of the application.</p></li>
 <li><p><code>lateUpdate</code> events (<a href="../../../api/event/lateUpdate/index.html">documentation</a>) occur at the <nobr>frames-per-second</nobr> interval of the application, right after the <code>enterFrame</code> event and right before the rendering process.</p></li>
 <li><p><code>system</code> events (<a href="../../../api/event/system/index.html">documentation</a>) are dispatched when certain external events occur, such as when the device suspends or exits the application.</p></li>
-<li><p><code>resize</code> events (<a href="../../../api/event/resize/index.html">documentation</a>) occur when the width or height of the app's view has been changed.</p></li>
+<li><p><code>resize</code> events (<a href="../../../api/event/resize/index.html">documentation</a>) occur when the width or height of the app’s view has been changed.</p></li>
 <li><p><code>orientation</code> events (<a href="../../../api/event/orientation/index.html">documentation</a>) occur when the device orientation changes from portrait to landscape or <nobr>vice-versa</nobr>.</p></li>
 <li><p><code>windowState</code> events (<a href="../../../api/event/windowState/index.html">documentation</a>) occur when the application window is sent to background or activated again (Win32 and macOS only).</p></li>
 </ul>
@@ -116,8 +116,8 @@ end
 
 Runtime:addEventListener( "system", onSystemEvent )</pre>
 <p><a id="local"></a></p>
-</div>
-<div id="local-events" class="section level2">
+</section>
+<section id="local-events" class="level2">
 <h2>Local Events</h2>
 <p><strong>Local events</strong> are typically sent to a single listener and are not broadcast to the global Runtime. Common local events include the following:</p>
 <ul>
@@ -128,8 +128,8 @@ Runtime:addEventListener( "system", onSystemEvent )</pre>
 </ul>
 <p>Local events vary in usage and are discussed further in their <nobr>topic-appropriate</nobr> <a href="../../../guide/index.html">guides</a> and/or the <a href="../../../api/index.html">API Reference</a>.</p>
 <p><a id="functionvstable"></a></p>
-</div>
-<div id="function-and-table-listeners" class="section level2">
+</section>
+<section id="function-and-table-listeners" class="level2">
 <h2>Function and Table Listeners</h2>
 <p>Listeners can be either functions or table/display objects.</p>
 <p>When a <strong>function listener</strong> is invoked, it is passed a table representing the event:</p>
@@ -155,8 +155,8 @@ local myObject = myClass:new()
 Runtime:addEventListener( "touch", myObject )
 Runtime:addEventListener( "enterFrame", myObject )</pre>
 <p><a id="listeners"></a></p>
-</div>
-<div id="event-listeners" class="section level2">
+</section>
+<section id="event-listeners" class="level2">
 <h2>Event Listeners</h2>
 <p>As illustrated in each example above, events are dispatched to <strong>event listeners</strong> which are written as basic functions. An <code>event</code> argument is always dispatched to the function.</p>
 <pre class="brush: lua;">local function myTouchListener( event )
@@ -169,8 +169,8 @@ local myButton = display.newRect( 100, 100, 200, 50 )
 myButton:addEventListener( "touch", myTouchListener )</pre>
 <p>Notice how the <code>event</code> argument passed to the <code>myTouchListener</code> function contains both <code>x</code> and <code>y</code> properties that represent the point on the screen where the touch occurred. Properties associated with the <code>event</code> argument are unique to each event type — please refer to the <a href="../../../api/event/index.html">Events</a> API documentation for details.</p>
 <p><a id="registerevents"></a></p>
-</div>
-<div id="registering-events" class="section level2">
+</section>
+<section id="registering-events" class="level2">
 <h2>Registering Events</h2>
 <p>Events can be registered using the <a href="../../../api/type/EventDispatcher/addEventListener.html">object:addEventListener()</a> method. Just pass the string name of the event type and the name of the event listener function that should handle it.</p>
 <pre class="brush: lua;">-- Standard touch listener on an object
@@ -183,18 +183,18 @@ Runtime:addEventListener( "system", onSystemEvent )</pre>
 Important
 </div>
 <p>As shown above, two types of event listeners can be created with the <code>object:addEventListener()</code> method: listeners attached to display objects and listeners attached to the global Runtime.</p>
-<p>When you create a display object and add a <strong>local</strong> touch event listener to it, you essentially <strong>point</strong> to a block of code via reference to the function. This code resides in its own memory and it persists after the display object is removed. When that occurs, there's no way to sense future events on the object, so the local event listener is effectively removed for you. You don't need to explicitly remove it.</p>
-<p><strong>Runtime</strong> event listeners, on the other hand, <strong>must</strong> be removed when you're finished using them. Otherwise, they'll continue to run because the Runtime event is global. Not only will this cause a memory leak, but if any functions executing in the Runtime attempt to reference object(s) that no longer exist, the program will crash. See <a href="#remove">Removing Event Listeners</a> below for more information.</p>
+<p>When you create a display object and add a <strong>local</strong> touch event listener to it, you essentially <strong>point</strong> to a block of code via reference to the function. This code resides in its own memory and it persists after the display object is removed. When that occurs, there’s no way to sense future events on the object, so the local event listener is effectively removed for you. You don’t need to explicitly remove it.</p>
+<p><strong>Runtime</strong> event listeners, on the other hand, <strong>must</strong> be removed when you’re finished using them. Otherwise, they’ll continue to run because the Runtime event is global. Not only will this cause a memory leak, but if any functions executing in the Runtime attempt to reference object(s) that no longer exist, the program will crash. See <a href="#remove">Removing Event Listeners</a> below for more information.</p>
 </div>
 <p><a id="remove"></a></p>
-</div>
-<div id="removing-event-listeners" class="section level2">
+</section>
+<section id="removing-event-listeners" class="level2">
 <h2>Removing Event Listeners</h2>
-<p>Most listeners, with the exception of Runtime listeners like <code>&quot;enterFrame&quot;</code>, will be removed automatically when the associated object is removed, for example when you call <a href="../../../api/type/DisplayObject/removeSelf.html">object:removeSelf()</a> or <a href="../../../api/library/display/remove.html">display.remove()</a>. However, you may need to explicitly remove an event listener without removing the object.</p>
+<p>Most listeners, with the exception of Runtime listeners like <code>"enterFrame"</code>, will be removed automatically when the associated object is removed, for example when you call <a href="../../../api/type/DisplayObject/removeSelf.html">object:removeSelf()</a> or <a href="../../../api/library/display/remove.html">display.remove()</a>. However, you may need to explicitly remove an event listener without removing the object.</p>
 <p>Removing an event listener is done using the <nobr>built-in</nobr> <a href="../../../api/type/EventDispatcher/removeEventListener.html">object:removeEventListener()</a> method.</p>
 <p>This function is called in the same exact manner as <code>object:addEventListener()</code>. For example, if you want to stop listening for touch events on the <code>myButton</code> object, remove the listener as follows:</p>
 <pre class="brush: lua;">myButton:removeEventListener( "touch", myTouchListener )</pre>
-<p>Both the type and function name are required to remove the associated listener, because it's possible to assign multiple listeners of the same type to a single object. For instance, you could have two (or more) different listener functions assigned to the <code>&quot;touch&quot;</code> event of the <code>myButton</code> display object. Therefore, when calling <code>object:removeEventListener()</code>, you need to specify the type of event you want to stop listening for, as well as the listener function that was previously assigned to that event.</p>
+<p>Both the type and function name are required to remove the associated listener, because it’s possible to assign multiple listeners of the same type to a single object. For instance, you could have two (or more) different listener functions assigned to the <code>"touch"</code> event of the <code>myButton</code> display object. Therefore, when calling <code>object:removeEventListener()</code>, you need to specify the type of event you want to stop listening for, as well as the listener function that was previously assigned to that event.</p>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -205,8 +205,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

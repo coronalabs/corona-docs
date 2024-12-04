@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | global | collectgarbage</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -67,55 +67,55 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/global/index.html">global</a>  ▸  <a href="../../../api/library/global/collectgarbage.html">collectgarbage</a>
 </div>
-<div id="collectgarbage" class="section level1">
+<section id="collectgarbage" class="level1">
 <h1>collectgarbage()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/global/index.html">(globals)</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/global/index.html">(globals)</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">garbage collection, garbage, memory, resources</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">garbage collection, garbage, memory, resources</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
-<p>A generic interface to Lua's garbage collector. Using this function is not required because Lua has automatic garbage collection features.</p>
-</div>
-<div id="syntax" class="section level2">
+<p>A generic interface to Lua’s garbage collector. Using this function is not required because Lua has automatic garbage collection features.</p>
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">collectgarbage( [opt [, arg]] )</pre>
-<div id="opt-required" class="section level5">
+<section id="opt-required" class="level5">
 <h5>opt <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/String.html">String</a>.</em> Performs garbage collection functions differently based on this option. Acceptable values include:</p>
 <ul>
-<li><code>&quot;collect&quot;</code> — performs a full garbage-collection cycle. This is the default option.</li>
-<li><code>&quot;stop&quot;</code> — stops the garbage collector.</li>
-<li><code>&quot;restart&quot;</code> — restarts the garbage collector.</li>
-<li><code>&quot;count&quot;</code> — returns the total memory in use by Lua (in kilobytes).</li>
-<li><code>&quot;step&quot;</code> — performs a garbage-collection step. The step &quot;size&quot; is controlled by <code>arg</code> (larger values mean more steps) in a non-specified way. If you want to control the step size you must experimentally tune the value of <code>arg</code>. Returns <code>true</code> if the step finished a collection cycle.</li>
-<li><code>&quot;setpause&quot;</code> — sets <code>arg</code> as the new value for the pause of the collector. Returns the previous value for pause.</li>
-<li><code>&quot;setstepmul&quot;</code> — sets <code>arg</code> as the new value for the step multiplier of the collector. Returns the previous value for step.</li>
+<li><code>"collect"</code> — performs a full garbage-collection cycle. This is the default option.</li>
+<li><code>"stop"</code> — stops the garbage collector.</li>
+<li><code>"restart"</code> — restarts the garbage collector.</li>
+<li><code>"count"</code> — returns the total memory in use by Lua (in kilobytes).</li>
+<li><code>"step"</code> — performs a garbage-collection step. The step “size” is controlled by <code>arg</code> (larger values mean more steps) in a non-specified way. If you want to control the step size you must experimentally tune the value of <code>arg</code>. Returns <code>true</code> if the step finished a collection cycle.</li>
+<li><code>"setpause"</code> — sets <code>arg</code> as the new value for the pause of the collector. Returns the previous value for pause.</li>
+<li><code>"setstepmul"</code> — sets <code>arg</code> as the new value for the step multiplier of the collector. Returns the previous value for step.</li>
 </ul>
-</div>
-<div id="arg-optional" class="section level5">
+</section>
+<section id="arg-optional" class="level5">
 <h5>arg <sub><sup>(optional)</sup></sub></h5>
 <p><em>Any.</em> Arguments that are directly related to the value you chose for <code>opt</code>. Many options do not need arguments to be passed.</p>
 <hr>
@@ -128,9 +128,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

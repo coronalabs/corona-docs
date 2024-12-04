@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Notifications (legacy)</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -59,9 +59,9 @@
 <li><a href="#overview">Overview</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#functions">Functions</a><ul>
-<li><a href="#notifications.registerforpushnotificationsplugin.notifications.registerforpushnotifications"><a href="../../plugin/notifications/registerForPushNotifications.html">notifications.registerForPushNotifications()</a></a></li>
-<li><a href="#notifications.cancelnotificationplugin.notifications.cancelnotification"><a href="../../plugin/notifications/cancelNotification.html">notifications.cancelNotification()</a></a></li>
-<li><a href="#notifications.schedulenotificationplugin.notifications.schedulenotification"><a href="../../plugin/notifications/scheduleNotification.html">notifications.scheduleNotification()</a></a></li>
+<li><a href="#notifications.registerforpushnotificationsplugin.notifications.registerforpushnotifications"><span>notifications.registerForPushNotifications()</span></a></li>
+<li><a href="#notifications.cancelnotificationplugin.notifications.cancelnotification"><span>notifications.cancelNotification()</span></a></li>
+<li><a href="#notifications.schedulenotificationplugin.notifications.schedulenotification"><span>notifications.scheduleNotification()</span></a></li>
 </ul></li>
 <li><a href="#project-settings">Project Settings</a><ul>
 <li><a href="#android">Android</a></li>
@@ -73,31 +73,31 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/notifications/index.html">Notifications (legacy)</a>
 </div>
-<div id="notifications." class="section level1">
+<section id="notifications." class="level1">
 <h1>notifications.*</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Library.html">Library</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Library.html">Library</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">notification, notifications</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">notification, notifications</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Platforms</strong></td>
-<td align="left">Android, iOS</td>
+<td style="text-align: left;"><strong>Platforms</strong></td>
+<td style="text-align: left;">Android, iOS</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Gives access to local and push notifications.</p>
 <div class="docs-tip-outer docs-tip-color-alert">
@@ -111,27 +111,27 @@
 <p>For new iOS apps, or existing iOS apps being updated with notifications for the first time, you should also implement the current <a href="../../plugin/notifications-v2/index.html">Notifications</a> plugin.</p>
 </div>
 </div>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">local notifications = require( "plugin.notifications" )</pre>
-</div>
-<div id="functions" class="section level2">
+</section>
+<section id="functions" class="level2">
 <h2>Functions</h2>
-<div id="notifications.registerforpushnotificationsplugin.notifications.registerforpushnotifications" class="section level4">
+<section id="notifications.registerforpushnotificationsplugin.notifications.registerforpushnotifications" class="level4">
 <h4><a href="../../plugin/notifications/registerForPushNotifications.html">notifications.registerForPushNotifications()</a></h4>
-</div>
-<div id="notifications.cancelnotificationplugin.notifications.cancelnotification" class="section level4">
+</section>
+<section id="notifications.cancelnotificationplugin.notifications.cancelnotification" class="level4">
 <h4><a href="../../plugin/notifications/cancelNotification.html">notifications.cancelNotification()</a></h4>
-</div>
-<div id="notifications.schedulenotificationplugin.notifications.schedulenotification" class="section level4">
+</section>
+<section id="notifications.schedulenotificationplugin.notifications.schedulenotification" class="level4">
 <h4><a href="../../plugin/notifications/scheduleNotification.html">notifications.scheduleNotification()</a></h4>
-</div>
-</div>
-<div id="project-settings" class="section level2">
+</section>
+</section>
+<section id="project-settings" class="level2">
 <h2>Project Settings</h2>
 <p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
-<pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
+<pre class="highlight: [5,6,7,8]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     plugins =
     {
@@ -141,10 +141,10 @@
         },
     },
 }</pre>
-<div id="android" class="section level3">
+<section id="android" class="level3">
 <h3>Android</h3>
 <p>If your app is for Android and you intend to use GCM <strong>push</strong> notifications, you will also need to include the following plugin. However, if you only intend to use <strong>local</strong> notifications, this plugin should be omitted.</p>
-<pre class="brush: lua; gutter: false; highlight: [5,6,7,8,9]; first-line: 1;">settings =
+<pre class="highlight: [5,6,7,8,9]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     plugins =
     {
@@ -156,7 +156,7 @@
     },
 }</pre>
 <p>Additionally, add a <code>notification</code> table to your <code>config.lua</code> file as follows. When you registered with the GCM service, you should have received the <code>projectNumber</code> value needed for the <code>google</code> table.</p>
-<pre class="brush: lua; gutter: false; highlight: [3,4,5,6,7,8,9]; first-line: 1;">application =
+<pre class="highlight: [3,4,5,6,7,8,9]; first-line: 1; gutter: false; brush: lua;">application =
 {
     notification =
     {
@@ -166,12 +166,12 @@
         },
     }
 }</pre>
-</div>
-</div>
-<div id="solar2d-native" class="section level2">
+</section>
+</section>
+<section id="solar2d-native" class="level2">
 <h2>Solar2D Native</h2>
-<p>If you're using Solar2D Native for iOS, you'll need to add a reference to the <code>CoronaNotificationsDelegate</code> in your <code>Info.plist</code> as follows:</p>
-<ol style="list-style-type: decimal">
+<p>If you’re using Solar2D Native for iOS, you’ll need to add a reference to the <code>CoronaNotificationsDelegate</code> in your <code>Info.plist</code> as follows:</p>
+<ol type="1">
 <li><p>Add an entry to your <code>Info.plist</code> called <code>CoronaDelegates</code> and make it of type <code>Array</code>.</p></li>
 <li><p>Add an entry to the <code>CoronaDelegates</code> array and call it <code>CoronaNotificationsDelegate</code>. Ensure this is of type <code>String</code>.</p></li>
 </ol>
@@ -185,8 +185,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | AdColony</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -60,14 +60,14 @@
 <li><a href="#registration">Registration</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#functions">Functions</a><ul>
-<li><a href="#adcolony.initplugin.adcolony.init"><a href="../../plugin/adcolony/init.html">adcolony.init()</a></a></li>
-<li><a href="#adcolony.loadplugin.adcolony.load"><a href="../../plugin/adcolony/load.html">adcolony.load()</a></a></li>
-<li><a href="#adcolony.isloadedplugin.adcolony.isloaded"><a href="../../plugin/adcolony/isLoaded.html">adcolony.isLoaded()</a></a></li>
-<li><a href="#adcolony.showplugin.adcolony.show"><a href="../../plugin/adcolony/show.html">adcolony.show()</a></a></li>
-<li><a href="#adcolony.getinfoforzoneplugin.adcolony.getinfoforzone"><a href="../../plugin/adcolony/getInfoForZone.html">adcolony.getInfoForZone()</a></a></li>
+<li><a href="#adcolony.initplugin.adcolony.init"><span>adcolony.init()</span></a></li>
+<li><a href="#adcolony.loadplugin.adcolony.load"><span>adcolony.load()</span></a></li>
+<li><a href="#adcolony.isloadedplugin.adcolony.isloaded"><span>adcolony.isLoaded()</span></a></li>
+<li><a href="#adcolony.showplugin.adcolony.show"><span>adcolony.show()</span></a></li>
+<li><a href="#adcolony.getinfoforzoneplugin.adcolony.getinfoforzone"><span>adcolony.getInfoForZone()</span></a></li>
 </ul></li>
 <li><a href="#events">Events</a><ul>
-<li><a href="#adsrequestplugin.adcolony.event.adsrequest"><a href="../../plugin/adcolony/event/adsRequest/index.html">adsRequest</a></a></li>
+<li><a href="#adsrequestplugin.adcolony.event.adsrequest"><span>adsRequest</span></a></li>
 </ul></li>
 <li><a href="#project-settings">Project Settings</a><ul>
 <li><a href="#ios">iOS</a></li>
@@ -80,31 +80,31 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/adcolony/index.html">AdColony</a>
 </div>
-<div id="adcolony." class="section level1">
+<section id="adcolony." class="level1">
 <h1>adcolony.*</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Library.html">Library</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Library.html">Library</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">ads, advertising, AdColony</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">ads, advertising, AdColony</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Platforms</strong></td>
-<td align="left">Android, iOS</td>
+<td style="text-align: left;"><strong>Platforms</strong></td>
+<td style="text-align: left;">Android, iOS</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>The AdColony plugin allows developers to monetize users through <a href="http://www.adcolony.com">AdColony</a> video interstitial and rewarded video ads.</p>
 <div class="docs-tip-outer docs-tip-color-alert">
@@ -123,40 +123,40 @@ Important
 </div>
 <p>Check out new <code>hasUserConsent</code> init parameter to enable GDPR data collection restrictions.</p>
 </div>
-</div>
-<div id="registration" class="section level2">
+</section>
+<section id="registration" class="level2">
 <h2>Registration</h2>
 <p>Before you can use this plugin, you must <a href="https://www.adcolony.com">register</a> with AdColony.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">local adcolony = require( "plugin.adcolony" )</pre>
-</div>
-<div id="functions" class="section level2">
+</section>
+<section id="functions" class="level2">
 <h2>Functions</h2>
-<div id="adcolony.initplugin.adcolony.init" class="section level4">
+<section id="adcolony.initplugin.adcolony.init" class="level4">
 <h4><a href="../../plugin/adcolony/init.html">adcolony.init()</a></h4>
-</div>
-<div id="adcolony.loadplugin.adcolony.load" class="section level4">
+</section>
+<section id="adcolony.loadplugin.adcolony.load" class="level4">
 <h4><a href="../../plugin/adcolony/load.html">adcolony.load()</a></h4>
-</div>
-<div id="adcolony.isloadedplugin.adcolony.isloaded" class="section level4">
+</section>
+<section id="adcolony.isloadedplugin.adcolony.isloaded" class="level4">
 <h4><a href="../../plugin/adcolony/isLoaded.html">adcolony.isLoaded()</a></h4>
-</div>
-<div id="adcolony.showplugin.adcolony.show" class="section level4">
+</section>
+<section id="adcolony.showplugin.adcolony.show" class="level4">
 <h4><a href="../../plugin/adcolony/show.html">adcolony.show()</a></h4>
-</div>
-<div id="adcolony.getinfoforzoneplugin.adcolony.getinfoforzone" class="section level4">
+</section>
+<section id="adcolony.getinfoforzoneplugin.adcolony.getinfoforzone" class="level4">
 <h4><a href="../../plugin/adcolony/getInfoForZone.html">adcolony.getInfoForZone()</a></h4>
-</div>
-</div>
-<div id="events" class="section level2">
+</section>
+</section>
+<section id="events" class="level2">
 <h2>Events</h2>
-<div id="adsrequestplugin.adcolony.event.adsrequest" class="section level4">
+<section id="adsrequestplugin.adcolony.event.adsrequest" class="level4">
 <h4><a href="../../plugin/adcolony/event/adsRequest/index.html">adsRequest</a></h4>
-</div>
-</div>
-<div id="project-settings" class="section level2">
+</section>
+</section>
+<section id="project-settings" class="level2">
 <h2>Project Settings</h2>
 <p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
 <pre class="brush: lua;">settings =
@@ -169,7 +169,7 @@ Important
         },
     },
 }</pre>
-<div id="ios" class="section level3">
+<section id="ios" class="level3">
 <h3>iOS</h3>
 <p>If your app is for iOS, you must also include the following code in <code>build.settings</code> to ensure that AdColony functions as intended:</p>
 <pre class="brush: lua;">settings = {
@@ -240,14 +240,14 @@ If building for iOS, you must bypass App Transport Security (ATS) by adding the 
 }</pre>
 </div>
 <!--- --->
-</div>
-<div id="android" class="section level3">
+</section>
+<section id="android" class="level3">
 <h3>Android</h3>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
 Important
 </div>
-<p>For Android, you should <strong>remove</strong> any legacy inclusion of the <code>[&quot;plugin.google.play.services&quot;]</code> plugin from your <code>build.settings</code>.</p>
+<p>For Android, you should <strong>remove</strong> any legacy inclusion of the <code>["plugin.google.play.services"]</code> plugin from your <code>build.settings</code>.</p>
 </div>
 <div class="guide-notebox">
 <div class="notebox-title">
@@ -255,21 +255,21 @@ Note
 </div>
 <p>For Android, the following permissions/features are automatically added when using this plugin:</p>
 <ul>
-<li><code>&quot;android.permission.INTERNET&quot;</code></li>
-<li><code>&quot;android.permission.ACCESS_NETWORK_STATE&quot;</code></li>
-<li><code>&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</code></li>
+<li><code>"android.permission.INTERNET"</code></li>
+<li><code>"android.permission.ACCESS_NETWORK_STATE"</code></li>
+<li><code>"android.permission.WRITE_EXTERNAL_STORAGE"</code></li>
 </ul>
 <p>In addition, you can add the following optional permissions:</p>
 <ul>
-<li><code>&quot;android.permission.VIBRATE&quot;</code></li>
+<li><code>"android.permission.VIBRATE"</code></li>
 </ul>
 </div>
-</div>
-</div>
-<div id="support" class="section level2">
+</section>
+</section>
+<section id="support" class="level2">
 <h2>Support</h2>
 <ul>
-<li><a href="http://support.adcolony.com/" class="uri">http://support.adcolony.com/</a></li>
+<li><a href="http://support.adcolony.com/">http://support.adcolony.com/</a></li>
 <li><a href="http://forums.coronalabs.com/forum/545-monetization-in-app-purchases-ads-etc/">Corona Forums</a></li>
 </ul>
 <hr>
@@ -282,8 +282,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

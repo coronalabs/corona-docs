@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Start</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -69,7 +69,7 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/start/index.html">Start</a>
 </div>
-<div id="installing-solar2d-macos" class="section level1">
+<section id="installing-solar2d-macos" class="level1">
 <h1>Installing Solar2D — macOS</h1>
 <p>This guide will help you get up and running with Solar2D for macOS.</p>
 <div class="guides-toc">
@@ -83,7 +83,7 @@
 </ul>
 </div>
 <p><a id="install"></a></p>
-<div id="installing-solar2d" class="section level2">
+<section id="installing-solar2d" class="level2">
 <h2>Installing Solar2D</h2>
 <div class="docs-tip-outer docs-tip-color-alert" style="width: 100%;">
 <div class="docs-tip-inner-left">
@@ -102,20 +102,17 @@
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>We'll assume you've already downloaded <a href="https://solar2d.com/download/">Solar2D</a>. If not, please do so before continuing.</p>
+<p>We’ll assume you’ve already downloaded <a href="https://solar2d.com/download/">Solar2D</a>. If not, please do so before continuing.</p>
 <p><a href="https://github.com/coronalabs/corona/releases" target="_blank" class="cta-button">Download Solar2D</a></p>
 </div>
 </div>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Locate the application disk image, for example <nobr><code>Corona-2024.3703.dmg</code></nobr>, and double click it. This should mount the disk image and, once you agree to the terms of service, present you with a disk image window:</li>
 </ol>
 <div class="code-indent" style="max-width: 619px;">
-<div class="figure">
-<img src="../../../images/simulator/install-mac-1.png" />
-
+<p><img src="../../../images/simulator/install-mac-1.png" /></p>
 </div>
-</div>
-<ol start="2" style="list-style-type: decimal">
+<ol start="2" type="1">
 <li>Drag the <strong>Corona</strong> folder into the <strong>Applications</strong> folder alias. This will copy the contents of the folder into <code>/Applications</code>.</li>
 </ol>
 <div class="docs-tip-outer">
@@ -125,12 +122,12 @@
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>You can use Solar2D without installing Apple's Developer Kit or the Android SDK. Later, if you want to build and test your code on a iOS device, you will need to sign up as an <a href="https://developer.apple.com/devcenter/ios/">Apple Developer</a> and create the necessary certificates and provisioning profiles (<a href="../../../guide/distribution/iOSBuild/index.html">guide</a>).</p>
+<p>You can use Solar2D without installing Apple’s Developer Kit or the Android SDK. Later, if you want to build and test your code on a iOS device, you will need to sign up as an <a href="https://developer.apple.com/devcenter/ios/">Apple Developer</a> and create the necessary certificates and provisioning profiles (<a href="../../../guide/distribution/iOSBuild/index.html">guide</a>).</p>
 </div>
 </div>
 <p><a id="jdk"></a></p>
-</div>
-<div id="java-development-kit" class="section level2">
+</section>
+<section id="java-development-kit" class="level2">
 <h2>Java Development Kit</h2>
 <div class="docs-tip-outer docs-tip-color-alert" style="width: 100%;">
 <div class="docs-tip-inner-left">
@@ -143,7 +140,7 @@
 </div>
 </div>
 <p>Installing Solar2D lets you create and test apps locally on your Mac. If you intend to build apps for testing on Android devices, you will need to install the <nobr><strong>Java Development Kit</strong></nobr> (JDK). If you try to build an Android app without the JDK installed, the Solar2D Simulator will help you install it. Alternatively, if you want to install it manually, you can follow these instructions:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Go to <a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">JDK8 download</a> page.</li>
 <li>Click the <strong>JDK</strong> download link to obtain the corresponding <nobr>Java Platform (JDK)</nobr>.</li>
 <li>On the next page, read the license agreement and click the option to accept it if you agree.</li>
@@ -168,58 +165,58 @@ For more information, please see the [Corona Editor](https://github.com/coronala
 
 -->
 <p><a id="editor"></a></p>
-</div>
-<div id="text-editors" class="section level2">
+</section>
+<section id="text-editors" class="level2">
 <h2>Text Editors</h2>
-<p>You'll need a text editor or IDE to write code for your Solar2D projects. If you don't already have a favorite text editor, the following options are recommended:</p>
+<p>You’ll need a text editor or IDE to write code for your Solar2D projects. If you don’t already have a favorite text editor, the following options are recommended:</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Editor</th>
-<th align="left">Add-On Package</th>
+<th style="text-align: left;">Editor</th>
+<th style="text-align: left;">Add-On Package</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><a href="https://www.sublimetext.com">Sublime Text</a></td>
-<td align="left"><a href="https://github.com/coronalabs/CoronaSDK-SublimeText">Solar2D Editor</a></td>
+<td style="text-align: left;"><a href="https://www.sublimetext.com">Sublime Text</a></td>
+<td style="text-align: left;"><a href="https://github.com/coronalabs/CoronaSDK-SublimeText">Solar2D Editor</a></td>
 </tr>
 <tr class="even">
-<td align="left"><a href="https://code.visualstudio.com/">Visual Studio Code</a></td>
-<td align="left"><a href="https://marketplace.visualstudio.com/items?itemName=M4adan.solar2d-companion">Solar2d-companion</a></td>
+<td style="text-align: left;"><a href="https://code.visualstudio.com/">Visual Studio Code</a></td>
+<td style="text-align: left;"><a href="https://marketplace.visualstudio.com/items?itemName=M4adan.solar2d-companion">Solar2d-companion</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="https://developer.apple.com/xcode/">Xcode</a></td>
-<td align="left"><a href="https://github.com/jcbnlsn/Xcode-Corona-Editor">Xcode Editor</a></td>
+<td style="text-align: left;"><a href="https://developer.apple.com/xcode/">Xcode</a></td>
+<td style="text-align: left;"><a href="https://github.com/jcbnlsn/Xcode-Corona-Editor">Xcode Editor</a></td>
 </tr>
 <tr class="even">
-<td align="left"><a href="https://studio.zerobrane.com">ZeroBrane Studio</a></td>
-<td align="left"></td>
+<td style="text-align: left;"><a href="https://studio.zerobrane.com">ZeroBrane Studio</a></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="https://macromates.com">TextMate</a></td>
-<td align="left"></td>
+<td style="text-align: left;"><a href="https://macromates.com">TextMate</a></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td align="left"><a href="https://www.vim.org">Vim</a></td>
-<td align="left"></td>
+<td style="text-align: left;"><a href="https://www.vim.org">Vim</a></td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <p><a id="environment"></a></p>
-</div>
-<div id="development-environment" class="section level2">
+</section>
+<section id="development-environment" class="level2">
 <h2>Development Environment</h2>
 <p>The Solar2D development environment consists of two aspects: the <nobr><strong>Solar2D Simulator</strong></nobr> and the <nobr><strong>Solar2D Simulator Console</strong></nobr>.</p>
 <ul>
 <li><p>The <strong>Solar2D Simulator</strong> is a visual representation and test environment for your app. What you see in the Simulator is generally what your app will look like — and how it will function — when deployed to an actual device. The Solar2D Simulator is an essential tool because it allows you to view changes to your code instantly in an active, responsive environment that closely mimics the device.</p></li>
-<li><p>The <strong>Solar2D Simulator Console</strong> is where you can view diagnostic messages about what's happening in your program.</p></li>
+<li><p>The <strong>Solar2D Simulator Console</strong> is where you can view diagnostic messages about what’s happening in your program.</p></li>
 </ul>
 <p><a id="simoptions"></a></p>
-</div>
-<div id="simulator-options" class="section level2">
+</section>
+<section id="simulator-options" class="level2">
 <h2>Simulator Options</h2>
 <p>The Solar2D Simulator for macOS features the following basic menu items:</p>
 <ul>
@@ -240,13 +237,13 @@ When you want to build your app for distribution or to test on a device, choose 
 
 -->
 <p><a id = "cmdusage"></a></p>
-</div>
-<div id="command-line-usage" class="section level2">
+</section>
+<section id="command-line-usage" class="level2">
 <h2>Command Line Usage</h2>
 <p>To start a particular app in the Solar2D Simulator without double-clicking it, use a command like this:</p>
 <pre class="brush: lua;">"/Applications/Corona/Corona Simulator.app/Contents/MacOS/Corona Simulator" ~/CoronaApps/MyApp</pre>
-<p>If the specified directory doesn't contain a <code>main.lua</code> file, an error is displayed. Optionally <code>-project</code> can be specified (note that this suppresses any error messages if the directory is invalid).</p>
-<p>If you don't want the Simulator Console window to automatically appear use the <code>-no-console</code> option:</p>
+<p>If the specified directory doesn’t contain a <code>main.lua</code> file, an error is displayed. Optionally <code>-project</code> can be specified (note that this suppresses any error messages if the directory is invalid).</p>
+<p>If you don’t want the Simulator Console window to automatically appear use the <code>-no-console</code> option:</p>
 <pre class="brush: lua;">"/Applications/Corona/Corona Simulator.app/Contents/MacOS/Corona Simulator" -no-console YES</pre>
 <p>Output from the Simulator will appear on standard output.</p>
 <p>If you never want the Simulator to automatically start a console window, but for some reason cannot use the command line, you can run the following command in a Terminal window:</p>
@@ -254,10 +251,10 @@ When you want to build your app for distribution or to test on a device, choose 
 <p>Use this command to turn the Simulator Console back on again:</p>
 <pre class="brush: lua;">defaults delete com.coronalabs.Corona_Simulator no-console</pre>
 <p>One additional flag is allowed <code>-debug YES</code> which allows an IDE to connect a debugger to the Simulator session. Specify it before the directory/file argument.</p>
-</div>
-<div id="getting-started" class="section level2">
+</section>
+<section id="getting-started" class="level2">
 <h2>Getting Started</h2>
-<p>If you're new to Solar2D, the most fun way to learn is to <a href="../../../guide/programming/01/index.html">create a simple game</a>. Don't worry if you've never created a mobile app or programmed before — the chapters in the guide will walk you through the entire process from start to finish!</p>
+<p>If you’re new to Solar2D, the most fun way to learn is to <a href="../../../guide/programming/01/index.html">create a simple game</a>. Don’t worry if you’ve never created a mobile app or programmed before — the chapters in the guide will walk you through the entire process from start to finish!</p>
 <div class="walkthrough-nav">
 <p><a href="../../../guide/programming/01/index.html">Chapter 1 — Creating a project</a> <strong>⟩</strong></p>
 </div>
@@ -271,8 +268,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

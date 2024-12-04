@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | composer | gotoScene</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -77,52 +77,52 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/composer/index.html">composer</a>  ▸  <a href="../../../api/library/composer/gotoScene.html">gotoScene</a>
 </div>
-<div id="composer.gotoscene" class="section level1">
+<section id="composer.gotoscene" class="level1">
 <h1>composer.gotoScene()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/composer/index.html">composer.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/composer/index.html">composer.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">composer, scene switching, gotoScene</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">composer, scene switching, gotoScene</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>This function is used to transition to a specific scene. When called, the <a href="../../../api/event/scene/hide/index.html">hide</a> event is dispatched to the current scene (if one exists). If a <code>self.view</code> group does not already exist for the specified target scene, the <a href="../../../api/event/scene/create/index.html">create</a> event will be dispatched to that scene, then the <a href="../../../api/event/scene/show/index.html">show</a> event will be dispatched.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">composer.gotoScene( sceneName [, options] )</pre>
-<div id="scenename-required" class="section level5">
+<section id="scenename-required" class="level5">
 <h5>sceneName <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../../api/type/String.html">String</a>.</em> The name of the scene to go to. In many cases, this is the name of the scene's Lua file (without the <code>.lua</code> extension).</p>
-</div>
-<div id="options-optional" class="section level5">
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The name of the scene to go to. In many cases, this is the name of the scene’s Lua file (without the <code>.lua</code> extension).</p>
+</section>
+<section id="options-optional" class="level5">
 <h5>options <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Table.html">Table</a>.</em> This table contains several transition-related options such as the effect type, custom parameters, etc. See the <a href="#options">Scene Options</a> for the acceptable format of this table.</p>
 <p><a id="options"></a></p>
-</div>
-</div>
-<div id="scene-options" class="section level2">
+</section>
+</section>
+<section id="scene-options" class="level2">
 <h2>Scene Options</h2>
 <p>The <code>options</code> table can contain various options pertaining to the target scene:</p>
 <pre class="brush: lua;">local options =
@@ -134,49 +134,49 @@
         sampleVar2 = "another sample variable"
     }
 }</pre>
-<div id="effect-optional" class="section level5">
+<section id="effect-optional" class="level5">
 <h5>effect <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/String.html">String</a>.</em> Specifies the effect for the scene transition. See <a href="#effects">Transition Effects</a> for a list of valid options. If no effect is specified, the scene transition will occur instantaneously.</p>
-</div>
-<div id="time-optional" class="section level5">
+</section>
+<section id="time-optional" class="level5">
 <h5>time <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The time duration for the effect, if a valid effect has been specified. Default is <code>500</code> milliseconds.</p>
-</div>
-<div id="params-optional" class="section level5">
+</section>
+<section id="params-optional" class="level5">
 <h5>params <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Table.html">Table</a>.</em> An optional table containing any kind of custom data that should be transferred to the scene. In the specified scene, this data can be accessed via <code>event.params</code> in the <a href="../../../api/event/scene/create/index.html">create</a> event or <a href="../../../api/event/scene/show/index.html">show</a> event.</p>
 <p><a id="effects"></a></p>
-</div>
-</div>
-<div id="transition-effects" class="section level2">
+</section>
+</section>
+<section id="transition-effects" class="level2">
 <h2>Transition Effects</h2>
 <p>The following string values are supported for the <code>effect</code> key of the <code>options</code> table:</p>
 <ul>
-<li><code>&quot;fade&quot;</code></li>
-<li><code>&quot;crossFade&quot;</code></li>
-<li><code>&quot;zoomOutIn&quot;</code></li>
-<li><code>&quot;zoomOutInFade&quot;</code></li>
-<li><code>&quot;zoomInOut&quot;</code></li>
-<li><code>&quot;zoomInOutFade&quot;</code></li>
-<li><code>&quot;flip&quot;</code></li>
-<li><code>&quot;flipFadeOutIn&quot;</code></li>
-<li><code>&quot;zoomOutInRotate&quot;</code></li>
-<li><code>&quot;zoomOutInFadeRotate&quot;</code></li>
-<li><code>&quot;zoomInOutRotate&quot;</code></li>
-<li><code>&quot;zoomInOutFadeRotate&quot;</code></li>
-<li><code>&quot;fromRight&quot;</code> — over current scene</li>
-<li><code>&quot;fromLeft&quot;</code> — over current scene</li>
-<li><code>&quot;fromTop&quot;</code> — over current scene</li>
-<li><code>&quot;fromBottom&quot;</code> — over current scene</li>
-<li><code>&quot;slideLeft&quot;</code> — pushes current scene off</li>
-<li><code>&quot;slideRight&quot;</code> — pushes current scene off</li>
-<li><code>&quot;slideDown&quot;</code> — pushes current scene off</li>
-<li><code>&quot;slideUp&quot;</code> — pushes current scene off</li>
+<li><code>"fade"</code></li>
+<li><code>"crossFade"</code></li>
+<li><code>"zoomOutIn"</code></li>
+<li><code>"zoomOutInFade"</code></li>
+<li><code>"zoomInOut"</code></li>
+<li><code>"zoomInOutFade"</code></li>
+<li><code>"flip"</code></li>
+<li><code>"flipFadeOutIn"</code></li>
+<li><code>"zoomOutInRotate"</code></li>
+<li><code>"zoomOutInFadeRotate"</code></li>
+<li><code>"zoomInOutRotate"</code></li>
+<li><code>"zoomInOutFadeRotate"</code></li>
+<li><code>"fromRight"</code> — over current scene</li>
+<li><code>"fromLeft"</code> — over current scene</li>
+<li><code>"fromTop"</code> — over current scene</li>
+<li><code>"fromBottom"</code> — over current scene</li>
+<li><code>"slideLeft"</code> — pushes current scene off</li>
+<li><code>"slideRight"</code> — pushes current scene off</li>
+<li><code>"slideDown"</code> — pushes current scene off</li>
+<li><code>"slideUp"</code> — pushes current scene off</li>
 </ul>
-</div>
-<div id="examples" class="section level2">
+</section>
+<section id="examples" class="level2">
 <h2>Examples</h2>
-<div id="going-to-another-scene" class="section level5">
+<section id="going-to-another-scene" class="level5">
 <h5>Going to Another Scene</h5>
 <pre class="brush: lua;">local composer = require( "composer" )
 
@@ -189,8 +189,8 @@ local options = {
     params = { level="Level 1", score=currentScore }
 }
 composer.gotoScene( "results", options )</pre>
-</div>
-<div id="reloading-the-current-scene" class="section level5">
+</section>
+<section id="reloading-the-current-scene" class="level5">
 <h5>Reloading the Current Scene</h5>
 <pre class="brush: lua;">local composer = require( "composer" )
 
@@ -207,9 +207,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Tenjin | logPurchase</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -77,95 +77,95 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/tenjin/index.html">Tenjin</a>  ▸  <a href="../../plugin/tenjin/logPurchase.html">logPurchase</a>
 </div>
-<div id="tenjin.logpurchase" class="section level1">
+<section id="tenjin.logpurchase" class="level1">
 <h1>tenjin.logPurchase()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">analytics, attribution, Tenjin, logPurchase</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">analytics, attribution, Tenjin, logPurchase</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../plugin/tenjin/init.html">tenjin.init()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../plugin/tenjin/init.html">tenjin.init()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/tenjin/logEvent.html">tenjin.logEvent()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/tenjin/logEvent.html">tenjin.logEvent()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/tenjin/index.html">tenjin.*</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/tenjin/index.html">tenjin.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Sends an IAP purchase event to Tenjin.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">tenjin.logPurchase( purchaseData [, purchaseReceipt] )</pre>
-<div id="purchasedata-required" class="section level5">
+<section id="purchasedata-required" class="level5">
 <h5>purchaseData <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> Table containing IAP purchase data — see the next section for details.</p>
-</div>
-<div id="purchasereceipt-required" class="section level5">
+</section>
+<section id="purchasereceipt-required" class="level5">
 <h5>purchaseReceipt <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> Table containing <nobr>Apple App Store</nobr> or <nobr>Google Play</nobr> receipt data — see the next section for details.</p>
-</div>
-</div>
-<div id="parameter-reference" class="section level2">
+</section>
+</section>
+<section id="parameter-reference" class="level2">
 <h2>Parameter Reference</h2>
 <p>The <code>purchaseData</code> table includes parameters for logging IAP purchases.</p>
-<div id="productid-required" class="section level5">
+<section id="productid-required" class="level5">
 <h5>productId <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> The product ID/name for the IAP purchase.</p>
-</div>
-<div id="currencycode-required" class="section level5">
+</section>
+<section id="currencycode-required" class="level5">
 <h5>currencyCode <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> The currency of the IAP transaction.</p>
-</div>
-<div id="quantity-required" class="section level5">
+</section>
+<section id="quantity-required" class="level5">
 <h5>quantity <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Number.html">Number</a>.</em> The number of units bought.</p>
-</div>
-<div id="unitprice-required" class="section level5">
+</section>
+<section id="unitprice-required" class="level5">
 <h5>unitPrice <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Number.html">Number</a>.</em> The unit price of the IAP item.</p>
 <div style="margin-top: 16px;">
 
 </div>
 <p>The <code>purchaseReceipt</code> table includes parameters for logging IAP receipts.</p>
-</div>
-<div id="receipt-required" class="section level5">
+</section>
+<section id="receipt-required" class="level5">
 <h5>receipt <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> This parameter is an <nobr>in-app</nobr> purchase receipt. It expects the data from <code>event.transaction.receipt</code> found in the <nobr>in-app</nobr> purchase transaction callback. Supported markets include <a href="../../api/library/store/index.html">Apple IAP</a> and <a href="../../plugin/google-iap-billing/index.html">Google IAP</a>.</p>
-</div>
-<div id="signature-required" class="section level5">
+</section>
+<section id="signature-required" class="level5">
 <h5>signature <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> This parameter applies to Google Play transactions only and is mandatory when logging a <a href="../../plugin/google-iap-billing/index.html">Google IAP</a> receipt. It expects the data from <code>event.transaction.signature</code> found in the <nobr>in-app</nobr> purchase transaction callback.</p>
-</div>
-<div id="transactionid-required" class="section level5">
+</section>
+<section id="transactionid-required" class="level5">
 <h5>transactionId <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> This parameter applies to <nobr>Apple App Store</nobr> transactions only and is mandatory when logging an <a href="../../api/library/store/index.html">Apple IAP</a> receipt. It expects the data from <code>event.transaction.identifier</code> found in the <nobr>in-app</nobr> purchase transaction callback.</p>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local tenjin = require( "plugin.tenjin" )
 
@@ -195,8 +195,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

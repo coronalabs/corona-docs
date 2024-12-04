@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Apple Game Center | request</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -97,95 +97,95 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/gameNetwork-apple/index.html">Apple Game Center</a>  ▸  <a href="../../plugin/gameNetwork-apple/request.html">request</a>
 </div>
-<div id="gamenetwork.request" class="section level1">
+<section id="gamenetwork.request" class="level1">
 <h1>gameNetwork.request()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../api/library/gameNetwork/index.html">gameNetwork.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../api/library/gameNetwork/index.html">gameNetwork.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">gameNetwork, Game Center</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">gameNetwork, Game Center</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../plugin/gameNetwork-apple/init.html">gameNetwork.init()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../plugin/gameNetwork-apple/init.html">gameNetwork.init()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/gameNetwork-apple/show.html">gameNetwork.show()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/gameNetwork-apple/show.html">gameNetwork.show()</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Send or request information to/from <a href="https://developer.apple.com/game-center/">Game Center</a>.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">gameNetwork.request( command [, params] )</pre>
-<div id="command-required" class="section level5">
+<section id="command-required" class="level5">
 <h5>command <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> String value as supported by Game Center — see <a href="#commands">Command Reference</a> below.</p>
-</div>
-<div id="params-optional" class="section level5">
+</section>
+<section id="params-optional" class="level5">
 <h5>params <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> Table of parameters allowed by Game Center — see <a href="#params">Parameter Reference</a> below.</p>
 <p><a id="commands"></a></p>
-</div>
-</div>
-<div id="command-reference" class="section level2">
+</section>
+</section>
+<section id="command-reference" class="level2">
 <h2>Command Reference</h2>
 <p>For the <code>command</code> parameter, Game Center supports the following values:</p>
 <ul>
-<li><code>&quot;setHighScore&quot;</code></li>
-<li><code>&quot;loadScores&quot;</code></li>
-<li><code>&quot;loadLocalPlayer&quot;</code></li>
-<li><code>&quot;loadPlayers&quot;</code></li>
-<li><code>&quot;loadFriends&quot;</code></li>
-<li><code>&quot;loadAchievements&quot;</code></li>
-<li><code>&quot;unlockAchievement&quot;</code></li>
-<li><code>&quot;resetAchievements&quot;</code></li>
-<li><code>&quot;loadAchievementDescriptions&quot;</code></li>
-<li><code>&quot;loadFriendRequestMaxNumberOfRecipients&quot;</code></li>
-<li><code>&quot;loadLeaderboardCategories&quot;</code></li>
-<li><code>&quot;loadPlayerPhoto&quot;</code></li>
-<li><code>&quot;loadAchievementImage&quot;</code></li>
-<li><code>&quot;loadPlaceholderCompletedAchievementImage&quot;</code></li>
-<li><code>&quot;loadIncompleteAchievementImage&quot;</code></li>
-<li><code>&quot;loadCurrentPlayer&quot;</code></li>
-<li><code>&quot;createMatch&quot;</code></li>
-<li><code>&quot;quitMatch&quot;</code></li>
-<li><code>&quot;endMatch&quot;</code></li>
-<li><code>&quot;removeMatch&quot;</code></li>
-<li><code>&quot;setEventListener&quot;</code></li>
-<li><code>&quot;loadMatchData&quot;</code></li>
-<li><code>&quot;endTurn&quot;</code></li>
-<li><code>&quot;loadMatches&quot;</code></li>
-<li><code>&quot;loadTurnBasedMatchMaxNumberOfParticipants&quot;</code></li>
+<li><code>"setHighScore"</code></li>
+<li><code>"loadScores"</code></li>
+<li><code>"loadLocalPlayer"</code></li>
+<li><code>"loadPlayers"</code></li>
+<li><code>"loadFriends"</code></li>
+<li><code>"loadAchievements"</code></li>
+<li><code>"unlockAchievement"</code></li>
+<li><code>"resetAchievements"</code></li>
+<li><code>"loadAchievementDescriptions"</code></li>
+<li><code>"loadFriendRequestMaxNumberOfRecipients"</code></li>
+<li><code>"loadLeaderboardCategories"</code></li>
+<li><code>"loadPlayerPhoto"</code></li>
+<li><code>"loadAchievementImage"</code></li>
+<li><code>"loadPlaceholderCompletedAchievementImage"</code></li>
+<li><code>"loadIncompleteAchievementImage"</code></li>
+<li><code>"loadCurrentPlayer"</code></li>
+<li><code>"createMatch"</code></li>
+<li><code>"quitMatch"</code></li>
+<li><code>"endMatch"</code></li>
+<li><code>"removeMatch"</code></li>
+<li><code>"setEventListener"</code></li>
+<li><code>"loadMatchData"</code></li>
+<li><code>"endTurn"</code></li>
+<li><code>"loadMatches"</code></li>
+<li><code>"loadTurnBasedMatchMaxNumberOfParticipants"</code></li>
 </ul>
 <p><a id="params"></a></p>
-</div>
-<div id="parameter-reference" class="section level2">
+</section>
+<section id="parameter-reference" class="level2">
 <h2>Parameter Reference</h2>
 <p>Depending on the specified <code>command</code> parameter, the contents of the <code>params</code> table will vary.</p>
-<div id="listener-function" class="section level3">
+<section id="listener-function" class="level3">
 <h3>Listener Function</h3>
 <p>For all calls to <code>gameNetwork.request()</code>, the <code>params</code> table supports a <code>listener</code> key with its value as a callback listener function to monitor the call result. In the callback listener, <code>event.type</code> indicates the request that was executed, along with other data specific to each request type as outlined below.</p>
 <pre class="brush: lua;">local function requestCallback( event )
@@ -201,10 +201,10 @@ gameNetwork.request( "setHighScore",
         listener = requestCallback
     }
 )</pre>
-</div>
-<div id="set-high-score" class="section level3">
+</section>
+<section id="set-high-score" class="level3">
 <h3>Set High Score</h3>
-<p>For the <code>command</code> parameter of <code>&quot;setHighScore&quot;</code>, this function sets a high score for the currently <nobr>logged-in</nobr> user for the specified leaderboard (<code>category</code>). If the high score is not higher than the one currently on the server, the server will keep the highest value.</p>
+<p>For the <code>command</code> parameter of <code>"setHighScore"</code>, this function sets a high score for the currently <nobr>logged-in</nobr> user for the specified leaderboard (<code>category</code>). If the high score is not higher than the one currently on the server, the server will keep the highest value.</p>
 <pre class="brush: lua;">gameNetwork.request( "setHighScore",
     {
         localPlayerScore = { category="com.appledts.EasyTapList", value=25 },
@@ -216,10 +216,10 @@ gameNetwork.request( "setHighScore",
 <li><p><code>category</code> — String that matches the leaderboard ID for which you want to register the score, as configured in iTunes Connect.</p></li>
 <li><p><code>value</code> — Number representing the score. Note that Apple allows for <nobr>64-bit</nobr> integers, but all numbers in Lua are of type double. This means that your maximum and minimum values are restricted to the range of double which is about <code>2^51</code> instead of <code>2^64</code>.</p></li>
 </ul>
-</div>
-<div id="load-scores" class="section level3">
+</section>
+<section id="load-scores" class="level3">
 <h3>Load Scores</h3>
-<p>For the <code>command</code> parameter of <code>&quot;loadScores&quot;</code>, this function retrieves scores based on various filters.</p>
+<p>For the <code>command</code> parameter of <code>"loadScores"</code>, this function retrieves scores based on various filters.</p>
 <pre class="brush: lua;">gameNetwork.request( "loadScores",
     {
         leaderboard =
@@ -235,11 +235,11 @@ gameNetwork.request( "setHighScore",
 <p>Inside the <code>params</code> table, <code>leaderboard</code> is a required table inside which the following <nobr>key-values</nobr> apply:</p>
 <ul>
 <li><p><code>category</code> — Required string that matches the leaderboard ID from which you want to fetch scores, as configured in iTunes Connect.</p></li>
-<li><p><code>playerScope</code> — Optional string of either <code>&quot;Global&quot;</code> or <code>&quot;FriendsOnly&quot;</code>. The latter setting will restrict the fetched scores to only friends.</p></li>
-<li><p><code>timeScope</code> — Optional string of either <code>&quot;AllTime&quot;</code>, <code>&quot;Week&quot;</code>, or <code>&quot;Today&quot;</code> which limits the fetched scores to a specified time range.</p></li>
+<li><p><code>playerScope</code> — Optional string of either <code>"Global"</code> or <code>"FriendsOnly"</code>. The latter setting will restrict the fetched scores to only friends.</p></li>
+<li><p><code>timeScope</code> — Optional string of either <code>"AllTime"</code>, <code>"Week"</code>, or <code>"Today"</code> which limits the fetched scores to a specified time range.</p></li>
 <li><p><code>range</code> — Optional array of two integer values. The first value is a start index and the second value is the number of players to retrieve (less than 100). The default range is <code>{ 1,25 }</code>.</p></li>
 </ul>
-<p>When handling the results of a <code>&quot;loadScores&quot;</code> call, <code>event.data</code> in the callback listener is an array of items (tables), each of which contains the following properties:</p>
+<p>When handling the results of a <code>"loadScores"</code> call, <code>event.data</code> in the callback listener is an array of items (tables), each of which contains the following properties:</p>
 <ul>
 <li><code>playerID</code> (<a href="../../api/type/String.html">string</a>)</li>
 <li><code>category</code> (<a href="../../api/type/String.html">string</a>)</li>
@@ -258,12 +258,12 @@ event.data[3].rank      -- Rank of the third player in the request</pre>
 <pre class="brush: lua;">event.localPlayerScore.playerID
 event.localPlayerScore.rank</pre>
 </div>
-</div>
-<div id="load-local-player" class="section level3">
+</section>
+<section id="load-local-player" class="level3">
 <h3>Load Local Player</h3>
-<p>For the <code>command</code> parameter of <code>&quot;loadLocalPlayer&quot;</code>, this function requests data for the currently <nobr>logged-in</nobr> player.</p>
+<p>For the <code>command</code> parameter of <code>"loadLocalPlayer"</code>, this function requests data for the currently <nobr>logged-in</nobr> player.</p>
 <pre class="brush: lua;">gameNetwork.request( "loadLocalPlayer", { listener=requestCallback } )</pre>
-<p>When handling the results of a <code>&quot;loadLocalPlayer&quot;</code> call, <code>event.data</code> in the callback listener contains the following properties:</p>
+<p>When handling the results of a <code>"loadLocalPlayer"</code> call, <code>event.data</code> in the callback listener contains the following properties:</p>
 <ul>
 <li><code>playerID</code> (<a href="../../api/type/String.html">string</a>)</li>
 <li><code>alias</code> (<a href="../../api/type/String.html">string</a>)</li>
@@ -276,10 +276,10 @@ event.localPlayerScore.rank</pre>
 <pre class="brush: lua;">event.data.playerID
 event.data.alias</pre>
 </div>
-</div>
-<div id="load-players" class="section level3">
+</section>
+<section id="load-players" class="level3">
 <h3>Load Players</h3>
-<p>For the <code>command</code> parameter of <code>&quot;loadPlayers&quot;</code>, this function requests data for a list of players based on their player IDs.</p>
+<p>For the <code>command</code> parameter of <code>"loadPlayers"</code>, this function requests data for a list of players based on their player IDs.</p>
 <pre class="brush: lua;">gameNetwork.request( "loadPlayers",
     {
         playerIDs =
@@ -292,7 +292,7 @@ event.data.alias</pre>
     }
 )</pre>
 <p>Inside the <code>params</code> table, <code>playerIDs</code> is a required table containing a <nobr>comma-delimited</nobr> list of player IDs (<a href="../../api/type/String.html">strings</a>) to fetch data for.</p>
-<p>When handling the results of a <code>&quot;loadPlayers&quot;</code> call, <code>event.data</code> in the callback listener is an array of items (tables) corresponding to each requested player. Each table contains the following properties:</p>
+<p>When handling the results of a <code>"loadPlayers"</code> call, <code>event.data</code> in the callback listener is an array of items (tables) corresponding to each requested player. Each table contains the following properties:</p>
 <ul>
 <li><code>playerID</code> (<a href="../../api/type/String.html">string</a>)</li>
 <li><code>alias</code> (<a href="../../api/type/String.html">string</a>)</li>
@@ -300,21 +300,21 @@ event.data.alias</pre>
 </ul>
 <pre class="brush: lua;">event.data[1].playerID  -- ID of the first player in the request
 event.data[3].alias     -- Alias of the third player in the request</pre>
-</div>
-<div id="load-friends" class="section level3">
+</section>
+<section id="load-friends" class="level3">
 <h3>Load Friends</h3>
-<p>For the <code>command</code> parameter of <code>&quot;loadFriends&quot;</code>, this function requests the friends of the currently <nobr>logged-in</nobr> player.</p>
+<p>For the <code>command</code> parameter of <code>"loadFriends"</code>, this function requests the friends of the currently <nobr>logged-in</nobr> player.</p>
 <pre class="brush: lua;">gameNetwork.request( "loadFriends", { listener=requestCallback } )</pre>
-<p>When handling the results of a <code>&quot;loadFriends&quot;</code> call, <code>event.data</code> in the callback listener is an array of items (tables) corresponding to each friend.</p>
+<p>When handling the results of a <code>"loadFriends"</code> call, <code>event.data</code> in the callback listener is an array of items (tables) corresponding to each friend.</p>
 <div style="width: 400px;">
 <pre class="brush: lua;">event.data[2].playerID</pre>
 </div>
-</div>
-<div id="load-achievements" class="section level3">
+</section>
+<section id="load-achievements" class="level3">
 <h3>Load Achievements</h3>
-<p>For the <code>command</code> parameter of <code>&quot;loadAchievements&quot;</code>, this function loads a list of the player's completed achievements for the app.</p>
+<p>For the <code>command</code> parameter of <code>"loadAchievements"</code>, this function loads a list of the player’s completed achievements for the app.</p>
 <pre class="brush: lua;">gameNetwork.request( "loadAchievements", { listener=requestCallback } )</pre>
-<p>When handling the results of a <code>&quot;loadAchievements&quot;</code> call, <code>event.data</code> in the callback listener is an array of items (tables) representing each achievement. Each table contains the following properties:</p>
+<p>When handling the results of a <code>"loadAchievements"</code> call, <code>event.data</code> in the callback listener is an array of items (tables) representing each achievement. Each table contains the following properties:</p>
 <ul>
 <li><code>identifier</code> (<a href="../../api/type/String.html">string</a>)</li>
 <li><code>percentComplete</code> (<a href="../../api/type/Number.html">number</a>)</li>
@@ -325,10 +325,10 @@ event.data[3].alias     -- Alias of the third player in the request</pre>
 </ul>
 <pre class="brush: lua;">event.data[4].identifier       -- Identifier for the fourth achievement
 event.data[2].percentComplete  -- Completed percentage for the second achievement </pre>
-</div>
-<div id="unlock-achievement" class="section level3">
+</section>
+<section id="unlock-achievement" class="level3">
 <h3>Unlock Achievement</h3>
-<p>For the <code>command</code> parameter of <code>&quot;unlockAchievement&quot;</code>, this function unlocks/sets the specified achievement (<code>identifier</code>) at the specified percentage. The <code>showsCompletionBanner</code> only takes affect if the achievement is 100% complete.</p>
+<p>For the <code>command</code> parameter of <code>"unlockAchievement"</code>, this function unlocks/sets the specified achievement (<code>identifier</code>) at the specified percentage. The <code>showsCompletionBanner</code> only takes affect if the achievement is 100% complete.</p>
 <pre class="brush: lua;">gameNetwork.request( "unlockAchievement",
     {
         achievement =
@@ -343,21 +343,21 @@ event.data[2].percentComplete  -- Completed percentage for the second achievemen
 <p>Inside the <code>params</code> table, <code>achievement</code> is a required table inside which the following <nobr>key-values</nobr> apply:</p>
 <ul>
 <li><p><code>identifier</code> — Required string that matches the name of the achievement you want to unlock/report, as entered on iTunes Connect (this need not follow the fully qualified reverse domain style shown here).</p></li>
-<li><p><code>percentComplete</code> — Optional number representing the completion percentage of the achievement. Setting this value to <code>100</code> will fully unlock the achievement. If this field is omitted, it's assumed this value is <code>100</code>.</p></li>
+<li><p><code>percentComplete</code> — Optional number representing the completion percentage of the achievement. Setting this value to <code>100</code> will fully unlock the achievement. If this field is omitted, it’s assumed this value is <code>100</code>.</p></li>
 <li><p><code>showsCompletionBanner</code> — Optional boolean which, if set to <code>true</code>, will cause Apple to automatically show a completion banner when <code>percentComplete</code> reaches <code>100</code>.</p></li>
 </ul>
-<p>When handling the results of a <code>&quot;unlockAchievement&quot;</code> call, <code>event.data</code> is a table that corresponds to the achievement that you just unlocked. You may use this information to help identify which/any achievements were successfully reported to the Game Center servers and which ones might have failed due to network timeouts.</p>
-</div>
-<div id="reset-achievements" class="section level3">
+<p>When handling the results of a <code>"unlockAchievement"</code> call, <code>event.data</code> is a table that corresponds to the achievement that you just unlocked. You may use this information to help identify which/any achievements were successfully reported to the Game Center servers and which ones might have failed due to network timeouts.</p>
+</section>
+<section id="reset-achievements" class="level3">
 <h3>Reset Achievements</h3>
-<p>For the <code>command</code> parameter of <code>&quot;resetAchievements&quot;</code>, this function resets all achievements for the currently <nobr>logged-in</nobr> player. Use this with caution because there is no undoing this request — once called, all of the player's achievements for the app are reset to 0%.</p>
+<p>For the <code>command</code> parameter of <code>"resetAchievements"</code>, this function resets all achievements for the currently <nobr>logged-in</nobr> player. Use this with caution because there is no undoing this request — once called, all of the player’s achievements for the app are reset to 0%.</p>
 <pre class="brush: lua;">gameNetwork.request( "resetAchievements", { listener=requestCallback } )</pre>
-</div>
-<div id="load-achievement-descriptions" class="section level3">
+</section>
+<section id="load-achievement-descriptions" class="level3">
 <h3>Load Achievement Descriptions</h3>
-<p>For the <code>command</code> parameter of <code>&quot;loadAchievementDescriptions&quot;</code>, this function requests a list of all descriptions associated with the achievements for the app.</p>
+<p>For the <code>command</code> parameter of <code>"loadAchievementDescriptions"</code>, this function requests a list of all descriptions associated with the achievements for the app.</p>
 <pre class="brush: lua;">gameNetwork.request( "loadAchievementDescriptions", { listener=requestCallback } )</pre>
-<p>When handling the results of a <code>&quot;loadAchievementDescriptions&quot;</code> call, <code>event.data</code> is an array of items (tables) which indicate the descriptions of the currently <nobr>logged-in</nobr> player's achievements.</p>
+<p>When handling the results of a <code>"loadAchievementDescriptions"</code> call, <code>event.data</code> is an array of items (tables) which indicate the descriptions of the currently <nobr>logged-in</nobr> player’s achievements.</p>
 <ul>
 <li><code>identifier</code> (<a href="../../api/type/String.html">string</a>)</li>
 <li><code>title</code> (<a href="../../api/type/String.html">string</a>)</li>
@@ -366,27 +366,27 @@ event.data[2].percentComplete  -- Completed percentage for the second achievemen
 <li><code>maximumPoints</code> (<a href="../../api/type/Number.html">integer</a>)</li>
 <li><code>isHidden</code> (<a href="../../api/type/Boolean.html">boolean</a>)</li>
 </ul>
-</div>
-<div id="load-max-friend-request-recipients" class="section level3">
+</section>
+<section id="load-max-friend-request-recipients" class="level3">
 <h3>Load Max Friend Request Recipients</h3>
-<p>For the <code>command</code> parameter of <code>&quot;loadFriendRequestMaxNumberOfRecipients&quot;</code>, this function retrieves the maximum number of people that may be invited in a single friend request. The value is returned through the callback listener via <code>event.data</code>.</p>
+<p>For the <code>command</code> parameter of <code>"loadFriendRequestMaxNumberOfRecipients"</code>, this function retrieves the maximum number of people that may be invited in a single friend request. The value is returned through the callback listener via <code>event.data</code>.</p>
 <pre class="brush: lua;">gameNetwork.request( "loadFriendRequestMaxNumberOfRecipients", { listener=requestCallback } )</pre>
-</div>
-<div id="load-leaderboard-categories" class="section level3">
+</section>
+<section id="load-leaderboard-categories" class="level3">
 <h3>Load Leaderboard Categories</h3>
-<p>For the <code>command</code> parameter of <code>&quot;loadLeaderboardCategories&quot;</code>, this function requests a list of leaderboard categories for the app.</p>
+<p>For the <code>command</code> parameter of <code>"loadLeaderboardCategories"</code>, this function requests a list of leaderboard categories for the app.</p>
 <pre class="brush: lua;">gameNetwork.request( "loadLeaderboardCategories", { listener=requestCallback } )</pre>
-<p>When handling the results of a <code>&quot;loadLeaderboardCategories&quot;</code> call, <code>event.data</code> is an array of items (tables). Each contains the following leaderboard properties:</p>
+<p>When handling the results of a <code>"loadLeaderboardCategories"</code> call, <code>event.data</code> is an array of items (tables). Each contains the following leaderboard properties:</p>
 <ul>
 <li><code>category</code> (<a href="../../api/type/String.html">string</a>)</li>
 <li><code>title</code> (<a href="../../api/type/String.html">string</a>)</li>
 </ul>
 <pre class="brush: lua;">event.data[1].category  --> "com.appledts.EasyTapList"
 event.data[1].title     --> "Easy"</pre>
-</div>
-<div id="load-player-photo" class="section level3">
+</section>
+<section id="load-player-photo" class="level3">
 <h3>Load Player Photo</h3>
-<p>For the <code>command</code> parameter of <code>&quot;loadPlayerPhoto&quot;</code>, this function retrieves the image of the requested player and creates a display object for it.</p>
+<p>For the <code>command</code> parameter of <code>"loadPlayerPhoto"</code>, this function retrieves the image of the requested player and creates a display object for it.</p>
 <pre class="brush: lua;">gameNetwork.request( "loadPlayerPhoto",
     {
         playerID = "G:0123456789",
@@ -397,9 +397,9 @@ event.data[1].title     --> "Easy"</pre>
 <p>Inside the <code>params</code> table, the following <nobr>key-values</nobr> apply:</p>
 <ul>
 <li><p><code>playerID</code> — Game Center player ID (<a href="../../api/type/String.html">string</a>) to fetch the image for.</p></li>
-<li><p><code>size</code> — Optional value representing the size of the image to get back. Supported values are <code>&quot;Small&quot;</code> (default) or <code>&quot;Normal&quot;</code>.</p></li>
+<li><p><code>size</code> — Optional value representing the size of the image to get back. Supported values are <code>"Small"</code> (default) or <code>"Normal"</code>.</p></li>
 </ul>
-<p>When handling the results of a <code>&quot;loadPlayerPhoto&quot;</code> call, <code>event.data</code> is a table which contains the properties listed below. Note that the additional <code>photo</code> property is the display object created by a successful request.</p>
+<p>When handling the results of a <code>"loadPlayerPhoto"</code> call, <code>event.data</code> is a table which contains the properties listed below. Note that the additional <code>photo</code> property is the display object created by a successful request.</p>
 <ul>
 <li><code>playerID</code> (<a href="../../api/type/String.html">string</a>)</li>
 <li><code>alias</code> (<a href="../../api/type/String.html">string</a>)</li>
@@ -409,10 +409,10 @@ event.data[1].title     --> "Easy"</pre>
 <li><code>friends</code> (<a href="../../api/type/Array.html">array</a>)</li>
 <li><code>photo</code> (<a href="../../api/type/DisplayObject/index.html">display object</a>)</li>
 </ul>
-</div>
-<div id="load-achievement-image" class="section level3">
+</section>
+<section id="load-achievement-image" class="level3">
 <h3>Load Achievement Image</h3>
-<p>For the <code>command</code> parameter of <code>&quot;loadAchievementImage&quot;</code>, this function retrieves the image of the requested achievement and creates a display object for it.</p>
+<p>For the <code>command</code> parameter of <code>"loadAchievementImage"</code>, this function retrieves the image of the requested achievement and creates a display object for it.</p>
 <pre class="brush: lua;">gameNetwork.request( "loadAchievementImage",
     {
         achievementDescription =
@@ -426,7 +426,7 @@ event.data[1].title     --> "Easy"</pre>
 <ul>
 <li><code>identifier</code> — Required string that matches the name of the achievement to retrieve the image for (this need not follow the fully qualified reverse domain style shown here).</li>
 </ul>
-<p>When handling the results of a <code>&quot;loadAchievementImage&quot;</code> call, <code>event.data</code> is a table that contains the properties listed below. Note that the additional <code>image</code> property is the display object created by a successful request.</p>
+<p>When handling the results of a <code>"loadAchievementImage"</code> call, <code>event.data</code> is a table that contains the properties listed below. Note that the additional <code>image</code> property is the display object created by a successful request.</p>
 <ul>
 <li><code>identifier</code> (<a href="../../api/type/String.html">string</a>)</li>
 <li><code>title</code> (<a href="../../api/type/String.html">string</a>)</li>
@@ -442,20 +442,20 @@ Note
 </div>
 <p>Achievement images uploaded to iTunes Connect should be fully compatible with Corona (see <strong>Image Guidelines</strong> for <a href="../../api/library/display/newImage.html">display.newImage()</a>).</p>
 </div>
-</div>
-<div id="load-completed-achievement-placeholder-image" class="section level3">
+</section>
+<section id="load-completed-achievement-placeholder-image" class="level3">
 <h3>Load Completed Achievement Placeholder Image</h3>
-<p>For the <code>command</code> parameter of <code>&quot;loadPlaceholderCompletedAchievementImage&quot;</code>, this function retrieves the Apple placeholder image of a completed achievement and creates a display object for it, accessible via <code>event.data</code> in the callback listener.</p>
+<p>For the <code>command</code> parameter of <code>"loadPlaceholderCompletedAchievementImage"</code>, this function retrieves the Apple placeholder image of a completed achievement and creates a display object for it, accessible via <code>event.data</code> in the callback listener.</p>
 <pre class="brush: lua;">gameNetwork.request( "loadPlaceholderCompletedAchievementImage", { listener=requestCallback } )</pre>
-</div>
-<div id="load-incomplete-achievement-image" class="section level3">
+</section>
+<section id="load-incomplete-achievement-image" class="level3">
 <h3>Load Incomplete Achievement Image</h3>
-<p>For the <code>command</code> parameter of <code>&quot;loadIncompleteAchievementImage&quot;</code>, this function retrieves the Apple placeholder image of an incomplete achievement and creates a display object for it, accessible via <code>event.data</code> in the callback listener.</p>
+<p>For the <code>command</code> parameter of <code>"loadIncompleteAchievementImage"</code>, this function retrieves the Apple placeholder image of an incomplete achievement and creates a display object for it, accessible via <code>event.data</code> in the callback listener.</p>
 <pre class="brush: lua;">gameNetwork.request( "loadIncompleteAchievementImage", { listener=requestCallback } )</pre>
-</div>
-<div id="load-current-player" class="section level3">
+</section>
+<section id="load-current-player" class="level3">
 <h3>Load Current Player</h3>
-<p>For the <code>command</code> parameter of <code>&quot;loadCurrentPlayer&quot;</code>, this function retrieves the current player who is scheduled to take his/her turn in a match.</p>
+<p>For the <code>command</code> parameter of <code>"loadCurrentPlayer"</code>, this function retrieves the current player who is scheduled to take his/her turn in a match.</p>
 <pre class="brush: lua;">gameNetwork.request( "loadCurrentPlayer",
     {
         matchID = "w4o98y3498hg349h",
@@ -466,12 +466,12 @@ Note
 <ul>
 <li><code>matchID</code> — Match ID (<a href="../../api/type/String.html">string</a>) of the match from which you want to fetch the current participant.</li>
 </ul>
-<p>When handling the results of a <code>&quot;loadCurrentPlayer&quot;</code> call, <code>event.data</code> in the callback listener includes the <a href="../../api/type/GameNetwork/participant.html">participant</a> object.</p>
-</div>
-<div id="create-match" class="section level3">
+<p>When handling the results of a <code>"loadCurrentPlayer"</code> call, <code>event.data</code> in the callback listener includes the <a href="../../api/type/GameNetwork/participant.html">participant</a> object.</p>
+</section>
+<section id="create-match" class="level3">
 <h3>Create Match</h3>
-<p>For the <code>command</code> parameter of <code>&quot;createMatch&quot;</code>, this function creates a <nobr>turn-based</nobr> match with the specified players. Unlike <nobr><code>gameNetwork.show( &quot;createMatch&quot;, ... )</code></nobr> (<a href="../../plugin/gameNetwork-apple/show.html">reference</a>), this simply creates a <a href="../../api/type/GameNetwork/match.html">match</a> object and lets you show a custom user interface.</p>
-<p>Note that this call assumes the currently <nobr>logged-in</nobr> player will be part of the match. Thus, you should not include the current player's ID in the <code>playerIDs</code> table. In addition, ensure that <code>maxPlayers</code> is set to a value which accommodates both the requested number of players and the current player. For example, if you request a match with two players in the <code>playerIDs</code> table, <code>maxPlayers</code> should be set to <code>3</code> or higher.</p>
+<p>For the <code>command</code> parameter of <code>"createMatch"</code>, this function creates a <nobr>turn-based</nobr> match with the specified players. Unlike <nobr><code>gameNetwork.show( "createMatch", ... )</code></nobr> (<a href="../../plugin/gameNetwork-apple/show.html">reference</a>), this simply creates a <a href="../../api/type/GameNetwork/match.html">match</a> object and lets you show a custom user interface.</p>
+<p>Note that this call assumes the currently <nobr>logged-in</nobr> player will be part of the match. Thus, you should not include the current player’s ID in the <code>playerIDs</code> table. In addition, ensure that <code>maxPlayers</code> is set to a value which accommodates both the requested number of players and the current player. For example, if you request a match with two players in the <code>playerIDs</code> table, <code>maxPlayers</code> should be set to <code>3</code> or higher.</p>
 <pre class="brush: lua;">gameNetwork.request( "createMatch",
     {
         playerIDs = { "w4o98y3498hg349h", "wrighfq547hg543" },
@@ -491,11 +491,11 @@ Note
 <li><p><code>playerAttributes</code> — Mask that specifies the role that the local player would like to play in the game.</p></li>
 <li><p><code>inviteMessage</code> — Custom invitation message for the match.</p></li>
 </ul>
-<p>When handling the results of a <code>&quot;createMatch&quot;</code> call, <code>event.data</code> in the callback listener includes the <a href="../../api/type/GameNetwork/match.html">match</a> object.</p>
-</div>
-<div id="quit-match" class="section level3">
+<p>When handling the results of a <code>"createMatch"</code> call, <code>event.data</code> in the callback listener includes the <a href="../../api/type/GameNetwork/match.html">match</a> object.</p>
+</section>
+<section id="quit-match" class="level3">
 <h3>Quit Match</h3>
-<p>For the <code>command</code> parameter of <code>&quot;quitMatch&quot;</code>, this function removes the currently <nobr>logged-in</nobr> player from the specified match and sets his/her match outcome.</p>
+<p>For the <code>command</code> parameter of <code>"quitMatch"</code>, this function removes the currently <nobr>logged-in</nobr> player from the specified match and sets his/her match outcome.</p>
 <pre class="brush: lua;">gameNetwork.request( "quitMatch",
     {
         matchID = "adsfawerg4",
@@ -508,18 +508,18 @@ Note
 <ul>
 <li><p><code>matchID</code> — String identifying the match that the player will quit.</p></li>
 <li><p><code>outcome</code> — Result of the match for the player that quit.</p></li>
-<li><p><code>data</code> — Data of the match for the next player. This is only necessary if it's the local player's turn.</p></li>
-<li><p><code>nextParticipant</code> — The next player that is scheduled to take a turn, wrapped in an array. This can be the player ID or the index value of the participant. This is only necessary if it's the local player's turn.</p></li>
+<li><p><code>data</code> — Data of the match for the next player. This is only necessary if it’s the local player’s turn.</p></li>
+<li><p><code>nextParticipant</code> — The next player that is scheduled to take a turn, wrapped in an array. This can be the player ID or the index value of the participant. This is only necessary if it’s the local player’s turn.</p></li>
 </ul>
 <!---
 
 When handling the results of a `"quitMatch"` call, `event.data` in the callback listener includes the [match][api.type.GameNetwork.match] object.
 
 --->
-</div>
-<div id="end-match" class="section level3">
+</section>
+<section id="end-match" class="level3">
 <h3>End Match</h3>
-<p>For the <code>command</code> parameter of <code>&quot;endMatch&quot;</code>, this function ends the match and sets the outcome for all players.</p>
+<p>For the <code>command</code> parameter of <code>"endMatch"</code>, this function ends the match and sets the outcome for all players.</p>
 <pre class="brush: lua;">gameNetwork.request( "endMatch",
     {
         matchID = "adsfawerg4",
@@ -539,53 +539,53 @@ When handling the results of a `"quitMatch"` call, `event.data` in the callback 
 <li><p><code>outcome</code> — Required array containing the player IDs and the match outcome for each.</p></li>
 <li><p><code>data</code> — The final data of the match.</p></li>
 </ul>
-</div>
-<div id="remove-match" class="section level3">
+</section>
+<section id="remove-match" class="level3">
 <h3>Remove Match</h3>
-<p>For the <code>command</code> parameter of <code>&quot;removeMatch&quot;</code>, this function removes the match from the list of matches in Game Center. This should only be called after <nobr><code>gameNetwork.request( &quot;endMatch&quot;, ... )</code></nobr> has been executed. Within the <code>params</code> table, <code>matchID</code> is a string identifying the match to remove.</p>
+<p>For the <code>command</code> parameter of <code>"removeMatch"</code>, this function removes the match from the list of matches in Game Center. This should only be called after <nobr><code>gameNetwork.request( "endMatch", ... )</code></nobr> has been executed. Within the <code>params</code> table, <code>matchID</code> is a string identifying the match to remove.</p>
 <pre class="brush: lua;">gameNetwork.request( "removeMatch",
     {
         matchID = "adsfawerg4",
         listener = requestCallback
     }
 )</pre>
-</div>
-<div id="set-match-event-listener" class="section level3">
+</section>
+<section id="set-match-event-listener" class="level3">
 <h3>Set Match Event Listener</h3>
-<p>For the <code>command</code> parameter of <code>&quot;setEventListener&quot;</code>, this function sets the event listener for all matches.</p>
+<p>For the <code>command</code> parameter of <code>"setEventListener"</code>, this function sets the event listener for all matches.</p>
 <pre class="brush: lua;">gameNetwork.request( "setEventListener", { listener=requestCallback } )</pre>
 <div class="guide-notebox">
 <div class="notebox-title">
 Note
 </div>
-<p>Setting this listener is important so that the app can respond accordingly for other players involved in the match. For example, if the <code>&quot;endTurn&quot;</code> request is called for the current player, the <code>&quot;playerTurn&quot;</code> event will be dispatched to the next player in line.</p>
+<p>Setting this listener is important so that the app can respond accordingly for other players involved in the match. For example, if the <code>"endTurn"</code> request is called for the current player, the <code>"playerTurn"</code> event will be dispatched to the next player in line.</p>
 </div>
-<p>When handling the results of a <code>&quot;setEventListener&quot;</code> call, <code>event.type</code> in the callback listener will be one of the following:</p>
+<p>When handling the results of a <code>"setEventListener"</code> call, <code>event.type</code> in the callback listener will be one of the following:</p>
 <ul>
-<li><p><code>&quot;invitationReceived&quot;</code> — The value when the player has received an invitation to join a match.</p></li>
-<li><p><code>&quot;matchEnded&quot;</code> — The value when another player has called <nobr><code>gameNetwork.request( &quot;endMatch&quot;, ... )</code></nobr>, ending the match for all the players.</p></li>
-<li><p><code>&quot;playerTurn&quot;</code> — The value when it's the current player's turn in a match, following the <nobr><code>gameNetwork.request( &quot;endTurn&quot;, ... )</code></nobr> call for the previous player.</p></li>
+<li><p><code>"invitationReceived"</code> — The value when the player has received an invitation to join a match.</p></li>
+<li><p><code>"matchEnded"</code> — The value when another player has called <nobr><code>gameNetwork.request( "endMatch", ... )</code></nobr>, ending the match for all the players.</p></li>
+<li><p><code>"playerTurn"</code> — The value when it’s the current player’s turn in a match, following the <nobr><code>gameNetwork.request( "endTurn", ... )</code></nobr> call for the previous player.</p></li>
 </ul>
 <p>In turn, <code>event.data</code> in the callback listener will vary depending on the value of <code>event.type</code>:</p>
 <ul>
-<li><p>When <code>event.type</code> is <code>&quot;invitationReceived&quot;</code>, <code>event.data</code> is an array of strings representing the IDs of all players invited to the match.</p></li>
-<li><p>When <code>event.type</code> is <code>&quot;matchEnded&quot;</code> or <code>&quot;playerTurn&quot;</code>, <code>event.data</code> contains the <a href="../../api/type/GameNetwork/match.html">match</a> object.</p></li>
+<li><p>When <code>event.type</code> is <code>"invitationReceived"</code>, <code>event.data</code> is an array of strings representing the IDs of all players invited to the match.</p></li>
+<li><p>When <code>event.type</code> is <code>"matchEnded"</code> or <code>"playerTurn"</code>, <code>event.data</code> contains the <a href="../../api/type/GameNetwork/match.html">match</a> object.</p></li>
 </ul>
-</div>
-<div id="load-match-data" class="section level3">
+</section>
+<section id="load-match-data" class="level3">
 <h3>Load Match Data</h3>
-<p>For the <code>command</code> parameter of <code>&quot;loadMatchData&quot;</code>, this function retrieves the data of a match. Within the <code>params</code> table, <code>matchID</code> is a string identifying the match for which data will be retrieved.</p>
+<p>For the <code>command</code> parameter of <code>"loadMatchData"</code>, this function retrieves the data of a match. Within the <code>params</code> table, <code>matchID</code> is a string identifying the match for which data will be retrieved.</p>
 <pre class="brush: lua;">gameNetwork.request( "loadMatchData",
     {
         matchID = "adsfawerg4",
         listener = requestCallback
     }
 )</pre>
-<p>When handling the results of a <code>&quot;loadMatchData&quot;</code> call, <code>event.data</code> in the callback listener includes the <a href="../../api/type/GameNetwork/match.html">match</a> object, assuming the match has been established.</p>
-</div>
-<div id="end-turn" class="section level3">
+<p>When handling the results of a <code>"loadMatchData"</code> call, <code>event.data</code> in the callback listener includes the <a href="../../api/type/GameNetwork/match.html">match</a> object, assuming the match has been established.</p>
+</section>
+<section id="end-turn" class="level3">
 <h3>End Turn</h3>
-<p>For the <code>command</code> parameter of <code>&quot;endTurn&quot;</code>, this function ends the current player's turn and lets the next player start their turn.</p>
+<p>For the <code>command</code> parameter of <code>"endTurn"</code>, this function ends the current player’s turn and lets the next player start their turn.</p>
 <pre class="brush: lua;">gameNetwork.request( "endTurn",
     {
         matchID = "adsfawerg4",
@@ -605,20 +605,20 @@ Note
 When handling the results of a `"endTurn"` call, `event.data` in the callback listener includes the [match][api.type.GameNetwork.match] object.
 
 -->
-</div>
-<div id="load-matches" class="section level3">
+</section>
+<section id="load-matches" class="level3">
 <h3>Load Matches</h3>
-<p>For the <code>command</code> parameter of <code>&quot;loadMatches&quot;</code>, this function loads the matches involving the currently <nobr>logged-in</nobr> player and creates a <a href="../../api/type/GameNetwork/match.html">match</a> object for each.</p>
+<p>For the <code>command</code> parameter of <code>"loadMatches"</code>, this function loads the matches involving the currently <nobr>logged-in</nobr> player and creates a <a href="../../api/type/GameNetwork/match.html">match</a> object for each.</p>
 <pre class="brush: lua;">gameNetwork.request( "loadMatches", { listener=requestCallback } )</pre>
-<p>When handling the results of a <code>&quot;loadMatches&quot;</code> call, <code>event.data</code> in the callback listener is an array of <a href="../../api/type/GameNetwork/match.html">match</a> objects.</p>
-</div>
-<div id="load-max-turn-based-participants" class="section level3">
+<p>When handling the results of a <code>"loadMatches"</code> call, <code>event.data</code> in the callback listener is an array of <a href="../../api/type/GameNetwork/match.html">match</a> objects.</p>
+</section>
+<section id="load-max-turn-based-participants" class="level3">
 <h3>Load Max Turn-Based Participants</h3>
-<p>For the command parameter of <code>&quot;loadTurnBasedMatchMaxNumberOfParticipants&quot;</code>, this function retrieves the maximum number of players that may be invited to a <nobr>turn-based</nobr> match. The value is returned through the callback listener via <code>event.data</code>.</p>
+<p>For the command parameter of <code>"loadTurnBasedMatchMaxNumberOfParticipants"</code>, this function retrieves the maximum number of players that may be invited to a <nobr>turn-based</nobr> match. The value is returned through the callback listener via <code>event.data</code>.</p>
 <pre class="brush: lua;">gameNetwork.request( "loadTurnBasedMatchMaxNumberOfParticipants", { listener=requestCallback } )</pre>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">-- Request callback function
 local function requestCallback( event )
@@ -650,8 +650,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

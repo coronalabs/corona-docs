@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | type | ShapeObject | setFillVertexColor</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -73,108 +73,108 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/ShapeObject/index.html">ShapeObject</a>  ▸  <a href="../../../api/type/ShapeObject/setFillVertexColor.html">setFillVertexColor</a>
 </div>
-<div id="objectsetfillvertexcolor" class="section level1">
+<section id="objectsetfillvertexcolor" class="level1">
 <h1>object:setFillVertexColor()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Object</strong></td>
-<td align="left"><a href="../../../api/type/ShapeObject/index.html">ShapeObject</a></td>
+<td style="text-align: left;"><strong>Object</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/ShapeObject/index.html">ShapeObject</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/display/index.html">display.*</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">setFillVertexColor, vertex color, fill, vector</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">setFillVertexColor, vertex color, fill, vector</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left">[object:setStrokeVertexColor()][api.type.ShapeObject.setVertexStrokeColor]</td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;">[object:setStrokeVertexColor()][api.type.ShapeObject.setVertexStrokeColor]</td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/display/newRect.html">display.newRect()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/display/newRect.html">display.newRect()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/display/newRoundedRect.html">display.newRoundRect()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/display/newRoundedRect.html">display.newRoundRect()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/display/newCircle.html">display.newCircle()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/display/newCircle.html">display.newCircle()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/display/newText.html">display.newText()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/display/newText.html">display.newText()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/display/newPolygon.html">display.newPolygon()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/display/newPolygon.html">display.newPolygon()</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Sets the color of a particular fill vertex in vector and text objects. Also applies a tint to image objects.</p>
 <p>Until a given fill vertex color has been assigned, it is interpreted as white. The color/tint of the object at each vertex is a combination of its fill color and fill vertex color: the two red values multiplied together produce the final red, and so on for the remaining channels. When the object is drawn, the resulting colors/tints are interpolated between neighboring vertices.</p>
 <p>The first time this is called on an object, some extra memory will be allocated to it to store the colors.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">object:setFillVertexColor( index, gray )
 object:setFillVertexColor( index, gray, alpha )
 object:setFillVertexColor( index, red, green, blue )
 object:setFillVertexColor( index, red, green, blue, alpha )</pre>
-<div id="index-required" class="section level5">
+<section id="index-required" class="level5">
 <h5>index <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Numbers</a></em> Integer from 1 to <a href="../../../api/type/ShapeObject/fillVertexCount.html">object.fillVertexCount</a> indicating which fill vertex to color.</p>
 <p>In the case of meshes, many methods operate on vertices. In those instances and here, <code>index</code> refers to the same vertex. (<strong>TODO</strong> Other shapes. At this point the details are unlikely to change; none of it is written down though.)</p>
-</div>
-<div id="gray-red-green-blue-alpha-optional" class="section level5">
+</section>
+<section id="gray-red-green-blue-alpha-optional" class="level5">
 <h5>gray, red, green, blue, alpha <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> Numbers between <code>0</code> and <code>1</code> that represent the corresponding value for that channel. <code>alpha</code> represents the opacity of the fill color/tint.</p>
-</div>
-</div>
-<div id="gotchas" class="section level2">
+</section>
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
 <p>If you are passing a table of color values to this function, the table must be <a href="../../../api/library/global/unpack.html">unpacked</a> so that the color values are dictated properly:</p>
 <pre class="brush: lua;">local myText = display.newText( "hello", 0, 0, native.systemFontBold, 12 )
 
 local colorTable = { 1, 0, 0, 0.5 }
 myText:setFillVertexColor( 2, unpack(colorTable) )</pre>
-</div>
-<div id="examples" class="section level2">
+</section>
+<section id="examples" class="level2">
 <h2>Examples</h2>
-<div id="vector-object-fill" class="section level5">
+<section id="vector-object-fill" class="level5">
 <h5>Vector Object Fill</h5>
 <pre class="brush: lua;">local vertices = { 0,-110, 27,-35, 105,-35, 43,16, 65,90, 0,45, -65,90, -43,15, -105,-35, -27,-35 }
 
 local star = display.newPolygon( 300, 300, vertices )
 star:setFillVertexColor( 3, 1, 0.2, 0.2 )</pre>
-</div>
-<div id="text-object-fill" class="section level5">
+</section>
+<section id="text-object-fill" class="level5">
 <h5>Text Object Fill</h5>
 <pre class="brush: lua;">local myText = display.newText( "hello", 0, 0, native.systemFontBold, 12 )
 
 myText:setFillVertexColor( 2, 1, 0.2, 0.2 )</pre>
-</div>
-<div id="image-tint" class="section level5">
+</section>
+<section id="image-tint" class="level5">
 <h5>Image Tint</h5>
 <pre class="brush: lua;">local image = display.newImage( "image.png" )
 image:setFillVertexColor( 3, 0.72, 0.9, 0.16, 0.78 )  -- Tints vertex #3 of image green</pre>
@@ -188,9 +188,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

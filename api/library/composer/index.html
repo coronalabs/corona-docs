@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | composer</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,23 +58,23 @@
 <li><a href="#composer.">composer.*</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#functions">Functions</a><ul>
-<li><a href="#composer.getsceneapi.library.composer.getscene"><a href="../../../api/library/composer/getScene.html">composer.getScene()</a></a></li>
-<li><a href="#composer.getscenenameapi.library.composer.getscenename"><a href="../../../api/library/composer/getSceneName.html">composer.getSceneName()</a></a></li>
-<li><a href="#composer.getvariableapi.library.composer.getvariable"><a href="../../../api/library/composer/getVariable.html">composer.getVariable()</a></a></li>
-<li><a href="#composer.gotosceneapi.library.composer.gotoscene"><a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a></a></li>
-<li><a href="#composer.hideoverlayapi.library.composer.hideoverlay"><a href="../../../api/library/composer/hideOverlay.html">composer.hideOverlay()</a></a></li>
-<li><a href="#composer.loadsceneapi.library.composer.loadscene"><a href="../../../api/library/composer/loadScene.html">composer.loadScene()</a></a></li>
-<li><a href="#composer.newsceneapi.library.composer.newscene"><a href="../../../api/library/composer/newScene.html">composer.newScene()</a></a></li>
-<li><a href="#composer.removehiddenapi.library.composer.removehidden"><a href="../../../api/library/composer/removeHidden.html">composer.removeHidden()</a></a></li>
-<li><a href="#composer.removesceneapi.library.composer.removescene"><a href="../../../api/library/composer/removeScene.html">composer.removeScene()</a></a></li>
-<li><a href="#composer.setvariableapi.library.composer.setvariable"><a href="../../../api/library/composer/setVariable.html">composer.setVariable()</a></a></li>
-<li><a href="#composer.showoverlayapi.library.composer.showoverlay"><a href="../../../api/library/composer/showOverlay.html">composer.showOverlay()</a></a></li>
+<li><a href="#composer.getsceneapi.library.composer.getscene"><span>composer.getScene()</span></a></li>
+<li><a href="#composer.getscenenameapi.library.composer.getscenename"><span>composer.getSceneName()</span></a></li>
+<li><a href="#composer.getvariableapi.library.composer.getvariable"><span>composer.getVariable()</span></a></li>
+<li><a href="#composer.gotosceneapi.library.composer.gotoscene"><span>composer.gotoScene()</span></a></li>
+<li><a href="#composer.hideoverlayapi.library.composer.hideoverlay"><span>composer.hideOverlay()</span></a></li>
+<li><a href="#composer.loadsceneapi.library.composer.loadscene"><span>composer.loadScene()</span></a></li>
+<li><a href="#composer.newsceneapi.library.composer.newscene"><span>composer.newScene()</span></a></li>
+<li><a href="#composer.removehiddenapi.library.composer.removehidden"><span>composer.removeHidden()</span></a></li>
+<li><a href="#composer.removesceneapi.library.composer.removescene"><span>composer.removeScene()</span></a></li>
+<li><a href="#composer.setvariableapi.library.composer.setvariable"><span>composer.setVariable()</span></a></li>
+<li><a href="#composer.showoverlayapi.library.composer.showoverlay"><span>composer.showOverlay()</span></a></li>
 </ul></li>
 <li><a href="#properties">Properties</a><ul>
-<li><a href="#composer.isdebugapi.library.composer.isdebug"><a href="../../../api/library/composer/isDebug.html">composer.isDebug</a></a></li>
-<li><a href="#composer.recycleonlowmemoryapi.library.composer.recycleonlowmemory"><a href="../../../api/library/composer/recycleOnLowMemory.html">composer.recycleOnLowMemory</a></a></li>
-<li><a href="#composer.recycleonscenechangeapi.library.composer.recycleonscenechange"><a href="../../../api/library/composer/recycleOnSceneChange.html">composer.recycleOnSceneChange</a></a></li>
-<li><a href="#composer.stageapi.library.composer.stage"><a href="../../../api/library/composer/stage.html">composer.stage</a></a></li>
+<li><a href="#composer.isdebugapi.library.composer.isdebug"><span>composer.isDebug</span></a></li>
+<li><a href="#composer.recycleonlowmemoryapi.library.composer.recycleonlowmemory"><span>composer.recycleOnLowMemory</span></a></li>
+<li><a href="#composer.recycleonscenechangeapi.library.composer.recycleonscenechange"><span>composer.recycleOnSceneChange</span></a></li>
+<li><a href="#composer.stageapi.library.composer.stage"><span>composer.stage</span></a></li>
 </ul></li>
 <li><a href="#scene-template">Scene Template</a></li>
 <li><a href="#source">Source</a></li>
@@ -84,89 +84,89 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/composer/index.html">composer</a>
 </div>
-<div id="composer." class="section level1">
+<section id="composer." class="level1">
 <h1>composer.*</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Library.html">Library</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Library.html">Library</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">composer, scene</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">composer, scene</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../guide/system/composer/index.html">Composer Library</a> <em>(guide)</em></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../guide/system/composer/index.html">Composer Library</a> <em>(guide)</em></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Composer is the official scene (screen) creation and management library in Solar2D. This library provides developers with an easy way to create and transition between individual scenes.</p>
 <p>The primary object in the Composer library is the <code>scene</code> object. This is an event listener that responds to specific events, and it contains a unique <code>self.view</code> property which is a reference to the <a href="../../../api/type/GroupObject/index.html">display group</a> associated with the scene. This <code>self.view</code> is where you should insert visual elements pertaining to the scene.</p>
 <p>See the <a href="#template">Scene Template</a> section below for an example of how a scene file might be structured. For more information on scene events, including names and dispatch order, see the <a href="../../../api/event/scene/index.html">scene events</a> documentation.</p>
-</div>
-<div id="functions" class="section level2">
+</section>
+<section id="functions" class="level2">
 <h2>Functions</h2>
-<div id="composer.getsceneapi.library.composer.getscene" class="section level4">
+<section id="composer.getsceneapi.library.composer.getscene" class="level4">
 <h4><a href="../../../api/library/composer/getScene.html">composer.getScene()</a></h4>
-</div>
-<div id="composer.getscenenameapi.library.composer.getscenename" class="section level4">
+</section>
+<section id="composer.getscenenameapi.library.composer.getscenename" class="level4">
 <h4><a href="../../../api/library/composer/getSceneName.html">composer.getSceneName()</a></h4>
-</div>
-<div id="composer.getvariableapi.library.composer.getvariable" class="section level4">
+</section>
+<section id="composer.getvariableapi.library.composer.getvariable" class="level4">
 <h4><a href="../../../api/library/composer/getVariable.html">composer.getVariable()</a></h4>
-</div>
-<div id="composer.gotosceneapi.library.composer.gotoscene" class="section level4">
+</section>
+<section id="composer.gotosceneapi.library.composer.gotoscene" class="level4">
 <h4><a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a></h4>
-</div>
-<div id="composer.hideoverlayapi.library.composer.hideoverlay" class="section level4">
+</section>
+<section id="composer.hideoverlayapi.library.composer.hideoverlay" class="level4">
 <h4><a href="../../../api/library/composer/hideOverlay.html">composer.hideOverlay()</a></h4>
-</div>
-<div id="composer.loadsceneapi.library.composer.loadscene" class="section level4">
+</section>
+<section id="composer.loadsceneapi.library.composer.loadscene" class="level4">
 <h4><a href="../../../api/library/composer/loadScene.html">composer.loadScene()</a></h4>
-</div>
-<div id="composer.newsceneapi.library.composer.newscene" class="section level4">
+</section>
+<section id="composer.newsceneapi.library.composer.newscene" class="level4">
 <h4><a href="../../../api/library/composer/newScene.html">composer.newScene()</a></h4>
-</div>
-<div id="composer.removehiddenapi.library.composer.removehidden" class="section level4">
+</section>
+<section id="composer.removehiddenapi.library.composer.removehidden" class="level4">
 <h4><a href="../../../api/library/composer/removeHidden.html">composer.removeHidden()</a></h4>
-</div>
-<div id="composer.removesceneapi.library.composer.removescene" class="section level4">
+</section>
+<section id="composer.removesceneapi.library.composer.removescene" class="level4">
 <h4><a href="../../../api/library/composer/removeScene.html">composer.removeScene()</a></h4>
-</div>
-<div id="composer.setvariableapi.library.composer.setvariable" class="section level4">
+</section>
+<section id="composer.setvariableapi.library.composer.setvariable" class="level4">
 <h4><a href="../../../api/library/composer/setVariable.html">composer.setVariable()</a></h4>
-</div>
-<div id="composer.showoverlayapi.library.composer.showoverlay" class="section level4">
+</section>
+<section id="composer.showoverlayapi.library.composer.showoverlay" class="level4">
 <h4><a href="../../../api/library/composer/showOverlay.html">composer.showOverlay()</a></h4>
-</div>
-</div>
-<div id="properties" class="section level2">
+</section>
+</section>
+<section id="properties" class="level2">
 <h2>Properties</h2>
-<div id="composer.isdebugapi.library.composer.isdebug" class="section level4">
+<section id="composer.isdebugapi.library.composer.isdebug" class="level4">
 <h4><a href="../../../api/library/composer/isDebug.html">composer.isDebug</a></h4>
-</div>
-<div id="composer.recycleonlowmemoryapi.library.composer.recycleonlowmemory" class="section level4">
+</section>
+<section id="composer.recycleonlowmemoryapi.library.composer.recycleonlowmemory" class="level4">
 <h4><a href="../../../api/library/composer/recycleOnLowMemory.html">composer.recycleOnLowMemory</a></h4>
-</div>
-<div id="composer.recycleonscenechangeapi.library.composer.recycleonscenechange" class="section level4">
+</section>
+<section id="composer.recycleonscenechangeapi.library.composer.recycleonscenechange" class="level4">
 <h4><a href="../../../api/library/composer/recycleOnSceneChange.html">composer.recycleOnSceneChange</a></h4>
-</div>
-<div id="composer.stageapi.library.composer.stage" class="section level4">
+</section>
+<section id="composer.stageapi.library.composer.stage" class="level4">
 <h4><a href="../../../api/library/composer/stage.html">composer.stage</a></h4>
 <p><a id="template"></a></p>
-</div>
-</div>
-<div id="scene-template" class="section level2">
+</section>
+</section>
+<section id="scene-template" class="level2">
 <h2>Scene Template</h2>
 <p>The following template can be used to create new scene files. Note that this template includes listener functions for all potential events in the scene, but you only need to include listeners for the events that you want to handle.</p>
 <pre class="brush: lua;">local composer = require( "composer" )
@@ -245,8 +245,8 @@ scene:addEventListener( "destroy", scene )
 -- -----------------------------------------------------------------------------------
 
 return scene</pre>
-</div>
-<div id="source" class="section level2">
+</section>
+<section id="source" class="level2">
 <h2>Source</h2>
 <ul>
 <li><a href="https://github.com/coronalabs/framework-composer">View on GitHub</a></li>
@@ -262,8 +262,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

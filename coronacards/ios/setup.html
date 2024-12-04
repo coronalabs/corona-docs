@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — CoronaCards | iOS | setup</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -64,26 +64,26 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../coronacards/index.html">CoronaCards</a>  ▸  <a href="../../coronacards/ios/index.html">iOS</a>  ▸  <a href="../../coronacards/ios/setup.html">setup</a>
 </div>
-<div id="coronacards-ios" class="section level1">
+<section id="coronacards-ios" class="level1">
 <h1>CoronaCards — iOS</h1>
-<div id="xcode-project-setup" class="section level2">
+<section id="xcode-project-setup" class="level2">
 <h2>Xcode Project Setup</h2>
 <p>This guide outlines how to configure CoronaCards for usage with an existing <nobr>iOS-based</nobr> Xcode project.</p>
 <div class="guide-notebox">
 <div class="notebox-title">
 Note
 </div>
-<p>If you're creating a <strong>new</strong> <nobr>CoronaCards-based</nobr> project, you can use <a href="https://github.com/CoronaCards/project-templates-ios">CoronaCards Xcode project templates</a>. Simply follow the instructions in the <code>README</code>.</p>
+<p>If you’re creating a <strong>new</strong> <nobr>CoronaCards-based</nobr> project, you can use <a href="https://github.com/CoronaCards/project-templates-ios">CoronaCards Xcode project templates</a>. Simply follow the instructions in the <code>README</code>.</p>
 </div>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
 Important
 </div>
-<p>In order for any CoronaCards project to work, you must put a valid <code>license.ccdata</code> file near <code>main.lua</code>, otherwise you'll get a black screen and corresponding error message in the console.</p>
+<p>In order for any CoronaCards project to work, you must put a valid <code>license.ccdata</code> file near <code>main.lua</code>, otherwise you’ll get a black screen and corresponding error message in the console.</p>
 </div>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>First, link your app to the C++ library. The easiest way is to rename your <code>main.m</code> file to <code>main.mm</code> within the <strong>Supporting Files</strong> branch of the Xcode project tree.</p></li>
-<li><p>Include the CoronaCards framework in your project's frameworks by dragging <code>/Users/Shared/CoronaLabs/ios/CoronaCards.framework</code> to the <strong>Frameworks</strong> group in your Xcode project.</p>
+<li><p>Include the CoronaCards framework in your project’s frameworks by dragging <code>/Users/Shared/CoronaLabs/ios/CoronaCards.framework</code> to the <strong>Frameworks</strong> group in your Xcode project.</p>
 <p>In addition, CoronaCards depends on several other frameworks. These can be added from the <strong>General</strong> properties view. In this viewport, scroll down to <strong>Linked Frameworks and Libraries</strong>, then press the <strong>+</strong> button to link the frameworks listed below. Note that <code>CoronaCards.framework</code> is already on the list because you copied it to your <strong>Frameworks</strong> group.</p></li>
 </ol>
 <div class="code-indent">
@@ -91,94 +91,94 @@ Important
 <table>
 <thead>
 <tr class="header">
-<th align="left">Framework</th>
-<th align="left"> </th>
+<th style="text-align: left;">Framework</th>
+<th style="text-align: left;"> </th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>AdSupport.framework</code> (may be skipped if your app doesn't use ads)</td>
-<td align="left"></td>
+<td style="text-align: left;"><code>AdSupport.framework</code> (may be skipped if your app doesn’t use ads)</td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td align="left"><code>AudioToolbox.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>AudioToolbox.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>AVFoundation.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>AVFoundation.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td align="left"><code>CFNetwork.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>CFNetwork.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>CoreGraphics.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>CoreGraphics.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td align="left"><code>CoreLocation.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>CoreLocation.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>CoreMedia.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>CoreMedia.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td align="left"><code>CoreMotion.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>CoreMotion.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>CoreVideo.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>CoreVideo.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td align="left"><code>Foundation.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>Foundation.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>GameController.framework</code> (with status <code>optional</code>)</td>
-<td align="left"></td>
+<td style="text-align: left;"><code>GameController.framework</code> (with status <code>optional</code>)</td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td align="left"><code>GLKit.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>GLKit.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>ImageIO.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>ImageIO.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td align="left"><code>MediaPlayer.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>MediaPlayer.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>MobileCoreServices.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>MobileCoreServices.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td align="left"><code>OpenAL.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>OpenAL.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>OpenGLES.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>OpenGLES.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td align="left"><code>QuartzCore.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>QuartzCore.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>Security.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>Security.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td align="left"><code>SystemConfiguration.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>SystemConfiguration.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>UIKit.framework</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>UIKit.framework</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
@@ -188,24 +188,24 @@ Important
 <table>
 <thead>
 <tr class="header">
-<th align="left">Library</th>
-<th align="left"> </th>
+<th style="text-align: left;">Library</th>
+<th style="text-align: left;"> </th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>libsqlite3</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>libsqlite3</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td align="left"><code>libobjc</code>  </td>
-<td align="left"></td>
+<td style="text-align: left;"><code>libobjc</code>  </td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<ol start="3" style="list-style-type: decimal">
+<ol start="3" type="1">
 <li>Click the <strong>Build Settings</strong> tab to configure build settings. Ensure that the <strong>All</strong> <nobr>sub-tab</nobr> is selected and then set the following:</li>
 </ol>
 <div class="code-indent">
@@ -213,42 +213,42 @@ Important
 <table>
 <thead>
 <tr class="header">
-<th align="left">Section</th>
-<th align="left">Setting</th>
-<th align="left">Value</th>
+<th style="text-align: left;">Section</th>
+<th style="text-align: left;">Setting</th>
+<th style="text-align: left;">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Search Paths</td>
-<td align="left">Framework Search Paths</td>
-<td align="left"><code>/Users/Shared/CoronaLabs/ios/</code></td>
+<td style="text-align: left;">Search Paths</td>
+<td style="text-align: left;">Framework Search Paths</td>
+<td style="text-align: left;"><code>/Users/Shared/CoronaLabs/ios/</code></td>
 </tr>
 <tr class="even">
-<td align="left">Build Options</td>
-<td align="left">Enable Bitcode</td>
-<td align="left">No</td>
+<td style="text-align: left;">Build Options</td>
+<td style="text-align: left;">Enable Bitcode</td>
+<td style="text-align: left;">No</td>
 </tr>
 <tr class="odd">
-<td align="left">Deployment</td>
-<td align="left">iOS Deployment Target</td>
-<td align="left"><code>iOS 8.0</code> or higher</td>
+<td style="text-align: left;">Deployment</td>
+<td style="text-align: left;">iOS Deployment Target</td>
+<td style="text-align: left;"><code>iOS 8.0</code> or higher</td>
 </tr>
 <tr class="even">
-<td align="left">Deployment</td>
-<td align="left">Strip Style</td>
-<td align="left">Non-Global Symbols</td>
+<td style="text-align: left;">Deployment</td>
+<td style="text-align: left;">Strip Style</td>
+<td style="text-align: left;">Non-Global Symbols</td>
 </tr>
 <tr class="odd">
-<td align="left">Linking</td>
-<td align="left">Other Linker Flags</td>
-<td align="left"><code>-ObjC</code></td>
+<td style="text-align: left;">Linking</td>
+<td style="text-align: left;">Other Linker Flags</td>
+<td style="text-align: left;"><code>-ObjC</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<ol start="4" style="list-style-type: decimal">
+<ol start="4" type="1">
 <li>Lua code and assets for CoronaCards must be copied to the app bundle before deployment, so you must configure the run script. The best method is to create a <code>Corona</code> folder in your project via the Finder and place your assets within it. Then, configure a <strong>Run Script Build Phase</strong> to copy the assets upon building the project:</li>
 </ol>
 <div class="code-indent">
@@ -262,8 +262,8 @@ Important
 ditto -V $PROJECT_DIR/Corona "$TARGET_BUILD_DIR"/"$EXECUTABLE_FOLDER_PATH"</pre>
 </div>
 </div>
-</div>
-<div id="section" class="section level2">
+</section>
+<section id="section" class="level2">
 <h2></h2>
 <div class="walkthrough-nav">
 <p><strong>⟨</strong> <a href="../../coronacards/ios/index.html">Guide Index</a> <em>|</em> <a href="../../coronacards/ios/uikit.html">Obj-C/UIKit Integration</a> <strong>⟩</strong></p>
@@ -278,8 +278,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

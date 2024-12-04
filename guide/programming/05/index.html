@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Getting Started</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -82,14 +82,14 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/programming/index.html">Getting Started</a>
 </div>
-<div id="chapter-5-converting-the-game-to-composer" class="section level1">
+<section id="chapter-5-converting-the-game-to-composer" class="level1">
 <h1>Chapter 5 — Converting the Game to Composer</h1>
 <div class="walkthrough-nav">
 <div class="walkthrough-nav-upper-right">
 <p><strong>⟨</strong> <a href="../../../guide/programming/04/index.html">Previous</a> <em>|</em> <a href="../../../guide/programming/06/index.html">Next</a> <strong>⟩</strong></p>
 </div>
 </div>
-<p>In the last chapter, we learned the basics of scene management. In this chapter, we're going to convert the original game file, <nobr>now <code>main_original.lua</code></nobr>, into our <code>game.lua</code> scene.</p>
+<p>In the last chapter, we learned the basics of scene management. In this chapter, we’re going to convert the original game file, <nobr>now <code>main_original.lua</code></nobr>, into our <code>game.lua</code> scene.</p>
 <div class="guides-toc">
 <ul>
 <li><a href="#structure">Scene Structure</a></li>
@@ -103,25 +103,25 @@
 </ul>
 </div>
 <p><a id="structure"></a></p>
-<div id="scene-structure" class="section level2">
+<section id="scene-structure" class="level2">
 <h2>Scene Structure</h2>
 <p>As you learned in the previous chapter, there are dedicated places in a <nobr>Composer-enabled</nobr> Lua file to put different aspects of your program. In our original version of Star Explorer, we had the luxury of writing our code in a linear order, for example creating an object, positioning it on the screen, potentially adding a physical body, linking up event listeners, and then moving on to the next item.</p>
 <p>Composer requires that you think a little differently. Using it correctly requires that you consider the scene life cycle functions — <code>scene:create()</code>, <code>scene:show()</code>, <code>scene:hide()</code>, and <nobr><code>scene:destroy()</code> —</nobr> and that you run commands depending on whether the scene is on screen or off screen.</p>
-<p>Consider this concept like a movie scene: if the director is transitioning into a scene — fading in, panning the camera to a point, etc. — the actors in the scene usually won't begin acting until the scene is &quot;ready&quot; and focused. The same approach applies to Composer scenes. For instance, we already added commands to spawn asteroids and put them in motion, but in this <code>game.lua</code> scene we're about to create, those commands will only run once the scene is fully on screen.</p>
+<p>Consider this concept like a movie scene: if the director is transitioning into a scene — fading in, panning the camera to a point, etc. — the actors in the scene usually won’t begin acting until the scene is “ready” and focused. The same approach applies to Composer scenes. For instance, we already added commands to spawn asteroids and put them in motion, but in this <code>game.lua</code> scene we’re about to create, those commands will only run once the scene is fully on screen.</p>
 <p><a id="accessible"></a></p>
-</div>
-<div id="accessible-code" class="section level2">
+</section>
+<section id="accessible-code" class="level2">
 <h2>Accessible Code</h2>
-<p>Let's get started! The first point of attack is the <nobr>scene-accessible</nobr> area of the file.</p>
-<ol style="list-style-type: decimal">
-<li><p>Make a copy of the standard <nobr><code>scene-template.lua</code></nobr> file, included with this chapter's <a href="https://github.com/coronalabs/GettingStarted05/archive/master.zip">source files</a>.</p></li>
+<p>Let’s get started! The first point of attack is the <nobr>scene-accessible</nobr> area of the file.</p>
+<ol type="1">
+<li><p>Make a copy of the standard <nobr><code>scene-template.lua</code></nobr> file, included with this chapter’s <a href="https://github.com/coronalabs/GettingStarted05/archive/master.zip">source files</a>.</p></li>
 <li><p>Rename this <strong>copy</strong> to <code>game.lua</code> and place it within your <code>StarExplorer</code> project folder.</p></li>
-<li><p>Open both <code>main_original.lua</code> and <code>game.lua</code> in separate editor windows/tabs. You will be copying several blocks of code from <code>main_original.lua</code> to <code>game.lua</code>, so it's convenient to have both Lua files open simultaneously.</p></li>
+<li><p>Open both <code>main_original.lua</code> and <code>game.lua</code> in separate editor windows/tabs. You will be copying several blocks of code from <code>main_original.lua</code> to <code>game.lua</code>, so it’s convenient to have both Lua files open simultaneously.</p></li>
 </ol>
-<div id="physics-setup" class="section level3">
+<section id="physics-setup" class="level3">
 <h3>Physics Setup</h3>
-<p>Since this game will obviously still utilize the physics engine, there's no reason to defer that setup until later. Copy your physics setup commands from <code>main_original.lua</code> and paste them into the <nobr>scene-accessible</nobr> space of <code>game.lua</code>, immediately following initialization of the scene:</p>
-<pre class="brush: lua; gutter: true; highlight: [11,12,13]; first-line: 2;">local composer = require( "composer" )
+<p>Since this game will obviously still utilize the physics engine, there’s no reason to defer that setup until later. Copy your physics setup commands from <code>main_original.lua</code> and paste them into the <nobr>scene-accessible</nobr> space of <code>game.lua</code>, immediately following initialization of the scene:</p>
+<pre class="highlight: [11,12,13]; first-line: 2; gutter: true; brush: lua;">local composer = require( "composer" )
 
 local scene = composer.newScene()
 
@@ -137,13 +137,13 @@ physics.setGravity( 0, 0 )</pre>
 <div class="notebox-title">
 Note
 </div>
-<p>Previously, we followed these commands with the <a href="../../../api/library/math/randomseed.html">math.randomseed()</a> command. However, you may recall that we <nobr>re-stated</nobr> that command in our modified <code>main.lua</code> file, so there's no reason to copy it over to <code>game.lua</code>.</p>
+<p>Previously, we followed these commands with the <a href="../../../api/library/math/randomseed.html">math.randomseed()</a> command. However, you may recall that we <nobr>re-stated</nobr> that command in our modified <code>main.lua</code> file, so there’s no reason to copy it over to <code>game.lua</code>.</p>
 </div>
-</div>
-<div id="image-sheet" class="section level3">
+</section>
+<section id="image-sheet" class="level3">
 <h3>Image Sheet</h3>
-<p>Next we'll need the image sheet configuration. Let's paste that just below the physics commands:</p>
-<pre class="brush: lua; gutter: true; highlight: [15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52]; first-line: 11;">local physics = require( "physics" )
+<p>Next we’ll need the image sheet configuration. Let’s paste that just below the physics commands:</p>
+<pre class="highlight: [15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52]; first-line: 11; gutter: true; brush: lua;">local physics = require( "physics" )
 physics.start()
 physics.setGravity( 0, 0 )
 
@@ -185,11 +185,11 @@ local sheetOptions =
     }
 }
 local objectSheet = graphics.newImageSheet( "gameObjects.png", sheetOptions )</pre>
-</div>
-<div id="initial-variables" class="section level3">
+</section>
+<section id="initial-variables" class="level3">
 <h3>Initial Variables</h3>
 <p>Following the image sheet setup, paste in the following localized variables from <code>main_original.lua</code>:</p>
-<pre class="brush: lua; gutter: true; highlight: [54,55,56,57,58,59,60,61,62,63,64]; first-line: 52;">local objectSheet = graphics.newImageSheet( "gameObjects.png", sheetOptions )
+<pre class="highlight: [54,55,56,57,58,59,60,61,62,63,64]; first-line: 52; gutter: true; brush: lua;">local objectSheet = graphics.newImageSheet( "gameObjects.png", sheetOptions )
 
 -- Initialize variables
 local lives = 3
@@ -202,13 +202,13 @@ local ship
 local gameLoopTimer
 local livesText
 local scoreText</pre>
-</div>
-<div id="display-groups" class="section level3">
+</section>
+<section id="display-groups" class="level3">
 <h3>Display Groups</h3>
-<p>In our original version, we created three display groups for sorting and layering our game objects: <code>backGroup</code>, <code>mainGroup</code> and <code>uiGroup</code>. We are still going to use them, but a few small modifications will be necessary since we're using Composer.</p>
-<p>In the last chapter, you learned how to insert scene objects into the scene's <strong>view</strong> group (<code>sceneGroup</code>). Now, an important concept to understand is that display groups can actually be inserted into other display groups! As such, we can maintain the three display groups from the original game <strong>and</strong> instill them into the scene's view group.</p>
+<p>In our original version, we created three display groups for sorting and layering our game objects: <code>backGroup</code>, <code>mainGroup</code> and <code>uiGroup</code>. We are still going to use them, but a few small modifications will be necessary since we’re using Composer.</p>
+<p>In the last chapter, you learned how to insert scene objects into the scene’s <strong>view</strong> group (<code>sceneGroup</code>). Now, an important concept to understand is that display groups can actually be inserted into other display groups! As such, we can maintain the three display groups from the original game <strong>and</strong> instill them into the scene’s view group.</p>
 <p>To facilitate this, we will defer the actual creation of our three groups until we create the scene. However, we still need to define the variables now using the <strong>forward declaration</strong> method that you learned about earlier. So, instead of associating each variable with a <a href="../../../api/library/display/newGroup.html">display.newGroup()</a>, just leave them undefined for the moment:</p>
-<pre class="brush: lua; gutter: true; highlight: [66,67,68]; first-line: 61;">local ship
+<pre class="highlight: [66,67,68]; first-line: 61; gutter: true; brush: lua;">local ship
 local gameLoopTimer
 local livesText
 local scoreText
@@ -220,14 +220,14 @@ local uiGroup</pre>
 <div class="notebox-title">
 Note
 </div>
-<p>In our original version, we created the background, ship, lives text, and score text immediately following initialization of the display groups. Now, because we're only creating local references for the display groups, we must defer these actions until later, inside the <code>scene:create()</code> function.</p>
+<p>In our original version, we created the background, ship, lives text, and score text immediately following initialization of the display groups. Now, because we’re only creating local references for the display groups, we must defer these actions until later, inside the <code>scene:create()</code> function.</p>
 </div>
-</div>
-<div id="game-functions" class="section level3">
+</section>
+<section id="game-functions" class="level3">
 <h3>Game Functions</h3>
-<p>As we continue past this point in <code>main_original.lua</code>, we come to the local functions which power our game's core functionality. Basically, these can be copied over directly into your <code>game.lua</code> file, pasted directly below the variables we just defined.</p>
+<p>As we continue past this point in <code>main_original.lua</code>, we come to the local functions which power our game’s core functionality. Basically, these can be copied over directly into your <code>game.lua</code> file, pasted directly below the variables we just defined.</p>
 <p>First, copy over the <code>updateText()</code> function:</p>
-<pre class="brush: lua; gutter: true; highlight: [71,72,73,74]; first-line: 66;">local backGroup
+<pre class="highlight: [71,72,73,74]; first-line: 66; gutter: true; brush: lua;">local backGroup
 local mainGroup
 local uiGroup
 
@@ -237,7 +237,7 @@ local function updateText()
     scoreText.text = "Score: " .. score
 end</pre>
 <p>Follow this with the <code>createAsteroid()</code> function:</p>
-<pre class="brush: lua; gutter: true; highlight: [77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104]; first-line: 71;">local function updateText()
+<pre class="highlight: [77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104]; first-line: 71; gutter: true; brush: lua;">local function updateText()
     livesText.text = "Lives: " .. lives
     scoreText.text = "Score: " .. score
 end
@@ -272,7 +272,7 @@ local function createAsteroid()
     newAsteroid:applyTorque( math.random( -6,6 ) )
 end</pre>
 <p>The next function, <code>fireLaser()</code>, should follow:</p>
-<pre class="brush: lua; gutter: true; highlight: [107,108,109,110,111,112,113,114,115,116,117,118,119,120,121]; first-line: 103;">    newAsteroid:applyTorque( math.random( -6,6 ) )
+<pre class="highlight: [107,108,109,110,111,112,113,114,115,116,117,118,119,120,121]; first-line: 103; gutter: true; brush: lua;">    newAsteroid:applyTorque( math.random( -6,6 ) )
 end
 
 
@@ -296,16 +296,16 @@ end</pre>
 Important
 </div>
 <p>Now observe the line directly following the <code>fireLaser()</code> function in <code>main_original.lua</code>:</p>
-<pre class="brush: lua; first-line: 1; highlight: [1];">ship:addEventListener( "tap", fireLaser )</pre>
-<p>This creates the event listener function for <code>ship</code>, but we haven't created <code>ship</code> yet! Thus, we must defer this command until later, following creation of the actual ship object.</p>
-<p>As you copy/paste in the next few functions, skip the commands which immediately follow them. Specifically, <strong>omit the following lines</strong> when you're copying over code from <code>main_original.lua</code> to <code>game.lua</code>:</p>
-<pre class="brush: lua; gutter: true; first-line: 136;">ship:addEventListener( "tap", fireLaser )</pre>
-<pre class="brush: lua; gutter: true; first-line: 162;">ship:addEventListener( "touch", dragShip )</pre>
-<pre class="brush: lua; gutter: true; first-line: 185;">gameLoopTimer = timer.performWithDelay( 500, gameLoop, 0 )</pre>
-<pre class="brush: lua; gutter: true; first-line: 250;">Runtime:addEventListener( "collision", onCollision )</pre>
+<pre class="highlight: [1]; first-line: 1; brush: lua;">ship:addEventListener( "tap", fireLaser )</pre>
+<p>This creates the event listener function for <code>ship</code>, but we haven’t created <code>ship</code> yet! Thus, we must defer this command until later, following creation of the actual ship object.</p>
+<p>As you copy/paste in the next few functions, skip the commands which immediately follow them. Specifically, <strong>omit the following lines</strong> when you’re copying over code from <code>main_original.lua</code> to <code>game.lua</code>:</p>
+<pre class="first-line: 136; gutter: true; brush: lua;">ship:addEventListener( "tap", fireLaser )</pre>
+<pre class="first-line: 162; gutter: true; brush: lua;">ship:addEventListener( "touch", dragShip )</pre>
+<pre class="first-line: 185; gutter: true; brush: lua;">gameLoopTimer = timer.performWithDelay( 500, gameLoop, 0 )</pre>
+<pre class="first-line: 250; gutter: true; brush: lua;">Runtime:addEventListener( "collision", onCollision )</pre>
 </div>
 <p>Essentially, the remainder of your <nobr>scene-accessible</nobr> space should be populated as follows:</p>
-<pre class="brush: lua; gutter: true; first-line: 124;">local function dragShip( event )
+<pre class="first-line: 124; gutter: true; brush: lua;">local function dragShip( event )
 
     local ship = event.target
     local phase = event.phase
@@ -416,15 +416,15 @@ end
 -- -----------------------------------------------------------------------------------
 -- Scene event functions
 -- -----------------------------------------------------------------------------------</pre>
-<p>Great job! We now have all of the <nobr>scene-accessible</nobr> code copied over. In the next few sections, we'll illustrate how the Composer <code>scene:</code> functions tie our game together.</p>
+<p>Great job! We now have all of the <nobr>scene-accessible</nobr> code copied over. In the next few sections, we’ll illustrate how the Composer <code>scene:</code> functions tie our game together.</p>
 <p><a id="create"></a></p>
-</div>
-</div>
-<div id="creating-the-scene" class="section level2">
+</section>
+</section>
+<section id="creating-the-scene" class="level2">
 <h2>Creating the Scene</h2>
-<p>Now we need to actually <strong>create</strong> the scene. For the menu scene in the previous chapter, we created the background, title, and two buttons within <code>scene:create()</code>. For this scene, we'll create the background, ship, and the two text objects. In addition, we'll pause the physics engine and actually create the three display groups required for layering our game objects.</p>
-<p>Let's start with physics. Inside the <code>scene:create()</code> function, add the command <code>physics.pause()</code> as follows:</p>
-<pre class="brush: lua; gutter: true; highlight: [242]; first-line: 232;">-- -----------------------------------------------------------------------------------
+<p>Now we need to actually <strong>create</strong> the scene. For the menu scene in the previous chapter, we created the background, title, and two buttons within <code>scene:create()</code>. For this scene, we’ll create the background, ship, and the two text objects. In addition, we’ll pause the physics engine and actually create the three display groups required for layering our game objects.</p>
+<p>Let’s start with physics. Inside the <code>scene:create()</code> function, add the command <code>physics.pause()</code> as follows:</p>
+<pre class="highlight: [242]; first-line: 232; gutter: true; brush: lua;">-- -----------------------------------------------------------------------------------
 -- Scene event functions
 -- -----------------------------------------------------------------------------------
 
@@ -443,11 +443,11 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>What is the purpose of this command at this point in the scene's life cycle? Remember that our game scene isn't truly on screen at this point and, because we don't want the game to start quite yet, we'll immediately pause the physics engine. This allows us to create objects, assign their physical bodies, and position them, but they won't be affected physically until we <nobr>re-start</nobr> the physics engine.</p>
+<p>What is the purpose of this command at this point in the scene’s life cycle? Remember that our game scene isn’t truly on screen at this point and, because we don’t want the game to start quite yet, we’ll immediately pause the physics engine. This allows us to create objects, assign their physical bodies, and position them, but they won’t be affected physically until we <nobr>re-start</nobr> the physics engine.</p>
 </div>
 </div>
 <p>Next we need to create the three display groups for which we previously just defined forward references. Add the following highlighted lines:</p>
-<pre class="brush: lua; gutter: true; highlight: [244,245,246,247,248,249,250,251,252]; first-line: 237;">function scene:create( event )
+<pre class="highlight: [244,245,246,247,248,249,250,251,252]; first-line: 237; gutter: true; brush: lua;">function scene:create( event )
 
     local sceneGroup = self.view
     -- Code here runs when the scene is first created but has not yet appeared on screen
@@ -464,7 +464,7 @@ end</pre>
     uiGroup = display.newGroup()    -- Display group for UI objects like the score
     sceneGroup:insert( uiGroup )    -- Insert into the scene's view group
 end</pre>
-<p>Here, in addition to creating the groups, we also <strong>insert</strong> each group into the Composer scene's <strong>view</strong> group (<code>sceneGroup</code>) using <code>sceneGroup:insert()</code>. This is how we instill our original display groups into the scene.</p>
+<p>Here, in addition to creating the groups, we also <strong>insert</strong> each group into the Composer scene’s <strong>view</strong> group (<code>sceneGroup</code>) using <code>sceneGroup:insert()</code>. This is how we instill our original display groups into the scene.</p>
 <div class="docs-tip-outer">
 <div class="docs-tip-inner-left">
 <div class="fa fa-cog">
@@ -472,11 +472,11 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>As you recall, most Solar2D display object APIs accept a valid display group variable as a convenient inline shortcut for inserting the object into that group. However, <a href="../../../api/library/display/newGroup.html">display.newGroup()</a> is one of the exceptions to this shortcut — you can't simply supply an inline group reference to insert the new display group into an existing group. Instead, you must use the <code>object:insert()</code> command.</p>
+<p>As you recall, most Solar2D display object APIs accept a valid display group variable as a convenient inline shortcut for inserting the object into that group. However, <a href="../../../api/library/display/newGroup.html">display.newGroup()</a> is one of the exceptions to this shortcut — you can’t simply supply an inline group reference to insert the new display group into an existing group. Instead, you must use the <code>object:insert()</code> command.</p>
 </div>
 </div>
-<p>With the groups in place, let's create the background:</p>
-<pre class="brush: lua; gutter: true; highlight: [254,255,256,257]; first-line: 244;">    -- Set up display groups
+<p>With the groups in place, let’s create the background:</p>
+<pre class="highlight: [254,255,256,257]; first-line: 244; gutter: true; brush: lua;">    -- Set up display groups
     backGroup = display.newGroup()  -- Display group for the background image
     sceneGroup:insert( backGroup )  -- Insert into the scene's view group
 
@@ -495,10 +495,10 @@ end</pre>
 <div class="notebox-title">
 Note
 </div>
-<p>If you inspect the scene-accessible code area near the top of <code>game.lua</code>, you'll notice that we did <strong>not</strong> include a forward reference to <code>background</code> via <nobr><code>local background</code></nobr>. This is because, once we create and insert the background object into the scene's view, we'll never need to access it elsewhere in the code. Thus, we simply create it as a <code>local</code> object inside the <code>scene:create()</code> function.</p>
+<p>If you inspect the scene-accessible code area near the top of <code>game.lua</code>, you’ll notice that we did <strong>not</strong> include a forward reference to <code>background</code> via <nobr><code>local background</code></nobr>. This is because, once we create and insert the background object into the scene’s view, we’ll never need to access it elsewhere in the code. Thus, we simply create it as a <code>local</code> object inside the <code>scene:create()</code> function.</p>
 </div>
-<p>Now let's create the ship and both text objects:</p>
-<pre class="brush: lua; gutter: true; highlight: [259,260,261,262,263,264,265,266,267]; first-line: 254;">    -- Load the background
+<p>Now let’s create the ship and both text objects:</p>
+<pre class="highlight: [259,260,261,262,263,264,265,266,267]; first-line: 254; gutter: true; brush: lua;">    -- Load the background
     local background = display.newImageRect( backGroup, "background.png", 800, 1400 )
     background.x = display.contentCenterX
     background.y = display.contentCenterY
@@ -531,33 +531,33 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Notice that we are still inserting objects into their proper display groups such as <code>backGroup</code>, <code>mainGroup</code>, and <code>uiGroup</code>. This is the correct procedure because all of those groups were inserted into the scene's <strong>view</strong> group and they are now children of that parent group.</p>
+<p>Notice that we are still inserting objects into their proper display groups such as <code>backGroup</code>, <code>mainGroup</code>, and <code>uiGroup</code>. This is the correct procedure because all of those groups were inserted into the scene’s <strong>view</strong> group and they are now children of that parent group.</p>
 </div>
 </div>
-<p>Moving onward — remember how we deferred adding the ship's <code>&quot;tap&quot;</code> and <code>&quot;touch&quot;</code> event listeners in the <nobr>scene-accessible</nobr> section because <code>ship</code> didn't yet exist as an actual object? Now that the ship <strong>does</strong> exist, let's add its event listeners:</p>
-<pre class="brush: lua; gutter: true; highlight: [269,270]; first-line: 265;">    -- Display lives and score
+<p>Moving onward — remember how we deferred adding the ship’s <code>"tap"</code> and <code>"touch"</code> event listeners in the <nobr>scene-accessible</nobr> section because <code>ship</code> didn’t yet exist as an actual object? Now that the ship <strong>does</strong> exist, let’s add its event listeners:</p>
+<pre class="highlight: [269,270]; first-line: 265; gutter: true; brush: lua;">    -- Display lives and score
     livesText = display.newText( uiGroup, "Lives: " .. lives, 200, 80, native.systemFont, 36 )
     scoreText = display.newText( uiGroup, "Score: " .. score, 400, 80, native.systemFont, 36 )
 
     ship:addEventListener( "tap", fireLaser )
     ship:addEventListener( "touch", dragShip )
 end</pre>
-<p>That's it! Our initial scene objects will now be created — albeit off screen — immediately before Composer proceeds to the next function in the scene's life cycle, <code>scene:show()</code>.</p>
+<p>That’s it! Our initial scene objects will now be created — albeit off screen — immediately before Composer proceeds to the next function in the scene’s life cycle, <code>scene:show()</code>.</p>
 <p><a id="show"></a></p>
-</div>
-<div id="showing-the-scene" class="section level2">
+</section>
+<section id="showing-the-scene" class="level2">
 <h2>Showing the Scene</h2>
-<p>In the menu scene, we didn't need to use <code>scene:show()</code> nor its companion function <code>scene:hide()</code>, but in this game scene we do. At this point, there are still some essential aspects which we haven't copied over from <code>main_original.lua</code> — primarily, we have not yet enabled collision detection or started the game loop to spawn asteroids. Fortunately, <code>scene:show()</code> can be used to put everything in motion!</p>
-<div id="transition-effects" class="section level3">
+<p>In the menu scene, we didn’t need to use <code>scene:show()</code> nor its companion function <code>scene:hide()</code>, but in this game scene we do. At this point, there are still some essential aspects which we haven’t copied over from <code>main_original.lua</code> — primarily, we have not yet enabled collision detection or started the game loop to spawn asteroids. Fortunately, <code>scene:show()</code> can be used to put everything in motion!</p>
+<section id="transition-effects" class="level3">
 <h3>Transition Effects</h3>
-<p>While we didn't utilize one for the menu scene, the <a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a> command allows you to specify a <strong>transition effect</strong> such as fading in, sliding in from a screen edge, <nobr>cross-fading</nobr> from the previous scene, etc. Naturally, there is a <strong>time</strong> duration associated with the start and finish of scene transitions, and this is where <strong>scene phases</strong> come into play.</p>
-</div>
-<div id="scene-phases" class="section level3">
+<p>While we didn’t utilize one for the menu scene, the <a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a> command allows you to specify a <strong>transition effect</strong> such as fading in, sliding in from a screen edge, <nobr>cross-fading</nobr> from the previous scene, etc. Naturally, there is a <strong>time</strong> duration associated with the start and finish of scene transitions, and this is where <strong>scene phases</strong> come into play.</p>
+</section>
+<section id="scene-phases" class="level3">
 <h3>Scene Phases</h3>
-<p>An important factor to understand <nobr>(in contrast to <code>scene:create()</code>)</nobr> is that Composer calls the <code>scene:show()</code> function <strong>twice</strong>. Of course it's imperative to know <strong>when</strong> each of these calls occurs so that we can take the proper actions at the proper time. This distinction is provided via <code>event.phase</code> within <code>scene:show()</code>. Basically, <code>scene:show()</code> calls/phases work like this:</p>
-<ol style="list-style-type: decimal">
-<li><p>The first call occurs when the scene is ready to be shown, essentially after every command within <code>scene:create()</code> has been executed. In this case, <code>event.phase</code> is <code>&quot;will&quot;</code>, effectively indicating that the scene &quot;will show&quot; and the transition effect is about to occur.</p></li>
-<li><p>The second call occurs immediately <strong>after</strong> the scene has shown — basically, when the scene transition has completed. In this case, <code>event.phase</code> is <code>&quot;did&quot;</code>, meaning the scene &quot;did show&quot; and the transition effect completed.</p></li>
+<p>An important factor to understand <nobr>(in contrast to <code>scene:create()</code>)</nobr> is that Composer calls the <code>scene:show()</code> function <strong>twice</strong>. Of course it’s imperative to know <strong>when</strong> each of these calls occurs so that we can take the proper actions at the proper time. This distinction is provided via <code>event.phase</code> within <code>scene:show()</code>. Basically, <code>scene:show()</code> calls/phases work like this:</p>
+<ol type="1">
+<li><p>The first call occurs when the scene is ready to be shown, essentially after every command within <code>scene:create()</code> has been executed. In this case, <code>event.phase</code> is <code>"will"</code>, effectively indicating that the scene “will show” and the transition effect is about to occur.</p></li>
+<li><p>The second call occurs immediately <strong>after</strong> the scene has shown — basically, when the scene transition has completed. In this case, <code>event.phase</code> is <code>"did"</code>, meaning the scene “did show” and the transition effect completed.</p></li>
 </ol>
 <div class="docs-tip-outer">
 <div class="docs-tip-inner-left">
@@ -567,7 +567,7 @@ end</pre>
 </div>
 <div class="docs-tip-inner-right">
 <p>Notice that the scene template already contains a conditional statement to check for each phase of <code>scene:show()</code>:</p>
-<pre class="brush: lua; first-line: 1; highlight: [7,8,10,11];">-- show()
+<pre class="highlight: [7,8,10,11]; first-line: 1; brush: lua;">-- show()
 function scene:show( event )
 
     local sceneGroup = self.view
@@ -583,8 +583,8 @@ function scene:show( event )
 end</pre>
 </div>
 </div>
-<p>Now that you understand this concept, simply paste code from your <code>main_original.lua</code> file into the proper conditional clause. For this game, we basically want to start the game running — spawning asteroids, detecting collisions, etc. — once the scene is fully on screen <nobr>(the <code>&quot;did&quot;</code> phase)</nobr>. So, in your <code>game.lua</code> file, within the <code>scene:show()</code> function, add the three highlighted commands:</p>
-<pre class="brush: lua; gutter: true; highlight: [285,286,287]; first-line: 274;">-- show()
+<p>Now that you understand this concept, simply paste code from your <code>main_original.lua</code> file into the proper conditional clause. For this game, we basically want to start the game running — spawning asteroids, detecting collisions, etc. — once the scene is fully on screen <nobr>(the <code>"did"</code> phase)</nobr>. So, in your <code>game.lua</code> file, within the <code>scene:show()</code> function, add the three highlighted commands:</p>
+<pre class="highlight: [285,286,287]; first-line: 274; gutter: true; brush: lua;">-- show()
 function scene:show( event )
 
     local sceneGroup = self.view
@@ -601,7 +601,7 @@ function scene:show( event )
     end
 end</pre>
 <p>Essentially, these commands accomplish the following:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Re-start the physics engine with <code>physics.start()</code> (remember that we paused it in <code>scene:create()</code>).</li>
 <li>Start collision detection.</li>
 <li>Start the game loop with our original <a href="../../../api/library/timer/performWithDelay.html">timer.performWithDelay()</a> command.</li>
@@ -613,23 +613,23 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Let's check the result of our code! Save your modified <code>game.lua</code> file and then relaunch the Simulator. As expected, you'll be presented with the menu screen, but now we can actually proceed. Tap/click the <strong>Play</strong> button and, assuming you did everything up to this point correctly, Composer should proceed to the <code>game.lua</code> scene which plays identically to our original version of the game.</p>
+<p>Let’s check the result of our code! Save your modified <code>game.lua</code> file and then relaunch the Simulator. As expected, you’ll be presented with the menu screen, but now we can actually proceed. Tap/click the <strong>Play</strong> button and, assuming you did everything up to this point correctly, Composer should proceed to the <code>game.lua</code> scene which plays identically to our original version of the game.</p>
 </div>
 </div>
 <p><a id="hide"></a></p>
-</div>
-</div>
-<div id="hiding-the-scene" class="section level2">
+</section>
+</section>
+<section id="hiding-the-scene" class="level2">
 <h2>Hiding the Scene</h2>
-<p>At this point there's a significant flaw in the game. When the player runs out of lives, the asteroids will continue to build up and there is no way to restart the game. This means that we need to adapt our <code>game.lua</code> code so that Composer exits the scene when the player runs out of lives.</p>
+<p>At this point there’s a significant flaw in the game. When the player runs out of lives, the asteroids will continue to build up and there is no way to restart the game. This means that we need to adapt our <code>game.lua</code> code so that Composer exits the scene when the player runs out of lives.</p>
 <p>When we intend to exit the game scene, remember that the <code>gameLoopTimer</code> timer will still be running, spawning asteroids and removing <nobr>off-screen</nobr> asteroids. In addition, the physics engine will still be moving asteroids about. All of these things should be stopped inside the <code>scene:hide()</code> function.</p>
 <p>Similar to <code>scene:show()</code>, <code>scene:hide()</code> will be called <strong>twice</strong> and the distinction is once again provided via <code>event.phase</code>. Basically, <code>scene:hide()</code> calls/phases work like this:</p>
-<ol style="list-style-type: decimal">
-<li><p>The first call occurs when the scene is about to be hidden <nobr>(transition off screen)</nobr>. In this case, <code>event.phase</code> is <code>&quot;will&quot;</code>, effectively indicating that the scene &quot;will hide&quot; and the transition effect is about to occur.</p></li>
-<li><p>The second call occurs immediately <strong>after</strong> the scene is fully off screen. In this case, <code>event.phase</code> is <code>&quot;did&quot;</code>, meaning the scene &quot;did hide&quot; and the transition effect completed.</p></li>
+<ol type="1">
+<li><p>The first call occurs when the scene is about to be hidden <nobr>(transition off screen)</nobr>. In this case, <code>event.phase</code> is <code>"will"</code>, effectively indicating that the scene “will hide” and the transition effect is about to occur.</p></li>
+<li><p>The second call occurs immediately <strong>after</strong> the scene is fully off screen. In this case, <code>event.phase</code> is <code>"did"</code>, meaning the scene “did hide” and the transition effect completed.</p></li>
 </ol>
-<p>For this scene, in the <code>&quot;will&quot;</code> and <code>&quot;did&quot;</code> phase conditions of <code>scene:hide()</code>, we'll &quot;undo&quot; some things by adding three commands:</p>
-<pre class="brush: lua; gutter: true; highlight: [300,304,305]; first-line: 292;">-- hide()
+<p>For this scene, in the <code>"will"</code> and <code>"did"</code> phase conditions of <code>scene:hide()</code>, we’ll “undo” some things by adding three commands:</p>
+<pre class="highlight: [300,304,305]; first-line: 292; gutter: true; brush: lua;">-- hide()
 function scene:hide( event )
 
     local sceneGroup = self.view
@@ -646,7 +646,7 @@ function scene:hide( event )
     end
 end</pre>
 <p>These commands essentially reverse what we did in the <code>scene:show()</code> function:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Stop the game loop by canceling the timer associated with <code>gameLoopTimer</code>.</li>
 <li>Stop collision detection by removing the runtime event listener.</li>
 <li>Pause the physics engine with <code>physics.pause()</code>.</li>
@@ -658,15 +658,15 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Note how we're intentionally using <strong>both</strong> phases of <code>scene:hide()</code>. The first command can occur before the scene begins to hide <nobr>(<code>phase == &quot;will&quot;</code>)</nobr> since we don't need to generate new asteroids once the game is over. For the other two commands, we defer them until after the scene is fully off screen because we don't want the remaining asteroids to suddenly stop detecting collisions or stop moving (<code>physics.pause()</code>) when the scene transition begins.</p>
+<p>Note how we’re intentionally using <strong>both</strong> phases of <code>scene:hide()</code>. The first command can occur before the scene begins to hide <nobr>(<code>phase == "will"</code>)</nobr> since we don’t need to generate new asteroids once the game is over. For the other two commands, we defer them until after the scene is fully off screen because we don’t want the remaining asteroids to suddenly stop detecting collisions or stop moving (<code>physics.pause()</code>) when the scene transition begins.</p>
 </div>
 </div>
-<div id="event-link-up" class="section level3">
+<section id="event-link-up" class="level3">
 <h3>Event Link-Up</h3>
 <p>Our <code>scene:hide()</code> function is now complete, but we need to take a few final steps to make sure it actually gets called. Logically, a scene will never be hidden unless you intentionally cause it to hide, and this occurs when you tell Composer to go to a different scene (<code>composer.gotoScene()</code>).</p>
 <p>In our game, we want to return to the menu — or eventually go to the high scores scene — when the player dies and has no remaining lives. This condition has already been accounted for partially in our previous code, so all we need to add is an additional command in the same place.</p>
 <p>In <code>game.lua</code>, find your <code>onCollision</code> function and, toward its end, locate this conditional block:</p>
-<pre class="brush: lua; gutter: true; highlight: [220,221,222,223,224,225]; first-line: 216;">                -- Update lives
+<pre class="highlight: [220,221,222,223,224,225]; first-line: 216; gutter: true; brush: lua;">                -- Update lives
                 lives = lives - 1
                 livesText.text = "Lives: " .. lives
                 
@@ -681,7 +681,7 @@ end</pre>
     end
 end</pre>
 <p>Now, directly below the <nobr><code>display.remove( ship )</code></nobr> command, add the following highlighted command:</p>
-<pre class="brush: lua; gutter: true; highlight: [222]; first-line: 220;">                if ( lives == 0 ) then
+<pre class="highlight: [222]; first-line: 220; gutter: true; brush: lua;">                if ( lives == 0 ) then
                     display.remove( ship )
                     timer.performWithDelay( 2000, endGame )
                 else
@@ -692,8 +692,8 @@ end</pre>
         end
     end
 end</pre>
-<p>The <a href="../../../api/library/timer/performWithDelay.html">timer.performWithDelay()</a> command is nothing new — this instance simply calls a function <code>endGame()</code> after 2000 milliseconds (2 seconds). Of course, we haven't actually written the <code>endGame()</code> function yet, so let's write it now. Directly <strong>above</strong> your <code>onCollision()</code> function, add this new function:</p>
-<pre class="brush: lua; gutter: true; highlight: [185,186,187]; first-line: 185;">local function endGame()
+<p>The <a href="../../../api/library/timer/performWithDelay.html">timer.performWithDelay()</a> command is nothing new — this instance simply calls a function <code>endGame()</code> after 2000 milliseconds (2 seconds). Of course, we haven’t actually written the <code>endGame()</code> function yet, so let’s write it now. Directly <strong>above</strong> your <code>onCollision()</code> function, add this new function:</p>
+<pre class="highlight: [185,186,187]; first-line: 185; gutter: true; brush: lua;">local function endGame()
     composer.gotoScene( "menu", { time=800, effect="crossFade" } )
 end
 
@@ -709,25 +709,25 @@ local function onCollision( event )
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>This time we're including an additional, optional table containing parameters for a scene transition effect. Inside this table, we specify an effect duration (<code>time</code>) of 800 milliseconds and an <code>effect</code> property of <code>&quot;crossFade&quot;</code>. This <nobr>built-in</nobr> Composer effect will cause the game scene to fade out while, concurrently, the menu scene fades in.</p>
+<p>This time we’re including an additional, optional table containing parameters for a scene transition effect. Inside this table, we specify an effect duration (<code>time</code>) of 800 milliseconds and an <code>effect</code> property of <code>"crossFade"</code>. This <nobr>built-in</nobr> Composer effect will cause the game scene to fade out while, concurrently, the menu scene fades in.</p>
 </div>
 </div>
 <p><a id="cleanup"></a></p>
-</div>
-</div>
-<div id="scene-cleanup" class="section level2">
+</section>
+</section>
+<section id="scene-cleanup" class="level2">
 <h2>Scene Cleanup</h2>
-<p>Hopefully players will want to play the game again! By default, Composer caches scenes in memory to save processing power when the scene is revisited. So, even though it's hidden at this point, your game scene remains basically as you left it. If you play the game again, the scene comes back into view and new asteroids begin spawning. Unfortunately, there are some problems:</p>
+<p>Hopefully players will want to play the game again! By default, Composer caches scenes in memory to save processing power when the scene is revisited. So, even though it’s hidden at this point, your game scene remains basically as you left it. If you play the game again, the scene comes back into view and new asteroids begin spawning. Unfortunately, there are some problems:</p>
 <ul>
 <li>The asteroids from the previous game are still in the scene.</li>
 <li>Your previous score still appears and lives remain at zero.</li>
-<li>The ship isn't showing!</li>
+<li>The ship isn’t showing!</li>
 </ul>
-<p>Depending on the game, cleaning up a scene to restart fresh can involve some effort. In this game, we would need to &quot;undo&quot; some things we did in <code>scene:create()</code> as well as remove the references to old asteroids contained in the <code>asteroidsTable</code> table. We would also need to reset <code>score</code>, <code>lives</code>, and the ship's visibility within <code>scene:show()</code>. None of this is exceptionally complicated, but wouldn't it be convenient to have an easier way to reset a scene? Fortunately, Composer offers one:</p>
-<pre class="brush: lua; first-line: 1; highlight: [1];">composer.removeScene( "game" )</pre>
-<p>Essentially, this command removes and destroys the <code>game.lua</code> scene as if it never existed. By doing so, you lose the caching benefit mentioned above, but for most scenes it's not worth the effort to programmatically reset each aspect individually.</p>
-<p>With this simplified approach, let's modify our <code>scene:hide()</code> function:</p>
-<pre class="brush: lua; gutter: true; highlight: [312]; first-line: 298;">-- hide()
+<p>Depending on the game, cleaning up a scene to restart fresh can involve some effort. In this game, we would need to “undo” some things we did in <code>scene:create()</code> as well as remove the references to old asteroids contained in the <code>asteroidsTable</code> table. We would also need to reset <code>score</code>, <code>lives</code>, and the ship’s visibility within <code>scene:show()</code>. None of this is exceptionally complicated, but wouldn’t it be convenient to have an easier way to reset a scene? Fortunately, Composer offers one:</p>
+<pre class="highlight: [1]; first-line: 1; brush: lua;">composer.removeScene( "game" )</pre>
+<p>Essentially, this command removes and destroys the <code>game.lua</code> scene as if it never existed. By doing so, you lose the caching benefit mentioned above, but for most scenes it’s not worth the effort to programmatically reset each aspect individually.</p>
+<p>With this simplified approach, let’s modify our <code>scene:hide()</code> function:</p>
+<pre class="highlight: [312]; first-line: 298; gutter: true; brush: lua;">-- hide()
 function scene:hide( event )
 
     local sceneGroup = self.view
@@ -744,7 +744,7 @@ function scene:hide( event )
         composer.removeScene( "game" )
     end
 end</pre>
-<p>This addition shoud be clear — we simply call <nobr><code>composer.removeScene( &quot;game&quot; )</code></nobr> within the <code>&quot;did&quot;</code> phase of <code>scene:hide()</code>, effectively destroying the scene after it transitions fully off screen.</p>
+<p>This addition shoud be clear — we simply call <nobr><code>composer.removeScene( "game" )</code></nobr> within the <code>"did"</code> phase of <code>scene:hide()</code>, effectively destroying the scene after it transitions fully off screen.</p>
 <div class="docs-tip-outer docs-tip-color-action">
 <div class="docs-tip-inner-left">
 <div class="fa fa-video-camera" style="font-size: 29px; padding-top: 4px;">
@@ -762,35 +762,32 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>This chapter was a bit more detailed and required many things to be copied over to very specific places within <code>game.lua</code>. If your code isn't working as expected, please compare it to the <code>game.lua</code> file bundled with this chapter's <a href="https://github.com/coronalabs/GettingStarted05/archive/master.zip">source files</a>.</p>
+<p>This chapter was a bit more detailed and required many things to be copied over to very specific places within <code>game.lua</code>. If your code isn’t working as expected, please compare it to the <code>game.lua</code> file bundled with this chapter’s <a href="https://github.com/coronalabs/GettingStarted05/archive/master.zip">source files</a>.</p>
 </div>
 </div>
 <div class="float-right" style="max-width: 140px; margin-top: 36px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/simulator/pastel-rocket.png" />
-
-</div>
+<p><img src="../../../images/simulator/pastel-rocket.png" /></p>
 </div>
 <p><a id="extracredit"></a></p>
-</div>
-<div id="extra-credit" class="section level2">
+</section>
+<section id="extra-credit" class="level2">
 <h2>Extra Credit</h2>
-<p>Earlier in this chapter, you learned about scene <strong>transition effects</strong>. We already applied one to the <code>composer.gotoScene()</code> command within the <code>endGame()</code> function, so now let's apply one when the game scene comes into view.</p>
-<p>If you recall, the game scene is only accessed via the <strong>Play</strong> button in the menu scene, so we'll modify that file:</p>
-<ol style="list-style-type: decimal">
+<p>Earlier in this chapter, you learned about scene <strong>transition effects</strong>. We already applied one to the <code>composer.gotoScene()</code> command within the <code>endGame()</code> function, so now let’s apply one when the game scene comes into view.</p>
+<p>If you recall, the game scene is only accessed via the <strong>Play</strong> button in the menu scene, so we’ll modify that file:</p>
+<ol type="1">
 <li><p>Open the <code>menu.lua</code> file within your <code>StarExplorer</code> folder.</p></li>
-<li><p>Find the <code>gotoGame()</code> function and add a <code>&quot;crossFade&quot;</code> effect with a duration of 800 milliseconds to the <a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a> command:</p></li>
+<li><p>Find the <code>gotoGame()</code> function and add a <code>"crossFade"</code> effect with a duration of 800 milliseconds to the <a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a> command:</p></li>
 </ol>
 <div class="code-indent">
-<pre class="brush: lua; gutter: true; highlight: [12]; first-line: 11;">local function gotoGame()
+<pre class="highlight: [12]; first-line: 11; gutter: true; brush: lua;">local function gotoGame()
     composer.gotoScene( "game", { time=800, effect="crossFade" } )
 end</pre>
 </div>
-<ol start="3" style="list-style-type: decimal">
-<li>Although we haven't yet created it, the <code>highscores.lua</code> scene should also appear with a transition effect. Since <code>menu.lua</code> is already open, modify the <a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a> command within the <code>gotoHighScores()</code> function immediately following <code>gotoGame()</code>:</li>
+<ol start="3" type="1">
+<li>Although we haven’t yet created it, the <code>highscores.lua</code> scene should also appear with a transition effect. Since <code>menu.lua</code> is already open, modify the <a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a> command within the <code>gotoHighScores()</code> function immediately following <code>gotoGame()</code>:</li>
 </ol>
 <div class="code-indent">
-<pre class="brush: lua; gutter: true; highlight: [16]; first-line: 11;">local function gotoGame()
+<pre class="highlight: [16]; first-line: 11; gutter: true; brush: lua;">local function gotoGame()
     composer.gotoScene( "game", { time=800, effect="crossFade" } )
 end
 
@@ -798,49 +795,49 @@ local function gotoHighScores()
     composer.gotoScene( "highscores", { time=800, effect="crossFade" } )
 end</pre>
 </div>
-<ol start="4" style="list-style-type: decimal">
+<ol start="4" type="1">
 <li>Save your modified <code>menu.lua</code> file.</li>
 </ol>
 <p>Great! Now the game scene — and the high scores scene, once we create it — will transition in/out with a nice <nobr>cross-fade</nobr> effect.</p>
 <p><a id="concepts"></a></p>
-</div>
-<div id="chapter-concepts" class="section level2">
+</section>
+<section id="chapter-concepts" class="level2">
 <h2>Chapter Concepts</h2>
-<p>Here's a summary of the concepts we covered in this chapter:</p>
+<p>Here’s a summary of the concepts we covered in this chapter:</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Command/Property</th>
-<th align="left">Description</th>
+<th style="text-align: left;">Command/Property</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/physics/pause.html">physics.pause()</a></td>
-<td align="left">Pauses the physics engine.</td>
+<td style="text-align: left;"><a href="../../../api/library/physics/pause.html">physics.pause()</a></td>
+<td style="text-align: left;">Pauses the physics engine.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/type/GroupObject/insert.html">object:insert()</a></td>
-<td align="left">Inserts an object into a group.</td>
+<td style="text-align: left;"><a href="../../../api/type/GroupObject/insert.html">object:insert()</a></td>
+<td style="text-align: left;">Inserts an object into a group.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/timer/cancel.html">timer.cancel()</a></td>
-<td align="left">Cancels a timer operation initiated with <a href="../../../api/library/timer/performWithDelay.html">timer.performWithDelay()</a>.</td>
+<td style="text-align: left;"><a href="../../../api/library/timer/cancel.html">timer.cancel()</a></td>
+<td style="text-align: left;">Cancels a timer operation initiated with <a href="../../../api/library/timer/performWithDelay.html">timer.performWithDelay()</a>.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/type/EventDispatcher/removeEventListener.html">object:removeEventListener()</a></td>
-<td align="left">Removes an event listener from an object.</td>
+<td style="text-align: left;"><a href="../../../api/type/EventDispatcher/removeEventListener.html">object:removeEventListener()</a></td>
+<td style="text-align: left;">Removes an event listener from an object.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/composer/removeScene.html">composer.removeScene()</a></td>
-<td align="left">Removes a specific Composer scene.</td>
+<td style="text-align: left;"><a href="../../../api/library/composer/removeScene.html">composer.removeScene()</a></td>
+<td style="text-align: left;">Removes a specific Composer scene.</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="section" class="section level2">
+</section>
+<section id="section" class="level2">
 <h2></h2>
 <div class="walkthrough-nav">
 <p><strong>⟨</strong> <a href="../../../guide/programming/04/index.html">Chapter 4 — Creating Scenes</a> <em>|</em> <a href="../../../guide/programming/06/index.html">Chapter 6 — Implementing High Scores</a> <strong>⟩</strong></p>
@@ -855,8 +852,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

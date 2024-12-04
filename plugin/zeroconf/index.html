@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | ZeroConf</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -59,16 +59,16 @@
 <li><a href="#overview">Overview</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#functions">Functions</a><ul>
-<li><a href="#zeroconf.initplugin.zeroconf.init"><a href="../../plugin/zeroconf/init.html">zeroconf.init()</a></a></li>
-<li><a href="#zeroconf.publishplugin.zeroconf.publish"><a href="../../plugin/zeroconf/publish.html">zeroconf.publish()</a></a></li>
-<li><a href="#zeroconf.unpublishplugin.zeroconf.unpublish"><a href="../../plugin/zeroconf/unpublish.html">zeroconf.unpublish()</a></a></li>
-<li><a href="#zeroconf.unpublishallplugin.zeroconf.unpublishall"><a href="../../plugin/zeroconf/unpublishAll.html">zeroconf.unpublishAll()</a></a></li>
-<li><a href="#zeroconf.browseplugin.zeroconf.browse"><a href="../../plugin/zeroconf/browse.html">zeroconf.browse()</a></a></li>
-<li><a href="#zeroconf.stopbrowseplugin.zeroconf.stopbrowse"><a href="../../plugin/zeroconf/stopBrowse.html">zeroconf.stopBrowse()</a></a></li>
-<li><a href="#zeroconf.stopbrowseallplugin.zeroconf.stopbrowseall"><a href="../../plugin/zeroconf/stopBrowseAll.html">zeroconf.stopBrowseAll()</a></a></li>
+<li><a href="#zeroconf.initplugin.zeroconf.init"><span>zeroconf.init()</span></a></li>
+<li><a href="#zeroconf.publishplugin.zeroconf.publish"><span>zeroconf.publish()</span></a></li>
+<li><a href="#zeroconf.unpublishplugin.zeroconf.unpublish"><span>zeroconf.unpublish()</span></a></li>
+<li><a href="#zeroconf.unpublishallplugin.zeroconf.unpublishall"><span>zeroconf.unpublishAll()</span></a></li>
+<li><a href="#zeroconf.browseplugin.zeroconf.browse"><span>zeroconf.browse()</span></a></li>
+<li><a href="#zeroconf.stopbrowseplugin.zeroconf.stopbrowse"><span>zeroconf.stopBrowse()</span></a></li>
+<li><a href="#zeroconf.stopbrowseallplugin.zeroconf.stopbrowseall"><span>zeroconf.stopBrowseAll()</span></a></li>
 </ul></li>
 <li><a href="#events">Events</a><ul>
-<li><a href="#pluginzeroconfeventplugin.zeroconf.event.pluginzeroconfevent"><a href="../../plugin/zeroconf/event/PluginZeroConfEvent/index.html">PluginZeroConfEvent</a></a></li>
+<li><a href="#pluginzeroconfeventplugin.zeroconf.event.pluginzeroconfevent"><span>PluginZeroConfEvent</span></a></li>
 </ul></li>
 <li><a href="#project-settings">Project Settings</a></li>
 <li><a href="#example">Example</a></li>
@@ -78,31 +78,31 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/zeroconf/index.html">ZeroConf</a>
 </div>
-<div id="zeroconf." class="section level1">
+<section id="zeroconf." class="level1">
 <h1>zeroconf.*</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Library.html">Library</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Library.html">Library</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">ZeroConf, network</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">ZeroConf, network</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Platforms</strong></td>
-<td align="left">Android, iOS, macOS, Windows, tvOS</td>
+<td style="text-align: left;"><strong>Platforms</strong></td>
+<td style="text-align: left;">Android, iOS, macOS, Windows, tvOS</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>This plugin allows you to discover and publish services over a local network. It allows <nobr>cross-platform</nobr> implementation of <nobr>zero-configuration</nobr> systems based on <a href="https://en.wikipedia.org/wiki/Multicast_DNS">mDNS</a> which can be utilized for local multiplayer or to synchronize data over WiFi.</p>
 <div class="guide-notebox">
@@ -111,54 +111,54 @@ Notes
 </div>
 <ul>
 <li><p>Service discovery is available by default on all platforms except Windows. To use this plugin on Windows, <a href="https://support.apple.com/bonjour">Bonjour</a> version 3 or higher must be installed.</p></li>
-<li><p>You can use &quot;Bonjour Browser&quot; type software to verify if service discovery is functioning properly.</p></li>
+<li><p>You can use “Bonjour Browser” type software to verify if service discovery is functioning properly.</p></li>
 </ul>
 </div>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">local zeroconf = require( "plugin.zeroconf" )</pre>
-</div>
-<div id="functions" class="section level2">
+</section>
+<section id="functions" class="level2">
 <h2>Functions</h2>
 <div class="small-header">
 <p>Initialization</p>
 </div>
-<div id="zeroconf.initplugin.zeroconf.init" class="section level4">
+<section id="zeroconf.initplugin.zeroconf.init" class="level4">
 <h4><a href="../../plugin/zeroconf/init.html">zeroconf.init()</a></h4>
 <div class="small-header">
 <p>Service Publishing</p>
 </div>
-</div>
-<div id="zeroconf.publishplugin.zeroconf.publish" class="section level4">
+</section>
+<section id="zeroconf.publishplugin.zeroconf.publish" class="level4">
 <h4><a href="../../plugin/zeroconf/publish.html">zeroconf.publish()</a></h4>
-</div>
-<div id="zeroconf.unpublishplugin.zeroconf.unpublish" class="section level4">
+</section>
+<section id="zeroconf.unpublishplugin.zeroconf.unpublish" class="level4">
 <h4><a href="../../plugin/zeroconf/unpublish.html">zeroconf.unpublish()</a></h4>
-</div>
-<div id="zeroconf.unpublishallplugin.zeroconf.unpublishall" class="section level4">
+</section>
+<section id="zeroconf.unpublishallplugin.zeroconf.unpublishall" class="level4">
 <h4><a href="../../plugin/zeroconf/unpublishAll.html">zeroconf.unpublishAll()</a></h4>
 <div class="small-header">
 <p>Service Discovery</p>
 </div>
-</div>
-<div id="zeroconf.browseplugin.zeroconf.browse" class="section level4">
+</section>
+<section id="zeroconf.browseplugin.zeroconf.browse" class="level4">
 <h4><a href="../../plugin/zeroconf/browse.html">zeroconf.browse()</a></h4>
-</div>
-<div id="zeroconf.stopbrowseplugin.zeroconf.stopbrowse" class="section level4">
+</section>
+<section id="zeroconf.stopbrowseplugin.zeroconf.stopbrowse" class="level4">
 <h4><a href="../../plugin/zeroconf/stopBrowse.html">zeroconf.stopBrowse()</a></h4>
-</div>
-<div id="zeroconf.stopbrowseallplugin.zeroconf.stopbrowseall" class="section level4">
+</section>
+<section id="zeroconf.stopbrowseallplugin.zeroconf.stopbrowseall" class="level4">
 <h4><a href="../../plugin/zeroconf/stopBrowseAll.html">zeroconf.stopBrowseAll()</a></h4>
-</div>
-</div>
-<div id="events" class="section level2">
+</section>
+</section>
+<section id="events" class="level2">
 <h2>Events</h2>
-<div id="pluginzeroconfeventplugin.zeroconf.event.pluginzeroconfevent" class="section level4">
+<section id="pluginzeroconfeventplugin.zeroconf.event.pluginzeroconfevent" class="level4">
 <h4><a href="../../plugin/zeroconf/event/PluginZeroConfEvent/index.html">PluginZeroConfEvent</a></h4>
-</div>
-</div>
-<div id="project-settings" class="section level2">
+</section>
+</section>
+<section id="project-settings" class="level2">
 <h2>Project Settings</h2>
 <p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
 <pre class="brush: lua;">settings =
@@ -171,8 +171,8 @@ Notes
         },
     },
 }</pre>
-</div>
-<div id="example" class="section level2">
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">-- Publishes a service of type '_corona_test._tcp' and then starts discovery for the service
 
@@ -334,8 +334,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

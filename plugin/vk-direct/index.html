@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | vk-direct</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -82,31 +82,31 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/vk-direct/index.html">vk-direct</a>
 </div>
-<div id="plugin.vk.direct." class="section level1">
+<section id="plugin.vk.direct." class="level1">
 <h1>plugin.vk.direct.*</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Library.html">Library</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Library.html">Library</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">VK, Vkontakte, VK Direct, VK Direct Games</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">VK, Vkontakte, VK Direct, VK Direct Games</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Platforms</strong></td>
-<td align="left">HTML5</td>
+<td style="text-align: left;"><strong>Platforms</strong></td>
+<td style="text-align: left;">HTML5</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>The <a href="https://marketplace.coronalabs.com/plugin/com.coronalabs/plugin.vk.direct">VK Direct Games</a> plugin, simple wrapper for <a href="https://vk.com/dev/direct_games">VK Mobile</a>. For more information please, refer to <a href="https://vk.com/dev/Mobile_SDK?f=2.%20%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20Mobile%20Client%20API">Mobile Client API documentation</a></p>
 <div class="guide-notebox-imp">
@@ -115,68 +115,68 @@ Important
 </div>
 <p>Note, that APIs would actually work only when app is ran as VK Direct Game on mobile device. To learn more about how to create and deploy your applications see Direct Games <a href="https://vk.com/dev/direct_games">documentation</a>.</p>
 </div>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">local vk = require("plugin_vk_direct")</pre>
-</div>
-<div id="functions" class="section level2">
+</section>
+<section id="functions" class="level2">
 <h2>Functions</h2>
-<div id="vk.initfunction" class="section level3">
+<section id="vk.initfunction" class="level3">
 <h3><code>vk.init(function)</code></h3>
 <p>Initializes the plugin and sets event listener to handle events from VK APIs. Event structure is described in the following section.</p>
 <p><br /></p>
-</div>
-<div id="vk.apimethodname-params" class="section level3">
+</section>
+<section id="vk.apimethodname-params" class="level3">
 <h3><code>vk.api(methodName, params)</code></h3>
 <p>This method call would trigger <code>VK.api(methodName, params)</code> and invoke event name with <code>method</code> set to <code>methodName</code>.</p>
 <p><br /></p>
 <p>All following functions are wrappers around Mobile SDK methods with same name. Please, refer to <a href="https://vk.com/dev/Mobile_SDK?f=2.%20%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20Mobile%20Client%20API">documentation</a> for details.</p>
-</div>
-<div id="vk.showinvitebox" class="section level3">
+</section>
+<section id="vk.showinvitebox" class="level3">
 <h3><code>vk.showInviteBox()</code></h3>
-</div>
-<div id="vk.showrequestboxuser_id-message-request_key" class="section level3">
+</section>
+<section id="vk.showrequestboxuser_id-message-request_key" class="level3">
 <h3><code>vk.showRequestBox(user_id, message, request_key)</code></h3>
-</div>
-<div id="vk.showshareboxmessage-attachments-target" class="section level3">
+</section>
+<section id="vk.showshareboxmessage-attachments-target" class="level3">
 <h3><code>vk.showShareBox(message, attachments, target)</code></h3>
-</div>
-<div id="vk.showsettingsboxsettings" class="section level3">
+</section>
+<section id="vk.showsettingsboxsettings" class="level3">
 <h3><code>vk.showSettingsBox(settings)</code></h3>
-</div>
-<div id="vk.showorderboxtype-item" class="section level3">
+</section>
+<section id="vk.showorderboxtype-item" class="level3">
 <h3><code>vk.showOrderBox(type, item)</code></h3>
-</div>
-<div id="vk.showleaderboardboxuser_result" class="section level3">
+</section>
+<section id="vk.showleaderboardboxuser_result" class="level3">
 <h3><code>vk.showLeaderboardBox(user_result)</code></h3>
 <p>This methods are aliases for <code>VK.callMethod(methodName, {arguments})</code>. Result would be dispatched to event listener with <code>method</code> field set to the function name.</p>
-</div>
-</div>
-<div id="event" class="section level2">
+</section>
+</section>
+<section id="event" class="level2">
 <h2>Event</h2>
 <p>Each API call would result in event sent to listener passed to <code>vk.init()</code>. All events have similar 3 fields:</p>
-<div id="event.name" class="section level5">
+<section id="event.name" class="level5">
 <h5><code>event.name</code></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> Always <code>&quot;vk&quot;</code>.</p>
-</div>
-<div id="event.method" class="section level5">
+<p><em><a href="../../api/type/String.html">String</a>.</em> Always <code>"vk"</code>.</p>
+</section>
+<section id="event.method" class="level5">
 <h5><code>event.method</code></h5>
-<p><em><a href="../../api/type/String.html">String</a></em> containing name of the method callback is invoked for. For example <code>&quot;init&quot;</code> or <code>&quot;showInviteBox&quot;</code>. Note that this would have different value in <code>vk.api()</code> callback.</p>
-</div>
-<div id="event.status" class="section level5">
+<p><em><a href="../../api/type/String.html">String</a></em> containing name of the method callback is invoked for. For example <code>"init"</code> or <code>"showInviteBox"</code>. Note that this would have different value in <code>vk.api()</code> callback.</p>
+</section>
+<section id="event.status" class="level5">
 <h5><code>event.status</code></h5>
-<p><em><a href="../../api/type/String.html">String</a></em> containing <code>&quot;success&quot;</code> or <code>&quot;failure&quot;</code> depending on call results.</p>
-</div>
-<div id="event.data" class="section level5">
+<p><em><a href="../../api/type/String.html">String</a></em> containing <code>"success"</code> or <code>"failure"</code> depending on call results.</p>
+</section>
+<section id="event.data" class="level5">
 <h5><code>event.data</code></h5>
 <p><em><a href="../../api/type/Table.html">Table</a></em> containing call results if applicable.</p>
-</div>
-</div>
-<div id="project-settings" class="section level2">
+</section>
+</section>
+<section id="project-settings" class="level2">
 <h2>Project Settings</h2>
 <p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
-<pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
+<pre class="highlight: [5,6,7,8]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     plugins =
     {
@@ -186,10 +186,10 @@ Important
         },
     },
 }</pre>
-</div>
-<div id="sample" class="section level2">
+</section>
+<section id="sample" class="level2">
 <h2>Sample</h2>
-<pre class="brush: lua; gutter: false; first-line: 1;">
+<pre class="first-line: 1; gutter: false; brush: lua;">
 local loadingText = display.newText( "Loading...", display.contentCenterX, display.contentCenterY, nil, 20)
 
 local vk = require("plugin_vk_direct")
@@ -218,8 +218,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

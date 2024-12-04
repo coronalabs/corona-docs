@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Google Play Games Services | snapshots | save</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -74,74 +74,74 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../plugin/index.html">Plugins</a>  ▸  <a href="../../../plugin/gpgs/index.html">Google Play Games Services</a>  ▸  <a href="../../../plugin/gpgs/snapshots/index.html">snapshots</a>  ▸  <a href="../../../plugin/gpgs/snapshots/save.html">save</a>
 </div>
-<div id="gpgs.snapshots.save" class="section level1">
+<section id="gpgs.snapshots.save" class="level1">
 <h1>gpgs.snapshots.save()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">Google Play Games Services, game network, gpgs, snapshots, save</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">Google Play Games Services, game network, gpgs, snapshots, save</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../plugin/gpgs/snapshots/index.html">gpgs.snapshots</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../plugin/gpgs/snapshots/index.html">gpgs.snapshots</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../plugin/gpgs/index.html">gpgs.*</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../plugin/gpgs/index.html">gpgs.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Commits any modifications made to the snapshot. This will cause the changes to be synced to the server in the background.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">gpgs.snapshots.save( params )</pre>
-<div id="params-required" class="section level5">
+<section id="params-required" class="level5">
 <h5>params <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Table.html">Table</a>.</em> Contains parameters for the call — see the next section for details.</p>
-</div>
-</div>
-<div id="parameter-reference" class="section level2">
+</section>
+</section>
+<section id="parameter-reference" class="level2">
 <h2>Parameter Reference</h2>
 <p>The <code>params</code> table contains parameters for the call.</p>
-<div id="snapshot-required" class="section level5">
+<section id="snapshot-required" class="level5">
 <h5>snapshot <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../plugin/gpgs/snapshots/type/Snapshot/index.html">Snapshot</a>.</em> The snapshot to save.</p>
-</div>
-<div id="description-optional" class="section level5">
+</section>
+<section id="description-optional" class="level5">
 <h5>description <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/String.html">String</a>.</em> The description of this snapshot to be displayed to the player.</p>
-</div>
-<div id="playedtime-optional" class="section level5">
+</section>
+<section id="playedtime-optional" class="level5">
 <h5>playedTime <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The number of milliseconds played by the player.</p>
-</div>
-<div id="progress-optional" class="section level5">
+</section>
+<section id="progress-optional" class="level5">
 <h5>progress <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The progress value.</p>
-</div>
-<div id="image-optional" class="section level5">
+</section>
+<section id="image-optional" class="level5">
 <h5>image <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Table.html">Table</a>.</em> <a href="../../../plugin/gpgs/type/Image/index.html">Image</a> object to upload and use as a snapshot cover image.</p>
-</div>
-<div id="listener-optional" class="section level5">
+</section>
+<section id="listener-optional" class="level5">
 <h5>listener <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Listener.html">Listener</a>.</em> Listener function which receives a <a href="../../../plugin/gpgs/snapshots/event/save/index.html">save</a> event.</p>
 <hr>
@@ -154,9 +154,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

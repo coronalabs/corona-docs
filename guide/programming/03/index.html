@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Getting Started</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -90,14 +90,14 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/programming/index.html">Getting Started</a>
 </div>
-<div id="chapter-3-bringing-it-to-life" class="section level1">
+<section id="chapter-3-bringing-it-to-life" class="level1">
 <h1>Chapter 3 — Bringing it to Life</h1>
 <div class="walkthrough-nav">
 <div class="walkthrough-nav-upper-right">
 <p><strong>⟨</strong> <a href="../../../guide/programming/02/index.html">Previous</a> <em>|</em> <a href="../../../guide/programming/04/index.html">Next</a> <strong>⟩</strong></p>
 </div>
 </div>
-<p>Our project is beginning to take form, but it's not yet a game. Let's breathe some life into this baby!</p>
+<p>Our project is beginning to take form, but it’s not yet a game. Let’s breathe some life into this baby!</p>
 <div class="guides-toc">
 <ul>
 <li><a href="#asteroids">Creating Asteroids</a></li>
@@ -109,17 +109,14 @@
 </ul>
 </div>
 <p><a id="asteroids"></a></p>
-<div id="creating-asteroids" class="section level2">
+<section id="creating-asteroids" class="level2">
 <h2>Creating Asteroids</h2>
 <div class="float-right" style="max-width: 240px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/sbs-starexplorer-3.png" />
-
-</div>
+<p><img src="../../../images/docs/sbs-starexplorer-3.png" /></p>
 </div>
 <p>The creation of asteroids will be handled by a function. This function will be run (called) on a regular basis as part of our <strong>game loop</strong>, a function which is called on a repeating basis to handle various game functionality.</p>
 <p>Like our previous functions, we begin with <nobr><code>local function</code></nobr> followed by the name of the function and a pair of parentheses. Naturally, we also close the function with an <code>end</code> command:</p>
-<pre class="brush: lua; gutter: true; highlight: [95,96,97,98]; first-line: 89;">local function updateText()
+<pre class="highlight: [95,96,97,98]; first-line: 89; gutter: true; brush: lua;">local function updateText()
     livesText.text = "Lives: " .. lives
     scoreText.text = "Score: " .. score
 end
@@ -129,19 +126,19 @@ local function createAsteroid()
 
 
 end</pre>
-<p>Inside the function, we begin by creating a new instance of an asteroid named <code>newAsteroid</code>, prefaced with <code>local</code> as usual. The object itself is an image just like everything else we've created so far, taken from the same image sheet (<code>objectSheet</code>) that we loaded earlier:</p>
-<pre class="brush: lua; gutter: true; highlight: [97]; first-line: 95;">local function createAsteroid()
+<p>Inside the function, we begin by creating a new instance of an asteroid named <code>newAsteroid</code>, prefaced with <code>local</code> as usual. The object itself is an image just like everything else we’ve created so far, taken from the same image sheet (<code>objectSheet</code>) that we loaded earlier:</p>
+<pre class="highlight: [97]; first-line: 95; gutter: true; brush: lua;">local function createAsteroid()
 
     local newAsteroid = display.newImageRect( mainGroup, objectSheet, 1, 102, 85 )
 end</pre>
 <p>Since there will be a lot of asteroids on the screen at any given time, we need a way to keep track of them. As you recall from the previous chapter, we initialized several variables, among them the <a href="../../../api/type/Table.html">table</a> named <code>asteroidsTable</code>. This table now comes into play as a place to store the new asteroid. To insert the new asteroid instance into the table, we can use the <nobr>built-in</nobr> Lua <code>table.insert()</code> command. This command just requires the name of the table (<code>asteroidsTable</code>) and the object/value to insert, in this case the <code>newAsteroid</code> object we just created:</p>
-<pre class="brush: lua; gutter: true; highlight: [98]; first-line: 95;">local function createAsteroid()
+<pre class="highlight: [98]; first-line: 95; gutter: true; brush: lua;">local function createAsteroid()
 
     local newAsteroid = display.newImageRect( mainGroup, objectSheet, 1, 102, 85 )
     table.insert( asteroidsTable, newAsteroid )
 end</pre>
 <p>With the asteroid image now loaded and placed into the table, we can add it to the physics engine:</p>
-<pre class="brush: lua; gutter: true; highlight: [99]; first-line: 95;">local function createAsteroid()
+<pre class="highlight: [99]; first-line: 95; gutter: true; brush: lua;">local function createAsteroid()
 
     local newAsteroid = display.newImageRect( mainGroup, objectSheet, 1, 102, 85 )
     table.insert( asteroidsTable, newAsteroid )
@@ -151,21 +148,21 @@ end</pre>
 <div class="notebox-title">
 Note
 </div>
-<p>As with the ship object in the previous chapter, we're taking a shortcut by adding a circular physics body (<code>radius=40</code>) to all asteroids, even though the asteroid image isn't exactly circular. In time, you'll learn how to add an accurate <nobr>shape-based</nobr> physics body to any object.</p>
+<p>As with the ship object in the previous chapter, we’re taking a shortcut by adding a circular physics body (<code>radius=40</code>) to all asteroids, even though the asteroid image isn’t exactly circular. In time, you’ll learn how to add an accurate <nobr>shape-based</nobr> physics body to any object.</p>
 </div>
-<p>Finally, let's assign the asteroid a <code>myName</code> property of <code>&quot;asteroid&quot;</code>. Later, when detecting collisions, it will simplify things to know that this object is an asteroid.</p>
-<pre class="brush: lua; gutter: true; highlight: [100]; first-line: 95;">local function createAsteroid()
+<p>Finally, let’s assign the asteroid a <code>myName</code> property of <code>"asteroid"</code>. Later, when detecting collisions, it will simplify things to know that this object is an asteroid.</p>
+<pre class="highlight: [100]; first-line: 95; gutter: true; brush: lua;">local function createAsteroid()
 
     local newAsteroid = display.newImageRect( mainGroup, objectSheet, 1, 102, 85 )
     table.insert( asteroidsTable, newAsteroid )
     physics.addBody( newAsteroid, "dynamic", { radius=40, bounce=0.8 } )
     newAsteroid.myName = "asteroid"
 end</pre>
-<div id="placement" class="section level3">
+<section id="placement" class="level3">
 <h3>Placement</h3>
-<p>Now that we have a new asteroid on the screen, let's set its point of origin. For our game, asteroids will come from the left, right, or top of the screen — it wouldn't be fair to have an asteroid sneak up from behind!</p>
+<p>Now that we have a new asteroid on the screen, let’s set its point of origin. For our game, asteroids will come from the left, right, or top of the screen — it wouldn’t be fair to have an asteroid sneak up from behind!</p>
 <p>Given three possible points of origin, we need Lua to generate a random integer between <code>1</code> and <code>3</code>. This is easily done using the <code>math.random()</code> command with a sole parameter of <code>3</code>:</p>
-<pre class="brush: lua; gutter: true; highlight: [102]; first-line: 97;">    local newAsteroid = display.newImageRect( mainGroup, objectSheet, 1, 102, 85 )
+<pre class="highlight: [102]; first-line: 97; gutter: true; brush: lua;">    local newAsteroid = display.newImageRect( mainGroup, objectSheet, 1, 102, 85 )
     table.insert( asteroidsTable, newAsteroid )
     physics.addBody( newAsteroid, "dynamic", { radius=40, bounce=0.8 } )
     newAsteroid.myName = "asteroid"
@@ -173,7 +170,7 @@ end</pre>
     local whereFrom = math.random( 3 )
 end</pre>
 <p>Following this command, the local variable <code>whereFrom</code> will have a value of either <code>1</code>, <code>2</code>, or <code>3</code>. Using this, we can implement a conditional <nobr><code>if</code>-<code>then</code></nobr> structure to handle each of the three cases. In Lua, the structure begins in this basic form:</p>
-<pre class="brush: lua; gutter: true; highlight: [104,105,106]; first-line: 102;">    local whereFrom = math.random( 3 )
+<pre class="highlight: [104,105,106]; first-line: 102; gutter: true; brush: lua;">    local whereFrom = math.random( 3 )
 
     if ( whereFrom == 1 ) then
 
@@ -185,37 +182,34 @@ Notes
 </div>
 <ul>
 <li><p>Observe an important distinction about the Lua language: when you are <strong>assigning</strong> a value to a variable, you use a single equal sign (<code>=</code>). However, if you are doing a <strong>comparison</strong> in a conditional statement, you must use two equal signs (<code>==</code>) to indicate that you are checking for equality instead of assigning a value.</p></li>
-<li><p>To tell Lua that you're finished with a conditional structure, use the keyword <code>end</code>.</p></li>
+<li><p>To tell Lua that you’re finished with a conditional structure, use the keyword <code>end</code>.</p></li>
 <li><p>The parentheses around the comparison are optional, but many programmers use them for clarity or to build more complex <nobr>multi-condition</nobr> statements.</p></li>
 </ul>
 </div>
 <div class="float-right" style="max-width: 366px; margin-top: 6px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/sbs-starexplorer-4.png" />
-
+<p><img src="../../../images/docs/sbs-starexplorer-4.png" /></p>
 </div>
-</div>
-<p>Let's use this first condition, <nobr><code>whereFrom == 1</code>,</nobr> to place an asteroid slightly off the <strong>left</strong> edge of the screen. Insert three lines so that your conditional block looks like this:</p>
-<pre class="brush: lua; gutter: true; highlight: [105,106,107]; first-line: 104;">    if ( whereFrom == 1 ) then
+<p>Let’s use this first condition, <nobr><code>whereFrom == 1</code>,</nobr> to place an asteroid slightly off the <strong>left</strong> edge of the screen. Insert three lines so that your conditional block looks like this:</p>
+<pre class="highlight: [105,106,107]; first-line: 104; gutter: true; brush: lua;">    if ( whereFrom == 1 ) then
         -- From the left
         newAsteroid.x = -60
         newAsteroid.y = math.random( 500 )
     end
 end</pre>
-<p>Since this asteroid will come from the left side, we set its <code>x</code> property to <code>-60</code>. This should be a sufficient amount to ensure that not even a portion of the asteroid is visible to the player when it's first created (it's entirely off screen). As for the <code>y</code> property, we use <code>math.random()</code> once again to randomly select a value between <code>1</code> and <code>500</code>, effectively making the asteroid appear somewhere between the top of the content area and about half the distance down — after all, we don't want any asteroids coming from a place that makes it impossible to shoot them!</p>
-</div>
-<div id="movement" class="section level3">
+<p>Since this asteroid will come from the left side, we set its <code>x</code> property to <code>-60</code>. This should be a sufficient amount to ensure that not even a portion of the asteroid is visible to the player when it’s first created (it’s entirely off screen). As for the <code>y</code> property, we use <code>math.random()</code> once again to randomly select a value between <code>1</code> and <code>500</code>, effectively making the asteroid appear somewhere between the top of the content area and about half the distance down — after all, we don’t want any asteroids coming from a place that makes it impossible to shoot them!</p>
+</section>
+<section id="movement" class="level3">
 <h3>Movement</h3>
-<p>Now that we have the starting point, we need to tell the asteroid where it should move to. This time we're going to use another physics command: <code>object:setLinearVelocity()</code>. This command is similar to the <a href="../../../api/type/Body/applyLinearImpulse.html">object:applyLinearImpulse()</a> command which we used in the previous project, but instead of applying a sudden &quot;push&quot; to the object, it simply sets the object moving in a steady, consistent direction.</p>
+<p>Now that we have the starting point, we need to tell the asteroid where it should move to. This time we’re going to use another physics command: <code>object:setLinearVelocity()</code>. This command is similar to the <a href="../../../api/type/Body/applyLinearImpulse.html">object:applyLinearImpulse()</a> command which we used in the previous project, but instead of applying a sudden “push” to the object, it simply sets the object moving in a steady, consistent direction.</p>
 <p>Add the highlighted line directly following the previous lines:</p>
-<pre class="brush: lua; gutter: true; highlight: [108]; first-line: 104;">    if ( whereFrom == 1 ) then
+<pre class="highlight: [108]; first-line: 104; gutter: true; brush: lua;">    if ( whereFrom == 1 ) then
         -- From the left
         newAsteroid.x = -60
         newAsteroid.y = math.random( 500 )
         newAsteroid:setLinearVelocity( math.random( 40,120 ), math.random( 20,60 ) )
     end
 end</pre>
-<p>This might look complicated, but <code>object:setLinearVelocity()</code> simply requires two numbers indicating the velocity in the <strong>x</strong> and <strong>y</strong> directions respectively. The only twist we're using here is <code>math.random()</code> to randomize the values so that each asteroid moves in a slightly different direction.</p>
+<p>This might look complicated, but <code>object:setLinearVelocity()</code> simply requires two numbers indicating the velocity in the <strong>x</strong> and <strong>y</strong> directions respectively. The only twist we’re using here is <code>math.random()</code> to randomize the values so that each asteroid moves in a slightly different direction.</p>
 <div class="docs-tip-outer">
 <div class="docs-tip-inner-left">
 <div class="fa fa-cog">
@@ -226,9 +220,9 @@ end</pre>
 <p>Notice that we call <code>math.random()</code> with <strong>two</strong> parameters this time, while before we called it with just one. When called with one parameter, the command randomly generates an integer between <code>1</code> and the value you indicate. When called with two parameters, the command randomly generates an integer between the two specified values, for example between <code>40</code> and <code>120</code> in the first instance above.</p>
 </div>
 </div>
-<p>If we decided to call/run this function now, we might see an asteroid slowly moving across the screen from the left side, but probably not. Why? Because we haven't added conditional cases for the other two sides of the screen! Remember, Lua is randomly choosing a number between <code>1</code> and <code>3</code>, but currently we're only handling the occurrence of <code>1</code>, so there's just ⅓ chance that our current code will generate an asteroid.</p>
+<p>If we decided to call/run this function now, we might see an asteroid slowly moving across the screen from the left side, but probably not. Why? Because we haven’t added conditional cases for the other two sides of the screen! Remember, Lua is randomly choosing a number between <code>1</code> and <code>3</code>, but currently we’re only handling the occurrence of <code>1</code>, so there’s just ⅓ chance that our current code will generate an asteroid.</p>
 <p>The following two conditions will complete the three possible sides from which asteroids can originate. When adding multiple conditions into the same <nobr><code>if</code>-<code>then</code></nobr> structure, those following the first condition should begin with <code>elseif</code>, <strong>not</strong> with <code>if</code>. Observe these additions:</p>
-<pre class="brush: lua; gutter: true; highlight: [109,110,111,112,113,114,115,116,117,118]; first-line: 104;">    if ( whereFrom == 1 ) then
+<pre class="highlight: [109,110,111,112,113,114,115,116,117,118]; first-line: 104; gutter: true; brush: lua;">    if ( whereFrom == 1 ) then
         -- From the left
         newAsteroid.x = -60
         newAsteroid.y = math.random( 500 )
@@ -246,11 +240,11 @@ end</pre>
     end
 end</pre>
 <p>With these lines, all three conditions are properly accounted for. Now, when this function is called/run, an asteroid will randomly appear in one of the three specified regions and begin moving across the screen.</p>
-</div>
-<div id="rotation" class="section level3">
+</section>
+<section id="rotation" class="level3">
 <h3>Rotation</h3>
-<p>Let's wrap up the <code>createAsteroid()</code> function with an additional command for visual interest. To make the asteroids slowly rotate about their central point as they move through space, we can apply a random amount of torque (rotational force). Following the <nobr><code>if</code>-<code>then</code></nobr> structure (after its closing <code>end</code> statement), add the following highlighted command:</p>
-<pre class="brush: lua; gutter: true; highlight: [121]; first-line: 114;">    elseif ( whereFrom == 3 ) then
+<p>Let’s wrap up the <code>createAsteroid()</code> function with an additional command for visual interest. To make the asteroids slowly rotate about their central point as they move through space, we can apply a random amount of torque (rotational force). Following the <nobr><code>if</code>-<code>then</code></nobr> structure (after its closing <code>end</code> statement), add the following highlighted command:</p>
+<pre class="highlight: [121]; first-line: 114; gutter: true; brush: lua;">    elseif ( whereFrom == 3 ) then
         -- From the right
         newAsteroid.x = display.contentWidth + 60
         newAsteroid.y = math.random( 500 )
@@ -260,20 +254,17 @@ end</pre>
     newAsteroid:applyTorque( math.random( -6,6 ) )
 end</pre>
 <p><a id="firing"></a></p>
-</div>
-</div>
-<div id="firing-mechanics" class="section level2">
+</section>
+</section>
+<section id="firing-mechanics" class="level2">
 <h2>Firing Mechanics</h2>
 <div class="float-right" style="max-width: 240px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/sbs-starexplorer-5.png" />
-
-</div>
+<p><img src="../../../images/docs/sbs-starexplorer-5.png" /></p>
 </div>
 <p>What is a shooting game without shooting?</p>
-<p>Getting our ship to fire lasers is similar to loading asteroids, but this time we'll use a convenient and powerful method to move them known as a <strong>transition</strong>. Essentially, a transition is an animation method which allows you to change the &quot;state&quot; of an object across a defined amount of time — this can include the position, scale, rotation, opacity, and more. You can even perform multiple transition effects in one line and specify an &quot;easing&quot; algorithm to make the transition run with <nobr>non-linear</nobr> interpolation.</p>
-<p>We'll discuss transitions more in a bit. First, let's add the function that will create a new laser object:</p>
-<pre class="brush: lua; gutter: true; highlight: [125,126,127,128,129,130,131]; first-line: 121;">    newAsteroid:applyTorque( math.random( -6,6 ) )
+<p>Getting our ship to fire lasers is similar to loading asteroids, but this time we’ll use a convenient and powerful method to move them known as a <strong>transition</strong>. Essentially, a transition is an animation method which allows you to change the “state” of an object across a defined amount of time — this can include the position, scale, rotation, opacity, and more. You can even perform multiple transition effects in one line and specify an “easing” algorithm to make the transition run with <nobr>non-linear</nobr> interpolation.</p>
+<p>We’ll discuss transitions more in a bit. First, let’s add the function that will create a new laser object:</p>
+<pre class="highlight: [125,126,127,128,129,130,131]; first-line: 121; gutter: true; brush: lua;">    newAsteroid:applyTorque( math.random( -6,6 ) )
 end
 
 
@@ -285,16 +276,16 @@ local function fireLaser()
     newLaser.myName = "laser"
 end</pre>
 <p>Most of this code should be straightforward:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>We create a new laser object inside the <code>mainGroup</code> display group, using <code>5</code> for the frame number since the laser is the 5th frame in our image sheet configuration.</p></li>
 <li><p>We add it to the physics engine as a sensor type object (<code>isSensor=true</code>).</p></li>
-<li><p>We indicate that the laser should be treated as a &quot;bullet&quot; by setting its <code>isBullet</code> property to <code>true</code>. This makes the object subject to continuous collision detection rather than periodic collision detection at world time steps. Because our laser will be moving very quickly across the screen, this will help ensure that it doesn't &quot;pass through&quot; any asteroids without registering a collision.</p></li>
-<li><p>Finally, we assign the object a <code>myName</code> property of <code>&quot;laser&quot;</code> which, similar to the ship and asteroids, will be useful when detecting collisions.</p></li>
+<li><p>We indicate that the laser should be treated as a “bullet” by setting its <code>isBullet</code> property to <code>true</code>. This makes the object subject to continuous collision detection rather than periodic collision detection at world time steps. Because our laser will be moving very quickly across the screen, this will help ensure that it doesn’t “pass through” any asteroids without registering a collision.</p></li>
+<li><p>Finally, we assign the object a <code>myName</code> property of <code>"laser"</code> which, similar to the ship and asteroids, will be useful when detecting collisions.</p></li>
 </ol>
-<div id="placement-1" class="section level3">
+<section id="placement-1" class="level3">
 <h3>Placement</h3>
-<p>The new laser object is now loaded, but we haven't yet positioned it correctly. In this case, we can't use a static position because the ship will eventually be moving left and right via the player's control. Fortunately, it's very easy to position the new laser at the exact same place as the ship by setting its <code>x</code> and <code>y</code> values to the ship's <code>x</code> and <code>y</code> values:</p>
-<pre class="brush: lua; gutter: true; highlight: [132,133]; first-line: 125;">local function fireLaser()
+<p>The new laser object is now loaded, but we haven’t yet positioned it correctly. In this case, we can’t use a static position because the ship will eventually be moving left and right via the player’s control. Fortunately, it’s very easy to position the new laser at the exact same place as the ship by setting its <code>x</code> and <code>y</code> values to the ship’s <code>x</code> and <code>y</code> values:</p>
+<pre class="highlight: [132,133]; first-line: 125; gutter: true; brush: lua;">local function fireLaser()
 
     local newLaser = display.newImageRect( mainGroup, objectSheet, 5, 14, 40 )
     physics.addBody( newLaser, "dynamic", { isSensor=true } )
@@ -305,19 +296,13 @@ end</pre>
     newLaser.y = ship.y
 end</pre>
 <div class="float-right" style="max-width: 288px; margin-top: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/sbs-starexplorer-6.png" />
-
-</div>
+<p><img src="../../../images/docs/sbs-starexplorer-6.png" /></p>
 </div>
 <div class="float-right" style="max-width: 288px; margin-top: 16px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/sbs-starexplorer-7.png" />
-
+<p><img src="../../../images/docs/sbs-starexplorer-7.png" /></p>
 </div>
-</div>
-<p>This will correctly position the laser horizontally and vertically, but there's one further issue to resolve. Because this function creates new lasers <strong>after</strong> the ship has already been loaded, and both objects are part of the <code>mainGroup</code> display group, lasers will appear visually above (in front of) the ship in terms of layering. Clearly this looks silly, so let's push it behind the ship with the following highlighted command:</p>
-<pre class="brush: lua; gutter: true; highlight: [134]; first-line: 132;">    newLaser.x = ship.x
+<p>This will correctly position the laser horizontally and vertically, but there’s one further issue to resolve. Because this function creates new lasers <strong>after</strong> the ship has already been loaded, and both objects are part of the <code>mainGroup</code> display group, lasers will appear visually above (in front of) the ship in terms of layering. Clearly this looks silly, so let’s push it behind the ship with the following highlighted command:</p>
+<pre class="highlight: [134]; first-line: 132; gutter: true; brush: lua;">    newLaser.x = ship.x
     newLaser.y = ship.y
     newLaser:toBack()
 end</pre>
@@ -328,27 +313,27 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>The <code>object:toBack()</code> command sends an object to the very back of its own display group, but that's not necessarily the very back of the entire parent <a href="../../../api/type/StageObject/index.html">stage</a> group. The above command will send the laser object to the back of its display group (<code>mainGroup</code>), but it will still appear in front of the background image contained within <code>backGroup</code>.</p>
+<p>The <code>object:toBack()</code> command sends an object to the very back of its own display group, but that’s not necessarily the very back of the entire parent <a href="../../../api/type/StageObject/index.html">stage</a> group. The above command will send the laser object to the back of its display group (<code>mainGroup</code>), but it will still appear in front of the background image contained within <code>backGroup</code>.</p>
 </div>
 </div>
-</div>
-<div id="movement-1" class="section level3">
+</section>
+<section id="movement-1" class="level3">
 <h3>Movement</h3>
-<p>As mentioned earlier, we'll move the laser up the screen using a <strong>transition</strong>. Most transitions are performed with the <code>transition.to()</code> command. In its most simple form, this command accepts an object reference, such as the laser, and a table of parameters to change over a specified time.</p>
+<p>As mentioned earlier, we’ll move the laser up the screen using a <strong>transition</strong>. Most transitions are performed with the <code>transition.to()</code> command. In its most simple form, this command accepts an object reference, such as the laser, and a table of parameters to change over a specified time.</p>
 <p>Add the following highlighted line to the <code>fireLaser()</code> function:</p>
-<pre class="brush: lua; gutter: true; highlight: [136]; first-line: 132;">    newLaser.x = ship.x
+<pre class="highlight: [136]; first-line: 132; gutter: true; brush: lua;">    newLaser.x = ship.x
     newLaser.y = ship.y
     newLaser:toBack()
 
     transition.to( newLaser, { y=-40, time=500, } )
 end</pre>
-<p>As you can see, the first parameter is the object to transition (<code>newLaser</code>). For the second parameter, we include a <strong>table</strong> which can contain various properties for the transition. Here, we set <code>y=-40</code> which indicates the laser's vertical <strong>destination</strong>, slightly off the top edge of the screen. We also set a custom <code>time</code> parameter of <code>500</code>. For transitions, the time (duration) should always be specified in <strong>milliseconds</strong> — remember that 1 second equals 1000 milliseconds, so this transition will occur over a duration of ½ second.</p>
-</div>
-<div id="cleanup" class="section level3">
+<p>As you can see, the first parameter is the object to transition (<code>newLaser</code>). For the second parameter, we include a <strong>table</strong> which can contain various properties for the transition. Here, we set <code>y=-40</code> which indicates the laser’s vertical <strong>destination</strong>, slightly off the top edge of the screen. We also set a custom <code>time</code> parameter of <code>500</code>. For transitions, the time (duration) should always be specified in <strong>milliseconds</strong> — remember that 1 second equals 1000 milliseconds, so this transition will occur over a duration of ½ second.</p>
+</section>
+<section id="cleanup" class="level3">
 <h3>Cleanup</h3>
-<p>Great! New lasers will now correctly appear at the same location as the ship (visually behind it too) and move upward across the screen. There is just one last thing to implement, and it's very important: <strong>cleanup</strong>. In any app, it's critical that you remove objects from the game which are no longer needed. If you don't, the app will eventually slow to a crawl, run out of memory, and crash — not a good experience for the player!</p>
-<p>There are various approaches toward cleanup and it will depend on the situation. For the lasers, we're going to use a very convenient method known as an <code>onComplete</code> callback. Available as an option within <code>transition.to()</code> and several other commands, this tells Solar2D that you want to call a function when something &quot;completes.&quot; This is ideal for removing lasers which have completed their transition, so let's expand our <code>transition.to()</code> command to include an <code>onComplete</code> callback:</p>
-<pre class="brush: lua; gutter: true; highlight: [137]; first-line: 132;">    newLaser.x = ship.x
+<p>Great! New lasers will now correctly appear at the same location as the ship (visually behind it too) and move upward across the screen. There is just one last thing to implement, and it’s very important: <strong>cleanup</strong>. In any app, it’s critical that you remove objects from the game which are no longer needed. If you don’t, the app will eventually slow to a crawl, run out of memory, and crash — not a good experience for the player!</p>
+<p>There are various approaches toward cleanup and it will depend on the situation. For the lasers, we’re going to use a very convenient method known as an <code>onComplete</code> callback. Available as an option within <code>transition.to()</code> and several other commands, this tells Solar2D that you want to call a function when something “completes.” This is ideal for removing lasers which have completed their transition, so let’s expand our <code>transition.to()</code> command to include an <code>onComplete</code> callback:</p>
+<pre class="highlight: [137]; first-line: 132; gutter: true; brush: lua;">    newLaser.x = ship.x
     newLaser.y = ship.y
     newLaser:toBack()
 
@@ -356,7 +341,7 @@ end</pre>
         onComplete = function() display.remove( newLaser ) end
     } )
 end</pre>
-<p>Simply stated, this addition runs a function when the transition completes. Inside the function, the only command we need is <code>display.remove( newLaser )</code> which removes the laser object from the stage. Beyond that, Lua's <nobr>built-in</nobr> garbage collection process will automatically free up memory that was allocated to the object.</p>
+<p>Simply stated, this addition runs a function when the transition completes. Inside the function, the only command we need is <code>display.remove( newLaser )</code> which removes the laser object from the stage. Beyond that, Lua’s <nobr>built-in</nobr> garbage collection process will automatically free up memory that was allocated to the object.</p>
 <div class="docs-tip-outer">
 <div class="docs-tip-inner-left">
 <div class="fa fa-cog">
@@ -364,14 +349,14 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Those with a keen eye will notice that the function specified after <nobr><code>onComplete =</code></nobr> doesn't have a name. In Lua, this is known as an <strong>anonymous function</strong>. These are useful as &quot;temporary&quot; functions, for functions needed as a parameter to another function, etc. Although we could write a dedicated function to remove the lasers and call it via the <code>onComplete</code> callback, it's easier to use an anonymous function in this case.</p>
+<p>Those with a keen eye will notice that the function specified after <nobr><code>onComplete =</code></nobr> doesn’t have a name. In Lua, this is known as an <strong>anonymous function</strong>. These are useful as “temporary” functions, for functions needed as a parameter to another function, etc. Although we could write a dedicated function to remove the lasers and call it via the <code>onComplete</code> callback, it’s easier to use an anonymous function in this case.</p>
 </div>
 </div>
-</div>
-<div id="tap-listener" class="section level3">
+</section>
+<section id="tap-listener" class="level3">
 <h3>Tap Listener</h3>
-<p>We're almost done with the firing mechanics — let's finish up by assigning the ship a <code>&quot;tap&quot;</code> event listener so that the player can actually fire lasers. Immediately following the <code>fireLaser()</code> function (after its closing <code>end</code> statement), add the following command:</p>
-<pre class="brush: lua; gutter: true; highlight: [141]; first-line: 136;">    transition.to( newLaser, { y=-40, time=500,
+<p>We’re almost done with the firing mechanics — let’s finish up by assigning the ship a <code>"tap"</code> event listener so that the player can actually fire lasers. Immediately following the <code>fireLaser()</code> function (after its closing <code>end</code> statement), add the following command:</p>
+<pre class="highlight: [141]; first-line: 136; gutter: true; brush: lua;">    transition.to( newLaser, { y=-40, time=500,
         onComplete = function() display.remove( newLaser ) end
     } )
 end
@@ -384,16 +369,16 @@ ship:addEventListener( "tap", fireLaser )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Let's check the result of our code. Save your modified <code>main.lua</code> file, relaunch the Simulator, and try tapping/clicking on the ship to see how it fires lasers. Now we're getting somewhere!</p>
+<p>Let’s check the result of our code. Save your modified <code>main.lua</code> file, relaunch the Simulator, and try tapping/clicking on the ship to see how it fires lasers. Now we’re getting somewhere!</p>
 </div>
 </div>
 <p><a id="movingShip"></a></p>
-</div>
-</div>
-<div id="moving-the-ship" class="section level2">
+</section>
+</section>
+<section id="moving-the-ship" class="level2">
 <h2>Moving the Ship</h2>
-<p>In this game, in addition to firing lasers, the player will be able to touch and drag the ship along the bottom of the screen. To handle this type of movement, we need a function to handle touch/drag events. Let's create this function in the usual manner:</p>
-<pre class="brush: lua; gutter: true; highlight: [144,145,146,147]; first-line: 141;">ship:addEventListener( "tap", fireLaser )
+<p>In this game, in addition to firing lasers, the player will be able to touch and drag the ship along the bottom of the screen. To handle this type of movement, we need a function to handle touch/drag events. Let’s create this function in the usual manner:</p>
+<pre class="highlight: [144,145,146,147]; first-line: 141; gutter: true; brush: lua;">ship:addEventListener( "tap", fireLaser )
 
 
 local function dragShip( event )
@@ -408,31 +393,31 @@ end</pre>
 </div>
 <div class="docs-tip-inner-right">
 <p>Notice that, unlike our previous functions, this function has the keyword <code>event</code> in the parentheses following its name. As you learned in the <code>BalloonTap</code> project, Solar2D is largely an <nobr><a href="../../../api/type/Event.html">event</a>-based</nobr> framework where information is dispatched during a specific event to an event <a href="../../../api/type/Listener.html">listener</a>.</p>
-<p>Specifically for this routine, the <code>event</code> parameter (<a href="../../../api/type/Table.html">table</a>) tells us what object the user is touching/dragging, the location of the touch in content space, and a few other pieces of information. You'll see this <code>event</code> parameter used frequently as you move forward and study existing code samples, so it's a good idea to become familiar with it now.</p>
+<p>Specifically for this routine, the <code>event</code> parameter (<a href="../../../api/type/Table.html">table</a>) tells us what object the user is touching/dragging, the location of the touch in content space, and a few other pieces of information. You’ll see this <code>event</code> parameter used frequently as you move forward and study existing code samples, so it’s a good idea to become familiar with it now.</p>
 </div>
 </div>
-<p>Inside the function, to make things a little clearer, let's set a local variable <code>ship</code> equal to <code>event.target</code>. In touch/tap events, <code>event.target</code> is the object which was touched/tapped, so setting this local variable as a reference to the ship object will save us some typing as we work through the function.</p>
-<pre class="brush: lua; gutter: true; highlight: [146]; first-line: 144;">local function dragShip( event )
+<p>Inside the function, to make things a little clearer, let’s set a local variable <code>ship</code> equal to <code>event.target</code>. In touch/tap events, <code>event.target</code> is the object which was touched/tapped, so setting this local variable as a reference to the ship object will save us some typing as we work through the function.</p>
+<pre class="highlight: [146]; first-line: 144; gutter: true; brush: lua;">local function dragShip( event )
 
     local ship = event.target
 end</pre>
-<div id="touch-events" class="section level3">
+<section id="touch-events" class="level3">
 <h3>Touch Events</h3>
-<p>Touch events, distinct from tap events, have four distinct <strong>phases</strong> based on the state of the user's touch:</p>
+<p>Touch events, distinct from tap events, have four distinct <strong>phases</strong> based on the state of the user’s touch:</p>
 <ul>
-<li><code>&quot;began&quot;</code> — indicates that a touch has started on the object (initial touch on the screen).</li>
-<li><code>&quot;moved&quot;</code> — indicates that a touch position has moved on the object.</li>
-<li><code>&quot;ended&quot;</code> — indicates that a touch has ended on the object (touch lifted from the screen).</li>
-<li><code>&quot;cancelled&quot;</code> — indicates that the <strong>system</strong> cancelled tracking of the touch (not to be confused with <code>&quot;ended&quot;</code>).</li>
+<li><code>"began"</code> — indicates that a touch has started on the object (initial touch on the screen).</li>
+<li><code>"moved"</code> — indicates that a touch position has moved on the object.</li>
+<li><code>"ended"</code> — indicates that a touch has ended on the object (touch lifted from the screen).</li>
+<li><code>"cancelled"</code> — indicates that the <strong>system</strong> cancelled tracking of the touch (not to be confused with <code>"ended"</code>).</li>
 </ul>
-<p>For our convenience, let's locally set the phase (<code>event.phase</code>) of the touch event:</p>
-<pre class="brush: lua; gutter: true; highlight: [147]; first-line: 144;">local function dragShip( event )
+<p>For our convenience, let’s locally set the phase (<code>event.phase</code>) of the touch event:</p>
+<pre class="highlight: [147]; first-line: 144; gutter: true; brush: lua;">local function dragShip( event )
 
     local ship = event.target
     local phase = event.phase
 end</pre>
-<p>With the phase locally set, we can use an <nobr><code>if</code>-<code>then</code></nobr> structure to check which phase the actual touch event is in. If it has just begun (initial touch on the ship), the <code>&quot;began&quot;</code> phase is dispatched to our function. In this conditional case, we set the touch <strong>focus</strong> on the ship — essentially, this means that the ship object will &quot;own&quot; the touch event throughout its duration. While focus is on the ship, no other objects in the game will detect events from this specific touch:</p>
-<pre class="brush: lua; gutter: true; highlight: [149,150,151]; first-line: 144;">local function dragShip( event )
+<p>With the phase locally set, we can use an <nobr><code>if</code>-<code>then</code></nobr> structure to check which phase the actual touch event is in. If it has just begun (initial touch on the ship), the <code>"began"</code> phase is dispatched to our function. In this conditional case, we set the touch <strong>focus</strong> on the ship — essentially, this means that the ship object will “own” the touch event throughout its duration. While focus is on the ship, no other objects in the game will detect events from this specific touch:</p>
+<pre class="highlight: [149,150,151]; first-line: 144; gutter: true; brush: lua;">local function dragShip( event )
 
     local ship = event.target
     local phase = event.phase
@@ -443,21 +428,18 @@ end</pre>
     end
 end</pre>
 <div class="float-right" style="max-width: 232px; margin-top: 16px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/sbs-starexplorer-8.png" />
-
+<p><img src="../../../images/docs/sbs-starexplorer-8.png" /></p>
 </div>
-</div>
-<p>Directly following this, let's store the beginning &quot;offset&quot; position of the touch in relation to the ship. Conceptually, as illustrated here, a touch can occur in various places within an object's bounds. In our code, <nobr><code>event.x - ship.x</code></nobr> gives us the horizontal offset between the exact touch point on the screen (<code>event.x</code>) and the ship's <strong>x</strong> position (<code>ship.x</code>). We set this as a property of the ship (<code>touchOffsetX</code>) for usage in the next phase.</p>
-<pre class="brush: lua; gutter: true; highlight: [152,153]; first-line: 149;">    if ( "began" == phase ) then
+<p>Directly following this, let’s store the beginning “offset” position of the touch in relation to the ship. Conceptually, as illustrated here, a touch can occur in various places within an object’s bounds. In our code, <nobr><code>event.x - ship.x</code></nobr> gives us the horizontal offset between the exact touch point on the screen (<code>event.x</code>) and the ship’s <strong>x</strong> position (<code>ship.x</code>). We set this as a property of the ship (<code>touchOffsetX</code>) for usage in the next phase.</p>
+<pre class="highlight: [152,153]; first-line: 149; gutter: true; brush: lua;">    if ( "began" == phase ) then
         -- Set touch focus on the ship
         display.currentStage:setFocus( ship )
         -- Store initial offset position
         ship.touchOffsetX = event.x - ship.x
     end
 end</pre>
-<p>For the <code>&quot;moved&quot;</code> phase <nobr>(as you can guess)</nobr>, we move the ship! This is done by simply setting the ship's <strong>x</strong> position, but look carefully — this is where our <code>touchOffsetX</code> property comes into play. If we ignored this offset and simply set the ship's <strong>x</strong> position to <code>event.x</code>, its center axis would skip/jump to the exact touch point on the screen and, as illustrated above, the touch point within the ship bounds may not be exactly at the center. Fortunately, factoring in the offset value will produce a smooth, consistent dragging effect.</p>
-<pre class="brush: lua; gutter: true; highlight: [155,156,157]; first-line: 149;">    if ( "began" == phase ) then
+<p>For the <code>"moved"</code> phase <nobr>(as you can guess)</nobr>, we move the ship! This is done by simply setting the ship’s <strong>x</strong> position, but look carefully — this is where our <code>touchOffsetX</code> property comes into play. If we ignored this offset and simply set the ship’s <strong>x</strong> position to <code>event.x</code>, its center axis would skip/jump to the exact touch point on the screen and, as illustrated above, the touch point within the ship bounds may not be exactly at the center. Fortunately, factoring in the offset value will produce a smooth, consistent dragging effect.</p>
+<pre class="highlight: [155,156,157]; first-line: 149; gutter: true; brush: lua;">    if ( "began" == phase ) then
         -- Set touch focus on the ship
         display.currentStage:setFocus( ship )
         -- Store initial offset position
@@ -472,17 +454,17 @@ end</pre>
 <div class="notebox-title">
 Note
 </div>
-<p>For this game, ship movement will be restricted to just left and right, so we only handle changes along the <strong>x</strong> axis. If you create a game where an object can be dragged all around the screen, you should mimic this offset concept for the <strong>y</strong> axis as well. For example, in the <code>&quot;began&quot;</code> case, store the beginning <strong>y</strong> offset:</p>
-<pre class="brush: lua; gutter: false; highlight: [3]; first-line: 1;">-- Store initial offset position
+<p>For this game, ship movement will be restricted to just left and right, so we only handle changes along the <strong>x</strong> axis. If you create a game where an object can be dragged all around the screen, you should mimic this offset concept for the <strong>y</strong> axis as well. For example, in the <code>"began"</code> case, store the beginning <strong>y</strong> offset:</p>
+<pre class="highlight: [3]; first-line: 1; gutter: false; brush: lua;">-- Store initial offset position
 ship.touchOffsetX = event.x - ship.x
 ship.touchOffsetY = event.y - ship.y</pre>
-<p>Then, in the <code>&quot;moved&quot;</code> phase, set the object's <strong>y</strong> position:</p>
-<pre class="brush: lua; gutter: false; highlight: [3]; first-line: 1;">-- Move the ship to the new touch position
+<p>Then, in the <code>"moved"</code> phase, set the object’s <strong>y</strong> position:</p>
+<pre class="highlight: [3]; first-line: 1; gutter: false; brush: lua;">-- Move the ship to the new touch position
 ship.x = event.x - ship.touchOffsetX
 ship.y = event.y - ship.touchOffsetY</pre>
 </div>
-<p>The final conditional case includes both the <code>&quot;ended&quot;</code> and <code>&quot;cancelled&quot;</code> phases. The <code>&quot;ended&quot;</code> phase indicates that the <strong>user</strong> released touch on the object, while the <code>&quot;cancelled&quot;</code> phase indicates that the <strong>system</strong> cancelled/terminated the touch event. Typically, both of these phases can be handled in the same conditional block. For this game, we simply release the touch focus on the ship:</p>
-<pre class="brush: lua; gutter: true; highlight: [159,160,161]; first-line: 155;">    elseif ( "moved" == phase ) then
+<p>The final conditional case includes both the <code>"ended"</code> and <code>"cancelled"</code> phases. The <code>"ended"</code> phase indicates that the <strong>user</strong> released touch on the object, while the <code>"cancelled"</code> phase indicates that the <strong>system</strong> cancelled/terminated the touch event. Typically, both of these phases can be handled in the same conditional block. For this game, we simply release the touch focus on the ship:</p>
+<pre class="highlight: [159,160,161]; first-line: 155; gutter: true; brush: lua;">    elseif ( "moved" == phase ) then
         -- Move the ship to the new touch position
         ship.x = event.x - ship.touchOffsetX
 
@@ -491,28 +473,25 @@ ship.y = event.y - ship.touchOffsetY</pre>
         display.currentStage:setFocus( nil )
     end
 end</pre>
-<p>Let's complete the <code>dragShip()</code> touch listener function with one more command:</p>
-<pre class="brush: lua; gutter: true; highlight: [164]; first-line: 159;">    elseif ( "ended" == phase or "cancelled" == phase ) then
+<p>Let’s complete the <code>dragShip()</code> touch listener function with one more command:</p>
+<pre class="highlight: [164]; first-line: 159; gutter: true; brush: lua;">    elseif ( "ended" == phase or "cancelled" == phase ) then
         -- Release touch focus on the ship
         display.currentStage:setFocus( nil )
     end
 
     return true  -- Prevents touch propagation to underlying objects
 end</pre>
-<p>As the comment indicates, this short but important command tells Solar2D that the touch event should &quot;stop&quot; on this object and not propagate to underlying objects. This is essential in more complex apps where you might have multiple overlapping objects with touch event detection. Adding <nobr><code>return true</code></nobr> at the end of touch listener functions prevents potential (and usually undesirable) touch propagation.</p>
-</div>
-<div id="touch-listener" class="section level3">
+<p>As the comment indicates, this short but important command tells Solar2D that the touch event should “stop” on this object and not propagate to underlying objects. This is essential in more complex apps where you might have multiple overlapping objects with touch event detection. Adding <nobr><code>return true</code></nobr> at the end of touch listener functions prevents potential (and usually undesirable) touch propagation.</p>
+</section>
+<section id="touch-listener" class="level3">
 <h3>Touch Listener</h3>
-<p>We're almost finished with the movement mechanics — let's just assign the ship a <code>&quot;touch&quot;</code> event listener so that the player can touch/drag it left and right across the screen. Immediately following the <code>dragShip()</code> function (after its closing <code>end</code> statement), add the following command:</p>
-<pre class="brush: lua; gutter: true; highlight: [167]; first-line: 164;">    return true  -- Prevents touch propagation to underlying objects
+<p>We’re almost finished with the movement mechanics — let’s just assign the ship a <code>"touch"</code> event listener so that the player can touch/drag it left and right across the screen. Immediately following the <code>dragShip()</code> function (after its closing <code>end</code> statement), add the following command:</p>
+<pre class="highlight: [167]; first-line: 164; gutter: true; brush: lua;">    return true  -- Prevents touch propagation to underlying objects
 end
 
 ship:addEventListener( "touch", dragShip )</pre>
 <div class="float-right" style="max-width: 432px; margin-top: 16px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/sbs-starexplorer-9.png" />
-
-</div>
+<p><img src="../../../images/docs/sbs-starexplorer-9.png" /></p>
 </div>
 <div class="docs-tip-outer docs-tip-color-action">
 <div class="docs-tip-inner-left">
@@ -521,36 +500,36 @@ ship:addEventListener( "touch", dragShip )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Let's check the result of our code. Save your modified <code>main.lua</code> file, relaunch the Simulator, and experiment with touching and dragging the ship around.</p>
+<p>Let’s check the result of our code. Save your modified <code>main.lua</code> file, relaunch the Simulator, and experiment with touching and dragging the ship around.</p>
 </div>
 </div>
 <p><a id="gameloop"></a></p>
-</div>
-</div>
-<div id="game-loop" class="section level2">
+</section>
+</section>
+<section id="game-loop" class="level2">
 <h2>Game Loop</h2>
-<p>Many games include some type of <strong>game loop</strong> to handle the updating of information, checking/updating the state of game objects, etc. Although it's entirely possible to build a game in Solar2D without ever implementing a game loop, we'll use one here to illustrate the concept.</p>
-<p>A game loop function is usually short — instead of containing a large amount of code itself, it typically calls other functions to handle specific repetitive functionality. Our game loop will be used to create new asteroids and clean up &quot;dead&quot; asteroids.</p>
-<p>First, create the core game loop function in your <code>main.lua</code> file following the code you've already written:</p>
-<pre class="brush: lua; gutter: true; highlight: [170,171,172,173]; first-line: 167;">ship:addEventListener( "touch", dragShip )
+<p>Many games include some type of <strong>game loop</strong> to handle the updating of information, checking/updating the state of game objects, etc. Although it’s entirely possible to build a game in Solar2D without ever implementing a game loop, we’ll use one here to illustrate the concept.</p>
+<p>A game loop function is usually short — instead of containing a large amount of code itself, it typically calls other functions to handle specific repetitive functionality. Our game loop will be used to create new asteroids and clean up “dead” asteroids.</p>
+<p>First, create the core game loop function in your <code>main.lua</code> file following the code you’ve already written:</p>
+<pre class="highlight: [170,171,172,173]; first-line: 167; gutter: true; brush: lua;">ship:addEventListener( "touch", dragShip )
 
 
 local function gameLoop()
 
 
 end</pre>
-<p>Now add the following lines to simply call the <code>createAsteroid()</code> function that we wrote earlier in this chapter. Effectively, each time the game loop iterates, it'll generate a new asteroid.</p>
-<pre class="brush: lua; gutter: true; highlight: [172,173]; first-line: 170;">local function gameLoop()
+<p>Now add the following lines to simply call the <code>createAsteroid()</code> function that we wrote earlier in this chapter. Effectively, each time the game loop iterates, it’ll generate a new asteroid.</p>
+<pre class="highlight: [172,173]; first-line: 170; gutter: true; brush: lua;">local function gameLoop()
 
     -- Create new asteroid
     createAsteroid()
 end</pre>
-<div id="asteroid-cleanup" class="section level3">
+<section id="asteroid-cleanup" class="level3">
 <h3>Asteroid Cleanup</h3>
-<p>For this game, let's remove asteroids which have drifted off screen by looping through the <code>asteroidsTable</code> table. Remember when we declared this table as a place to store a reference for each asteroid? It may not have seemed relevant at the time, but now it's coming fully into play!</p>
-<p>To loop through the table, we'll use a Lua <code>for</code> loop. Essentially, a <code>for</code> loop lets us use an <strong>index</strong> variable to count either up or down from a starting number to an ending number.</p>
+<p>For this game, let’s remove asteroids which have drifted off screen by looping through the <code>asteroidsTable</code> table. Remember when we declared this table as a place to store a reference for each asteroid? It may not have seemed relevant at the time, but now it’s coming fully into play!</p>
+<p>To loop through the table, we’ll use a Lua <code>for</code> loop. Essentially, a <code>for</code> loop lets us use an <strong>index</strong> variable to count either up or down from a starting number to an ending number.</p>
 <p>Add the following highlighted commands to your <code>gameLoop()</code> function:</p>
-<pre class="brush: lua; gutter: true; highlight: [175,176,177,178]; first-line: 170;">local function gameLoop()
+<pre class="highlight: [175,176,177,178]; first-line: 170; gutter: true; brush: lua;">local function gameLoop()
 
     -- Create new asteroid
     createAsteroid()
@@ -570,12 +549,12 @@ end</pre>
 <p>Notice that Lua <code>for</code> loops, similar to functions and conditional statements, conclude with the familiar <code>end</code> command.</p>
 </div>
 </div>
-<p>In this case, we need to count down (decrement) starting from the number of asteroids in the <code>asteroidsTable</code> table, but there's one slight catch: the amount will constantly change as new asteroids are created and others are destroyed by the player. Fortunately, Lua has a convenient way to count the number of elements in a table, accomplished by simply prefacing the table name with <code>#</code>:</p>
+<p>In this case, we need to count down (decrement) starting from the number of asteroids in the <code>asteroidsTable</code> table, but there’s one slight catch: the amount will constantly change as new asteroids are created and others are destroyed by the player. Fortunately, Lua has a convenient way to count the number of elements in a table, accomplished by simply prefacing the table name with <code>#</code>:</p>
 <p><code>#asteroidsTable</code></p>
 <p>As you can see, we use this method in our <code>for</code> loop which takes the indicated form — basically, Lua uses the <strong>index</strong> <code>i</code>, starts at <code>#asteroidsTable</code>, <nobr>stops at <code>1</code></nobr>, and <nobr>counts by <code>-1</code></nobr> (decrements).</p>
-<p>Inside the <code>for</code> loop, we must include code which should be processed each time the loop iterates. If there are ten asteroids in the table, the loop will iterate ten times. If there's just one asteroid in the table, it will iterate once.</p>
+<p>Inside the <code>for</code> loop, we must include code which should be processed each time the loop iterates. If there are ten asteroids in the table, the loop will iterate ten times. If there’s just one asteroid in the table, it will iterate once.</p>
 <p>Add the following highlighted lines <strong>inside</strong> the <code>for</code> loop:</p>
-<pre class="brush: lua; gutter: true; highlight: [177,178,179,180,181,182,183,184,185,186]; first-line: 175;">    -- Remove asteroids which have drifted off screen
+<pre class="highlight: [177,178,179,180,181,182,183,184,185,186]; first-line: 175; gutter: true; brush: lua;">    -- Remove asteroids which have drifted off screen
     for i = #asteroidsTable, 1, -1 do
         local thisAsteroid = asteroidsTable[i]
 
@@ -589,19 +568,19 @@ end</pre>
         end
     end
 end</pre>
-<p>Let's examine these commands in more detail:</p>
+<p>Let’s examine these commands in more detail:</p>
 <ul>
 <li>For each iteration of the loop, we first declare a local reference to the asteroid which the loop is referencing on that particular iteration:</li>
 </ul>
 <div class="code-indent">
-<pre class="brush: lua; gutter: false;">local thisAsteroid = asteroidsTable[i]</pre>
-<p>Essentially, <code>thisAsteroid</code> is set to the table item at the <strong>index</strong> number within the brackets (<code>[]</code>), so by using the <code>for</code> loop's <strong>index</strong> of <code>i</code>, we easily gain a reference to each asteroid in the table as the loop iterates from start to finish.</p>
+<pre class="gutter: false; brush: lua;">local thisAsteroid = asteroidsTable[i]</pre>
+<p>Essentially, <code>thisAsteroid</code> is set to the table item at the <strong>index</strong> number within the brackets (<code>[]</code>), so by using the <code>for</code> loop’s <strong>index</strong> of <code>i</code>, we easily gain a reference to each asteroid in the table as the loop iterates from start to finish.</p>
 </div>
 <ul>
 <li>The next block is a <nobr>multi-conditional</nobr> statement which checks the position of the asteroid being referenced during the loop iteration. Basically, with this statement, we check if the asteroid has drifted substantially far off any edge of the screen by checking its <code>x</code> and <code>y</code> properties:</li>
 </ul>
 <div class="code-indent">
-<pre class="brush: lua; gutter: false;">if ( thisAsteroid.x &lt; -100 or
+<pre class="gutter: false; brush: lua;">if ( thisAsteroid.x &lt; -100 or
     thisAsteroid.x > display.contentWidth + 100 or
     thisAsteroid.y &lt; -100 or
     thisAsteroid.y > display.contentHeight + 100 )
@@ -612,9 +591,9 @@ then</pre>
 </ul>
 <div class="code-indent">
 <p>First, we remove the asteroid from the screen using the <code>display.remove()</code> command:</p>
-<pre class="brush: lua; gutter: false;">display.remove( thisAsteroid )</pre>
+<pre class="gutter: false; brush: lua;">display.remove( thisAsteroid )</pre>
 <p>Second, we remove the asteroid from the <code>asteroidsTable</code> table with the <nobr>built-in</nobr> Lua <code>table.remove()</code> command. This command simply removes an item from a table at the specified index, in this case the loop <nobr>index of <code>i</code></nobr>:</p>
-<pre class="brush: lua; gutter: false;">table.remove( asteroidsTable, i )</pre>
+<pre class="gutter: false; brush: lua;">table.remove( asteroidsTable, i )</pre>
 <div class="docs-tip-outer docs-tip-color-alert">
 <div class="docs-tip-inner-left">
 <div class="fa fa-exclamation-circle" style="font-size: 35px;">
@@ -622,32 +601,32 @@ then</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>It's very important to understand basic Lua memory management and how it relates to display objects. The first command above, <nobr><code>display.remove( thisAsteroid )</code></nobr>, will remove the asteroid from the screen, visually. However, that command alone will <strong>not</strong> release the asteroid from Lua memory. Why?</p>
-<p>Because we stored an <strong>additional</strong> reference to the asteroid inside the <code>asteroidsTable</code> table, Lua cannot free up the memory allocated to the asteroid object until that reference is removed. That's why we perform the second command, <nobr><code>table.remove( asteroidsTable, i )</code></nobr>, directly afterward. This effectively removes that additional reference and, because there are no other persistent references to the object, the Lua garbage collection process can then automatically free its allocated memory.</p>
+<p>It’s very important to understand basic Lua memory management and how it relates to display objects. The first command above, <nobr><code>display.remove( thisAsteroid )</code></nobr>, will remove the asteroid from the screen, visually. However, that command alone will <strong>not</strong> release the asteroid from Lua memory. Why?</p>
+<p>Because we stored an <strong>additional</strong> reference to the asteroid inside the <code>asteroidsTable</code> table, Lua cannot free up the memory allocated to the asteroid object until that reference is removed. That’s why we perform the second command, <nobr><code>table.remove( asteroidsTable, i )</code></nobr>, directly afterward. This effectively removes that additional reference and, because there are no other persistent references to the object, the Lua garbage collection process can then automatically free its allocated memory.</p>
 </div>
 </div>
 </div>
-<p>That concludes our asteroid cleanup! Basically, on each iteration of the game loop, we use the <code>for</code> loop to check for asteroids which have drifted substantially outside of the screen bounds. Each of those &quot;dead&quot; asteroids is then removed from the screen <strong>and</strong> removed from the <code>asteroidsTable</code> storage table, keeping the total asteroid count down and memory usage low.</p>
-</div>
-<div id="loop-timer" class="section level3">
+<p>That concludes our asteroid cleanup! Basically, on each iteration of the game loop, we use the <code>for</code> loop to check for asteroids which have drifted substantially outside of the screen bounds. Each of those “dead” asteroids is then removed from the screen <strong>and</strong> removed from the <code>asteroidsTable</code> storage table, keeping the total asteroid count down and memory usage low.</p>
+</section>
+<section id="loop-timer" class="level3">
 <h3>Loop Timer</h3>
-<p>Although you might imagine a game loop as code/functionality which updates on every frame of the application runtime — up to 60 times per second — that's not necessarily true for every app. Because our game loop is a standard function, we have complete control over how often it runs, and when.</p>
-<p>There are a couple different ways to run a game loop function repeatedly. In this game, we clearly don't want to generate 60 new asteroids per second, and it's not necessary to perform cleanup tasks that often either. So, we'll implement a <strong>repeating timer</strong> instead.</p>
+<p>Although you might imagine a game loop as code/functionality which updates on every frame of the application runtime — up to 60 times per second — that’s not necessarily true for every app. Because our game loop is a standard function, we have complete control over how often it runs, and when.</p>
+<p>There are a couple different ways to run a game loop function repeatedly. In this game, we clearly don’t want to generate 60 new asteroids per second, and it’s not necessary to perform cleanup tasks that often either. So, we’ll implement a <strong>repeating timer</strong> instead.</p>
 <p>Immediately following the <code>gameLoop()</code> function (after its closing <code>end</code> statement), add the following command:</p>
-<pre class="brush: lua; gutter: true; highlight: [190]; first-line: 184;">            display.remove( thisAsteroid )
+<pre class="highlight: [190]; first-line: 184; gutter: true; brush: lua;">            display.remove( thisAsteroid )
             table.remove( asteroidsTable, i )
         end
     end
 end
 
 gameLoopTimer = timer.performWithDelay( 500, gameLoop, 0 )</pre>
-<p>Let's dissect this line:</p>
-<ol style="list-style-type: decimal">
+<p>Let’s dissect this line:</p>
+<ol type="1">
 <li><p>First, we state that the <code>gameLoopTimer</code> placeholder variable (declared earlier) will be associated with our timer. This allows us to use that variable as a reference/handle for pausing or canceling the timer later, if necessary.</p></li>
 <li><p>Next, we call <code>timer.performWithDelay()</code>. This convenient command tells Solar2D to perform some action after a specified number of milliseconds. Timers are useful for a wide array of game functionality, so get comfortable with them!</p></li>
-<li><p>Inside the parentheses, we start with the number of milliseconds to wait (delay) until the timer fires. Here we use <code>500</code> which is exactly half a second, but you can experiment with other values. A lower number like <code>250</code> will make asteroids spawn faster and increase the difficulty of the game, but don't set this value too low or asteroids will generate too quickly and crowd the screen.</p></li>
+<li><p>Inside the parentheses, we start with the number of milliseconds to wait (delay) until the timer fires. Here we use <code>500</code> which is exactly half a second, but you can experiment with other values. A lower number like <code>250</code> will make asteroids spawn faster and increase the difficulty of the game, but don’t set this value too low or asteroids will generate too quickly and crowd the screen.</p></li>
 <li><p>The next parameter is the function which will be called/run when the timer fires. Obviously we specify <code>gameLoop</code> here.</p></li>
-<li><p>Finally, we include the optional <strong>iterations</strong> parameter with a value of <code>0</code>. If this parameter is omitted, timers will simply fire once and stop. If you include this parameter, the timer will repeat for that number of iterations, but don't be fooled by the <code>0</code> in this case — we are <strong>not</strong> telling the timer to <nobr>&quot;run zero times&quot;</nobr> but rather to repeat forever. Basically, passing <code>0</code> or <code>-1</code> will cause the timer to repeat indefinitely (unless we tell it to pause/stop).</p></li>
+<li><p>Finally, we include the optional <strong>iterations</strong> parameter with a value of <code>0</code>. If this parameter is omitted, timers will simply fire once and stop. If you include this parameter, the timer will repeat for that number of iterations, but don’t be fooled by the <code>0</code> in this case — we are <strong>not</strong> telling the timer to <nobr>“run zero times”</nobr> but rather to repeat forever. Basically, passing <code>0</code> or <code>-1</code> will cause the timer to repeat indefinitely (unless we tell it to pause/stop).</p></li>
 </ol>
 <div class="docs-tip-outer docs-tip-color-action">
 <div class="docs-tip-inner-left">
@@ -660,12 +639,12 @@ gameLoopTimer = timer.performWithDelay( 500, gameLoop, 0 )</pre>
 </div>
 </div>
 <p><a id="collisions"></a></p>
-</div>
-</div>
-<div id="collision-handling" class="section level2">
+</section>
+</section>
+<section id="collision-handling" class="level2">
 <h2>Collision Handling</h2>
-<p>Time to handle collisions! Initially, we're only going to detect specific collisions:</p>
-<ol style="list-style-type: decimal">
+<p>Time to handle collisions! Initially, we’re only going to detect specific collisions:</p>
+<ol type="1">
 <li>When a laser collides with an asteroid.</li>
 <li>When an asteroid collides with the ship.</li>
 </ol>
@@ -676,7 +655,7 @@ gameLoopTimer = timer.performWithDelay( 500, gameLoop, 0 )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Collisions are reported between pairs of objects, and they can be detected either <strong>locally</strong> on an object, using an object listener, or <strong>globally</strong> using a runtime listener. Different games require different methods, but here's a general guideline:</p>
+<p>Collisions are reported between pairs of objects, and they can be detected either <strong>locally</strong> on an object, using an object listener, or <strong>globally</strong> using a runtime listener. Different games require different methods, but here’s a general guideline:</p>
 <ul>
 <li><p>Local collision handling is best utilized in a <nobr>one-to-many</nobr> collision scenario, for example one player object which may collide with multiple enemies, <nobr>power-ups</nobr>, etc.</p></li>
 <li><p>Global collision handling is best utilized in a <nobr>many-to-many</nobr> collision scenario, for example multiple hero characters which may collide with multiple enemies.</p></li>
@@ -684,11 +663,11 @@ gameLoopTimer = timer.performWithDelay( 500, gameLoop, 0 )</pre>
 <p>While this game has just one player object (the ship), it might seem that the best choice is <strong>local</strong> collision handling. However, the game will also need to detect collisions between multiple lasers and multiple asteroids, so <strong>global</strong> collision handling is a better option.</p>
 </div>
 </div>
-<div id="restoring-the-ship" class="section level3">
+<section id="restoring-the-ship" class="level3">
 <h3>Restoring the Ship</h3>
-<p>Before we get into collision handling, we need a function that can be called to restore the ship following collision with an asteroid. In our game, we'll mimic classic arcade games where, as the new ship fades into view, it's temporarily invincible — after all, it wouldn't be fair to allow players to die consecutive times without being given a chance to dodge incoming asteroids!</p>
-<p>Following the code you've already written, add the following highlighted function:</p>
-<pre class="brush: lua; gutter: true; highlight: [193,194,195,196,197,198,199,200,201,202,203,204,205,206]; first-line: 190;">gameLoopTimer = timer.performWithDelay( 500, gameLoop, 0 )
+<p>Before we get into collision handling, we need a function that can be called to restore the ship following collision with an asteroid. In our game, we’ll mimic classic arcade games where, as the new ship fades into view, it’s temporarily invincible — after all, it wouldn’t be fair to allow players to die consecutive times without being given a chance to dodge incoming asteroids!</p>
+<p>Following the code you’ve already written, add the following highlighted function:</p>
+<pre class="highlight: [193,194,195,196,197,198,199,200,201,202,203,204,205,206]; first-line: 190; gutter: true; brush: lua;">gameLoopTimer = timer.performWithDelay( 500, gameLoop, 0 )
 
 
 local function restoreShip()
@@ -705,17 +684,17 @@ local function restoreShip()
         end
     } )
 end</pre>
-<p>Let's examine the content of this function:</p>
-<ol style="list-style-type: decimal">
+<p>Let’s examine the content of this function:</p>
+<ol type="1">
 <li><p>The first command, <nobr><code>ship.isBodyActive = false</code></nobr>, effectively removes the ship from the physics simulation so that it ceases to interact with other bodies. We do this (temporarily) so that, as the ship fades back into view, colliding asteroids will not trigger another collision response.</p></li>
 <li><p>The next two lines simply reposition the ship at the <nobr>bottom-center</nobr> of the screen.</p></li>
-<li><p>The final command might not make complete sense right now, but it will after we add &quot;death&quot; functionality further down. Essentially, this <code>transition.to()</code> command fades the ship back to full opacity (<code>alpha=1</code>) over the span of four seconds. It also includes an <code>onComplete</code> callback to an anonymous function. This function restores the ship as an active physical body and resets the <code>died</code> variable to <code>false</code>.</p></li>
+<li><p>The final command might not make complete sense right now, but it will after we add “death” functionality further down. Essentially, this <code>transition.to()</code> command fades the ship back to full opacity (<code>alpha=1</code>) over the span of four seconds. It also includes an <code>onComplete</code> callback to an anonymous function. This function restores the ship as an active physical body and resets the <code>died</code> variable to <code>false</code>.</p></li>
 </ol>
-</div>
-<div id="collision-function" class="section level3">
+</section>
+<section id="collision-function" class="level3">
 <h3>Collision Function</h3>
-<p>Next, let's write the foundation of our collision function:</p>
-<pre class="brush: lua; gutter: true; highlight: [209,210,211,212,213,214,215,216]; first-line: 204;">        end
+<p>Next, let’s write the foundation of our collision function:</p>
+<pre class="highlight: [209,210,211,212,213,214,215,216]; first-line: 204; gutter: true; brush: lua;">        end
     } )
 end
 
@@ -729,15 +708,15 @@ local function onCollision( event )
     end
 end</pre>
 <p>This is relatively simple and you should recognize some basic concepts from earlier:</p>
-<ol style="list-style-type: decimal">
-<li><p>Similar to touch events, collisions have distinct <strong>phases</strong>, in this case <code>&quot;began&quot;</code> and <code>&quot;ended&quot;</code>. The <code>&quot;began&quot;</code> collision phase is by far the most common phase you'll need to handle, but there are instances where detecting the <code>&quot;ended&quot;</code> phase is important. Don't worry too much about this now — here, we simply isolate the <code>&quot;began&quot;</code> phase by wrapping our functionality in a conditional clause.</p></li>
+<ol type="1">
+<li><p>Similar to touch events, collisions have distinct <strong>phases</strong>, in this case <code>"began"</code> and <code>"ended"</code>. The <code>"began"</code> collision phase is by far the most common phase you’ll need to handle, but there are instances where detecting the <code>"ended"</code> phase is important. Don’t worry too much about this now — here, we simply isolate the <code>"began"</code> phase by wrapping our functionality in a conditional clause.</p></li>
 <li><p>For simplicity throughout the function, we reference the two objects involved in the collision with the local variables <code>obj1</code> and <code>obj2</code>. When detecting collisions with the global method, these objects are referenced by <code>event.object1</code> and <code>event.object2</code>.</p></li>
 </ol>
-</div>
-<div id="lasers-and-asteroids" class="section level3">
+</section>
+<section id="lasers-and-asteroids" class="level3">
 <h3>Lasers and Asteroids</h3>
-<p>Let's handle our first collision condition: lasers and asteroids. Remember how we assign a <code>myName</code> property to each object when we create it? This property now becomes critical as a means to detect which two object types are colliding. Here, the opening conditional clause checks the <code>myName</code> property of both <code>obj1</code> and <code>obj2</code>. If these values are <code>&quot;laser&quot;</code> and <code>&quot;asteroid&quot;</code>, we know which two object types collided and we can proceed with handling the outcome.</p>
-<pre class="brush: lua; gutter: true; highlight: [216,217,218,219,220]; first-line: 211;">    if ( event.phase == "began" ) then
+<p>Let’s handle our first collision condition: lasers and asteroids. Remember how we assign a <code>myName</code> property to each object when we create it? This property now becomes critical as a means to detect which two object types are colliding. Here, the opening conditional clause checks the <code>myName</code> property of both <code>obj1</code> and <code>obj2</code>. If these values are <code>"laser"</code> and <code>"asteroid"</code>, we know which two object types collided and we can proceed with handling the outcome.</p>
+<pre class="highlight: [216,217,218,219,220]; first-line: 211; gutter: true; brush: lua;">    if ( event.phase == "began" ) then
 
         local obj1 = event.object1
         local obj2 = event.object2
@@ -756,11 +735,11 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>When detecting collisions with the global method, there is no way to determine which is the &quot;first&quot; and &quot;second&quot; object involved in the collision. In other words, <code>obj1</code> may be the laser and <code>obj2</code> the asteroid, or they might be flipped around. This is why we build a <nobr>multi-conditional</nobr> clause to detect both possibilities.</p>
+<p>When detecting collisions with the global method, there is no way to determine which is the “first” and “second” object involved in the collision. In other words, <code>obj1</code> may be the laser and <code>obj2</code> the asteroid, or they might be flipped around. This is why we build a <nobr>multi-conditional</nobr> clause to detect both possibilities.</p>
 </div>
 </div>
-<p>Inside the conditional clause, let's begin by simply removing the two objects via <code>display.remove()</code>. While a fancy explosion effect would be awesome, this project merely exhibits how to handle collisions — how you expand on this later depends on your imagination!</p>
-<pre class="brush: lua; gutter: true; highlight: [219,220,221]; first-line: 216;">        if ( ( obj1.myName == "laser" and obj2.myName == "asteroid" ) or
+<p>Inside the conditional clause, let’s begin by simply removing the two objects via <code>display.remove()</code>. While a fancy explosion effect would be awesome, this project merely exhibits how to handle collisions — how you expand on this later depends on your imagination!</p>
+<pre class="highlight: [219,220,221]; first-line: 216; gutter: true; brush: lua;">        if ( ( obj1.myName == "laser" and obj2.myName == "asteroid" ) or
              ( obj1.myName == "asteroid" and obj2.myName == "laser" ) )
         then
             -- Remove both the laser and asteroid
@@ -769,8 +748,8 @@ end</pre>
         end
     end
 end</pre>
-<p>Next, let's remove the destroyed asteroid from the <code>asteroidsTable</code> table so that the game loop doesn't need to worry about it any further. For this task, we use another <code>for</code> loop which iterates through <code>asteroidsTable</code>, locates the instance of the asteroid, and removes it:</p>
-<pre class="brush: lua; gutter: true; highlight: [223,224,225,226,227,228]; first-line: 216;">        if ( ( obj1.myName == "laser" and obj2.myName == "asteroid" ) or
+<p>Next, let’s remove the destroyed asteroid from the <code>asteroidsTable</code> table so that the game loop doesn’t need to worry about it any further. For this task, we use another <code>for</code> loop which iterates through <code>asteroidsTable</code>, locates the instance of the asteroid, and removes it:</p>
+<pre class="highlight: [223,224,225,226,227,228]; first-line: 216; gutter: true; brush: lua;">        if ( ( obj1.myName == "laser" and obj2.myName == "asteroid" ) or
              ( obj1.myName == "asteroid" and obj2.myName == "laser" ) )
         then
             -- Remove both the laser and asteroid
@@ -793,11 +772,11 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>In this loop, we also utilize a minor efficiency trick known as <strong>breaking</strong>, executed by the <code>break</code> command. Because we're only looking for one specific asteroid, the loop can immediately break/stop once that asteroid has been removed, effectively stopping any further processing effort.</p>
+<p>In this loop, we also utilize a minor efficiency trick known as <strong>breaking</strong>, executed by the <code>break</code> command. Because we’re only looking for one specific asteroid, the loop can immediately break/stop once that asteroid has been removed, effectively stopping any further processing effort.</p>
 </div>
 </div>
-<p>Finally, to reward the player for destroying an asteroid, we'll increase the <code>score</code> variable by <code>100</code> and update the <code>scoreText</code> text object to reflect the new value:</p>
-<pre class="brush: lua; gutter: true; highlight: [230,231,232]; first-line: 216;">        if ( ( obj1.myName == "laser" and obj2.myName == "asteroid" ) or
+<p>Finally, to reward the player for destroying an asteroid, we’ll increase the <code>score</code> variable by <code>100</code> and update the <code>scoreText</code> text object to reflect the new value:</p>
+<pre class="highlight: [230,231,232]; first-line: 216; gutter: true; brush: lua;">        if ( ( obj1.myName == "laser" and obj2.myName == "asteroid" ) or
              ( obj1.myName == "asteroid" and obj2.myName == "laser" ) )
         then
             -- Remove both the laser and asteroid
@@ -817,11 +796,11 @@ end</pre>
         end
     end
 end</pre>
-</div>
-<div id="asteroids-and-the-ship" class="section level3">
+</section>
+<section id="asteroids-and-the-ship" class="level3">
 <h3>Asteroids and the Ship</h3>
-<p>Now let's handle the second collision condition: asteroids and the ship. Add the following condition to the <nobr><code>if-then</code></nobr> statement following the first one. Notice that we use <code>elseif</code> because we're adding another possible condition to the same statement:</p>
-<pre class="brush: lua; gutter: true; highlight: [234,235,236]; first-line: 230;">            -- Increase score
+<p>Now let’s handle the second collision condition: asteroids and the ship. Add the following condition to the <nobr><code>if-then</code></nobr> statement following the first one. Notice that we use <code>elseif</code> because we’re adding another possible condition to the same statement:</p>
+<pre class="highlight: [234,235,236]; first-line: 230; gutter: true; brush: lua;">            -- Increase score
             score = score + 100
             scoreText.text = "Score: " .. score
 
@@ -832,8 +811,8 @@ end</pre>
         end
     end
 end</pre>
-<p>Inside this conditional clause, let's begin with an additional <nobr><code>if-then</code></nobr> check:</p>
-<pre class="brush: lua; gutter: true; highlight: [237,238,239]; first-line: 234;">        elseif ( ( obj1.myName == "ship" and obj2.myName == "asteroid" ) or
+<p>Inside this conditional clause, let’s begin with an additional <nobr><code>if-then</code></nobr> check:</p>
+<pre class="highlight: [237,238,239]; first-line: 234; gutter: true; brush: lua;">        elseif ( ( obj1.myName == "ship" and obj2.myName == "asteroid" ) or
                  ( obj1.myName == "asteroid" and obj2.myName == "ship" ) )
         then
             if ( died == false ) then
@@ -842,9 +821,9 @@ end</pre>
         end
     end
 end</pre>
-<p>This conditional check might seem a little strange, but we need to confirm that the ship has not already been destroyed. As the game progresses, or with a faster asteroid spawning rate, it's entirely possible that the ship will be struck by two asteroids almost simultaneously. Losing two lives in that case obviously isn't fair, so we check the value of <code>died</code> and only proceed if it's <code>false</code>.</p>
-<p>Inside this <nobr><code>if-then</code></nobr> clause, let's immediately set <nobr><code>died = true</code></nobr> because the player actually has died this time!</p>
-<pre class="brush: lua; gutter: true; highlight: [238]; first-line: 234;">        elseif ( ( obj1.myName == "ship" and obj2.myName == "asteroid" ) or
+<p>This conditional check might seem a little strange, but we need to confirm that the ship has not already been destroyed. As the game progresses, or with a faster asteroid spawning rate, it’s entirely possible that the ship will be struck by two asteroids almost simultaneously. Losing two lives in that case obviously isn’t fair, so we check the value of <code>died</code> and only proceed if it’s <code>false</code>.</p>
+<p>Inside this <nobr><code>if-then</code></nobr> clause, let’s immediately set <nobr><code>died = true</code></nobr> because the player actually has died this time!</p>
+<pre class="highlight: [238]; first-line: 234; gutter: true; brush: lua;">        elseif ( ( obj1.myName == "ship" and obj2.myName == "asteroid" ) or
                  ( obj1.myName == "asteroid" and obj2.myName == "ship" ) )
         then
             if ( died == false ) then
@@ -853,8 +832,8 @@ end</pre>
         end
     end
 end</pre>
-<p>Following this, we'll subtract a life from the <code>lives</code> variable and update the <code>livesText</code> text object to reflect the new value:</p>
-<pre class="brush: lua; gutter: true; highlight: [240,241,242]; first-line: 234;">        elseif ( ( obj1.myName == "ship" and obj2.myName == "asteroid" ) or
+<p>Following this, we’ll subtract a life from the <code>lives</code> variable and update the <code>livesText</code> text object to reflect the new value:</p>
+<pre class="highlight: [240,241,242]; first-line: 234; gutter: true; brush: lua;">        elseif ( ( obj1.myName == "ship" and obj2.myName == "asteroid" ) or
                  ( obj1.myName == "asteroid" and obj2.myName == "ship" ) )
         then
             if ( died == false ) then
@@ -867,8 +846,8 @@ end</pre>
         end
     end
 end</pre>
-<p>Finally, let's include a conditional statement to check if the player is out of lives:</p>
-<pre class="brush: lua; gutter: true; highlight: [244,245,246,247,248,249]; first-line: 234;">        elseif ( ( obj1.myName == "ship" and obj2.myName == "asteroid" ) or
+<p>Finally, let’s include a conditional statement to check if the player is out of lives:</p>
+<pre class="highlight: [244,245,246,247,248,249]; first-line: 234; gutter: true; brush: lua;">        elseif ( ( obj1.myName == "ship" and obj2.myName == "asteroid" ) or
                  ( obj1.myName == "asteroid" and obj2.myName == "ship" ) )
         then
             if ( died == false ) then
@@ -888,19 +867,19 @@ end</pre>
         end
     end
 end</pre>
-<p>In the opening clause of this statement, if <code>lives</code> is equal to <code>0</code>, we simply remove the ship entirely. This is the point where you could show a &quot;game over&quot; message or perform some other action, but for now we'll leave the possibilities open.</p>
-<p>In the default <code>else</code> clause (the player has at least one life remaining), we make the ship invisible by setting its <code>alpha</code> property to <code>0</code>. This ties into the <code>restoreShip()</code> function which we wrote earlier where, when the ship fades back into view, the <code>transition.to()</code> command transitions the ship's <code>alpha</code> back to <code>1</code>. Immediately following that line, we actually call the <code>restoreShip()</code> function after a delay of one second — this yields a slight delay before the ship begins to fade back into view.</p>
-</div>
-<div id="collision-listener" class="section level3">
+<p>In the opening clause of this statement, if <code>lives</code> is equal to <code>0</code>, we simply remove the ship entirely. This is the point where you could show a “game over” message or perform some other action, but for now we’ll leave the possibilities open.</p>
+<p>In the default <code>else</code> clause (the player has at least one life remaining), we make the ship invisible by setting its <code>alpha</code> property to <code>0</code>. This ties into the <code>restoreShip()</code> function which we wrote earlier where, when the ship fades back into view, the <code>transition.to()</code> command transitions the ship’s <code>alpha</code> back to <code>1</code>. Immediately following that line, we actually call the <code>restoreShip()</code> function after a delay of one second — this yields a slight delay before the ship begins to fade back into view.</p>
+</section>
+<section id="collision-listener" class="level3">
 <h3>Collision Listener</h3>
 <p>All of our collision logic is now in place, but absolutely nothing will happen unless we link it up! Since we decided to implement collisions in the global method, it only takes one command to tell Solar2D that it should listen for new collisions during every runtime frame of the app.</p>
 <p>Immediately following the <code>onCollision()</code> function (after its closing <code>end</code> statement), add the following command:</p>
-<pre class="brush: lua; gutter: true; highlight: [255]; first-line: 251;">        end
+<pre class="highlight: [255]; first-line: 251; gutter: true; brush: lua;">        end
     end
 end
 
 Runtime:addEventListener( "collision", onCollision )</pre>
-<p>This command is similar to previous event listeners where we added a <code>&quot;tap&quot;</code> or <code>&quot;touch&quot;</code> listener type to a specific object. Here, we simply add a <code>&quot;collision&quot;</code> listener type to the global <code>Runtime</code> object.</p>
+<p>This command is similar to previous event listeners where we added a <code>"tap"</code> or <code>"touch"</code> listener type to a specific object. Here, we simply add a <code>"collision"</code> listener type to the global <code>Runtime</code> object.</p>
 <div class="docs-tip-outer docs-tip-color-action">
 <div class="docs-tip-inner-left">
 <div class="fa fa-video-camera" style="font-size: 29px; padding-top: 4px;">
@@ -908,7 +887,7 @@ Runtime:addEventListener( "collision", onCollision )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>That's it! Save your <code>main.lua</code> file, relaunch the Simulator, and your game will be finished — the player has full control over the ship, asteroids continue to spawn and move across the screen, score and lives are accounted for, and we basically have a fully functioning game!</p>
+<p>That’s it! Save your <code>main.lua</code> file, relaunch the Simulator, and your game will be finished — the player has full control over the ship, asteroids continue to spawn and move across the screen, score and lives are accounted for, and we basically have a fully functioning game!</p>
 </div>
 </div>
 <div class="docs-tip-outer" style="background-color: #ffa752;">
@@ -918,77 +897,77 @@ Runtime:addEventListener( "collision", onCollision )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Just in case you missed something, the complete program is available <a href="https://github.com/coronalabs/GettingStarted03/archive/master.zip">here</a>. This project is slightly more complicated than the previous one, so it may be helpful to download the original source code to compare with what you've created.</p>
+<p>Just in case you missed something, the complete program is available <a href="https://github.com/coronalabs/GettingStarted03/archive/master.zip">here</a>. This project is slightly more complicated than the previous one, so it may be helpful to download the original source code to compare with what you’ve created.</p>
 </div>
 </div>
 <p><a id="concepts"></a></p>
-</div>
-</div>
-<div id="chapter-concepts" class="section level2">
+</section>
+</section>
+<section id="chapter-concepts" class="level2">
 <h2>Chapter Concepts</h2>
-<p>We've covered quite a few concepts in this chapter. Here's an overview:</p>
+<p>We’ve covered quite a few concepts in this chapter. Here’s an overview:</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Command/Property</th>
-<th align="left">Description</th>
+<th style="text-align: left;">Command/Property</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/table/insert.html">table.insert()</a></td>
-<td align="left">Inserts a given value into a <a href="../../../api/type/Table.html">table</a>.</td>
+<td style="text-align: left;"><a href="../../../api/library/table/insert.html">table.insert()</a></td>
+<td style="text-align: left;">Inserts a given value into a <a href="../../../api/type/Table.html">table</a>.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/table/remove.html">table.remove()</a></td>
-<td align="left">Removes an item from a <a href="../../../api/type/Table.html">table</a> at the specified index.</td>
+<td style="text-align: left;"><a href="../../../api/library/table/remove.html">table.remove()</a></td>
+<td style="text-align: left;">Removes an item from a <a href="../../../api/type/Table.html">table</a> at the specified index.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/math/random.html">math.random()</a></td>
-<td align="left">Returns a <nobr>pseudo-random</nobr> number from a sequence with uniform distribution.</td>
+<td style="text-align: left;"><a href="../../../api/library/math/random.html">math.random()</a></td>
+<td style="text-align: left;">Returns a <nobr>pseudo-random</nobr> number from a sequence with uniform distribution.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/type/Body/setLinearVelocity.html">object:setLinearVelocity()</a></td>
-<td align="left">Sets the <strong>x</strong> and <strong>y</strong> components for a body's linear velocity.</td>
+<td style="text-align: left;"><a href="../../../api/type/Body/setLinearVelocity.html">object:setLinearVelocity()</a></td>
+<td style="text-align: left;">Sets the <strong>x</strong> and <strong>y</strong> components for a body’s linear velocity.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/type/Body/applyTorque.html">object:applyTorque()</a></td>
-<td align="left">Applies rotational force to a physical body.</td>
+<td style="text-align: left;"><a href="../../../api/type/Body/applyTorque.html">object:applyTorque()</a></td>
+<td style="text-align: left;">Applies rotational force to a physical body.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/type/Body/isBullet.html">object.isBullet</a></td>
-<td align="left">Boolean for whether a body should be treated as a &quot;bullet.&quot;</td>
+<td style="text-align: left;"><a href="../../../api/type/Body/isBullet.html">object.isBullet</a></td>
+<td style="text-align: left;">Boolean for whether a body should be treated as a “bullet.”</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/type/DisplayObject/toBack.html">object:toBack()</a></td>
-<td align="left">Moves a target object to the visual back of its parent group.</td>
+<td style="text-align: left;"><a href="../../../api/type/DisplayObject/toBack.html">object:toBack()</a></td>
+<td style="text-align: left;">Moves a target object to the visual back of its parent group.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/transition/to.html">transition.to()</a></td>
-<td align="left">Animates (transitions) a display object using an optional <a href="../../../api/library/easing/index.html">easing</a> algorithm.</td>
+<td style="text-align: left;"><a href="../../../api/library/transition/to.html">transition.to()</a></td>
+<td style="text-align: left;">Animates (transitions) a display object using an optional <a href="../../../api/library/easing/index.html">easing</a> algorithm.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/display/remove.html">display.remove()</a></td>
-<td align="left">Removes an object or group if not <code>nil</code>.</td>
+<td style="text-align: left;"><a href="../../../api/library/display/remove.html">display.remove()</a></td>
+<td style="text-align: left;">Removes an object or group if not <code>nil</code>.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/type/StageObject/setFocus.html">object:setFocus()</a></td>
-<td align="left">Sets a specific display object as the target for all future hit events <nobr>(<code>&quot;touch&quot;</code> and <code>&quot;tap&quot;</code>)</nobr>.</td>
+<td style="text-align: left;"><a href="../../../api/type/StageObject/setFocus.html">object:setFocus()</a></td>
+<td style="text-align: left;">Sets a specific display object as the target for all future hit events <nobr>(<code>"touch"</code> and <code>"tap"</code>)</nobr>.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/timer/performWithDelay.html">timer.performWithDelay()</a></td>
-<td align="left">Calls a specified function after a delay.</td>
+<td style="text-align: left;"><a href="../../../api/library/timer/performWithDelay.html">timer.performWithDelay()</a></td>
+<td style="text-align: left;">Calls a specified function after a delay.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/type/Body/isBodyActive.html">object.isBodyActive</a></td>
-<td align="left">Sets or gets a physical body's current active state.</td>
+<td style="text-align: left;"><a href="../../../api/type/Body/isBodyActive.html">object.isBodyActive</a></td>
+<td style="text-align: left;">Sets or gets a physical body’s current active state.</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="section" class="section level2">
+</section>
+<section id="section" class="level2">
 <h2></h2>
 <div class="walkthrough-nav">
 <p><strong>⟨</strong> <a href="../../../guide/programming/02/index.html">Chapter 2 — Upward &amp; Onward</a> <em>|</em> <a href="../../../guide/programming/04/index.html">Chapter 4 — Creating Scenes</a> <strong>⟩</strong></p>
@@ -1003,8 +982,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

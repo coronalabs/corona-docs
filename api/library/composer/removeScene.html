@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | composer | removeScene</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -68,60 +68,60 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/composer/index.html">composer</a>  ▸  <a href="../../../api/library/composer/removeScene.html">removeScene</a>
 </div>
-<div id="composer.removescene" class="section level1">
+<section id="composer.removescene" class="level1">
 <h1>composer.removeScene()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/composer/index.html">composer.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/composer/index.html">composer.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">composer, scene, remove, removeScene</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">composer, scene, remove, removeScene</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../api/library/composer/removeHidden.html">composer.removeHidden()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/composer/removeHidden.html">composer.removeHidden()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/composer/getSceneName.html">composer.getSceneName</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/composer/getSceneName.html">composer.getSceneName</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>This function removes the specified scene (or optionally recycles it). A <a href="../../../api/event/scene/destroy/index.html">destroy</a> event is first dispatched to the scene.</p>
-<p>To recycle the scene instead of removing it entirely, you may set the <code>shouldRecycle</code> parameter to <code>true</code> — this means that the scene's <code>self.view</code> display group will be removed, but its scene object will remain in memory. This may improve loading time if you access the scene frequently. If <code>shouldRecycle</code> is omitted or set to <code>false</code> (default), the scene will be removed entirely, including its scene object.</p>
-</div>
-<div id="syntax" class="section level2">
+<p>To recycle the scene instead of removing it entirely, you may set the <code>shouldRecycle</code> parameter to <code>true</code> — this means that the scene’s <code>self.view</code> display group will be removed, but its scene object will remain in memory. This may improve loading time if you access the scene frequently. If <code>shouldRecycle</code> is omitted or set to <code>false</code> (default), the scene will be removed entirely, including its scene object.</p>
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">composer.removeScene( sceneName [, shouldRecycle] )</pre>
-<div id="scenename-required" class="section level5">
+<section id="scenename-required" class="level5">
 <h5>sceneName <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../../api/type/String.html">String</a>.</em> The name of the scene to recycle or remove. For instance, if you want to recycle or remove <code>scene1.lua</code>, pass <code>&quot;scene1&quot;</code> as this parameter.</p>
-</div>
-<div id="shouldrecycle-optional" class="section level5">
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The name of the scene to recycle or remove. For instance, if you want to recycle or remove <code>scene1.lua</code>, pass <code>"scene1"</code> as this parameter.</p>
+</section>
+<section id="shouldrecycle-optional" class="level5">
 <h5>shouldRecycle <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Boolean.html">Boolean</a>.</em> If the scene should be recycled, but not removed entirely, set this parameter to <code>true</code>. Default is <code>false</code>.</p>
-</div>
-</div>
-<div id="examples" class="section level2">
+</section>
+</section>
+<section id="examples" class="level2">
 <h2>Examples</h2>
 <pre class="brush: lua;">-- Completely remove the scene, including its scene object
 composer.removeScene( "scene1" )</pre>
@@ -137,8 +137,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

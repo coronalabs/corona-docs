@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Building/Distribution</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -71,7 +71,7 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/distribution/index.html">Building/Distribution</a>
 </div>
-<div id="signing-and-building-android" class="section level1">
+<section id="signing-and-building-android" class="level1">
 <h1>Signing and Building — Android</h1>
 <p>This guide explains how to sign, build, and test your app on Android devices.</p>
 <div class="guides-toc">
@@ -87,14 +87,14 @@
 Notes
 </div>
 <ul>
-<li><p>You do not need to install the Android SDK. However, you will need to install the proper version of the <strong>Java Development Kit</strong> if you're using Windows. See the <a href="../../../guide/start/installWin/index.html#jdk">Java Development Kit</a> section for details.</p></li>
+<li><p>You do not need to install the Android SDK. However, you will need to install the proper version of the <strong>Java Development Kit</strong> if you’re using Windows. See the <a href="../../../guide/start/installWin/index.html#jdk">Java Development Kit</a> section for details.</p></li>
 <li><p>The Android build process generates two files: an <code>.apk</code> and an <code>.aab</code> file. You can build and test apps on Android devices without creating a <a href="https://developers.google.com">Google developer account</a>, but you will need an account if you wish to publish to the <a href="https://play.google.com/store">Google Play</a> marketplace.</p></li>
 <li><p>The <a href="https://developer.android.com/platform/technology/app-bundle">Android App Bundle</a> file, <code>.aab</code>, is automatically generated when you build for Android. You can use this file to submit your apps or games to Google Play.</p></li>
-<li><p>We only support Android devices that run <nobr><strong>Android 4.0.3</strong></nobr> or higher with an <strong>ARMv7</strong> processor. This can create some confusion because ARM processors are identified by both a <strong>family</strong> and an <strong>architecture</strong>. Family names do not have a <strong>&quot;v&quot;</strong> in them. For instance, the ARM7 processor is actually a ARMv3 architecture, and ARM11 is a ARMv6 architecture. See <a href="https://en.wikipedia.org/wiki/List_of_ARM_microarchitectures">this guide</a> to help identify the various processors.</p></li>
+<li><p>We only support Android devices that run <nobr><strong>Android 4.0.3</strong></nobr> or higher with an <strong>ARMv7</strong> processor. This can create some confusion because ARM processors are identified by both a <strong>family</strong> and an <strong>architecture</strong>. Family names do not have a <strong>“v”</strong> in them. For instance, the ARM7 processor is actually a ARMv3 architecture, and ARM11 is a ARMv6 architecture. See <a href="https://en.wikipedia.org/wiki/List_of_ARM_microarchitectures">this guide</a> to help identify the various processors.</p></li>
 </ul>
 </div>
 <p><a id="javapackage"></a></p>
-<div id="java-package-name" class="section level2">
+<section id="java-package-name" class="level2">
 <h2>Java Package Name</h2>
 <p>When you build an Android app using Solar2D, you must specify a <strong>package name</strong>. In general, you can specify any package name you like, but it must be chosen carefully because it should be unique to your application.</p>
 <p>The traditional Java scheme is to use the <nobr>reverse-domain</nobr> format like <code>com.acme</code>, then append the name of a division/product, and finally append the name of the app. For example, <code>com.acme.games.catchafish</code> would be a good package name, assuming you own the <code>acme.com</code> domain name.</p>
@@ -105,21 +105,21 @@ Notes
 <li><p>One of the name components contains a keyword, for example <code>com.private.idaho</code>. In this case, suffix that part of the package name with an underscore: <code>com.private_.idaho</code>.</p></li>
 </ul>
 <p><a id="building"></a></p>
-</div>
-<div id="build-process" class="section level2">
+</section>
+<section id="build-process" class="level2">
 <h2>Build Process</h2>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
 Important
 </div>
 <ul>
-<li><p>If you aren't familiar with the available <a href="../../../guide/distribution/buildSettings/index.html#androidsettings">build settings</a> for an app, please review them before proceeding with this section.</p></li>
+<li><p>If you aren’t familiar with the available <a href="../../../guide/distribution/buildSettings/index.html#androidsettings">build settings</a> for an app, please review them before proceeding with this section.</p></li>
 <li><p>Make sure that your Android device is enabled as a development device.</p></li>
 </ul>
 </div>
-<ol style="list-style-type: decimal">
-<li><p>From the Solar2D Simulator, select <strong>File</strong> → <strong>Open...</strong> to load the project you wish to build.</p></li>
-<li><p>Select <strong>File</strong> → <strong>Build</strong> → <strong>Android...</strong>.</p></li>
+<ol type="1">
+<li><p>From the Solar2D Simulator, select <strong>File</strong> → <strong>Open…</strong> to load the project you wish to build.</p></li>
+<li><p>Select <strong>File</strong> → <strong>Build</strong> → <strong>Android…</strong>.</p></li>
 <li><p>Fill in the information:</p>
 <ul>
 <li><p><strong>Application Name</strong> — by default, this will match your project folder; keep this name or specify another.</p></li>
@@ -140,15 +140,15 @@ Important
 Signing for Debug Build
 </div>
 <p>For debug builds, Solar2D includes a <code>debug.keystore</code> for testing your app on devices. To use it, follow these steps:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>Select <strong>Debug</strong> from the <strong>Keystore</strong> menu.</p></li>
-<li><p>Directly to the right, <strong>Browse...</strong> to the keystore file in the Solar2D SDK application folder:</p></li>
+<li><p>Directly to the right, <strong>Browse…</strong> to the keystore file in the Solar2D SDK application folder:</p></li>
 </ol>
 <div class="code-indent">
 <p>Windows — <nobr><code>C:\Program Files (x86)\Corona Labs\Corona\Resources\debug.keystore</code></nobr></p>
 <p>macOS — <nobr><code>/Applications/Corona/Resources/Resource Library/Android/debug.keystore</code></nobr></p>
 </div>
-<ol start="3" style="list-style-type: decimal">
+<ol start="3" type="1">
 <li><p>Select the file and enter <code>android</code> as the password.</p></li>
 <li><p>In the <strong>Key Alias</strong> menu, select <code>androiddebugkey</code>.</p></li>
 </ol>
@@ -159,50 +159,50 @@ Signing for Debug Build
 Signing for Release Build
 </div>
 <p>For release builds, you must sign with your <strong>private key</strong>. You can generate this key using the command line program <strong>Keytool</strong>. Please follow these simple steps:</p>
-<ol style="list-style-type: decimal">
-<li><p>Open the <strong>Command Prompt</strong> in Windows or the <strong>Terminal</strong> in macOS. Once there, use the <code>cd</code> command to change to the directory where you'll keep your keystores.</p></li>
+<ol type="1">
+<li><p>Open the <strong>Command Prompt</strong> in Windows or the <strong>Terminal</strong> in macOS. Once there, use the <code>cd</code> command to change to the directory where you’ll keep your keystores.</p></li>
 <li><p>Type the following command at the prompt, replacing <code>mykeystore</code> with the name of your application and <code>aliasname</code> with a similar or equal alias name.</p></li>
 </ol>
 <div class="code-indent">
 <p><code>keytool -genkey -v -keystore mykeystore.keystore -alias aliasname -keyalg RSA -validity 999999 -deststoretype JKS</code></p>
 </div>
-<ol start="3" style="list-style-type: decimal">
-<li>You'll be prompted for your credentials. Supply the requested information and tap <strong>enter</strong> to sign your Android app.</li>
+<ol start="3" type="1">
+<li>You’ll be prompted for your credentials. Supply the requested information and tap <strong>enter</strong> to sign your Android app.</li>
 </ol>
 </div>
 <p><a id="installapp"></a></p>
-</div>
-<div id="device-installation" class="section level2">
+</section>
+<section id="device-installation" class="level2">
 <h2>Device Installation</h2>
 <p>There are four methods to install an app on an Android device. You can <strong>not</strong> simply copy the <code>.apk</code> file over to the device.</p>
-<div id="copy-to-device" class="section level3">
+<section id="copy-to-device" class="level3">
 <h3>Copy to Device</h3>
-<p>If you're using the Solar2D Simulator for macOS, you can copy the app directly to a connected device. This feature is not supported on Windows.</p>
-<ol style="list-style-type: decimal">
+<p>If you’re using the Solar2D Simulator for macOS, you can copy the app directly to a connected device. This feature is not supported on Windows.</p>
+<ol type="1">
 <li><p>Connect your device.</p></li>
 <li><p>Follow the steps outlined in <a href="#building">Build Process</a> above, ensuring that you select <nobr><strong>Copy to device and launch</strong></nobr> for the <strong>After Build</strong> option.</p></li>
 </ol>
-</div>
-<div id="android-sdk" class="section level3">
+</section>
+<section id="android-sdk" class="level3">
 <h3>Android SDK</h3>
 <p>If you have already installed the <strong>Android SDK</strong>, use <code>adb install -r your-app.apk</code>.</p>
-</div>
-<div id="web-server" class="section level3">
+</section>
+<section id="web-server" class="level3">
 <h3>Web Server</h3>
-<p>Upload the <code>.apk</code> to a web server. Next, point your Android device's web browser to the file's URL to download the app to the device. Finally, click on the file in the <strong>Download History</strong> to install it.</p>
-<p>If this method fails, and the application downloads as a text file, you may need to add the following configuration line to a <code>.htaccess</code> file in the application's directory on the web server:</p>
+<p>Upload the <code>.apk</code> to a web server. Next, point your Android device’s web browser to the file’s URL to download the app to the device. Finally, click on the file in the <strong>Download History</strong> to install it.</p>
+<p>If this method fails, and the application downloads as a text file, you may need to add the following configuration line to a <code>.htaccess</code> file in the application’s directory on the web server:</p>
 <p><code>AddType application/vnd.android.package-archive .apk</code></p>
 <p>Also, you should set your device to install non-Market applications if you are using <code>debug.keystore</code>. Click the <strong>Settings</strong> icon on the device, select <strong>Applications</strong>, then check the box next to <strong>Unknown Sources</strong>.</p>
-</div>
-<div id="app-installer" class="section level3">
+</section>
+<section id="app-installer" class="level3">
 <h3>App Installer</h3>
 <p>Obtain an app installer from Google Play to assist with the process.</p>
 <p><a id="debugapp"></a></p>
-</div>
-</div>
-<div id="debugging" class="section level2">
+</section>
+</section>
+<section id="debugging" class="level2">
 <h2>Debugging</h2>
-<p>Google's Android SDK provides a set of tools known as <strong>Android Debug Bridge</strong> or <strong>adb</strong>. These tools let you look at the device's console log, install, and replace existing apps on your device. You can execute the <code>adb</code> command from the macOS <strong>Terminal</strong> or from the Windows <strong>Command Prompt</strong>. A GUI tool called <strong>monitor</strong> is also installed; it can be used to examine the log file and capture screen shots from your device.</p>
+<p>Google’s Android SDK provides a set of tools known as <strong>Android Debug Bridge</strong> or <strong>adb</strong>. These tools let you look at the device’s console log, install, and replace existing apps on your device. You can execute the <code>adb</code> command from the macOS <strong>Terminal</strong> or from the Windows <strong>Command Prompt</strong>. A GUI tool called <strong>monitor</strong> is also installed; it can be used to examine the log file and capture screen shots from your device.</p>
 <p>For more details on Android debugging, see the <a href="../../../guide/basics/debugging/index.html">Debugging Guide</a>.</p>
 <hr>
 <div id="footer">
@@ -214,8 +214,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

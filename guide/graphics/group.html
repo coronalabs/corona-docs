@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Graphics/Audio/Animation</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -74,7 +74,7 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../guide/index.html">Developer Guides</a>  ▸  <a href="../../guide/graphics/index.html">Graphics/Audio/Animation</a>
 </div>
-<div id="group-programming" class="section level1">
+<section id="group-programming" class="level1">
 <h1>Group Programming</h1>
 <p>In Solar2D, <a href="../../api/type/GroupObject/index.html">display groups</a> are the standard way to organize objects hierarchically.</p>
 <div class="guides-toc">
@@ -92,35 +92,32 @@
 </ul>
 </div>
 <p><a id="overview"></a></p>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
-<p>Understanding <a href="../../api/type/GroupObject/index.html">display groups</a> is essential to building apps in Solar2D. A display group is a special kind of <a href="../../guide/media/displayObjects/index.html">display object</a> which can contain other display objects and even other display groups. Imagine it as a blank sheet of paper on which you &quot;draw&quot; images, text, shapes, and animated sprites.</p>
-<p>In app development within Solar2D, it's important to note that display groups are not limited by the screen boundaries. In fact, display groups are boundless and span to infinity in all directions — the physical screen edges simply frame a portion of the <a href="../../api/type/StageObject/index.html">stage</a>. In Solar2D, the stage can be considered the parent display group, and new display groups that you create are automatically added as child groups of it.</p>
+<p>Understanding <a href="../../api/type/GroupObject/index.html">display groups</a> is essential to building apps in Solar2D. A display group is a special kind of <a href="../../guide/media/displayObjects/index.html">display object</a> which can contain other display objects and even other display groups. Imagine it as a blank sheet of paper on which you “draw” images, text, shapes, and animated sprites.</p>
+<p>In app development within Solar2D, it’s important to note that display groups are not limited by the screen boundaries. In fact, display groups are boundless and span to infinity in all directions — the physical screen edges simply frame a portion of the <a href="../../api/type/StageObject/index.html">stage</a>. In Solar2D, the stage can be considered the parent display group, and new display groups that you create are automatically added as child groups of it.</p>
 <p><a id="coordinates"></a></p>
-</div>
-<div id="coordinate-system" class="section level2">
+</section>
+<section id="coordinate-system" class="level2">
 <h2>Coordinate System</h2>
 <p>All display groups, including the <a href="../../api/type/StageObject/index.html">stage</a>, revolve around a coordinate system. Any visual object that you place on the screen will have an <code>x</code> and <code>y</code> coordinate indicating its horizontal and vertical position respectively.</p>
 <p>In Solar2D, the default origin of display groups is <code>0,0</code> which is located at the <nobr><strong>top-left corner</strong></nobr> of the stage, not the center. From this <code>0,0</code> point, positive <code>x</code> values extend to the right, while positive <code>y</code> values extend downward (not upward as in the <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system">Cartesian</a> coordinate system). Negative coordinates are allowed as well, but as you can see in the diagram below, they will not reside within the portion of the group which is visible on the screen (the black region). Groups can, however, be moved to adjust their origin point — see <a href="#transforms">Group Transforms</a> below for more information.</p>
-<div class="figure">
-<img src="../../images/simulator/coordinates.png" />
-
-</div>
+<p><img src="../../images/simulator/coordinates.png" /></p>
 <p><a id="drawmodel"></a></p>
-</div>
-<div id="drawing-model" class="section level2">
+</section>
+<section id="drawing-model" class="level2">
 <h2>Drawing Model</h2>
-<p>The &quot;blank sheet of paper&quot; analogy is useful for understanding Solar2D's drawing model. Just as if you're drawing figures on a sheet of paper, Solar2D <a href="../../guide/media/displayObjects/index.html">display objects</a> that are placed in a display group become part of that group (the paper).</p>
-<p>Display objects that are not placed into a specific group become part of the <a href="../../api/type/StageObject/index.html">stage</a>, but in the process of developing an app, you will usually create several display groups in a specific layered order. You can imagine this as a &quot;stack of paper&quot; with each display group representing one sheet in the stack. For example, assume that you want to mimic a &quot;landscape painting&quot; with three layers (three display groups) as follows:</p>
-<ol style="list-style-type: decimal">
+<p>The “blank sheet of paper” analogy is useful for understanding Solar2D’s drawing model. Just as if you’re drawing figures on a sheet of paper, Solar2D <a href="../../guide/media/displayObjects/index.html">display objects</a> that are placed in a display group become part of that group (the paper).</p>
+<p>Display objects that are not placed into a specific group become part of the <a href="../../api/type/StageObject/index.html">stage</a>, but in the process of developing an app, you will usually create several display groups in a specific layered order. You can imagine this as a “stack of paper” with each display group representing one sheet in the stack. For example, assume that you want to mimic a “landscape painting” with three layers (three display groups) as follows:</p>
+<ol type="1">
 <li><strong>far background</strong> — contains sky, clouds, etc.</li>
 <li><strong>near background</strong> — contains background mountains</li>
 <li><strong>foreground</strong> — contains trees, grass, rocks, etc.</li>
 </ol>
-<p>Each of these display groups would, in turn, contain the appropriate display objects, thus composing the painting in the proper layered order. Of course, while each layer represents a sheet of paper in the analogy, you can't actually see the &quot;paper&quot; itself — just imagine them as transparent sheets on which you place text, images, etc.</p>
+<p>Each of these display groups would, in turn, contain the appropriate display objects, thus composing the painting in the proper layered order. Of course, while each layer represents a sheet of paper in the analogy, you can’t actually see the “paper” itself — just imagine them as transparent sheets on which you place text, images, etc.</p>
 <p><a id="create"></a></p>
-</div>
-<div id="creating-groups" class="section level2">
+</section>
+<section id="creating-groups" class="level2">
 <h2>Creating Groups</h2>
 <p>Creating a new display group is as simple as the following:</p>
 <pre class="brush: lua;">local myGroup = display.newGroup()</pre>
@@ -137,9 +134,9 @@ myGroup:insert( rect )</pre>
 
 --Create a rectangle and insert it into 'myGroup'
 local rect = display.newRect( myGroup, 0, 0, 40, 40 )</pre>
-<div id="group-hierarchy" class="section level3">
+<section id="group-hierarchy" class="level3">
 <h3>Group Hierarchy</h3>
-<p>You should create display groups in a specific order. In respect to your code, the <strong>first</strong> declared group will actually reside <strong>behind</strong> the next group in visually layered order. For example, to create the &quot;landscape painting&quot; discussed above, declare the three display groups as follows:</p>
+<p>You should create display groups in a specific order. In respect to your code, the <strong>first</strong> declared group will actually reside <strong>behind</strong> the next group in visually layered order. For example, to create the “landscape painting” discussed above, declare the three display groups as follows:</p>
 <pre class="brush: lua;">local farBackground = display.newGroup()  
 local nearBackground = display.newGroup()  --this will overlay 'farBackground'  
 local foreground = display.newGroup()  --and this will overlay 'nearBackground'</pre>
@@ -150,9 +147,9 @@ Important
 <p>Although display groups are essentially tables, Lua library functions like <code>table.insert()</code> and <code>ipairs()</code> are <strong>not</strong> compatible with groups. In addition, you cannot get the number of children in a display group using <code>#myGroup</code>. Instead, use <code>myGroup.numChildren</code>.</p>
 </div>
 <p><a id="remove"></a></p>
-</div>
-</div>
-<div id="removing-groups" class="section level2">
+</section>
+</section>
+<section id="removing-groups" class="level2">
 <h2>Removing Groups</h2>
 <p>Groups can be removed via the <a href="../../api/library/display/remove.html">display.remove()</a> or <a href="../../api/type/DisplayObject/removeSelf.html">object:removeSelf()</a> functions. When you do so, all children in the group will be removed as well. However, you must still manually remove variables or other references associated with these children, otherwise they will not be freed from memory. For more details, see the <a href="../../guide/media/displayObjects/index.html">Display Objects</a> guide.</p>
 <pre class="brush: lua;">local myGroup = display.newGroup()
@@ -167,19 +164,16 @@ display.remove( myGroup )
 
 myGroup = nil</pre>
 <p><a id="childprops"></a></p>
-</div>
-<div id="child-properties" class="section level2">
+</section>
+<section id="child-properties" class="level2">
 <h2>Child Properties</h2>
-<p>When you modify a group's properties, all of its children are affected. For example, if you set the <a href="../../api/type/DisplayObject/alpha.html">alpha</a> property on a display group, each child's alpha value is multiplied by the new alpha of the group. Groups automatically detect when a child's properties have changed (position, rotation, etc.). Thus, on the next render pass, the child will <nobr>re-render.</nobr></p>
-<div class="figure">
-<img src="../../images/sdk/graphics/Group-alpha.png" />
-
-</div>
+<p>When you modify a group’s properties, all of its children are affected. For example, if you set the <a href="../../api/type/DisplayObject/alpha.html">alpha</a> property on a display group, each child’s alpha value is multiplied by the new alpha of the group. Groups automatically detect when a child’s properties have changed (position, rotation, etc.). Thus, on the next render pass, the child will <nobr>re-render.</nobr></p>
+<p><img src="../../images/sdk/graphics/Group-alpha.png" /></p>
 <p><a id="transforms"></a></p>
-</div>
-<div id="group-transforms" class="section level2">
+</section>
+<section id="group-transforms" class="level2">
 <h2>Group Transforms</h2>
-<p>Group transforms are applied hierarchically to the group's children. The child's transform is applied first, followed by the transform of its parent, followed by each ancestor, all the way to the <a href="../../api/type/StageObject/index.html">stage</a>. Consequently, children in a group are positioned relative to the parent group's position. When you modify the transform of a group (move/scale/rotate) it affects the transform of the children.</p>
+<p>Group transforms are applied hierarchically to the group’s children. The child’s transform is applied first, followed by the transform of its parent, followed by each ancestor, all the way to the <a href="../../api/type/StageObject/index.html">stage</a>. Consequently, children in a group are positioned relative to the parent group’s position. When you modify the transform of a group (move/scale/rotate) it affects the transform of the children.</p>
 <p>In the image below, the black region indicates a theoretical Solar2D content area (in landscape orientation) and the intersection of the orange lines indicates the origin of the group. Note that this origin always defaults to <code>0,0</code> <nobr>(the top-left</nobr> corner of the content area).</p>
 <p>For testing, a red vector object has been drawn at <code>100,100</code> which signifies its center position since <a href="../../guide/media/displayObjects/index.html">display objects</a> have a default center <a href="../../guide/graphics/transform-anchor.html">anchor</a>.</p>
 <pre class="brush: lua;">local myGroup = display.newGroup()
@@ -187,27 +181,21 @@ myGroup = nil</pre>
 local myBox = display.newRect( 100, 100, 80, 80 )
 myBox:setFillColor( 1, 0, 0, 0.8 )
 myGroup:insert( myBox )</pre>
-<div class="figure">
-<img src="../../images/simulator/group-at-0-0.png" />
-
-</div>
+<p><img src="../../images/simulator/group-at-0-0.png" /></p>
 <p>If you move (transform) the group to a new <code>x</code> and <code>y</code> position, its origin moves to that point:</p>
 <pre class="brush: lua;">myGroup.x = 50
 myGroup.y = 50</pre>
-<div class="figure">
-<img src="../../images/simulator/group-at-50-50.png" />
-
-</div>
-<p>Notice that the red box moves along with the group (its parent). However, the object's <strong>inherent</strong> <code>x</code> and <code>y</code> position does <strong>not</strong> change — it remains at <code>100,100</code> even though the box appears at a <strong>content</strong> position of <code>150,150</code>. This is because Solar2D manages the position of display objects in relation to their parent group.</p>
+<p><img src="../../images/simulator/group-at-50-50.png" /></p>
+<p>Notice that the red box moves along with the group (its parent). However, the object’s <strong>inherent</strong> <code>x</code> and <code>y</code> position does <strong>not</strong> change — it remains at <code>100,100</code> even though the box appears at a <strong>content</strong> position of <code>150,150</code>. This is because Solar2D manages the position of display objects in relation to their parent group.</p>
 <p>To get the actual position of an object in content coordinates, regardless of a moved/scaled/rotated group, use the <a href="../../api/type/DisplayObject/localToContent.html">object:localToContent()</a> function:</p>
 <pre class="brush: lua;">local actualBoxX, actualBoxY = myBox:localToContent( 0,0 )
 print( actualBoxX, actualBoxY )</pre>
 <p><a id="groupanchors"></a></p>
-</div>
-<div id="group-anchors" class="section level2">
+</section>
+<section id="group-anchors" class="level2">
 <h2>Group Anchors</h2>
 <p>For a normal <a href="../../guide/media/displayObjects/index.html">display object</a> — an image or vector shape, for example — its <a href="../../guide/graphics/transform-anchor.html">anchor</a> controls how its geometry is positioned relative to its <strong>origin</strong>. When you change the anchor of a normal display object, its origin does <strong>not</strong> change. Instead, its geometry moves relative to its origin. See the <a href="../../guide/graphics/transform-anchor.html">Transforms and Anchors</a> guide for more information.</p>
-<p>In contrast, <a href="../../api/type/GroupObject/index.html">display groups</a> do not respect anchors by default. This is because display groups, on basic principle, are boundless and span to infinity in all directions. They do, however, possess an <code>x</code> and <code>y</code> position which defaults to <code>0,0</code> <nobr>(the top-left</nobr> corner of the content area). This position is the group's origin.</p>
+<p>In contrast, <a href="../../api/type/GroupObject/index.html">display groups</a> do not respect anchors by default. This is because display groups, on basic principle, are boundless and span to infinity in all directions. They do, however, possess an <code>x</code> and <code>y</code> position which defaults to <code>0,0</code> <nobr>(the top-left</nobr> corner of the content area). This position is the group’s origin.</p>
 <p>Optionally, anchors can be used on display groups. To demonstrate this method, another display object should be added to the example outlined in the <a href="#transforms">Group Transforms</a> section above:</p>
 <pre class="brush: lua;">local myGroup = display.newGroup()
 
@@ -222,54 +210,39 @@ myGroup.y = 50
 local blueBox = display.newRect( 50, 50, 50, 50 )
 blueBox:setFillColor( 0, 0, 1, 0.8 )
 myGroup:insert( blueBox )</pre>
-<div class="figure">
-<img src="../../images/simulator/group2-at-50-50.png" />
-
-</div>
-<p>Now, set the group's anchor to the top-left (<a href="../../api/type/DisplayObject/anchorX.html">anchorX</a> and <a href="../../api/type/DisplayObject/anchorY.html">anchorY</a> both set to <code>0</code>):</p>
+<p><img src="../../images/simulator/group2-at-50-50.png" /></p>
+<p>Now, set the group’s anchor to the top-left (<a href="../../api/type/DisplayObject/anchorX.html">anchorX</a> and <a href="../../api/type/DisplayObject/anchorY.html">anchorY</a> both set to <code>0</code>):</p>
 <pre class="brush: lua;">myGroup.anchorX = 0
 myGroup.anchorY = 0</pre>
 <p>If you refresh the project, no <strong>visual</strong> change will be apparent because, by default, display groups do not respect anchors. However, you can achieve anchor behavior on a display group by setting its <a href="../../api/type/GroupObject/anchorChildren.html">anchorChildren</a> property to <code>true</code>.</p>
 <p>Before exploring how the <code>anchorChildren</code> property works, inspect the theoretical bounding box (opaque white) in the following image — this box will be used as a visual aid for understanding anchors on groups. Note that the bounding box takes into account the maximum top, right, bottom, and left points of <strong>all</strong> display objects in the group:</p>
-<div class="figure">
-<img src="../../images/simulator/group2-at-50-50-bounds.png" />
-
-</div>
+<p><img src="../../images/simulator/group2-at-50-50-bounds.png" /></p>
 <p>Now, set the <code>anchorChildren</code> property to <code>true</code>:</p>
 <pre class="brush: lua;">myGroup.anchorChildren = true</pre>
-<div class="figure">
-<img src="../../images/simulator/group2-at-50-50-anchorTL.png" />
-
-</div>
-<p>Note that the entire group bounds move to the <strong>current origin</strong> of the group (<code>50,50</code> as declared earlier). Because the anchor of the group is set to <code>0,0</code> <nobr>(top-left)</nobr>, the <nobr>top-left</nobr> corner of its bounds — not its center — are positioned at the group's origin.</p>
+<p><img src="../../images/simulator/group2-at-50-50-anchorTL.png" /></p>
+<p>Note that the entire group bounds move to the <strong>current origin</strong> of the group (<code>50,50</code> as declared earlier). Because the anchor of the group is set to <code>0,0</code> <nobr>(top-left)</nobr>, the <nobr>top-left</nobr> corner of its bounds — not its center — are positioned at the group’s origin.</p>
 <p>If the entire group origin is moved, the objects will move with it as expected:</p>
 <pre class="brush: lua;">myGroup.x = 150</pre>
-<div class="figure">
-<img src="../../images/simulator/group2-at-150-50-anchorTL.png" />
-
-</div>
+<p><img src="../../images/simulator/group2-at-150-50-anchorTL.png" /></p>
 <p>If the anchor is reset to top-right (<code>1,0</code>), the group repositions over the current origin at <code>150,50</code>:</p>
 <pre class="brush: lua;">myGroup.anchorX = 1
 myGroup.anchorY = 0</pre>
-<div class="figure">
-<img src="../../images/simulator/group2-at-150-50-anchorTR.png" />
-
-</div>
-<p>In essence, when a display group's <code>anchorChildren</code> property is set to <code>true</code>, the children are all offset by the same amount. That offset is calculated in regards to the bounding box for all children in the group. Effectively, the children are treated as if they're a single unit, and the group's origin is the anchor of that unit.</p>
+<p><img src="../../images/simulator/group2-at-150-50-anchorTR.png" /></p>
+<p>In essence, when a display group’s <code>anchorChildren</code> property is set to <code>true</code>, the children are all offset by the same amount. That offset is calculated in regards to the bounding box for all children in the group. Effectively, the children are treated as if they’re a single unit, and the group’s origin is the anchor of that unit.</p>
 <div class="guide-notebox">
 <div class="notebox-title">
 Note
 </div>
-<p>An alternative to using <code>anchorChildren</code> is to place the group inside another group (&quot;parent group&quot;). Changing the position, rotation, or scale of this parent group will produce similar behavior.</p>
+<p>An alternative to using <code>anchorChildren</code> is to place the group inside another group (“parent group”). Changing the position, rotation, or scale of this parent group will produce similar behavior.</p>
 </div>
 <p><a id="containers"></a></p>
-</div>
-<div id="containers" class="section level2">
+</section>
+<section id="containers" class="level2">
 <h2>Containers</h2>
-<p>A special type of group called a <a href="../../api/library/display/newContainer.html">container</a> can limit the boundaries of the group to a <nobr>pre-defined</nobr> region. This effectively clips the container's children within a dynamic rectangular region. See the <a href="../../guide/graphics/container.html">Using Containers</a> guide for more information.</p>
+<p>A special type of group called a <a href="../../api/library/display/newContainer.html">container</a> can limit the boundaries of the group to a <nobr>pre-defined</nobr> region. This effectively clips the container’s children within a dynamic rectangular region. See the <a href="../../guide/graphics/container.html">Using Containers</a> guide for more information.</p>
 <p><a id="culling"></a></p>
-</div>
-<div id="offscreen-culling" class="section level2">
+</section>
+<section id="offscreen-culling" class="level2">
 <h2>Offscreen Culling</h2>
 <p>Solar2D will cull child objects that are outside the boundaries of the screen.</p>
 <hr>
@@ -282,8 +255,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | System/Hardware</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -75,7 +75,7 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/hardware/index.html">System/Hardware</a>
 </div>
-<div id="game-controllers" class="section level1">
+<section id="game-controllers" class="level1">
 <h1>Game Controllers</h1>
 <p>In Corona, creating apps with gamepad/joystick support is both easy and interactive. This guide outlines how the game controller APIs and events work together.</p>
 <div class="guides-toc">
@@ -89,7 +89,7 @@
 </ul>
 </div>
 <p><a id="requirements"></a></p>
-<div id="requirements" class="section level2">
+<section id="requirements" class="level2">
 <h2>Requirements</h2>
 <ul>
 <li><p>Game controllers are supported in the Corona Simulator for macOS or Windows, in Win32 desktop apps, and on Android devices.</p></li>
@@ -100,11 +100,11 @@
 <li>DualShock 4/3/2/1 (PlayStation controllers). These controllers work out of the box, however their key bindings will vary.</li>
 <li>Various Logitech/generic PC game controllers which all tested without issues. However, key bindings vary widely from device to device.</li>
 </ul></li>
-<li><p>This guide accompanies the &quot;Pew Pew!&quot; sample app which utilizes all game controller APIs. You may download it from our <a href="https://github.com/coronalabs/PewPew">GitHub repository</a>.</p></li>
+<li><p>This guide accompanies the “Pew Pew!” sample app which utilizes all game controller APIs. You may download it from our <a href="https://github.com/coronalabs/PewPew">GitHub repository</a>.</p></li>
 </ul>
 <p><a id="querying"></a></p>
-</div>
-<div id="querying-devices" class="section level2">
+</section>
+<section id="querying-devices" class="level2">
 <h2>Querying Devices</h2>
 <p>The initial API to begin with is <a href="../../../api/library/system/getInputDevices.html">system.getInputDevices()</a> which returns a list of all detected input devices. Note, however, the following differences between platforms:</p>
 <ul>
@@ -121,13 +121,13 @@ for i = 1,#inputDevices do
 end</pre>
 <p>Effectively, each entry in the list returned by <a href="../../../api/library/system/getInputDevices.html">system.getInputDevices()</a> is an instance of <a href="../../../api/type/InputDevice/index.html">InputDevice</a>. You can query this for information about the device, for example:</p>
 <ul>
-<li><p>The <a href="../../../api/type/InputDevice/descriptor.html">object.descriptor</a> property indicates the controller identifier during a session/run. If the same device is disconnected and later reconnected, it will have same <code>descriptor</code> value, however this doesn't mean that <code>descriptor</code> will remain unchanged between sessions/runs. In a subsequent session/run, controllers are liable to have different <code>descriptor</code> values.</p></li>
+<li><p>The <a href="../../../api/type/InputDevice/descriptor.html">object.descriptor</a> property indicates the controller identifier during a session/run. If the same device is disconnected and later reconnected, it will have same <code>descriptor</code> value, however this doesn’t mean that <code>descriptor</code> will remain unchanged between sessions/runs. In a subsequent session/run, controllers are liable to have different <code>descriptor</code> values.</p></li>
 <li><p>The <a href="../../../api/type/InputDevice/displayName.html">object.displayName</a> of the device is reported by the operating system. You can display this so the user can identify which controller is being used.</p></li>
 <li><p>You may also query the <a href="../../../api/type/InputDevice/index.html">InputDevice</a> object for its axes via the <a href="../../../api/type/InputDevice/getAxes.html">object:getAxes()</a> method or cause it to vibrate with the <a href="../../../api/type/InputDevice/vibrate.html">object:vibrate()</a> function. Please see the <a href="../../../api/type/InputDevice/index.html">documentation</a> for a complete list of properties and methods.</p></li>
 </ul>
 <p><a id="connections"></a></p>
-</div>
-<div id="connectingdisconnecting-controllers" class="section level2">
+</section>
+<section id="connectingdisconnecting-controllers" class="level2">
 <h2>Connecting/Disconnecting Controllers</h2>
 <p>The <a href="../../../api/event/inputDeviceStatus/index.html">inputDeviceStatus</a> event is fired whenever a controller is connected or disconnected. The following example shows how to handle this event:</p>
 <pre class="brush: lua;">local function onInputDeviceStatusChanged( event )
@@ -144,17 +144,17 @@ end
 Runtime:addEventListener( "inputDeviceStatus", onInputDeviceStatusChanged )</pre>
 <p>Within the listener function, the <code>event</code> table contains the following properties pertaining to the device which received a status change:</p>
 <ul>
-<li><a href="../../../api/event/inputDeviceStatus/connectionStateChanged.html">event.connectionStateChanged</a> — <a href="../../../api/type/Boolean.html">Boolean</a> value indicating if the device's connection with the system has changed.</li>
+<li><a href="../../../api/event/inputDeviceStatus/connectionStateChanged.html">event.connectionStateChanged</a> — <a href="../../../api/type/Boolean.html">Boolean</a> value indicating if the device’s connection with the system has changed.</li>
 <li><a href="../../../api/event/inputDeviceStatus/device.html">event.device</a> — Returns an <a href="../../../api/type/InputDevice/index.html">InputDevice</a> object with various properties.</li>
-<li><a href="../../../api/event/inputDeviceStatus/name.html">event.name</a> — <a href="../../../api/type/String.html">String</a> value of <code>&quot;inputDeviceStatus&quot;</code>.</li>
+<li><a href="../../../api/event/inputDeviceStatus/name.html">event.name</a> — <a href="../../../api/type/String.html">String</a> value of <code>"inputDeviceStatus"</code>.</li>
 <li><a href="../../../api/event/inputDeviceStatus/reconfigured.html">event.reconfigured</a> — <a href="../../../api/type/Boolean.html">Boolean</a> value indicating if the device has been reconfigured.</li>
 </ul>
 <p><a id="input"></a></p>
-</div>
-<div id="handling-controller-input" class="section level2">
+</section>
+<section id="handling-controller-input" class="level2">
 <h2>Handling Controller Input</h2>
 <p>Game controllers produce two types of events as a result of input: <a href="../../../api/event/axis/index.html">axis</a> and <a href="../../../api/event/key/index.html">key</a>.</p>
-<p>A <a href="../../../api/event/key/index.html">key</a> event's <code>event.device</code> property will be <code>nil</code> on both macOS and Windows. It can also be <code>nil</code> on Android if it came from a virtual input device such as the virtual keyboard.</p>
+<p>A <a href="../../../api/event/key/index.html">key</a> event’s <code>event.device</code> property will be <code>nil</code> on both macOS and Windows. It can also be <code>nil</code> on Android if it came from a virtual input device such as the virtual keyboard.</p>
 <p>The following example shows how to detect a specific controller. When either an <code>axis</code> or <code>key</code> event is triggered, the <code>setDevice()</code> function is called which sets the <code>event.device</code> and <a href="../../../api/type/InputDevice/index.html">InputDevice</a> <code>displayName</code>.</p>
 <pre class="brush: lua;">local controller = { device="", displayName="" }
 
@@ -190,17 +190,17 @@ Runtime:addEventListener( "key", onKeyEvent )</pre>
 Notes
 </div>
 <ul>
-<li><p>In the above example, <code>event.normalizedValue</code> for the <code>onAxisEvent()</code> listener function is compared to <code>0.5</code>. This means that the axis is turned by a &quot;readable&quot; amount, or more than halfway through.</p></li>
+<li><p>In the above example, <code>event.normalizedValue</code> for the <code>onAxisEvent()</code> listener function is compared to <code>0.5</code>. This means that the axis is turned by a “readable” amount, or more than halfway through.</p></li>
 <li><p>Some game controllers produce both <code>axis</code> and <code>key</code> events when analog triggers are pressed, so you may wish to conditionally handle this possibility.</p></li>
 </ul>
 </div>
-<div id="handling-keys" class="section level3">
+<section id="handling-keys" class="level3">
 <h3>Handling Keys</h3>
-<p>Keys are handled with <a href="../../../api/event/key/index.html">key</a> events. Whenever the user presses a button on a gamepad/joystick or a key on the keyboard, this event is triggered. To identify which button/key was pressed, refer to the <a href="../../../api/event/key/keyName.html">event.keyName</a> documentation. Furthermore, when a <code>key</code> event occurs, <code>event.phase</code> will equal <code>&quot;down&quot;</code> when the button/key is pressed down, or <code>&quot;up&quot;</code> when the button/key is released.</p>
-</div>
-<div id="handling-axes" class="section level3">
+<p>Keys are handled with <a href="../../../api/event/key/index.html">key</a> events. Whenever the user presses a button on a gamepad/joystick or a key on the keyboard, this event is triggered. To identify which button/key was pressed, refer to the <a href="../../../api/event/key/keyName.html">event.keyName</a> documentation. Furthermore, when a <code>key</code> event occurs, <code>event.phase</code> will equal <code>"down"</code> when the button/key is pressed down, or <code>"up"</code> when the button/key is released.</p>
+</section>
+<section id="handling-axes" class="level3">
 <h3>Handling Axes</h3>
-<p>The <a href="../../../api/event/axis/index.html">axis</a> event fires any time the controller's axis values change. This can result in a large amount of events, so game developers should consider accumulating the axis state. Each event has several useful properties:</p>
+<p>The <a href="../../../api/event/axis/index.html">axis</a> event fires any time the controller’s axis values change. This can result in a large amount of events, so game developers should consider accumulating the axis state. Each event has several useful properties:</p>
 <ul>
 <li><a href="../../../api/event/axis/device.html">event.device</a> — Refers to the <a href="../../../api/type/InputDevice/index.html">InputDevice</a> which this axis belongs to.</li>
 <li><a href="../../../api/event/axis/axis.html">event.axis</a> — Refers to the <a href="../../../api/type/InputAxis/index.html">InputAxis</a> object of the axis which produced the event.</li>
@@ -217,16 +217,16 @@ Important
 </ul>
 </div>
 <p><a id="summary"></a></p>
-</div>
-</div>
-<div id="summary" class="section level2">
+</section>
+</section>
+<section id="summary" class="level2">
 <h2>Summary</h2>
 <ul>
 <li><p>Game controllers are supported in the Corona Simulator for macOS or Windows, in Win32 desktop apps, and on Android devices.</p></li>
 <li><p>Game controller support can be implemented using the following events:</p>
 <ul>
 <li>The <a href="../../../api/event/axis/index.html">axis</a> event fires every time a game controller axis changes position, and <a href="../../../api/event/axis/normalizedValue.html">event.normalizedValue</a> should typically be used to access its position.</li>
-<li>The <a href="../../../api/event/key/index.html">key</a> event reports both the <a href="../../../api/event/key/keyName.html">event.keyName</a> and <code>event.phase</code> of <code>&quot;down&quot;</code> or <code>&quot;up&quot;</code> for each button/key press.</li>
+<li>The <a href="../../../api/event/key/index.html">key</a> event reports both the <a href="../../../api/event/key/keyName.html">event.keyName</a> and <code>event.phase</code> of <code>"down"</code> or <code>"up"</code> for each button/key press.</li>
 <li>The <a href="../../../api/event/inputDeviceStatus/index.html">inputDeviceStatus</a> event fires every time a device is connected, disconnected, or reconfigured.</li>
 </ul></li>
 <li>All three events above reference the <a href="../../../api/type/InputDevice/index.html">InputDevice</a> which produced the event, accessible via <code>event.device</code>.
@@ -235,13 +235,13 @@ Important
 <li>Use <a href="../../../api/type/InputDevice/descriptor.html">object.descriptor</a> to identify devices within a session and <a href="../../../api/type/InputDevice/displayName.html">object.displayName</a> to get a readable device name reported by the operating system.</li>
 </ul></li>
 <li><p>To list known game controllers, use the <a href="../../../api/library/system/getInputDevices.html">system.getInputDevices()</a> function.</p></li>
-<li><p>It's wise to accumulate axis changes and take action later, for instance in the runtime <code>&quot;enterFrame&quot;</code> listener, similar to the <a href="https://github.com/coronalabs/PewPew">sample app</a> method.</p></li>
+<li><p>It’s wise to accumulate axis changes and take action later, for instance in the runtime <code>"enterFrame"</code> listener, similar to the <a href="https://github.com/coronalabs/PewPew">sample app</a> method.</p></li>
 </ul>
 <p><a id="references"></a></p>
-</div>
-<div id="references" class="section level2">
+</section>
+<section id="references" class="level2">
 <h2>References</h2>
-<div id="documentation" class="section level3">
+<section id="documentation" class="level3">
 <h3>Documentation</h3>
 <ul>
 <li><a href="../../../api/type/InputDevice/index.html">InputDevice</a> type</li>
@@ -251,15 +251,15 @@ Important
 <li><a href="../../../api/event/axis/index.html">axis</a> event</li>
 <li><a href="../../../api/library/system/getInputDevices.html">system.getInputDevices()</a></li>
 </ul>
-</div>
-<div id="third-party-drivers" class="section level3">
+</section>
+<section id="third-party-drivers" class="level3">
 <h3>Third-Party Drivers</h3>
 <ul>
 <li><a href="https://github.com/d235j/360Controller/releases">360Controller driver</a></li>
 <li><a href="https://github.com/FranticRain/Xone-OSX/releases/latest">Xone-OSX driver</a></li>
 </ul>
-</div>
-<div id="sample-code" class="section level3">
+</section>
+<section id="sample-code" class="level3">
 <h3>Sample Code</h3>
 <ul>
 <li><a href="https://github.com/coronalabs/PewPew">Pew Pew!</a> sample app</li>
@@ -275,9 +275,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

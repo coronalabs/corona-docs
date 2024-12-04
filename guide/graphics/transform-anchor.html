@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Graphics/Audio/Animation</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -66,7 +66,7 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../guide/index.html">Developer Guides</a>  ▸  <a href="../../guide/graphics/index.html">Graphics/Audio/Animation</a>
 </div>
-<div id="transforms-and-anchors" class="section level1">
+<section id="transforms-and-anchors" class="level1">
 <h1>Transforms and Anchors</h1>
 <p>In Corona, every <a href="../../guide/media/displayObjects/index.html">display object</a> has properties which affect where and how it is rendered on screen. This guide explains how transforms and anchors apply to object rendering.</p>
 <div class="guides-toc">
@@ -76,35 +76,35 @@
 </ul>
 </div>
 <p><a id="transforms"></a></p>
-<div id="transforms" class="section level2">
+<section id="transforms" class="level2">
 <h2>Transforms</h2>
 <p>In terms of transforms — scale, rotation, and position — the <strong>origin</strong> is the point around which all transforms occur. The following properties and methods pertain to transforms:</p>
 <div class="inner-table" style="margin-bottom: 25px;">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Transform</th>
-<th align="left">Methods and Properties</th>
+<th style="text-align: left;">Transform</th>
+<th style="text-align: left;">Methods and Properties</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Scale</td>
-<td align="left"><a href="../../api/type/DisplayObject/xScale.html">object.xScale</a>, <a href="../../api/type/DisplayObject/yScale.html">object.yScale</a>, <a href="../../api/type/DisplayObject/scale.html">object:scale()</a></td>
+<td style="text-align: left;">Scale</td>
+<td style="text-align: left;"><a href="../../api/type/DisplayObject/xScale.html">object.xScale</a>, <a href="../../api/type/DisplayObject/yScale.html">object.yScale</a>, <a href="../../api/type/DisplayObject/scale.html">object:scale()</a></td>
 </tr>
 <tr class="even">
-<td align="left">Rotation</td>
-<td align="left"><a href="../../api/type/DisplayObject/rotation.html">object.rotation</a>, <a href="../../api/type/DisplayObject/rotate.html">object:rotate()</a></td>
+<td style="text-align: left;">Rotation</td>
+<td style="text-align: left;"><a href="../../api/type/DisplayObject/rotation.html">object.rotation</a>, <a href="../../api/type/DisplayObject/rotate.html">object:rotate()</a></td>
 </tr>
 <tr class="odd">
-<td align="left">Position</td>
-<td align="left"><a href="../../api/type/DisplayObject/x.html">object.x</a>, <a href="../../api/type/DisplayObject/y.html">object.y</a>, <a href="../../api/type/DisplayObject/translate.html">object:translate()</a></td>
+<td style="text-align: left;">Position</td>
+<td style="text-align: left;"><a href="../../api/type/DisplayObject/x.html">object.x</a>, <a href="../../api/type/DisplayObject/y.html">object.y</a>, <a href="../../api/type/DisplayObject/translate.html">object:translate()</a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <p>When applying transforms in sequence, Corona calculates a transform matrix for the display object and applies the properties in a specific order:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Scale</li>
 <li>Rotation</li>
 <li>Position</li>
@@ -113,20 +113,17 @@
 <div class="notebox-title">
 Note
 </div>
-<p>Transforms are always relative to the parent, so the final transform includes the transforms of the object's parents (and ancestors). See <strong>Group Transforms</strong> in the <a href="../../guide/graphics/group.html">Group Programming</a> guide for more information.</p>
+<p>Transforms are always relative to the parent, so the final transform includes the transforms of the object’s parents (and ancestors). See <strong>Group Transforms</strong> in the <a href="../../guide/graphics/group.html">Group Programming</a> guide for more information.</p>
 </div>
 <p><a id="anchors"></a></p>
-</div>
-<div id="anchors" class="section level2">
+</section>
+<section id="anchors" class="level2">
 <h2>Anchors</h2>
-<p>The <strong>anchor</strong> of an object controls how geometry is positioned relative to the object's origin. This is specified via the <a href="../../api/type/DisplayObject/anchorX.html">object.anchorX</a> and <a href="../../api/type/DisplayObject/anchorY.html">object.anchorY</a> properties.</p>
-<p>An anchor pair of <code>(0.5,0.5)</code> (default) centers the geometry about the origin. An anchor pair of <code>(0,0)</code> makes the <nobr>top-left</nobr> of the geometry's bounds the origin, while an anchor pair of <code>(1,1)</code> makes it the <nobr>bottom-right</nobr> of the geometry's bounds. By default, anchor values must range from <code>0.0</code> to <code>1.0</code> and the anchor of new objects is set to <code>(0.5,0.5)</code>, however these defaults can be modified via <a href="../../api/library/display/setDefault.html">display.setDefault()</a>.</p>
-<p>When you change an anchor value, the object's origin does <strong>not</strong> change. Instead the geometry moves relative to the origin. In the following diagram, the blue square is rotated to illustrate how geometry is transformed around the origin depending on the anchor <nobr>(<code>object.anchorX</code>,<code>object.anchorY</code>)</nobr>.</p>
-<div class="figure">
-<img src="/images/sdk/graphics/Anchor-Point.gif" />
-
-</div>
-<div id="group-anchors" class="section level3">
+<p>The <strong>anchor</strong> of an object controls how geometry is positioned relative to the object’s origin. This is specified via the <a href="../../api/type/DisplayObject/anchorX.html">object.anchorX</a> and <a href="../../api/type/DisplayObject/anchorY.html">object.anchorY</a> properties.</p>
+<p>An anchor pair of <code>(0.5,0.5)</code> (default) centers the geometry about the origin. An anchor pair of <code>(0,0)</code> makes the <nobr>top-left</nobr> of the geometry’s bounds the origin, while an anchor pair of <code>(1,1)</code> makes it the <nobr>bottom-right</nobr> of the geometry’s bounds. By default, anchor values must range from <code>0.0</code> to <code>1.0</code> and the anchor of new objects is set to <code>(0.5,0.5)</code>, however these defaults can be modified via <a href="../../api/library/display/setDefault.html">display.setDefault()</a>.</p>
+<p>When you change an anchor value, the object’s origin does <strong>not</strong> change. Instead the geometry moves relative to the origin. In the following diagram, the blue square is rotated to illustrate how geometry is transformed around the origin depending on the anchor <nobr>(<code>object.anchorX</code>,<code>object.anchorY</code>)</nobr>.</p>
+<p><img src="/images/sdk/graphics/Anchor-Point.gif" /></p>
+<section id="group-anchors" class="level3">
 <h3>Group Anchors</h3>
 <p>Most <a href="../../guide/media/displayObjects/index.html">display objects</a> have anchors <nobr>pre-enabled</nobr>. However, <a href="../../api/type/GroupObject/index.html">group</a> objects do not honor anchors by default, so you must set the <a href="../../api/type/GroupObject/anchorChildren.html">anchorChildren</a> property to enable its anchor. See <nobr><strong>Groups and Anchors</strong></nobr> in the <a href="../../guide/graphics/group.html">Group Programming</a> guide for more information.</p>
 <hr>
@@ -139,9 +136,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

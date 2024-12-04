@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Solar2D Native | iOS | Using Plugins</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -63,10 +63,10 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../native/index.html">Solar2D Native</a>  ▸  <a href="../../native/ios/index.html">iOS</a>  ▸  <a href="../../native/ios/usingPlugins.html">Using Plugins</a>
 </div>
-<div id="using-plugins-in-solar2d-native-ios" class="section level1">
+<section id="using-plugins-in-solar2d-native-ios" class="level1">
 <h1>Using Plugins in Solar2D Native — iOS</h1>
 <p>To use plugins with Solar2D Native builds through Xcode, you must include them in <code>build.settings</code> just like you would for Simulator builds, for example:</p>
-<pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
+<pre class="highlight: [5,6,7,8]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     plugins =
     {
@@ -76,33 +76,27 @@
         },
     }, 
 }</pre>
-<div id="procedure" class="section level2">
+<section id="procedure" class="level2">
 <h2>Procedure</h2>
 <p>To perform the process described above, simply follow these steps:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>Open your project in Xcode.</p></li>
 <li><p>In the Xcode tool bar, click on the <strong>active scheme</strong> button and select <strong>Download Plugins</strong>:</p></li>
 </ol>
 <div class="code-indent">
 <div style="max-width: 375px;">
-<div class="figure">
-<img src="../../images/docs/native-plugin-ios-1.png" />
-
+<p><img src="../../images/docs/native-plugin-ios-1.png" /></p>
 </div>
 </div>
-</div>
-<ol start="3" style="list-style-type: decimal">
+<ol start="3" type="1">
 <li>Click on the <strong>Run</strong> button to download the plugin(s):</li>
 </ol>
 <div class="code-indent">
 <div style="max-width: 425px;">
-<div class="figure">
-<img src="../../images/docs/native-plugin-ios-2.png" />
-
+<p><img src="../../images/docs/native-plugin-ios-2.png" /></p>
 </div>
 </div>
-</div>
-<ol start="4" style="list-style-type: decimal">
+<ol start="4" type="1">
 <li>In the Xcode tool bar, click on the <strong>active scheme</strong> button again and select your main app. Now you can build your app with any plugin in the <a href="https://plugins.solar2d.com/">Free Plugins Directory</a>.</li>
 </ol>
 <div class="docs-tip-outer docs-tip-color-alert">
@@ -112,7 +106,7 @@
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Note that you'll need to download the plugin(s) each time you add or change plugin settings/inclusions within <code>build.settings</code>.</p>
+<p>Note that you’ll need to download the plugin(s) each time you add or change plugin settings/inclusions within <code>build.settings</code>.</p>
 </div>
 </div>
 <hr>
@@ -125,8 +119,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

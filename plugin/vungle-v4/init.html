@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Vungle 4 | init</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -72,173 +72,173 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/vungle-v4/index.html">Vungle 4</a>  ▸  <a href="../../plugin/vungle-v4/init.html">init</a>
 </div>
-<div id="vungle-v4.init" class="section level1">
+<section id="vungle-v4.init" class="level1">
 <h1>vungle-v4.init()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">ads, advertising, vungle</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">ads, advertising, vungle</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../plugin/vungle-v4/show.html">vungle-v4.show()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../plugin/vungle-v4/show.html">vungle-v4.show()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/vungle-v4/index.html">vungle-v4.*</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/vungle-v4/index.html">vungle-v4.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p><code>vungle-v4.init()</code> initializes the Corona <code>ads</code> library by specifying the name of the ad network service provider and the application identifier.</p>
 <p>Once the <code>ads</code> library is initialized, you can request an ad using <a href="../../plugin/vungle-v4/show.html">vungle-v4.show()</a>.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">vungle-v4.init( providerName, appId [, adListener] )</pre>
-<div id="providername-required" class="section level5">
+<section id="providername-required" class="level5">
 <h5>providerName <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> String value for the provider name. For Vungle, use <code>&quot;vungle&quot;</code>.</p>
-</div>
-<div id="appid-required" class="section level5">
+<p><em><a href="../../api/type/String.html">String</a>.</em> String value for the provider name. For Vungle, use <code>"vungle"</code>.</p>
+</section>
+<section id="appid-required" class="level5">
 <h5>appId <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> String containing the app ID.</p>
-</div>
-<div id="adlistener-optional" class="section level5">
+</section>
+<section id="adlistener-optional" class="level5">
 <h5>adListener <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Listener.html">Listener</a>.</em> The <a href="../../api/type/Function.html">function</a> or <a href="../../api/type/Table.html">table</a> that will handle ad lifecycle events from the Vungle plugin. Vungle notifies you of the following events:</p>
-</div>
-<div id="adstart" class="section level3">
+</section>
+<section id="adstart" class="level3">
 <h3>adStart</h3>
 <div class="inner-table">
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><code>name</code></td>
-<td align="left"><code>&quot;adsRequest&quot;</code></td>
+<td style="text-align: left;"><code>name</code></td>
+<td style="text-align: left;"><code>"adsRequest"</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>provider</code></td>
-<td align="left"><code>&quot;vungle&quot;</code></td>
+<td style="text-align: left;"><code>provider</code></td>
+<td style="text-align: left;"><code>"vungle"</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>type</code></td>
-<td align="left"><code>&quot;adStart&quot;</code></td>
+<td style="text-align: left;"><code>type</code></td>
+<td style="text-align: left;"><code>"adStart"</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>isError</code></td>
-<td align="left"><code>false</code> if an ad started playing; <code>true</code> if an ad could not be played</td>
+<td style="text-align: left;"><code>isError</code></td>
+<td style="text-align: left;"><code>false</code> if an ad started playing; <code>true</code> if an ad could not be played</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>response</code></td>
-<td align="left">reason why ad could not be played if <code>isError</code> is <code>true</code></td>
+<td style="text-align: left;"><code>response</code></td>
+<td style="text-align: left;">reason why ad could not be played if <code>isError</code> is <code>true</code></td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="adview" class="section level3">
+</section>
+<section id="adview" class="level3">
 <h3>adView</h3>
 <div class="inner-table">
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><code>name</code></td>
-<td align="left"><code>&quot;adsRequest&quot;</code></td>
+<td style="text-align: left;"><code>name</code></td>
+<td style="text-align: left;"><code>"adsRequest"</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>provider</code></td>
-<td align="left"><code>&quot;vungle&quot;</code></td>
+<td style="text-align: left;"><code>provider</code></td>
+<td style="text-align: left;"><code>"vungle"</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>type</code></td>
-<td align="left"><code>&quot;adView&quot;</code></td>
+<td style="text-align: left;"><code>type</code></td>
+<td style="text-align: left;"><code>"adView"</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>isError</code></td>
-<td align="left"><code>false</code></td>
+<td style="text-align: left;"><code>isError</code></td>
+<td style="text-align: left;"><code>false</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>totalAdSeconds</code></td>
-<td align="left">the total length of the video in seconds</td>
+<td style="text-align: left;"><code>totalAdSeconds</code></td>
+<td style="text-align: left;">the total length of the video in seconds</td>
 </tr>
 <tr class="even">
-<td align="left"><code>secondsWatched</code></td>
-<td align="left">the length of the longest view by the user, in seconds</td>
+<td style="text-align: left;"><code>secondsWatched</code></td>
+<td style="text-align: left;">the length of the longest view by the user, in seconds</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>isCompletedView</code></td>
-<td align="left"><code>true</code> if the user watched 80% of the video; <code>false</code> otherwise</td>
+<td style="text-align: left;"><code>isCompletedView</code></td>
+<td style="text-align: left;"><code>true</code> if the user watched 80% of the video; <code>false</code> otherwise</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="adend" class="section level3">
+</section>
+<section id="adend" class="level3">
 <h3>adEnd</h3>
 <div class="inner-table">
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><code>name</code></td>
-<td align="left"><code>&quot;adsRequest&quot;</code></td>
+<td style="text-align: left;"><code>name</code></td>
+<td style="text-align: left;"><code>"adsRequest"</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>provider</code></td>
-<td align="left"><code>&quot;vungle&quot;</code></td>
+<td style="text-align: left;"><code>provider</code></td>
+<td style="text-align: left;"><code>"vungle"</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>type</code></td>
-<td align="left"><code>&quot;adEnd&quot;</code></td>
+<td style="text-align: left;"><code>type</code></td>
+<td style="text-align: left;"><code>"adEnd"</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>isError</code></td>
-<td align="left"><code>false</code></td>
+<td style="text-align: left;"><code>isError</code></td>
+<td style="text-align: left;"><code>false</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>wasCallToActionClicked</code></td>
-<td align="left"><code>true</code> if the user clicked on the call-to-action (usually &quot;Download&quot;); <code>false</code> otherwise</td>
+<td style="text-align: left;"><code>wasCallToActionClicked</code></td>
+<td style="text-align: left;"><code>true</code> if the user clicked on the call-to-action (usually “Download”); <code>false</code> otherwise</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="cachedadavailable" class="section level3">
+</section>
+<section id="cachedadavailable" class="level3">
 <h3>cachedAdAvailable</h3>
 <div class="inner-table">
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><code>name</code></td>
-<td align="left"><code>&quot;adsRequest&quot;</code></td>
+<td style="text-align: left;"><code>name</code></td>
+<td style="text-align: left;"><code>"adsRequest"</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>provider</code></td>
-<td align="left"><code>&quot;vungle&quot;</code></td>
+<td style="text-align: left;"><code>provider</code></td>
+<td style="text-align: left;"><code>"vungle"</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>type</code></td>
-<td align="left"><code>&quot;cachedAdAvailable&quot;</code></td>
+<td style="text-align: left;"><code>type</code></td>
+<td style="text-align: left;"><code>"cachedAdAvailable"</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>isError</code></td>
-<td align="left"><code>false</code></td>
+<td style="text-align: left;"><code>isError</code></td>
+<td style="text-align: left;"><code>false</code></td>
 </tr>
 </tbody>
 </table>
@@ -253,9 +253,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Flurry Analytics | init</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -73,73 +73,73 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/flurry-analytics/index.html">Flurry Analytics</a>  ▸  <a href="../../plugin/flurry-analytics/init.html">init</a>
 </div>
-<div id="flurryanalytics.init" class="section level1">
+<section id="flurryanalytics.init" class="level1">
 <h1>flurryAnalytics.init()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">analytics, Flurry Analytics, init</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">analytics, Flurry Analytics, init</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../plugin/flurry-analytics/index.html">flurryAnalytics.*</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../plugin/flurry-analytics/index.html">flurryAnalytics.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>This function initializes the Flurry plugin and it must be executed before making other Flurry calls such as <a href="../../plugin/flurry-analytics/logEvent.html">flurryAnalytics.logEvent()</a>.</p>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
 Important
 </div>
-<p>You must wait for the <code>&quot;init&quot;</code> <a href="../../plugin/flurry-analytics/event/analyticsRequest/phase.html">phase</a> event before trying to log analytics events (<a href="../../plugin/flurry-analytics/logEvent.html">flurryAnalytics.logEvent()</a>) or start timed events (<a href="../../plugin/flurry-analytics/startTimedEvent.html">flurryAnalytics.startTimedEvent()</a>).</p>
+<p>You must wait for the <code>"init"</code> <a href="../../plugin/flurry-analytics/event/analyticsRequest/phase.html">phase</a> event before trying to log analytics events (<a href="../../plugin/flurry-analytics/logEvent.html">flurryAnalytics.logEvent()</a>) or start timed events (<a href="../../plugin/flurry-analytics/startTimedEvent.html">flurryAnalytics.startTimedEvent()</a>).</p>
 </div>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">flurryAnalytics.init( listener, params )</pre>
-<div id="listener-required" class="section level5">
+<section id="listener-required" class="level5">
 <h5>listener <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Listener.html">Listener</a>.</em> Listener that will receive <a href="../../plugin/flurry-analytics/event/analyticsRequest/index.html">analyticsRequest</a> events.</p>
-</div>
-<div id="params-required" class="section level5">
+</section>
+<section id="params-required" class="level5">
 <h5>params <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> Table containing Flurry initialization values — see the next section for details.</p>
-</div>
-</div>
-<div id="parameter-reference" class="section level2">
+</section>
+</section>
+<section id="parameter-reference" class="level2">
 <h2>Parameter Reference</h2>
 <p>The <code>params</code> table includes parameters for the Flurry initialization.</p>
-<div id="apikey-required" class="section level5">
+<section id="apikey-required" class="level5">
 <h5>apiKey <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> Your Flurry API key, gathered from the <a href="https://dev.flurry.com/">Flurry</a> system.</p>
-</div>
-<div id="crashreportingenabled-optional" class="section level5">
+</section>
+<section id="crashreportingenabled-optional" class="level5">
 <h5>crashReportingEnabled <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> Set to <code>true</code> to enable crash analytics. This will enable your app to send crash data and unhandled errors to Flurry. Default is <code>false</code>.</p>
-</div>
-<div id="loglevel-optional" class="section level5">
+</section>
+<section id="loglevel-optional" class="level5">
 <h5>logLevel <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> Sets the logging level. Default is minimal logging with critical messages only. Possible values include <code>&quot;default&quot;</code>, <code>&quot;debug&quot;</code>, or <code>&quot;all&quot;</code>.</p>
-</div>
-</div>
-<div id="example" class="section level2">
+<p><em><a href="../../api/type/String.html">String</a>.</em> Sets the logging level. Default is minimal logging with critical messages only. Possible values include <code>"default"</code>, <code>"debug"</code>, or <code>"all"</code>.</p>
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local flurryAnalytics = require( "plugin.flurry.analytics" )
 
@@ -162,8 +162,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

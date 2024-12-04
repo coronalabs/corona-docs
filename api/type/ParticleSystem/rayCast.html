@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | type | ParticleSystem | rayCast</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -73,85 +73,85 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/ParticleSystem/index.html">ParticleSystem</a>  ▸  <a href="../../../api/type/ParticleSystem/rayCast.html">rayCast</a>
 </div>
-<div id="objectraycast" class="section level1">
+<section id="objectraycast" class="level1">
 <h1>object:rayCast()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Object</strong></td>
-<td align="left"><a href="../../../api/type/ParticleSystem/index.html">ParticleSystem</a></td>
+<td style="text-align: left;"><strong>Object</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/ParticleSystem/index.html">ParticleSystem</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/physics/index.html">physics.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/physics/index.html">physics.*</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left"><a href="../../../api/type/Array.html">Array</a></td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Array.html">Array</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">rayCast, physics, LiquidFun</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">rayCast, physics, LiquidFun</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../api/library/physics/newParticleSystem.html">physics.newParticleSystem()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/physics/newParticleSystem.html">physics.newParticleSystem()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/type/ParticleSystem/queryRegion.html">object:queryRegion()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/type/ParticleSystem/queryRegion.html">object:queryRegion()</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>This function is used to find the particles that collide with a line. It returns an <a href="../../../api/type/Array.html">array</a> of tables describing each hit.</p>
-</div>
-<div id="gotchas" class="section level2">
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
 <p>If the starting position is inside a particle, no hit will be registered for that particle.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">ParticleSystem:rayCast( from_x, from_y, to_x, to_y, behavior )</pre>
-<div id="from_x-required" class="section level5">
+<section id="from_x-required" class="level5">
 <h5>from_x <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The starting <strong>x</strong> position of the ray.</p>
-</div>
-<div id="from_y-required" class="section level5">
+</section>
+<section id="from_y-required" class="level5">
 <h5>from_y <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The starting <strong>y</strong> position of the ray.</p>
-</div>
-<div id="to_x-required" class="section level5">
+</section>
+<section id="to_x-required" class="level5">
 <h5>to_x <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The ending <strong>x</strong> position of the ray.</p>
-</div>
-<div id="to_y-required" class="section level5">
+</section>
+<section id="to_y-required" class="level5">
 <h5>to_y <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The ending <strong>y</strong> position of the ray.</p>
-</div>
-<div id="behavior-optional" class="section level5">
+</section>
+<section id="behavior-optional" class="level5">
 <h5>behavior <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/String.html">String</a>.</em> The collision test behavior, in increasing order of performance cost:</p>
 <ul>
-<li><code>&quot;any&quot;</code> — Return one result, but not necessarily the closest one.</li>
-<li><code>&quot;closest&quot;</code> — Return only the closest hit from the starting point, if any. This is the default behavior.</li>
-<li><code>&quot;unsorted&quot;</code> — Return all results in no particular order.</li>
-<li><code>&quot;sorted&quot;</code> — Return all results, sorted from closest to farthest.</li>
+<li><code>"any"</code> — Return one result, but not necessarily the closest one.</li>
+<li><code>"closest"</code> — Return only the closest hit from the starting point, if any. This is the default behavior.</li>
+<li><code>"unsorted"</code> — Return all results in no particular order.</li>
+<li><code>"sorted"</code> — Return all results, sorted from closest to farthest.</li>
 </ul>
-</div>
-</div>
-<div id="result-properties" class="section level2">
+</section>
+</section>
+<section id="result-properties" class="level2">
 <h2>Result Properties</h2>
 <p><code>hits</code> will be an array of elements containing these properties:</p>
 <ul>
@@ -161,8 +161,8 @@
 <li><code>normal.y</code> — The <strong>y</strong> component of the normal of the surface hit in local space.</li>
 <li><code>fraction</code> — The fraction (<code>0</code>..<code>1</code>) along the ray where the hit is located. <code>0</code> is the start point of the ray cast and <code>1</code> is the end point.</li>
 </ul>
-</div>
-<div id="example" class="section level2">
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local hits = ParticleSystem:rayCast( 0, 0, 200, 300, "closest" )
 
@@ -192,8 +192,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

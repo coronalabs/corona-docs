@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | applovinMax | load</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -73,90 +73,90 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/applovinMax/index.html">applovinMax</a>  ▸  <a href="../../plugin/applovinMax/load.html">load</a>
 </div>
-<div id="applovinmax.load" class="section level1">
+<section id="applovinmax.load" class="level1">
 <h1>applovinMax.load()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">ads, advertising, AppLovin, Applovin Max, load</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">ads, advertising, AppLovin, Applovin Max, load</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../plugin/applovinMax/show.html">applovinMax.show()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../plugin/applovinMax/show.html">applovinMax.show()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/applovinMax/isLoaded.html">applovinMax.isLoaded()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/applovinMax/isLoaded.html">applovinMax.isLoaded()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/applovinMax/index.html">applovinMax.*</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/applovinMax/index.html">applovinMax.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Preloads a AppLovin ad. You can also call <a href="../../plugin/applovinMax/isLoaded.html">applovinMax.isLoaded()</a> to verify that the ad has been loaded and <a href="../../plugin/applovinMax/show.html">applovinMax.show()</a> to show it.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">applovinMax.load( adType )</pre>
-<div id="adtype-required" class="section level5">
+<section id="adtype-required" class="level5">
 <h5>adType <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> One of the following values:</p>
 <ul>
-<li><code>&quot;banner&quot;</code></li>
-<li><code>&quot;interstitial&quot;</code></li>
-<li><code>&quot;rewardedVideo&quot;</code></li>
+<li><code>"banner"</code></li>
+<li><code>"interstitial"</code></li>
+<li><code>"rewardedVideo"</code></li>
 </ul>
 <div class="guide-notebox">
 <div class="notebox-title">
 Notes
 </div>
 <ul>
-<li><p>When you use <code>&quot;interstitial&quot;</code>, both static interstitial ads and video interstitial ads may be loaded. You configure the type of ads to be used in the <a href="https://www.applovin.com/manage">AppLovin developer portal</a>.</p></li>
-<li><p>You must enable &quot;Rewarded Video&quot; in the <a href="https://www.applovin.com/manage">AppLovin developer portal</a> to receive rewarded videos in your app.</p></li>
-<li><p>Rewarded video offers can be limited to a certain amount in a given day, defined under &quot;frequency capping&quot; in the <a href="https://www.applovin.com/manage">AppLovin developer portal</a>.</p></li>
+<li><p>When you use <code>"interstitial"</code>, both static interstitial ads and video interstitial ads may be loaded. You configure the type of ads to be used in the <a href="https://www.applovin.com/manage">AppLovin developer portal</a>.</p></li>
+<li><p>You must enable “Rewarded Video” in the <a href="https://www.applovin.com/manage">AppLovin developer portal</a> to receive rewarded videos in your app.</p></li>
+<li><p>Rewarded video offers can be limited to a certain amount in a given day, defined under “frequency capping” in the <a href="https://www.applovin.com/manage">AppLovin developer portal</a>.</p></li>
 </ul>
 </div>
-</div>
-<div id="params-required" class="section level5">
+</section>
+<section id="params-required" class="level5">
 <h5>params <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> Table containing AppLovin ad loading options.</p>
-</div>
-</div>
-<div id="parameter-reference" class="section level2">
+</section>
+</section>
+<section id="parameter-reference" class="level2">
 <h2>Parameter Reference</h2>
 <p>The <code>params</code> table includes parameters for the AppLovin ad loading.</p>
-<div id="iosunitid-required-for-ios" class="section level5">
+<section id="iosunitid-required-for-ios" class="level5">
 <h5>iOSUnitId ~^(required for iOS)^~</h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> iOS Ad Unit ID, found in <a href="https://www.applovin.com/manage">AppLovin developer portal</a> under <code>Manage</code> &gt; <code>Ad Units</code>.</p>
-</div>
-<div id="androidunitid-required-for-android" class="section level5">
+</section>
+<section id="androidunitid-required-for-android" class="level5">
 <h5>androidUnitId ~^(required for android)^~</h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> Android Ad Unit ID, found in <a href="https://www.applovin.com/manage">AppLovin developer portal</a> under <code>Manage</code> &gt; <code>Ad Units</code>.</p>
-</div>
-<div id="bannersize-optional" class="section level5">
+</section>
+<section id="bannersize-optional" class="level5">
 <h5>bannerSize <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> Valid values: <code>&quot;standard&quot;</code> (typically 320 x 50), <code>&quot;leader&quot;</code> (typically 768 x 90) and <code>&quot;mrec&quot;</code> (typically 320 x 250). Default is <code>&quot;standard&quot;</code>.</p>
-</div>
-</div>
-<div id="example" class="section level2">
+<p><em><a href="../../api/type/String.html">String</a>.</em> Valid values: <code>"standard"</code> (typically 320 x 50), <code>"leader"</code> (typically 768 x 90) and <code>"mrec"</code> (typically 320 x 250). Default is <code>"standard"</code>.</p>
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local applovin = require( "plugin.applovin" )
 
@@ -189,8 +189,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

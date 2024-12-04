@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Appodeal</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -60,21 +60,21 @@
 <li><a href="#registration">Registration</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#functions">Functions</a><ul>
-<li><a href="#appodeal.initplugin.appodeal.init"><a href="../../plugin/appodeal/init.html">appodeal.init()</a></a></li>
-<li><a href="#appodeal.showplugin.appodeal.show"><a href="../../plugin/appodeal/show.html">appodeal.show()</a></a></li>
-<li><a href="#appodeal.hideplugin.appodeal.hide"><a href="../../plugin/appodeal/hide.html">appodeal.hide()</a></a></li>
-<li><a href="#appodeal.loadplugin.appodeal.load"><a href="../../plugin/appodeal/load.html">appodeal.load()</a></a></li>
-<li><a href="#appodeal.isloadedplugin.appodeal.isloaded"><a href="../../plugin/appodeal/isLoaded.html">appodeal.isLoaded()</a></a></li>
-<li><a href="#appodeal.setuserdetailsplugin.appodeal.setuserdetails"><a href="../../plugin/appodeal/setUserDetails.html">appodeal.setUserDetails()</a></a></li>
-<li><a href="#appodeal.getrewardparametersplugin.appodeal.getrewardparameters"><a href="../../plugin/appodeal/getRewardParameters.html">appodeal.getRewardParameters()</a></a></li>
-<li><a href="#appodeal.getversionplugin.appodeal.getversion"><a href="../../plugin/appodeal/getVersion.html">appodeal.getVersion()</a></a></li>
-<li><a href="#appodeal.setsegmentfilterplugin.appodeal.setsegmentfilter"><a href="../../plugin/appodeal/setSegmentFilter.html">appodeal.setSegmentFilter()</a></a></li>
-<li><a href="#appodeal.canshowplugin.appodeal.canshow"><a href="../../plugin/appodeal/canShow.html">appodeal.canShow()</a></a></li>
-<li><a href="#appodeal.trackinapppurchaseplugin.appodeal.trackinapppurchase"><a href="../../plugin/appodeal/trackInAppPurchase.html">appodeal.trackInAppPurchase()</a></a></li>
-<li><a href="#appodeal.set728x90bannersplugin.appodeal.set728x90banners"><a href="../../plugin/appodeal/set728x90Banners.html">appodeal.set728x90Banners()</a></a></li>
+<li><a href="#appodeal.initplugin.appodeal.init"><span>appodeal.init()</span></a></li>
+<li><a href="#appodeal.showplugin.appodeal.show"><span>appodeal.show()</span></a></li>
+<li><a href="#appodeal.hideplugin.appodeal.hide"><span>appodeal.hide()</span></a></li>
+<li><a href="#appodeal.loadplugin.appodeal.load"><span>appodeal.load()</span></a></li>
+<li><a href="#appodeal.isloadedplugin.appodeal.isloaded"><span>appodeal.isLoaded()</span></a></li>
+<li><a href="#appodeal.setuserdetailsplugin.appodeal.setuserdetails"><span>appodeal.setUserDetails()</span></a></li>
+<li><a href="#appodeal.getrewardparametersplugin.appodeal.getrewardparameters"><span>appodeal.getRewardParameters()</span></a></li>
+<li><a href="#appodeal.getversionplugin.appodeal.getversion"><span>appodeal.getVersion()</span></a></li>
+<li><a href="#appodeal.setsegmentfilterplugin.appodeal.setsegmentfilter"><span>appodeal.setSegmentFilter()</span></a></li>
+<li><a href="#appodeal.canshowplugin.appodeal.canshow"><span>appodeal.canShow()</span></a></li>
+<li><a href="#appodeal.trackinapppurchaseplugin.appodeal.trackinapppurchase"><span>appodeal.trackInAppPurchase()</span></a></li>
+<li><a href="#appodeal.set728x90bannersplugin.appodeal.set728x90banners"><span>appodeal.set728x90Banners()</span></a></li>
 </ul></li>
 <li><a href="#events">Events</a><ul>
-<li><a href="#adsrequestplugin.appodeal.event.adsrequest"><a href="../../plugin/appodeal/event/adsRequest/index.html">adsRequest</a></a></li>
+<li><a href="#adsrequestplugin.appodeal.event.adsrequest"><span>adsRequest</span></a></li>
 </ul></li>
 <li><a href="#project-settings">Project Settings</a></li>
 <li><a href="#sample-project">Sample project</a></li>
@@ -84,31 +84,31 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/appodeal/index.html">Appodeal</a>
 </div>
-<div id="appodeal." class="section level1">
+<section id="appodeal." class="level1">
 <h1>appodeal.*</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Library.html">Library</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Library.html">Library</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">ads, advertising, Appodeal</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">ads, advertising, Appodeal</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Platforms</strong></td>
-<td align="left">Android, iOS</td>
+<td style="text-align: left;"><strong>Platforms</strong></td>
+<td style="text-align: left;">Android, iOS</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>The Appodeal plugin allows developers to monetize their mobile app with Appodeal banner, static interstitial, video interstitial, and rewarded video ads.</p>
 <div class="guide-notebox-imp">
@@ -131,7 +131,7 @@ Important
 <h4 id="version-info">Version info</h4>
 <p>Current plugin versions are:</p>
 <ul>
-<li>Stable plugins is <code>3.0.2</code> for both Android and iOS. The Beta plugin is on <code>3.2.0-beta.1</code></li>
+<li>Stable plugins is <code>3.4.0</code> for both Android and iOS.</li>
 </ul>
 </div>
 <div class="guide-notebox-imp">
@@ -140,61 +140,61 @@ Important
 </div>
 <p>Check out new <code>hasUserConsent</code> init parameter to enable GDPR data collection restrictions.</p>
 </div>
-</div>
-<div id="registration" class="section level2">
+</section>
+<section id="registration" class="level2">
 <h2>Registration</h2>
 <p>Before you can use this plugin, you must <a href="https://www.appodeal.com/signup">register</a> with Appodeal.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">local appodeal = require( "plugin.appodeal" )</pre>
-</div>
-<div id="functions" class="section level2">
+</section>
+<section id="functions" class="level2">
 <h2>Functions</h2>
-<div id="appodeal.initplugin.appodeal.init" class="section level4">
+<section id="appodeal.initplugin.appodeal.init" class="level4">
 <h4><a href="../../plugin/appodeal/init.html">appodeal.init()</a></h4>
-</div>
-<div id="appodeal.showplugin.appodeal.show" class="section level4">
+</section>
+<section id="appodeal.showplugin.appodeal.show" class="level4">
 <h4><a href="../../plugin/appodeal/show.html">appodeal.show()</a></h4>
-</div>
-<div id="appodeal.hideplugin.appodeal.hide" class="section level4">
+</section>
+<section id="appodeal.hideplugin.appodeal.hide" class="level4">
 <h4><a href="../../plugin/appodeal/hide.html">appodeal.hide()</a></h4>
-</div>
-<div id="appodeal.loadplugin.appodeal.load" class="section level4">
+</section>
+<section id="appodeal.loadplugin.appodeal.load" class="level4">
 <h4><a href="../../plugin/appodeal/load.html">appodeal.load()</a></h4>
-</div>
-<div id="appodeal.isloadedplugin.appodeal.isloaded" class="section level4">
+</section>
+<section id="appodeal.isloadedplugin.appodeal.isloaded" class="level4">
 <h4><a href="../../plugin/appodeal/isLoaded.html">appodeal.isLoaded()</a></h4>
-</div>
-<div id="appodeal.setuserdetailsplugin.appodeal.setuserdetails" class="section level4">
+</section>
+<section id="appodeal.setuserdetailsplugin.appodeal.setuserdetails" class="level4">
 <h4><a href="../../plugin/appodeal/setUserDetails.html">appodeal.setUserDetails()</a></h4>
-</div>
-<div id="appodeal.getrewardparametersplugin.appodeal.getrewardparameters" class="section level4">
+</section>
+<section id="appodeal.getrewardparametersplugin.appodeal.getrewardparameters" class="level4">
 <h4><a href="../../plugin/appodeal/getRewardParameters.html">appodeal.getRewardParameters()</a></h4>
-</div>
-<div id="appodeal.getversionplugin.appodeal.getversion" class="section level4">
+</section>
+<section id="appodeal.getversionplugin.appodeal.getversion" class="level4">
 <h4><a href="../../plugin/appodeal/getVersion.html">appodeal.getVersion()</a></h4>
-</div>
-<div id="appodeal.setsegmentfilterplugin.appodeal.setsegmentfilter" class="section level4">
+</section>
+<section id="appodeal.setsegmentfilterplugin.appodeal.setsegmentfilter" class="level4">
 <h4><a href="../../plugin/appodeal/setSegmentFilter.html">appodeal.setSegmentFilter()</a></h4>
-</div>
-<div id="appodeal.canshowplugin.appodeal.canshow" class="section level4">
+</section>
+<section id="appodeal.canshowplugin.appodeal.canshow" class="level4">
 <h4><a href="../../plugin/appodeal/canShow.html">appodeal.canShow()</a></h4>
-</div>
-<div id="appodeal.trackinapppurchaseplugin.appodeal.trackinapppurchase" class="section level4">
+</section>
+<section id="appodeal.trackinapppurchaseplugin.appodeal.trackinapppurchase" class="level4">
 <h4><a href="../../plugin/appodeal/trackInAppPurchase.html">appodeal.trackInAppPurchase()</a></h4>
-</div>
-<div id="appodeal.set728x90bannersplugin.appodeal.set728x90banners" class="section level4">
+</section>
+<section id="appodeal.set728x90bannersplugin.appodeal.set728x90banners" class="level4">
 <h4><a href="../../plugin/appodeal/set728x90Banners.html">appodeal.set728x90Banners()</a></h4>
-</div>
-</div>
-<div id="events" class="section level2">
+</section>
+</section>
+<section id="events" class="level2">
 <h2>Events</h2>
-<div id="adsrequestplugin.appodeal.event.adsrequest" class="section level4">
+<section id="adsrequestplugin.appodeal.event.adsrequest" class="level4">
 <h4><a href="../../plugin/appodeal/event/adsRequest/index.html">adsRequest</a></h4>
-</div>
-</div>
-<div id="project-settings" class="section level2">
+</section>
+</section>
+<section id="project-settings" class="level2">
 <h2>Project Settings</h2>
 <p>To use this plugin in modular mode, your <code>plugins</code> table of <code>build.settings</code> should look like this:</p>
 <pre class="brush: lua;">settings =
@@ -355,358 +355,18 @@ Important
         -- Base
         ['plugin.appodeal.base'] = { publisherId = 'com.coronalabs' },
 
-        -- All types
         ['plugin.appodeal.Bidmachine'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.GoogleAdMob'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.A4G'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.Smaato'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.StartApp'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.Unity'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Vungle'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.Yandex'] = { publisherId = 'com.coronalabs' },
-
-        -- Banner
-        ['plugin.appodeal.AmazonAds'] = { publisherId = 'com.coronalabs' },
-
-        -- Interstitial
-        ['plugin.appodeal.AdColony'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.AmazonAds'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.IronSource'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.Ogury'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.Vungle'] = { publisherId = 'com.coronalabs' },
-
-        -- Rewarded Video
-        ['plugin.appodeal.AdColony'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.IronSource'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.Ogury'] = { publisherId = 'com.coronalabs' },
-        ['plugin.appodeal.Vungle'] = { publisherId = 'com.coronalabs' },
+        ["plugin.appodeal.InMobi"] = {publisherId = 'com.coronalabs'},
     },
 }</pre>
 <p>Make sure to include <code>Base</code> block for a plugin to work correctly. Then you can just comment out unnecessary ad types blocks, so that unneded adapters are not downloaded and linked to your project.</p>
-<div class="guide-notebox">
-<div class="notebox-title">
-Note
-</div>
-<p>Disabling specific ad types and ad providers at this level with the help of new modular structure can greatly reduce the final build size.</p>
-</div>
-<p>For example, if you don't use Interstitials or Rewarded Video ad types in your app, you can comment blocks:</p>
-<pre class="brush: lua;">-- Interstitial
---['plugin.appodeal.AdColony'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Chartboost'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Flurry'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.IronSource'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Mobvista'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.StartApp'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Ogury'] = { publisherId = 'com.coronalabs' },
-
--- Rewarded Video
---['plugin.appodeal.AdColony'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Chartboost'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Flurry'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.IronSource'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Mobvista'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.StartApp'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Unity'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Vungle'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Tapjoy'] = { publisherId = 'com.coronalabs' },</pre>
-<p>If for some reason you don't want to show ads from specific ad provider (for the sake of example, let it be <code>Flurry</code>), you can comment out it too, like this:</p>
-<pre class="brush: lua;">-- Banner
-['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.Flurry'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.Yandex'] = { publisherId = 'com.coronalabs' },</pre>
-<p>If you are sure of your choice and want to keep your build settings nice and clean, you can remove commented ad types or/and adapters. Then for this particular example your build.settings file should look like this:</p>
-<pre class="brush: lua;">-- Base
-['plugin.appodeal.base'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.GoogleAdMob'] = { publisherId = 'com.coronalabs' },
-
--- Banner
-['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.Yandex'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.AmazonAds'] = { publisherId = 'com.coronalabs' },</pre>
-<div class="guide-notebox">
-<div class="notebox-title">
-Note
-</div>
-<p>From now on, you can use a beta version of modular plugin system. It includes the latest Appodeal SDK Beta, some new features and improvements. To use it, you should add a <code>beta</code> tag to module declaration like this, for example:</p>
-<pre class="brush: lua;">settings =
-{
-    android =
-    {
-        applicationChildElements =
-        {
-            [[
-                &lt;meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
-                    android:value="[YOUR_ADMOB_APP_ID]"/>  -- replace with your app id. See: https://goo.gl/fQ2neu
-            ]],
-        },
-    },
-    iphone =
-    {
-            plist =
-            {
-                    SKAdNetworkItems = {
-                        { SKAdNetworkIdentifier = "22mmun2rn5.skadnetwork" },
-                        { SKAdNetworkIdentifier = "238da6jt44.skadnetwork" },
-                        { SKAdNetworkIdentifier = "24t9a8vw3c.skadnetwork" },
-                        { SKAdNetworkIdentifier = "24zw6aqk47.skadnetwork" },
-                        { SKAdNetworkIdentifier = "252b5q8x7y.skadnetwork" },
-                        { SKAdNetworkIdentifier = "275upjj5gd.skadnetwork" },
-                        { SKAdNetworkIdentifier = "294l99pt4k.skadnetwork" },
-                        { SKAdNetworkIdentifier = "2fnua5tdw4.skadnetwork" },
-                        { SKAdNetworkIdentifier = "2u9pt9hc89.skadnetwork" },
-                        { SKAdNetworkIdentifier = "32z4fx6l9h.skadnetwork" },
-                        { SKAdNetworkIdentifier = "3l6bd9hu43.skadnetwork" },
-                        { SKAdNetworkIdentifier = "3qcr597p9d.skadnetwork" },
-                        { SKAdNetworkIdentifier = "3qy4746246.skadnetwork" },
-                        { SKAdNetworkIdentifier = "3rd42ekr43.skadnetwork" },
-                        { SKAdNetworkIdentifier = "3sh42y64q3.skadnetwork" },
-                        { SKAdNetworkIdentifier = "424m5254lk.skadnetwork" },
-                        { SKAdNetworkIdentifier = "4468km3ulz.skadnetwork" },
-                        { SKAdNetworkIdentifier = "44jx6755aq.skadnetwork" },
-                        { SKAdNetworkIdentifier = "44n7hlldy6.skadnetwork" },
-                        { SKAdNetworkIdentifier = "47vhws6wlr.skadnetwork" },
-                        { SKAdNetworkIdentifier = "488r3q3dtq.skadnetwork" },
-                        { SKAdNetworkIdentifier = "4dzt52r2t5.skadnetwork" },
-                        { SKAdNetworkIdentifier = "4fzdc2evr5.skadnetwork" },
-                        { SKAdNetworkIdentifier = "4mn522wn87.skadnetwork" },
-                        { SKAdNetworkIdentifier = "4pfyvq9l8r.skadnetwork" },
-                        { SKAdNetworkIdentifier = "4w7y6s5ca2.skadnetwork" },
-                        { SKAdNetworkIdentifier = "523jb4fst2.skadnetwork" },
-                        { SKAdNetworkIdentifier = "52fl2v3hgk.skadnetwork" },
-                        { SKAdNetworkIdentifier = "54nzkqm89y.skadnetwork" },
-                        { SKAdNetworkIdentifier = "578prtvx9j.skadnetwork" },
-                        { SKAdNetworkIdentifier = "5a6flpkh64.skadnetwork" },
-                        { SKAdNetworkIdentifier = "5l3tpt7t6e.skadnetwork" },
-                        { SKAdNetworkIdentifier = "5lm9lj6jb7.skadnetwork" },
-                        { SKAdNetworkIdentifier = "5tjdwbrq8w.skadnetwork" },
-                        { SKAdNetworkIdentifier = "6964rsfnh4.skadnetwork" },
-                        { SKAdNetworkIdentifier = "6g9af3uyq4.skadnetwork" },
-                        { SKAdNetworkIdentifier = "6p4ks3rnbw.skadnetwork" },
-                        { SKAdNetworkIdentifier = "6v7lgmsu45.skadnetwork" },
-                        { SKAdNetworkIdentifier = "6xzpu9s2p8.skadnetwork" },
-                        { SKAdNetworkIdentifier = "737z793b9f.skadnetwork" },
-                        { SKAdNetworkIdentifier = "74b6s63p6l.skadnetwork" },
-                        { SKAdNetworkIdentifier = "79pbpufp6p.skadnetwork" },
-                        { SKAdNetworkIdentifier = "7fmhfwg9en.skadnetwork" },
-                        { SKAdNetworkIdentifier = "7rz58n8ntl.skadnetwork" },
-                        { SKAdNetworkIdentifier = "7ug5zh24hu.skadnetwork" },
-                        { SKAdNetworkIdentifier = "84993kbrcf.skadnetwork" },
-                        { SKAdNetworkIdentifier = "89z7zv988g.skadnetwork" },
-                        { SKAdNetworkIdentifier = "8c4e2ghe7u.skadnetwork" },
-                        { SKAdNetworkIdentifier = "8m87ys6875.skadnetwork" },
-                        { SKAdNetworkIdentifier = "8r8llnkz5a.skadnetwork" },
-                        { SKAdNetworkIdentifier = "8s468mfl3y.skadnetwork" },
-                        { SKAdNetworkIdentifier = "97r2b46745.skadnetwork" },
-                        { SKAdNetworkIdentifier = "9b89h5y424.skadnetwork" },
-                        { SKAdNetworkIdentifier = "9nlqeag3gk.skadnetwork" },
-                        { SKAdNetworkIdentifier = "9rd848q2bz.skadnetwork" },
-                        { SKAdNetworkIdentifier = "9t245vhmpl.skadnetwork" },
-                        { SKAdNetworkIdentifier = "9vvzujtq5s.skadnetwork" },
-                        { SKAdNetworkIdentifier = "9yg77x724h.skadnetwork" },
-                        { SKAdNetworkIdentifier = "a2p9lx4jpn.skadnetwork" },
-                        { SKAdNetworkIdentifier = "a7xqa6mtl2.skadnetwork" },
-                        { SKAdNetworkIdentifier = "a8cz6cu7e5.skadnetwork" },
-                        { SKAdNetworkIdentifier = "av6w8kgt66.skadnetwork" },
-                        { SKAdNetworkIdentifier = "b9bk5wbcq9.skadnetwork" },
-                        { SKAdNetworkIdentifier = "bxvub5ada5.skadnetwork" },
-                        { SKAdNetworkIdentifier = "c3frkrj4fj.skadnetwork" },
-                        { SKAdNetworkIdentifier = "c6k4g5qg8m.skadnetwork" },
-                        { SKAdNetworkIdentifier = "cg4yq2srnc.skadnetwork" },
-                        { SKAdNetworkIdentifier = "cj5566h2ga.skadnetwork" },
-                        { SKAdNetworkIdentifier = "cp8zw746q7.skadnetwork" },
-                        { SKAdNetworkIdentifier = "cs644xg564.skadnetwork" },
-                        { SKAdNetworkIdentifier = "cstr6suwn9.skadnetwork" },
-                        { SKAdNetworkIdentifier = "dbu4b84rxf.skadnetwork" },
-                        { SKAdNetworkIdentifier = "dkc879ngq3.skadnetwork" },
-                        { SKAdNetworkIdentifier = "dzg6xy7pwj.skadnetwork" },
-                        { SKAdNetworkIdentifier = "e5fvkxwrpn.skadnetwork" },
-                        { SKAdNetworkIdentifier = "ecpz2srf59.skadnetwork" },
-                        { SKAdNetworkIdentifier = "eh6m2bh4zr.skadnetwork" },
-                        { SKAdNetworkIdentifier = "ejvt5qm6ak.skadnetwork" },
-                        { SKAdNetworkIdentifier = "f38h382jlk.skadnetwork" },
-                        { SKAdNetworkIdentifier = "f73kdq92p3.skadnetwork" },
-                        { SKAdNetworkIdentifier = "f7s53z58qe.skadnetwork" },
-                        { SKAdNetworkIdentifier = "feyaarzu9v.skadnetwork" },
-                        { SKAdNetworkIdentifier = "g28c52eehv.skadnetwork" },
-                        { SKAdNetworkIdentifier = "g2y4y55b64.skadnetwork" },
-                        { SKAdNetworkIdentifier = "ggvn48r87g.skadnetwork" },
-                        { SKAdNetworkIdentifier = "glqzh8vgby.skadnetwork" },
-                        { SKAdNetworkIdentifier = "gta8lk7p23.skadnetwork" },
-                        { SKAdNetworkIdentifier = "gta9lk7p23.skadnetwork" },
-                        { SKAdNetworkIdentifier = "hb56zgv37p.skadnetwork" },
-                        { SKAdNetworkIdentifier = "hdw39hrw9y.skadnetwork" },
-                        { SKAdNetworkIdentifier = "hs6bdukanm.skadnetwork" },
-                        { SKAdNetworkIdentifier = "k674qkevps.skadnetwork" },
-                        { SKAdNetworkIdentifier = "kbd757ywx3.skadnetwork" },
-                        { SKAdNetworkIdentifier = "kbmxgpxpgc.skadnetwork" },
-                        { SKAdNetworkIdentifier = "klf5c3l5u5.skadnetwork" },
-                        { SKAdNetworkIdentifier = "krvm3zuq6h.skadnetwork" },
-                        { SKAdNetworkIdentifier = "lr83yxwka7.skadnetwork" },
-                        { SKAdNetworkIdentifier = "ludvb6z3bs.skadnetwork" },
-                        { SKAdNetworkIdentifier = "m297p6643m.skadnetwork" },
-                        { SKAdNetworkIdentifier = "m5mvw97r93.skadnetwork" },
-                        { SKAdNetworkIdentifier = "m8dbw4sv7c.skadnetwork" },
-                        { SKAdNetworkIdentifier = "mlmmfzh3r3.skadnetwork" },
-                        { SKAdNetworkIdentifier = "mls7yz5dvl.skadnetwork" },
-                        { SKAdNetworkIdentifier = "mp6xlyr22a.skadnetwork" },
-                        { SKAdNetworkIdentifier = "mtkv5xtk9e.skadnetwork" },
-                        { SKAdNetworkIdentifier = "n38lu8286q.skadnetwork" },
-                        { SKAdNetworkIdentifier = "n66cz3y3bx.skadnetwork" },
-                        { SKAdNetworkIdentifier = "n6fk4nfna4.skadnetwork" },
-                        { SKAdNetworkIdentifier = "n9x2a789qt.skadnetwork" },
-                        { SKAdNetworkIdentifier = "nzq8sh4pbs.skadnetwork" },
-                        { SKAdNetworkIdentifier = "p78axxw29g.skadnetwork" },
-                        { SKAdNetworkIdentifier = "ppxm28t8ap.skadnetwork" },
-                        { SKAdNetworkIdentifier = "prcb7njmu6.skadnetwork" },
-                        { SKAdNetworkIdentifier = "pwa73g5rt2.skadnetwork" },
-                        { SKAdNetworkIdentifier = "pwdxu55a5a.skadnetwork" },
-                        { SKAdNetworkIdentifier = "qqp299437r.skadnetwork" },
-                        { SKAdNetworkIdentifier = "r45fhb6rf7.skadnetwork" },
-                        { SKAdNetworkIdentifier = "rvh3l7un93.skadnetwork" },
-                        { SKAdNetworkIdentifier = "rx5hdcabgc.skadnetwork" },
-                        { SKAdNetworkIdentifier = "s39g8k73mm.skadnetwork" },
-                        { SKAdNetworkIdentifier = "s69wq72ugq.skadnetwork" },
-                        { SKAdNetworkIdentifier = "su67r6k2v3.skadnetwork" },
-                        { SKAdNetworkIdentifier = "t38b2kh725.skadnetwork" },
-                        { SKAdNetworkIdentifier = "tl55sbb4fm.skadnetwork" },
-                        { SKAdNetworkIdentifier = "u679fj5vs4.skadnetwork" },
-                        { SKAdNetworkIdentifier = "uw77j35x4d.skadnetwork" },
-                        { SKAdNetworkIdentifier = "v4nxqhlyqp.skadnetwork" },
-                        { SKAdNetworkIdentifier = "v72qych5uu.skadnetwork" },
-                        { SKAdNetworkIdentifier = "v79kvwwj4g.skadnetwork" },
-                        { SKAdNetworkIdentifier = "v9wttpbfk9.skadnetwork" },
-                        { SKAdNetworkIdentifier = "vcra2ehyfk.skadnetwork" },
-                        { SKAdNetworkIdentifier = "vutu7akeur.skadnetwork" },
-                        { SKAdNetworkIdentifier = "w9q455wk68.skadnetwork" },
-                        { SKAdNetworkIdentifier = "wg4vff78zm.skadnetwork" },
-                        { SKAdNetworkIdentifier = "wzmmz9fp6w.skadnetwork" },
-                        { SKAdNetworkIdentifier = "x44k69ngh6.skadnetwork" },
-                        { SKAdNetworkIdentifier = "x5l83yy675.skadnetwork" },
-                        { SKAdNetworkIdentifier = "x8jxxk4ff5.skadnetwork" },
-                        { SKAdNetworkIdentifier = "x8uqf25wch.skadnetwork" },
-                        { SKAdNetworkIdentifier = "xy9t38ct57.skadnetwork" },
-                        { SKAdNetworkIdentifier = "y45688jllp.skadnetwork" },
-                        { SKAdNetworkIdentifier = "y5ghdn5j9k.skadnetwork" },
-                        { SKAdNetworkIdentifier = "yclnxrl5pm.skadnetwork" },
-                        { SKAdNetworkIdentifier = "ydx93a7ass.skadnetwork" },
-                        { SKAdNetworkIdentifier = "zmvfpc5aq8.skadnetwork" },
-                        { SKAdNetworkIdentifier = "zq492l623r.skadnetwork" },
-                        { SKAdNetworkIdentifier = "z959bm4gru.skadnetwork" },
-                        { SKAdNetworkIdentifier = "bmxgpxpgc.skadnetwork" },
-                        { SKAdNetworkIdentifier = "9g2aggbj52.skadnetwork" },
-                        { SKAdNetworkIdentifier = "mqn7fxpca7.skadnetwork" },
-                        { SKAdNetworkIdentifier = "g6gcrrvk4p.skadnetwork" },
-                        { SKAdNetworkIdentifier = "6yxyv74ff7.skadnetwork" },
-                        { SKAdNetworkIdentifier = "633vhxswh4.skadnetwork" },
-                        { SKAdNetworkIdentifier = "tmhh9296z4.skadnetwork" },
-                        { SKAdNetworkIdentifier = "zh3b7bxvad.skadnetwork" },
-                        { SKAdNetworkIdentifier = "xmn954pzmp.skadnetwork" },
-                        { SKAdNetworkIdentifier = "79w64w269u.skadnetwork" },
-                        { SKAdNetworkIdentifier = "d7g9azk84q.skadnetwork" },
-                        { SKAdNetworkIdentifier = "866k9ut3g3.skadnetwork" },
-                        { SKAdNetworkIdentifier = "2q884k2j68.skadnetwork" },
-                        { SKAdNetworkIdentifier = "gfat3222tu.skadnetwork" },
-                        { SKAdNetworkIdentifier = "pd25vrrwzn.skadnetwork" },
-                        { SKAdNetworkIdentifier = "y755zyxw56.skadnetwork" },
-                        { SKAdNetworkIdentifier = "qlbq5gtkt8.skadnetwork" },
-                        { SKAdNetworkIdentifier = "67369282zy.skadnetwork" },
-                        { SKAdNetworkIdentifier = "899vrgt9g8.skadnetwork" },
-                        { SKAdNetworkIdentifier = "mj797d8u6f.skadnetwork" },
-                        { SKAdNetworkIdentifier = "88k8774x49.skadnetwork" },
-                        { SKAdNetworkIdentifier = "t3b3f7n3x8.skadnetwork" },
-                        { SKAdNetworkIdentifier = "c7g47wypnu.skadnetwork" },
-                        { SKAdNetworkIdentifier = "z5b3gh5ugf.skadnetwork" },
-                        { SKAdNetworkIdentifier = "dd3a75yxkv.skadnetwork" },
-                        { SKAdNetworkIdentifier = "h5jmj969g5.skadnetwork" },
-                        { SKAdNetworkIdentifier = "dr774724x4.skadnetwork" },
-                        { SKAdNetworkIdentifier = "t7ky8fmwkd.skadnetwork" },
-                        { SKAdNetworkIdentifier = "fz2k2k5tej.skadnetwork" },
-                        { SKAdNetworkIdentifier = "w28pnjg2k4.skadnetwork" },
-                        { SKAdNetworkIdentifier = "2rq3zucswp.skadnetwork" },
-                        { SKAdNetworkIdentifier = "vc83br9sjg.skadnetwork" },
-                        { SKAdNetworkIdentifier = "eqhxz8m8av.skadnetwork" },
-                        { SKAdNetworkIdentifier = "7k3cvf297u.skadnetwork" },
-                        { SKAdNetworkIdentifier = "nu4557a4je.skadnetwork" },
-                        { SKAdNetworkIdentifier = "7tnzynbdc7.skadnetwork" },
-                        { SKAdNetworkIdentifier = "l6nv3x923s.skadnetwork" },
-                        { SKAdNetworkIdentifier = "h8vml93bkz.skadnetwork" },
-                        { SKAdNetworkIdentifier = "uzqba5354d.skadnetwork" },
-                        { SKAdNetworkIdentifier = "8qiegk9qfv.skadnetwork" },
-                        { SKAdNetworkIdentifier = "xx9sdjej2w.skadnetwork" },
-                        { SKAdNetworkIdentifier = "au67k4efj4.skadnetwork" },
-                        { SKAdNetworkIdentifier = "dmv22haz9p.skadnetwork" },
-                        { SKAdNetworkIdentifier = "7fbxrn65az.skadnetwork" },
-                        { SKAdNetworkIdentifier = "b55w3d8y8z.skadnetwork" },
-                        { SKAdNetworkIdentifier = "v7896pgt74.skadnetwork" },
-                        { SKAdNetworkIdentifier = "5ghnmfs3dh.skadnetwork" },
-                        { SKAdNetworkIdentifier = "627r9wr2y5.skadnetwork" },
-                        { SKAdNetworkIdentifier = "sczv5946wb.skadnetwork" },
-                        { SKAdNetworkIdentifier = "8w3np9l82g.skadnetwork" },
-                        { SKAdNetworkIdentifier = "nrt9jy4kw9.skadnetwork" },
-                        { SKAdNetworkIdentifier = "7953jerfzd.skadnetwork" },
-                        { SKAdNetworkIdentifier = "dn942472g5.skadnetwork" },
-                        { SKAdNetworkIdentifier = "cad8qz2s3j.skadnetwork" },
-                        { SKAdNetworkIdentifier = "r26jy69rpl.skadnetwork" },
-                        { SKAdNetworkIdentifier = "jb7bn6koa5.skadnetwork" },
-                        { SKAdNetworkIdentifier = "fkak3gfpt6.skadnetwork" },
-                        { SKAdNetworkIdentifier = "2tdux39lx8.skadnetwork" },
-                        { SKAdNetworkIdentifier = "3cgn6rq224.skadnetwork" },
-                        { SKAdNetworkIdentifier = "nfqy3847ph.skadnetwork" },
-                        { SKAdNetworkIdentifier = "dticjx1a9i.skadnetwork" },
-                        { SKAdNetworkIdentifier = "9wsyqb3ku7.skadnetwork" },
-                        { SKAdNetworkIdentifier = "qu637u8glc.skadnetwork" },
-                        { SKAdNetworkIdentifier = "x5854y7y24.skadnetwork" },
-                        { SKAdNetworkIdentifier = "gvmwg8q7h5.skadnetwork" },
-                        { SKAdNetworkIdentifier = "bvpn9ufa9b.skadnetwork" },
-                        { SKAdNetworkIdentifier = "6qx585k4p6.skadnetwork" },
-                        { SKAdNetworkIdentifier = "l93v5h6a4m.skadnetwork" },
-                        { SKAdNetworkIdentifier = "axh5283zss.skadnetwork" },
-                        { SKAdNetworkIdentifier = "5mv394q32t.skadnetwork" },
-                        { SKAdNetworkIdentifier = "hjevpa356n.skadnetwork" },
-                        { SKAdNetworkIdentifier = "ln5gz23vtd.skadnetwork" },
-                        { SKAdNetworkIdentifier = "pu4na253f3.skadnetwork" },
-                        { SKAdNetworkIdentifier = "t6d3zquu66.skadnetwork" },
-                        { SKAdNetworkIdentifier = "x2jnk7ly8j.skadnetwork" },
-                        { SKAdNetworkIdentifier = "yrqqpx2mcb.skadnetwork" },
-                        { SKAdNetworkIdentifier = "z4gj7hsk7h.skadnetwork" },
-                        { SKAdNetworkIdentifier = "bd757ywx3.skadnetwork" },
-                        { SKAdNetworkIdentifier = "33r6p7g8nc.skadnetwork" },
-                        { SKAdNetworkIdentifier = "g69uk9uh2b.skadnetwork" }
-                    },
-            },
-    },
-    plugins =
-    {
-        ["plugin.appodeal.beta.base"] = { publisherId = "com.coronalabs" },
-        ["plugin.appodeal.beta.AdColony"] = { publisherId = "com.coronalabs" },
-        ["plugin.appodeal.beta.AppLovin"] = { publisherId = "com.coronalabs" },
-        ["plugin.appodeal.beta.FacebookAudience"] = { publisherId = "com.coronalabs" },
-        ["plugin.appodeal.beta.GoogleAdMob"] = { publisherId = "com.coronalabs" },
-        ["plugin.appodeal.beta.InMobi"] = { publisherId = "com.coronalabs" },
-        ["plugin.appodeal.beta.Mobvista"] = { publisherId = "com.coronalabs" },
-        ["plugin.appodeal.beta.MyTarget"] = { publisherId = "com.coronalabs" },
-        ["plugin.appodeal.beta.Unity"] = { publisherId = "com.coronalabs" },
-        ["plugin.appodeal.beta.Vungle"] = { publisherId = "com.coronalabs" },
-    },
-}</pre>
-<p>Please keep in mind, that using beta versions of both Appodeal SDK and Solar2D Appodeal plugin may cause unexpected issues. We've made a profound tests of a new system, but you should use it at your own risk.</p>
-</div>
 <!--- Include ATS "override" template block --->
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
@@ -733,19 +393,19 @@ Note
 </div>
 <p>For Android, the following permissions/features are automatically added when using this plugin:</p>
 <ul>
-<li><code>&quot;android.permission.INTERNET&quot;</code></li>
-<li><code>&quot;android.permission.ACCESS_NETWORK_STATE&quot;</code></li>
-<li><code>&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</code></li>
+<li><code>"android.permission.INTERNET"</code></li>
+<li><code>"android.permission.ACCESS_NETWORK_STATE"</code></li>
+<li><code>"android.permission.WRITE_EXTERNAL_STORAGE"</code></li>
 </ul>
 <p>In addition, if you wish to receive targeted ads in your app and increase your chances for higher revenue, you can include any or all of the following permissions:</p>
 <ul>
-<li><code>&quot;android.permission.GET_ACCOUNTS&quot;</code></li>
-<li><code>&quot;android.permission.ACCESS_COARSE_LOCATION&quot;</code></li>
-<li><code>&quot;android.permission.ACCESS_FINE_LOCATION&quot;</code></li>
+<li><code>"android.permission.GET_ACCOUNTS"</code></li>
+<li><code>"android.permission.ACCESS_COARSE_LOCATION"</code></li>
+<li><code>"android.permission.ACCESS_FINE_LOCATION"</code></li>
 </ul>
 </div>
-</div>
-<div id="sample-project" class="section level2">
+</section>
+<section id="sample-project" class="level2">
 <h2>Sample project</h2>
 <ul>
 <li><a href="https://github.com/coronalabs/plugins-sample-appodeal">View on GitHub</a></li>
@@ -760,8 +420,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

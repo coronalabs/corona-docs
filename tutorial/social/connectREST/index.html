@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Tutorials | Communication/Social</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -69,40 +69,40 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/social/index.html">Communication/Social</a>
 </div>
-<div id="connecting-to-rest-api-services" class="section level1">
+<section id="connecting-to-rest-api-services" class="level1">
 <h1>Connecting to REST API Services</h1>
 <p>Using Solar2D, you can connect to various online services to get data into your app. To accomplish this, a popular option is <strong>REST</strong> (or RESTful) APIs which are based on standard HTTP protocols and are generally easy to authenticate.</p>
-<div id="rest-overview" class="section level2">
+<section id="rest-overview" class="level2">
 <h2>REST Overview</h2>
-<p>Many services offer their data via REST and you can use the standard HTTP &quot;verbs&quot; to access that data:</p>
+<p>Many services offer their data via REST and you can use the standard HTTP “verbs” to access that data:</p>
 <ul>
-<li><code>GET</code> — Used to &quot;get&quot; (fetch) data.</li>
+<li><code>GET</code> — Used to “get” (fetch) data.</li>
 <li><code>POST</code>/<code>PUT</code> — Used to send data to the server.</li>
 <li><code>DELETE</code> — Used to remove data (if permitted).</li>
 </ul>
-<p>REST uses standard HTTP URLs to define the API. For instance, with Twitter, you could access the following with a <code>GET</code> request to fetch a list of a user's friends:</p>
+<p>REST uses standard HTTP URLs to define the API. For instance, with Twitter, you could access the following with a <code>GET</code> request to fetch a list of a user’s friends:</p>
 <pre class="brush: lua;">https://api.twitter.com/1.1/friends/list.json</pre>
-<p>Let's inspect this in more detail:</p>
+<p>Let’s inspect this in more detail:</p>
 <ul>
 <li><p>Most services run their APIs over a secure protocol (<code>https://</code>) which is followed by the host name.</p></li>
 <li><p>Following the host name is commonly the API version — in this case <code>/1.1</code> indicates that this is version <code>1.1</code> of the API. This allows services to change their API definitions to add/update features or change data without breaking older apps that utilize the previous version.</p></li>
-<li><p>Following this is typically the category of functionality. In this example, all of Twitter's &quot;friends&quot; APIs are grouped under the <code>/friends</code> family.</p></li>
-<li><p>Finally, the specific <code>/list</code> API will fetch a list of the current user's friends, conveniently formatted in JSON which is easily compatible with Solar2D (alternatively, some services allow you to request XML data by specifying <code>.xml</code> instead of <code>.json</code>).</p></li>
+<li><p>Following this is typically the category of functionality. In this example, all of Twitter’s “friends” APIs are grouped under the <code>/friends</code> family.</p></li>
+<li><p>Finally, the specific <code>/list</code> API will fetch a list of the current user’s friends, conveniently formatted in JSON which is easily compatible with Solar2D (alternatively, some services allow you to request XML data by specifying <code>.xml</code> instead of <code>.json</code>).</p></li>
 </ul>
-</div>
-<div id="authentication" class="section level2">
+</section>
+<section id="authentication" class="level2">
 <h2>Authentication</h2>
-<p>Most REST APIs require some form of verification or authentication, in particular if you're trying to add or update data. Authentication can occur in various ways, for example by passing the username and password as part of the domain name:</p>
+<p>Most REST APIs require some form of verification or authentication, in particular if you’re trying to add or update data. Authentication can occur in various ways, for example by passing the username and password as part of the domain name:</p>
 <pre class="brush: lua;">https://username:password@api.yoursite.com/someapi/dosomething.json</pre>
-<p>In this example, the <code>username:password</code> method is a shortcut to using a headers table. Sometimes the username and password will be referred to as the &quot;API Key&quot; and &quot;secret&quot; and they may need to be encoded in some fashion such as <a href="../../../api/library/crypto/index.html">MD5</a>.</p>
+<p>In this example, the <code>username:password</code> method is a shortcut to using a headers table. Sometimes the username and password will be referred to as the “API Key” and “secret” and they may need to be encoded in some fashion such as <a href="../../../api/library/crypto/index.html">MD5</a>.</p>
 <p>An alternate method is to use a <strong>headers</strong> table, discussed in more detail below.</p>
-</div>
-<div id="making-api-calls" class="section level2">
+</section>
+<section id="making-api-calls" class="level2">
 <h2>Making API Calls</h2>
-<p>Your REST API calls are made via <a href="../../../api/library/network/request.html">network.request()</a>. For this API, you need to provide a URL, an HTTP &quot;verb&quot;, a callback function to handle the completed request, and an optional table of information in which to handle headers and data passed to the server.</p>
-<div id="basic-request" class="section level3">
+<p>Your REST API calls are made via <a href="../../../api/library/network/request.html">network.request()</a>. For this API, you need to provide a URL, an HTTP “verb”, a callback function to handle the completed request, and an optional table of information in which to handle headers and data passed to the server.</p>
+<section id="basic-request" class="level3">
 <h3>Basic Request</h3>
-<p>Let's look at a simple example using basic authentication (no headers):</p>
+<p>Let’s look at a simple example using basic authentication (no headers):</p>
 <pre class="brush: lua;">local json = require( "json" )
 
 local function handleResponse( event )
@@ -118,10 +118,10 @@ local function handleResponse( event )
 end
  
 network.request( "https://username:password@api.yourservice.com/users/friends.json", "GET", handleResponse )</pre>
-</div>
-<div id="headers" class="section level3">
+</section>
+<section id="headers" class="level3">
 <h3>Headers</h3>
-<p>Alternatively, if your service can't use basic authentication as part of the URL, you need to set up <strong>headers</strong>:</p>
+<p>Alternatively, if your service can’t use basic authentication as part of the URL, you need to set up <strong>headers</strong>:</p>
 <pre class="brush: lua;">local json = require( "json" )
 local mime = require( "mime" )
 
@@ -144,9 +144,9 @@ local params = {}
 params.headers = headers
 
 network.request( "https://api.yourservice.com/users/friends.json", "GET", handleResponse, params )</pre>
-</div>
-</div>
-<div id="conclusion" class="section level2">
+</section>
+</section>
+<section id="conclusion" class="level2">
 <h2>Conclusion</h2>
 <p>Every service will have its own methods to call, so you need to research the specific API calls and learn what HTTP verbs are expected, as well as which parameters. Also, each service seems to implement authentication a little differently, but this tutorial should get you started on using <nobr>REST-based</nobr> APIs from various providers.</p>
 <hr>
@@ -159,8 +159,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

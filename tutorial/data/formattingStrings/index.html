@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Tutorials | Data/Files/Strings</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -67,67 +67,67 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/data/index.html">Data/Files/Strings</a>
 </div>
-<div id="formatting-string-values" class="section level1">
+<section id="formatting-string-values" class="level1">
 <h1>Formatting String Values</h1>
 <p>There may come a time when you need to output a number with specific formatting, such as displaying a value like <code>3.1415926</code> with only two decimal places. Or perhaps you need to lay out a table and produce column data, like a leaderboard. This is where <a href="../../../api/library/string/format.html">string.format()</a> comes into play. Using this, you can provide a <strong>format string</strong> plus a series of values to format and the API will return a single string formatted to your specifications.</p>
-<div id="formatting-basics" class="section level2">
+<section id="formatting-basics" class="level2">
 <h2>Formatting Basics</h2>
-<p>The <strong>format string</strong> (the first parameter to <a href="../../../api/library/string/format.html">string.format()</a>) can contain text and <strong>format codes</strong> which produce the desired output string. Let's look at a simple example:</p>
+<p>The <strong>format string</strong> (the first parameter to <a href="../../../api/library/string/format.html">string.format()</a>) can contain text and <strong>format codes</strong> which produce the desired output string. Let’s look at a simple example:</p>
 <pre class="brush: lua;">string.format( "Bill made $%6.2f dollars at the yard sale.", 11.25017 )</pre>
 <p>Within the format string, notice the format code of <code>%6.2f</code>. This directly coincides with the second parameter, <code>11.25017</code>, and if we output this code to the console it will appear as this:</p>
 <pre class="brush: lua;">Bill made $ 11.25 dollars at the yard sale.</pre>
-<p>Let's inspect the format code of <code>%6.2f</code> in further detail.</p>
+<p>Let’s inspect the format code of <code>%6.2f</code> in further detail.</p>
 <ul>
 <li><p>In all places within the format string where you want to output a formatted value, begin with a <strong>percent sign</strong> (<code>%</code>).</p></li>
 <li><p>Following this, the <code>6</code> parameter instructs the method to use 6 total characters to output the value.</p></li>
 <li><p>Next, <code>.2</code> indicates the number of decimal places to include <strong>after</strong> the decimal, in this case 2, commonly used to specify monetary values.</p></li>
-<li><p>Finally, the <code>f</code> parameter indicates a Lua &quot;conversion specifier,&quot; in this case a <strong>floating point number</strong>, most of which behave just like those in the family of C/C++ <a href="https://www.cplusplus.com/reference/cstdio/printf/">printf</a> functions.</p></li>
+<li><p>Finally, the <code>f</code> parameter indicates a Lua “conversion specifier,” in this case a <strong>floating point number</strong>, most of which behave just like those in the family of C/C++ <a href="https://www.cplusplus.com/reference/cstdio/printf/">printf</a> functions.</p></li>
 </ul>
-</div>
-<div id="justification-and-placeholders" class="section level2">
+</section>
+<section id="justification-and-placeholders" class="level2">
 <h2>Justification and Placeholders</h2>
-<p>In the example above, the number only occupied 5 of the allotted 6 characters, so the string is padded with spaces. By default, spaces will be added to the <strong>left</strong> in order to simulate right justification, because numbers are often right justified. However, when outputting alphabetical values like names, you'll usually want them to be standard (left) justified. To accomplish this, simply use a <strong>minus sign</strong> (<code>-</code>) as part of the format code:</p>
+<p>In the example above, the number only occupied 5 of the allotted 6 characters, so the string is padded with spaces. By default, spaces will be added to the <strong>left</strong> in order to simulate right justification, because numbers are often right justified. However, when outputting alphabetical values like names, you’ll usually want them to be standard (left) justified. To accomplish this, simply use a <strong>minus sign</strong> (<code>-</code>) as part of the format code:</p>
 <pre class="brush: lua;">string.format( "%-20s %-10d.", "Albert Einstein", "29314" )</pre>
 <p>If we output this code, it will appear like this:</p>
 <pre class="brush: lua;">Albert Einstein     29314     .</pre>
-<p>In this output, carefully observe the &quot;placeholder&quot; spaces. Because we specified 20 total places for the string <nobr><code>Albert Einstein</code></nobr> (15 characters) and justified it to the <strong>left</strong> using the <code>-</code> sign, 5 placeholder spaces will be output before the next part of the output string (<code>29314</code>). Similarly, since we specified 10 total places for the string <code>29314</code>, 5 placeholder spaces will be output before the end of the <nobr>format string (<code>.</code>)</nobr>.</p>
-</div>
-<div id="leading-zeros" class="section level2">
+<p>In this output, carefully observe the “placeholder” spaces. Because we specified 20 total places for the string <nobr><code>Albert Einstein</code></nobr> (15 characters) and justified it to the <strong>left</strong> using the <code>-</code> sign, 5 placeholder spaces will be output before the next part of the output string (<code>29314</code>). Similarly, since we specified 10 total places for the string <code>29314</code>, 5 placeholder spaces will be output before the end of the <nobr>format string (<code>.</code>)</nobr>.</p>
+</section>
+<section id="leading-zeros" class="level2">
 <h2>Leading Zeros</h2>
 <p>The <a href="../../../api/library/string/format.html">string.format()</a> API can also be used to format numbers such as high scores, in which you might want to include leading zeros:</p>
 <pre class="brush: lua;">string.format( "%07d", 1050 )</pre>
 <p>This will result in a value of <code>0001050</code> because we specified <code>0</code> (to pad the value with leading zeros) and we indicated <code>7</code> total spaces for the formatted output.</p>
-</div>
-<div id="conversion-specifiers" class="section level2">
+</section>
+<section id="conversion-specifiers" class="level2">
 <h2>Conversion Specifiers</h2>
-<p>As noted above, you can use various &quot;conversion specifiers&quot; in the format string, including:</p>
+<p>As noted above, you can use various “conversion specifiers” in the format string, including:</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="center">Specifier</th>
-<th align="left">Output</th>
+<th style="text-align: center;">Specifier</th>
+<th style="text-align: left;">Output</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center"><code>s</code></td>
-<td align="left"><nobr>String of characters</nobr></td>
+<td style="text-align: center;"><code>s</code></td>
+<td style="text-align: left;"><nobr>String of characters</nobr></td>
 </tr>
 <tr class="even">
-<td align="center"><code>d</code></td>
-<td align="left"><nobr>Signed decimal integer</nobr></td>
+<td style="text-align: center;"><code>d</code></td>
+<td style="text-align: left;"><nobr>Signed decimal integer</nobr></td>
 </tr>
 <tr class="odd">
-<td align="center"><code>f</code></td>
-<td align="left"><nobr>Decimal floating point</nobr></td>
+<td style="text-align: center;"><code>f</code></td>
+<td style="text-align: left;"><nobr>Decimal floating point</nobr></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Basically, aside from a few exceptions, Lua's <a href="../../../api/library/string/format.html">string.format()</a> API uses the same parameters as those in the family of C/C++ <a href="https://www.cplusplus.com/reference/cstdio/printf/">printf</a> functions.</p>
-</div>
-<div id="conclusion" class="section level2">
+<p>Basically, aside from a few exceptions, Lua’s <a href="../../../api/library/string/format.html">string.format()</a> API uses the same parameters as those in the family of C/C++ <a href="https://www.cplusplus.com/reference/cstdio/printf/">printf</a> functions.</p>
+</section>
+<section id="conclusion" class="level2">
 <h2>Conclusion</h2>
 <p>As you can see, the <a href="../../../api/library/string/format.html">string.format()</a> API is very powerful and it can be used to format strings for text display or UI needs, among other tasks. It may require some experimentation to accomplish the exact formatting that you desire, but with a little testing, you can format a string in virtually any manner necessary.</p>
 <hr>
@@ -140,8 +140,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

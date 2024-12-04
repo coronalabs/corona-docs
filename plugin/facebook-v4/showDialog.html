@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Facebook (v4) | showDialog</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -73,69 +73,69 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/facebook-v4/index.html">Facebook (v4)</a>  ▸  <a href="../../plugin/facebook-v4/showDialog.html">showDialog</a>
 </div>
-<div id="facebook.showdialog" class="section level1">
+<section id="facebook.showdialog" class="level1">
 <h1>facebook.showDialog()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left"><a href="../../api/type/Event.html">Event</a></td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Event.html">Event</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">Facebook, showDialog</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">Facebook, showDialog</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../plugin/facebook-v4/login.html">facebook.login()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../plugin/facebook-v4/login.html">facebook.login()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/facebook-v4/index.html">facebook.*</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/facebook-v4/index.html">facebook.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/facebook-v4/event/fbconnect/index.html">fbconnect</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/facebook-v4/event/fbconnect/index.html">fbconnect</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
-<p>Displays an interactive Facebook UI dialog for publishing posts to a user's stream, inviting friends to your app, etc. Use <a href="../../plugin/facebook-v4/request.html">facebook.request()</a> if you need the application itself to do the posting.</p>
+<p>Displays an interactive Facebook UI dialog for publishing posts to a user’s stream, inviting friends to your app, etc. Use <a href="../../plugin/facebook-v4/request.html">facebook.request()</a> if you need the application itself to do the posting.</p>
 <p>The response from the dialog comes back in the form of a <a href="../../plugin/facebook-v4/event/fbconnect/index.html">fbconnect</a> event that is sent to the listener specified within <a href="../../plugin/facebook-v4/setFBConnectListener.html">facebook.setFBConnectListener()</a> or <a href="../../plugin/facebook-v4/login.html">facebook.login()</a>.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">facebook.showDialog( action, params )</pre>
-<div id="action-required" class="section level5">
+<section id="action-required" class="level5">
 <h5>action <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> The dialog you want to show. Valid options include:</p>
 <ul>
-<li><code>&quot;feed&quot;</code> — Opens the <a href="https://developers.facebook.com/docs/sharing/reference/share-dialog">Share Dialog</a> in Feed mode.</li>
-<li><code>&quot;link&quot;</code> — Corresponds to the <a href="#sharedialog">Share Dialog</a>.</li>
-<li><code>&quot;photo&quot;</code> — Corresponds to the <a href="#sharedialog">Share Dialog</a>.</li>
-<li><code>&quot;requests&quot;</code> — Corresponds to the <a href="#gamerequestdialog">Game Requests Dialog</a>.</li>
+<li><code>"feed"</code> — Opens the <a href="https://developers.facebook.com/docs/sharing/reference/share-dialog">Share Dialog</a> in Feed mode.</li>
+<li><code>"link"</code> — Corresponds to the <a href="#sharedialog">Share Dialog</a>.</li>
+<li><code>"photo"</code> — Corresponds to the <a href="#sharedialog">Share Dialog</a>.</li>
+<li><code>"requests"</code> — Corresponds to the <a href="#gamerequestdialog">Game Requests Dialog</a>.</li>
 </ul>
-</div>
-<div id="params-required" class="section level5">
+</section>
+<section id="params-required" class="level5">
 <h5>params <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> Lua table of <nobr>key-value</nobr> pairs that is passed as arguments to the Facebook API call. The keys you pass here correspond to specific parameters which are available for the dialog that you want to show — see <a href="#sharedialog">Share Dialog</a> and <a href="#gamerequestdialog">Game Requests Dialog</a> below for details.</p>
 <p><a id="sharedialog"></a></p>
-</div>
-</div>
-<div id="share-dialog" class="section level2">
+</section>
+</section>
+<section id="share-dialog" class="level2">
 <h2>Share Dialog</h2>
-<p>Displays the Facebook dialog for sharing content. For this dialog, <code>action</code> should be either <code>&quot;link&quot;</code> or <code>&quot;photo&quot;</code>.</p>
+<p>Displays the Facebook dialog for sharing content. For this dialog, <code>action</code> should be either <code>"link"</code> or <code>"photo"</code>.</p>
 <div class="guide-notebox">
 <div class="notebox-title">
 Note
@@ -147,20 +147,20 @@ Note
 </div>
 <p>For this dialog, the <code>params</code> table can contain the following <nobr>key-value</nobr> pairs. Note that some keys are required while others are not.</p>
 <ul>
-<li><code>link</code> — Required if <code>action</code> is <code>&quot;link&quot;</code>; <a href="../../api/type/String.html">string</a> value for a URL for the content being shared.</li>
+<li><code>link</code> — Required if <code>action</code> is <code>"link"</code>; <a href="../../api/type/String.html">string</a> value for a URL for the content being shared.</li>
 <li><code>peopleIds</code> — Optional <a href="../../api/type/Table.html">table</a> containing the list of IDs for taggable people to tag with this content.</li>
 <li><code>placeId</code> — Optional <a href="../../api/type/String.html">string</a> value for the ID for a place to tag with this content.</li>
 <li><code>ref</code> — Optional <a href="../../api/type/String.html">string</a> value to be added to the referrer URL when a person follows a link from this shared content on their feed.</li>
-<li><code>title</code> — Optional if <code>action</code> is <code>&quot;link&quot;</code>; <a href="../../api/type/String.html">string</a> value for the title to display for this link.</li>
-<li><code>description</code> — Optional if <code>action</code> is <code>&quot;link&quot;</code>; <a href="../../api/type/String.html">string</a> value with the description of the link.</li>
-<li><code>picture</code> — Optional if <code>action</code> is <code>&quot;link&quot;</code>; <a href="../../api/type/String.html">string</a> value for a URL of a picture to attach to this content.</li>
-<li><code>photos</code> — Required if <code>action</code> is <code>&quot;photo&quot;</code>; <a href="../../api/type/Array.html">array</a> of Lua tables containing info about the photos to share. Each table inside this array should include a <code>url</code> key with a <a href="../../api/type/String.html">string</a> value representing a URL for the photo.</li>
+<li><code>title</code> — Optional if <code>action</code> is <code>"link"</code>; <a href="../../api/type/String.html">string</a> value for the title to display for this link.</li>
+<li><code>description</code> — Optional if <code>action</code> is <code>"link"</code>; <a href="../../api/type/String.html">string</a> value with the description of the link.</li>
+<li><code>picture</code> — Optional if <code>action</code> is <code>"link"</code>; <a href="../../api/type/String.html">string</a> value for a URL of a picture to attach to this content.</li>
+<li><code>photos</code> — Required if <code>action</code> is <code>"photo"</code>; <a href="../../api/type/Array.html">array</a> of Lua tables containing info about the photos to share. Each table inside this array should include a <code>url</code> key with a <a href="../../api/type/String.html">string</a> value representing a URL for the photo.</li>
 </ul>
 <p><a id="gamerequestdialog"></a></p>
-</div>
-<div id="game-request-dialog" class="section level2">
+</section>
+<section id="game-request-dialog" class="level2">
 <h2>Game Request Dialog</h2>
-<p>Displays a native view which allows the user to send game requests to their choice of friends. For this dialog, <code>action</code> should be <code>&quot;requests&quot;</code>.</p>
+<p>Displays a native view which allows the user to send game requests to their choice of friends. For this dialog, <code>action</code> should be <code>"requests"</code>.</p>
 <div class="guide-notebox">
 <div class="notebox-title">
 Notes
@@ -180,20 +180,20 @@ Notes
 <li><code>objectId</code> — <a href="../../api/type/String.html">String</a> value for the Open Graph object ID of the object being sent.</li>
 <li><code>actionType</code> — <a href="../../api/type/String.html">String</a> value for defining additional context about the nature of the request. By default, no action type is used. Supported <code>actionType</code> values include:
 <ul>
-<li><code>&quot;SEND&quot;</code> — The user is sending an object to friends. Requires an <code>objectId</code> to also be provided. Maps to the <a href="https://developers.facebook.com/docs/games/services/gamerequests#gifting">gifting and social trading</a> scenario.</li>
-<li><code>&quot;ASKFOR&quot;</code> — The user is asking for an object from friends. Requires an <code>objectId</code> to also be provided. Maps to the <a href="https://developers.facebook.com/docs/games/services/gamerequests#askforhelp">asking for help</a> scenario.</li>
-<li><code>&quot;TURN&quot;</code> — It is the turn of the friends to play against the user in a match. An <code>objectId</code> should <strong>not</strong> be provided in this case. Maps to the <a href="https://developers.facebook.com/docs/games/services/gamerequests#turnbased">turn-based games</a> scenario.</li>
+<li><code>"SEND"</code> — The user is sending an object to friends. Requires an <code>objectId</code> to also be provided. Maps to the <a href="https://developers.facebook.com/docs/games/services/gamerequests#gifting">gifting and social trading</a> scenario.</li>
+<li><code>"ASKFOR"</code> — The user is asking for an object from friends. Requires an <code>objectId</code> to also be provided. Maps to the <a href="https://developers.facebook.com/docs/games/services/gamerequests#askforhelp">asking for help</a> scenario.</li>
+<li><code>"TURN"</code> — It is the turn of the friends to play against the user in a match. An <code>objectId</code> should <strong>not</strong> be provided in this case. Maps to the <a href="https://developers.facebook.com/docs/games/services/gamerequests#turnbased">turn-based games</a> scenario.</li>
 </ul></li>
 <li><code>filter</code> — <a href="../../api/type/String.html">String</a> value for a filter on who can be displayed in the <nobr>multi-friend</nobr> selector. By default, all friends will be displayed in the selector. Supported <code>filter</code> values include:
 <ul>
-<li><code>&quot;APP_USERS&quot;</code> — Only friends who use the app will be displayed.</li>
-<li><code>&quot;APP_NON_USERS&quot;</code> — Only friends who do <strong>not</strong> use the app will be displayed. Maps to the <a href="https://developers.facebook.com/docs/games/services/gamerequests#invites">invites</a> scenario.</li>
+<li><code>"APP_USERS"</code> — Only friends who use the app will be displayed.</li>
+<li><code>"APP_NON_USERS"</code> — Only friends who do <strong>not</strong> use the app will be displayed. Maps to the <a href="https://developers.facebook.com/docs/games/services/gamerequests#invites">invites</a> scenario.</li>
 </ul></li>
 </ul>
-</div>
-<div id="examples" class="section level2">
+</section>
+<section id="examples" class="level2">
 <h2>Examples</h2>
-<div id="share-dialog-1" class="section level5">
+<section id="share-dialog-1" class="level5">
 <h5>Share Dialog</h5>
 <pre class="brush: lua;">local facebook = require( "plugin.facebook.v4" )
 
@@ -215,8 +215,8 @@ local function facebookListener( event )
 end
 
 facebook.login( facebookListener )</pre>
-</div>
-<div id="game-request" class="section level5">
+</section>
+<section id="game-request" class="level5">
 <h5>Game Request</h5>
 <pre class="brush: lua;">local facebook = require( "plugin.facebook.v4" )
 
@@ -248,9 +248,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

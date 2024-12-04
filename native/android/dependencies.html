@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Solar2D Native | Android | Android Dependency Integration</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -75,7 +75,7 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../native/index.html">Solar2D Native</a>  ▸  <a href="../../native/android/index.html">Android</a>  ▸  <a href="../../native/android/dependencies.html">Android Dependency Integration</a>
 </div>
-<div id="android-dependency-integration" class="section level1">
+<section id="android-dependency-integration" class="level1">
 <h1>Android Dependency Integration</h1>
 <p>This guide explains how to properly integrate common Android libraries into your plugin project. Following these procedures ensures that your plugin works with the most <nobr>Corona-compatible</nobr> version of a library and also guarantees that your plugin will be compatible with other plugins that share the same dependency on a library.</p>
 <div class="guides-toc">
@@ -90,123 +90,123 @@
 </ul>
 </div>
 <p><a id="background"></a></p>
-<div id="background" class="section level2">
+<section id="background" class="level2">
 <h2>Background</h2>
 <p>When Corona originally opened up the <a href="https://marketplace.coronalabs.com/">Corona Marketplace</a> to accept content made by third parties, plugin developers could upload any <code>.jar</code> files needed to run their plugin. This resulted in plugins being submitted that would include versions of the <a href="https://developer.android.com/topic/libraries/support-library/index.html">Android Support Libraries</a> or <a href="https://developers.google.com/android/guides/overview">Google Play Services</a>. The version of these <code>.jar</code> files would often be the latest version available when the plugin was initially developed, but they were not typically updated when newer versions of the plugin were released.</p>
 <p>Essentially, with different versions of libraries floating around inside of plugins, incompatibilities would occur between a plugin needing, for instance, Google Play Services version 8.4 and another plugin needing Google Play Services version 4.2.</p>
 <p><a id="dependency-plugins"></a></p>
-</div>
-<div id="dependency-plugins" class="section level2">
+</section>
+<section id="dependency-plugins" class="level2">
 <h2>Dependency Plugins</h2>
 <p>In Corona, <strong>dependency plugins</strong> are special plugins that address version incompatibilities between dependencies which multiple plugins may have. They contain all of the resources for the latest version of a particular library that Corona supports, plus any additional resources to aid in integration and proper usage of a library.</p>
-<p>If your project depends on a common Android library like the <a href="https://developer.android.com/topic/libraries/support-library/index.html">Android Support Libraries</a> or <a href="https://developers.google.com/android/guides/overview">Google Play Services</a>, you'll need to include a dependency plugin to incorporate that library into your plugin submission. This is to ensure compatibility with other plugins that may be dependent on these libraries.</p>
+<p>If your project depends on a common Android library like the <a href="https://developer.android.com/topic/libraries/support-library/index.html">Android Support Libraries</a> or <a href="https://developers.google.com/android/guides/overview">Google Play Services</a>, you’ll need to include a dependency plugin to incorporate that library into your plugin submission. This is to ensure compatibility with other plugins that may be dependent on these libraries.</p>
 <p>The following table outlines which libraries are supported by Corona as dependency plugins. While developing your plugin that meets the above criteria, you should test it against the library version encapsulated in a dependency plugin.</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Library</th>
-<th align="left">Dependency Plugin Name</th>
-<th align="left">Version</th>
+<th style="text-align: left;">Library</th>
+<th style="text-align: left;">Dependency Plugin Name</th>
+<th style="text-align: left;">Version</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Android Support v4</td>
-<td align="left"><code>shared.android.support.v4</code></td>
-<td align="left">27.1.1</td>
+<td style="text-align: left;">Android Support v4</td>
+<td style="text-align: left;"><code>shared.android.support.v4</code></td>
+<td style="text-align: left;">27.1.1</td>
 </tr>
 <tr class="even">
-<td align="left">Android Support v7 – AppCompat</td>
-<td align="left"><code>shared.android.support.v7.appcompat</code></td>
-<td align="left">27.1.1</td>
+<td style="text-align: left;">Android Support v7 – AppCompat</td>
+<td style="text-align: left;"><code>shared.android.support.v7.appcompat</code></td>
+<td style="text-align: left;">27.1.1</td>
 </tr>
 <tr class="odd">
-<td align="left">Android Support v7 – CardView</td>
-<td align="left"><code>shared.android.support.v7.cardview</code></td>
-<td align="left">27.1.1</td>
+<td style="text-align: left;">Android Support v7 – CardView</td>
+<td style="text-align: left;"><code>shared.android.support.v7.cardview</code></td>
+<td style="text-align: left;">27.1.1</td>
 </tr>
 <tr class="even">
-<td align="left">Android Support v7 – RecyclerView</td>
-<td align="left"><code>shared.android.support.v7.recyclerview</code></td>
-<td align="left">27.1.1</td>
+<td style="text-align: left;">Android Support v7 – RecyclerView</td>
+<td style="text-align: left;"><code>shared.android.support.v7.recyclerview</code></td>
+<td style="text-align: left;">27.1.1</td>
 </tr>
 <tr class="odd">
-<td align="left">Google Actions, Base Client Library</td>
-<td align="left"><code>shared.google.play.services.base</code></td>
-<td align="left">15.0.1</td>
+<td style="text-align: left;">Google Actions, Base Client Library</td>
+<td style="text-align: left;"><code>shared.google.play.services.base</code></td>
+<td style="text-align: left;">15.0.1</td>
 </tr>
 <tr class="even">
-<td align="left">Google Analytics</td>
-<td align="left"><code>shared.google.play.services.analytics</code></td>
-<td align="left">15.0.1</td>
+<td style="text-align: left;">Google Analytics</td>
+<td style="text-align: left;"><code>shared.google.play.services.analytics</code></td>
+<td style="text-align: left;">15.0.1</td>
 </tr>
 <tr class="odd">
-<td align="left">Google Cloud Messaging</td>
-<td align="left"><code>shared.google.play.services.gcm</code></td>
-<td align="left">15.0.1</td>
+<td style="text-align: left;">Google Cloud Messaging</td>
+<td style="text-align: left;"><code>shared.google.play.services.gcm</code></td>
+<td style="text-align: left;">15.0.1</td>
 </tr>
 <tr class="even">
-<td align="left">Google Drive</td>
-<td align="left"><code>shared.google.play.services.drive</code></td>
-<td align="left">15.0.1</td>
+<td style="text-align: left;">Google Drive</td>
+<td style="text-align: left;"><code>shared.google.play.services.drive</code></td>
+<td style="text-align: left;">15.0.1</td>
 </tr>
 <tr class="odd">
-<td align="left">Google Location</td>
-<td align="left"><code>shared.google.play.services.location</code></td>
-<td align="left">15.0.1</td>
+<td style="text-align: left;">Google Location</td>
+<td style="text-align: left;"><code>shared.google.play.services.location</code></td>
+<td style="text-align: left;">15.0.1</td>
 </tr>
 <tr class="even">
-<td align="left">Google Mobile Ads (AdMob)</td>
-<td align="left"><code>shared.google.play.services.ads</code></td>
-<td align="left">15.0.1</td>
+<td style="text-align: left;">Google Mobile Ads (AdMob)</td>
+<td style="text-align: left;"><code>shared.google.play.services.ads</code></td>
+<td style="text-align: left;">15.0.1</td>
 </tr>
 <tr class="odd">
-<td align="left">Google Play Games Services</td>
-<td align="left"><code>shared.google.play.services.games</code></td>
-<td align="left">15.0.1</td>
+<td style="text-align: left;">Google Play Games Services</td>
+<td style="text-align: left;"><code>shared.google.play.services.games</code></td>
+<td style="text-align: left;">15.0.1</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="android-support-libraries" class="section level3">
+<section id="android-support-libraries" class="level3">
 <h3>Android Support Libraries</h3>
-<p>Any library with a dependency plugin name containing <code>shared.android.support</code> is part of Google's <a href="https://developer.android.com/topic/libraries/support-library/index.html">Android Support Libraries</a>. These dependency plugins encapsulate the respective components listed <a href="https://developer.android.com/topic/libraries/support-library/index.html">here</a> and are analogous to adding the following to the <code>dependencies</code> block of your project's <code>build.gradle</code>:</p>
+<p>Any library with a dependency plugin name containing <code>shared.android.support</code> is part of Google’s <a href="https://developer.android.com/topic/libraries/support-library/index.html">Android Support Libraries</a>. These dependency plugins encapsulate the respective components listed <a href="https://developer.android.com/topic/libraries/support-library/index.html">here</a> and are analogous to adding the following to the <code>dependencies</code> block of your project’s <code>build.gradle</code>:</p>
 <pre class="brush: lua;">compile 'com.android.support:[COMPONENT_NAME]:[VERSION_NUMBER]'</pre>
-</div>
-<div id="google-play-services" class="section level3">
+</section>
+<section id="google-play-services" class="level3">
 <h3>Google Play Services</h3>
-<p>Any library with a dependency plugin name containing <code>shared.google.play.services</code> is part of <a href="https://developers.google.com/android/guides/overview">Google Play Services</a>. These dependency plugins encapsulate the respective components listed <a href="https://developers.google.com/android/guides/setup#add_google_play_services_to_your_project">here</a> and are analogous to adding the following to the <code>dependencies</code> block of your project's <code>build.gradle</code>:</p>
+<p>Any library with a dependency plugin name containing <code>shared.google.play.services</code> is part of <a href="https://developers.google.com/android/guides/overview">Google Play Services</a>. These dependency plugins encapsulate the respective components listed <a href="https://developers.google.com/android/guides/setup#add_google_play_services_to_your_project">here</a> and are analogous to adding the following to the <code>dependencies</code> block of your project’s <code>build.gradle</code>:</p>
 <pre class="brush: lua;">compile 'com.google.android.gms:play-services-[COMPONENT_NAME]:[VERSION_NUMBER]'</pre>
 <p><a id="base-logic"></a></p>
-</div>
-</div>
-<div id="base-logic-layer" class="section level2">
+</section>
+</section>
+<section id="base-logic-layer" class="level2">
 <h2>Base Logic Layer</h2>
-<p>The <code>shared.google.play.services.base</code> dependency plugin also includes a base logic layer that will check if the environment on the device is safe for using Google Play Services and attempt to resolve any issues with using the Google Play Services <code>.apk</code>. This is to follow Google's <a href="https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk">guidelines</a> on ensuring devices have the Google Play Services APK. Resolution attempts are made by presenting either an alert or a notification with context about the issue and how to resolve it. From an alert, the end user would then tap a button and be taken somewhere else on their device to resolve the problem. From a notification, tapping on it will launch the app and present an alert with similar context.</p>
-<div id="behavior-changes" class="section level3">
+<p>The <code>shared.google.play.services.base</code> dependency plugin also includes a base logic layer that will check if the environment on the device is safe for using Google Play Services and attempt to resolve any issues with using the Google Play Services <code>.apk</code>. This is to follow Google’s <a href="https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk">guidelines</a> on ensuring devices have the Google Play Services APK. Resolution attempts are made by presenting either an alert or a notification with context about the issue and how to resolve it. From an alert, the end user would then tap a button and be taken somewhere else on their device to resolve the problem. From a notification, tapping on it will launch the app and present an alert with similar context.</p>
+<section id="behavior-changes" class="level3">
 <h3>Behavior Changes</h3>
-<p>When the <code>shared.google.play.services.base</code> dependency plugin is included, your app's <code>main.lua</code> will not begin to execute until any environment issues for using Google Play Services are resolved by the end user. Should an environment change affecting Google Play Services occur during your app's execution, such as the end user disabling Google Play Services on their device, the end user will be presented with an alert or notification similar to when the app was initially launched, prior to <code>main.lua</code> executing.</p>
-<p>If the end user just re-enabled Google Play Services and they still need to download an update to Google Play Services, your app will display an alert requesting the end user reboot their device. This reboot is strictly enforced if your app includes the <code>&quot;android.permission.RECEIVE_BOOT_COMPLETED&quot;</code> permission. In this case, your app won't be able to get past this alert until the end user reboots the device. If the <code>&quot;android.permission.RECEIVE_BOOT_COMPLETED&quot;</code> permission is <strong>not</strong> requested by your app, it will recommend the user reboot their device, but will have no means of enforcing it. This reboot is recommended to get around potential <nobr>DF-DLA-15</nobr> errors from the Google Play store while updating Google Play Services.</p>
+<p>When the <code>shared.google.play.services.base</code> dependency plugin is included, your app’s <code>main.lua</code> will not begin to execute until any environment issues for using Google Play Services are resolved by the end user. Should an environment change affecting Google Play Services occur during your app’s execution, such as the end user disabling Google Play Services on their device, the end user will be presented with an alert or notification similar to when the app was initially launched, prior to <code>main.lua</code> executing.</p>
+<p>If the end user just re-enabled Google Play Services and they still need to download an update to Google Play Services, your app will display an alert requesting the end user reboot their device. This reboot is strictly enforced if your app includes the <code>"android.permission.RECEIVE_BOOT_COMPLETED"</code> permission. In this case, your app won’t be able to get past this alert until the end user reboots the device. If the <code>"android.permission.RECEIVE_BOOT_COMPLETED"</code> permission is <strong>not</strong> requested by your app, it will recommend the user reboot their device, but will have no means of enforcing it. This reboot is recommended to get around potential <nobr>DF-DLA-15</nobr> errors from the Google Play store while updating Google Play Services.</p>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
 Limitations
 </div>
-<p>Note that the base logic layer does <strong>not</strong> account for issues that may occur while trying to connect to Google Play Services and use Google's APIs. It will only guarantee that the app has access to the correct version of the Google Play Services <code>.apk</code> at all times. When it's time for your plugin to connect to Google Play Services, be sure to follow the <a href="https://developers.google.com/android/guides/api-client">Accessing Google APIs</a> and <a href="https://developers.google.com/android/guides/permissions">Runtime Permissions</a> guides.</p>
+<p>Note that the base logic layer does <strong>not</strong> account for issues that may occur while trying to connect to Google Play Services and use Google’s APIs. It will only guarantee that the app has access to the correct version of the Google Play Services <code>.apk</code> at all times. When it’s time for your plugin to connect to Google Play Services, be sure to follow the <a href="https://developers.google.com/android/guides/api-client">Accessing Google APIs</a> and <a href="https://developers.google.com/android/guides/permissions">Runtime Permissions</a> guides.</p>
 </div>
-</div>
-<div id="solar2d-native-gotchas" class="section level3">
+</section>
+<section id="solar2d-native-gotchas" class="level3">
 <h3>Solar2D Native Gotchas</h3>
-<p>To use the base logic layer with a Solar2D Native project, you will need to identify which components of Google Play Services are being used with <nobr><code>&lt;meta-data&gt;</code></nobr> tags in the <code>&lt;application&gt;</code> block of your application's <code>AndroidManifest.xml</code>. These tags are used to identify components of Google Play Services that may need additional process. The format for these <nobr><code>&lt;meta-data&gt;</code></nobr> tags is as follows:</p>
+<p>To use the base logic layer with a Solar2D Native project, you will need to identify which components of Google Play Services are being used with <nobr><code>&lt;meta-data&gt;</code></nobr> tags in the <code>&lt;application&gt;</code> block of your application’s <code>AndroidManifest.xml</code>. These tags are used to identify components of Google Play Services that may need additional process. The format for these <nobr><code>&lt;meta-data&gt;</code></nobr> tags is as follows:</p>
 <pre class="brush: xml;">&lt;meta-data android:name="usesGooglePlayServicesComponent[PascalCase_NAME_OF_COMPONENT]" android:value="true" /></pre>
-<p>Here, <code>[PascalCase_NAME_OF_COMPONENT]</code> corresponds to the <code>[COMPONENT_NAME]</code> that would be specified in the <code>dependencies</code> block of your project's <code>build.gradle</code>. For example, if the <code>dependencies</code> block of your <code>build.gradle</code> includes <nobr><code>compile 'com.google.android.gms:play-services-ads:15.0.1'</code></nobr>, you would need to include the following in the <code>&lt;application&gt;</code> block of <code>AndroidManifest.xml</code>:</p>
+<p>Here, <code>[PascalCase_NAME_OF_COMPONENT]</code> corresponds to the <code>[COMPONENT_NAME]</code> that would be specified in the <code>dependencies</code> block of your project’s <code>build.gradle</code>. For example, if the <code>dependencies</code> block of your <code>build.gradle</code> includes <nobr><code>compile 'com.google.android.gms:play-services-ads:15.0.1'</code></nobr>, you would need to include the following in the <code>&lt;application&gt;</code> block of <code>AndroidManifest.xml</code>:</p>
 <pre class="brush: xml;">&lt;meta-data android:name="usesGooglePlayServicesComponentAds" android:value="true" /></pre>
 <p><a id="including"></a></p>
-</div>
-</div>
-<div id="including-dependency-plugins" class="section level2">
+</section>
+</section>
+<section id="including-dependency-plugins" class="level2">
 <h2>Including Dependency Plugins</h2>
-<p>To include a dependency plugin when <a href="../../native/plugin/submission.html">submitting your plugin</a>, add an entry to the <nobr><code>coronaManifest</code> → <code>dependencies</code></nobr> table of your plugin's <code>android/metadata.lua</code>:</p>
+<p>To include a dependency plugin when <a href="../../native/plugin/submission.html">submitting your plugin</a>, add an entry to the <nobr><code>coronaManifest</code> → <code>dependencies</code></nobr> table of your plugin’s <code>android/metadata.lua</code>:</p>
 <pre class="brush: lua;">local metadata =
 {
     plugin =
@@ -226,7 +226,7 @@ return metadata</pre>
 Notes
 </div>
 <ul>
-<li><p>The publisher ID for all of the dependency plugins is <code>&quot;com.coronalabs&quot;</code>, so entries in the <code>dependencies</code> table should always be of the format <nobr><code>[&quot;DEPENDENCY_PLUGIN_NAME&quot;] = &quot;com.coronalabs&quot;,</code></nobr>.</p></li>
+<li><p>The publisher ID for all of the dependency plugins is <code>"com.coronalabs"</code>, so entries in the <code>dependencies</code> table should always be of the format <nobr><code>["DEPENDENCY_PLUGIN_NAME"] = "com.coronalabs",</code></nobr>.</p></li>
 <li><p>Including one dependency plugin in the <code>dependencies</code> table will also include any dependencies it has. See the <a href="#chaining">Dependency Plugin Chaining</a> section for more information.</p></li>
 </ul>
 </div>
@@ -237,34 +237,31 @@ Notes
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Need a common library that's not currently supported? When <a href="../../native/plugin/submission.html">submitting your plugin</a>, please let us know about any common libraries you're using that may need to be encapsulated as dependency plugins, for example other components of <a href="https://developers.google.com/android/guides/overview">Google Play Services</a>.</p>
+<p>Need a common library that’s not currently supported? When <a href="../../native/plugin/submission.html">submitting your plugin</a>, please let us know about any common libraries you’re using that may need to be encapsulated as dependency plugins, for example other components of <a href="https://developers.google.com/android/guides/overview">Google Play Services</a>.</p>
 </div>
 </div>
 <p><a id="testing"></a></p>
-</div>
-<div id="testing-against-dependencies" class="section level2">
+</section>
+<section id="testing-against-dependencies" class="level2">
 <h2>Testing Against Dependencies</h2>
-<p>Most dependency plugins simply wrap the distribution of a library accessible from the <a href="https://developer.android.com/studio/intro/update.html#sdk-manager">Android SDK Manager</a>. In these cases, simply including the correct version of the library in the <code>dependencies</code> block of the plugin's <nobr><code>build.gradle (Module: plugin)</code></nobr> file is sufficient for testing. For example, a plugin that depends on the <a href="https://developer.android.com/topic/libraries/support-library/features.html#v7-cardview">CardView</a> library can be accurately tested by adding <nobr><code>compile 'com.android.support:cardview-v7:27.1.1'</code></nobr> to the <code>dependencies</code> block of the <nobr><code>build.gradle (Module: plugin)</code></nobr> file.</p>
+<p>Most dependency plugins simply wrap the distribution of a library accessible from the <a href="https://developer.android.com/studio/intro/update.html#sdk-manager">Android SDK Manager</a>. In these cases, simply including the correct version of the library in the <code>dependencies</code> block of the plugin’s <nobr><code>build.gradle (Module: plugin)</code></nobr> file is sufficient for testing. For example, a plugin that depends on the <a href="https://developer.android.com/topic/libraries/support-library/features.html#v7-cardview">CardView</a> library can be accurately tested by adding <nobr><code>compile 'com.android.support:cardview-v7:27.1.1'</code></nobr> to the <code>dependencies</code> block of the <nobr><code>build.gradle (Module: plugin)</code></nobr> file.</p>
 <p>Other dependency plugins may require additional resources to test against. Any dependency plugin that falls in this category will have an entry in the tarball of plugins provided in the release files of Solar2D Native. For a dependency plugin with this requirement, be sure to:</p>
 <ul>
 <li><p>Include the <code>.jar</code> file with the name of the dependency plugin. For example, the <code>shared.google.play.services.base</code> dependency plugin contains a <code>shared.google.play.services.base.jar</code> file which should be included in your project.</p></li>
-<li><p>Merge the contents of the <code>manifest</code> table of <code>metadata.lua</code> into your project's <code>AndroidManifest.xml</code>. The parts that need to be merged in should have a comment identifying them as part of the dependency plugin's package name, for instance <nobr><code>-- For share-google-play-services-base package</code></nobr>. However, any XML block designated for a different package like <nobr><code>-- From play-services-basement package</code></nobr> does not need to be added manually — these parts will be included in the compiled app when you add <nobr><code>compile 'com.google.android.gms:play-services-base:15.0.1'</code></nobr> to the <code>dependencies</code> block of your <nobr><code>build.gradle (Module: app)</code></nobr> file.</p></li>
-<li><p>Add any resources for the dependency plugin's package into your project. If the dependency plugin contains multiple packages inside the <code>resources</code> folder, look for the <code>package.txt</code> file containing the dependency plugin's package name and add the contents of the <code>res</code> folder to your project's <code>res</code> folder.</p></li>
+<li><p>Merge the contents of the <code>manifest</code> table of <code>metadata.lua</code> into your project’s <code>AndroidManifest.xml</code>. The parts that need to be merged in should have a comment identifying them as part of the dependency plugin’s package name, for instance <nobr><code>-- For share-google-play-services-base package</code></nobr>. However, any XML block designated for a different package like <nobr><code>-- From play-services-basement package</code></nobr> does not need to be added manually — these parts will be included in the compiled app when you add <nobr><code>compile 'com.google.android.gms:play-services-base:15.0.1'</code></nobr> to the <code>dependencies</code> block of your <nobr><code>build.gradle (Module: app)</code></nobr> file.</p></li>
+<li><p>Add any resources for the dependency plugin’s package into your project. If the dependency plugin contains multiple packages inside the <code>resources</code> folder, look for the <code>package.txt</code> file containing the dependency plugin’s package name and add the contents of the <code>res</code> folder to your project’s <code>res</code> folder.</p></li>
 </ul>
 <p><a id="chaining"></a></p>
-</div>
-<div id="dependency-plugin-chaining" class="section level2">
+</section>
+<section id="dependency-plugin-chaining" class="level2">
 <h2>Dependency Plugin Chaining</h2>
 <p>Just as your plugin may rely upon a dependency plugin, a dependency plugin itself may depend upon other dependency plugins. The following flow chart illustrates the chaining between dependency plugins:</p>
 <div style="max-width: 800px">
-<div class="figure">
-<img src="../../images/simulator/dependencies.png" />
-
-</div>
+<p><img src="../../images/simulator/dependencies.png" /></p>
 </div>
 <p><a id="permissions"></a></p>
-</div>
-<div id="dependency-plugins-and-permissions" class="section level2">
+</section>
+<section id="dependency-plugins-and-permissions" class="level2">
 <h2>Dependency Plugins and Permissions</h2>
 <p>When using a dependency plugin, some permissions may be automatically added to your app. The following table illustrates which permissions are added for which dependency plugins.</p>
 <style>.inner-table table td { padding-top: 4px; padding-bottom: 2px; }</style>
@@ -272,22 +269,22 @@ Notes
 <table>
 <thead>
 <tr class="header">
-<th align="left">Dependency Plugin</th>
-<th align="left">Permissions</th>
+<th style="text-align: left;">Dependency Plugin</th>
+<th style="text-align: left;">Permissions</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>google.play.services.ads</code></td>
-<td align="left"><code>&quot;android.permission.ACCESS_NETWORK_STATE&quot;</code><br /><code>&quot;android.permission.INTERNET&quot;</code></td>
+<td style="text-align: left;"><code>google.play.services.ads</code></td>
+<td style="text-align: left;"><code>"android.permission.ACCESS_NETWORK_STATE"</code><br /><code>"android.permission.INTERNET"</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>google.play.services.analytics</code></td>
-<td align="left"><code>&quot;android.permission.ACCESS_NETWORK_STATE&quot;</code><br /><code>&quot;android.permission.INTERNET&quot;</code><br /><code>&quot;android.permission.WAKE_LOCK&quot;</code></td>
+<td style="text-align: left;"><code>google.play.services.analytics</code></td>
+<td style="text-align: left;"><code>"android.permission.ACCESS_NETWORK_STATE"</code><br /><code>"android.permission.INTERNET"</code><br /><code>"android.permission.WAKE_LOCK"</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>google.play.services.gcm</code></td>
-<td align="left"><code>&quot;com.google.android.c2dm.permission.RECEIVE&quot;</code><br /><code>&quot;android.permission.INTERNET&quot;</code></td>
+<td style="text-align: left;"><code>google.play.services.gcm</code></td>
+<td style="text-align: left;"><code>"com.google.android.c2dm.permission.RECEIVE"</code><br /><code>"android.permission.INTERNET"</code></td>
 </tr>
 </tbody>
 </table>
@@ -302,8 +299,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Google Play Games Services | multiplayer</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,18 +58,18 @@
 <li><a href="#gpgs.multiplayer">gpgs.multiplayer</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#nodes">Nodes</a><ul>
-<li><a href="#gpgs.multiplayer.invitationsplugin.gpgs.multiplayer.invitations"><a href="../../../plugin/gpgs/multiplayer/invitations/index.html">gpgs.multiplayer.invitations</a></a></li>
-<li><a href="#gpgs.multiplayer.realtimeplugin.gpgs.multiplayer.realtime"><a href="../../../plugin/gpgs/multiplayer/realtime/index.html">gpgs.multiplayer.realtime</a></a></li>
-<li><a href="#gpgs.multiplayer.turnbasedplugin.gpgs.multiplayer.turnbased"><a href="../../../plugin/gpgs/multiplayer/turnbased/index.html">gpgs.multiplayer.turnbased</a></a></li>
+<li><a href="#gpgs.multiplayer.invitationsplugin.gpgs.multiplayer.invitations"><span>gpgs.multiplayer.invitations</span></a></li>
+<li><a href="#gpgs.multiplayer.realtimeplugin.gpgs.multiplayer.realtime"><span>gpgs.multiplayer.realtime</span></a></li>
+<li><a href="#gpgs.multiplayer.turnbasedplugin.gpgs.multiplayer.turnbased"><span>gpgs.multiplayer.turnbased</span></a></li>
 </ul></li>
 <li><a href="#functions">Functions</a><ul>
-<li><a href="#gpgs.multiplayer.getlimitsplugin.gpgs.multiplayer.getlimits"><a href="../../../plugin/gpgs/multiplayer/getLimits.html">gpgs.multiplayer.getLimits()</a></a></li>
+<li><a href="#gpgs.multiplayer.getlimitsplugin.gpgs.multiplayer.getlimits"><span>gpgs.multiplayer.getLimits()</span></a></li>
 </ul></li>
 <li><a href="#types">Types</a><ul>
-<li><a href="#invitationplugin.gpgs.multiplayer.type.invitation"><a href="../../../plugin/gpgs/multiplayer/type/Invitation/index.html">Invitation</a></a></li>
-<li><a href="#matchplugin.gpgs.multiplayer.type.match"><a href="../../../plugin/gpgs/multiplayer/type/Match/index.html">Match</a></a></li>
-<li><a href="#participantplugin.gpgs.multiplayer.type.participant"><a href="../../../plugin/gpgs/multiplayer/type/Participant/index.html">Participant</a></a></li>
-<li><a href="#roomplugin.gpgs.multiplayer.type.room"><a href="../../../plugin/gpgs/multiplayer/type/Room/index.html">Room</a></a></li>
+<li><a href="#invitationplugin.gpgs.multiplayer.type.invitation"><span>Invitation</span></a></li>
+<li><a href="#matchplugin.gpgs.multiplayer.type.match"><span>Match</span></a></li>
+<li><a href="#participantplugin.gpgs.multiplayer.type.participant"><span>Participant</span></a></li>
+<li><a href="#roomplugin.gpgs.multiplayer.type.room"><span>Room</span></a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -77,64 +77,64 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../plugin/index.html">Plugins</a>  ▸  <a href="../../../plugin/gpgs/index.html">Google Play Games Services</a>  ▸  <a href="../../../plugin/gpgs/multiplayer/index.html">multiplayer</a>
 </div>
-<div id="gpgs.multiplayer" class="section level1">
+<section id="gpgs.multiplayer" class="level1">
 <h1>gpgs.multiplayer</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Table.html">Table</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Table.html">Table</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">Google Play Games Services, game network, gpgs, multiplayer</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">Google Play Games Services, game network, gpgs, multiplayer</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../plugin/gpgs/index.html">gpgs.*</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../plugin/gpgs/index.html">gpgs.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>These extension nodes, functions, and types pertain to the multiplayer node.</p>
-</div>
-<div id="nodes" class="section level2">
+</section>
+<section id="nodes" class="level2">
 <h2>Nodes</h2>
-<div id="gpgs.multiplayer.invitationsplugin.gpgs.multiplayer.invitations" class="section level4">
+<section id="gpgs.multiplayer.invitationsplugin.gpgs.multiplayer.invitations" class="level4">
 <h4><a href="../../../plugin/gpgs/multiplayer/invitations/index.html">gpgs.multiplayer.invitations</a></h4>
-</div>
-<div id="gpgs.multiplayer.realtimeplugin.gpgs.multiplayer.realtime" class="section level4">
+</section>
+<section id="gpgs.multiplayer.realtimeplugin.gpgs.multiplayer.realtime" class="level4">
 <h4><a href="../../../plugin/gpgs/multiplayer/realtime/index.html">gpgs.multiplayer.realtime</a></h4>
-</div>
-<div id="gpgs.multiplayer.turnbasedplugin.gpgs.multiplayer.turnbased" class="section level4">
+</section>
+<section id="gpgs.multiplayer.turnbasedplugin.gpgs.multiplayer.turnbased" class="level4">
 <h4><a href="../../../plugin/gpgs/multiplayer/turnbased/index.html">gpgs.multiplayer.turnbased</a></h4>
-</div>
-</div>
-<div id="functions" class="section level2">
+</section>
+</section>
+<section id="functions" class="level2">
 <h2>Functions</h2>
-<div id="gpgs.multiplayer.getlimitsplugin.gpgs.multiplayer.getlimits" class="section level4">
+<section id="gpgs.multiplayer.getlimitsplugin.gpgs.multiplayer.getlimits" class="level4">
 <h4><a href="../../../plugin/gpgs/multiplayer/getLimits.html">gpgs.multiplayer.getLimits()</a></h4>
-</div>
-</div>
-<div id="types" class="section level2">
+</section>
+</section>
+<section id="types" class="level2">
 <h2>Types</h2>
-<div id="invitationplugin.gpgs.multiplayer.type.invitation" class="section level4">
+<section id="invitationplugin.gpgs.multiplayer.type.invitation" class="level4">
 <h4><a href="../../../plugin/gpgs/multiplayer/type/Invitation/index.html">Invitation</a></h4>
-</div>
-<div id="matchplugin.gpgs.multiplayer.type.match" class="section level4">
+</section>
+<section id="matchplugin.gpgs.multiplayer.type.match" class="level4">
 <h4><a href="../../../plugin/gpgs/multiplayer/type/Match/index.html">Match</a></h4>
-</div>
-<div id="participantplugin.gpgs.multiplayer.type.participant" class="section level4">
+</section>
+<section id="participantplugin.gpgs.multiplayer.type.participant" class="level4">
 <h4><a href="../../../plugin/gpgs/multiplayer/type/Participant/index.html">Participant</a></h4>
-</div>
-<div id="roomplugin.gpgs.multiplayer.type.room" class="section level4">
+</section>
+<section id="roomplugin.gpgs.multiplayer.type.room" class="level4">
 <h4><a href="../../../plugin/gpgs/multiplayer/type/Room/index.html">Room</a></h4>
 <hr>
 <div id="footer">
@@ -146,9 +146,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

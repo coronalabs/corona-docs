@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Animation | to</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -95,58 +95,58 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/animation/index.html">Animation</a>  ▸  <a href="../../plugin/animation/to.html">to</a>
 </div>
-<div id="animation.to" class="section level1">
+<section id="animation.to" class="level1">
 <h1>animation.to()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left"><a href="../../plugin/animation/type/Tween/index.html">Tween</a></td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;"><a href="../../plugin/animation/type/Tween/index.html">Tween</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">animation, tween, timeline, interpolation, to</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">animation, tween, timeline, interpolation, to</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../guide/media/animationLibrary/index.html">Animation — Tweens and Timelines</a> <em>(guide)</em></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../guide/media/animationLibrary/index.html">Animation — Tweens and Timelines</a> <em>(guide)</em></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/animation/from.html">animation.from()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/animation/from.html">animation.from()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/animation/type/Tween/index.html">Tween</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/animation/type/Tween/index.html">Tween</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/animation/type/Timeline/index.html">Timeline</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/animation/type/Timeline/index.html">Timeline</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>This function animates (interpolates) properties of an object using an optional <a href="../../api/library/easing/index.html">easing</a> algorithm. It returns a <a href="../../plugin/animation/type/Tween/index.html">Tween</a> reference corresponding to the interpolation of the object <code>target</code>.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">animation.to( target, properties, params )</pre>
-<div id="target-required" class="section level5">
+<section id="target-required" class="level5">
 <h5>target <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/DisplayObject/index.html">DisplayObject</a> or <a href="../../api/type/Userdata.html">Userdata</a>.</em> The display object, <a href="../../api/type/RectPath/index.html">RectPath</a> point, <a href="../../api/type/Paint/index.html">Paint</a> fill, or <a href="../../api/type/Paint/effect.html">fill.effect</a> to tween.</p>
-</div>
-<div id="properties-required" class="section level5">
+</section>
+<section id="properties-required" class="level5">
 <h5>properties <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> A table that specifies the properties of the object that will be interpolated. These include the following options:</p>
 <ul>
@@ -154,95 +154,95 @@
 <li>Font size of a <a href="../../api/type/TextObject/index.html">TextObject</a> created via <a href="../../api/library/display/newText.html">display.newText()</a>.</li>
 <li>Properties related to quadrilateral distortion of a <a href="../../api/type/RectPath/index.html">RectPath</a>, applicable only to a <a href="../../api/type/ShapeObject/index.html">ShapeObject</a>. These include <code>x1</code>, <code>y1</code>, <code>x2</code>, <code>y2</code>, <code>x3</code>, <code>y3</code>, <code>x4</code>, and <code>y4</code>. See <a href="../../guide/graphics/3D.html#quadrilateral-distortion">here</a> for more information.</li>
 <li>RGB+A color channels <nobr>(<code>r</code>, <code>g</code>, <code>b</code>, and <code>a</code>)</nobr>, applicable only if the target is the <code>.fill</code> table of a <a href="../../api/type/ShapeObject/index.html">ShapeObject</a>.</li>
-<li>A <a href="../../guide/graphics/effects.html#filter">filter effect</a> property associated with a specific filter effect, applicable only to the object's <a href="../../api/type/Paint/effect.html">fill.effect</a> property. See <a href="../../guide/graphics/effects.html#filter">here</a> for details on which filter parameters apply to each filter effect.</li>
+<li>A <a href="../../guide/graphics/effects.html#filter">filter effect</a> property associated with a specific filter effect, applicable only to the object’s <a href="../../api/type/Paint/effect.html">fill.effect</a> property. See <a href="../../guide/graphics/effects.html#filter">here</a> for details on which filter parameters apply to each filter effect.</li>
 </ul>
-</div>
-<div id="params-required" class="section level5">
+</section>
+<section id="params-required" class="level5">
 <h5>params <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> A table which specifies control parameters for the tween — see the next section for details.</p>
 <p><a id="params"></a></p>
-</div>
-</div>
-<div id="parameter-reference" class="section level2">
+</section>
+</section>
+<section id="parameter-reference" class="level2">
 <h2>Parameter Reference</h2>
 <p>The <code>params</code> table includes parameters which control aspects of the tween.</p>
-<div id="time-optional" class="section level5">
+<section id="time-optional" class="level5">
 <h5>time <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Number.html">Number</a>.</em> Specifies the duration of the tween in milliseconds. Default is <code>500</code>.</p>
-</div>
-<div id="speedscale-optional" class="section level5">
+</section>
+<section id="speedscale-optional" class="level5">
 <h5>speedScale <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Number.html">Number</a>.</em> Adjusts the relative speed scale for the tween. This must be a positive number greater than <code>0</code>. By default, the speed scale is <code>1</code> (normal speed). Values greater than <code>1</code> will increase the speed while values lower than <code>1</code> will decrease it.</p>
-</div>
-<div id="easing-optional" class="section level5">
+</section>
+<section id="easing-optional" class="level5">
 <h5>easing <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Function.html">Function</a>.</em> Specifies the <a href="../../api/library/easing/index.html">easing</a> algorithm. Default is <code>easing.linear</code>.</p>
-</div>
-<div id="delay-optional" class="section level5">
+</section>
+<section id="delay-optional" class="level5">
 <h5>delay <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Number.html">Number</a>.</em> Specifies the delay, in milliseconds, before the tween begins. Default is <code>0</code>.</p>
-</div>
-<div id="iterations-optional" class="section level5">
+</section>
+<section id="iterations-optional" class="level5">
 <h5>iterations <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Number.html">Number</a>.</em> Specifies the number of times the tween will repeat. By default, the iteration value is <code>1</code> (no repeat). To make a tween repeat indefinitely, specify <code>0</code> or <code>-1</code> for this parameter.</p>
-</div>
-<div id="reflect-optional" class="section level5">
+</section>
+<section id="reflect-optional" class="level5">
 <h5>reflect <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> Specifies whether alternate iterations of the tween are reflected (played back in reverse). Default is <code>false</code>.</p>
-</div>
-<div id="tag-optional" class="section level5">
+</section>
+<section id="tag-optional" class="level5">
 <h5>tag <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> Specifies the tween tag. The animation library can pause, resume, cancel, set the position, or set the speed scale of tweens sharing the same tag.</p>
-</div>
-<div id="id-optional" class="section level5">
+</section>
+<section id="id-optional" class="level5">
 <h5>id <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> An optional identification string to assign to the tween. This can be retrieved as <code>obj.id</code> from any of the tween event listener functions (see below).</p>
-</div>
-<div id="delta-optional" class="section level5">
+</section>
+<section id="delta-optional" class="level5">
 <h5>delta <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> Specifies whether non-control parameters are interpreted as final ending values or as changes in value. The default is <code>false</code>.</p>
 <p><a id="constantrate"></a></p>
-</div>
-<div id="constantrate-optional" class="section level5">
+</section>
+<section id="constantrate-optional" class="level5">
 <h5>constantRate <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../api/type/Number.html">Number</a>.</em> Specifies the amount of <nobr>per-second</nobr> change to an object's position, rotation, alpha, or scale. If you specify this parameter, you must also include the <code>constantRateProperty</code> parameter to indicate which object state governs the interpolation. Together, these two parameters can be used to interpolate multiple objects at a constant rate, even if they don't share the same initial/final position, rotation, alpha, or scale. Note that if you supply this parameter, the <code>time</code> parameter is ignored, since <nobr>constant-rate</nobr> interpolations do not adhere to a specific time duration. Also note that <nobr>constant-rate</nobr> interpolations that use a <nobr>non-linear</nobr> easing function will produce unpredictable results.</p>
-</div>
-<div id="constantrateproperty-optional" class="section level5">
+<p><em><a href="../../api/type/Number.html">Number</a>.</em> Specifies the amount of <nobr>per-second</nobr> change to an object’s position, rotation, alpha, or scale. If you specify this parameter, you must also include the <code>constantRateProperty</code> parameter to indicate which object state governs the interpolation. Together, these two parameters can be used to interpolate multiple objects at a constant rate, even if they don’t share the same initial/final position, rotation, alpha, or scale. Note that if you supply this parameter, the <code>time</code> parameter is ignored, since <nobr>constant-rate</nobr> interpolations do not adhere to a specific time duration. Also note that <nobr>constant-rate</nobr> interpolations that use a <nobr>non-linear</nobr> easing function will produce unpredictable results.</p>
+</section>
+<section id="constantrateproperty-optional" class="level5">
 <h5>constantRateProperty <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> Indicates which object state governs a <nobr>constant-rate</nobr> interpolation. Valid options include <code>&quot;position&quot;</code>, <code>&quot;rotation&quot;</code>, <code>&quot;alpha&quot;</code>, or <code>&quot;scale&quot;</code>. This parameter <strong>must</strong> be specified if you supply the <code>constantRate</code> parameter.</p>
-</div>
-<div id="onstart-optional" class="section level5">
+<p><em><a href="../../api/type/String.html">String</a>.</em> Indicates which object state governs a <nobr>constant-rate</nobr> interpolation. Valid options include <code>"position"</code>, <code>"rotation"</code>, <code>"alpha"</code>, or <code>"scale"</code>. This parameter <strong>must</strong> be specified if you supply the <code>constantRate</code> parameter.</p>
+</section>
+<section id="onstart-optional" class="level5">
 <h5>onStart <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Listener.html">Listener</a>.</em> Listener function to be called before the tween begins. This function will receive a reference to the associated <a href="../../plugin/animation/type/Tween/index.html">Tween</a> as its sole argument.</p>
-</div>
-<div id="oncomplete-optional" class="section level5">
+</section>
+<section id="oncomplete-optional" class="level5">
 <h5>onComplete <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Listener.html">Listener</a>.</em> Listener function to be called after the tween completes. This function will receive a reference to the associated <a href="../../plugin/animation/type/Tween/index.html">Tween</a> as its sole argument.</p>
-</div>
-<div id="onpause-optional" class="section level5">
+</section>
+<section id="onpause-optional" class="level5">
 <h5>onPause <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Listener.html">Listener</a>.</em> Listener function to be called when the tween is paused. This function will receive a reference to the associated <a href="../../plugin/animation/type/Tween/index.html">Tween</a> as its sole argument.</p>
-</div>
-<div id="onresume-optional" class="section level5">
+</section>
+<section id="onresume-optional" class="level5">
 <h5>onResume <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Listener.html">Listener</a>.</em> Listener function to be called when the tween is resumed. This function will receive a reference to the associated <a href="../../plugin/animation/type/Tween/index.html">Tween</a> as its sole argument.</p>
-</div>
-<div id="oncancel-optional" class="section level5">
+</section>
+<section id="oncancel-optional" class="level5">
 <h5>onCancel <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Listener.html">Listener</a>.</em> Listener function to be called when the tween is cancelled. This function will receive a reference to the associated <a href="../../plugin/animation/type/Tween/index.html">Tween</a> as its sole argument.</p>
-</div>
-<div id="onrepeat-optional" class="section level5">
+</section>
+<section id="onrepeat-optional" class="level5">
 <h5>onRepeat <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Listener.html">Listener</a>.</em> Listener function to be called when the tween completes an iteration in a repeat cycle. This function will receive a reference to the associated <a href="../../plugin/animation/type/Tween/index.html">Tween</a> as its sole argument.</p>
-</div>
-<div id="onpositionchange-optional" class="section level5">
+</section>
+<section id="onpositionchange-optional" class="level5">
 <h5>onPositionChange <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Listener.html">Listener</a>.</em> Listener function to be called when the tween has its playback position changed manually via <a href="../../plugin/animation/setPosition.html">animation.setPosition()</a> or <a href="../../plugin/animation/type/Tween/setPosition.html">object:setPosition()</a>.</p>
-</div>
-</div>
-<div id="examples" class="section level2">
+</section>
+</section>
+<section id="examples" class="level2">
 <h2>Examples</h2>
-<div id="basic-movement" class="section level5">
+<section id="basic-movement" class="level5">
 <h5>Basic Movement</h5>
 <pre class="brush: lua;">local square = display.newRect( 0, 0, 100, 100 )
 
@@ -254,8 +254,8 @@ end
 
 -- Move square to bottom right corner
 animation.to( square, { x=(w-50), y=(h-50) }, { time=1500, id="tween1", onComplete=tweenListener } )</pre>
-</div>
-<div id="constant-rate-movement" class="section level5">
+</section>
+<section id="constant-rate-movement" class="level5">
 <h5>Constant Rate Movement</h5>
 <pre class="brush: lua;">local square1 = display.newRect( 50, 50, 100, 100 )
 square1:setFillColor( 1, 0, 0 )
@@ -272,16 +272,16 @@ local cr = 50  -- Set a constant rate for movement (pixels per second)
 animation.to( square1, { x=(w-50) }, { constantRate=cr, constantRateProperty="position" } )
 animation.to( square2, { x=(w-150) }, { constantRate=cr, constantRateProperty="position" } )
 animation.to( square3, { x=(w-100) }, { constantRate=cr, constantRateProperty="position" } )</pre>
-</div>
-<div id="quadrilateral-distortion-tween" class="section level5">
+</section>
+<section id="quadrilateral-distortion-tween" class="level5">
 <h5>Quadrilateral Distortion Tween</h5>
 <pre class="brush: lua;">local square = display.newRect( 0, 0, 100, 100 )
 
 -- Tween the path corner points of the square
 -- Notice that the target being tweened is "square.path", not "square"
 animation.to( square.path, { x1=10, y1=10, x2=20, y2=-20, x3=-10, y3=-10, x4=-40, y4=40 }, { time=1500 } )</pre>
-</div>
-<div id="fill-effect-property-tween" class="section level5">
+</section>
+<section id="fill-effect-property-tween" class="level5">
 <h5>Fill Effect Property Tween</h5>
 <pre class="brush: lua;">local logo = display.newImageRect( "logo.png", 100, 100 )
 
@@ -291,8 +291,8 @@ logo.fill.effect = "filter.hue"
 -- Tween the hue filter effect's "angle" property
 -- Notice that the target being tweened is "logo.fill.effect", not "logo"
 animation.to( logo.fill.effect, { angle=100 }, { time=1500 } )</pre>
-</div>
-<div id="color-channel-tween" class="section level5">
+</section>
+<section id="color-channel-tween" class="level5">
 <h5>Color Channel Tween</h5>
 <pre class="brush: lua;">local square = display.newRect( 0, 0, 100, 100 )
 
@@ -309,9 +309,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -56,152 +56,152 @@
 <div id="TOC">
 <ul>
 <li><a href="#api-reference">API Reference</a><ul>
-<li><a href="#librariesapi.library"><a href="../api/library/index.html">Libraries</a></a><ul>
-<li><a href="#ads.api.library.ads"><a href="../api/library/ads/index.html">ads.*</a></a></li>
-<li><a href="#audio.api.library.audio"><a href="../api/library/audio/index.html">audio.*</a></a></li>
-<li><a href="#composer.api.library.composer"><a href="../api/library/composer/index.html">composer.*</a></a></li>
-<li><a href="#crypto.api.library.crypto"><a href="../api/library/crypto/index.html">crypto.*</a></a></li>
-<li><a href="#display.api.library.display"><a href="../api/library/display/index.html">display.*</a></a></li>
-<li><a href="#easing.api.library.easing"><a href="../api/library/easing/index.html">easing.*</a></a></li>
-<li><a href="#facebook.api.library.facebook"><a href="../api/library/facebook/index.html">facebook.*</a></a></li>
-<li><a href="#gamenetwork.api.library.gamenetwork"><a href="../api/library/gameNetwork/index.html">gameNetwork.*</a></a></li>
-<li><a href="#globalsapi.library.global"><a href="../api/library/global/index.html">(globals)</a></a></li>
-<li><a href="#graphics.api.library.graphics"><a href="../api/library/graphics/index.html">graphics.*</a></a></li>
-<li><a href="#io.api.library.io"><a href="../api/library/io/index.html">io.*</a></a></li>
-<li><a href="#json.api.library.json"><a href="../api/library/json/index.html">json.*</a></a></li>
-<li><a href="#lfs.-file-system-api.library.lfs"><a href="../api/library/lfs/index.html">lfs.* (file system)</a></a></li>
-<li><a href="#licensing.api.library.licensing"><a href="../api/library/licensing/index.html">licensing.*</a></a></li>
-<li><a href="#math.api.library.math"><a href="../api/library/math/index.html">math.*</a></a></li>
-<li><a href="#media.api.library.media"><a href="../api/library/media/index.html">media.*</a></a></li>
-<li><a href="#native.api.library.native"><a href="../api/library/native/index.html">native.*</a></a></li>
-<li><a href="#network.api.library.network"><a href="../api/library/network/index.html">network.*</a></a></li>
-<li><a href="#os.api.library.os"><a href="../api/library/os/index.html">os.*</a></a></li>
-<li><a href="#package.api.library.package"><a href="../api/library/package/index.html">package.*</a></a></li>
-<li><a href="#physics.api.library.physics"><a href="../api/library/physics/index.html">physics.*</a></a></li>
-<li><a href="#socket.api.library.socket"><a href="../api/library/socket/index.html">socket.*</a></a></li>
-<li><a href="#sqlite3.-databaseapi.library.sqlite3"><a href="../api/library/sqlite3/index.html">sqlite3.* (database)</a></a></li>
-<li><a href="#store.-apple-iapapi.library.store"><a href="../api/library/store/index.html">store.* (Apple IAP)</a></a></li>
-<li><a href="#string.api.library.string"><a href="../api/library/string/index.html">string.*</a></a></li>
-<li><a href="#system.api.library.system"><a href="../api/library/system/index.html">system.*</a></a></li>
-<li><a href="#table.-arrayapi.library.table"><a href="../api/library/table/index.html">table.* (array)</a></a></li>
-<li><a href="#timer.api.library.timer"><a href="../api/library/timer/index.html">timer.*</a></a></li>
-<li><a href="#transition.api.library.transition"><a href="../api/library/transition/index.html">transition.*</a></a></li>
-<li><a href="#widget.api.library.widget"><a href="../api/library/widget/index.html">widget.*</a></a></li>
+<li><a href="#librariesapi.library"><span>Libraries</span></a><ul>
+<li><a href="#ads.api.library.ads"><span>ads.*</span></a></li>
+<li><a href="#audio.api.library.audio"><span>audio.*</span></a></li>
+<li><a href="#composer.api.library.composer"><span>composer.*</span></a></li>
+<li><a href="#crypto.api.library.crypto"><span>crypto.*</span></a></li>
+<li><a href="#display.api.library.display"><span>display.*</span></a></li>
+<li><a href="#easing.api.library.easing"><span>easing.*</span></a></li>
+<li><a href="#facebook.api.library.facebook"><span>facebook.*</span></a></li>
+<li><a href="#gamenetwork.api.library.gamenetwork"><span>gameNetwork.*</span></a></li>
+<li><a href="#globalsapi.library.global"><span>(globals)</span></a></li>
+<li><a href="#graphics.api.library.graphics"><span>graphics.*</span></a></li>
+<li><a href="#io.api.library.io"><span>io.*</span></a></li>
+<li><a href="#json.api.library.json"><span>json.*</span></a></li>
+<li><a href="#lfs.-file-system-api.library.lfs"><span>lfs.* (file system)</span></a></li>
+<li><a href="#licensing.api.library.licensing"><span>licensing.*</span></a></li>
+<li><a href="#math.api.library.math"><span>math.*</span></a></li>
+<li><a href="#media.api.library.media"><span>media.*</span></a></li>
+<li><a href="#native.api.library.native"><span>native.*</span></a></li>
+<li><a href="#network.api.library.network"><span>network.*</span></a></li>
+<li><a href="#os.api.library.os"><span>os.*</span></a></li>
+<li><a href="#package.api.library.package"><span>package.*</span></a></li>
+<li><a href="#physics.api.library.physics"><span>physics.*</span></a></li>
+<li><a href="#socket.api.library.socket"><span>socket.*</span></a></li>
+<li><a href="#sqlite3.-databaseapi.library.sqlite3"><span>sqlite3.* (database)</span></a></li>
+<li><a href="#store.-apple-iapapi.library.store"><span>store.* (Apple IAP)</span></a></li>
+<li><a href="#string.api.library.string"><span>string.*</span></a></li>
+<li><a href="#system.api.library.system"><span>system.*</span></a></li>
+<li><a href="#table.-arrayapi.library.table"><span>table.* (array)</span></a></li>
+<li><a href="#timer.api.library.timer"><span>timer.*</span></a></li>
+<li><a href="#transition.api.library.transition"><span>transition.*</span></a></li>
+<li><a href="#widget.api.library.widget"><span>widget.*</span></a></li>
 </ul></li>
-<li><a href="#eventsapi.event"><a href="../api/event/index.html">Events</a></a><ul>
-<li><a href="#accelerometerapi.event.accelerometer"><a href="../api/event/accelerometer/index.html">accelerometer</a></a></li>
-<li><a href="#audioapi.event.audio"><a href="../api/event/audio/index.html">audio</a></a></li>
-<li><a href="#axisapi.event.axis"><a href="../api/event/axis/index.html">axis</a></a></li>
-<li><a href="#collisionapi.event.collision"><a href="../api/event/collision/index.html">collision</a></a></li>
-<li><a href="#colorsampleapi.event.colorsample"><a href="../api/event/colorSample/index.html">colorSample</a></a></li>
-<li><a href="#completionapi.event.completion"><a href="../api/event/completion/index.html">completion</a></a></li>
-<li><a href="#enterframeapi.event.enterframe"><a href="../api/event/enterFrame/index.html">enterFrame</a></a></li>
-<li><a href="#finalizeapi.event.finalize"><a href="../api/event/finalize/index.html">finalize</a></a></li>
-<li><a href="#gamenetworkapi.event.gamenetwork"><a href="../api/event/gameNetwork/index.html">gameNetwork</a></a></li>
-<li><a href="#gyroscopeapi.event.gyroscope"><a href="../api/event/gyroscope/index.html">gyroscope</a></a></li>
-<li><a href="#heading-compassapi.event.heading"><a href="../api/event/heading/index.html">heading (compass)</a></a></li>
-<li><a href="#inputdevicestatusapi.event.inputdevicestatus"><a href="../api/event/inputDeviceStatus/index.html">inputDeviceStatus</a></a></li>
-<li><a href="#keyapi.event.key"><a href="../api/event/key/index.html">key</a></a></li>
-<li><a href="#lateupdateapi.event.lateupdate"><a href="../api/event/lateUpdate/index.html">lateUpdate</a></a></li>
-<li><a href="#licensingapi.event.licensing"><a href="../api/event/licensing/index.html">licensing</a></a></li>
-<li><a href="#location-gpsapi.event.location"><a href="../api/event/location/index.html">location (GPS)</a></a></li>
-<li><a href="#mapaddressapi.event.mapaddress"><a href="../api/event/mapAddress/index.html">mapAddress</a></a></li>
-<li><a href="#maplocationapi.event.maplocation"><a href="../api/event/mapLocation/index.html">mapLocation</a></a></li>
-<li><a href="#mapmarkerapi.event.mapmarker"><a href="../api/event/mapMarker/index.html">mapMarker</a></a></li>
-<li><a href="#memorywarningapi.event.memorywarning"><a href="../api/event/memoryWarning/index.html">memoryWarning</a></a></li>
-<li><a href="#mouseapi.event.mouse"><a href="../api/event/mouse/index.html">mouse</a></a></li>
-<li><a href="#networkrequestapi.event.networkrequest"><a href="../api/event/networkRequest/index.html">networkRequest</a></a></li>
-<li><a href="#networkstatusapi.event.networkstatus"><a href="../api/event/networkStatus/index.html">networkStatus</a></a></li>
-<li><a href="#notificationapi.event.notification"><a href="../api/event/notification/index.html">notification</a></a></li>
-<li><a href="#orientationapi.event.orientation"><a href="../api/event/orientation/index.html">orientation</a></a></li>
-<li><a href="#particlecollisionapi.event.particlecollision"><a href="../api/event/particleCollision/index.html">particleCollision</a></a></li>
-<li><a href="#popupapi.event.popup"><a href="../api/event/popup/index.html">popup</a></a></li>
-<li><a href="#postcollisionapi.event.postcollision"><a href="../api/event/postCollision/index.html">postCollision</a></a></li>
-<li><a href="#precollisionapi.event.precollision"><a href="../api/event/preCollision/index.html">preCollision</a></a></li>
-<li><a href="#relativetouchapi.event.relativetouch"><a href="../api/event/relativeTouch/index.html">relativeTouch</a></a></li>
-<li><a href="#resizeapi.event.resize"><a href="../api/event/resize/index.html">resize</a></a></li>
-<li><a href="#sceneapi.event.scene"><a href="../api/event/scene/index.html">scene</a></a></li>
-<li><a href="#spriteapi.event.sprite"><a href="../api/event/sprite/index.html">sprite</a></a></li>
-<li><a href="#systemapi.event.system"><a href="../api/event/system/index.html">system</a></a></li>
-<li><a href="#tapapi.event.tap"><a href="../api/event/tap/index.html">tap</a></a></li>
-<li><a href="#timerapi.event.timer"><a href="../api/event/timer/index.html">timer</a></a></li>
-<li><a href="#touchapi.event.touch"><a href="../api/event/touch/index.html">touch</a></a></li>
-<li><a href="#unhandlederrorapi.event.unhandlederror"><a href="../api/event/unhandledError/index.html">unhandledError</a></a></li>
-<li><a href="#urlrequestapi.event.urlrequest"><a href="../api/event/urlRequest/index.html">urlRequest</a></a></li>
-<li><a href="#userinputapi.event.userinput"><a href="../api/event/userInput/index.html">userInput</a></a></li>
-<li><a href="#videoapi.event.video"><a href="../api/event/video/index.html">video</a></a></li>
-<li><a href="#windowstateapi.event.windowstate"><a href="../api/event/windowState/index.html">windowState</a></a></li>
+<li><a href="#eventsapi.event"><span>Events</span></a><ul>
+<li><a href="#accelerometerapi.event.accelerometer"><span>accelerometer</span></a></li>
+<li><a href="#audioapi.event.audio"><span>audio</span></a></li>
+<li><a href="#axisapi.event.axis"><span>axis</span></a></li>
+<li><a href="#collisionapi.event.collision"><span>collision</span></a></li>
+<li><a href="#colorsampleapi.event.colorsample"><span>colorSample</span></a></li>
+<li><a href="#completionapi.event.completion"><span>completion</span></a></li>
+<li><a href="#enterframeapi.event.enterframe"><span>enterFrame</span></a></li>
+<li><a href="#finalizeapi.event.finalize"><span>finalize</span></a></li>
+<li><a href="#gamenetworkapi.event.gamenetwork"><span>gameNetwork</span></a></li>
+<li><a href="#gyroscopeapi.event.gyroscope"><span>gyroscope</span></a></li>
+<li><a href="#heading-compassapi.event.heading"><span>heading (compass)</span></a></li>
+<li><a href="#inputdevicestatusapi.event.inputdevicestatus"><span>inputDeviceStatus</span></a></li>
+<li><a href="#keyapi.event.key"><span>key</span></a></li>
+<li><a href="#lateupdateapi.event.lateupdate"><span>lateUpdate</span></a></li>
+<li><a href="#licensingapi.event.licensing"><span>licensing</span></a></li>
+<li><a href="#location-gpsapi.event.location"><span>location (GPS)</span></a></li>
+<li><a href="#mapaddressapi.event.mapaddress"><span>mapAddress</span></a></li>
+<li><a href="#maplocationapi.event.maplocation"><span>mapLocation</span></a></li>
+<li><a href="#mapmarkerapi.event.mapmarker"><span>mapMarker</span></a></li>
+<li><a href="#memorywarningapi.event.memorywarning"><span>memoryWarning</span></a></li>
+<li><a href="#mouseapi.event.mouse"><span>mouse</span></a></li>
+<li><a href="#networkrequestapi.event.networkrequest"><span>networkRequest</span></a></li>
+<li><a href="#networkstatusapi.event.networkstatus"><span>networkStatus</span></a></li>
+<li><a href="#notificationapi.event.notification"><span>notification</span></a></li>
+<li><a href="#orientationapi.event.orientation"><span>orientation</span></a></li>
+<li><a href="#particlecollisionapi.event.particlecollision"><span>particleCollision</span></a></li>
+<li><a href="#popupapi.event.popup"><span>popup</span></a></li>
+<li><a href="#postcollisionapi.event.postcollision"><span>postCollision</span></a></li>
+<li><a href="#precollisionapi.event.precollision"><span>preCollision</span></a></li>
+<li><a href="#relativetouchapi.event.relativetouch"><span>relativeTouch</span></a></li>
+<li><a href="#resizeapi.event.resize"><span>resize</span></a></li>
+<li><a href="#sceneapi.event.scene"><span>scene</span></a></li>
+<li><a href="#spriteapi.event.sprite"><span>sprite</span></a></li>
+<li><a href="#systemapi.event.system"><span>system</span></a></li>
+<li><a href="#tapapi.event.tap"><span>tap</span></a></li>
+<li><a href="#timerapi.event.timer"><span>timer</span></a></li>
+<li><a href="#touchapi.event.touch"><span>touch</span></a></li>
+<li><a href="#unhandlederrorapi.event.unhandlederror"><span>unhandledError</span></a></li>
+<li><a href="#urlrequestapi.event.urlrequest"><span>urlRequest</span></a></li>
+<li><a href="#userinputapi.event.userinput"><span>userInput</span></a></li>
+<li><a href="#videoapi.event.video"><span>video</span></a></li>
+<li><a href="#windowstateapi.event.windowstate"><span>windowState</span></a></li>
 </ul></li>
-<li><a href="#typesapi.type"><a href="../api/type/index.html">Types</a></a><ul>
-<li><a href="#arrayapi.type.array"><a href="../api/type/Array.html">Array</a></a></li>
-<li><a href="#bitmappaintapi.type.bitmappaint"><a href="../api/type/BitmapPaint/index.html">BitmapPaint</a></a></li>
-<li><a href="#bodyapi.type.body"><a href="../api/type/Body/index.html">Body</a></a></li>
-<li><a href="#booleanapi.type.boolean"><a href="../api/type/Boolean.html">Boolean</a></a></li>
-<li><a href="#buttonwidgetapi.type.buttonwidget"><a href="../api/type/ButtonWidget/index.html">ButtonWidget</a></a></li>
-<li><a href="#circlepathapi.type.circlepath"><a href="../api/type/CirclePath/index.html">CirclePath</a></a></li>
-<li><a href="#compositepaintapi.type.compositepaint"><a href="../api/type/CompositePaint/index.html">CompositePaint</a></a></li>
-<li><a href="#constantapi.type.constant"><a href="../api/type/Constant.html">Constant</a></a></li>
-<li><a href="#coronaclassapi.type.coronaclass"><a href="../api/type/CoronaClass.html">CoronaClass</a></a></li>
-<li><a href="#coronalibraryapi.type.coronalibrary"><a href="../api/type/CoronaLibrary/index.html">CoronaLibrary</a></a></li>
-<li><a href="#coronaprototypeapi.type.coronaprototype"><a href="../api/type/CoronaPrototype/index.html">CoronaPrototype</a></a></li>
-<li><a href="#coronaproviderapi.type.coronaprovider"><a href="../api/type/CoronaProvider/index.html">CoronaProvider</a></a></li>
-<li><a href="#displayobjectapi.type.displayobject"><a href="../api/type/DisplayObject/index.html">DisplayObject</a></a></li>
-<li><a href="#emitterobjectapi.type.emitterobject"><a href="../api/type/EmitterObject/index.html">EmitterObject</a></a></li>
-<li><a href="#eventapi.type.event"><a href="../api/type/Event.html">Event</a></a></li>
-<li><a href="#eventdispatcherapi.type.eventdispatcher"><a href="../api/type/EventDispatcher/index.html">EventDispatcher</a></a></li>
-<li><a href="#fileapi.type.file"><a href="../api/type/File/index.html">File</a></a></li>
-<li><a href="#functionapi.type.function"><a href="../api/type/Function.html">Function</a></a></li>
-<li><a href="#gamenetworkapi.type.gamenetwork"><a href="../api/type/GameNetwork/index.html">GameNetwork</a></a></li>
-<li><a href="#gradientpaintapi.type.gradientpaint"><a href="../api/type/GradientPaint/index.html">GradientPaint</a></a></li>
-<li><a href="#groupobjectapi.type.groupobject"><a href="../api/type/GroupObject/index.html">GroupObject</a></a></li>
-<li><a href="#imagesheetapi.type.imagesheet"><a href="../api/type/ImageSheet/index.html">ImageSheet</a></a></li>
-<li><a href="#imagesheetpaintapi.type.imagesheetpaint"><a href="../api/type/ImageSheetPaint/index.html">ImageSheetPaint</a></a></li>
-<li><a href="#inputaxisapi.type.inputaxis"><a href="../api/type/InputAxis/index.html">InputAxis</a></a></li>
-<li><a href="#inputdeviceapi.type.inputdevice"><a href="../api/type/InputDevice/index.html">InputDevice</a></a></li>
-<li><a href="#jointapi.type.joint"><a href="../api/type/Joint/index.html">Joint</a></a></li>
-<li><a href="#libraryapi.type.library"><a href="../api/type/Library.html">Library</a></a></li>
-<li><a href="#lineobjectapi.type.lineobject"><a href="../api/type/LineObject/index.html">LineObject</a></a></li>
-<li><a href="#listenerapi.type.listener"><a href="../api/type/Listener.html">Listener</a></a></li>
-<li><a href="#mapapi.type.map"><a href="../api/type/Map/index.html">Map</a></a></li>
-<li><a href="#maskapi.type.mask"><a href="../api/type/Mask/index.html">Mask</a></a></li>
-<li><a href="#nativedisplayobjectapi.type.nativedisplayobject"><a href="../api/type/NativeDisplayObject/index.html">NativeDisplayObject</a></a></li>
-<li><a href="#numberapi.type.number"><a href="../api/type/Number.html">Number</a></a></li>
-<li><a href="#objectapi.type.object"><a href="../api/type/Object.html">Object</a></a></li>
-<li><a href="#paintapi.type.paint"><a href="../api/type/Paint/index.html">Paint</a></a></li>
-<li><a href="#particlesystemapi.type.particlesystem"><a href="../api/type/ParticleSystem/index.html">ParticleSystem</a></a></li>
-<li><a href="#pathapi.type.path"><a href="../api/type/Path/index.html">Path</a></a></li>
-<li><a href="#physicscontactapi.type.physicscontact"><a href="../api/type/PhysicsContact/index.html">PhysicsContact</a></a></li>
-<li><a href="#pickerwheelwidgetapi.type.pickerwheelwidget"><a href="../api/type/PickerWheelWidget/index.html">PickerWheelWidget</a></a></li>
-<li><a href="#progressviewwidgetapi.type.progressviewwidget"><a href="../api/type/ProgressViewWidget/index.html">ProgressViewWidget</a></a></li>
-<li><a href="#recordingapi.type.recording"><a href="../api/type/Recording/index.html">Recording</a></a></li>
-<li><a href="#rectpathapi.type.rectpath"><a href="../api/type/RectPath/index.html">RectPath</a></a></li>
-<li><a href="#roundedrectpathapi.type.roundedrectpath"><a href="../api/type/RoundedRectPath/index.html">RoundedRectPath</a></a></li>
-<li><a href="#runtimeapi.type.runtime"><a href="../api/type/Runtime/index.html">Runtime</a></a></li>
-<li><a href="#sceneapi.type.scene"><a href="../api/type/Scene/index.html">Scene</a></a></li>
-<li><a href="#scrollviewwidgetapi.type.scrollviewwidget"><a href="../api/type/ScrollViewWidget/index.html">ScrollViewWidget</a></a></li>
-<li><a href="#segmentedcontrolwidgetapi.type.segmentedcontrolwidget"><a href="../api/type/SegmentedControlWidget/index.html">SegmentedControlWidget</a></a></li>
-<li><a href="#shapeobjectapi.type.shapeobject"><a href="../api/type/ShapeObject/index.html">ShapeObject</a></a></li>
-<li><a href="#sliderwidgetapi.type.sliderwidget"><a href="../api/type/SliderWidget/index.html">SliderWidget</a></a></li>
-<li><a href="#snapshotobjectapi.type.snapshotobject"><a href="../api/type/SnapshotObject/index.html">SnapshotObject</a></a></li>
-<li><a href="#spinnerwidgetapi.type.spinnerwidget"><a href="../api/type/SpinnerWidget/index.html">SpinnerWidget</a></a></li>
-<li><a href="#spriteobjectapi.type.spriteobject"><a href="../api/type/SpriteObject/index.html">SpriteObject</a></a></li>
-<li><a href="#stageobjectapi.type.stageobject"><a href="../api/type/StageObject/index.html">StageObject</a></a></li>
-<li><a href="#stepperwidgetapi.type.stepperwidget"><a href="../api/type/StepperWidget/index.html">StepperWidget</a></a></li>
-<li><a href="#stringapi.type.string"><a href="../api/type/String.html">String</a></a></li>
-<li><a href="#switchwidgetapi.type.switchwidget"><a href="../api/type/SwitchWidget/index.html">SwitchWidget</a></a></li>
-<li><a href="#tabbarwidgetapi.type.tabbarwidget"><a href="../api/type/TabBarWidget/index.html">TabBarWidget</a></a></li>
-<li><a href="#tableapi.type.table"><a href="../api/type/Table.html">Table</a></a></li>
-<li><a href="#tableviewwidgetapi.type.tableviewwidget"><a href="../api/type/TableViewWidget/index.html">TableViewWidget</a></a></li>
-<li><a href="#textboxapi.type.textbox"><a href="../api/type/TextBox/index.html">TextBox</a></a></li>
-<li><a href="#textfieldapi.type.textfield"><a href="../api/type/TextField/index.html">TextField</a></a></li>
-<li><a href="#textobjectapi.type.textobject"><a href="../api/type/TextObject/index.html">TextObject</a></a></li>
-<li><a href="#textureresourceapi.type.textureresource"><a href="../api/type/TextureResource/index.html">TextureResource</a></a></li>
-<li><a href="#textureresourcebitmapapi.type.textureresourcebitmap"><a href="../api/type/TextureResourceBitmap/index.html">TextureResourceBitmap</a></a></li>
-<li><a href="#textureresourcecanvasapi.type.textureresourcecanvas"><a href="../api/type/TextureResourceCanvas/index.html">TextureResourceCanvas</a></a></li>
-<li><a href="#textureresourceexternalapi.type.textureresourceexternal"><a href="../api/type/TextureResourceExternal/index.html">TextureResourceExternal</a></a></li>
-<li><a href="#userdataapi.type.userdata"><a href="../api/type/Userdata.html">Userdata</a></a></li>
-<li><a href="#videoapi.type.video"><a href="../api/type/Video/index.html">Video</a></a></li>
-<li><a href="#webviewapi.type.webview"><a href="../api/type/WebView/index.html">WebView</a></a></li>
+<li><a href="#typesapi.type"><span>Types</span></a><ul>
+<li><a href="#arrayapi.type.array"><span>Array</span></a></li>
+<li><a href="#bitmappaintapi.type.bitmappaint"><span>BitmapPaint</span></a></li>
+<li><a href="#bodyapi.type.body"><span>Body</span></a></li>
+<li><a href="#booleanapi.type.boolean"><span>Boolean</span></a></li>
+<li><a href="#buttonwidgetapi.type.buttonwidget"><span>ButtonWidget</span></a></li>
+<li><a href="#circlepathapi.type.circlepath"><span>CirclePath</span></a></li>
+<li><a href="#compositepaintapi.type.compositepaint"><span>CompositePaint</span></a></li>
+<li><a href="#constantapi.type.constant"><span>Constant</span></a></li>
+<li><a href="#coronaclassapi.type.coronaclass"><span>CoronaClass</span></a></li>
+<li><a href="#coronalibraryapi.type.coronalibrary"><span>CoronaLibrary</span></a></li>
+<li><a href="#coronaprototypeapi.type.coronaprototype"><span>CoronaPrototype</span></a></li>
+<li><a href="#coronaproviderapi.type.coronaprovider"><span>CoronaProvider</span></a></li>
+<li><a href="#displayobjectapi.type.displayobject"><span>DisplayObject</span></a></li>
+<li><a href="#emitterobjectapi.type.emitterobject"><span>EmitterObject</span></a></li>
+<li><a href="#eventapi.type.event"><span>Event</span></a></li>
+<li><a href="#eventdispatcherapi.type.eventdispatcher"><span>EventDispatcher</span></a></li>
+<li><a href="#fileapi.type.file"><span>File</span></a></li>
+<li><a href="#functionapi.type.function"><span>Function</span></a></li>
+<li><a href="#gamenetworkapi.type.gamenetwork"><span>GameNetwork</span></a></li>
+<li><a href="#gradientpaintapi.type.gradientpaint"><span>GradientPaint</span></a></li>
+<li><a href="#groupobjectapi.type.groupobject"><span>GroupObject</span></a></li>
+<li><a href="#imagesheetapi.type.imagesheet"><span>ImageSheet</span></a></li>
+<li><a href="#imagesheetpaintapi.type.imagesheetpaint"><span>ImageSheetPaint</span></a></li>
+<li><a href="#inputaxisapi.type.inputaxis"><span>InputAxis</span></a></li>
+<li><a href="#inputdeviceapi.type.inputdevice"><span>InputDevice</span></a></li>
+<li><a href="#jointapi.type.joint"><span>Joint</span></a></li>
+<li><a href="#libraryapi.type.library"><span>Library</span></a></li>
+<li><a href="#lineobjectapi.type.lineobject"><span>LineObject</span></a></li>
+<li><a href="#listenerapi.type.listener"><span>Listener</span></a></li>
+<li><a href="#mapapi.type.map"><span>Map</span></a></li>
+<li><a href="#maskapi.type.mask"><span>Mask</span></a></li>
+<li><a href="#nativedisplayobjectapi.type.nativedisplayobject"><span>NativeDisplayObject</span></a></li>
+<li><a href="#numberapi.type.number"><span>Number</span></a></li>
+<li><a href="#objectapi.type.object"><span>Object</span></a></li>
+<li><a href="#paintapi.type.paint"><span>Paint</span></a></li>
+<li><a href="#particlesystemapi.type.particlesystem"><span>ParticleSystem</span></a></li>
+<li><a href="#pathapi.type.path"><span>Path</span></a></li>
+<li><a href="#physicscontactapi.type.physicscontact"><span>PhysicsContact</span></a></li>
+<li><a href="#pickerwheelwidgetapi.type.pickerwheelwidget"><span>PickerWheelWidget</span></a></li>
+<li><a href="#progressviewwidgetapi.type.progressviewwidget"><span>ProgressViewWidget</span></a></li>
+<li><a href="#recordingapi.type.recording"><span>Recording</span></a></li>
+<li><a href="#rectpathapi.type.rectpath"><span>RectPath</span></a></li>
+<li><a href="#roundedrectpathapi.type.roundedrectpath"><span>RoundedRectPath</span></a></li>
+<li><a href="#runtimeapi.type.runtime"><span>Runtime</span></a></li>
+<li><a href="#sceneapi.type.scene"><span>Scene</span></a></li>
+<li><a href="#scrollviewwidgetapi.type.scrollviewwidget"><span>ScrollViewWidget</span></a></li>
+<li><a href="#segmentedcontrolwidgetapi.type.segmentedcontrolwidget"><span>SegmentedControlWidget</span></a></li>
+<li><a href="#shapeobjectapi.type.shapeobject"><span>ShapeObject</span></a></li>
+<li><a href="#sliderwidgetapi.type.sliderwidget"><span>SliderWidget</span></a></li>
+<li><a href="#snapshotobjectapi.type.snapshotobject"><span>SnapshotObject</span></a></li>
+<li><a href="#spinnerwidgetapi.type.spinnerwidget"><span>SpinnerWidget</span></a></li>
+<li><a href="#spriteobjectapi.type.spriteobject"><span>SpriteObject</span></a></li>
+<li><a href="#stageobjectapi.type.stageobject"><span>StageObject</span></a></li>
+<li><a href="#stepperwidgetapi.type.stepperwidget"><span>StepperWidget</span></a></li>
+<li><a href="#stringapi.type.string"><span>String</span></a></li>
+<li><a href="#switchwidgetapi.type.switchwidget"><span>SwitchWidget</span></a></li>
+<li><a href="#tabbarwidgetapi.type.tabbarwidget"><span>TabBarWidget</span></a></li>
+<li><a href="#tableapi.type.table"><span>Table</span></a></li>
+<li><a href="#tableviewwidgetapi.type.tableviewwidget"><span>TableViewWidget</span></a></li>
+<li><a href="#textboxapi.type.textbox"><span>TextBox</span></a></li>
+<li><a href="#textfieldapi.type.textfield"><span>TextField</span></a></li>
+<li><a href="#textobjectapi.type.textobject"><span>TextObject</span></a></li>
+<li><a href="#textureresourceapi.type.textureresource"><span>TextureResource</span></a></li>
+<li><a href="#textureresourcebitmapapi.type.textureresourcebitmap"><span>TextureResourceBitmap</span></a></li>
+<li><a href="#textureresourcecanvasapi.type.textureresourcecanvas"><span>TextureResourceCanvas</span></a></li>
+<li><a href="#textureresourceexternalapi.type.textureresourceexternal"><span>TextureResourceExternal</span></a></li>
+<li><a href="#userdataapi.type.userdata"><span>Userdata</span></a></li>
+<li><a href="#videoapi.type.video"><span>Video</span></a></li>
+<li><a href="#webviewapi.type.webview"><span>WebView</span></a></li>
 </ul></li>
 <li><a href="#section"></a></li>
 </ul></li>
@@ -213,24 +213,24 @@
 <!-- ################################################## -->
 <!-- GENERATED FILE - DO NOT EDIT - EDITS WILL BE LOST! -->
 <!-- ################################################## -->
-<div id="api-reference" class="section level1">
+<section id="api-reference" class="level1">
 <h1>API Reference</h1>
 <div class="guide-notebox">
 <div class="notebox-title">
 Notes
 </div>
 <ul>
-<li><p>This is the complete list of Lua APIs for Solar2D. If you're looking to extend Solar2D beyond the functionality provided by these Lua APIs, please see the <a href="../native/index.html">Solar2D Native documentation</a>.</p></li>
-<li><p>If you're new, download Solar2D and proceed to the <a href="../guide/programming/index.html">Getting Started</a> series. There are also numerous <a href="../guide/index.html">guides</a> on specific topics.</p></li>
+<li><p>This is the complete list of Lua APIs for Solar2D. If you’re looking to extend Solar2D beyond the functionality provided by these Lua APIs, please see the <a href="../native/index.html">Solar2D Native documentation</a>.</p></li>
+<li><p>If you’re new, download Solar2D and proceed to the <a href="../guide/programming/index.html">Getting Started</a> series. There are also numerous <a href="../guide/index.html">guides</a> on specific topics.</p></li>
 <li><p>To download this documentation for offline viewing, please click <a href="https://github.com/coronalabs/corona-docs/archive/gh-pages.zip">here</a>.</p></li>
 </ul>
 </div>
-<div id="librariesapi.library" class="section level2">
+<section id="librariesapi.library" class="level2">
 <h2><a href="../api/library/index.html">Libraries</a></h2>
-<div id="ads.api.library.ads" class="section level4">
+<section id="ads.api.library.ads" class="level4">
 <h4><a href="../api/library/ads/index.html">ads.*</a></h4>
-</div>
-<div id="audio.api.library.audio" class="section level4">
+</section>
+<section id="audio.api.library.audio" class="level4">
 <h4><a href="../api/library/audio/index.html">audio.*</a></h4>
 <p class="index">
 <a href="../api/library/audio/dispose.html">audio.dispose()</a>
@@ -322,8 +322,8 @@ Notes
 <p class="index">
 <a href="../api/library/audio/usedChannels.html">audio.usedChannels</a>
 </p>
-</div>
-<div id="composer.api.library.composer" class="section level4">
+</section>
+<section id="composer.api.library.composer" class="level4">
 <h4><a href="../api/library/composer/index.html">composer.*</a></h4>
 <p class="index">
 <a href="../api/library/composer/getScene.html">composer.getScene()</a>
@@ -373,8 +373,8 @@ Notes
 <p class="index">
 <a href="../api/library/composer/stage.html">composer.stage</a>
 </p>
-</div>
-<div id="crypto.api.library.crypto" class="section level4">
+</section>
+<section id="crypto.api.library.crypto" class="level4">
 <h4><a href="../api/library/crypto/index.html">crypto.*</a></h4>
 <p class="index">
 <a href="../api/library/crypto/digest.html">crypto.digest()</a>
@@ -403,8 +403,8 @@ Notes
 <p class="index">
 <a href="../api/library/crypto/sha512.html">crypto.sha512</a>
 </p>
-</div>
-<div id="display.api.library.display" class="section level4">
+</section>
+<section id="display.api.library.display" class="level4">
 <h4><a href="../api/library/display/index.html">display.*</a></h4>
 <p class="index">
 <a href="../api/library/display/actualContentHeight.html">display.actualContentHeight</a>
@@ -559,17 +559,17 @@ Notes
 <p class="index">
 <a href="../api/library/display/viewableContentWidth.html">display.viewableContentWidth</a>
 </p>
-</div>
-<div id="easing.api.library.easing" class="section level4">
+</section>
+<section id="easing.api.library.easing" class="level4">
 <h4><a href="../api/library/easing/index.html">easing.*</a></h4>
-</div>
-<div id="facebook.api.library.facebook" class="section level4">
+</section>
+<section id="facebook.api.library.facebook" class="level4">
 <h4><a href="../api/library/facebook/index.html">facebook.*</a></h4>
-</div>
-<div id="gamenetwork.api.library.gamenetwork" class="section level4">
+</section>
+<section id="gamenetwork.api.library.gamenetwork" class="level4">
 <h4><a href="../api/library/gameNetwork/index.html">gameNetwork.*</a></h4>
-</div>
-<div id="globalsapi.library.global" class="section level4">
+</section>
+<section id="globalsapi.library.global" class="level4">
 <h4><a href="../api/library/global/index.html">(globals)</a></h4>
 <p class="index">
 <a href="../api/library/global/assert.html">assert()</a>
@@ -631,8 +631,8 @@ Notes
 <p class="index">
 <a href="../api/library/global/unpack.html">unpack()</a>
 </p>
-</div>
-<div id="graphics.api.library.graphics" class="section level4">
+</section>
+<section id="graphics.api.library.graphics" class="level4">
 <h4><a href="../api/library/graphics/index.html">graphics.*</a></h4>
 <p class="index">
 <a href="../api/library/graphics/defineEffect.html">graphics.defineEffect()</a>
@@ -658,8 +658,8 @@ Notes
 <p class="index">
 <a href="../api/library/graphics/undefineEffect.html">graphics.undefineEffect()</a>
 </p>
-</div>
-<div id="io.api.library.io" class="section level4">
+</section>
+<section id="io.api.library.io" class="level4">
 <h4><a href="../api/library/io/index.html">io.*</a></h4>
 <p class="index">
 <a href="../api/library/io/close.html">io.close()</a>
@@ -691,8 +691,8 @@ Notes
 <p class="index">
 <a href="../api/library/io/write.html">io.write()</a>
 </p>
-</div>
-<div id="json.api.library.json" class="section level4">
+</section>
+<section id="json.api.library.json" class="level4">
 <h4><a href="../api/library/json/index.html">json.*</a></h4>
 <p class="index">
 <a href="../api/library/json/decode.html">json.decode()</a>
@@ -706,11 +706,11 @@ Notes
 <p class="index">
 <a href="../api/library/json/prettify.html">json.prettify()</a>
 </p>
-</div>
-<div id="lfs.-file-system-api.library.lfs" class="section level4">
+</section>
+<section id="lfs.-file-system-api.library.lfs" class="level4">
 <h4><a href="../api/library/lfs/index.html">lfs.* (file system)</a></h4>
-</div>
-<div id="licensing.api.library.licensing" class="section level4">
+</section>
+<section id="licensing.api.library.licensing" class="level4">
 <h4><a href="../api/library/licensing/index.html">licensing.*</a></h4>
 <p class="index">
 <a href="../api/library/licensing/init.html">licensing.init()</a>
@@ -718,8 +718,8 @@ Notes
 <p class="index">
 <a href="../api/library/licensing/verify.html">licensing.verify()</a>
 </p>
-</div>
-<div id="math.api.library.math" class="section level4">
+</section>
+<section id="math.api.library.math" class="level4">
 <h4><a href="../api/library/math/index.html">math.*</a></h4>
 <p class="index">
 <a href="../api/library/math/abs.html">math.abs()</a>
@@ -817,8 +817,8 @@ Notes
 <p class="index">
 <a href="../api/library/math/tanh.html">math.tanh()</a>
 </p>
-</div>
-<div id="media.api.library.media" class="section level4">
+</section>
+<section id="media.api.library.media" class="level4">
 <h4><a href="../api/library/media/index.html">media.*</a></h4>
 <p class="index">
 <a href="../api/library/media/RemoteSource.html">media.RemoteSource</a>
@@ -871,8 +871,8 @@ Notes
 <p class="index">
 <a href="../api/library/media/stopSound.html">media.stopSound()</a>
 </p>
-</div>
-<div id="native.api.library.native" class="section level4">
+</section>
+<section id="native.api.library.native" class="level4">
 <h4><a href="../api/library/native/index.html">native.*</a></h4>
 <p class="index">
 <a href="../api/library/native/canShowPopup.html">native.canShowPopup()</a>
@@ -940,8 +940,8 @@ Notes
 <p class="index">
 <a href="../api/library/native/systemFontBold.html">native.systemFontBold</a>
 </p>
-</div>
-<div id="network.api.library.network" class="section level4">
+</section>
+<section id="network.api.library.network" class="level4">
 <h4><a href="../api/library/network/index.html">network.*</a></h4>
 <p class="index">
 <a href="../api/library/network/canDetectNetworkStatusChanges.html">network.canDetectNetworkStatusChanges</a>
@@ -961,8 +961,8 @@ Notes
 <p class="index">
 <a href="../api/library/network/upload.html">network.upload()</a>
 </p>
-</div>
-<div id="os.api.library.os" class="section level4">
+</section>
+<section id="os.api.library.os" class="level4">
 <h4><a href="../api/library/os/index.html">os.*</a></h4>
 <p class="index">
 <a href="../api/library/os/clock.html">os.clock()</a>
@@ -988,8 +988,8 @@ Notes
 <p class="index">
 <a href="../api/library/os/time.html">os.time()</a>
 </p>
-</div>
-<div id="package.api.library.package" class="section level4">
+</section>
+<section id="package.api.library.package" class="level4">
 <h4><a href="../api/library/package/index.html">package.*</a></h4>
 <p class="index">
 <a href="../api/library/package/loaded.html">package.loaded</a>
@@ -1000,8 +1000,8 @@ Notes
 <p class="index">
 <a href="../api/library/package/require.html">requir<span style="display: none;">X</span>e()</a>
 </p>
-</div>
-<div id="physics.api.library.physics" class="section level4">
+</section>
+<section id="physics.api.library.physics" class="level4">
 <h4><a href="../api/library/physics/index.html">physics.*</a></h4>
 <p class="index">
 <a href="../api/library/physics/addBody.html">physics.addBody()</a>
@@ -1096,14 +1096,14 @@ Notes
 <p class="index">
 <a href="../api/library/physics/toMKS.html">physics.toMKS()</a>
 </p>
-</div>
-<div id="socket.api.library.socket" class="section level4">
+</section>
+<section id="socket.api.library.socket" class="level4">
 <h4><a href="../api/library/socket/index.html">socket.*</a></h4>
-</div>
-<div id="sqlite3.-databaseapi.library.sqlite3" class="section level4">
+</section>
+<section id="sqlite3.-databaseapi.library.sqlite3" class="level4">
 <h4><a href="../api/library/sqlite3/index.html">sqlite3.* (database)</a></h4>
-</div>
-<div id="store.-apple-iapapi.library.store" class="section level4">
+</section>
+<section id="store.-apple-iapapi.library.store" class="level4">
 <h4><a href="../api/library/store/index.html">store.* (Apple IAP)</a></h4>
 <p class="index">
 <a href="../api/library/store/canLoadProducts.html">store.canLoadProducts</a>
@@ -1153,8 +1153,8 @@ Notes
 <p class="index">
 <a href="../api/library/store/target.html">store.target</a>
 </p>
-</div>
-<div id="string.api.library.string" class="section level4">
+</section>
+<section id="string.api.library.string" class="level4">
 <h4><a href="../api/library/string/index.html">string.*</a></h4>
 <p class="index">
 <a href="../api/library/string/byte.html">string.byte()</a>
@@ -1201,8 +1201,8 @@ Notes
 <p class="index">
 <a href="../api/library/string/upper.html">string.upper()</a>
 </p>
-</div>
-<div id="system.api.library.system" class="section level4">
+</section>
+<section id="system.api.library.system" class="level4">
 <h4><a href="../api/library/system/index.html">system.*</a></h4>
 <p class="index">
 <a href="../api/library/system/ApplicationSupportDirectory.html">system.ApplicationSupportDirectory</a>
@@ -1291,8 +1291,8 @@ Notes
 <p class="index">
 <a href="../api/library/system/vibrate.html">system.vibrate()</a>
 </p>
-</div>
-<div id="table.-arrayapi.library.table" class="section level4">
+</section>
+<section id="table.-arrayapi.library.table" class="level4">
 <h4><a href="../api/library/table/index.html">table.* (array)</a></h4>
 <p class="index">
 <a href="../api/library/table/concat.html">table.concat()</a>
@@ -1315,8 +1315,8 @@ Notes
 <p class="index">
 <a href="../api/library/table/sort.html">table.sort()</a>
 </p>
-</div>
-<div id="timer.api.library.timer" class="section level4">
+</section>
+<section id="timer.api.library.timer" class="level4">
 <h4><a href="../api/library/timer/index.html">timer.*</a></h4>
 <p class="index">
 <a href="../api/library/timer/allowIterationsWithinFrame.html">timer.allowInterationsWithinFrame</a>
@@ -1342,8 +1342,8 @@ Notes
 <p class="index">
 <a href="../api/library/timer/resumeAll.html">timer.resumeAll()</a>
 </p>
-</div>
-<div id="transition.api.library.transition" class="section level4">
+</section>
+<section id="transition.api.library.transition" class="level4">
 <h4><a href="../api/library/transition/index.html">transition.*</a></h4>
 <p class="index">
 <a href="../api/library/transition/blink.html">transition.blink()</a>
@@ -1399,8 +1399,8 @@ Notes
 <p class="index">
 <a href="../api/library/transition/to.html">transition.to()</a>
 </p>
-</div>
-<div id="widget.api.library.widget" class="section level4">
+</section>
+<section id="widget.api.library.widget" class="level4">
 <h4><a href="../api/library/widget/index.html">widget.*</a></h4>
 <p class="index">
 <a href="../api/library/widget/newButton.html">widget.newButton()</a>
@@ -1438,11 +1438,11 @@ Notes
 <p class="index">
 <a href="../api/library/widget/setTheme.html">widget.setTheme()</a>
 </p>
-</div>
-</div>
-<div id="eventsapi.event" class="section level2">
+</section>
+</section>
+<section id="eventsapi.event" class="level2">
 <h2><a href="../api/event/index.html">Events</a></h2>
-<div id="accelerometerapi.event.accelerometer" class="section level4">
+<section id="accelerometerapi.event.accelerometer" class="level4">
 <h4><a href="../api/event/accelerometer/index.html">accelerometer</a></h4>
 <p class="index">
 <a href="../api/event/accelerometer/deltaTime.html">event.deltaTime</a>
@@ -1483,8 +1483,8 @@ Notes
 <p class="index">
 <a href="../api/event/accelerometer/zRaw.html">event.zRaw</a>
 </p>
-</div>
-<div id="audioapi.event.audio" class="section level4">
+</section>
+<section id="audioapi.event.audio" class="level4">
 <h4><a href="../api/event/audio/index.html">audio</a></h4>
 <p class="index">
 <a href="../api/event/audio/channel.html">event.channel</a>
@@ -1501,8 +1501,8 @@ Notes
 <p class="index">
 <a href="../api/event/audio/phase.html">event.phase</a>
 </p>
-</div>
-<div id="axisapi.event.axis" class="section level4">
+</section>
+<section id="axisapi.event.axis" class="level4">
 <h4><a href="../api/event/axis/index.html">axis</a></h4>
 <p class="index">
 <a href="../api/event/axis/axis.html">event.axis</a>
@@ -1519,8 +1519,8 @@ Notes
 <p class="index">
 <a href="../api/event/axis/rawValue.html">event.rawValue</a>
 </p>
-</div>
-<div id="collisionapi.event.collision" class="section level4">
+</section>
+<section id="collisionapi.event.collision" class="level4">
 <h4><a href="../api/event/collision/index.html">collision</a></h4>
 <p class="index">
 <a href="../api/event/collision/contact.html">event.contact</a>
@@ -1561,8 +1561,8 @@ Notes
 <p class="index">
 <a href="../api/event/collision/y.html">event.y</a>
 </p>
-</div>
-<div id="colorsampleapi.event.colorsample" class="section level4">
+</section>
+<section id="colorsampleapi.event.colorsample" class="level4">
 <h4><a href="../api/event/colorSample/index.html">colorSample</a></h4>
 <p class="index">
 <a href="../api/event/colorSample/a.html">event.a</a>
@@ -1585,8 +1585,8 @@ Notes
 <p class="index">
 <a href="../api/event/colorSample/y.html">event.y</a>
 </p>
-</div>
-<div id="completionapi.event.completion" class="section level4">
+</section>
+<section id="completionapi.event.completion" class="level4">
 <h4><a href="../api/event/completion/index.html">completion</a></h4>
 <p class="index">
 <a href="../api/event/completion/action.html">event.action</a>
@@ -1609,8 +1609,8 @@ Notes
 <p class="index">
 <a href="../api/event/completion/url.html">event.url</a>
 </p>
-</div>
-<div id="enterframeapi.event.enterframe" class="section level4">
+</section>
+<section id="enterframeapi.event.enterframe" class="level4">
 <h4><a href="../api/event/enterFrame/index.html">enterFrame</a></h4>
 <p class="index">
 <a href="../api/event/enterFrame/frame.html">event.frame</a>
@@ -1621,8 +1621,8 @@ Notes
 <p class="index">
 <a href="../api/event/enterFrame/time.html">event.time</a>
 </p>
-</div>
-<div id="finalizeapi.event.finalize" class="section level4">
+</section>
+<section id="finalizeapi.event.finalize" class="level4">
 <h4><a href="../api/event/finalize/index.html">finalize</a></h4>
 <p class="index">
 <a href="../api/event/finalize/name.html">event.name</a>
@@ -1630,8 +1630,8 @@ Notes
 <p class="index">
 <a href="../api/event/finalize/target.html">event.target</a>
 </p>
-</div>
-<div id="gamenetworkapi.event.gamenetwork" class="section level4">
+</section>
+<section id="gamenetworkapi.event.gamenetwork" class="level4">
 <h4><a href="../api/event/gameNetwork/index.html">gameNetwork</a></h4>
 <p class="index">
 <a href="../api/event/gameNetwork/data.html">event.data</a>
@@ -1654,8 +1654,8 @@ Notes
 <p class="index">
 <a href="../api/event/gameNetwork/type.html">event.type</a>
 </p>
-</div>
-<div id="gyroscopeapi.event.gyroscope" class="section level4">
+</section>
+<section id="gyroscopeapi.event.gyroscope" class="level4">
 <h4><a href="../api/event/gyroscope/index.html">gyroscope</a></h4>
 <p class="index">
 <a href="../api/event/gyroscope/deltaTime.html">event.deltaTime</a>
@@ -1672,8 +1672,8 @@ Notes
 <p class="index">
 <a href="../api/event/gyroscope/zRotation.html">event.zRotation</a>
 </p>
-</div>
-<div id="heading-compassapi.event.heading" class="section level4">
+</section>
+<section id="heading-compassapi.event.heading" class="level4">
 <h4><a href="../api/event/heading/index.html">heading (compass)</a></h4>
 <p class="index">
 <a href="../api/event/heading/geographic.html">event.geographic</a>
@@ -1684,8 +1684,8 @@ Notes
 <p class="index">
 <a href="../api/event/heading/name.html">event.name</a>
 </p>
-</div>
-<div id="inputdevicestatusapi.event.inputdevicestatus" class="section level4">
+</section>
+<section id="inputdevicestatusapi.event.inputdevicestatus" class="level4">
 <h4><a href="../api/event/inputDeviceStatus/index.html">inputDeviceStatus</a></h4>
 <p class="index">
 <a href="../api/event/inputDeviceStatus/connectionStateChanged.html">event.connectionStateChanged</a>
@@ -1699,8 +1699,8 @@ Notes
 <p class="index">
 <a href="../api/event/inputDeviceStatus/reconfigured.html">event.reconfigured</a>
 </p>
-</div>
-<div id="keyapi.event.key" class="section level4">
+</section>
+<section id="keyapi.event.key" class="level4">
 <h4><a href="../api/event/key/index.html">key</a></h4>
 <p class="index">
 <a href="../api/event/key/descriptor.html">event.descriptor</a>
@@ -1732,8 +1732,8 @@ Notes
 <p class="index">
 <a href="../api/event/key/phase.html">event.phase</a>
 </p>
-</div>
-<div id="lateupdateapi.event.lateupdate" class="section level4">
+</section>
+<section id="lateupdateapi.event.lateupdate" class="level4">
 <h4><a href="../api/event/lateUpdate/index.html">lateUpdate</a></h4>
 <p class="index">
 <a href="../api/event/lateUpdate/name.html">event.name</a>
@@ -1741,8 +1741,8 @@ Notes
 <p class="index">
 <a href="../api/event/lateUpdate/time.html">event.time</a>
 </p>
-</div>
-<div id="licensingapi.event.licensing" class="section level4">
+</section>
+<section id="licensingapi.event.licensing" class="level4">
 <h4><a href="../api/event/licensing/index.html">licensing</a></h4>
 <p class="index">
 <a href="../api/event/licensing/errorType.html">event.errorType</a>
@@ -1765,8 +1765,8 @@ Notes
 <p class="index">
 <a href="../api/event/licensing/response.html">event.response</a>
 </p>
-</div>
-<div id="location-gpsapi.event.location" class="section level4">
+</section>
+<section id="location-gpsapi.event.location" class="level4">
 <h4><a href="../api/event/location/index.html">location (GPS)</a></h4>
 <p class="index">
 <a href="../api/event/location/accuracy.html">event.accuracy</a>
@@ -1798,8 +1798,8 @@ Notes
 <p class="index">
 <a href="../api/event/location/time.html">event.time</a>
 </p>
-</div>
-<div id="mapaddressapi.event.mapaddress" class="section level4">
+</section>
+<section id="mapaddressapi.event.mapaddress" class="level4">
 <h4><a href="../api/event/mapAddress/index.html">mapAddress</a></h4>
 <p class="index">
 <a href="../api/event/mapAddress/city.html">event.city</a>
@@ -1837,8 +1837,8 @@ Notes
 <p class="index">
 <a href="../api/event/mapAddress/streetDetail.html">event.streetDetail</a>
 </p>
-</div>
-<div id="maplocationapi.event.maplocation" class="section level4">
+</section>
+<section id="maplocationapi.event.maplocation" class="level4">
 <h4><a href="../api/event/mapLocation/index.html">mapLocation</a></h4>
 <p class="index">
 <a href="../api/event/mapLocation/errorMessage.html">event.errorMessage</a>
@@ -1861,8 +1861,8 @@ Notes
 <p class="index">
 <a href="../api/event/mapLocation/type.html">event.type</a>
 </p>
-</div>
-<div id="mapmarkerapi.event.mapmarker" class="section level4">
+</section>
+<section id="mapmarkerapi.event.mapmarker" class="level4">
 <h4><a href="../api/event/mapMarker/index.html">mapMarker</a></h4>
 <p class="index">
 <a href="../api/event/mapMarker/latitude.html">event.latitude</a>
@@ -1873,14 +1873,14 @@ Notes
 <p class="index">
 <a href="../api/event/mapMarker/markerId.html">event.markerId</a>
 </p>
-</div>
-<div id="memorywarningapi.event.memorywarning" class="section level4">
+</section>
+<section id="memorywarningapi.event.memorywarning" class="level4">
 <h4><a href="../api/event/memoryWarning/index.html">memoryWarning</a></h4>
 <p class="index">
 <a href="../api/event/memoryWarning/name.html">event.name</a>
 </p>
-</div>
-<div id="mouseapi.event.mouse" class="section level4">
+</section>
+<section id="mouseapi.event.mouse" class="level4">
 <h4><a href="../api/event/mouse/index.html">mouse</a></h4>
 <p class="index">
 <a href="../api/event/mouse/isAltDown.html">event.isAltDown</a>
@@ -1924,8 +1924,8 @@ Notes
 <p class="index">
 <a href="../api/event/mouse/y.html">event.y</a>
 </p>
-</div>
-<div id="networkrequestapi.event.networkrequest" class="section level4">
+</section>
+<section id="networkrequestapi.event.networkrequest" class="level4">
 <h4><a href="../api/event/networkRequest/index.html">networkRequest</a></h4>
 <p class="index">
 <a href="../api/event/networkRequest/bytesEstimated.html">event.bytesEstimated</a>
@@ -1960,8 +1960,8 @@ Notes
 <p class="index">
 <a href="../api/event/networkRequest/url.html">event.url</a>
 </p>
-</div>
-<div id="networkstatusapi.event.networkstatus" class="section level4">
+</section>
+<section id="networkstatusapi.event.networkstatus" class="level4">
 <h4><a href="../api/event/networkStatus/index.html">networkStatus</a></h4>
 <p class="index">
 <a href="../api/event/networkStatus/address.html">event.address</a>
@@ -1987,8 +1987,8 @@ Notes
 <p class="index">
 <a href="../api/event/networkStatus/name.html">event.name</a>
 </p>
-</div>
-<div id="notificationapi.event.notification" class="section level4">
+</section>
+<section id="notificationapi.event.notification" class="level4">
 <h4><a href="../api/event/notification/index.html">notification</a></h4>
 <p class="index">
 <a href="../api/event/notification/alert.html">event.alert</a>
@@ -2011,8 +2011,8 @@ Notes
 <p class="index">
 <a href="../api/event/notification/type.html">event.type</a>
 </p>
-</div>
-<div id="orientationapi.event.orientation" class="section level4">
+</section>
+<section id="orientationapi.event.orientation" class="level4">
 <h4><a href="../api/event/orientation/index.html">orientation</a></h4>
 <p class="index">
 <a href="../api/event/orientation/delta.html">event.delta</a>
@@ -2023,8 +2023,8 @@ Notes
 <p class="index">
 <a href="../api/event/orientation/type.html">event.type</a>
 </p>
-</div>
-<div id="particlecollisionapi.event.particlecollision" class="section level4">
+</section>
+<section id="particlecollisionapi.event.particlecollision" class="level4">
 <h4><a href="../api/event/particleCollision/index.html">particleCollision</a></h4>
 <p class="index">
 <a href="../api/event/particleCollision/a.html">event.a</a>
@@ -2065,8 +2065,8 @@ Notes
 <p class="index">
 <a href="../api/event/particleCollision/y.html">event.y</a>
 </p>
-</div>
-<div id="popupapi.event.popup" class="section level4">
+</section>
+<section id="popupapi.event.popup" class="level4">
 <h4><a href="../api/event/popup/index.html">popup</a></h4>
 <p class="index">
 <a href="../api/event/popup/name.html">event.name</a>
@@ -2074,8 +2074,8 @@ Notes
 <p class="index">
 <a href="../api/event/popup/type.html">event.type</a>
 </p>
-</div>
-<div id="postcollisionapi.event.postcollision" class="section level4">
+</section>
+<section id="postcollisionapi.event.postcollision" class="level4">
 <h4><a href="../api/event/postCollision/index.html">postCollision</a></h4>
 <p class="index">
 <a href="../api/event/postCollision/contact.html">event.contact</a>
@@ -2119,8 +2119,8 @@ Notes
 <p class="index">
 <a href="../api/event/postCollision/y.html">event.y</a>
 </p>
-</div>
-<div id="precollisionapi.event.precollision" class="section level4">
+</section>
+<section id="precollisionapi.event.precollision" class="level4">
 <h4><a href="../api/event/preCollision/index.html">preCollision</a></h4>
 <p class="index">
 <a href="../api/event/preCollision/contact.html">event.contact</a>
@@ -2158,8 +2158,8 @@ Notes
 <p class="index">
 <a href="../api/event/preCollision/y.html">event.y</a>
 </p>
-</div>
-<div id="relativetouchapi.event.relativetouch" class="section level4">
+</section>
+<section id="relativetouchapi.event.relativetouch" class="level4">
 <h4><a href="../api/event/relativeTouch/index.html">relativeTouch</a></h4>
 <p class="index">
 <a href="../api/event/relativeTouch/id.html">event.id</a>
@@ -2182,14 +2182,14 @@ Notes
 <p class="index">
 <a href="../api/event/relativeTouch/y.html">event.y</a>
 </p>
-</div>
-<div id="resizeapi.event.resize" class="section level4">
+</section>
+<section id="resizeapi.event.resize" class="level4">
 <h4><a href="../api/event/resize/index.html">resize</a></h4>
 <p class="index">
 <a href="../api/event/resize/name.html">event.name</a>
 </p>
-</div>
-<div id="sceneapi.event.scene" class="section level4">
+</section>
+<section id="sceneapi.event.scene" class="level4">
 <h4><a href="../api/event/scene/index.html">scene</a></h4>
 <p class="index">
 <a href="../api/event/scene/create/index.html">create</a>
@@ -2233,8 +2233,8 @@ Notes
 <p class="index">
 <a href="../api/event/scene/show/phase.html">event.phase</a>
 </p>
-</div>
-<div id="spriteapi.event.sprite" class="section level4">
+</section>
+<section id="spriteapi.event.sprite" class="level4">
 <h4><a href="../api/event/sprite/index.html">sprite</a></h4>
 <p class="index">
 <a href="../api/event/sprite/name.html">event.name</a>
@@ -2248,8 +2248,8 @@ Notes
 <p class="index">
 <a href="../api/event/sprite/target.html">event.target</a>
 </p>
-</div>
-<div id="systemapi.event.system" class="section level4">
+</section>
+<section id="systemapi.event.system" class="level4">
 <h4><a href="../api/event/system/index.html">system</a></h4>
 <p class="index">
 <a href="../api/event/system/commandLineArgs.html">event.commandLineArgs</a>
@@ -2266,8 +2266,8 @@ Notes
 <p class="index">
 <a href="../api/event/system/url.html">event.url</a>
 </p>
-</div>
-<div id="tapapi.event.tap" class="section level4">
+</section>
+<section id="tapapi.event.tap" class="level4">
 <h4><a href="../api/event/tap/index.html">tap</a></h4>
 <p class="index">
 <a href="../api/event/tap/name.html">event.name</a>
@@ -2281,8 +2281,8 @@ Notes
 <p class="index">
 <a href="../api/event/tap/y.html">event.y</a>
 </p>
-</div>
-<div id="timerapi.event.timer" class="section level4">
+</section>
+<section id="timerapi.event.timer" class="level4">
 <h4><a href="../api/event/timer/index.html">timer</a></h4>
 <p class="index">
 <a href="../api/event/timer/count.html">event.count</a>
@@ -2296,8 +2296,8 @@ Notes
 <p class="index">
 <a href="../api/event/timer/time.html">event.time</a>
 </p>
-</div>
-<div id="touchapi.event.touch" class="section level4">
+</section>
+<section id="touchapi.event.touch" class="level4">
 <h4><a href="../api/event/touch/index.html">touch</a></h4>
 <p class="index">
 <a href="../api/event/touch/id.html">event.id</a>
@@ -2329,8 +2329,8 @@ Notes
 <p class="index">
 <a href="../api/event/touch/yStart.html">event.yStart</a>
 </p>
-</div>
-<div id="unhandlederrorapi.event.unhandlederror" class="section level4">
+</section>
+<section id="unhandlederrorapi.event.unhandlederror" class="level4">
 <h4><a href="../api/event/unhandledError/index.html">unhandledError</a></h4>
 <p class="index">
 <a href="../api/event/unhandledError/errorMessage.html">event.errorMessage</a>
@@ -2338,8 +2338,8 @@ Notes
 <p class="index">
 <a href="../api/event/unhandledError/stackTrace.html">event.stackTrace</a>
 </p>
-</div>
-<div id="urlrequestapi.event.urlrequest" class="section level4">
+</section>
+<section id="urlrequestapi.event.urlrequest" class="level4">
 <h4><a href="../api/event/urlRequest/index.html">urlRequest</a></h4>
 <p class="index">
 <a href="../api/event/urlRequest/errorCode.html">event.errorCode</a>
@@ -2356,8 +2356,8 @@ Notes
 <p class="index">
 <a href="../api/event/urlRequest/url.html">event.url</a>
 </p>
-</div>
-<div id="userinputapi.event.userinput" class="section level4">
+</section>
+<section id="userinputapi.event.userinput" class="level4">
 <h4><a href="../api/event/userInput/index.html">userInput</a></h4>
 <p class="index">
 <a href="../api/event/userInput/newCharacters.html">event.newCharacters</a>
@@ -2380,8 +2380,8 @@ Notes
 <p class="index">
 <a href="../api/event/userInput/text.html">event.text</a>
 </p>
-</div>
-<div id="videoapi.event.video" class="section level4">
+</section>
+<section id="videoapi.event.video" class="level4">
 <h4><a href="../api/event/video/index.html">video</a></h4>
 <p class="index">
 <a href="../api/event/video/name.html">event.name</a>
@@ -2389,8 +2389,8 @@ Notes
 <p class="index">
 <a href="../api/event/video/phase.html">event.phase</a>
 </p>
-</div>
-<div id="windowstateapi.event.windowstate" class="section level4">
+</section>
+<section id="windowstateapi.event.windowstate" class="level4">
 <h4><a href="../api/event/windowState/index.html">windowState</a></h4>
 <p class="index">
 <a href="../api/event/windowState/name.html">event.name</a>
@@ -2398,14 +2398,14 @@ Notes
 <p class="index">
 <a href="../api/event/windowState/phase.html">event.phase</a>
 </p>
-</div>
-</div>
-<div id="typesapi.type" class="section level2">
+</section>
+</section>
+<section id="typesapi.type" class="level2">
 <h2><a href="../api/type/index.html">Types</a></h2>
-<div id="arrayapi.type.array" class="section level4">
+<section id="arrayapi.type.array" class="level4">
 <h4><a href="../api/type/Array.html">Array</a></h4>
-</div>
-<div id="bitmappaintapi.type.bitmappaint" class="section level4">
+</section>
+<section id="bitmappaintapi.type.bitmappaint" class="level4">
 <h4><a href="../api/type/BitmapPaint/index.html">BitmapPaint</a></h4>
 <p class="index">
 <a href="../api/type/BitmapPaint/rotation.html">fill.rotation</a>
@@ -2422,8 +2422,8 @@ Notes
 <p class="index">
 <a href="../api/type/BitmapPaint/y.html">fill.y</a>
 </p>
-</div>
-<div id="bodyapi.type.body" class="section level4">
+</section>
+<section id="bodyapi.type.body" class="level4">
 <h4><a href="../api/type/Body/index.html">Body</a></h4>
 <p class="index">
 <a href="../api/type/Body/angularDamping.html">object.angularDamping</a>
@@ -2488,11 +2488,11 @@ Notes
 <p class="index">
 <a href="../api/type/Body/setLinearVelocity.html">object:setLinearVelocity()</a>
 </p>
-</div>
-<div id="booleanapi.type.boolean" class="section level4">
+</section>
+<section id="booleanapi.type.boolean" class="level4">
 <h4><a href="../api/type/Boolean.html">Boolean</a></h4>
-</div>
-<div id="buttonwidgetapi.type.buttonwidget" class="section level4">
+</section>
+<section id="buttonwidgetapi.type.buttonwidget" class="level4">
 <h4><a href="../api/type/ButtonWidget/index.html">ButtonWidget</a></h4>
 <p class="index">
 <a href="../api/type/ButtonWidget/getLabel.html">object:getLabel()</a>
@@ -2503,20 +2503,20 @@ Notes
 <p class="index">
 <a href="../api/type/ButtonWidget/setLabel.html">object:setLabel()</a>
 </p>
-</div>
-<div id="circlepathapi.type.circlepath" class="section level4">
+</section>
+<section id="circlepathapi.type.circlepath" class="level4">
 <h4><a href="../api/type/CirclePath/index.html">CirclePath</a></h4>
-</div>
-<div id="compositepaintapi.type.compositepaint" class="section level4">
+</section>
+<section id="compositepaintapi.type.compositepaint" class="level4">
 <h4><a href="../api/type/CompositePaint/index.html">CompositePaint</a></h4>
-</div>
-<div id="constantapi.type.constant" class="section level4">
+</section>
+<section id="constantapi.type.constant" class="level4">
 <h4><a href="../api/type/Constant.html">Constant</a></h4>
-</div>
-<div id="coronaclassapi.type.coronaclass" class="section level4">
+</section>
+<section id="coronaclassapi.type.coronaclass" class="level4">
 <h4><a href="../api/type/CoronaClass.html">CoronaClass</a></h4>
-</div>
-<div id="coronalibraryapi.type.coronalibrary" class="section level4">
+</section>
+<section id="coronalibraryapi.type.coronalibrary" class="level4">
 <h4><a href="../api/type/CoronaLibrary/index.html">CoronaLibrary</a></h4>
 <p class="index">
 <a href="../api/type/CoronaLibrary/getCurrentProvider.html">object:getCurrentProvider()</a>
@@ -2536,8 +2536,8 @@ Notes
 <p class="index">
 <a href="../api/type/CoronaLibrary/version.html">object.version</a>
 </p>
-</div>
-<div id="coronaprototypeapi.type.coronaprototype" class="section level4">
+</section>
+<section id="coronaprototypeapi.type.coronaprototype" class="level4">
 <h4><a href="../api/type/CoronaPrototype/index.html">CoronaPrototype</a></h4>
 <p class="index">
 <a href="../api/type/CoronaPrototype/initialize.html">object:initialize()</a>
@@ -2560,11 +2560,11 @@ Notes
 <p class="index">
 <a href="../api/type/CoronaPrototype/setExtension.html">object:setExtension()</a>
 </p>
-</div>
-<div id="coronaproviderapi.type.coronaprovider" class="section level4">
+</section>
+<section id="coronaproviderapi.type.coronaprovider" class="level4">
 <h4><a href="../api/type/CoronaProvider/index.html">CoronaProvider</a></h4>
-</div>
-<div id="displayobjectapi.type.displayobject" class="section level4">
+</section>
+<section id="displayobjectapi.type.displayobject" class="level4">
 <h4><a href="../api/type/DisplayObject/index.html">DisplayObject</a></h4>
 <p class="index">
 <a href="../api/type/DisplayObject/alpha.html">object.alpha</a>
@@ -2671,8 +2671,8 @@ Notes
 <p class="index">
 <a href="../api/type/DisplayObject/yScale.html">object.yScale</a>
 </p>
-</div>
-<div id="emitterobjectapi.type.emitterobject" class="section level4">
+</section>
+<section id="emitterobjectapi.type.emitterobject" class="level4">
 <h4><a href="../api/type/EmitterObject/index.html">EmitterObject</a></h4>
 <p class="index">
 <a href="../api/type/EmitterObject/pause.html">EmitterObject:pause()</a>
@@ -2683,11 +2683,11 @@ Notes
 <p class="index">
 <a href="../api/type/EmitterObject/stop.html">EmitterObject:stop()</a>
 </p>
-</div>
-<div id="eventapi.type.event" class="section level4">
+</section>
+<section id="eventapi.type.event" class="level4">
 <h4><a href="../api/type/Event.html">Event</a></h4>
-</div>
-<div id="eventdispatcherapi.type.eventdispatcher" class="section level4">
+</section>
+<section id="eventdispatcherapi.type.eventdispatcher" class="level4">
 <h4><a href="../api/type/EventDispatcher/index.html">EventDispatcher</a></h4>
 <p class="index">
 <a href="../api/type/EventDispatcher/addEventListener.html">object:addEventListener()</a>
@@ -2698,8 +2698,8 @@ Notes
 <p class="index">
 <a href="../api/type/EventDispatcher/removeEventListener.html">object:removeEventListener()</a>
 </p>
-</div>
-<div id="fileapi.type.file" class="section level4">
+</section>
+<section id="fileapi.type.file" class="level4">
 <h4><a href="../api/type/File/index.html">File</a></h4>
 <p class="index">
 <a href="../api/type/File/close.html">object:close()</a>
@@ -2722,11 +2722,11 @@ Notes
 <p class="index">
 <a href="../api/type/File/write.html">object:write()</a>
 </p>
-</div>
-<div id="functionapi.type.function" class="section level4">
+</section>
+<section id="functionapi.type.function" class="level4">
 <h4><a href="../api/type/Function.html">Function</a></h4>
-</div>
-<div id="gamenetworkapi.type.gamenetwork" class="section level4">
+</section>
+<section id="gamenetworkapi.type.gamenetwork" class="level4">
 <h4><a href="../api/type/GameNetwork/index.html">GameNetwork</a></h4>
 <p class="index">
 <a href="../api/type/GameNetwork/match.html">gameNetwork.match</a>
@@ -2740,11 +2740,11 @@ Notes
 <p class="index">
 <a href="../api/type/GameNetwork/status.html">gameNetwork.status</a>
 </p>
-</div>
-<div id="gradientpaintapi.type.gradientpaint" class="section level4">
+</section>
+<section id="gradientpaintapi.type.gradientpaint" class="level4">
 <h4><a href="../api/type/GradientPaint/index.html">GradientPaint</a></h4>
-</div>
-<div id="groupobjectapi.type.groupobject" class="section level4">
+</section>
+<section id="groupobjectapi.type.groupobject" class="level4">
 <h4><a href="../api/type/GroupObject/index.html">GroupObject</a></h4>
 <p class="index">
 <a href="../api/type/GroupObject/anchorChildren.html">object.anchorChildren</a>
@@ -2758,17 +2758,17 @@ Notes
 <p class="index">
 <a href="../api/type/GroupObject/remove.html">object:remove()</a>
 </p>
-</div>
-<div id="imagesheetapi.type.imagesheet" class="section level4">
+</section>
+<section id="imagesheetapi.type.imagesheet" class="level4">
 <h4><a href="../api/type/ImageSheet/index.html">ImageSheet</a></h4>
-</div>
-<div id="imagesheetpaintapi.type.imagesheetpaint" class="section level4">
+</section>
+<section id="imagesheetpaintapi.type.imagesheetpaint" class="level4">
 <h4><a href="../api/type/ImageSheetPaint/index.html">ImageSheetPaint</a></h4>
 <p class="index">
 <a href="../api/type/ImageSheetPaint/frame.html">fill.frame</a>
 </p>
-</div>
-<div id="inputaxisapi.type.inputaxis" class="section level4">
+</section>
+<section id="inputaxisapi.type.inputaxis" class="level4">
 <h4><a href="../api/type/InputAxis/index.html">InputAxis</a></h4>
 <p class="index">
 <a href="../api/type/InputAxis/accuracy.html">object.accuracy</a>
@@ -2788,8 +2788,8 @@ Notes
 <p class="index">
 <a href="../api/type/InputAxis/type.html">object.type</a>
 </p>
-</div>
-<div id="inputdeviceapi.type.inputdevice" class="section level4">
+</section>
+<section id="inputdeviceapi.type.inputdevice" class="level4">
 <h4><a href="../api/type/InputDevice/index.html">InputDevice</a></h4>
 <p class="index">
 <a href="../api/type/InputDevice/MFiProfile.html">object.MFiProfile</a>
@@ -2839,8 +2839,8 @@ Notes
 <p class="index">
 <a href="../api/type/InputDevice/vibrate.html">object:vibrate()</a>
 </p>
-</div>
-<div id="jointapi.type.joint" class="section level4">
+</section>
+<section id="jointapi.type.joint" class="level4">
 <h4><a href="../api/type/Joint/index.html">Joint</a></h4>
 <p class="index">
 <a href="../api/type/Joint/dampingRatio.html">object.dampingRatio</a>
@@ -2971,11 +2971,11 @@ Notes
 <p class="index">
 <a href="../api/type/Joint/springFrequency.html">object.springFrequency</a>
 </p>
-</div>
-<div id="libraryapi.type.library" class="section level4">
+</section>
+<section id="libraryapi.type.library" class="level4">
 <h4><a href="../api/type/Library.html">Library</a></h4>
-</div>
-<div id="lineobjectapi.type.lineobject" class="section level4">
+</section>
+<section id="lineobjectapi.type.lineobject" class="level4">
 <h4><a href="../api/type/LineObject/index.html">LineObject</a></h4>
 <p class="index">
 <a href="../api/type/LineObject/anchorSegments.html">object.anchorSegments</a>
@@ -2983,11 +2983,11 @@ Notes
 <p class="index">
 <a href="../api/type/LineObject/append.html">object:append()</a>
 </p>
-</div>
-<div id="listenerapi.type.listener" class="section level4">
+</section>
+<section id="listenerapi.type.listener" class="level4">
 <h4><a href="../api/type/Listener.html">Listener</a></h4>
-</div>
-<div id="mapapi.type.map" class="section level4">
+</section>
+<section id="mapapi.type.map" class="level4">
 <h4><a href="../api/type/Map/index.html">Map</a></h4>
 <p class="index">
 <a href="../api/type/Map/addMarker.html">object:addMarker()</a>
@@ -3028,11 +3028,11 @@ Notes
 <p class="index">
 <a href="../api/type/Map/setRegion.html">object:setRegion()</a>
 </p>
-</div>
-<div id="maskapi.type.mask" class="section level4">
+</section>
+<section id="maskapi.type.mask" class="level4">
 <h4><a href="../api/type/Mask/index.html">Mask</a></h4>
-</div>
-<div id="nativedisplayobjectapi.type.nativedisplayobject" class="section level4">
+</section>
+<section id="nativedisplayobjectapi.type.nativedisplayobject" class="level4">
 <h4><a href="../api/type/NativeDisplayObject/index.html">NativeDisplayObject</a></h4>
 <p class="index">
 <a href="../api/type/NativeDisplayObject/getNativeProperty.html">object:getNativeProperty()</a>
@@ -3040,14 +3040,14 @@ Notes
 <p class="index">
 <a href="../api/type/NativeDisplayObject/setNativeProperty.html">object:setNativeProperty()</a>
 </p>
-</div>
-<div id="numberapi.type.number" class="section level4">
+</section>
+<section id="numberapi.type.number" class="level4">
 <h4><a href="../api/type/Number.html">Number</a></h4>
-</div>
-<div id="objectapi.type.object" class="section level4">
+</section>
+<section id="objectapi.type.object" class="level4">
 <h4><a href="../api/type/Object.html">Object</a></h4>
-</div>
-<div id="paintapi.type.paint" class="section level4">
+</section>
+<section id="paintapi.type.paint" class="level4">
 <h4><a href="../api/type/Paint/index.html">Paint</a></h4>
 <p class="index">
 <a href="../api/type/Paint/a.html">fill.a</a>
@@ -3070,8 +3070,8 @@ Notes
 <p class="index">
 <a href="../api/type/Paint/r.html">fill.r</a>
 </p>
-</div>
-<div id="particlesystemapi.type.particlesystem" class="section level4">
+</section>
+<section id="particlesystemapi.type.particlesystem" class="level4">
 <h4><a href="../api/type/ParticleSystem/index.html">ParticleSystem</a></h4>
 <p class="index">
 <a href="../api/type/ParticleSystem/applyForce.html">object:applyForce()</a>
@@ -3127,8 +3127,8 @@ Notes
 <p class="index">
 <a href="../api/type/ParticleSystem/rayCast.html">object:rayCast()</a>
 </p>
-</div>
-<div id="pathapi.type.path" class="section level4">
+</section>
+<section id="pathapi.type.path" class="level4">
 <h4><a href="../api/type/Path/index.html">Path</a></h4>
 <p class="index">
 <a href="../api/type/Path/textureBounds.html">path.textureBounds</a>
@@ -3139,8 +3139,8 @@ Notes
 <p class="index">
 <a href="../api/type/Path/type.html">path.type</a>
 </p>
-</div>
-<div id="physicscontactapi.type.physicscontact" class="section level4">
+</section>
+<section id="physicscontactapi.type.physicscontact" class="level4">
 <h4><a href="../api/type/PhysicsContact/index.html">PhysicsContact</a></h4>
 <p class="index">
 <a href="../api/type/PhysicsContact/bounce.html">PhysicsContact.bounce</a>
@@ -3154,8 +3154,8 @@ Notes
 <p class="index">
 <a href="../api/type/PhysicsContact/isTouching.html">PhysicsContact.isTouching</a>
 </p>
-</div>
-<div id="pickerwheelwidgetapi.type.pickerwheelwidget" class="section level4">
+</section>
+<section id="pickerwheelwidgetapi.type.pickerwheelwidget" class="level4">
 <h4><a href="../api/type/PickerWheelWidget/index.html">PickerWheelWidget</a></h4>
 <p class="index">
 <a href="../api/type/PickerWheelWidget/getValues.html">object:getValues()</a>
@@ -3163,8 +3163,8 @@ Notes
 <p class="index">
 <a href="../api/type/PickerWheelWidget/selectValue.html">object:selectValue()</a>
 </p>
-</div>
-<div id="progressviewwidgetapi.type.progressviewwidget" class="section level4">
+</section>
+<section id="progressviewwidgetapi.type.progressviewwidget" class="level4">
 <h4><a href="../api/type/ProgressViewWidget/index.html">ProgressViewWidget</a></h4>
 <p class="index">
 <a href="../api/type/ProgressViewWidget/getProgress.html">object:getProgress()</a>
@@ -3175,8 +3175,8 @@ Notes
 <p class="index">
 <a href="../api/type/ProgressViewWidget/setProgress.html">object:setProgress()</a>
 </p>
-</div>
-<div id="recordingapi.type.recording" class="section level4">
+</section>
+<section id="recordingapi.type.recording" class="level4">
 <h4><a href="../api/type/Recording/index.html">Recording</a></h4>
 <p class="index">
 <a href="../api/type/Recording/getSampleRate.html">object:getSampleRate()</a>
@@ -3193,14 +3193,14 @@ Notes
 <p class="index">
 <a href="../api/type/Recording/stopRecording.html">object:stopRecording()</a>
 </p>
-</div>
-<div id="rectpathapi.type.rectpath" class="section level4">
+</section>
+<section id="rectpathapi.type.rectpath" class="level4">
 <h4><a href="../api/type/RectPath/index.html">RectPath</a></h4>
-</div>
-<div id="roundedrectpathapi.type.roundedrectpath" class="section level4">
+</section>
+<section id="roundedrectpathapi.type.roundedrectpath" class="level4">
 <h4><a href="../api/type/RoundedRectPath/index.html">RoundedRectPath</a></h4>
-</div>
-<div id="runtimeapi.type.runtime" class="section level4">
+</section>
+<section id="runtimeapi.type.runtime" class="level4">
 <h4><a href="../api/type/Runtime/index.html">Runtime</a></h4>
 <p class="index">
 <a href="../api/type/Runtime/getFrameID.html">Runtime:getFrameID()</a>
@@ -3214,11 +3214,11 @@ Notes
 <p class="index">
 <a href="../api/type/Runtime/hideErrorAlerts.html">Runtime:hideErrorAlerts()</a>
 </p>
-</div>
-<div id="sceneapi.type.scene" class="section level4">
+</section>
+<section id="sceneapi.type.scene" class="level4">
 <h4><a href="../api/type/Scene/index.html">Scene</a></h4>
-</div>
-<div id="scrollviewwidgetapi.type.scrollviewwidget" class="section level4">
+</section>
+<section id="scrollviewwidgetapi.type.scrollviewwidget" class="level4">
 <h4><a href="../api/type/ScrollViewWidget/index.html">ScrollViewWidget</a></h4>
 <p class="index">
 <a href="../api/type/ScrollViewWidget/getContentPosition.html">object:getContentPosition()</a>
@@ -3247,8 +3247,8 @@ Notes
 <p class="index">
 <a href="../api/type/ScrollViewWidget/takeFocus.html">object:takeFocus()</a>
 </p>
-</div>
-<div id="segmentedcontrolwidgetapi.type.segmentedcontrolwidget" class="section level4">
+</section>
+<section id="segmentedcontrolwidgetapi.type.segmentedcontrolwidget" class="level4">
 <h4><a href="../api/type/SegmentedControlWidget/index.html">SegmentedControlWidget</a></h4>
 <p class="index">
 <a href="../api/type/SegmentedControlWidget/segmentLabel.html">object.segmentLabel</a>
@@ -3259,8 +3259,8 @@ Notes
 <p class="index">
 <a href="../api/type/SegmentedControlWidget/setActiveSegment.html">object:setActiveSegment()</a>
 </p>
-</div>
-<div id="shapeobjectapi.type.shapeobject" class="section level4">
+</section>
+<section id="shapeobjectapi.type.shapeobject" class="level4">
 <h4><a href="../api/type/ShapeObject/index.html">ShapeObject</a></h4>
 <p class="index">
 <a href="../api/type/ShapeObject/fill.html">object.fill</a>
@@ -3292,8 +3292,8 @@ Notes
 <p class="index">
 <a href="../api/type/ShapeObject/strokeWidth.html">object.strokeWidth</a>
 </p>
-</div>
-<div id="sliderwidgetapi.type.sliderwidget" class="section level4">
+</section>
+<section id="sliderwidgetapi.type.sliderwidget" class="level4">
 <h4><a href="../api/type/SliderWidget/index.html">SliderWidget</a></h4>
 <p class="index">
 <a href="../api/type/SliderWidget/setValue.html">object:setValue()</a>
@@ -3301,8 +3301,8 @@ Notes
 <p class="index">
 <a href="../api/type/SliderWidget/value.html">object.value</a>
 </p>
-</div>
-<div id="snapshotobjectapi.type.snapshotobject" class="section level4">
+</section>
+<section id="snapshotobjectapi.type.snapshotobject" class="level4">
 <h4><a href="../api/type/SnapshotObject/index.html">SnapshotObject</a></h4>
 <p class="index">
 <a href="../api/type/SnapshotObject/canvas.html">object.canvas</a>
@@ -3328,8 +3328,8 @@ Notes
 <p class="index">
 <a href="../api/type/SnapshotObject/textureWrapY.html">object.textureWrapY</a>
 </p>
-</div>
-<div id="spinnerwidgetapi.type.spinnerwidget" class="section level4">
+</section>
+<section id="spinnerwidgetapi.type.spinnerwidget" class="level4">
 <h4><a href="../api/type/SpinnerWidget/index.html">SpinnerWidget</a></h4>
 <p class="index">
 <a href="../api/type/SpinnerWidget/start.html">object:start()</a>
@@ -3337,8 +3337,8 @@ Notes
 <p class="index">
 <a href="../api/type/SpinnerWidget/stop.html">object:stop()</a>
 </p>
-</div>
-<div id="spriteobjectapi.type.spriteobject" class="section level4">
+</section>
+<section id="spriteobjectapi.type.spriteobject" class="level4">
 <h4><a href="../api/type/SpriteObject/index.html">SpriteObject</a></h4>
 <p class="index">
 <a href="../api/type/SpriteObject/frame.html">object.frame</a>
@@ -3370,14 +3370,14 @@ Notes
 <p class="index">
 <a href="../api/type/SpriteObject/useFrameForAnchors.html">object:useFrameForAnchors()</a>
 </p>
-</div>
-<div id="stageobjectapi.type.stageobject" class="section level4">
+</section>
+<section id="stageobjectapi.type.stageobject" class="level4">
 <h4><a href="../api/type/StageObject/index.html">StageObject</a></h4>
 <p class="index">
 <a href="../api/type/StageObject/setFocus.html">StageObject:setFocus()</a>
 </p>
-</div>
-<div id="stepperwidgetapi.type.stepperwidget" class="section level4">
+</section>
+<section id="stepperwidgetapi.type.stepperwidget" class="level4">
 <h4><a href="../api/type/StepperWidget/index.html">StepperWidget</a></h4>
 <p class="index">
 <a href="../api/type/StepperWidget/getValue.html">object:getValue()</a>
@@ -3394,11 +3394,11 @@ Notes
 <p class="index">
 <a href="../api/type/StepperWidget/value.html">object.value</a>
 </p>
-</div>
-<div id="stringapi.type.string" class="section level4">
+</section>
+<section id="stringapi.type.string" class="level4">
 <h4><a href="../api/type/String.html">String</a></h4>
-</div>
-<div id="switchwidgetapi.type.switchwidget" class="section level4">
+</section>
+<section id="switchwidgetapi.type.switchwidget" class="level4">
 <h4><a href="../api/type/SwitchWidget/index.html">SwitchWidget</a></h4>
 <p class="index">
 <a href="../api/type/SwitchWidget/isOn.html">object.isOn</a>
@@ -3406,17 +3406,17 @@ Notes
 <p class="index">
 <a href="../api/type/SwitchWidget/setState.html">object:setState()</a>
 </p>
-</div>
-<div id="tabbarwidgetapi.type.tabbarwidget" class="section level4">
+</section>
+<section id="tabbarwidgetapi.type.tabbarwidget" class="level4">
 <h4><a href="../api/type/TabBarWidget/index.html">TabBarWidget</a></h4>
 <p class="index">
 <a href="../api/type/TabBarWidget/setSelected.html">object:setSelected()</a>
 </p>
-</div>
-<div id="tableapi.type.table" class="section level4">
+</section>
+<section id="tableapi.type.table" class="level4">
 <h4><a href="../api/type/Table.html">Table</a></h4>
-</div>
-<div id="tableviewwidgetapi.type.tableviewwidget" class="section level4">
+</section>
+<section id="tableviewwidgetapi.type.tableviewwidget" class="level4">
 <h4><a href="../api/type/TableViewWidget/index.html">TableViewWidget</a></h4>
 <p class="index">
 <a href="../api/type/TableViewWidget/deleteAllRows.html">object:deleteAllRows()</a>
@@ -3451,8 +3451,8 @@ Notes
 <p class="index">
 <a href="../api/type/TableViewWidget/setIsLocked.html">object:setIsLocked()</a>
 </p>
-</div>
-<div id="textboxapi.type.textbox" class="section level4">
+</section>
+<section id="textboxapi.type.textbox" class="level4">
 <h4><a href="../api/type/TextBox/index.html">TextBox</a></h4>
 <p class="index">
 <a href="../api/type/TextBox/align.html">object.align</a>
@@ -3490,8 +3490,8 @@ Notes
 <p class="index">
 <a href="../api/type/TextBox/text.html">object.text</a>
 </p>
-</div>
-<div id="textfieldapi.type.textfield" class="section level4">
+</section>
+<section id="textfieldapi.type.textfield" class="level4">
 <h4><a href="../api/type/TextField/index.html">TextField</a></h4>
 <p class="index">
 <a href="../api/type/TextField/align.html">object.align</a>
@@ -3547,8 +3547,8 @@ Notes
 <p class="index">
 <a href="../api/type/TextField/text.html">object.text</a>
 </p>
-</div>
-<div id="textobjectapi.type.textobject" class="section level4">
+</section>
+<section id="textobjectapi.type.textobject" class="level4">
 <h4><a href="../api/type/TextObject/index.html">TextObject</a></h4>
 <p class="index">
 <a href="../api/type/TextObject/baselineOffset.html">object.baselineOffset</a>
@@ -3562,8 +3562,8 @@ Notes
 <p class="index">
 <a href="../api/type/TextObject/text.html">object.text</a>
 </p>
-</div>
-<div id="textureresourceapi.type.textureresource" class="section level4">
+</section>
+<section id="textureresourceapi.type.textureresource" class="level4">
 <h4><a href="../api/type/TextureResource/index.html">TextureResource</a></h4>
 <p class="index">
 <a href="../api/type/TextureResource/baseDir.html">texture.baseDir</a>
@@ -3577,8 +3577,8 @@ Notes
 <p class="index">
 <a href="../api/type/TextureResource/type.html">texture.type</a>
 </p>
-</div>
-<div id="textureresourcebitmapapi.type.textureresourcebitmap" class="section level4">
+</section>
+<section id="textureresourcebitmapapi.type.textureresourcebitmap" class="level4">
 <h4><a href="../api/type/TextureResourceBitmap/index.html">TextureResourceBitmap</a></h4>
 <p class="index">
 <a href="../api/type/TextureResourceBitmap/preload.html">texture:preload()</a>
@@ -3589,8 +3589,8 @@ Notes
 <p class="index">
 <a href="../api/type/TextureResourceBitmap/wrapY.html">texture.wrapY</a>
 </p>
-</div>
-<div id="textureresourcecanvasapi.type.textureresourcecanvas" class="section level4">
+</section>
+<section id="textureresourcecanvasapi.type.textureresourcecanvas" class="level4">
 <h4><a href="../api/type/TextureResourceCanvas/index.html">TextureResourceCanvas</a></h4>
 <p class="index">
 <a href="../api/type/TextureResourceCanvas/anchorX.html">texture.anchorX</a>
@@ -3622,8 +3622,8 @@ Notes
 <p class="index">
 <a href="../api/type/TextureResourceCanvas/width.html">texture.width</a>
 </p>
-</div>
-<div id="textureresourceexternalapi.type.textureresourceexternal" class="section level4">
+</section>
+<section id="textureresourceexternalapi.type.textureresourceexternal" class="level4">
 <h4><a href="../api/type/TextureResourceExternal/index.html">TextureResourceExternal</a></h4>
 <p class="index">
 <a href="../api/type/TextureResourceExternal/height.html">texture.height</a>
@@ -3634,11 +3634,11 @@ Notes
 <p class="index">
 <a href="../api/type/TextureResourceExternal/width.html">texture.width</a>
 </p>
-</div>
-<div id="userdataapi.type.userdata" class="section level4">
+</section>
+<section id="userdataapi.type.userdata" class="level4">
 <h4><a href="../api/type/Userdata.html">Userdata</a></h4>
-</div>
-<div id="videoapi.type.video" class="section level4">
+</section>
+<section id="videoapi.type.video" class="level4">
 <h4><a href="../api/type/Video/index.html">Video</a></h4>
 <p class="index">
 <a href="../api/type/Video/currentTime.html">object.currentTime</a>
@@ -3661,8 +3661,8 @@ Notes
 <p class="index">
 <a href="../api/type/Video/totalTime.html">object.totalTime</a>
 </p>
-</div>
-<div id="webviewapi.type.webview" class="section level4">
+</section>
+<section id="webviewapi.type.webview" class="level4">
 <h4><a href="../api/type/WebView/index.html">WebView</a></h4>
 <p class="index">
 <a href="../api/type/WebView/back.html">object:back()</a>
@@ -3691,9 +3691,9 @@ Notes
 <p class="index">
 <a href="../api/type/WebView/stop.html">object:stop()</a>
 </p>
-</div>
-</div>
-<div id="section" class="section level2">
+</section>
+</section>
+<section id="section" class="level2">
 <h2></h2>
 <hr>
 <div id="footer">
@@ -3705,8 +3705,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Steamworks | setAchievementProgress</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -70,43 +70,43 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/steamworks/index.html">Steamworks</a>  ▸  <a href="../../plugin/steamworks/setAchievementProgress.html">setAchievementProgress</a>
 </div>
-<div id="steamworks.setachievementprogress" class="section level1">
+<section id="steamworks.setachievementprogress" class="level1">
 <h1>steamworks.setAchievementProgress()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left"><a href="../../api/type/Boolean.html">Boolean</a></td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Boolean.html">Boolean</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">steam, steamworks, achievements, setAchievementProgress</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">steam, steamworks, achievements, setAchievementProgress</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../plugin/steamworks/setAchievementUnlocked.html">steamworks.setAchievementUnlocked()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../plugin/steamworks/setAchievementUnlocked.html">steamworks.setAchievementUnlocked()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/steamworks/event/achievementInfoUpdate/index.html">achievementInfoUpdate</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/steamworks/event/achievementInfoUpdate/index.html">achievementInfoUpdate</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/steamworks/index.html">steamworks.*</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/steamworks/index.html">steamworks.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Sets the amount of progress made towards one achievement for the current user. This is mostly intended for display purposes. Calling this function will trigger a Steam notification popup to be displayed to the user, indicating their current progress, but only if overlays are enabled by the user in the Steam client. If the given progress <code>value</code> argument is greater than or equal to the given <code>maxValue</code> argument, the achievement will be automatically unlocked.</p>
 <p>Returns <code>true</code> if achievement progression was successfully updated.</p>
@@ -115,30 +115,30 @@
 <div class="notebox-title">
 Note
 </div>
-<p>You can control where Steam's notification popup will appear within the app by using the <a href="../../plugin/steamworks/setNotificationPosition.html">steamworks.setNotificationPosition()</a> function.</p>
+<p>You can control where Steam’s notification popup will appear within the app by using the <a href="../../plugin/steamworks/setNotificationPosition.html">steamworks.setNotificationPosition()</a> function.</p>
 </div>
-</div>
-<div id="gotchas" class="section level2">
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
-<p>Steam does not save the amount of progress made towards an achievement. Steam only saves an achievement's lock/unlock status. This means that it's up to the application developer to track and store this amount outside of Steam, such as to file, until it has been unlocked.</p>
-</div>
-<div id="syntax" class="section level2">
+<p>Steam does not save the amount of progress made towards an achievement. Steam only saves an achievement’s lock/unlock status. This means that it’s up to the application developer to track and store this amount outside of Steam, such as to file, until it has been unlocked.</p>
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">steamworks.setAchievementProgress( achievementName, value, maxValue )</pre>
-<div id="achievementname-required" class="section level5">
+<section id="achievementname-required" class="level5">
 <h5>achievementName <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> On the Steamworks website, this is the unique name of the achievement set under the <nobr><strong>API Name Progress Stat</strong></nobr> column.</p>
-</div>
-<div id="value-required" class="section level5">
+</section>
+<section id="value-required" class="level5">
 <h5>value <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Number.html">Number</a>.</em> Integer indicating the current progress made towards the achievement, ranging between <code>0</code> and the <code>maxValue</code> argument.</p>
-</div>
-<div id="maxvalue-required" class="section level5">
+</section>
+<section id="maxvalue-required" class="level5">
 <h5>maxValue <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Number.html">Number</a>.</em> Integer defining the maximum progression value until the achievement will be unlocked.</p>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local steamworks = require( "plugin.steamworks" )
 
@@ -154,8 +154,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

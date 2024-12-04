@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Building/Distribution</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -65,7 +65,7 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/distribution/index.html">Building/Distribution</a>
 </div>
-<div id="app-localization-ios" class="section level1">
+<section id="app-localization-ios" class="level1">
 <h1>App Localization — iOS</h1>
 <p>This guide explains how to localize an iOS app for multiple languages/marketplaces.</p>
 <div class="guides-toc">
@@ -76,10 +76,10 @@
 </ul>
 </div>
 <p><a id="bundlelocalizations"></a></p>
-<div id="bundle-localizations" class="section level2">
+<section id="bundle-localizations" class="level2">
 <h2>Bundle Localizations</h2>
 <p>The first step in localizing an app is determining which languages you wish to support. Once this is determined:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>Locate the appropriate <nobr>2-character</nobr> <nobr><strong>ISO 639-1</strong></nobr> <a href="https://www.loc.gov/standards/iso639-2/php/code_list.php">language code</a> for each.</p></li>
 <li><p>In the project <code>build.settings</code> file, add these language codes to a <code>CFBundleLocalizations</code> table within the <nobr><code>settings</code> → <code>iphone</code> → <code>plist</code></nobr> table. The order is not important, but make sure that each entry is the <nobr>2-character</nobr> string value appropriate to the language, for example:</p></li>
 </ol>
@@ -104,7 +104,7 @@
     },
 }</pre>
 </div>
-<ol start="3" style="list-style-type: decimal">
+<ol start="3" type="1">
 <li>Add the <code>CFBundleDisplayName</code> and <code>CFBundleName</code> keys as the app defaults (see <a href="../../../guide/distribution/buildSettings/index.html">Project Build Settings</a> for details). Note that these should reside inside the <code>plist</code> table but outside the <code>CFBundleLocalizations</code> table.</li>
 </ol>
 <div class="image-indent">
@@ -131,12 +131,12 @@
 }</pre>
 </div>
 <p><a id="lproj"></a></p>
-</div>
-<div id="localized-project-folders" class="section level2">
+</section>
+<section id="localized-project-folders" class="level2">
 <h2>Localized Project Folders</h2>
 <p>The second step involves creating a <strong>localized project folder</strong> for each language in the root project directory alongside <code>main.lua</code>.</p>
-<ol style="list-style-type: decimal">
-<li>For each language that you specified in the <code>CFBundleLocalizations</code> table within <code>build.settings</code>, create a new <code>xx.lproj</code> folder in the app's root directory, where <code>xx</code> represents the <nobr>2-character</nobr> language code.</li>
+<ol type="1">
+<li>For each language that you specified in the <code>CFBundleLocalizations</code> table within <code>build.settings</code>, create a new <code>xx.lproj</code> folder in the app’s root directory, where <code>xx</code> represents the <nobr>2-character</nobr> language code.</li>
 </ol>
 <div class="image-indent">
 <div class="guide-notebox-imp">
@@ -148,21 +148,15 @@ Important
 <li><p>Each folder must follow <nobr>case-sensitive</nobr> naming. For instance, the proper folder name for English is <code>en.lproj</code>, not <code>EN.lproj</code>.</p></li>
 </ul>
 </div>
-<div class="figure">
-<img src="../../../images/simulator/localizedfolders1.png" />
-
+<p><img src="../../../images/simulator/localizedfolders1.png" /></p>
 </div>
-</div>
-<ol start="2" style="list-style-type: decimal">
+<ol start="2" type="1">
 <li>Within each of these localized project folders, create a new text file titled <code>InfoPlist.strings</code>:</li>
 </ol>
 <div class="image-indent">
-<div class="figure">
-<img src="../../../images/simulator/localizedfolders2.png" />
-
+<p><img src="../../../images/simulator/localizedfolders2.png" /></p>
 </div>
-</div>
-<ol start="3" style="list-style-type: decimal">
+<ol start="3" type="1">
 <li>As the contents for each <code>InfoPlist.strings</code> file, specify both a <code>CFBundleDisplayName</code> and <code>CFBundleName</code> line with the proper title for that language, for example:</li>
 </ol>
 <div class="image-indent" style="width: 500px;">
@@ -177,11 +171,11 @@ CFBundleName = "La princesa";</pre>
 CFBundleName = "공주 패션쇼";</pre>
 </div>
 <p><a id="testing"></a></p>
-</div>
-<div id="language-testing" class="section level2">
+</section>
+<section id="language-testing" class="level2">
 <h2>Language Testing</h2>
 <p>Once the above steps are complete, you can test the bundle names locally to ensure that the localized names appear.</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>Build the app as outlined in the <strong>Build Process</strong> section of the <a href="../../../guide/distribution/iOSBuild/index.html">Provisioning and Building</a> guide.</p></li>
 <li><p>Install the app as described under <strong>Device Installation</strong> in the <a href="../../../guide/distribution/iOSBuild/index.html">Provisioning and Building</a> guide.</p></li>
 <li><p>Change the device language setting via <strong>Settings</strong> → <strong>General</strong> → <nobr><strong>Language &amp; Region</strong></nobr> and choose one of the languages within your localization setup. If you configured everything as outlined, the app name should appear as the name you defined for <code>CFBundleDisplayName</code> in the respective <code>InfoPlist.strings</code> file.</p></li>
@@ -202,8 +196,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

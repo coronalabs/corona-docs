@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | UTF-8 | width</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -69,62 +69,62 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/utf8/index.html">UTF-8</a>  ▸  <a href="../../plugin/utf8/width.html">width</a>
 </div>
-<div id="utf8.width" class="section level1">
+<section id="utf8.width" class="level1">
 <h1>utf8.width()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../plugin/utf8/index.html">utf8.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../plugin/utf8/index.html">utf8.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Return value</strong></td>
-<td align="left"><a href="../../api/type/Number.html">Number</a></td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Number.html">Number</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">utf8, UTF-8, Unicode, string, width</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">utf8, UTF-8, Unicode, string, width</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
-<p>Calculates the width of <nobr>UTF-8</nobr> string <code>s</code> in terms of character positions, taking into account whether characters are <nobr>double-width</nobr>, &quot;compose&quot; characters (typically accents), unprintable, or regular <nobr>single-width</nobr> characters.</p>
-<p>Note that this is an approximation which may be useful, but it's limited to circumstances where a monospace width estimate is appropriate.</p>
+<p>Calculates the width of <nobr>UTF-8</nobr> string <code>s</code> in terms of character positions, taking into account whether characters are <nobr>double-width</nobr>, “compose” characters (typically accents), unprintable, or regular <nobr>single-width</nobr> characters.</p>
+<p>Note that this is an approximation which may be useful, but it’s limited to circumstances where a monospace width estimate is appropriate.</p>
 <p>The return value of this function depends on usage:</p>
 <ul>
 <li><p>If <code>s</code> is a code point, returns the width of that code point.</p></li>
-<li><p>If <code>ambiIsDouble</code> is specified and <code>true</code>, the ambiguous width character's width is <code>2</code>; otherwise it's <code>1</code>. For comparison, the width of <nobr>full-width</nobr> and <nobr>double-width</nobr> characters is <code>2</code> while other characters have a width of <code>1</code>.</p></li>
+<li><p>If <code>ambiIsDouble</code> is specified and <code>true</code>, the ambiguous width character’s width is <code>2</code>; otherwise it’s <code>1</code>. For comparison, the width of <nobr>full-width</nobr> and <nobr>double-width</nobr> characters is <code>2</code> while other characters have a width of <code>1</code>.</p></li>
 <li><p>If <code>defaultWidth</code> is specified, it will be used as the width for unprintable characters.</p></li>
 </ul>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">utf8.width( s [, ambiIsDouble [, defaultWidth]] )</pre>
-<div id="s-required" class="section level5">
+<section id="s-required" class="level5">
 <h5>s <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> The string to examine.</p>
-</div>
-<div id="ambiisdouble-optional" class="section level5">
+</section>
+<section id="ambiisdouble-optional" class="level5">
 <h5>ambiIsDouble <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> If <code>true</code>, the ambiguous width character's width is regarded as <code>2</code>; otherwise it's regarded as <code>1</code>.</p>
-</div>
-<div id="defaultwidth-optional" class="section level5">
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> If <code>true</code>, the ambiguous width character’s width is regarded as <code>2</code>; otherwise it’s regarded as <code>1</code>.</p>
+</section>
+<section id="defaultwidth-optional" class="level5">
 <h5>defaultWidth <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Number.html">Number</a>.</em> If specified, this value will be used as the width for unprintable characters.</p>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local utf8 = require( "plugin.utf8" )
 
@@ -143,8 +143,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

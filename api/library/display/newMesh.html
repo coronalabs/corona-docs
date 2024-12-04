@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | display | newMesh</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -97,155 +97,152 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/display/index.html">display</a>  ▸  <a href="../../../api/library/display/newMesh.html">newMesh</a>
 </div>
-<div id="display.newmesh" class="section level1">
+<section id="display.newmesh" class="level1">
 <h1>display.newMesh()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/display/index.html">display.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Return value</strong></td>
-<td align="left"><a href="../../../api/type/ShapeObject/index.html">ShapeObject</a></td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/ShapeObject/index.html">ShapeObject</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">shape, mesh, vector object</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">shape, mesh, vector object</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../guide/graphics/path.html">Shapes — Paths, Fills, Strokes</a> <em>(guide)</em></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../guide/graphics/path.html">Shapes — Paths, Fills, Strokes</a> <em>(guide)</em></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../guide/media/displayObjects/index.html">Display Objects</a> <em>(guide)</em></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../guide/media/displayObjects/index.html">Display Objects</a> <em>(guide)</em></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Draws a mesh shape by providing vertices of the shape. The local origin is at the center of the mesh and the <a href="../../../guide/graphics/transform-anchor.html">anchor point</a> is initialized to this local origin.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">display.newMesh( [parent,] [x, y,] options )
 
 display.newMesh( options )</pre>
-<div id="parent-optional" class="section level5">
+<section id="parent-optional" class="level5">
 <h5>parent <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/GroupObject/index.html">GroupObject</a>.</em> An optional display group in which to insert the mesh.</p>
-</div>
-<div id="x-y-optional" class="section level5">
+</section>
+<section id="x-y-optional" class="level5">
 <h5>x / y <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The location of the object relative to its parent.</p>
-</div>
-<div id="options-required" class="section level5">
+</section>
+<section id="options-required" class="level5">
 <h5>options <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Table.html">Table</a>.</em> Table containing options for the mesh — see the next section for details.</p>
-</div>
-</div>
-<div id="options-reference" class="section level2">
+</section>
+</section>
+<section id="options-reference" class="level2">
 <h2>Options Reference</h2>
 <p>The <code>options</code> table accepts the following parameters for the mesh:</p>
-<div id="vertices-required" class="section level5">
+<section id="vertices-required" class="level5">
 <h5>vertices <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Array.html">Array</a>.</em> An array of <strong>x</strong> and <strong>y</strong> coordinates of vertices forming the mesh. Meshes are built with these vertices depending on the <code>mode</code> parameter.</p>
-</div>
-<div id="parent-optional-1" class="section level5">
+</section>
+<section id="parent-optional-1" class="level5">
 <h5>parent <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/GroupObject/index.html">GroupObject</a>.</em> An optional display group in which to insert the mesh. If included here, this will override any <code>parent</code> definition specified outside of the <code>options</code> table.</p>
-</div>
-<div id="x-y-optional-1" class="section level5">
+</section>
+<section id="x-y-optional-1" class="level5">
 <h5>x / y <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The location of the object relative to its parent. If included here, these will override any <code>x</code> or <code>y</code> definitions specified outside of the <code>options</code> table.</p>
-</div>
-<div id="mode-optional" class="section level5">
+</section>
+<section id="mode-optional" class="level5">
 <h5>mode <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../../api/type/String.html">String</a>.</em> String indicating how the mesh should be formed with the provided vertices. Default is <code>&quot;triangles&quot;</code>. Acceptable values are <code>&quot;triangles&quot;</code>, <code>&quot;strip&quot;</code>, <code>&quot;fan&quot;</code>, or <code>&quot;indexed&quot;</code>. See <a href="#modes">Mesh Draw Modes</a> below for a description of each mode.</p>
-</div>
-<div id="indices-optional" class="section level5">
+<p><em><a href="../../../api/type/String.html">String</a>.</em> String indicating how the mesh should be formed with the provided vertices. Default is <code>"triangles"</code>. Acceptable values are <code>"triangles"</code>, <code>"strip"</code>, <code>"fan"</code>, or <code>"indexed"</code>. See <a href="#modes">Mesh Draw Modes</a> below for a description of each mode.</p>
+</section>
+<section id="indices-optional" class="level5">
 <h5>indices <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../../api/type/Array.html">Array</a>.</em> An array of indices required for <code>mode</code> type of <code>&quot;indexed&quot;</code>. For example, to mimic the behavior of the <code>&quot;strip&quot;</code> mode, the value of this parameter could be <nobr><code>{ 1,2,3, 2,3,4, 3,4,5 }</code></nobr>.</p>
-</div>
-<div id="zerobasedindices-optional" class="section level5">
+<p><em><a href="../../../api/type/Array.html">Array</a>.</em> An array of indices required for <code>mode</code> type of <code>"indexed"</code>. For example, to mimic the behavior of the <code>"strip"</code> mode, the value of this parameter could be <nobr><code>{ 1,2,3, 2,3,4, 3,4,5 }</code></nobr>.</p>
+</section>
+<section id="zerobasedindices-optional" class="level5">
 <h5>zeroBasedIndices <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Boolean.html">Boolean</a>.</em> Convenience parameter with default of <code>false</code>. If set to <code>true</code>, the <code>indices</code> array will be treated as a <nobr>zero-based</nobr> array.</p>
-</div>
-<div id="uvs-optional" class="section level5">
+</section>
+<section id="uvs-optional" class="level5">
 <h5>uvs <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Array.html">Array</a>.</em> An array of <strong>u</strong> and <strong>v</strong> texture coordinates of vertices forming the mesh. If omitted or invalid, UVs will be automatically assigned based on normalized <code>vertices</code> values. Texture coordinates are normalized coordinates where <code>0,0</code> is the <nobr>top-left</nobr> corner of the image and <code>1,1</code> is the <nobr>bottom-right</nobr> corner of the image.</p>
 <p><a id="modes"></a></p>
-</div>
-</div>
-<div id="mesh-draw-modes" class="section level2">
+</section>
+</section>
+<section id="mesh-draw-modes" class="level2">
 <h2>Mesh Draw Modes</h2>
 <div style="max-width: 600px;">
-<div class="figure">
-<img src="../../../images/simulator/meshes.png" />
-
+<p><img src="../../../images/simulator/meshes.png" /></p>
 </div>
-</div>
-<div id="trianglesindexed" class="section level3">
+<section id="trianglesindexed" class="level3">
 <h3>triangles/indexed</h3>
-<p>Meshes with a <code>mode</code> of <code>&quot;triangles&quot;</code> or <code>&quot;indexed&quot;</code> are formed with disjointed groups of three consecutive vertices. An example of a <code>&quot;triangles&quot;</code> mode could have vertices with indices <code>1,2,3</code>, <code>4,5,6</code>, and <code>7,8,9</code>. Note, however, that the <code>&quot;triangles&quot;</code> mode may result in duplicate vertices shared by several triangles — to avoid this, you can use the <code>&quot;indexed&quot;</code> type and define an <code>indices</code> table with indices pointing to the vertices used.</p>
-<p>While these methods can be used to encode any mesh, they both have some duplication if a vertex is used by several triangles. In the case of <code>&quot;triangles&quot;</code>, this is the vertices themselves. In the case of <code>&quot;indexed&quot;</code>, this is the vertex indices. Duplicating indices is much cheaper because they're single integer numbers, not an entire vertex with coordinates and texture coordinates.</p>
-<p>In some cases, this duplication can be avoided via the <code>&quot;strip&quot;</code> or <code>&quot;fan&quot;</code> mode (see below).</p>
-</div>
-<div id="strip" class="section level3">
+<p>Meshes with a <code>mode</code> of <code>"triangles"</code> or <code>"indexed"</code> are formed with disjointed groups of three consecutive vertices. An example of a <code>"triangles"</code> mode could have vertices with indices <code>1,2,3</code>, <code>4,5,6</code>, and <code>7,8,9</code>. Note, however, that the <code>"triangles"</code> mode may result in duplicate vertices shared by several triangles — to avoid this, you can use the <code>"indexed"</code> type and define an <code>indices</code> table with indices pointing to the vertices used.</p>
+<p>While these methods can be used to encode any mesh, they both have some duplication if a vertex is used by several triangles. In the case of <code>"triangles"</code>, this is the vertices themselves. In the case of <code>"indexed"</code>, this is the vertex indices. Duplicating indices is much cheaper because they’re single integer numbers, not an entire vertex with coordinates and texture coordinates.</p>
+<p>In some cases, this duplication can be avoided via the <code>"strip"</code> or <code>"fan"</code> mode (see below).</p>
+</section>
+<section id="strip" class="level3">
 <h3>strip</h3>
-<p>Meshes with a <code>mode</code> of <code>&quot;strip&quot;</code> are formed with three consecutive vertices. An example could have vertices with indices <code>1,2,3</code>, <code>2,3,4</code>, and <code>3,4,5</code>. For more information on this type, see <a href="https://en.wikipedia.org/wiki/Triangle_strip">here</a>.</p>
-</div>
-<div id="fan" class="section level3">
+<p>Meshes with a <code>mode</code> of <code>"strip"</code> are formed with three consecutive vertices. An example could have vertices with indices <code>1,2,3</code>, <code>2,3,4</code>, and <code>3,4,5</code>. For more information on this type, see <a href="https://en.wikipedia.org/wiki/Triangle_strip">here</a>.</p>
+</section>
+<section id="fan" class="level3">
 <h3>fan</h3>
-<p>Meshes with a <code>mode</code> of <code>&quot;fan&quot;</code> are formed with an initial vertex and two ending vertices. An example could have vertices with indices <code>1,2,3</code>, <code>1,3,4</code>, and <code>1,4,5</code>. For more information on this type, see <a href="https://en.wikipedia.org/wiki/Triangle_fan">here</a>.</p>
-</div>
-</div>
-<div id="gotchas" class="section level2">
+<p>Meshes with a <code>mode</code> of <code>"fan"</code> are formed with an initial vertex and two ending vertices. An example could have vertices with indices <code>1,2,3</code>, <code>1,3,4</code>, and <code>1,4,5</code>. For more information on this type, see <a href="https://en.wikipedia.org/wiki/Triangle_fan">here</a>.</p>
+</section>
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
 <ul>
 <li><p>Vertices will be visually shifted so that the center of the mesh will be at the origin of the object. This does not change values when accessing vertices.</p></li>
 <li><p>The origin will not be adjusted to the center of the mesh when modifying the mesh.</p></li>
 <li><p>When referencing the <code>index</code> parameter of any method, you must point to an existing vertex.</p></li>
 <li><p>If an invalid mesh is requested, this function will return <code>nil</code>.</p></li>
-<li><p>Setting the stroke for a mesh with <code>mode</code> value of <code>&quot;triangles&quot;</code> or <code>&quot;indices&quot;</code> can impact performance if the mesh has a lot of vertices.</p></li>
+<li><p>Setting the stroke for a mesh with <code>mode</code> value of <code>"triangles"</code> or <code>"indices"</code> can impact performance if the mesh has a lot of vertices.</p></li>
 </ul>
-</div>
-<div id="methods" class="section level2">
+</section>
+<section id="methods" class="level2">
 <h2>Methods</h2>
 <p><em>(Inherits properties from <a href="../../../api/type/ShapeObject/index.html">ShapeObject</a>)</em></p>
 <p>Shape objects have a <code>path</code> property that exposes methods to manipulate the mesh. Most methods accept the <code>index</code> parameter which is the Lua array index of the vertex in question (the first vertex would have an index of <code>1</code>). All arguments are <a href="../../../api/type/Number.html">numbers</a>.</p>
-<div id="object.pathsetvertex" class="section level5">
+<section id="object.pathsetvertex" class="level5">
 <h5>object.path:setVertex()</h5>
 <p>Sets the vertex with index <code>index</code> to coordinates <code>x</code> and <code>y</code>:</p>
 <pre class="brush: lua;">object.path:setVertex( index, x, y )</pre>
-</div>
-<div id="object.pathgetvertex" class="section level5">
+</section>
+<section id="object.pathgetvertex" class="level5">
 <h5>object.path:getVertex()</h5>
-<p>Returns two <a href="../../../api/type/Number.html">numbers</a> corresponding to a vertex's coordinates:</p>
+<p>Returns two <a href="../../../api/type/Number.html">numbers</a> corresponding to a vertex’s coordinates:</p>
 <pre class="brush: lua;">object.path:getVertex( index )</pre>
-</div>
-<div id="object.pathsetuv" class="section level5">
+</section>
+<section id="object.pathsetuv" class="level5">
 <h5>object.path:setUV()</h5>
 <p>Sets the vertex with index <code>index</code> to texture coordinates <code>u</code> and <code>v</code>:</p>
 <pre class="brush: lua;">object.path:setUV( index, u, v )</pre>
-</div>
-<div id="object.pathgetuv" class="section level5">
+</section>
+<section id="object.pathgetuv" class="level5">
 <h5>object.path:getUV()</h5>
-<p>Returns two <a href="../../../api/type/Number.html">numbers</a> corresponding to a vertex's texture coordinates:</p>
+<p>Returns two <a href="../../../api/type/Number.html">numbers</a> corresponding to a vertex’s texture coordinates:</p>
 <pre class="brush: lua;">object.path:getUV( index )</pre>
-</div>
-<div id="object.pathgetvertexoffset" class="section level5">
+</section>
+<section id="object.pathgetvertexoffset" class="level5">
 <h5>object.path:getVertexOffset()</h5>
 <p>Returns two <a href="../../../api/type/Number.html">numbers</a> corresponding to the horizontal and vertical offsets applied when moving the origin to the center of the mesh. You can offset the mesh object by these values to compensate for initial shift and get precise vertex positions in world coordinates.</p>
 <div style="margin-bottom: -10px;">
@@ -253,8 +250,8 @@ display.newMesh( options )</pre>
 </div>
 <p>Note that a vertex with coordinates <code>x</code> and <code>y</code> will have world coordinates of <nobr><code>mesh.x + x - offsetX</code></nobr> and <nobr><code>mesh.y + y - offsetY</code></nobr> respectively, assuming no scaling is applied. Consider the following command which shifts the object by the offsets and puts a vertex at <code>0,0</code> into the previous object origin:</p>
 <pre class="brush: lua;">mesh:translate( mesh.path:getVertexOffset() )</pre>
-</div>
-<div id="object.pathupdate" class="section level5">
+</section>
+<section id="object.pathupdate" class="level5">
 <h5>object.path:update()</h5>
 <p>Updates the mesh’s <code>vertices</code>, <code>uvs</code> and <code>indices</code>:</p>
 <div style="margin-bottom: -10px;">
@@ -267,11 +264,11 @@ display.newMesh( options )</pre>
     indices = {}
 }
 mesh.path:update( options )</pre>
-</div>
-</div>
-<div id="examples" class="section level2">
+</section>
+</section>
+<section id="examples" class="level2">
 <h2>Examples</h2>
-<div id="triangles-mode" class="section level5">
+<section id="triangles-mode" class="level5">
 <h5>Triangles Mode</h5>
 <pre class="brush: lua;">local mesh = display.newMesh(
     {
@@ -295,8 +292,8 @@ mesh.fill = { type="image", filename="cat.png" }
 
 local vertexX, vertexY = mesh.path:getVertex( 3 )
 mesh.path:setVertex( 3, vertexX, vertexY-10 )</pre>
-</div>
-<div id="indexed-mode" class="section level5">
+</section>
+<section id="indexed-mode" class="level5">
 <h5>Indexed Mode</h5>
 <pre class="brush: lua;">local mesh = display.newMesh(
     {
@@ -318,8 +315,8 @@ mesh.fill = { type="image", filename="cat.png" }
 
 local vertexX, vertexY = mesh.path:getVertex( 3 )
 mesh.path:setVertex( 3, vertexX, vertexY-10 )</pre>
-</div>
-<div id="strip-mode" class="section level5">
+</section>
+<section id="strip-mode" class="level5">
 <h5>Strip Mode</h5>
 <pre class="brush: lua;">local mesh = display.newMesh(
     {
@@ -338,8 +335,8 @@ mesh.fill = { type="image", filename="cat.png" }
 
 local vertexX, vertexY = mesh.path:getVertex( 3 )
 mesh.path:setVertex( 3, vertexX, vertexY-10 )</pre>
-</div>
-<div id="fan-mode" class="section level5">
+</section>
+<section id="fan-mode" class="level5">
 <h5>Fan Mode</h5>
 <pre class="brush: lua;">local mesh = display.newMesh(
     {
@@ -367,9 +364,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

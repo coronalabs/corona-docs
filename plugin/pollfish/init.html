@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Pollfish | init</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -73,81 +73,81 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/pollfish/index.html">Pollfish</a>  ▸  <a href="../../plugin/pollfish/init.html">init</a>
 </div>
-<div id="pollfish.init" class="section level1">
+<section id="pollfish.init" class="level1">
 <h1>pollfish.init()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">ads, advertising, Pollfish, init</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">ads, advertising, Pollfish, init</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../plugin/pollfish/show.html">pollfish.show()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../plugin/pollfish/show.html">pollfish.show()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/pollfish/index.html">pollfish.*</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/pollfish/index.html">pollfish.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
-<p><code>pollfish.init()</code> initializes the Pollfish plugin. Once called, you must wait for an <a href="../../plugin/pollfish/event/adsRequest/phase.html">event.phase</a> of <code>&quot;init&quot;</code> before loading a survey with <a href="../../plugin/pollfish/load.html">pollfish.load()</a>.</p>
+<p><code>pollfish.init()</code> initializes the Pollfish plugin. Once called, you must wait for an <a href="../../plugin/pollfish/event/adsRequest/phase.html">event.phase</a> of <code>"init"</code> before loading a survey with <a href="../../plugin/pollfish/load.html">pollfish.load()</a>.</p>
 <div class="guide-notebox">
 <div class="notebox-title">
 Note
 </div>
 <p>This call requires an API key which can be obtained from the <a href="https://www.pollfish.com/publisher">Pollfish portal</a>.</p>
 </div>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">pollfish.init( adListener, params )</pre>
-<div id="adlistener-required" class="section level5">
+<section id="adlistener-required" class="level5">
 <h5>adListener <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Listener.html">Listener</a>.</em> Listener function that will receive <a href="../../plugin/pollfish/event/adsRequest/index.html">adsRequest</a> events.</p>
-</div>
-<div id="params-required" class="section level5">
+</section>
+<section id="params-required" class="level5">
 <h5>params <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> Table containing Pollfish initialization values — see the next section for details.</p>
-</div>
-</div>
-<div id="parameter-reference" class="section level2">
+</section>
+</section>
+<section id="parameter-reference" class="level2">
 <h2>Parameter Reference</h2>
 <p>The <code>params</code> table includes the following parameters for the Pollfish initialization.</p>
-<div id="apikey-required" class="section level5">
+<section id="apikey-required" class="level5">
 <h5>apiKey <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> Your API key from the <a href="https://www.pollfish.com/publisher">Pollfish portal</a>.</p>
-</div>
-<div id="developermode-optional" class="section level5">
+</section>
+<section id="developermode-optional" class="level5">
 <h5>developerMode <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> Setting this to <code>true</code> activates developer mode. Default is <code>false</code>.</p>
 <ul>
 <li><p><code>true</code> is used to help the developer test how Pollfish surveys will behave in the app (no paid surveys are presented).</p></li>
 <li><p><code>false</code> activates release mode. Use this mode for apps released to the app store (start receiving paid surveys).</p></li>
 </ul>
-</div>
-<div id="requestuuid-optional" class="section level5">
+</section>
+<section id="requestuuid-optional" class="level5">
 <h5>requestUUID <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> A unique ID to identify a user. This ID is also passed through <nobr>server-to-server</nobr> callbacks.</p>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local pollfish = require( "plugin.pollfish" )
 
@@ -156,7 +156,7 @@ local function adListener( event )
     if ( event.phase == "init" ) then  -- Successful initialization
         pollfish.load()
     end
-    
+
 end
 
 -- Initialize the Pollfish plugin
@@ -171,8 +171,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

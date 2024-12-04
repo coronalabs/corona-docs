@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — CoronaCards | Windows Phone 8 | communication</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -55,7 +55,7 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#coronacards-windowsphone8">CoronaCards — Windows Phone 8</a><ul>
+<li><a href="#coronacards-windows-phone-8">CoronaCards — Windows Phone 8</a><ul>
 <li><a href="#lua.net-communication">Lua/.NET Communication</a></li>
 <li><a href="#c-to-lua">C# to Lua</a></li>
 <li><a href="#lua-to-c">Lua to C#</a></li>
@@ -67,15 +67,15 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../coronacards/index.html">CoronaCards</a>  ▸  <a href="../../coronacards/wp8/index.html">Windows Phone 8</a>  ▸  <a href="../../coronacards/wp8/communication.html">communication</a>
 </div>
-<div id="coronacards-windowsphone8" class="section level1">
+<section id="coronacards-windows-phone-8" class="level1">
 <h1>CoronaCards — Windows Phone 8</h1>
-<div id="lua.net-communication" class="section level2">
+<section id="lua.net-communication" class="level2">
 <h2>Lua/.NET Communication</h2>
-<p>Interop communication between the Lua environment and the .NET <nobr>(C# or Visual Basic)</nobr> or C++/CX component environments is performed via Corona Runtime events. When a <code>CoronaPanel</code> XAML control loads a Corona project, it raises a &quot;Loaded&quot; event which provides a new instance of the <code>CoronaRuntimeEnvironment</code> class. This instance represents the loaded Lua environment of your project and, using this object, you can listen for and dispatch Corona Runtime events in Lua.</p>
-</div>
-<div id="c-to-lua" class="section level2">
+<p>Interop communication between the Lua environment and the .NET <nobr>(C# or Visual Basic)</nobr> or C++/CX component environments is performed via Corona Runtime events. When a <code>CoronaPanel</code> XAML control loads a Corona project, it raises a “Loaded” event which provides a new instance of the <code>CoronaRuntimeEnvironment</code> class. This instance represents the loaded Lua environment of your project and, using this object, you can listen for and dispatch Corona Runtime events in Lua.</p>
+</section>
+<section id="c-to-lua" class="level2">
 <h2>C# to Lua</h2>
-<p>The following example illustrates C# requesting Lua to sum two numbers and return the result back to C#. This is accomplished by having C# dispatch an event to Lua named <code>&quot;requestingSum&quot;</code> with two number properties. This is received by a Lua listener which then returns the sum back to C#.</p>
+<p>The following example illustrates C# requesting Lua to sum two numbers and return the result back to C#. This is accomplished by having C# dispatch an event to Lua named <code>"requestingSum"</code> with two number properties. This is received by a Lua listener which then returns the sum back to C#.</p>
 <pre class="brush: lua;">// [C#]
 
 /// &lt;summary>Constructor. Initializes member variables and the user interface.&lt;/summary>
@@ -128,10 +128,10 @@ end
 
 -- Set up the above function to be called when an event named "requestingSum" has been dispatched
 Runtime:addEventListener( "requestingSum", onRequestingSum )</pre>
-</div>
-<div id="lua-to-c" class="section level2">
+</section>
+<section id="lua-to-c" class="level2">
 <h2>Lua to C#</h2>
-<p>The following example illustrates Lua requesting C# to display a native message box by dispatching a <code>&quot;requestingMessageBox&quot;</code> event. The C# side of the app sets up the Corona event listener when the Corona Runtime has been loaded — this is the best time to add Corona Runtime event listeners because the &quot;Loaded&quot; event is raised in C# before <code>main.lua</code> is executed.</p>
+<p>The following example illustrates Lua requesting C# to display a native message box by dispatching a <code>"requestingMessageBox"</code> event. The C# side of the app sets up the Corona event listener when the Corona Runtime has been loaded — this is the best time to add Corona Runtime event listeners because the “Loaded” event is raised in C# before <code>main.lua</code> is executed.</p>
 <pre class="brush: lua;">// [C#]
 
 /// &lt;summary>Constructor. Initializes member variables and the user interface.&lt;/summary>
@@ -194,12 +194,12 @@ local result = Runtime:dispatchEvent( requestingMessageBoxEvent )
 
 -- Print the message returned by C#
 print( tostring(result) )</pre>
-</div>
-<div id="class-framework" class="section level2">
+</section>
+<section id="class-framework" class="level2">
 <h2>Class Framework</h2>
 <p>Documentation for the Corona .NET/C++/CX class framework can be found <a href="../../native/wp8/html/index.html">here</a>.</p>
-</div>
-<div id="section" class="section level2">
+</section>
+<section id="section" class="level2">
 <h2></h2>
 <div class="walkthrough-nav">
 <p><strong>⟨</strong> <a href="../../coronacards/wp8/index.html">Guide Index</a></p>
@@ -214,8 +214,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

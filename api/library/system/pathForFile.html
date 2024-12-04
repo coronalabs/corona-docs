@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | system | pathForFile</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -75,91 +75,91 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/system/index.html">system</a>  ▸  <a href="../../../api/library/system/pathForFile.html">pathForFile</a>
 </div>
-<div id="system.pathforfile" class="section level1">
+<section id="system.pathforfile" class="level1">
 <h1>system.pathForFile()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/system/index.html">system.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/system/index.html">system.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Return value</strong></td>
-<td align="left"><a href="../../../api/type/String.html">String</a></td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/String.html">String</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">system directory</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">system directory</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../guide/data/readWriteFiles/index.html">Reading and Writing Files</a> <em>(guide)</em></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../guide/data/readWriteFiles/index.html">Reading and Writing Files</a> <em>(guide)</em></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/system/ApplicationSupportDirectory.html">system.ApplicationSupportDirectory</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/system/ApplicationSupportDirectory.html">system.ApplicationSupportDirectory</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/system/CachesDirectory.html">system.CachesDirectory</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/system/CachesDirectory.html">system.CachesDirectory</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/system/DocumentsDirectory.html">system.DocumentsDirectory</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/system/DocumentsDirectory.html">system.DocumentsDirectory</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/system/ResourceDirectory.html">system.ResourceDirectory</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/system/ResourceDirectory.html">system.ResourceDirectory</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/system/TemporaryDirectory.html">system.TemporaryDirectory</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/system/TemporaryDirectory.html">system.TemporaryDirectory</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Generates an absolute path using system-defined directories as the base. An additional optional parameter, <code>baseDirectory</code>, specifies which base directory is used to construct the full path, with its default value being <code>system.ResourceDirectory</code>.</p>
 <p>This function is intended for use with file I/O APIs, <strong>not</strong> for display/media APIs that require a <code>baseDir</code> or <code>baseDirectory</code> parameter.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">system.pathForFile( filename [, baseDirectory] )</pre>
-<div id="filename-required" class="section level5">
+<section id="filename-required" class="level5">
 <h5>filename <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/String.html">String</a>.</em> The name of the file, or a path to the file that is relative to <code>baseDirectory</code>. Alternatively, pass <code>nil</code> to get the path to <code>baseDirectory</code>.</p>
-</div>
-<div id="basedirectory-optional" class="section level5">
+</section>
+<section id="basedirectory-optional" class="level5">
 <h5>baseDirectory <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Constant.html">Constant</a>.</em> Constant corresponding to the base directory where the file is located. Default value is <a href="../../../api/library/system/ResourceDirectory.html">system.ResourceDirectory</a> if the parameter is not provided.</p>
-</div>
-</div>
-<div id="gotchas" class="section level2">
+</section>
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
-<div id="general" class="section level3">
+<section id="general" class="level3">
 <h3>General</h3>
 <p>If the base directory is <a href="../../../api/library/system/ResourceDirectory.html">system.ResourceDirectory</a> and the generated path points to a <nobr>non-existent</nobr> file, <code>nil</code> is returned and a warning message is displayed in the Corona Simulator Console.</p>
-</div>
-<div id="android-file-restrictions" class="section level3">
+</section>
+<section id="android-file-restrictions" class="level3">
 <h3>Android File Restrictions</h3>
 <p>File access in Corona is based on the underlining operating system which varies by platform. On iOS devices, you can access files in all of the directories described above. On Android, however, there is no literal <code>system.ResourceDirectory</code> because all resource files reside inside a compressed <code>.apk</code> file.</p>
 <p>Corona allows direct loading of images and audio files using the appropriate APIs, but it has limited access to resource files on Android using the file I/O APIs. Specifically, the following types can not be read from the resources directory: <code>.html</code>, <code>.htm</code>, <code>.3gp</code>, <code>.lua</code>, <code>.m4v</code>, <code>.mp4</code>, <code>.png</code>, <code>.jpg</code>, and <code>.ttf</code>.</p>
 <p>Because of this limitation, if you have files of these types bundled in the core directory that you need to copy to another directory, you must change the file name so it can be accessed by the file I/O APIs. For example, if you want to move <code>cat.png</code> from the resource directory to the documents directory, it must be renamed <code>cat.png.txt</code> to be copied. See the <a href="../../../guide/data/readWriteFiles/index.html">Reading and Writing Files</a> guide for more information and examples.</p>
-</div>
-</div>
-<div id="examples" class="section level2">
+</section>
+</section>
+<section id="examples" class="level2">
 <h2>Examples</h2>
-<div id="get-path-to-specific-file" class="section level5">
+<section id="get-path-to-specific-file" class="level5">
 <h5>Get Path to Specific File</h5>
 <pre class="brush: lua;">local path = system.pathForFile( "data.txt", system.DocumentsDirectory )
 local fhd = io.open( path )
@@ -171,8 +171,8 @@ if fhd then
 else
     print( "File does not exist!" )
 end</pre>
-</div>
-<div id="get-path-to-base-directory" class="section level5">
+</section>
+<section id="get-path-to-base-directory" class="level5">
 <h5>Get Path to Base Directory</h5>
 <pre class="brush: lua;">local path = system.pathForFile( nil, system.DocumentsDirectory )
 print( path )</pre>
@@ -186,9 +186,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

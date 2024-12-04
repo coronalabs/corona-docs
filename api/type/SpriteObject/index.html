@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | type | SpriteObject</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,18 +58,18 @@
 <li><a href="#spriteobject">SpriteObject</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#properties">Properties</a><ul>
-<li><a href="#object.frameapi.type.spriteobject.frame"><a href="../../../api/type/SpriteObject/frame.html">object.frame</a></a></li>
-<li><a href="#object.isplayingapi.type.spriteobject.isplaying"><a href="../../../api/type/SpriteObject/isPlaying.html">object.isPlaying</a></a></li>
-<li><a href="#object.numframesapi.type.spriteobject.numframes"><a href="../../../api/type/SpriteObject/numFrames.html">object.numFrames</a></a></li>
-<li><a href="#object.sequenceapi.type.spriteobject.sequence"><a href="../../../api/type/SpriteObject/sequence.html">object.sequence</a></a></li>
-<li><a href="#object.timescaleapi.type.spriteobject.timescale"><a href="../../../api/type/SpriteObject/timeScale.html">object.timeScale</a></a></li>
+<li><a href="#object.frameapi.type.spriteobject.frame"><span>object.frame</span></a></li>
+<li><a href="#object.isplayingapi.type.spriteobject.isplaying"><span>object.isPlaying</span></a></li>
+<li><a href="#object.numframesapi.type.spriteobject.numframes"><span>object.numFrames</span></a></li>
+<li><a href="#object.sequenceapi.type.spriteobject.sequence"><span>object.sequence</span></a></li>
+<li><a href="#object.timescaleapi.type.spriteobject.timescale"><span>object.timeScale</span></a></li>
 </ul></li>
 <li><a href="#methods">Methods</a><ul>
-<li><a href="#objectuseframeforanchorsapi.type.spriteobject.useframeforanchors"><a href="../../../api/type/SpriteObject/useFrameForAnchors.html">object:useFrameForAnchors()</a></a></li>
-<li><a href="#objectpauseapi.type.spriteobject.pause"><a href="../../../api/type/SpriteObject/pause.html">object:pause()</a></a></li>
-<li><a href="#objectplayapi.type.spriteobject.play"><a href="../../../api/type/SpriteObject/play.html">object:play()</a></a></li>
-<li><a href="#objectsetframeapi.type.spriteobject.setframe"><a href="../../../api/type/SpriteObject/setFrame.html">object:setFrame()</a></a></li>
-<li><a href="#objectsetsequenceapi.type.spriteobject.setsequence"><a href="../../../api/type/SpriteObject/setSequence.html">object:setSequence()</a></a></li>
+<li><a href="#objectuseframeforanchorsapi.type.spriteobject.useframeforanchors"><span>object:useFrameForAnchors()</span></a></li>
+<li><a href="#objectpauseapi.type.spriteobject.pause"><span>object:pause()</span></a></li>
+<li><a href="#objectplayapi.type.spriteobject.play"><span>object:play()</span></a></li>
+<li><a href="#objectsetframeapi.type.spriteobject.setframe"><span>object:setFrame()</span></a></li>
+<li><a href="#objectsetsequenceapi.type.spriteobject.setsequence"><span>object:setSequence()</span></a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -77,85 +77,85 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/SpriteObject/index.html">SpriteObject</a>
 </div>
-<div id="spriteobject" class="section level1">
+<section id="spriteobject" class="level1">
 <h1>SpriteObject</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Parent</strong></td>
-<td align="left"><a href="../../../api/type/DisplayObject/index.html">DisplayObject</a></td>
+<td style="text-align: left;"><strong>Parent</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/DisplayObject/index.html">DisplayObject</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/display/index.html">display.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">sprite, animation</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">sprite, animation</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../guide/media/spriteAnimation/index.html">Sprite Animation</a> <em>(guide)</em></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../guide/media/spriteAnimation/index.html">Sprite Animation</a> <em>(guide)</em></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/display/newSprite.html">display.newSprite()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/display/newSprite.html">display.newSprite()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/event/sprite/phase.html">event.phase</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/event/sprite/phase.html">event.phase</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/event/sprite/target.html">event.target</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/event/sprite/target.html">event.target</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Sprite objects are created using <a href="../../../api/library/display/newSprite.html">display.newSprite()</a>.</p>
-</div>
-<div id="properties" class="section level2">
+</section>
+<section id="properties" class="level2">
 <h2>Properties</h2>
 <p><em>(Inherits properties from <a href="../../../api/type/DisplayObject/index.html">DisplayObject</a>)</em></p>
-<div id="object.frameapi.type.spriteobject.frame" class="section level4">
+<section id="object.frameapi.type.spriteobject.frame" class="level4">
 <h4><a href="../../../api/type/SpriteObject/frame.html">object.frame</a></h4>
-</div>
-<div id="object.isplayingapi.type.spriteobject.isplaying" class="section level4">
+</section>
+<section id="object.isplayingapi.type.spriteobject.isplaying" class="level4">
 <h4><a href="../../../api/type/SpriteObject/isPlaying.html">object.isPlaying</a></h4>
-</div>
-<div id="object.numframesapi.type.spriteobject.numframes" class="section level4">
+</section>
+<section id="object.numframesapi.type.spriteobject.numframes" class="level4">
 <h4><a href="../../../api/type/SpriteObject/numFrames.html">object.numFrames</a></h4>
-</div>
-<div id="object.sequenceapi.type.spriteobject.sequence" class="section level4">
+</section>
+<section id="object.sequenceapi.type.spriteobject.sequence" class="level4">
 <h4><a href="../../../api/type/SpriteObject/sequence.html">object.sequence</a></h4>
-</div>
-<div id="object.timescaleapi.type.spriteobject.timescale" class="section level4">
+</section>
+<section id="object.timescaleapi.type.spriteobject.timescale" class="level4">
 <h4><a href="../../../api/type/SpriteObject/timeScale.html">object.timeScale</a></h4>
-</div>
-</div>
-<div id="methods" class="section level2">
+</section>
+</section>
+<section id="methods" class="level2">
 <h2>Methods</h2>
 <p><em>(Inherits methods from <a href="../../../api/type/DisplayObject/index.html">DisplayObject</a>)</em></p>
-<div id="objectuseframeforanchorsapi.type.spriteobject.useframeforanchors" class="section level4">
+<section id="objectuseframeforanchorsapi.type.spriteobject.useframeforanchors" class="level4">
 <h4><a href="../../../api/type/SpriteObject/useFrameForAnchors.html">object:useFrameForAnchors()</a></h4>
-</div>
-<div id="objectpauseapi.type.spriteobject.pause" class="section level4">
+</section>
+<section id="objectpauseapi.type.spriteobject.pause" class="level4">
 <h4><a href="../../../api/type/SpriteObject/pause.html">object:pause()</a></h4>
-</div>
-<div id="objectplayapi.type.spriteobject.play" class="section level4">
+</section>
+<section id="objectplayapi.type.spriteobject.play" class="level4">
 <h4><a href="../../../api/type/SpriteObject/play.html">object:play()</a></h4>
-</div>
-<div id="objectsetframeapi.type.spriteobject.setframe" class="section level4">
+</section>
+<section id="objectsetframeapi.type.spriteobject.setframe" class="level4">
 <h4><a href="../../../api/type/SpriteObject/setFrame.html">object:setFrame()</a></h4>
-</div>
-<div id="objectsetsequenceapi.type.spriteobject.setsequence" class="section level4">
+</section>
+<section id="objectsetsequenceapi.type.spriteobject.setsequence" class="level4">
 <h4><a href="../../../api/type/SpriteObject/setSequence.html">object:setSequence()</a></h4>
 <hr>
 <div id="footer">
@@ -167,9 +167,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

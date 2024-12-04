@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | type | StageObject | setFocus</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -72,55 +72,55 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/StageObject/index.html">StageObject</a>  ▸  <a href="../../../api/type/StageObject/setFocus.html">setFocus</a>
 </div>
-<div id="stageobjectsetfocus" class="section level1">
+<section id="stageobjectsetfocus" class="level1">
 <h1>StageObject:setFocus()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Object</strong></td>
-<td align="left"><a href="../../../api/type/StageObject/index.html">StageObject</a></td>
+<td style="text-align: left;"><strong>Object</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/StageObject/index.html">StageObject</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/display/index.html">display.*</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">setFocus, focus, touch focus</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">setFocus, focus, touch focus</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../api/event/touch/index.html">touch</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../api/event/touch/index.html">touch</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/display/getCurrentStage.html">display.getCurrentStage()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/display/getCurrentStage.html">display.getCurrentStage()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/display/currentStage.html">display.currentStage</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/display/currentStage.html">display.currentStage</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../guide/events/touchMultitouch/index.html">Tap/Touch/Multitouch</a> <em>(guide)</em></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../guide/events/touchMultitouch/index.html">Tap/Touch/Multitouch</a> <em>(guide)</em></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Sets a specific <a href="../../../api/type/DisplayObject/index.html">display object</a> as the target for all future <a href="../../../api/event/touch/index.html">touch</a> events. Pass <code>nil</code> to restore default behavior for touch event dispatches.</p>
 <div class="guide-notebox">
@@ -129,27 +129,27 @@ Note
 </div>
 <p>The global <a href="../../../api/type/StageObject/index.html">StageObject</a> can be retrieved at any time via <a href="../../../api/library/display/getCurrentStage.html">display.getCurrentStage()</a> or <a href="../../../api/library/display/currentStage.html">display.currentStage</a>.</p>
 </div>
-</div>
-<div id="multitouch" class="section level2">
+</section>
+<section id="multitouch" class="level2">
 <h2>Multitouch</h2>
-<p>When calling this method while <strong>multitouch</strong> is enabled via <a href="../../../api/library/system/activate.html">system.activate()</a>, the optional parameter <code>touchID</code> means that the specified touch has focus on that object, but other touches do not. Using this command, it is possible to create an object that will &quot;own&quot; the first touch it receives for the lifetime of that touch, and for multiple objects to obtain their own focused touches at the same time. Under this same scheme, if you need to release touch focus on a specific object, call this command with reference to the object and pass <code>nil</code> for <code>touchID</code>.</p>
+<p>When calling this method while <strong>multitouch</strong> is enabled via <a href="../../../api/library/system/activate.html">system.activate()</a>, the optional parameter <code>touchID</code> means that the specified touch has focus on that object, but other touches do not. Using this command, it is possible to create an object that will “own” the first touch it receives for the lifetime of that touch, and for multiple objects to obtain their own focused touches at the same time. Under this same scheme, if you need to release touch focus on a specific object, call this command with reference to the object and pass <code>nil</code> for <code>touchID</code>.</p>
 <p>See the <a href="#examples">examples</a> below for usage details, along with the <a href="../../../guide/events/touchMultitouch/index.html">Tap/Touch/Multitouch</a> guide.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">StageObject:setFocus( displayObject [, touchID] )</pre>
-<div id="displayobject-required" class="section level5">
+<section id="displayobject-required" class="level5">
 <h5>displayObject <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/DisplayObject/index.html">DisplayObject</a>.</em> Reference to a display object to set focus on.</p>
-</div>
-<div id="touchid-optional" class="section level5">
+</section>
+<section id="touchid-optional" class="level5">
 <h5>touchID <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Userdata.html">Userdata</a>.</em> The touch ID passed to the touch event for the touched object. This only applies when <a href="../../../guide/events/touchMultitouch/index.html">multitouch</a> is <strong>enabled</strong> via <a href="../../../api/library/system/activate.html">system.activate()</a>.</p>
-</div>
-</div>
-<div id="examples" class="section level2">
+</section>
+</section>
+<section id="examples" class="level2">
 <h2>Examples</h2>
-<div id="multitouch-enabled" class="section level5">
+<section id="multitouch-enabled" class="level5">
 <h5>Multitouch Enabled</h5>
 <pre class="brush: lua;">-- Activate multitouch
 system.activate( "multitouch" )
@@ -181,8 +181,8 @@ end
 -- Add a touch listener to each object
 newRect1:addEventListener( "touch", touchListener )
 newRect2:addEventListener( "touch", touchListener )</pre>
-</div>
-<div id="multitouch-disabled" class="section level5">
+</section>
+<section id="multitouch-disabled" class="level5">
 <h5>Multitouch Disabled</h5>
 <pre class="brush: lua;">-- Create two display objects on the screen
 local newRect1 = display.newRect( display.contentCenterX, 160, 60, 60 )
@@ -219,9 +219,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | RevMob</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -60,16 +60,16 @@
 <li><a href="#registration">Registration</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#functions">Functions</a><ul>
-<li><a href="#revmob.initplugin.revmob.init"><a href="../../plugin/revmob/init.html">revmob.init()</a></a></li>
-<li><a href="#revmob.startsessionplugin.revmob.startsession"><a href="../../plugin/revmob/startSession.html">revmob.startSession()</a></a></li>
-<li><a href="#revmob.loadplugin.revmob.load"><a href="../../plugin/revmob/load.html">revmob.load()</a></a></li>
-<li><a href="#revmob.isloadedplugin.revmob.isloaded"><a href="../../plugin/revmob/isLoaded.html">revmob.isLoaded()</a></a></li>
-<li><a href="#revmob.showplugin.revmob.show"><a href="../../plugin/revmob/show.html">revmob.show()</a></a></li>
-<li><a href="#revmob.hideplugin.revmob.hide"><a href="../../plugin/revmob/hide.html">revmob.hide()</a></a></li>
-<li><a href="#revmob.setuserdetailsplugin.revmob.setuserdetails"><a href="../../plugin/revmob/setUserDetails.html">revmob.setUserDetails()</a></a></li>
+<li><a href="#revmob.initplugin.revmob.init"><span>revmob.init()</span></a></li>
+<li><a href="#revmob.startsessionplugin.revmob.startsession"><span>revmob.startSession()</span></a></li>
+<li><a href="#revmob.loadplugin.revmob.load"><span>revmob.load()</span></a></li>
+<li><a href="#revmob.isloadedplugin.revmob.isloaded"><span>revmob.isLoaded()</span></a></li>
+<li><a href="#revmob.showplugin.revmob.show"><span>revmob.show()</span></a></li>
+<li><a href="#revmob.hideplugin.revmob.hide"><span>revmob.hide()</span></a></li>
+<li><a href="#revmob.setuserdetailsplugin.revmob.setuserdetails"><span>revmob.setUserDetails()</span></a></li>
 </ul></li>
 <li><a href="#events">Events</a><ul>
-<li><a href="#adsrequestplugin.revmob.event.adsrequest"><a href="../../plugin/revmob/event/adsRequest/index.html">adsRequest</a></a></li>
+<li><a href="#adsrequestplugin.revmob.event.adsrequest"><span>adsRequest</span></a></li>
 </ul></li>
 <li><a href="#project-settings">Project Settings</a></li>
 <li><a href="#support">Support</a></li>
@@ -79,37 +79,34 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/revmob/index.html">RevMob</a>
 </div>
-<div id="revmob." class="section level1">
+<section id="revmob." class="level1">
 <h1>revmob.*</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Library.html">Library</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Library.html">Library</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">ads, advertising, RevMob</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">ads, advertising, RevMob</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Platforms</strong></td>
-<td align="left">Android, iOS</td>
+<td style="text-align: left;"><strong>Platforms</strong></td>
+<td style="text-align: left;">Android, iOS</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <div class="float-right" style="max-width: 240px; clear: both;">
-<div class="figure">
-<img src="../../images/docs/plugin-screenshot-revmob.png" />
-
-</div>
+<p><img src="../../images/docs/plugin-screenshot-revmob.png" /></p>
 </div>
 <p>The RevMob plugin allows developers to monetize users through <a href="https://coronalabs.revmobmobileadnetwork.com/home/">RevMob</a> banner, static interstitial, video interstitial, and rewarded video ads.</p>
 <div class="guide-notebox">
@@ -119,46 +116,46 @@ Note
 <p>For Android, video interstitial and rewarded video ads require version 4.1 or higher.</p>
 </div>
 <p><a id="registration"></a></p>
-</div>
-<div id="registration" class="section level2">
+</section>
+<section id="registration" class="level2">
 <h2>Registration</h2>
 <p>To use this plugin, you must first <a href="https://coronalabs.revmobmobileadnetwork.com/home/">register</a> with RevMob.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">local revmob = require( "plugin.revmob" )</pre>
-</div>
-<div id="functions" class="section level2">
+</section>
+<section id="functions" class="level2">
 <h2>Functions</h2>
-<div id="revmob.initplugin.revmob.init" class="section level4">
+<section id="revmob.initplugin.revmob.init" class="level4">
 <h4><a href="../../plugin/revmob/init.html">revmob.init()</a></h4>
-</div>
-<div id="revmob.startsessionplugin.revmob.startsession" class="section level4">
+</section>
+<section id="revmob.startsessionplugin.revmob.startsession" class="level4">
 <h4><a href="../../plugin/revmob/startSession.html">revmob.startSession()</a></h4>
-</div>
-<div id="revmob.loadplugin.revmob.load" class="section level4">
+</section>
+<section id="revmob.loadplugin.revmob.load" class="level4">
 <h4><a href="../../plugin/revmob/load.html">revmob.load()</a></h4>
-</div>
-<div id="revmob.isloadedplugin.revmob.isloaded" class="section level4">
+</section>
+<section id="revmob.isloadedplugin.revmob.isloaded" class="level4">
 <h4><a href="../../plugin/revmob/isLoaded.html">revmob.isLoaded()</a></h4>
-</div>
-<div id="revmob.showplugin.revmob.show" class="section level4">
+</section>
+<section id="revmob.showplugin.revmob.show" class="level4">
 <h4><a href="../../plugin/revmob/show.html">revmob.show()</a></h4>
-</div>
-<div id="revmob.hideplugin.revmob.hide" class="section level4">
+</section>
+<section id="revmob.hideplugin.revmob.hide" class="level4">
 <h4><a href="../../plugin/revmob/hide.html">revmob.hide()</a></h4>
-</div>
-<div id="revmob.setuserdetailsplugin.revmob.setuserdetails" class="section level4">
+</section>
+<section id="revmob.setuserdetailsplugin.revmob.setuserdetails" class="level4">
 <h4><a href="../../plugin/revmob/setUserDetails.html">revmob.setUserDetails()</a></h4>
-</div>
-</div>
-<div id="events" class="section level2">
+</section>
+</section>
+<section id="events" class="level2">
 <h2>Events</h2>
-<div id="adsrequestplugin.revmob.event.adsrequest" class="section level4">
+<section id="adsrequestplugin.revmob.event.adsrequest" class="level4">
 <h4><a href="../../plugin/revmob/event/adsRequest/index.html">adsRequest</a></h4>
-</div>
-</div>
-<div id="project-settings" class="section level2">
+</section>
+</section>
+<section id="project-settings" class="level2">
 <h2>Project Settings</h2>
 <p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
 <pre class="brush: lua;">settings =
@@ -197,11 +194,11 @@ Note
 </div>
 <p>For Android, the following permissions/features are automatically added when using this plugin:</p>
 <ul>
-<li><code>&quot;android.permission.INTERNET&quot;</code></li>
+<li><code>"android.permission.INTERNET"</code></li>
 </ul>
 </div>
-</div>
-<div id="support" class="section level2">
+</section>
+<section id="support" class="level2">
 <h2>Support</h2>
 <ul>
 <li><a href="http://forum.revmob.com">http://www.forum.revmob.com</a></li>
@@ -217,8 +214,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

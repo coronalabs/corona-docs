@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | On-Demand Resources | path</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -66,46 +66,46 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/onDemandResources/index.html">On-Demand Resources</a>  ▸  <a href="../../plugin/onDemandResources/path.html">path</a>
 </div>
-<div id="ondemandresources.path" class="section level1">
+<section id="ondemandresources.path" class="level1">
 <h1>onDemandResources.path()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left"><a href="../../api/type/String.html">String</a></td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;"><a href="../../api/type/String.html">String</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">on-demand resources, onDemandResources, path</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">on-demand resources, onDemandResources, path</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../api/library/system/pathForFile.html">system.pathForFile()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../api/library/system/pathForFile.html">system.pathForFile()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/onDemandResources/index.html">onDemandResources.*</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/onDemandResources/index.html">onDemandResources.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
-<p>Even though you can typically use <nobr>on-demand</nobr> resources as if they exist in your app's bundle, they are not physically there. Use this convenience function or alternatively <a href="../../api/library/system/pathForFile.html">system.pathForFile()</a> to retrieve the actual path. This may be necessary when, for example, an <nobr>on-demand</nobr> resource is a text file <nobr>(not an image)</nobr> and <a href="../../api/library/io/open.html">io.open()</a> is required to open the file and read its contents (<a href="../../guide/data/readWriteFiles/index.html">guide</a>).</p>
-</div>
-<div id="syntax" class="section level2">
+<p>Even though you can typically use <nobr>on-demand</nobr> resources as if they exist in your app’s bundle, they are not physically there. Use this convenience function or alternatively <a href="../../api/library/system/pathForFile.html">system.pathForFile()</a> to retrieve the actual path. This may be necessary when, for example, an <nobr>on-demand</nobr> resource is a text file <nobr>(not an image)</nobr> and <a href="../../api/library/io/open.html">io.open()</a> is required to open the file and read its contents (<a href="../../guide/data/readWriteFiles/index.html">guide</a>).</p>
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">onDemandResources.path( filename )</pre>
-<div id="filename-required" class="section level5">
+<section id="filename-required" class="level5">
 <h5>filename <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> The name of the file that was requested as part of an <nobr>on-demand</nobr> resources <a href="../../plugin/onDemandResources/request.html">request</a>.</p>
 <hr>
@@ -118,9 +118,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

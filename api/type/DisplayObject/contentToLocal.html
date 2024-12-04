@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | type | DisplayObject | contentToLocal</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -69,67 +69,67 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/DisplayObject/index.html">DisplayObject</a>  ▸  <a href="../../../api/type/DisplayObject/contentToLocal.html">contentToLocal</a>
 </div>
-<div id="objectcontenttolocal" class="section level1">
+<section id="objectcontenttolocal" class="level1">
 <h1>object:contentToLocal()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Object</strong></td>
-<td align="left"><a href="../../../api/type/DisplayObject/index.html">DisplayObject</a></td>
+<td style="text-align: left;"><strong>Object</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/DisplayObject/index.html">DisplayObject</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/display/index.html">display.*</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left"><a href="../../../api/type/Number.html">Numbers</a></td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Number.html">Numbers</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">display object, coordinates</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">display object, coordinates</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../api/type/DisplayObject/localToContent.html">object.localToContent</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/DisplayObject/localToContent.html">object.localToContent</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/type/DisplayObject/contentBounds.html">object.contentBounds</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/type/DisplayObject/contentBounds.html">object.contentBounds</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
-<p>Maps the given <strong>x</strong> and <strong>y</strong> values in content (<a href="../../../api/type/StageObject/index.html">stage</a>) coordinates to the target object's local coordinates (center point).</p>
-</div>
-<div id="syntax" class="section level2">
+<p>Maps the given <strong>x</strong> and <strong>y</strong> values in content (<a href="../../../api/type/StageObject/index.html">stage</a>) coordinates to the target object’s local coordinates (center point).</p>
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">object:contentToLocal( xContent, yContent )</pre>
-<div id="xcontent-required" class="section level5">
+<section id="xcontent-required" class="level5">
 <h5>xContent <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The <strong>x</strong> coordinate in content (display) space.</p>
-</div>
-<div id="ycontent-required" class="section level5">
+</section>
+<section id="ycontent-required" class="level5">
 <h5>yContent <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The <strong>y</strong> coordinate in content (display) space.</p>
-</div>
-</div>
-<div id="return-values" class="section level2">
+</section>
+</section>
+<section id="return-values" class="level2">
 <h2>Return Values</h2>
-<p>This function returns the <strong>x</strong> and <strong>y</strong> coordinates of the given values in the object's local coordinate space. The values returned are relative to the center point of the <a href="../../../api/type/DisplayObject/index.html">display object</a>, and these values will be negative if the given point is above or left of the object's center point.</p>
-</div>
-<div id="example" class="section level2">
+<p>This function returns the <strong>x</strong> and <strong>y</strong> coordinates of the given values in the object’s local coordinate space. The values returned are relative to the center point of the <a href="../../../api/type/DisplayObject/index.html">display object</a>, and these values will be negative if the given point is above or left of the object’s center point.</p>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">-- Rectangle that fills screen
 local rect = display.newRect( 0, 0, display.contentWidth, display.contentHeight )
@@ -171,8 +171,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

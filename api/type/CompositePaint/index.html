@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | type | CompositePaint</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -72,79 +72,79 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/CompositePaint/index.html">CompositePaint</a>
 </div>
-<div id="compositepaint" class="section level1">
+<section id="compositepaint" class="level1">
 <h1>CompositePaint</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Parent</strong></td>
-<td align="left"><a href="../../../api/type/Paint/index.html">Paint</a></td>
+<td style="text-align: left;"><strong>Parent</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Paint/index.html">Paint</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/display/index.html">display.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">composite paint, multitexture</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">composite paint, multitexture</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../api/type/ShapeObject/fill.html">object.fill</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/ShapeObject/fill.html">object.fill</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/type/ShapeObject/stroke.html">object.stroke</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/type/ShapeObject/stroke.html">object.stroke</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../guide/graphics/effects.html">Filters, Generators, Composites</a> <em>(guide)</em></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../guide/graphics/effects.html">Filters, Generators, Composites</a> <em>(guide)</em></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Composite paints contain multiple images, thus enabling multi-texturing.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">local paint = {
     type = "composite",
     paint1 = ,
     paint2 =
 }</pre>
-<div id="type-required" class="section level5">
+<section id="type-required" class="level5">
 <h5>type <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../../api/type/String.html">String</a>.</em> String value of <code>&quot;composite&quot;</code>.</p>
-</div>
-<div id="paint1-required" class="section level5">
+<p><em><a href="../../../api/type/String.html">String</a>.</em> String value of <code>"composite"</code>.</p>
+</section>
+<section id="paint1-required" class="level5">
 <h5>paint1 <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Table.html">Table</a>.</em> A table that specifies a <a href="../../../api/type/BitmapPaint/index.html">BitmapPaint</a>. See <strong>Limitations</strong> below.</p>
-</div>
-<div id="paint2-required" class="section level5">
+</section>
+<section id="paint2-required" class="level5">
 <h5>paint2 <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Table.html">Table</a>.</em> A table that specifies a <a href="../../../api/type/BitmapPaint/index.html">BitmapPaint</a>. See <strong>Limitations</strong> below.</p>
-</div>
-<div id="basedir-optional" class="section level5">
+</section>
+<section id="basedir-optional" class="level5">
 <h5>baseDir <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Constant.html">Constant</a>.</em> Specifies the base directory where filename is located. Options include <code>system.ResourceDirectory</code>, <code>system.DocumentsDirectory</code>, <code>system.TemporaryDirectory</code> and <code>system.CachesDirectory</code>. Default is <code>system.ResourceDirectory</code>.</p>
-</div>
-</div>
-<div id="limitations" class="section level2">
+</section>
+</section>
+<section id="limitations" class="level2">
 <h2>Limitations</h2>
 <p>Because of the way multi-texturing works, both <code>paint1</code> and <code>paint2</code> will be rendered using the same texture coordinates. Because <a href="../../../api/type/GradientPaint/index.html">GradientPaints</a> and <a href="../../../api/type/ImageSheetPaint/index.html">ImageSheetPaints</a> use different texture coordinates from plain <a href="../../../api/type/BitmapPaint/index.html">BitmapPaints</a>, you will get unexpected results unless you use plain <a href="../../../api/type/BitmapPaint/index.html">BitmapPaints</a> for <code>paint1</code> and <code>paint2</code>.</p>
-</div>
-<div id="properties" class="section level2">
+</section>
+<section id="properties" class="level2">
 <h2>Properties</h2>
 <p><em>(Inherits properties from <a href="../../../api/type/Paint/index.html">Paint</a>)</em></p>
-</div>
-<div id="example" class="section level2">
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local paint = {
     type = "composite",
@@ -165,8 +165,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

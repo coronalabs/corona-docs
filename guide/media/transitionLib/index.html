@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Graphics/Audio/Animation</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -74,7 +74,7 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/media/index.html">Graphics/Audio/Animation</a>
 </div>
-<div id="transitions" class="section level1">
+<section id="transitions" class="level1">
 <h1>Transitions</h1>
 <p>This guide discusses how to use the Corona <a href="../../../api/library/transition/index.html">transition</a> library to move, rotate, fade, or scale a display object/group over a specific period of time.</p>
 <div class="guides-toc">
@@ -88,7 +88,7 @@
 </ul>
 </div>
 <p><a id="features"></a></p>
-<div id="library-features" class="section level2">
+<section id="library-features" class="level2">
 <h2>Library Features</h2>
 <ul>
 <li>Ability to pause, resume, or cancel a transition (or all transitions).</li>
@@ -99,14 +99,14 @@
 
 -->
 <ul>
-<li><p>Ability to <strong>tag</strong> several transitions by name and then pause, resume, or cancel all transitions sharing the same tag. For example, you may tag multiple transitions as <code>&quot;menuTransition&quot;</code> and then control all of these transitions at once. See <a href="#control">Controlling Transitions</a> for more information on tagging.</p></li>
+<li><p>Ability to <strong>tag</strong> several transitions by name and then pause, resume, or cancel all transitions sharing the same tag. For example, you may tag multiple transitions as <code>"menuTransition"</code> and then control all of these transitions at once. See <a href="#control">Controlling Transitions</a> for more information on tagging.</p></li>
 <li><p>Ability to pause, resume, or cancel all transitions on an <nobr>object-wide</nobr> basis. For example, if you have applied a separate movement and fade transition to an object, this allows you to control both transitions at once. See <a href="#control">Controlling Transitions</a> for more information.</p></li>
 <li><p>Over 40 <a href="../../../api/library/easing/index.html">easing</a> methods which allow you to interpolate objects across the transition time using methods such as quadratic, exponential, elastic, bounce, etc.</p></li>
 <li><p>Various convenience functions such as <code>blink()</code>, <code>moveTo()</code>, <code>moveBy()</code>, etc. See <a href="#convenience">Convenience Functions</a> for usage details.</p></li>
 </ul>
 <p><a id="standard"></a></p>
-</div>
-<div id="basic-transitions" class="section level2">
+</section>
+<section id="basic-transitions" class="level2">
 <h2>Basic Transitions</h2>
 <!---
 
@@ -128,34 +128,34 @@ A standard non-sequenced transition can be initiated using one of these function
 <table>
 <thead>
 <tr class="header">
-<th align="left">Control</th>
-<th align="left">Description</th>
+<th style="text-align: left;">Control</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>time</code></td>
-<td align="left">Specifies the duration of the transition in milliseconds.</td>
+<td style="text-align: left;"><code>time</code></td>
+<td style="text-align: left;">Specifies the duration of the transition in milliseconds.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>delay</code></td>
-<td align="left">Specifies the delay, in milliseconds, before the transition begins. Default is <code>0</code> (none).</td>
+<td style="text-align: left;"><code>delay</code></td>
+<td style="text-align: left;">Specifies the delay, in milliseconds, before the transition begins. Default is <code>0</code> (none).</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>delta</code></td>
-<td align="left">Specifies whether the final object properties are specific values or changes in value. The default is <code>nil</code> meaning <code>false</code>.</td>
+<td style="text-align: left;"><code>delta</code></td>
+<td style="text-align: left;">Specifies whether the final object properties are specific values or changes in value. The default is <code>nil</code> meaning <code>false</code>.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>iterations</code></td>
-<td align="left">The number of times (integer) that the transition should repeat. <code>0</code> or <code>-1</code> will cause the transition to repeat forever.</td>
+<td style="text-align: left;"><code>iterations</code></td>
+<td style="text-align: left;">The number of times (integer) that the transition should repeat. <code>0</code> or <code>-1</code> will cause the transition to repeat forever.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>tag</code></td>
-<td align="left">String value which allows you to categorize transitions and control them together. See <a href="#control">Controlling Transitions</a>.</td>
+<td style="text-align: left;"><code>tag</code></td>
+<td style="text-align: left;">String value which allows you to categorize transitions and control them together. See <a href="#control">Controlling Transitions</a>.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>transition</code></td>
-<td align="left">Specifies the <a href="../../../api/library/easing/index.html">easing</a> function used for the transition. See <a href="#easing">Easing Functions</a>.</td>
+<td style="text-align: left;"><code>transition</code></td>
+<td style="text-align: left;">Specifies the <a href="../../../api/library/easing/index.html">easing</a> function used for the transition. See <a href="#easing">Easing Functions</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -165,51 +165,51 @@ A standard non-sequenced transition can be initiated using one of these function
 <table>
 <thead>
 <tr class="header">
-<th align="left">Method</th>
-<th align="left">Properties (key)</th>
-<th align="left">Description</th>
+<th style="text-align: left;">Method</th>
+<th style="text-align: left;">Properties (key)</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">move</td>
-<td align="left"><code>x</code>, <code>y</code></td>
-<td align="left">Moves an object from its current <strong>x/y</strong> coordinate to another.</td>
+<td style="text-align: left;">move</td>
+<td style="text-align: left;"><code>x</code>, <code>y</code></td>
+<td style="text-align: left;">Moves an object from its current <strong>x/y</strong> coordinate to another.</td>
 </tr>
 <tr class="even">
-<td align="left">rotate</td>
-<td align="left"><code>rotation</code></td>
-<td align="left">Rotates an object from its current angle to another.</td>
+<td style="text-align: left;">rotate</td>
+<td style="text-align: left;"><code>rotation</code></td>
+<td style="text-align: left;">Rotates an object from its current angle to another.</td>
 </tr>
 <tr class="odd">
-<td align="left">fade</td>
-<td align="left"><code>alpha</code></td>
-<td align="left">Fades an object from its current alpha value to another.</td>
+<td style="text-align: left;">fade</td>
+<td style="text-align: left;"><code>alpha</code></td>
+<td style="text-align: left;">Fades an object from its current alpha value to another.</td>
 </tr>
 <tr class="even">
-<td align="left">scale</td>
-<td align="left"><code>xScale</code>, <code>yScale</code></td>
-<td align="left">Scales an object to a specific <strong>x</strong> ratio or <strong>y</strong> ratio.</td>
+<td style="text-align: left;">scale</td>
+<td style="text-align: left;"><code>xScale</code>, <code>yScale</code></td>
+<td style="text-align: left;">Scales an object to a specific <strong>x</strong> ratio or <strong>y</strong> ratio.</td>
 </tr>
 <tr class="odd">
-<td align="left">font size</td>
-<td align="left"><code>size</code></td>
-<td align="left">Applies only if the target is a <a href="../../../api/type/TextObject/index.html">TextObject</a>. This will transition the font size of the text object.</td>
+<td style="text-align: left;">font size</td>
+<td style="text-align: left;"><code>size</code></td>
+<td style="text-align: left;">Applies only if the target is a <a href="../../../api/type/TextObject/index.html">TextObject</a>. This will transition the font size of the text object.</td>
 </tr>
 <tr class="even">
-<td align="left">resize</td>
-<td align="left"><code>width</code>, <code>height</code></td>
-<td align="left">Resizes an object from its current width/height to another.</td>
+<td style="text-align: left;">resize</td>
+<td style="text-align: left;"><code>width</code>, <code>height</code></td>
+<td style="text-align: left;">Resizes an object from its current width/height to another.</td>
 </tr>
 <tr class="odd">
-<td align="left">distort</td>
-<td align="left"><nobr><code>x1</code>, <code>y1</code>, <code>x2</code>, <code>y2</code>, <code>x3</code>, <code>y3</code>, <code>x4</code>, <code>y4</code></nobr></td>
-<td align="left">Applies only if the target is a <a href="../../../api/type/RectPath/index.html">RectPath</a>, applicable to a <a href="../../../api/type/ShapeObject/index.html">ShapeObject</a>. These properties control the quadrilateral distortion of the target.</td>
+<td style="text-align: left;">distort</td>
+<td style="text-align: left;"><nobr><code>x1</code>, <code>y1</code>, <code>x2</code>, <code>y2</code>, <code>x3</code>, <code>y3</code>, <code>x4</code>, <code>y4</code></nobr></td>
+<td style="text-align: left;">Applies only if the target is a <a href="../../../api/type/RectPath/index.html">RectPath</a>, applicable to a <a href="../../../api/type/ShapeObject/index.html">ShapeObject</a>. These properties control the quadrilateral distortion of the target.</td>
 </tr>
 <tr class="even">
-<td align="left">fill effect</td>
-<td align="left">(various)</td>
-<td align="left">Applicable only if the target is a <a href="../../../api/type/Paint/effect.html">fill.effect</a> applied to a <a href="../../../api/type/ShapeObject/index.html">ShapeObject</a>. In this case, the property (key) indicates an effect property associated with the specific filter effect, for example <code>ShapeObject.fill.effect.intensity</code>. See the <a href="../../../guide/graphics/effects.html">Effects Guide</a> for which filter parameters apply to each filter.</td>
+<td style="text-align: left;">fill effect</td>
+<td style="text-align: left;">(various)</td>
+<td style="text-align: left;">Applicable only if the target is a <a href="../../../api/type/Paint/effect.html">fill.effect</a> applied to a <a href="../../../api/type/ShapeObject/index.html">ShapeObject</a>. In this case, the property (key) indicates an effect property associated with the specific filter effect, for example <code>ShapeObject.fill.effect.intensity</code>. See the <a href="../../../guide/graphics/effects.html">Effects Guide</a> for which filter parameters apply to each filter.</td>
 </tr>
 </tbody>
 </table>
@@ -219,59 +219,59 @@ A standard non-sequenced transition can be initiated using one of these function
 <table>
 <thead>
 <tr class="header">
-<th align="left">Event</th>
-<th align="left">Description</th>
+<th style="text-align: left;">Event</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>onStart</code></td>
-<td align="left">Listener function called when the transition begins.</td>
+<td style="text-align: left;"><code>onStart</code></td>
+<td style="text-align: left;">Listener function called when the transition begins.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>onComplete</code></td>
-<td align="left">Listener function called after the transition completes.</td>
+<td style="text-align: left;"><code>onComplete</code></td>
+<td style="text-align: left;">Listener function called after the transition completes.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>onPause</code></td>
-<td align="left">Listener function called when an active transition is paused.</td>
+<td style="text-align: left;"><code>onPause</code></td>
+<td style="text-align: left;">Listener function called when an active transition is paused.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>onResume</code></td>
-<td align="left">Listener function called when a paused transition is resumed.</td>
+<td style="text-align: left;"><code>onResume</code></td>
+<td style="text-align: left;">Listener function called when a paused transition is resumed.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>onCancel</code></td>
-<td align="left">Listener function called when an active transition is cancelled.</td>
+<td style="text-align: left;"><code>onCancel</code></td>
+<td style="text-align: left;">Listener function called when an active transition is cancelled.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>onRepeat</code></td>
-<td align="left">Listener function called when an active transition has completed an iteration cycle.</td>
+<td style="text-align: left;"><code>onRepeat</code></td>
+<td style="text-align: left;">Listener function called when an active transition has completed an iteration cycle.</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="examples" class="section level3">
+<section id="examples" class="level3">
 <h3>Examples</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>The following transition <strong>moves</strong> an object from its current position to the <strong>y</strong> coordinate of 100 over the timespan of 2000 milliseconds. In this case, the <strong>y</strong> value is the specific value in content area coordinates.</li>
 </ol>
 <div class="image-indent">
 <pre class="brush: lua;">transition.to( myObject, { time=2000, y=100 } )</pre>
 </div>
-<ol start="2" style="list-style-type: decimal">
-<li>To apply a property value as a <strong>change</strong> relative to the object's starting value, simply set the <code>delta</code> property to <code>true</code>. In the following example, the object will move down 100 pixels from its starting <strong>y</strong> position. Note that the same principle can be applied to any property change.</li>
+<ol start="2" type="1">
+<li>To apply a property value as a <strong>change</strong> relative to the object’s starting value, simply set the <code>delta</code> property to <code>true</code>. In the following example, the object will move down 100 pixels from its starting <strong>y</strong> position. Note that the same principle can be applied to any property change.</li>
 </ol>
 <div class="image-indent">
 <pre class="brush: lua;">transition.to( myObject, { time=2000, y=100, delta=true } )</pre>
 </div>
-<ol start="3" style="list-style-type: decimal">
+<ol start="3" type="1">
 <li>The next transition moves an object from its current position to the <strong>y</strong> coordinate of 400 over the timespan of 2000 milliseconds. It repeats 4 times using the <code>iterations</code> parameter and an elastic interpolation effect is applied with the <code>transition</code> parameter.</li>
 </ol>
 <div class="image-indent">
 <pre class="brush: lua;">transition.to( myObject, { time=2000, y=400, iterations=4, transition=easing.outElastic } )</pre>
 </div>
-<ol start="4" style="list-style-type: decimal">
+<ol start="4" type="1">
 <li>Transitions can also be combined using just one transition call. For example, if you want to rotate an object 45 degrees, scale it vertically to 200%, and fade its alpha to 50%, you do <strong>not</strong> need to make three separate transition calls. Instead, just declare all three property changes in the <code>params</code> table:</li>
 </ol>
 <div class="image-indent">
@@ -282,7 +282,7 @@ A standard non-sequenced transition can be initiated using one of these function
 Important
 </div>
 <p>Some objects will not behave as you may expect during or following a transition. For instance, many <a href="../../../api/library/widget/index.html">widgets</a> do not support scaling or <nobr>post-declaration</nobr> resizing, so you should not attempt to perform an <code>xScale</code>, <code>yScale</code>, <code>width</code>, or <code>height</code> transition upon them. Another example is <a href="../../../api/library/physics/addBody.html">physics</a> bodies: if you scale or resize the physics object using a transition, the actual physics body will <strong>not</strong> scale along with that transition.</p>
-<p>If in doubt, check the <a href="../../../api/index.html">documentation</a> associated with the object or library to confirm that it doesn't have any property restrictions related to transitions.</p>
+<p>If in doubt, check the <a href="../../../api/index.html">documentation</a> associated with the object or library to confirm that it doesn’t have any property restrictions related to transitions.</p>
 </div>
 <!---
 
@@ -329,9 +329,9 @@ transition.runSequence( "sequence1" )
 
 -->
 <p><a id="control"></a></p>
-</div>
-</div>
-<div id="controlling-transitions" class="section level2">
+</section>
+</section>
+<section id="controlling-transitions" class="level2">
 <h2>Controlling Transitions</h2>
 <p>Transitions can be paused, resumed, or cancelled before completion. The parameter passed to the control function determines the scope of the action.</p>
 <!---
@@ -339,7 +339,7 @@ transition.runSequence( "sequence1" )
 All transitions — standard and sequenced — can be paused, resumed, or cancelled before completion. The parameter passed to the control function determines the scope of the action.
 
 -->
-<div id="pause" class="section level3">
+<section id="pause" class="level3">
 <h3>Pause</h3>
 <p>Transitions can be paused with the <a href="../../../api/library/transition/pause.html">transition.pause()</a> and <a href="../../../api/library/transition/pauseAll.html">transition.pauseAll()</a> functions. These only affect transitions that are running.</p>
 <p>With the <a href="../../../api/library/transition/pause.html">transition.pause()</a> function, you can control which specific transitions to pause by what parameter you use.</p>
@@ -347,32 +347,32 @@ All transitions — standard and sequenced — can be paused, resumed, or cancel
 <table>
 <thead>
 <tr class="header">
-<th align="left">Parameter</th>
-<th align="left">Scope</th>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Scope</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">(none)</td>
-<td align="left">Pauses all running transitions.</td>
+<td style="text-align: left;">(none)</td>
+<td style="text-align: left;">Pauses all running transitions.</td>
 </tr>
 <tr class="even">
-<td align="left">transition reference</td>
-<td align="left">Pauses a specific running transition.</td>
+<td style="text-align: left;">transition reference</td>
+<td style="text-align: left;">Pauses a specific running transition.</td>
 </tr>
 <tr class="odd">
-<td align="left">object reference</td>
-<td align="left">Pauses all running transitions on a specific object.</td>
+<td style="text-align: left;">object reference</td>
+<td style="text-align: left;">Pauses all running transitions on a specific object.</td>
 </tr>
 <tr class="even">
-<td align="left">tag name (string)</td>
-<td align="left">Pauses all running transitions sharing the same tag name.</td>
+<td style="text-align: left;">tag name (string)</td>
+<td style="text-align: left;">Pauses all running transitions sharing the same tag name.</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="resume" class="section level3">
+</section>
+<section id="resume" class="level3">
 <h3>Resume</h3>
 <p>Transitions can be resumed with the <a href="../../../api/library/transition/resume.html">transition.resume()</a> and <a href="../../../api/library/transition/resumeAll.html">transition.resumeAll()</a> functions. These only affect transitions that are paused.</p>
 <p>With the <a href="../../../api/library/transition/resume.html">transition.resume()</a> function, you can control which specific transitions to resume by what parameter you use.</p>
@@ -380,32 +380,32 @@ All transitions — standard and sequenced — can be paused, resumed, or cancel
 <table>
 <thead>
 <tr class="header">
-<th align="left">Parameter</th>
-<th align="left">Scope</th>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Scope</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">(none)</td>
-<td align="left">Resumes all paused transitions.</td>
+<td style="text-align: left;">(none)</td>
+<td style="text-align: left;">Resumes all paused transitions.</td>
 </tr>
 <tr class="even">
-<td align="left">transition reference</td>
-<td align="left">Resumes a specific paused transition.</td>
+<td style="text-align: left;">transition reference</td>
+<td style="text-align: left;">Resumes a specific paused transition.</td>
 </tr>
 <tr class="odd">
-<td align="left">object reference</td>
-<td align="left">Resumes all paused transitions on a specific object.</td>
+<td style="text-align: left;">object reference</td>
+<td style="text-align: left;">Resumes all paused transitions on a specific object.</td>
 </tr>
 <tr class="even">
-<td align="left">tag name (string)</td>
-<td align="left">Resumes all paused transitions sharing the same tag name.</td>
+<td style="text-align: left;">tag name (string)</td>
+<td style="text-align: left;">Resumes all paused transitions sharing the same tag name.</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="cancel" class="section level3">
+</section>
+<section id="cancel" class="level3">
 <h3>Cancel</h3>
 <p>Transitions can be cancelled with the <a href="../../../api/library/transition/cancel.html">transition.cancel()</a> and <a href="../../../api/library/transition/cancelAll.html">transition.cancelAll()</a> functions. Note that the transition(s) will stop in place — they will not revert to their beginning state or skip to the end state. These functions only effects transitions that are currently running or paused.</p>
 <p>With the <a href="../../../api/library/transition/cancel.html">transition.cancel()</a> function, you can control which specific transitions to cancel by what parameter you use.</p>
@@ -413,26 +413,26 @@ All transitions — standard and sequenced — can be paused, resumed, or cancel
 <table>
 <thead>
 <tr class="header">
-<th align="left">Parameter</th>
-<th align="left">Scope</th>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Scope</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">(none)</td>
-<td align="left">Cancels all running/paused transitions.</td>
+<td style="text-align: left;">(none)</td>
+<td style="text-align: left;">Cancels all running/paused transitions.</td>
 </tr>
 <tr class="even">
-<td align="left">transition reference</td>
-<td align="left">Cancels a specific running/paused transition.</td>
+<td style="text-align: left;">transition reference</td>
+<td style="text-align: left;">Cancels a specific running/paused transition.</td>
 </tr>
 <tr class="odd">
-<td align="left">object reference</td>
-<td align="left">Cancels all running/paused transitions on a specific object.</td>
+<td style="text-align: left;">object reference</td>
+<td style="text-align: left;">Cancels all running/paused transitions on a specific object.</td>
 </tr>
 <tr class="even">
-<td align="left">tag name (string)</td>
-<td align="left">Cancels all running/paused transitions sharing the same tag name.</td>
+<td style="text-align: left;">tag name (string)</td>
+<td style="text-align: left;">Cancels all running/paused transitions sharing the same tag name.</td>
 </tr>
 </tbody>
 </table>
@@ -447,9 +447,9 @@ Important
 <p>If set <code>transition.ignoreEmptyReference</code> to <code>true</code> (default is <code>false</code>), then passing <code>nil</code> or no argument into these three functions will be ignored and nothing will happen. You can always use <a href="../../../api/library/transition/pauseAll.html">transition.pauseAll()</a>, <a href="../../../api/library/transition/resumeAll.html">transition.resumeAll()</a> and <a href="../../../api/library/transition/cancelAll.html">transition.cancelAll()</a> to control all transitions.</p>
 </div>
 <p><a id="easing"></a></p>
-</div>
-</div>
-<div id="easing-functions" class="section level2">
+</section>
+</section>
+<section id="easing-functions" class="level2">
 <h2>Easing Functions</h2>
 <p>By default, transitions occur on a consistent, linear rate of change from the starting value to the ending value. However, you may wish to use an <a href="../../../api/library/easing/index.html">easing</a> effect to achieve a different result, for example, to make an object move quickly at the start and gradually slow down as it reaches its destination. This behavior can be achieved using the <a href="../../../api/library/easing/index.html">easing library</a> functions in conjunction with the transition call.</p>
 <p>To set an easing effect on a transition, simply provide the <code>transition</code> key in the <code>params</code> table with a value equal to one of the <a href="../../../api/library/easing/index.html">easing library</a> functions:</p>
@@ -459,8 +459,8 @@ transition.to( myObject, { time=2000, y=100, transition=easing.outQuad } )
 --transition the object in, then back out, with exponential interpolation
 transition.to( myObject, { time=2000, y=100, transition=easing.inOutExpo } )</pre>
 <p><a id="transevents"></a></p>
-</div>
-<div id="transition-events" class="section level2">
+</section>
+<section id="transition-events" class="level2">
 <h2>Transition Events</h2>
 <p>Corona supports a full range of transition events, including:</p>
 <ul>
@@ -518,54 +518,54 @@ transition.runSequence( "sequence1" )
 <div class="notebox-title-imp">
 Important
 </div>
-<p>If you remove or clear a transitioning object from memory, and the transition has an <code>onComplete</code> event, the listener will still be invoked even though the object no longer exists on the screen. Other transition events may even crash the program if the object has been prematurely removed. Thus, it's good practice to cancel all transitions on a specific object before removing it. Passing the object reference to <a href="../../../api/library/transition/cancel.html">transition.cancel()</a> is useful for this purpose.</p>
+<p>If you remove or clear a transitioning object from memory, and the transition has an <code>onComplete</code> event, the listener will still be invoked even though the object no longer exists on the screen. Other transition events may even crash the program if the object has been prematurely removed. Thus, it’s good practice to cancel all transitions on a specific object before removing it. Passing the object reference to <a href="../../../api/library/transition/cancel.html">transition.cancel()</a> is useful for this purpose.</p>
 <p>In a wider scope, you may consider using <a href="../../../api/library/transition/cancel.html">transition.cancel()</a> with no params to cancel <strong>all</strong> transitions before exiting a <a href="../../../api/library/composer/index.html">Composer</a> scene or clearing a module.</p>
 </div>
 <p><a id="convenience"></a></p>
-</div>
-<div id="convenience-functions" class="section level2">
+</section>
+<section id="convenience-functions" class="level2">
 <h2>Convenience Functions</h2>
 <p>Corona provides several convenience functions which let you perform simple transitions with recognizable names. The following function accept the object/group to transition as the first parameter and, like standard transitions, a <code>params</code> table containing key-values appropriate to the transition type.</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Function</th>
-<th align="left">Description</th>
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/transition/blink.html">transition.blink()</a></td>
-<td align="left">Repeatedly oscillates the alpha value of an object in and out over the timespan.</td>
+<td style="text-align: left;"><a href="../../../api/library/transition/blink.html">transition.blink()</a></td>
+<td style="text-align: left;">Repeatedly oscillates the alpha value of an object in and out over the timespan.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/transition/dissolve.html">transition.dissolve()</a></td>
-<td align="left">Performs a dissolve transition between two display objects.</td>
+<td style="text-align: left;"><a href="../../../api/library/transition/dissolve.html">transition.dissolve()</a></td>
+<td style="text-align: left;">Performs a dissolve transition between two display objects.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/transition/fadeIn.html">transition.fadeIn()</a></td>
-<td align="left">Fades an object to alpha of 1.0 over the specified time.</td>
+<td style="text-align: left;"><a href="../../../api/library/transition/fadeIn.html">transition.fadeIn()</a></td>
+<td style="text-align: left;">Fades an object to alpha of 1.0 over the specified time.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/transition/fadeOut.html">transition.fadeOut()</a></td>
-<td align="left">Fades an object to alpha of 0.0 over the specified time.</td>
+<td style="text-align: left;"><a href="../../../api/library/transition/fadeOut.html">transition.fadeOut()</a></td>
+<td style="text-align: left;">Fades an object to alpha of 0.0 over the specified time.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/transition/moveBy.html">transition.moveBy()</a></td>
-<td align="left">Moves an object by the specified x and y coordinate amount over a specified time.</td>
+<td style="text-align: left;"><a href="../../../api/library/transition/moveBy.html">transition.moveBy()</a></td>
+<td style="text-align: left;">Moves an object by the specified x and y coordinate amount over a specified time.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/transition/moveTo.html">transition.moveTo()</a></td>
-<td align="left">Moves an object to the specified x and y coordinates over a specified time.</td>
+<td style="text-align: left;"><a href="../../../api/library/transition/moveTo.html">transition.moveTo()</a></td>
+<td style="text-align: left;">Moves an object to the specified x and y coordinates over a specified time.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/transition/scaleBy.html">transition.scaleBy()</a></td>
-<td align="left">Scales an object by the specified xScale and yScale amounts over a specified time.</td>
+<td style="text-align: left;"><a href="../../../api/library/transition/scaleBy.html">transition.scaleBy()</a></td>
+<td style="text-align: left;">Scales an object by the specified xScale and yScale amounts over a specified time.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/transition/scaleTo.html">transition.scaleTo()</a></td>
-<td align="left">Scales an object to the specified xScale and yScale amounts over a specified time.</td>
+<td style="text-align: left;"><a href="../../../api/library/transition/scaleTo.html">transition.scaleTo()</a></td>
+<td style="text-align: left;">Scales an object to the specified xScale and yScale amounts over a specified time.</td>
 </tr>
 </tbody>
 </table>
@@ -580,8 +580,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

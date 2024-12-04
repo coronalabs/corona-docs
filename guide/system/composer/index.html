@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | UI/Scenes</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -84,7 +84,7 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/system/index.html">UI/Scenes</a>
 </div>
-<div id="composer-library" class="section level1">
+<section id="composer-library" class="level1">
 <h1>Composer Library</h1>
 <p>The <a href="../../../api/library/composer/index.html">Composer</a> library is the official scene (screen) creation and management system in Corona. This library provides developers with an easy way to create and transition between individual scenes.</p>
 <div class="guides-toc">
@@ -99,7 +99,7 @@
 </ul>
 </div>
 <p><a id="aboutscenes"></a></p>
-<div id="understanding-scenes" class="section level2">
+<section id="understanding-scenes" class="level2">
 <h2>Understanding Scenes</h2>
 <p>The Composer lifecycle starts within <code>main.lua</code>. However, <code>main.lua</code> itself is <strong>not</strong> a Composer scene — it is merely used for initialization code, then it launches the first scene via <a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a>. In this call, specify the name of the scene (file) to be loaded, minus the <code>.lua</code> extension:</p>
 <pre class="brush: lua;">local composer = require( "composer" )
@@ -109,12 +109,12 @@
 -- Assumes that "scene1.lua" exists and is configured as a Composer scene
 composer.gotoScene( "scene1" )</pre>
 <p>Scenes are basically just Lua files, existing as separate <code>.lua</code> files in your project. There is, however, some additional structural setup that you must obey so that <a href="../../../api/library/composer/index.html">Composer</a> can treat them as scenes. This includes two lines to initialize the scene, four listener functions to handle the events that Composer generates, four lines of code to initialize these listener functions, and a basic <code>return</code> to associate the scene with Composer. Please see the sample <a href="#template">scene template</a> below.</p>
-<p>The scene object itself is created by calling <a href="../../../api/library/composer/newScene.html">composer.newScene()</a>. This object holds important data for the scene that Composer must access. For the developer, the most important aspect is the scene's <code>self.view</code> <a href="../../../api/library/display/newGroup.html">display group</a> — this is the display group to which all of the scene's visual content should be added.</p>
+<p>The scene object itself is created by calling <a href="../../../api/library/composer/newScene.html">composer.newScene()</a>. This object holds important data for the scene that Composer must access. For the developer, the most important aspect is the scene’s <code>self.view</code> <a href="../../../api/library/display/newGroup.html">display group</a> — this is the display group to which all of the scene’s visual content should be added.</p>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
 Important
 </div>
-<p>Remember that you <strong>must</strong> insert scene display objects into the scene's <code>self.view</code> group. If you create display objects but do <strong>not</strong> insert them into this group, they will reside in front of the <a href="../../../api/library/composer/stage.html">Composer stage</a> and they will not be regarded as part of the scene. For display objects which should be part of the scene and &quot;managed&quot; by Composer — for example, cleaned up when the scene is removed — you must insert them into the scene's <code>self.view</code> group, for instance:</p>
+<p>Remember that you <strong>must</strong> insert scene display objects into the scene’s <code>self.view</code> group. If you create display objects but do <strong>not</strong> insert them into this group, they will reside in front of the <a href="../../../api/library/composer/stage.html">Composer stage</a> and they will not be regarded as part of the scene. For display objects which should be part of the scene and “managed” by Composer — for example, cleaned up when the scene is removed — you must insert them into the scene’s <code>self.view</code> group, for instance:</p>
 <pre class="brush: lua;">function scene:create( event )
 
     -- Assign "self.view" to local variable "sceneGroup" for easy reference
@@ -126,57 +126,54 @@ Important
 end</pre>
 </div>
 <p><a id="flow"></a></p>
-</div>
-<div id="scene-flowevents" class="section level2">
+</section>
+<section id="scene-flowevents" class="level2">
 <h2>Scene Flow/Events</h2>
 <p>Four different life cycle functions handle Composer-generated events:</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Function</th>
-<th align="left">Life Cycle Point</th>
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">Life Cycle Point</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>scene:create()</code></td>
-<td align="left">Occurs when the scene is first created but has not yet appeared on screen.</td>
+<td style="text-align: left;"><code>scene:create()</code></td>
+<td style="text-align: left;">Occurs when the scene is first created but has not yet appeared on screen.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>scene:show()</code></td>
-<td align="left">Occurs immediately before and/or immediately after the scene appears on screen.</td>
+<td style="text-align: left;"><code>scene:show()</code></td>
+<td style="text-align: left;">Occurs immediately before and/or immediately after the scene appears on screen.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>scene:hide()</code></td>
-<td align="left">Occurs immediately before and/or immediately after the scene exits the screen.</td>
+<td style="text-align: left;"><code>scene:hide()</code></td>
+<td style="text-align: left;">Occurs immediately before and/or immediately after the scene exits the screen.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>scene:destroy()</code></td>
-<td align="left">Occurs when the scene is destroyed.</td>
+<td style="text-align: left;"><code>scene:destroy()</code></td>
+<td style="text-align: left;">Occurs when the scene is destroyed.</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Once <a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a> is called, the scene's life cycle begins and it follows this basic flow:</p>
+<p>Once <a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a> is called, the scene’s life cycle begins and it follows this basic flow:</p>
 <div style="max-width: 50%; float: right; margin-left: 20px; margin-bottom: 5px;">
-<div class="figure">
-<img src="../../../images/simulator/composer-flowchart.png" />
-
+<p><img src="../../../images/simulator/composer-flowchart.png" /></p>
 </div>
-</div>
-<ol style="list-style-type: decimal">
-<li><p>The scene's <code>.lua</code> file is loaded and a Composer scene object is created via <a href="../../../api/library/composer/newScene.html">composer.newScene()</a>. At this point, the scene's view (<code>self.view</code>) is not initialized.</p></li>
-<li><p>The scene's view is initialized and, if the view does <strong>not</strong> already exist, a <a href="../../../api/event/scene/create/index.html">create</a> event is dispatched to the scene's <code>scene:create()</code> function. At this point, the scene still resides &quot;off screen,&quot; so this is an opportune time to create user interface objects and other display objects needed for the scene, including buttons, text, graphics, and other objects that should show when the scene comes on screen.</p></li>
-<li><p>Immediately before the scene transitions &quot;on screen,&quot; a <a href="../../../api/event/scene/show/index.html">show</a> event is dispatched to the scene's <code>scene:show()</code> function with a <code>phase</code> parameter equal to <code>&quot;will&quot;</code>. This is a great opportunity to reset variable values or reposition objects that may have moved from their intended starting position since the scene was last shown (like restarting a game level).</p></li>
-<li><p>Once the scene is fully on screen, another <a href="../../../api/event/scene/show/index.html">show</a> event is dispatched to the <code>scene:show()</code> function with a <code>phase</code> parameter equal to <code>&quot;did&quot;</code> and this scene is now considered the active scene. This is a good place to start transitions/timers, play <nobr>scene-specific</nobr> music that was loaded in <code>scene:create()</code>, and start the physics simulation if you're using Corona's <a href="../../../api/library/physics/index.html">physics</a> engine.</p></li>
-<li><p>If this active scene is exited by going to another scene, for instance, a <a href="../../../api/event/scene/hide/index.html">hide</a> event is dispatched to the scene's <code>scene:hide()</code> function with a <code>phase</code> parameter equal to <code>&quot;will&quot;</code>. This is a great opportunity to pause or stop physics, cancel timers and transitions, and stop <nobr>scene-specific</nobr> audio that was played in <code>scene:show()</code>.</p></li>
-<li><p>Once the scene is fully off screen, another <a href="../../../api/event/scene/hide/index.html">hide</a> event is dispatched to the <code>scene:hide()</code> function with a <code>phase</code> parameter equal to <code>&quot;did&quot;</code>. At this point, the scene's view remains initialized since, by default, Composer keeps hidden/inactive scenes in memory on the assumption that they may be <nobr>re-shown</nobr> periodically.</p></li>
-<li><p>From this point, if the scene is ever destroyed, either by <a href="#removing">command</a> or as a result of <a href="#autorecycle">auto-recycling</a>, a <a href="../../../api/event/scene/destroy/index.html">destroy</a> event is dispatched to the scene's <code>scene:destroy()</code> function. This is when Composer cleans up the scene's display objects (any display objects that you inserted into the scene's <code>self.view</code> group or a child group of it). This is also a good time to &quot;undo&quot; things that you did in <code>scene:create()</code> which are not related to the scene's display objects, for example, <a href="../../../api/library/audio/dispose.html">dispose</a> of <nobr>scene-specific</nobr> audio.</p></li>
+<ol type="1">
+<li><p>The scene’s <code>.lua</code> file is loaded and a Composer scene object is created via <a href="../../../api/library/composer/newScene.html">composer.newScene()</a>. At this point, the scene’s view (<code>self.view</code>) is not initialized.</p></li>
+<li><p>The scene’s view is initialized and, if the view does <strong>not</strong> already exist, a <a href="../../../api/event/scene/create/index.html">create</a> event is dispatched to the scene’s <code>scene:create()</code> function. At this point, the scene still resides “off screen,” so this is an opportune time to create user interface objects and other display objects needed for the scene, including buttons, text, graphics, and other objects that should show when the scene comes on screen.</p></li>
+<li><p>Immediately before the scene transitions “on screen,” a <a href="../../../api/event/scene/show/index.html">show</a> event is dispatched to the scene’s <code>scene:show()</code> function with a <code>phase</code> parameter equal to <code>"will"</code>. This is a great opportunity to reset variable values or reposition objects that may have moved from their intended starting position since the scene was last shown (like restarting a game level).</p></li>
+<li><p>Once the scene is fully on screen, another <a href="../../../api/event/scene/show/index.html">show</a> event is dispatched to the <code>scene:show()</code> function with a <code>phase</code> parameter equal to <code>"did"</code> and this scene is now considered the active scene. This is a good place to start transitions/timers, play <nobr>scene-specific</nobr> music that was loaded in <code>scene:create()</code>, and start the physics simulation if you’re using Corona’s <a href="../../../api/library/physics/index.html">physics</a> engine.</p></li>
+<li><p>If this active scene is exited by going to another scene, for instance, a <a href="../../../api/event/scene/hide/index.html">hide</a> event is dispatched to the scene’s <code>scene:hide()</code> function with a <code>phase</code> parameter equal to <code>"will"</code>. This is a great opportunity to pause or stop physics, cancel timers and transitions, and stop <nobr>scene-specific</nobr> audio that was played in <code>scene:show()</code>.</p></li>
+<li><p>Once the scene is fully off screen, another <a href="../../../api/event/scene/hide/index.html">hide</a> event is dispatched to the <code>scene:hide()</code> function with a <code>phase</code> parameter equal to <code>"did"</code>. At this point, the scene’s view remains initialized since, by default, Composer keeps hidden/inactive scenes in memory on the assumption that they may be <nobr>re-shown</nobr> periodically.</p></li>
+<li><p>From this point, if the scene is ever destroyed, either by <a href="#removing">command</a> or as a result of <a href="#autorecycle">auto-recycling</a>, a <a href="../../../api/event/scene/destroy/index.html">destroy</a> event is dispatched to the scene’s <code>scene:destroy()</code> function. This is when Composer cleans up the scene’s display objects (any display objects that you inserted into the scene’s <code>self.view</code> group or a child group of it). This is also a good time to “undo” things that you did in <code>scene:create()</code> which are not related to the scene’s display objects, for example, <a href="../../../api/library/audio/dispose.html">dispose</a> of <nobr>scene-specific</nobr> audio.</p></li>
 </ol>
 <p><a id="template"></a></p>
-</div>
-<div id="scene-template" class="section level2">
+</section>
+<section id="scene-template" class="level2">
 <h2>Scene Template</h2>
 <p>The following template can be used to create new scene files. Note that this template includes listener functions for all potential events in the scene, but you only need to include listeners for the events that you want to handle.</p>
 <pre class="brush: lua;">local composer = require( "composer" )
@@ -255,12 +252,12 @@ scene:addEventListener( "destroy", scene )
 -- -----------------------------------------------------------------------------------
 
 return scene</pre>
-<p>The first line localizes the Composer library for the scene and the next line creates the scene's view. After this, you should include any <nobr>scene-wide</nobr> functions and <nobr>forward-declare</nobr> local variables that will be used in the scene. Because Lua files are only loaded once, variables that you set here will <strong>not</strong> be reset when you revisit the scene unless you take explicit steps to unload the file.</p>
+<p>The first line localizes the Composer library for the scene and the next line creates the scene’s view. After this, you should include any <nobr>scene-wide</nobr> functions and <nobr>forward-declare</nobr> local variables that will be used in the scene. Because Lua files are only loaded once, variables that you set here will <strong>not</strong> be reset when you revisit the scene unless you take explicit steps to unload the file.</p>
 <p>After this are the four functions to handle events generated for the scene. Then, event listeners are declared to handle scene events and, finally, the <code>scene</code> object is returned to Composer.</p>
-<p>Note that within the listener functions, <code>self.view</code> is assigned to the local variable <code>sceneGroup</code> for easy reference. If you need to reference the scene's view outside of these functions, just use <code>scene.view</code>.</p>
+<p>Note that within the listener functions, <code>self.view</code> is assigned to the local variable <code>sceneGroup</code> for easy reference. If you need to reference the scene’s view outside of these functions, just use <code>scene.view</code>.</p>
 <p><a id="goingto"></a></p>
-</div>
-<div id="going-to-scenes" class="section level2">
+</section>
+<section id="going-to-scenes" class="level2">
 <h2>Going to Scenes</h2>
 <p>Once you create scene <code>.lua</code> files, you need a method to access them. In Composer, this is accomplished via <a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a>:</p>
 <pre class="brush: lua;">composer.gotoScene( sceneName )</pre>
@@ -281,7 +278,7 @@ return scene</pre>
     }
 }
 composer.gotoScene( "menu", options )</pre>
-<p>In this example, the <code>menu.lua</code> scene will transition on screen using a &quot;fade&quot; effect over the span of 500 milliseconds. An optional table of parameters is also passed in. To access this data from the <code>menu.lua</code> scene, access the <code>event.params</code> table in the target scene's <code>scene:create()</code> or <code>scene:show()</code> function:</p>
+<p>In this example, the <code>menu.lua</code> scene will transition on screen using a “fade” effect over the span of 500 milliseconds. An optional table of parameters is also passed in. To access this data from the <code>menu.lua</code> scene, access the <code>event.params</code> table in the target scene’s <code>scene:create()</code> or <code>scene:show()</code> function:</p>
 <pre class="brush: lua;">function scene:create( event )
     local sceneGroup = self.view
     local params = event.params
@@ -293,40 +290,40 @@ end</pre>
 <div class="notebox-title-imp">
 Important
 </div>
-<p>Because Composer keeps the current scene's view in memory by default, the <code>scene:create()</code> function will only be called when the scene is first created. Thus, if you pass a table of parameters and you attempt to access it in the <code>scene:create()</code> function as <code>event.params</code>, it will only be available when the scene is first created.</p>
+<p>Because Composer keeps the current scene’s view in memory by default, the <code>scene:create()</code> function will only be called when the scene is first created. Thus, if you pass a table of parameters and you attempt to access it in the <code>scene:create()</code> function as <code>event.params</code>, it will only be available when the scene is first created.</p>
 </div>
 <p><a id="effects"></a></p>
-<div id="transition-effects" class="section level3">
+<section id="transition-effects" class="level3">
 <h3>Transition Effects</h3>
 <p>The following string values are supported for the <code>effect</code> key of the <code>options</code> table:</p>
 <ul>
-<li><code>&quot;fade&quot;</code></li>
-<li><code>&quot;crossFade&quot;</code></li>
-<li><code>&quot;zoomOutIn&quot;</code></li>
-<li><code>&quot;zoomOutInFade&quot;</code></li>
-<li><code>&quot;zoomInOut&quot;</code></li>
-<li><code>&quot;zoomInOutFade&quot;</code></li>
-<li><code>&quot;flip&quot;</code></li>
-<li><code>&quot;flipFadeOutIn&quot;</code></li>
-<li><code>&quot;zoomOutInRotate&quot;</code></li>
-<li><code>&quot;zoomOutInFadeRotate&quot;</code></li>
-<li><code>&quot;zoomInOutRotate&quot;</code></li>
-<li><code>&quot;zoomInOutFadeRotate&quot;</code></li>
-<li><code>&quot;fromRight&quot;</code> — over current scene</li>
-<li><code>&quot;fromLeft&quot;</code> — over current scene</li>
-<li><code>&quot;fromTop&quot;</code> — over current scene</li>
-<li><code>&quot;fromBottom&quot;</code> — over current scene</li>
-<li><code>&quot;slideLeft&quot;</code> — pushes current scene off</li>
-<li><code>&quot;slideRight&quot;</code> — pushes current scene off</li>
-<li><code>&quot;slideDown&quot;</code> — pushes current scene off</li>
-<li><code>&quot;slideUp&quot;</code> — pushes current scene off</li>
+<li><code>"fade"</code></li>
+<li><code>"crossFade"</code></li>
+<li><code>"zoomOutIn"</code></li>
+<li><code>"zoomOutInFade"</code></li>
+<li><code>"zoomInOut"</code></li>
+<li><code>"zoomInOutFade"</code></li>
+<li><code>"flip"</code></li>
+<li><code>"flipFadeOutIn"</code></li>
+<li><code>"zoomOutInRotate"</code></li>
+<li><code>"zoomOutInFadeRotate"</code></li>
+<li><code>"zoomInOutRotate"</code></li>
+<li><code>"zoomInOutFadeRotate"</code></li>
+<li><code>"fromRight"</code> — over current scene</li>
+<li><code>"fromLeft"</code> — over current scene</li>
+<li><code>"fromTop"</code> — over current scene</li>
+<li><code>"fromBottom"</code> — over current scene</li>
+<li><code>"slideLeft"</code> — pushes current scene off</li>
+<li><code>"slideRight"</code> — pushes current scene off</li>
+<li><code>"slideDown"</code> — pushes current scene off</li>
+<li><code>"slideUp"</code> — pushes current scene off</li>
 </ul>
 <p><a id="management"></a></p>
-</div>
-</div>
-<div id="scene-management" class="section level2">
+</section>
+</section>
+<section id="scene-management" class="level2">
 <h2>Scene Management</h2>
-<p>One key feature of Composer is that, for the most part, it manages display objects automatically, assuming you insert them into the scene's view group:</p>
+<p>One key feature of Composer is that, for the most part, it manages display objects automatically, assuming you insert them into the scene’s view group:</p>
 <pre class="brush: lua;">function scene:create( event )
 
     -- Assign "self.view" to local variable "sceneGroup" for easy reference
@@ -336,12 +333,12 @@ Important
     -- Insert object into "sceneGroup"
     sceneGroup:insert( menuBack )
 end</pre>
-<p>Upon this scene being recycled or removed, Composer will handle the proper disposal of the <code>menuBack</code> object, along with other objects that were inserted into the scene's view group or a child group of it. Touch, tap, and collision listeners applied to these objects will also be removed.</p>
+<p>Upon this scene being recycled or removed, Composer will handle the proper disposal of the <code>menuBack</code> object, along with other objects that were inserted into the scene’s view group or a child group of it. Touch, tap, and collision listeners applied to these objects will also be removed.</p>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
 Important
 </div>
-<p>Just like removing display objects outside of Composer, you're still responsible for the following when you're finished with a scene:</p>
+<p>Just like removing display objects outside of Composer, you’re still responsible for the following when you’re finished with a scene:</p>
 <ul>
 <li><a href="../../../api/type/EventDispatcher/removeEventListener.html">Remove runtime listeners</a>.</li>
 <li>Cancel <a href="../../../api/library/transition/index.html">transitions</a> and <a href="../../../api/library/timer/index.html">timers</a>.</li>
@@ -350,42 +347,42 @@ Important
 </ul>
 </div>
 <p><a id="autorecycle"></a></p>
-<div id="auto-recycling-scenes" class="section level3">
+<section id="auto-recycling-scenes" class="level3">
 <h3>Auto-Recycling Scenes</h3>
-<p>By default, when changing scenes, Composer keeps the current scene's view in memory, which can improve performance if you access the same scenes frequently. If you wish to <strong>recycle</strong> the current scene when changing to a new scene (remove the current scene's <code>self.view</code>), you can set the <a href="../../../api/library/composer/recycleOnSceneChange.html">composer.recycleOnSceneChange</a> property to <code>true</code>.</p>
+<p>By default, when changing scenes, Composer keeps the current scene’s view in memory, which can improve performance if you access the same scenes frequently. If you wish to <strong>recycle</strong> the current scene when changing to a new scene (remove the current scene’s <code>self.view</code>), you can set the <a href="../../../api/library/composer/recycleOnSceneChange.html">composer.recycleOnSceneChange</a> property to <code>true</code>.</p>
 <pre class="brush: lua;">composer.recycleOnSceneChange = true</pre>
 <p>To revert to the default behavior where scene views are retained (but hidden from view), set the property to <code>false</code>:</p>
 <pre class="brush: lua;">composer.recycleOnSceneChange = false</pre>
-<p>It's important to understand that neither of these conditions will <strong>unload</strong> the scene from Lua memory. To explicitly remove a scene from memory, use the <code>composer.removeScene()</code> call. See the next section for details.</p>
+<p>It’s important to understand that neither of these conditions will <strong>unload</strong> the scene from Lua memory. To explicitly remove a scene from memory, use the <code>composer.removeScene()</code> call. See the next section for details.</p>
 <p><a id="removing"></a></p>
-</div>
-<div id="removing-scenes" class="section level3">
+</section>
+<section id="removing-scenes" class="level3">
 <h3>Removing Scenes</h3>
-<p>If you're completely finished with scene(s) and don't intend to access them again, the following functions may be called:</p>
+<p>If you’re completely finished with scene(s) and don’t intend to access them again, the following functions may be called:</p>
 <ul>
 <li><a href="../../../api/library/composer/removeScene.html">composer.removeScene()</a> — Removes or recycles a specific scene.</li>
 <li><a href="../../../api/library/composer/removeHidden.html">composer.removeHidden()</a> — Removes or recycles all scenes <strong>except</strong> for the currently active scene.</li>
 </ul>
 <p>For instance, if you want to remove both the view and the scene object for <code>menu.lua</code>, call:</p>
 <pre class="brush: lua;">composer.removeScene( "menu" )</pre>
-<p>Optionally, you can pass the value of <code>shouldRecycle</code> as <code>true</code>. This will remove the scene's view from the display hierarchy, but it will remain in Lua memory.</p>
+<p>Optionally, you can pass the value of <code>shouldRecycle</code> as <code>true</code>. This will remove the scene’s view from the display hierarchy, but it will remain in Lua memory.</p>
 <pre class="brush: lua;">composer.removeScene( "menu", true )</pre>
-</div>
-<div id="reloading-scenes" class="section level3">
+</section>
+<section id="reloading-scenes" class="level3">
 <h3>Reloading Scenes</h3>
-<p>Reloading scenes requires a slightly different approach. Many people want to create and position all of the scene display objects in the <code>scene:create()</code> function. However, if you reload the scene from itself, this function is <strong>not</strong> called again because the scene's view still exists. Objects that may have moved (i.e. characters in a game) will remain in place when you reload the scene, and variables defined outside of the listener functions will remain at their current values. For example, if you set a <code>score</code> variable to <code>0</code> outside of the listener functions, it will not reset to that value when you reload the scene.</p>
-<p>Even if you destroy the scene's view, certain variables will not reset. While the <code>scene:create()</code> will <nobr>re-execute</nobr> in that case, any code that was executed outside of the listener functions will not <nobr>re-execute.</nobr></p>
-<p>The best practice for reloading scenes is to use an intermediate scene. In games, this is often referred to as a &quot;cutscene&quot; and it may show the user a summary of their performance, a menu of options like &quot;replay&quot; and &quot;exit&quot;, etc. Using an intermediary cutscene, you can manually remove the scene that you want to reload, resulting in a fresh start when you load it again. However, you may still need to reset variables and reposition objects in the <code>&quot;will&quot;</code> phase of the <code>scene:show()</code> function.</p>
+<p>Reloading scenes requires a slightly different approach. Many people want to create and position all of the scene display objects in the <code>scene:create()</code> function. However, if you reload the scene from itself, this function is <strong>not</strong> called again because the scene’s view still exists. Objects that may have moved (i.e. characters in a game) will remain in place when you reload the scene, and variables defined outside of the listener functions will remain at their current values. For example, if you set a <code>score</code> variable to <code>0</code> outside of the listener functions, it will not reset to that value when you reload the scene.</p>
+<p>Even if you destroy the scene’s view, certain variables will not reset. While the <code>scene:create()</code> will <nobr>re-execute</nobr> in that case, any code that was executed outside of the listener functions will not <nobr>re-execute.</nobr></p>
+<p>The best practice for reloading scenes is to use an intermediate scene. In games, this is often referred to as a “cutscene” and it may show the user a summary of their performance, a menu of options like “replay” and “exit”, etc. Using an intermediary cutscene, you can manually remove the scene that you want to reload, resulting in a fresh start when you load it again. However, you may still need to reset variables and reposition objects in the <code>"will"</code> phase of the <code>scene:show()</code> function.</p>
 <p>If you want to skip the cutscene approach, you can reload a scene from itself by calling:</p>
 <pre class="brush: lua;">local currScene = composer.getSceneName( "current" )
 composer.gotoScene( currScene )</pre>
 <p><a id="overlays"></a></p>
-</div>
-</div>
-<div id="overlay-scenes" class="section level2">
+</section>
+</section>
+<section id="overlay-scenes" class="level2">
 <h2>Overlay Scenes</h2>
 <p>Composer allows you to have one <strong>overlay</strong> scene. This is a scene that gets loaded on top of the active scene (the parent scene). An overlay scene is constructed like any other Composer scene.</p>
-<div id="showing-an-overlay" class="section level3">
+<section id="showing-an-overlay" class="level3">
 <h3>Showing an Overlay</h3>
 <p>To show an overlay, call it via the <a href="../../../api/library/composer/showOverlay.html">composer.showOverlay()</a> function. Because an overlay scene may not cover the entire screen, users may potentially interact with the parent scene underneath. To prevent this, set the <code>isModal</code> parameter to <code>true</code> in the <code>options</code> table. This prevents touch/tap events from passing through the overlay scene to the parent scene.</p>
 <pre class="brush: lua;">local options = {
@@ -395,16 +392,16 @@ composer.gotoScene( currScene )</pre>
 }
 composer.showOverlay( "inventory", options )</pre>
 <p>When the overlay is loaded, it behaves exactly like any other scene in regards to its event handling. That is, <code>scene:create()</code>, <code>scene:show()</code>, <code>scene:hide()</code> and <code>scene:destroy()</code> will be called with the same rules as other scenes.</p>
-</div>
-<div id="hiding-an-overlay" class="section level3">
+</section>
+<section id="hiding-an-overlay" class="level3">
 <h3>Hiding an Overlay</h3>
 <p>To hide an overlay and return to the parent scene, use the <a href="../../../api/library/composer/hideOverlay.html">composer.hideOverlay()</a> call, for example:</p>
 <pre class="brush: lua;">composer.hideOverlay( "fromBottom", 400 )</pre>
-<p>This can be called from the overlay scene, from the parent scene, or from some event handler like an Android &quot;back&quot; key handler. Attempting to go to another scene via <code>composer.gotoScene()</code> will automatically hide the overlay as well.</p>
-</div>
-<div id="accessing-the-parent-scene" class="section level3">
+<p>This can be called from the overlay scene, from the parent scene, or from some event handler like an Android “back” key handler. Attempting to go to another scene via <code>composer.gotoScene()</code> will automatically hide the overlay as well.</p>
+</section>
+<section id="accessing-the-parent-scene" class="level3">
 <h3>Accessing the Parent Scene</h3>
-<p>When showing or hiding the overlay, you may need to perform actions in the parent scene. For instance, you may need to gather some input or selection from the overlay and update some aspect of the parent scene. In Composer, the overlay scene has access to the parent's scene object via <code>event.parent</code>. This allows you to access functions/methods in the parent scene and communicate with the parent when the overlay scene is shown or hidden. For example:</p>
+<p>When showing or hiding the overlay, you may need to perform actions in the parent scene. For instance, you may need to gather some input or selection from the overlay and update some aspect of the parent scene. In Composer, the overlay scene has access to the parent’s scene object via <code>event.parent</code>. This allows you to access functions/methods in the parent scene and communicate with the parent when the overlay scene is shown or hidden. For example:</p>
 <pre class="brush: lua;">------------------------------------------------------------------------------
 -- In "scene1.lua" (parent scene)
 ------------------------------------------------------------------------------
@@ -456,43 +453,43 @@ composer.hideOverlay( "fade", 400 )
 scene:addEventListener( "hide", scene )
 return scene</pre>
 <p><a id="other"></a></p>
-</div>
-</div>
-<div id="other-methodsproperties" class="section level2">
+</section>
+</section>
+<section id="other-methodsproperties" class="level2">
 <h2>Other Methods/Properties</h2>
 <p>Composer features a few convenience methods and properties to assist with your scene management.</p>
-<div id="settinggetting-variables" class="section level3">
+<section id="settinggetting-variables" class="level3">
 <h3>Setting/Getting Variables</h3>
 <p>You may store key-value pairs internally within the Composer module which should assist with accessing data between scenes. To set a variable that may be accessed from another Composer scene, use the <a href="../../../api/library/composer/setVariable.html">composer.setVariable()</a> function, for example:</p>
 <pre class="brush: lua;">composer.setVariable( "gameLevel", 1 )
 composer.setVariable( "playerName", "Zorron" )</pre>
 <p>Then, to retrieve a variable from another scene:</p>
 <pre class="brush: lua;">local playerName = composer.getVariable( "playerName" )</pre>
-</div>
-<div id="getting-a-scene-name" class="section level3">
+</section>
+<section id="getting-a-scene-name" class="level3">
 <h3>Getting a Scene Name</h3>
 <p>To get the name of a scene, use the <a href="../../../api/library/composer/getSceneName.html">composer.getSceneName()</a> function and pass in one of the following string values as the sole required parameter:</p>
 <ul>
-<li><code>&quot;current&quot;</code> — gets the current scene name</li>
-<li><code>&quot;previous&quot;</code> — gets the name of the scene which was previously shown</li>
-<li><code>&quot;overlay&quot;</code> — gets the name of the overlay scene (if it's showing)</li>
+<li><code>"current"</code> — gets the current scene name</li>
+<li><code>"previous"</code> — gets the name of the scene which was previously shown</li>
+<li><code>"overlay"</code> — gets the name of the overlay scene (if it’s showing)</li>
 </ul>
 <pre class="brush: lua;">local currScene = composer.getSceneName( "current" )
 local prevScene = composer.getSceneName( "previous" )
 local overlayScene = composer.getSceneName( "overlay" )</pre>
-</div>
-<div id="composer-stage-object" class="section level3">
+</section>
+<section id="composer-stage-object" class="level3">
 <h3>Composer Stage Object</h3>
-<p>The <a href="../../../api/library/composer/stage.html">composer.stage</a> property returns a reference to the <nobr>top-level</nobr> Composer display group which all scene views are inserted into. This can be considered as the &quot;Composer scene layer&quot; and it's useful if you need to place display objects above or below all Composer scenes, even during transition effects. For example:</p>
+<p>The <a href="../../../api/library/composer/stage.html">composer.stage</a> property returns a reference to the <nobr>top-level</nobr> Composer display group which all scene views are inserted into. This can be considered as the “Composer scene layer” and it’s useful if you need to place display objects above or below all Composer scenes, even during transition effects. For example:</p>
 <ul>
 <li>A background image that is displayed behind all Composer scenes and remains static, even during scene transitions.</li>
 <li>A tab or UI bar that appears above all Composer scenes.</li>
 <li>HUD (heads-up display) elements such as health, score, etc.</li>
 </ul>
-</div>
-<div id="debugging" class="section level3">
+</section>
+<section id="debugging" class="level3">
 <h3>Debugging</h3>
-<p>The <a href="../../../api/library/composer/isDebug.html">composer.isDebug</a> property toggles &quot;Composer Debug Mode&quot; which, if set to <code>true</code>, prints useful debugging information to the Corona Simulator Console in certain situations. This should be set to <code>false</code> (default) before building the project for deployment.</p>
+<p>The <a href="../../../api/library/composer/isDebug.html">composer.isDebug</a> property toggles “Composer Debug Mode” which, if set to <code>true</code>, prints useful debugging information to the Corona Simulator Console in certain situations. This should be set to <code>false</code> (default) before building the project for deployment.</p>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -503,9 +500,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

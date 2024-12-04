@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | type | ShapeObject</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,18 +58,18 @@
 <li><a href="#shapeobject">ShapeObject</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#properties">Properties</a><ul>
-<li><a href="#object.fillapi.type.shapeobject.fill"><a href="../../../api/type/ShapeObject/fill.html">object.fill</a></a></li>
-<li><a href="#object.fillvertexcountapi.type.shapeobject.fillvertexcount"><a href="../../../api/type/ShapeObject/fillVertexCount.html">object.fillVertexCount</a></a></li>
-<li><a href="#object.pathapi.type.shapeobject.path"><a href="../../../api/type/ShapeObject/path.html">object.path</a></a></li>
-<li><a href="#object.strokeapi.type.shapeobject.stroke"><a href="../../../api/type/ShapeObject/stroke.html">object.stroke</a></a></li>
-<li><a href="#object.strokevertexcountapi.type.shapeobject.strokevertexcount"><a href="../../../api/type/ShapeObject/strokeVertexCount.html">object.strokeVertexCount</a></a></li>
-<li><a href="#object.strokewidthapi.type.shapeobject.strokewidth"><a href="../../../api/type/ShapeObject/strokeWidth.html">object.strokeWidth</a></a></li>
+<li><a href="#object.fillapi.type.shapeobject.fill"><span>object.fill</span></a></li>
+<li><a href="#object.fillvertexcountapi.type.shapeobject.fillvertexcount"><span>object.fillVertexCount</span></a></li>
+<li><a href="#object.pathapi.type.shapeobject.path"><span>object.path</span></a></li>
+<li><a href="#object.strokeapi.type.shapeobject.stroke"><span>object.stroke</span></a></li>
+<li><a href="#object.strokevertexcountapi.type.shapeobject.strokevertexcount"><span>object.strokeVertexCount</span></a></li>
+<li><a href="#object.strokewidthapi.type.shapeobject.strokewidth"><span>object.strokeWidth</span></a></li>
 </ul></li>
 <li><a href="#methods">Methods</a><ul>
-<li><a href="#objectsetfillcolorapi.type.shapeobject.setfillcolor"><a href="../../../api/type/ShapeObject/setFillColor.html">object:setFillColor()</a></a></li>
-<li><a href="#objectsetfillvertexcolorapi.type.shapeobject.setfillvertexcolor"><a href="../../../api/type/ShapeObject/setFillVertexColor.html">object:setFillVertexColor()</a></a></li>
-<li><a href="#objectsetstrokecolorapi.type.shapeobject.setstrokecolor"><a href="../../../api/type/ShapeObject/setStrokeColor.html">object:setStrokeColor()</a></a></li>
-<li><a href="#objectsetstrokevertexcolorapi.type.shapeobject.setstrokevertexcolor"><a href="../../../api/type/ShapeObject/setStrokeVertexColor.html">object:setStrokeVertexColor()</a></a></li>
+<li><a href="#objectsetfillcolorapi.type.shapeobject.setfillcolor"><span>object:setFillColor()</span></a></li>
+<li><a href="#objectsetfillvertexcolorapi.type.shapeobject.setfillvertexcolor"><span>object:setFillVertexColor()</span></a></li>
+<li><a href="#objectsetstrokecolorapi.type.shapeobject.setstrokecolor"><span>object:setStrokeColor()</span></a></li>
+<li><a href="#objectsetstrokevertexcolorapi.type.shapeobject.setstrokevertexcolor"><span>object:setStrokeVertexColor()</span></a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -77,101 +77,101 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/ShapeObject/index.html">ShapeObject</a>
 </div>
-<div id="shapeobject" class="section level1">
+<section id="shapeobject" class="level1">
 <h1>ShapeObject</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Parent</strong></td>
-<td align="left"><a href="../../../api/type/DisplayObject/index.html">DisplayObject</a></td>
+<td style="text-align: left;"><strong>Parent</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/DisplayObject/index.html">DisplayObject</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/display/index.html">display.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">shape</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">shape</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../guide/graphics/path.html">Shapes — Paths, Fills, Strokes</a> <em>(guide)</em></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../guide/graphics/path.html">Shapes — Paths, Fills, Strokes</a> <em>(guide)</em></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/display/newImage.html">display.newImage()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/display/newImage.html">display.newImage()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/display/newImageRect.html">display.newImageRect()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/display/newImageRect.html">display.newImageRect()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/display/newCircle.html">display.newCircle()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/display/newCircle.html">display.newCircle()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/display/newPolygon.html">display.newPolygon()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/display/newPolygon.html">display.newPolygon()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/display/newRect.html">display.newRect()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/display/newRect.html">display.newRect()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/display/newRoundedRect.html">display.newRoundedRect()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/display/newRoundedRect.html">display.newRoundedRect()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/display/newLine.html">display.newLine()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/display/newLine.html">display.newLine()</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Vector display objects are objects created without the use of images, such as rectangles, circles, rounded rectangles, and lines.</p>
-</div>
-<div id="properties" class="section level2">
+</section>
+<section id="properties" class="level2">
 <h2>Properties</h2>
 <p><em>(Inherits properties from <a href="../../../api/type/DisplayObject/index.html">DisplayObject</a>)</em></p>
-<div id="object.fillapi.type.shapeobject.fill" class="section level4">
+<section id="object.fillapi.type.shapeobject.fill" class="level4">
 <h4><a href="../../../api/type/ShapeObject/fill.html">object.fill</a></h4>
-</div>
-<div id="object.fillvertexcountapi.type.shapeobject.fillvertexcount" class="section level4">
+</section>
+<section id="object.fillvertexcountapi.type.shapeobject.fillvertexcount" class="level4">
 <h4><a href="../../../api/type/ShapeObject/fillVertexCount.html">object.fillVertexCount</a></h4>
-</div>
-<div id="object.pathapi.type.shapeobject.path" class="section level4">
+</section>
+<section id="object.pathapi.type.shapeobject.path" class="level4">
 <h4><a href="../../../api/type/ShapeObject/path.html">object.path</a></h4>
-</div>
-<div id="object.strokeapi.type.shapeobject.stroke" class="section level4">
+</section>
+<section id="object.strokeapi.type.shapeobject.stroke" class="level4">
 <h4><a href="../../../api/type/ShapeObject/stroke.html">object.stroke</a></h4>
-</div>
-<div id="object.strokevertexcountapi.type.shapeobject.strokevertexcount" class="section level4">
+</section>
+<section id="object.strokevertexcountapi.type.shapeobject.strokevertexcount" class="level4">
 <h4><a href="../../../api/type/ShapeObject/strokeVertexCount.html">object.strokeVertexCount</a></h4>
-</div>
-<div id="object.strokewidthapi.type.shapeobject.strokewidth" class="section level4">
+</section>
+<section id="object.strokewidthapi.type.shapeobject.strokewidth" class="level4">
 <h4><a href="../../../api/type/ShapeObject/strokeWidth.html">object.strokeWidth</a></h4>
-</div>
-</div>
-<div id="methods" class="section level2">
+</section>
+</section>
+<section id="methods" class="level2">
 <h2>Methods</h2>
 <p><em>(Inherits methods from <a href="../../../api/type/DisplayObject/index.html">DisplayObject</a>)</em></p>
-<div id="objectsetfillcolorapi.type.shapeobject.setfillcolor" class="section level4">
+<section id="objectsetfillcolorapi.type.shapeobject.setfillcolor" class="level4">
 <h4><a href="../../../api/type/ShapeObject/setFillColor.html">object:setFillColor()</a></h4>
-</div>
-<div id="objectsetfillvertexcolorapi.type.shapeobject.setfillvertexcolor" class="section level4">
+</section>
+<section id="objectsetfillvertexcolorapi.type.shapeobject.setfillvertexcolor" class="level4">
 <h4><a href="../../../api/type/ShapeObject/setFillVertexColor.html">object:setFillVertexColor()</a></h4>
-</div>
-<div id="objectsetstrokecolorapi.type.shapeobject.setstrokecolor" class="section level4">
+</section>
+<section id="objectsetstrokecolorapi.type.shapeobject.setstrokecolor" class="level4">
 <h4><a href="../../../api/type/ShapeObject/setStrokeColor.html">object:setStrokeColor()</a></h4>
-</div>
-<div id="objectsetstrokevertexcolorapi.type.shapeobject.setstrokevertexcolor" class="section level4">
+</section>
+<section id="objectsetstrokevertexcolorapi.type.shapeobject.setstrokevertexcolor" class="level4">
 <h4><a href="../../../api/type/ShapeObject/setStrokeVertexColor.html">object:setStrokeVertexColor()</a></h4>
 <hr>
 <div id="footer">
@@ -183,9 +183,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

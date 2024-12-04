@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Data/Files/Strings</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -69,7 +69,7 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/data/index.html">Data/Files/Strings</a>
 </div>
-<div id="lua-string-manipulation" class="section level1">
+<section id="lua-string-manipulation" class="level1">
 <h1>Lua String Manipulation</h1>
 <p>This guide discusses how to manipulate and match strings in Lua.</p>
 <div class="guides-toc">
@@ -80,159 +80,159 @@
 </ul>
 </div>
 <p><a id="overview"></a></p>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>The Corona <a href="../../../api/library/string/index.html">string</a> library provides generic functions for string manipulation, such as pattern matching and finding/extracting substrings. When indexing a string in Lua, the first character is at position 1, not at position 0 as in C. Indices are allowed to be negative and are interpreted as indexing backwards from the end of the string. Thus, the last character is at position -1, and so on.</p>
 <p>The string library provides all of its functions inside the table string. It also sets a metatable for strings where the <code>__index</code> field points to the string table. Therefore, you can use the string functions in object-oriented style. For instance, <code>string.byte(s,i)</code> can be written as <code>s:byte(i)</code>.</p>
 <p>The string library assumes one-byte character encodings.</p>
 <p><a id="functions"></a></p>
-</div>
-<div id="string-functions" class="section level2">
+</section>
+<section id="string-functions" class="level2">
 <h2>String Functions</h2>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Function</th>
-<th align="left">Description</th>
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/string/byte.html">string.byte()</a></td>
-<td align="left">Returns the internal numerical codes of the characters in a string.</td>
+<td style="text-align: left;"><a href="../../../api/library/string/byte.html">string.byte()</a></td>
+<td style="text-align: left;">Returns the internal numerical codes of the characters in a string.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/string/char.html">string.char()</a></td>
-<td align="left">Returns a string in which each character has the internal numerical code equal to its corresponding argument.</td>
+<td style="text-align: left;"><a href="../../../api/library/string/char.html">string.char()</a></td>
+<td style="text-align: left;">Returns a string in which each character has the internal numerical code equal to its corresponding argument.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/string/ends.html">string.ends()</a></td>
-<td align="left">Returns a <a href="../../../api/type/Boolean.html">boolean</a> <code>true</code> or <code>false</code> depending on whether a given string ends with specified characters.</td>
+<td style="text-align: left;"><a href="../../../api/library/string/ends.html">string.ends()</a></td>
+<td style="text-align: left;">Returns a <a href="../../../api/type/Boolean.html">boolean</a> <code>true</code> or <code>false</code> depending on whether a given string ends with specified characters.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/string/find.html">string.find()</a></td>
-<td align="left">Looks for the first match of a <a href="#patterns">pattern</a> in a string. If found, it returns the indices where the occurrence starts and ends; otherwise, returns <code>nil</code>.</td>
+<td style="text-align: left;"><a href="../../../api/library/string/find.html">string.find()</a></td>
+<td style="text-align: left;">Looks for the first match of a <a href="#patterns">pattern</a> in a string. If found, it returns the indices where the occurrence starts and ends; otherwise, returns <code>nil</code>.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/string/format.html">string.format()</a></td>
-<td align="left">Returns a formatted string following the description given in its arguments.</td>
+<td style="text-align: left;"><a href="../../../api/library/string/format.html">string.format()</a></td>
+<td style="text-align: left;">Returns a formatted string following the description given in its arguments.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/string/gmatch.html">string.gmatch()</a></td>
-<td align="left">Returns a <a href="#patterns">pattern</a>-finding iterator.</td>
+<td style="text-align: left;"><a href="../../../api/library/string/gmatch.html">string.gmatch()</a></td>
+<td style="text-align: left;">Returns a <a href="#patterns">pattern</a>-finding iterator.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/string/gsub.html">string.gsub()</a></td>
-<td align="left">Replaces all occurrences of a <a href="#patterns">pattern</a> in a string.</td>
+<td style="text-align: left;"><a href="../../../api/library/string/gsub.html">string.gsub()</a></td>
+<td style="text-align: left;">Replaces all occurrences of a <a href="#patterns">pattern</a> in a string.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/string/len.html">string.len()</a></td>
-<td align="left">Returns the length of a string (number of characters).</td>
+<td style="text-align: left;"><a href="../../../api/library/string/len.html">string.len()</a></td>
+<td style="text-align: left;">Returns the length of a string (number of characters).</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/string/lower.html">string.lower()</a></td>
-<td align="left">Changes uppercase characters in a string to lowercase.</td>
+<td style="text-align: left;"><a href="../../../api/library/string/lower.html">string.lower()</a></td>
+<td style="text-align: left;">Changes uppercase characters in a string to lowercase.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/string/match.html">string.match()</a></td>
-<td align="left">Extracts substrings by matching <a href="#patterns">patterns</a> in a string.</td>
+<td style="text-align: left;"><a href="../../../api/library/string/match.html">string.match()</a></td>
+<td style="text-align: left;">Extracts substrings by matching <a href="#patterns">patterns</a> in a string.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/string/rep.html">string.rep()</a></td>
-<td align="left">Replicates a string by returning a string that is the concatenation of <code>n</code> copies of a specified string.</td>
+<td style="text-align: left;"><a href="../../../api/library/string/rep.html">string.rep()</a></td>
+<td style="text-align: left;">Replicates a string by returning a string that is the concatenation of <code>n</code> copies of a specified string.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/string/reverse.html">string.reverse()</a></td>
-<td align="left">Reverses a string.</td>
+<td style="text-align: left;"><a href="../../../api/library/string/reverse.html">string.reverse()</a></td>
+<td style="text-align: left;">Reverses a string.</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/string/starts.html">string.starts()</a></td>
-<td align="left">Returns a <a href="../../../api/type/Boolean.html">boolean</a> <code>true</code> or <code>false</code> depending on whether a given string starts with specified characters.</td>
+<td style="text-align: left;"><a href="../../../api/library/string/starts.html">string.starts()</a></td>
+<td style="text-align: left;">Returns a <a href="../../../api/type/Boolean.html">boolean</a> <code>true</code> or <code>false</code> depending on whether a given string starts with specified characters.</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="../../../api/library/string/sub.html">string.sub()</a></td>
-<td align="left">Returns a substring (a specified portion of an existing string).</td>
+<td style="text-align: left;"><a href="../../../api/library/string/sub.html">string.sub()</a></td>
+<td style="text-align: left;">Returns a substring (a specified portion of an existing string).</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="../../../api/library/string/upper.html">string.upper()</a></td>
-<td align="left">Changes lowercase characters in a string to uppercase.</td>
+<td style="text-align: left;"><a href="../../../api/library/string/upper.html">string.upper()</a></td>
+<td style="text-align: left;">Changes lowercase characters in a string to uppercase.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <p><a id="patterns"></a></p>
-</div>
-<div id="string-patterns" class="section level2">
+</section>
+<section id="string-patterns" class="level2">
 <h2>String Patterns</h2>
 <p>String functions such as <a href="../../../api/library/string/find.html">string.find()</a>, <a href="../../../api/library/string/match.html">string.match()</a>, <a href="../../../api/library/string/gmatch.html">string.gmatch()</a> and <a href="../../../api/library/string/gsub.html">string.gsub()</a> typically require a <strong>string pattern</strong> to search and replace on. A pattern must be constructed very carefully, otherwise the function will return <code>nil</code> or the string will be improperly altered.</p>
-<div id="character-classes" class="section level3">
+<section id="character-classes" class="level3">
 <h3>Character Classes</h3>
 <p>A <strong>character class</strong> is used to represent a set of characters. The following combinations are allowed in describing a character class, where the class is <strong>not</strong> one of the magic characters <code>^</code>, <code>$</code>, <code>(</code>, <code>)</code>, <code>%</code>, <code>.</code>, <code>[</code>, <code>]</code>, <code>*</code>, <code>+</code>, <code>-</code>, or <code>?</code>.</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Class</th>
-<th align="left">Description</th>
+<th style="text-align: left;">Class</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>.</code></td>
-<td align="left">Represents all characters.</td>
+<td style="text-align: left;"><code>.</code></td>
+<td style="text-align: left;">Represents all characters.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>%a</code></td>
-<td align="left">Represents all letters.</td>
+<td style="text-align: left;"><code>%a</code></td>
+<td style="text-align: left;">Represents all letters.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>%c</code></td>
-<td align="left">Represents all control characters.</td>
+<td style="text-align: left;"><code>%c</code></td>
+<td style="text-align: left;">Represents all control characters.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>%d</code></td>
-<td align="left">Represents all digits.</td>
+<td style="text-align: left;"><code>%d</code></td>
+<td style="text-align: left;">Represents all digits.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>%l</code></td>
-<td align="left">Represents all lowercase letters.</td>
+<td style="text-align: left;"><code>%l</code></td>
+<td style="text-align: left;">Represents all lowercase letters.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>%p</code></td>
-<td align="left">Represents all punctuation characters.</td>
+<td style="text-align: left;"><code>%p</code></td>
+<td style="text-align: left;">Represents all punctuation characters.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>%s</code></td>
-<td align="left">Represents all space characters.</td>
+<td style="text-align: left;"><code>%s</code></td>
+<td style="text-align: left;">Represents all space characters.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>%u</code></td>
-<td align="left">Represents all uppercase letters.</td>
+<td style="text-align: left;"><code>%u</code></td>
+<td style="text-align: left;">Represents all uppercase letters.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>%w</code></td>
-<td align="left">Represents all alphanumeric characters.</td>
+<td style="text-align: left;"><code>%w</code></td>
+<td style="text-align: left;">Represents all alphanumeric characters.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>%x</code></td>
-<td align="left">Represents all hexadecimal digits.</td>
+<td style="text-align: left;"><code>%x</code></td>
+<td style="text-align: left;">Represents all hexadecimal digits.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>%z</code></td>
-<td align="left">Represents the character with representation <code>0</code>.</td>
+<td style="text-align: left;"><code>%z</code></td>
+<td style="text-align: left;">Represents the character with representation <code>0</code>.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>%x</code></td>
-<td align="left">When <code>x</code> is any non-alphanumeric character, this is the standard way to escape the magic characters. Any punctuation character — even non-magic — can be preceded by a <code>%</code> when used to represent itself in a pattern.</td>
+<td style="text-align: left;"><code>%x</code></td>
+<td style="text-align: left;">When <code>x</code> is any non-alphanumeric character, this is the standard way to escape the magic characters. Any punctuation character — even non-magic — can be preceded by a <code>%</code> when used to represent itself in a pattern.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>[set]</code></td>
-<td align="left">Represents the union of all characters in <code>set</code>. A range of characters can be specified by separating the end characters of the range with a <code>-</code> (hyphen). All classes described above can also be used as components in the set. All other characters in <code>set</code> represent themselves. For example, <code>[%w_]</code> or <code>[_%w]</code> represents all alphanumeric characters plus the underscore. <nobr><code>[0-7]</code></nobr> represents the octal digits. <nobr><code>[0-7%l%-]</code></nobr> represents the octal digits plus lowercase letters plus the <code>-</code> character. The interaction between ranges and classes is not defined, so patterns like <nobr><code>[%a-z]</code></nobr> or <nobr><code>[a-%%]</code></nobr> have no meaning.</td>
+<td style="text-align: left;"><code>[set]</code></td>
+<td style="text-align: left;">Represents the union of all characters in <code>set</code>. A range of characters can be specified by separating the end characters of the range with a <code>-</code> (hyphen). All classes described above can also be used as components in the set. All other characters in <code>set</code> represent themselves. For example, <code>[%w_]</code> or <code>[_%w]</code> represents all alphanumeric characters plus the underscore. <nobr><code>[0-7]</code></nobr> represents the octal digits. <nobr><code>[0-7%l%-]</code></nobr> represents the octal digits plus lowercase letters plus the <code>-</code> character. The interaction between ranges and classes is not defined, so patterns like <nobr><code>[%a-z]</code></nobr> or <nobr><code>[a-%%]</code></nobr> have no meaning.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>[^set]</code></td>
-<td align="left">Represents the complement of <code>set</code> as interpreted above.</td>
+<td style="text-align: left;"><code>[^set]</code></td>
+<td style="text-align: left;">Represents the complement of <code>set</code> as interpreted above.</td>
 </tr>
 </tbody>
 </table>
@@ -246,8 +246,8 @@ Notes
 <li><p>The definition of letter, space, and other character groups depend on the current locale. In particular, the class <nobr><code>[a-z]</code></nobr> may not be equivalent to <code>%l</code>.</p></li>
 </ul>
 </div>
-</div>
-<div id="patterns-and-pattern-items" class="section level3">
+</section>
+<section id="patterns-and-pattern-items" class="level3">
 <h3>Patterns and Pattern Items</h3>
 <p>A <strong>pattern</strong> is a sequence of <strong>pattern items</strong> (see below). A <code>^</code> at the beginning of a pattern anchors the match at the beginning of the subject string. A <code>$</code> at the end of a pattern anchors the match at the end of the subject string. At other positions, <code>^</code> and <code>$</code> have no special meaning and simply represent themselves. A pattern cannot contain embedded zeros; use <code>%z</code> instead.</p>
 <p>A <strong>pattern item</strong> is defined by any of the following:</p>
@@ -260,8 +260,8 @@ Notes
 <li><p><code>%n</code>, for <code>n</code> between 1 and 9; this pattern matches a substring equal to the <code>n</code>-th captured string (see next).</p></li>
 <li><p><code>%bxy</code>, where <code>x</code> and <code>y</code> are two distinct characters; this pattern item matches strings that start with <code>x</code>, end with <code>y</code>, and where the <code>x</code> and <code>y</code> are balanced. To clarify, if you read the string from left to right, counting +1 for an <code>x</code> and -1 for a <code>y</code>, the ending <code>y</code> is the first <code>y</code> where the count reaches 0. For example, the item <code>%b()</code> matches expressions with balanced parentheses.</p></li>
 </ul>
-</div>
-<div id="captures" class="section level3">
+</section>
+<section id="captures" class="level3">
 <h3>Captures</h3>
 <p>A pattern can contain sub-patterns enclosed in parentheses. These describe <strong>captures</strong>. When a match succeeds, the substrings of the main string that match captures are stored (captured) for future use. Captures are numbered according to their left parentheses. For instance, in the pattern <code>(a*(.)%w(%s*))</code>, the part of the string matching <code>a*(.)%w(%s*)</code> is stored as the first capture and therefore has number 1. The character matching <code>.</code> is captured with number 2, and the part matching <code>%s*</code> has number 3.</p>
 <p>As a special case, the empty capture <code>()</code> captures the current string position (number). For instance, if we apply the pattern <code>()aa()</code> on the string <code>flaaap</code>, there will be two captures: 3 and 5.</p>
@@ -275,9 +275,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

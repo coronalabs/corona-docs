@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Steamworks | getUserImageInfo</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -69,93 +69,93 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/steamworks/index.html">Steamworks</a>  ▸  <a href="../../plugin/steamworks/getUserImageInfo.html">getUserImageInfo</a>
 </div>
-<div id="steamworks.getuserimageinfo" class="section level1">
+<section id="steamworks.getuserimageinfo" class="level1">
 <h1>steamworks.getUserImageInfo()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left"><a href="../../plugin/steamworks/type/ImageInfo/index.html">ImageInfo</a></td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;"><a href="../../plugin/steamworks/type/ImageInfo/index.html">ImageInfo</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">steam, steamworks, getUserImageInfo</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">steam, steamworks, getUserImageInfo</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../plugin/steamworks/newImageRect.html">steamworks.newImageRect()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../plugin/steamworks/newImageRect.html">steamworks.newImageRect()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/steamworks/newTexture.html">steamworks.newTexture()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/steamworks/newTexture.html">steamworks.newTexture()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/steamworks/index.html">steamworks.*</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/steamworks/index.html">steamworks.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
-<p>Returns an <a href="../../plugin/steamworks/type/ImageInfo/index.html">ImageInfo</a> object. This provides information about one user avatar image such as its pixel width, pixel height, and unique image handle. This object's <a href="../../plugin/steamworks/type/ImageInfo/imageHandle.html">imageHandle</a> property is needed to load the image via the <a href="../../plugin/steamworks/newImageRect.html">steamworks.newImageRect()</a> and <a href="../../plugin/steamworks/newTexture.html">steamworks.newTexture()</a> functions.</p>
-</div>
-<div id="gotchas" class="section level2">
+<p>Returns an <a href="../../plugin/steamworks/type/ImageInfo/index.html">ImageInfo</a> object. This provides information about one user avatar image such as its pixel width, pixel height, and unique image handle. This object’s <a href="../../plugin/steamworks/type/ImageInfo/imageHandle.html">imageHandle</a> property is needed to load the image via the <a href="../../plugin/steamworks/newImageRect.html">steamworks.newImageRect()</a> and <a href="../../plugin/steamworks/newTexture.html">steamworks.newTexture()</a> functions.</p>
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
-<p>This function will typically return <code>nil</code> when attempting to fetch information about a 184×184 pixel <code>&quot;largeAvatar&quot;</code> image. This is because the Steam client does not normally cache these large images.</p>
+<p>This function will typically return <code>nil</code> when attempting to fetch information about a 184×184 pixel <code>"largeAvatar"</code> image. This is because the Steam client does not normally cache these large images.</p>
 <p>Additionally, this function will always return <code>nil</code> in these cases:</p>
 <ul>
 <li>Invalid arguments were specified.</li>
 <li>The <a href="../../plugin/steamworks/isLoggedOn.html">steamworks.isLoggedOn</a> property is <code>false</code>, indicating that the application is not currently connected to the Steam client.</li>
-<li>The image hasn't yet been downloaded from the Steam server. In this case, the requested image will automatically be downloaded. The result of this request will then be provided by the <a href="../../plugin/steamworks/event/userInfoUpdate/index.html">userInfoUpdate</a> event which can be received by a listener given to the <a href="../../plugin/steamworks/addEventListener.html">steamworks.addEventListener()</a> function. This event will indicate that the image has been downloaded when either the <a href="../../plugin/steamworks/event/userInfoUpdate/smallAvatarChanged.html">event.smallAvatarChanged</a>, <a href="../../plugin/steamworks/event/userInfoUpdate/mediumAvatarChanged.html">event.mediumAvatarChanged</a>, or <a href="../../plugin/steamworks/event/userInfoUpdate/largeAvatarChanged.html">event.largeAvatarChanged</a> properties are set to <code>true</code>.</li>
+<li>The image hasn’t yet been downloaded from the Steam server. In this case, the requested image will automatically be downloaded. The result of this request will then be provided by the <a href="../../plugin/steamworks/event/userInfoUpdate/index.html">userInfoUpdate</a> event which can be received by a listener given to the <a href="../../plugin/steamworks/addEventListener.html">steamworks.addEventListener()</a> function. This event will indicate that the image has been downloaded when either the <a href="../../plugin/steamworks/event/userInfoUpdate/smallAvatarChanged.html">event.smallAvatarChanged</a>, <a href="../../plugin/steamworks/event/userInfoUpdate/mediumAvatarChanged.html">event.mediumAvatarChanged</a>, or <a href="../../plugin/steamworks/event/userInfoUpdate/largeAvatarChanged.html">event.largeAvatarChanged</a> properties are set to <code>true</code>.</li>
 </ul>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">steamworks.getUserImageInfo( type [, userSteamId] )</pre>
-<div id="type-required" class="section level5">
+<section id="type-required" class="level5">
 <h5>type <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> Unique name of the image to fetch from the user. This must be one of the following:</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Type</th>
+<th style="text-align: left;">Type</th>
 <th>Pixel Size (w×h)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;smallAvatar&quot;</code></td>
+<td style="text-align: left;"><code>"smallAvatar"</code></td>
 <td>32×32</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;mediumAvatar&quot;</code></td>
+<td style="text-align: left;"><code>"mediumAvatar"</code></td>
 <td>64×64</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;largeAvatar&quot;</code></td>
+<td style="text-align: left;"><code>"largeAvatar"</code></td>
 <td>184×184</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="usersteamid-optional" class="section level5">
+</section>
+<section id="usersteamid-optional" class="level5">
 <h5>userSteamId <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> Unique string ID of the user. The ID will default to the current user if this argument is not provided.</p>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local steamworks = require( "plugin.steamworks" )
 
@@ -210,8 +210,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

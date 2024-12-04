@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | composer | loadScene</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -69,65 +69,65 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/composer/index.html">composer</a>  ▸  <a href="../../../api/library/composer/loadScene.html">loadScene</a>
 </div>
-<div id="composer.loadscene" class="section level1">
+<section id="composer.loadscene" class="level1">
 <h1>composer.loadScene()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/composer/index.html">composer.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/composer/index.html">composer.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">composer, scene, load, loadScene</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">composer, scene, load, loadScene</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/composer/showOverlay.html">composer.showOverlay()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/composer/showOverlay.html">composer.showOverlay()</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Loads the specified scene, hidden behind the current scene, without initiating a scene transition. This function is similar to <a href="../../../api/library/composer/gotoScene.html">composer.gotoScene()</a>, but it does not change the currently active scene. Only the <a href="../../../api/event/scene/create/index.html">create</a> event will be dispatched on the scene, assuming its <code>self.view</code> does not already exist.</p>
-<p>In addition, you can set an optional <code>doNotLoadView</code> flag when calling this function. Doing so will load only the scene's object, not its <code>self.view</code> display group.</p>
-<p>This function is commonly used to &quot;pre-load&quot; a scene before initiating a transition on it, which would happen explicitly at a later time.</p>
-</div>
-<div id="syntax" class="section level2">
+<p>In addition, you can set an optional <code>doNotLoadView</code> flag when calling this function. Doing so will load only the scene’s object, not its <code>self.view</code> display group.</p>
+<p>This function is commonly used to “pre-load” a scene before initiating a transition on it, which would happen explicitly at a later time.</p>
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">composer.loadScene( sceneName [, doNotLoadView] [, params] )</pre>
-<div id="scenename-required" class="section level5">
+<section id="scenename-required" class="level5">
 <h5>sceneName <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/String.html">String</a>.</em> The name of the scene to load, hidden behind the current scene.</p>
-</div>
-<div id="donotloadview-optional" class="section level5">
+</section>
+<section id="donotloadview-optional" class="level5">
 <h5>doNotLoadView <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../../api/type/Boolean.html">Boolean</a>.</em> Set to <code>true</code> to load only the scene's object, not its <code>self.view</code> display group. Only the <a href="../../../api/event/scene/create/index.html">create</a> event will be dispatched on the scene, assuming its <code>self.view</code> does not already exist.</p>
-</div>
-<div id="params-optional" class="section level5">
+<p><em><a href="../../../api/type/Boolean.html">Boolean</a>.</em> Set to <code>true</code> to load only the scene’s object, not its <code>self.view</code> display group. Only the <a href="../../../api/event/scene/create/index.html">create</a> event will be dispatched on the scene, assuming its <code>self.view</code> does not already exist.</p>
+</section>
+<section id="params-optional" class="level5">
 <h5>params <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Table.html">Table</a>.</em> An optional table containing any kind of custom data that should be transferred to the scene. In the specified scene, this data can be accessed via <code>event.params</code> in the <a href="../../../api/event/scene/create/index.html">create</a> event, unless <code>doNotLoadView</code> is set to <code>true</code>).</p>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local composer = require( "composer" )
 
@@ -149,8 +149,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

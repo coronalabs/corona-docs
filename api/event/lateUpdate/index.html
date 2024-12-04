@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Events | lateUpdate</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,8 +58,8 @@
 <li><a href="#lateupdate">lateUpdate</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#properties">Properties</a><ul>
-<li><a href="#event.nameapi.event.lateupdate.name"><a href="../../../api/event/lateUpdate/name.html">event.name</a></a></li>
-<li><a href="#event.timeapi.event.lateupdate.time"><a href="../../../api/event/lateUpdate/time.html">event.time</a></a></li>
+<li><a href="#event.nameapi.event.lateupdate.name"><span>event.name</span></a></li>
+<li><a href="#event.timeapi.event.lateupdate.time"><span>event.time</span></a></li>
 </ul></li>
 <li><a href="#example">Example</a></li>
 </ul></li>
@@ -68,45 +68,45 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/event/index.html">Events</a>  ▸  <a href="../../../api/event/lateUpdate/index.html">lateUpdate</a>
 </div>
-<div id="lateupdate" class="section level1">
+<section id="lateupdate" class="level1">
 <h1>lateUpdate</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Event.html">Event</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Event.html">Event</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">lateUpdate, runtime</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">lateUpdate, runtime</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../guide/events/detectEvents/index.html">Basic Interactivity and Event Detection</a> <em>(guide)</em></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../guide/events/detectEvents/index.html">Basic Interactivity and Event Detection</a> <em>(guide)</em></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
-<p><code>&quot;lateUpdate&quot;</code> events occur at the <nobr>frames-per-second</nobr> interval of the application, either 30 or 60 as specified in <code>config.lua</code>. They are only dispatched to the global <a href="../../../api/type/EventDispatcher/index.html">Runtime</a> object.</p>
-<p>This is dispatched after the <code>&quot;enterFrame&quot;</code> event, and right before the engine starts the rendering process. For this reason, it is useful to make any last update according to its state. Also, it is intended to be a safe call for all those who are listening to this event, otherwise, it loses its purpose.</p>
-</div>
-<div id="properties" class="section level2">
+<p><code>"lateUpdate"</code> events occur at the <nobr>frames-per-second</nobr> interval of the application, either 30 or 60 as specified in <code>config.lua</code>. They are only dispatched to the global <a href="../../../api/type/EventDispatcher/index.html">Runtime</a> object.</p>
+<p>This is dispatched after the <code>"enterFrame"</code> event, and right before the engine starts the rendering process. For this reason, it is useful to make any last update according to its state. Also, it is intended to be a safe call for all those who are listening to this event, otherwise, it loses its purpose.</p>
+</section>
+<section id="properties" class="level2">
 <h2>Properties</h2>
-<div id="event.nameapi.event.lateupdate.name" class="section level4">
+<section id="event.nameapi.event.lateupdate.name" class="level4">
 <h4><a href="../../../api/event/lateUpdate/name.html">event.name</a></h4>
-</div>
-<div id="event.timeapi.event.lateupdate.time" class="section level4">
+</section>
+<section id="event.timeapi.event.lateupdate.time" class="level4">
 <h4><a href="../../../api/event/lateUpdate/time.html">event.time</a></h4>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local shouldUpdate = false
 local rect = display.newRect(100, 100, 30, 30)
@@ -144,8 +144,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

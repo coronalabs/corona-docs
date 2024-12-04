@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | startapp | show</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -74,75 +74,75 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/startapp/index.html">startapp</a>  ▸  <a href="../../plugin/startapp/show.html">show</a>
 </div>
-<div id="startapp.show" class="section level1">
+<section id="startapp.show" class="level1">
 <h1>startapp.show()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">ads, advertising, StartApp, show</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">ads, advertising, StartApp, show</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../plugin/startapp/load.html">startapp.load()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../plugin/startapp/load.html">startapp.load()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/startapp/index.html">startapp.*</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/startapp/index.html">startapp.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Shows a StartApp banner, interstitial, offer wall, video or rewarded video ad.</p>
-</div>
-<div id="gotchas" class="section level2">
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
-<p>Except for banner ad, you must first load an ad via <code>startapp.load()</code> and confirm it's ready to be shown.</p>
-</div>
-<div id="syntax" class="section level2">
+<p>Except for banner ad, you must first load an ad via <code>startapp.load()</code> and confirm it’s ready to be shown.</p>
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">startapp.show( adType [, params] )</pre>
-<div id="adtype-required" class="section level5">
+<section id="adtype-required" class="level5">
 <h5>adType <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> The ad type to show. Valid values include <code>&quot;video&quot;</code>, <code>&quot;offerwall&quot;</code>, <code>&quot;interstitial&quot;</code>, <code>&quot;rewardedVideo&quot;</code>, and <code>&quot;banner&quot;</code>.</p>
-</div>
-<div id="params-optional" class="section level5">
+<p><em><a href="../../api/type/String.html">String</a>.</em> The ad type to show. Valid values include <code>"video"</code>, <code>"offerwall"</code>, <code>"interstitial"</code>, <code>"rewardedVideo"</code>, and <code>"banner"</code>.</p>
+</section>
+<section id="params-optional" class="level5">
 <h5>params <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> Table containing additional parameters for the ad — see the next section for details.</p>
-</div>
-</div>
-<div id="parameter-reference" class="section level2">
+</section>
+</section>
+<section id="parameter-reference" class="level2">
 <h2>Parameter Reference</h2>
 <p>The <code>params</code> table includes parameters for the ad.</p>
-<div id="adtag-optional" class="section level5">
+<section id="adtag-optional" class="level5">
 <h5>adTag <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> A tag is simply a free style string identifier that can be attached to any ad. Ad Tags will help you optimize your monetization by finding the right balance between ads and the perfect ad-viewing experience for your users. For example, if you implement couple of interstitial ads in different places in your application, you can give each of them a different tag, one of them could be &quot;Level1Complete&quot;, the other &quot;AfterScoresBoard&quot;, then, you can monitor which placement convert better and get more engagement from your users. Default is nil.</p>
-</div>
-<div id="yalign-optional" class="section level5">
+<p><em><a href="../../api/type/String.html">String</a>.</em> A tag is simply a free style string identifier that can be attached to any ad. Ad Tags will help you optimize your monetization by finding the right balance between ads and the perfect ad-viewing experience for your users. For example, if you implement couple of interstitial ads in different places in your application, you can give each of them a different tag, one of them could be “Level1Complete”, the other “AfterScoresBoard”, then, you can monitor which placement convert better and get more engagement from your users. Default is nil.</p>
+</section>
+<section id="yalign-optional" class="level5">
 <h5>yAlign <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> Only applies to banner ads, specifying the banner's y position on the screen. Valid position values are &quot;top&quot; or “bottom&quot;. Default is &quot;bottom&quot;.</p>
-</div>
-<div id="bannertype-optional" class="section level5">
+<p><em><a href="../../api/type/String.html">String</a>.</em> Only applies to banner ads, specifying the banner’s y position on the screen. Valid position values are “top” or “bottom”. Default is “bottom”.</p>
+</section>
+<section id="bannertype-optional" class="level5">
 <h5>bannerType <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> Only applies to banner ads, specifying the banner’s type. Valid type values are: <code>&quot;automatic&quot;</code> - Automatic selects the most suitable banner of the two listed below. <code>&quot;standard&quot;</code> - A standard (two dimensional) banner. <code>&quot;threed&quot;</code> - A three dimensional rotating banner.</p>
-</div>
-</div>
-<div id="example" class="section level2">
+<p><em><a href="../../api/type/String.html">String</a>.</em> Only applies to banner ads, specifying the banner’s type. Valid type values are: <code>"automatic"</code> - Automatic selects the most suitable banner of the two listed below. <code>"standard"</code> - A standard (two dimensional) banner. <code>"threed"</code> - A three dimensional rotating banner.</p>
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local startapp = require( "plugin.startapp" )
 
@@ -192,8 +192,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

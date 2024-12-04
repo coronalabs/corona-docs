@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Getting Started</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -86,7 +86,7 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/programming/index.html">Getting Started</a>
 </div>
-<div id="chapter-8-deployment" class="section level1">
+<section id="chapter-8-deployment" class="level1">
 <h1>Chapter 8 — Deployment</h1>
 <div class="walkthrough-nav">
 <div class="walkthrough-nav-upper-right">
@@ -149,7 +149,7 @@
 }
 
 </style>
-<p>Deployment is the culmination of all your hard work. Those hours of designing, programming, and testing have yielded a game that's ready to show to the world! In this chapter we'll discuss a few final considerations before publishing, as well as summarize the steps required for deployment.</p>
+<p>Deployment is the culmination of all your hard work. Those hours of designing, programming, and testing have yielded a game that’s ready to show to the world! In this chapter we’ll discuss a few final considerations before publishing, as well as summarize the steps required for deployment.</p>
 <div class="guides-toc">
 <ul>
 <li><a href="#icons">Icons</a></li>
@@ -159,13 +159,10 @@
 </ul>
 </div>
 <p><a id="icons"></a></p>
-<div id="icons" class="section level2">
+<section id="icons" class="level2">
 <h2>Icons</h2>
 <div class="float-right" style="max-width: 180px; margin-top: 2px; clear: left;">
-<div class="figure">
-<img src="../../../images/docs/sbs-starexplorer-icon.png" />
-
-</div>
+<p><img src="../../../images/docs/sbs-starexplorer-icon.png" /></p>
 </div>
 <p>Each of the app stores — the <a href="https://www.apple.com/appstore">Apple App Store</a>™, <a href="https://play.google.com/store">Google Play</a>™, <a href="https://www.amazon.com/mobile-apps/b/ref=topnav_storetab_mas?ie=UTF8&amp;node=2350149011">Amazon Appstore</a>™, etc. — has different <strong>icon</strong> requirements and each requests various sizes and design considerations for different devices. There are several online services that will automatically create the entire set of required icons in the correct sizes, although you may wish to design them all yourself. Remember, these will be relatively small in size when they visually represent your app on an actual device, so fine details might be lost.</p>
 <div class="docs-tip-outer">
@@ -175,102 +172,75 @@
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>You can find a full list of required icons for each platform <a href="../../../guide/distribution/buildSettings/index.html#custom-app-icons">here</a>. In addition, we've included a full set of icons for mobile devices in this chapter's <a href="https://github.com/coronalabs/GettingStarted08/archive/master.zip">source files</a>.</p>
+<p>You can find a full list of required icons for each platform <a href="../../../guide/distribution/buildSettings/index.html#custom-app-icons">here</a>. In addition, we’ve included a full set of icons for mobile devices in this chapter’s <a href="https://github.com/coronalabs/GettingStarted08/archive/master.zip">source files</a>.</p>
 </div>
 </div>
 <p><a id="yours"></a></p>
-</div>
-<div id="making-it-yours" class="section level2">
+</section>
+<section id="making-it-yours" class="level2">
 <h2>Making it Yours</h2>
-<p>This tutorial, and Star Explorer in general, is a starter project that many people complete and potentially submit to the app stores. As a result, many people have deployed the same identical game to prospective players. While this is acceptable, you should consider how to change and customize this game so that it's <strong>yours</strong>, distinct in certain ways from the base template we've provided. Here are some ideas:</p>
+<p>This tutorial, and Star Explorer in general, is a starter project that many people complete and potentially submit to the app stores. As a result, many people have deployed the same identical game to prospective players. While this is acceptable, you should consider how to change and customize this game so that it’s <strong>yours</strong>, distinct in certain ways from the base template we’ve provided. Here are some ideas:</p>
 <ul>
 <li><p>Change the art/audio to suit your personal taste.</p></li>
 <li><p>Change the game title on the title screen and/or use a different background image.</p></li>
 <li><p>Utilize additional asteroid image frames from the <code>gameObjects.png</code> image sheet, randomly spawning one of the variations in the <code>createAsteroid()</code> function.</p></li>
-<li><p>Implement particle-based effects such as explosions and laser trails using Solar2D's <nobr>built-in</nobr> <a href="../../../api/library/display/newEmitter.html">display.newEmitter()</a> feature.</p></li>
+<li><p>Implement particle-based effects such as explosions and laser trails using Solar2D’s <nobr>built-in</nobr> <a href="../../../api/library/display/newEmitter.html">display.newEmitter()</a> feature.</p></li>
 </ul>
 <p>Once you have a game of your own (based on Star Explorer or some other code base), proceed to the next sections for details on testing and building.</p>
 <p><a id="live-builds"></a></p>
-</div>
-<div id="corona-live-builds" class="section level2">
+</section>
+<section id="corona-live-builds" class="level2">
 <h2>Corona Live Builds</h2>
 <div class="float-right" style="max-width: 330px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/corona-live-builds.png" />
-
-</div>
+<p><img src="../../../images/docs/corona-live-builds.png" /></p>
 </div>
 <p>While the Solar2D Simulator is a great way to test your game during development, nothing quite compares to seeing it run on an actual device!</p>
 <p>The best solution is <a href="https://docs.coronalabs.com/guide/distribution/liveBuild/index.html" target="_new">Corona Live Builds</a>. Using the power and speed of a local network, you can preview and test your game on multiple devices simultaneously, watching your game dynamically update as you edit its code and assets. With Corona Live Builds, you get <nobr>lightning-fast</nobr> development gratification.</p>
 <p>To learn how to configure live builds, see the <a href="../../../guide/distribution/liveBuild/index.html">Generating Live Builds</a> guide.</p>
 <p><a id="buildpublish"></a></p>
-</div>
-<div id="building-and-publishing" class="section level2">
+</section>
+<section id="building-and-publishing" class="level2">
 <h2>Building and Publishing</h2>
 <!--- START PLATFORM ICONS -->
 <div class="grad-back">
 <div class="contained-cell" style="padding-left: 15px;">
 <center>
-<div class="figure">
-<img src="../../../images/docs/badge-app-store.png" />
-
-</div>
+<p><img src="../../../images/docs/badge-app-store.png" /></p>
 </center>
 </div>
 <div class="contained-cell">
 <center>
-<div class="figure">
-<img src="../../../images/docs/badge-google-play.png" />
-
-</div>
+<p><img src="../../../images/docs/badge-google-play.png" /></p>
 </center>
 </div>
 <div class="contained-cell">
 <center>
-<div class="figure">
-<img src="../../../images/docs/badge-amazon.png" />
-
-</div>
+<p><img src="../../../images/docs/badge-amazon.png" /></p>
 </center>
 </div>
 <div class="contained-cell">
 <center>
-<div class="figure">
-<img src="../../../images/docs/badge-windows.png" />
-
-</div>
+<p><img src="../../../images/docs/badge-windows.png" /></p>
 </center>
 </div>
 <div class="contained-cell">
 <center>
-<div class="figure">
-<img src="../../../images/docs/badge-mac.png" />
-
-</div>
+<p><img src="../../../images/docs/badge-mac.png" /></p>
 </center>
 </div>
 <div class="contained-cell">
 <center>
-<div class="figure">
-<img src="../../../images/docs/badge-tvos.png" />
-
-</div>
+<p><img src="../../../images/docs/badge-tvos.png" /></p>
 </center>
 </div>
 <div class="contained-cell">
 <center>
-<div class="figure">
-<img src="../../../images/docs/badge-android-tv.png" />
-
-</div>
+<p><img src="../../../images/docs/badge-android-tv.png" /></p>
 </center>
 </div>
 <div class="contained-cell" style="padding-right: 15px;">
 <center>
-<div class="figure">
-<img src="../../../images/docs/badge-steam.png" />
-
-</div>
+<p><img src="../../../images/docs/badge-steam.png" /></p>
 </center>
 </div>
 <div class="contained-cell" style="background-color: white; width: 4%;">
@@ -278,82 +248,82 @@
 </div>
 </div>
 <!--- END PLATFORM ICONS -->
-<p>Let's discuss building and publishing! You should always test your app on an actual device before submitting it to an app store. In fact, since this is your final phase of quality control, you should test on as many devices as possible.</p>
-<p>The requirements are a little different depending on which platform you intend to deploy to, so we'll cover them separately.</p>
-<div id="ios" class="section level3">
+<p>Let’s discuss building and publishing! You should always test your app on an actual device before submitting it to an app store. In fact, since this is your final phase of quality control, you should test on as many devices as possible.</p>
+<p>The requirements are a little different depending on which platform you intend to deploy to, so we’ll cover them separately.</p>
+<section id="ios" class="level3">
 <h3>iOS</h3>
-<p>The first step in building for Apple iOS is <strong>provisioning</strong>, Apple's process for testing and distribution. You should follow the detailed instructions in the <a href="../../../guide/distribution/iOSBuild/index.html">Provisioning and Building — iOS</a> guide in order to test and deploy for iOS.</p>
-</div>
-<div id="android" class="section level3">
+<p>The first step in building for Apple iOS is <strong>provisioning</strong>, Apple’s process for testing and distribution. You should follow the detailed instructions in the <a href="../../../guide/distribution/iOSBuild/index.html">Provisioning and Building — iOS</a> guide in order to test and deploy for iOS.</p>
+</section>
+<section id="android" class="level3">
 <h3>Android</h3>
-<p>Deploying and publishing to the Google Play marketplace is a little different than Apple. Android uses a few specific naming conventions and has its own process for &quot;signing&quot; apps with your personal information. You can step through the entire process <a href="../../../guide/distribution/androidBuild/index.html">here</a>.</p>
-</div>
-<div id="kindle-fire" class="section level3">
+<p>Deploying and publishing to the Google Play marketplace is a little different than Apple. Android uses a few specific naming conventions and has its own process for “signing” apps with your personal information. You can step through the entire process <a href="../../../guide/distribution/androidBuild/index.html">here</a>.</p>
+</section>
+<section id="kindle-fire" class="level3">
 <h3>Kindle Fire</h3>
-<p>While Amazon's Kindle Fire is built upon the Android operating system, it has a few unique considerations for building. Complete instructions for building for Kindle Fire are available <a href="../../../guide/distribution/kindleBuild/index.html">here</a>.</p>
-</div>
-<div id="windows-macos" class="section level3">
+<p>While Amazon’s Kindle Fire is built upon the Android operating system, it has a few unique considerations for building. Complete instructions for building for Kindle Fire are available <a href="../../../guide/distribution/kindleBuild/index.html">here</a>.</p>
+</section>
+<section id="windows-macos" class="level3">
 <h3>Windows / macOS</h3>
-<p>Yes, you can even build your game as a Windows desktop or macOS desktop application! However, mobile apps and desktop apps operate very differently — you must consider how the app will run in a window, how to handle keyboard responses, if the game window can be resized, etc. Don't make the mistake of thinking that your game is ready for desktop deployment before studying the following guides:</p>
+<p>Yes, you can even build your game as a Windows desktop or macOS desktop application! However, mobile apps and desktop apps operate very differently — you must consider how the app will run in a window, how to handle keyboard responses, if the game window can be resized, etc. Don’t make the mistake of thinking that your game is ready for desktop deployment before studying the following guides:</p>
 <ul>
 <li><a href="../../../guide/distribution/win32Build/index.html">Creating Win32 Desktop Apps</a></li>
 <li><a href="../../../guide/distribution/macOSBuild/index.html">Creating macOS Desktop Apps</a></li>
 </ul>
-</div>
-<div id="apple-tv" class="section level3">
+</section>
+<section id="apple-tv" class="level3">
 <h3>Apple TV</h3>
 <p>Like desktop applications, there are several unique considerations which you must take into account before deploying your app to Apple TV. For detailed information, see the <a href="../../../guide/distribution/tvos/index.html">Apple TV / tvOS</a> guide.</p>
-</div>
-<div id="android-tv" class="section level3">
+</section>
+<section id="android-tv" class="level3">
 <h3>Android TV</h3>
-<p>Because Android apps are universal, it's simple to deploy to Android TV — just <a href="../../../guide/distribution/androidBuild/index.html">build your app</a> as a standard Android <code>.apk</code>, add two additional parameters to your <code>build.settings</code> file as outlined <a href="../../../guide/distribution/advancedSettings/index.html#android-tv">here</a>, and include an Android TV banner as noted <a href="../../../guide/distribution/buildSettings/index.html#tvos-android-tv">here</a>.</p>
-</div>
-<div id="steam" class="section level3">
+<p>Because Android apps are universal, it’s simple to deploy to Android TV — just <a href="../../../guide/distribution/androidBuild/index.html">build your app</a> as a standard Android <code>.apk</code>, add two additional parameters to your <code>build.settings</code> file as outlined <a href="../../../guide/distribution/advancedSettings/index.html#android-tv">here</a>, and include an Android TV banner as noted <a href="../../../guide/distribution/buildSettings/index.html#tvos-android-tv">here</a>.</p>
+</section>
+<section id="steam" class="level3">
 <h3>Steam</h3>
 <p>To learn about deploying your desktop game to Steam, please see the <a href="../../../plugin/steamworks/index.html">Steamworks plugin</a> documentation.</p>
-</div>
-</div>
-<div id="congratulations" class="section level2">
+</section>
+</section>
+<section id="congratulations" class="level2">
 <h2>Congratulations!</h2>
-<p>You made it! Take a deep breath and be proud of how much you've learned in such a short time — you've built a complete game using Solar2D and you're ready to begin your grand adventure into the world of game creation. What enhancements can you add to Star Explorer to make it even better? How about making the large asteroids explode into a few smaller asteroids when they're hit? The game may also benefit from a few additional enemies to increase the challenge and variety.</p>
-<p>What other ideas do you have? Do you want to make a puzzle game? A <nobr>point-and-click</nobr> adventure game? A platform game where you run, jump, collect coins, and avoid hazards to claim a prize? There's an endless variety of games you can make.</p>
+<p>You made it! Take a deep breath and be proud of how much you’ve learned in such a short time — you’ve built a complete game using Solar2D and you’re ready to begin your grand adventure into the world of game creation. What enhancements can you add to Star Explorer to make it even better? How about making the large asteroids explode into a few smaller asteroids when they’re hit? The game may also benefit from a few additional enemies to increase the challenge and variety.</p>
+<p>What other ideas do you have? Do you want to make a puzzle game? A <nobr>point-and-click</nobr> adventure game? A platform game where you run, jump, collect coins, and avoid hazards to claim a prize? There’s an endless variety of games you can make.</p>
 <p>Thinking of <nobr>e-books</nobr> or educational apps? Want to build something <nobr>non-game-related</nobr> like a business or utility app? Solar2D can power these as well!</p>
-<div id="dream-build-ship" class="section level3">
+<section id="dream-build-ship" class="level3">
 <h3>Dream, Build, Ship!</h3>
 <p>Here are a few of the amazing apps built with Solar2D by creative dreamers just like you!</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ewMCwyxr6P4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen>
 </iframe>
-</div>
-</div>
-<div id="where-from-here" class="section level2">
+</section>
+</section>
+<section id="where-from-here" class="level2">
 <h2>Where From Here?</h2>
-<div id="demo-projects" class="section level3">
+<section id="demo-projects" class="level3">
 <h3>Demo Projects</h3>
-<p>Star Explorer is just the beginning! Now that you're comfortable using Solar2D and coding in Lua, check out some of our amazing <a href="../../../guide/programming/index.html#demo-projects">Demo Projects</a> which you can use as <nobr>open-source</nobr> templates for your own games!</p>
+<p>Star Explorer is just the beginning! Now that you’re comfortable using Solar2D and coding in Lua, check out some of our amazing <a href="../../../guide/programming/index.html#demo-projects">Demo Projects</a> which you can use as <nobr>open-source</nobr> templates for your own games!</p>
 <div class="inner-table compact">
 <table>
 <thead>
 <tr class="header">
-<th align="center">Match 3 Space RPG</th>
+<th style="text-align: center;">Match 3 Space RPG</th>
 <th></th>
-<th align="center">Sticker Knight Platformer</th>
+<th style="text-align: center;">Sticker Knight Platformer</th>
 <th></th>
-<th align="center">Endless Sk8boarder</th>
+<th style="text-align: center;">Endless Sk8boarder</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center"><a href="../../../guide/programming/index.html#match-3-space-rpg"><img src="../../../images/docs/ponywolf-match3-1.png" /></a></td>
+<td style="text-align: center;"><a href="../../../guide/programming/index.html#match-3-space-rpg"><img src="../../../images/docs/ponywolf-match3-1.png" /></a></td>
 <td></td>
-<td align="center"><a href="../../../guide/programming/index.html#sticker-knight-platformer"><img src="../../../images/docs/ponywolf-platformer-1.png" /></a></td>
+<td style="text-align: center;"><a href="../../../guide/programming/index.html#sticker-knight-platformer"><img src="../../../images/docs/ponywolf-platformer-1.png" /></a></td>
 <td></td>
-<td align="center"><a href="../../../guide/programming/index.html#endless-sk8boarder"><img src="../../../images/docs/ponywolf-sk8boarder-1.png" /></a></td>
+<td style="text-align: center;"><a href="../../../guide/programming/index.html#endless-sk8boarder"><img src="../../../images/docs/ponywolf-sk8boarder-1.png" /></a></td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="solar2d-community" class="section level3">
+</section>
+<section id="solar2d-community" class="level3">
 <h3>Solar2D Community</h3>
 <p>As we mentioned in the beginning, the Solar2D community is friendly and helpful. You can interact with other developers in various ways:</p>
 <ul>
@@ -394,20 +364,20 @@
 <div class="clear">
 
 </div>
-</div>
-<div id="learning-resources" class="section level3">
+</section>
+<section id="learning-resources" class="level3">
 <h3>Learning Resources</h3>
 <p>There are several places where you can learn more about Solar2D:</p>
 <ul>
 <li>Solar2D <a href="../../../guide/index.html">Developer Guides</a> go further in depth on many selected topics.</li>
 <li>The <a href="../../../api/index.html">API Reference</a> site provides details about every API.</li>
 </ul>
-</div>
-<div id="providing-feedback" class="section level3">
+</section>
+<section id="providing-feedback" class="level3">
 <h3>Providing Feedback</h3>
 <p>Have feedback or ideas for new things you want to see in Solar2D? New directions you hope the product will go? Please share your thoughts at <a href="https://forums.solar2d.com/">Solar2D forums</a> or submit your requests at <a href="https://github.com/coronalabs/corona/issues">GitHub</a>.</p>
-</div>
-<div id="sharing-the-love" class="section level3">
+</section>
+<section id="sharing-the-love" class="level3">
 <h3>Sharing the Love</h3>
 <p>One final note before you get back to working on your great app — please let us know when your app is in the store! We love seeing how our developers are using Solar2D and we enjoy highlighting the best <nobr>Solar2D-built</nobr> apps in the <a href="https://coronalabs.com/corona-showcase/">Corona Showcase</a>.</p>
 <!---
@@ -421,21 +391,21 @@ Short chapter to be added about:
 3) Adding attribution tracking via Kochava because it's important to know where your installs are coming from - organic and, if paid, which campaign.
 
 -->
-</div>
-</div>
-<div id="section" class="section level2">
+</section>
+</section>
+<section id="section" class="level2">
 <h2></h2>
 <div class="walkthrough-nav">
 <p><strong>⟨</strong> <a href="../../../guide/programming/07/index.html">Chapter 7 — Sounds and Music</a> <em>|</em> <a href="../../../guide/programming/index.html">Guide Index</a></p>
 </div>
 <!--- LEGAL -->
-</div>
-<div id="section-1" class="section level2">
+</section>
+<section id="section-1" class="level2">
 <h2></h2>
 <div class="tiny-copy">
-<p>Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc. Mac and the Mac logo are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
+<p>Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc. Mac and the Mac logo are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
 <p>Google Play, Android TV, and the Google Play logo are trademarks of Google Inc.</p>
-<p>Amazon, Kindle, Echo, Alexa, Dash, Fire and all related logos are trademarks of Amazon.com, Inc. or its affiliates.</p>
+<p>Amazon, Kindle, Echo, Alexa, Dash, Fire and all related logos are trademarks of Amazon.com, Inc. or its affiliates.</p>
 <p>Microsoft, Encarta, MSN, and Windows are either registered trademarks or trademarks of Microsoft Corporation in the United States and/or other countries.</p>
 <p>Steam and the Steam logo are trademarks and/or registered trademarks of Valve Corporation in the U.S. and/or other countries.</p>
 </div>
@@ -449,8 +419,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

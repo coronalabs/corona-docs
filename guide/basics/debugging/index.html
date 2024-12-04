@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Basics</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -87,7 +87,7 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/basics/index.html">Basics</a>
 </div>
-<div id="debugging-guide" class="section level1">
+<section id="debugging-guide" class="level1">
 <h1>Debugging Guide</h1>
 <p>As a developer, you will occasionally encounter problems in your code, including incorrect logic, improper usage of an API, or any number of other issues. This guide will teach you how to debug your code, detect some common problems, and find their solutions.</p>
 <div class="guides-toc">
@@ -100,22 +100,22 @@
 </ul>
 </div>
 <p><a id="background"></a></p>
-<div id="background" class="section level2">
+<section id="background" class="level2">
 <h2>Background</h2>
 <div style="border-left: 2px solid #EEE; padding-left: 15px; padding-bottom: 3px; margin: 0px 25px 15px 15px;">
 <p><em>Oops! Something is badly wrong. My program crashed, or printed nonsense, or seems to be running forever. Now what?</em></p>
 <p><em>Beginners have a tendency to blame the compiler, the library, or anything other than their own code. Experienced programmers would love to do the same, but they know that, realistically, most problems are their own fault.</em></p>
 <p><em>Fortunately, most bugs are simple and can be found with simple techniques. Examine the evidence in the erroneous output and try to infer how it could have been produced. Look at any debugging output before the crash; if possible get a stack trace from a debugger. Now you know something of what happened, and where. Pause to reflect. How could that happen? Reason back from the state of the crashed program to determine what could have caused this.</em></p>
-<p><em>Debugging involves backwards reasoning, like solving murder mysteries. Something impossible occurred, and the only solid information is that it really did occur. So we must think backwards from the result to discover the reasons. Once we have a full explanation, we'll know what to fix and, along the way, likely discover a few other things we hadn't expected.</em></p>
+<p><em>Debugging involves backwards reasoning, like solving murder mysteries. Something impossible occurred, and the only solid information is that it really did occur. So we must think backwards from the result to discover the reasons. Once we have a full explanation, we’ll know what to fix and, along the way, likely discover a few other things we hadn’t expected.</em></p>
 </div>
-<p>This excerpt from <a href="https://en.wikipedia.org/wiki/The_Practice_of_Programming">The Practice of Programming</a> emphasizes the importance of gathering sufficient data and facts before undertaking the task of debugging. Sometimes, this means eliminating possible causes in order to find the real problem. Other times, it's an indirect way to resolve the issue.</p>
+<p>This excerpt from <a href="https://en.wikipedia.org/wiki/The_Practice_of_Programming">The Practice of Programming</a> emphasizes the importance of gathering sufficient data and facts before undertaking the task of debugging. Sometimes, this means eliminating possible causes in order to find the real problem. Other times, it’s an indirect way to resolve the issue.</p>
 <p><a id="editor"></a></p>
-</div>
-<div id="using-solar2d-editor" class="section level2">
+</section>
+<section id="using-solar2d-editor" class="level2">
 <h2>Using Solar2D Editor</h2>
 <p><a href="https://github.com/coronalabs/CoronaSDK-SublimeText">Solar2D Editor</a> is an <nobr>add-on</nobr> feature for <a href="https://www.sublimetext.com/">Sublime Text</a>. This allows you to see debugging messages in Sublime Text without needing a console window. It also allows you to validate your code using an interactive debugger.</p>
 <p>Once you have Sublime Text and Solar2D Editor installed, it can help you debug your code. For example, you can stop the Simulator at certain points and examine the state of your code, or you can step through the code and inspect variable values along the way. In addition, you can follow the <strong>stack trace</strong> of the app for more comprehensive debugging purposes.</p>
-<div id="using-break-points" class="section level3">
+<section id="using-break-points" class="level3">
 <h3>Using Break Points</h3>
 <p>One key concept in using an interactive debugger is the ability to stop your program at certain points so you can observe the current state. This includes looking at the value of variables in scope, stepping through the code one line or one function at a time, and checking the stack trace. This is known as <strong>using break points</strong> and it all revolves around stopping your program at the points you want to inspect.</p>
 <p>You can enable or disable (toggle) break points in one of two ways:</p>
@@ -126,8 +126,8 @@
 <p>When you set a break point, a small logo will appear on the line. Then, when you run your app from Sublime Text via <strong>Solar2D Editor</strong> → <strong>Debugger</strong> → <strong>Run</strong>, it will stop when it reaches this line of code and return to Sublime Text. At this point, you have several options:</p>
 <ul>
 <li><p><strong>Run</strong> — Run the code until the next break point or until completion.</p></li>
-<li><p><strong>Step Over</strong> — This will step forward one line of code, and if it's a function, it will complete the function and stop on the next line of code.</p></li>
-<li><p><strong>Step Into</strong> — This will step forward one line of code, and if it's a function, it will enter the function and stop on the first line of that function.</p></li>
+<li><p><strong>Step Over</strong> — This will step forward one line of code, and if it’s a function, it will complete the function and stop on the next line of code.</p></li>
+<li><p><strong>Step Into</strong> — This will step forward one line of code, and if it’s a function, it will enter the function and stop on the first line of that function.</p></li>
 <li><p><strong>Toggle Breakpoint</strong> — Turn off the breakpoint or set a new one.</p></li>
 <li><p><strong>Inspect Variable</strong> — See <a href="#inspecting">Inspecting Variables</a> below.</p></li>
 <li><p><strong>Stop</strong> — Stop the program.</p></li>
@@ -142,27 +142,27 @@ Any variable that is in scope will show in the Watch variables window. Instead o
 
 -->
 <p><a id="inspecting"></a></p>
-</div>
-<div id="inspecting-variables" class="section level3">
+</section>
+<section id="inspecting-variables" class="level3">
 <h3>Inspecting Variables</h3>
 <!---
 
 Watching variables only shows you variables in scope.  It does not show global variables, or other variables.  You can also look at a specific variable by inspecting a variable.
 
 -->
-<p>From the main menu, select <strong>Debugger</strong> → <strong>Inspect Variable</strong>. A search bar will open at the bottom of Sublime Text and you can enter any valid variable. You will then see the details of that variable, and if it's a table, this can provide a better visual representation compared to what is typically available.</p>
-</div>
-<div id="stack-tracing" class="section level3">
+<p>From the main menu, select <strong>Debugger</strong> → <strong>Inspect Variable</strong>. A search bar will open at the bottom of Sublime Text and you can enter any valid variable. You will then see the details of that variable, and if it’s a table, this can provide a better visual representation compared to what is typically available.</p>
+</section>
+<section id="stack-tracing" class="level3">
 <h3>Stack Tracing</h3>
-<p>Sometimes it's helpful to know where an error originated from. When you call a function and it misbehaves, a common reason is that the calling function passed invalid data. By using the <strong>stack trace</strong>, you can quickly identify which line of code called the function that you are currently executing. More specifically, you can set a break point in that function, continue running your app, and when the function exits and hits the next break point, you can examine the variables that were used to call the function.</p>
+<p>Sometimes it’s helpful to know where an error originated from. When you call a function and it misbehaves, a common reason is that the calling function passed invalid data. By using the <strong>stack trace</strong>, you can quickly identify which line of code called the function that you are currently executing. More specifically, you can set a break point in that function, continue running your app, and when the function exits and hits the next break point, you can examine the variables that were used to call the function.</p>
 <p>For more information on the stack trace, see <a href="#runtimeerrors">Viewing Runtime Errors</a> below.</p>
 <p><a id="consoledebugging"></a></p>
-</div>
-</div>
-<div id="consoledevice-debugging" class="section level2">
+</section>
+</section>
+<section id="consoledevice-debugging" class="level2">
 <h2>Console/Device Debugging</h2>
 <p><a id="runtimeerrors"></a></p>
-<div id="viewing-runtime-errors" class="section level3">
+<section id="viewing-runtime-errors" class="level3">
 <h3>Viewing Runtime Errors</h3>
 <p>If you have <strong>Show Runtime Errors</strong> enabled in the Simulator preferences, runtime errors (those that crash your app) will abort the program and reveal a message dialog box with more information about the error, including:</p>
 <ul>
@@ -176,12 +176,12 @@ Watching variables only shows you variables in scope.  It does not show global v
     main.lua:218: in function 'start'
     main.lua:222: in main chunk</pre>
 </div>
-<p>This collective information usually pinpoints the exact spot in your code where the problem lies. In this example, you can open the <code>main.lua</code> file, locate line <code>218</code>, and look for a math operation where one of the values is <code>nil</code> — specifically, a place where you're attempting to perform math on an undefined variable. Furthermore, the stack trace reveals that the error resides within the function named <code>start</code>, and that function was called from line <code>222</code>.</p>
+<p>This collective information usually pinpoints the exact spot in your code where the problem lies. In this example, you can open the <code>main.lua</code> file, locate line <code>218</code>, and look for a math operation where one of the values is <code>nil</code> — specifically, a place where you’re attempting to perform math on an undefined variable. Furthermore, the stack trace reveals that the error resides within the function named <code>start</code>, and that function was called from line <code>222</code>.</p>
 <p>Sometimes, the stack trace is less specific and must be followed carefully. For instance:</p>
 <pre class="brush: lua;">?: in function &lt;?:221>
     main.lua:218: in function 'start'
     main.lua:222: in main chunk</pre>
-<p>From this, you know that the error resides on line <code>221</code>, but you must trace backwards for more details. In this case, the problem occurred on line <code>221</code>, and that line was called from a function named <code>start</code> at line <code>218</code> of <code>main.lua</code>. Thus, even if the first line of the stack trace doesn't pinpoint exactly where the problem occurred, it can usually expose the root of the error.</p>
+<p>From this, you know that the error resides on line <code>221</code>, but you must trace backwards for more details. In this case, the problem occurred on line <code>221</code>, and that line was called from a function named <code>start</code> at line <code>218</code> of <code>main.lua</code>. Thus, even if the first line of the stack trace doesn’t pinpoint exactly where the problem occurred, it can usually expose the root of the error.</p>
 <div class="guide-notebox">
 <div class="notebox-title">
 Debug Symbols
@@ -191,39 +191,39 @@ Debug Symbols
 <li><p>If you build with a development profile or a debug keystore, Solar2D will retain debug symbols within the Lua code. This results in a minimal performance impact and a larger application bundle.</p></li>
 <li><p>If you build with a distribution profile or a release keystore, Solar2D will strip debug symbols out of the Lua code.</p></li>
 </ul>
-<p>If you wish to retain these symbols regardless of the build type, simply override the default behavior as illustrated <a href="../../../guide/distribution/advancedSettings/index.html#build-control">here</a>. This will make it easier to trace the code, but if the error occurs inside of core Solar2D code, debug symbols will still not be available. In these cases, you'll need to trace backwards and determine why the information you're passing to a Solar2D library function is causing an error.</p>
+<p>If you wish to retain these symbols regardless of the build type, simply override the default behavior as illustrated <a href="../../../guide/distribution/advancedSettings/index.html#build-control">here</a>. This will make it easier to trace the code, but if the error occurs inside of core Solar2D code, debug symbols will still not be available. In these cases, you’ll need to trace backwards and determine why the information you’re passing to a Solar2D library function is causing an error.</p>
 </div>
-</div>
-<div id="solar2d-simulator-console" class="section level3">
+</section>
+<section id="solar2d-simulator-console" class="level3">
 <h3>Solar2D Simulator Console</h3>
 <p>Diagnostic output can also be viewed within the <strong>Simulator Console</strong>. Here, useful debugging messages will be shown, along with the value of <code>print()</code> statements within your code. While this practice may be considered outdated to some developers, tracking the output of <code>print()</code> commands can often reveal the cause of an error or an issue with conditional logic.</p>
-</div>
-<div id="xcode-simulator-macos" class="section level3">
+</section>
+<section id="xcode-simulator-macos" class="level3">
 <h3>Xcode Simulator — macOS</h3>
-<p>The above methods can help diagnose most coding issues, but the <strong>Xcode Simulator</strong> for macOS may be necessary to preview how the app will function on actual iOS devices. This helps simulate some device features that the Simulator cannot, but it's still not as accurate as a real device.</p>
+<p>The above methods can help diagnose most coding issues, but the <strong>Xcode Simulator</strong> for macOS may be necessary to preview how the app will function on actual iOS devices. This helps simulate some device features that the Simulator cannot, but it’s still not as accurate as a real device.</p>
 <p>To test an app in the Xcode Simulator:</p>
-<ol style="list-style-type: decimal">
-<li><p>Select <strong>File</strong> → <strong>Build</strong> → <strong>Build for iOS...</strong> from within the Solar2D Simulator.</p></li>
+<ol type="1">
+<li><p>Select <strong>File</strong> → <strong>Build</strong> → <strong>Build for iOS…</strong> from within the Solar2D Simulator.</p></li>
 <li><p>In the dialog window, under the <strong>Build for:</strong> <nobr>pull-down</nobr> menu, select <strong>Xcode Simulator</strong>.</p></li>
 <li><p>Proceed with the build process and the application will open in a simulated device window.</p></li>
-<li><p>From this application, select <strong>Debug</strong> → <nobr><strong>Open System Log...</strong></nobr> to view the system log.</p></li>
+<li><p>From this application, select <strong>Debug</strong> → <nobr><strong>Open System Log…</strong></nobr> to view the system log.</p></li>
 </ol>
-</div>
-<div id="device-debugging-ios" class="section level3">
+</section>
+<section id="device-debugging-ios" class="level3">
 <h3>Device Debugging — iOS</h3>
 <p>Some errors only manifest themselves once you install the app on a device. Fortunately, each device has its own console log which you can access, and for Apple, you can see this console log within Xcode as follows:</p>
-<ol style="list-style-type: decimal">
-<li><p>Open Xcode if it's not already running.</p></li>
+<ol type="1">
+<li><p>Open Xcode if it’s not already running.</p></li>
 <li><p>Open the <strong>Devices &amp; Simulators</strong> window (<strong>Window</strong> → <strong>Devices &amp; Simulators</strong>).</p></li>
 <li><p>Connect the device to your computer and wait until it appears in the left column of the window. When it does, select it.</p></li>
-<li><p>Click on the <strong>Open Console</strong> button to open the device's console log.</p></li>
+<li><p>Click on the <strong>Open Console</strong> button to open the device’s console log.</p></li>
 </ol>
-</div>
-<div id="device-debugging-android" class="section level3">
+</section>
+<section id="device-debugging-android" class="level3">
 <h3>Device Debugging — Android</h3>
-<p>Debugging on Android is a bit more &quot;command line oriented,&quot; but once you figure out the commands, it's reasonably quick to install an app, view the log as the app runs, and look for error messages.</p>
+<p>Debugging on Android is a bit more “command line oriented,” but once you figure out the commands, it’s reasonably quick to install an app, view the log as the app runs, and look for error messages.</p>
 <p>First, you must install some free tools from Google called <strong>Android Debug Bridge</strong>. Simply follow these steps:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>Visit the <a href="https://developer.android.com/studio#downloads">download</a> page. Instead of clicking the large download button, click on the <strong>Download Options</strong> link. Then, in the <nobr><strong>Command line tools only</strong></nobr> section, select the correct option for your system. Alternatively, you can download the SDK Platform Tools for your operating system from the <a href="https://developer.android.com/studio/releases/platform-tools">platform tools</a> page.</p></li>
 <li><p>Install the tools. On Windows, run the installer; on macOS, unzip the file and move the folder to a sensible location.</p></li>
 <li><p>Follow the instructions for <a href="https://developer.android.com/studio#downloads">Adding SDK Packages</a>. Install at least the <strong>Android SDK Tools</strong> and <nobr><strong>Android SDK Platform-tools</strong>.</nobr></p></li>
@@ -235,22 +235,22 @@ Debug Symbols
 <p>This will prevent filtering for <nobr>Solar2D-specific</nobr> activity, but it will generate a large number of messages and it will be difficult to locate those relevant to the problem. Thus, it may be helpful to include some <code>print()</code> statements within your code near the area which you suspect is problematic. For example:</p>
 <pre class="brush: lua;">print( "MYAPP - Purchase: *********************************************" )
 store.purchase( "com.coronalabs.NewExampleInAppPurchase.NonConsumableTier1" )</pre>
-<p>If you prefer a more visual tool, <strong>adb</strong> also offers a GUI version of <nobr><code>adb logcat</code></nobr> called <strong>monitor</strong>. You may need to set your device to &quot;developer mode&quot; to use these tools, and each device and version of Android exposes this in different ways, so we suggest that you search online for your specific OS and &quot;developer mode&quot; to locate the instructions.</p>
-</div>
-<div id="debugging-win32-desktop" class="section level3">
+<p>If you prefer a more visual tool, <strong>adb</strong> also offers a GUI version of <nobr><code>adb logcat</code></nobr> called <strong>monitor</strong>. You may need to set your device to “developer mode” to use these tools, and each device and version of Android exposes this in different ways, so we suggest that you search online for your specific OS and “developer mode” to locate the instructions.</p>
+</section>
+<section id="debugging-win32-desktop" class="level3">
 <h3>Debugging — Win32 Desktop</h3>
-<p>If you're working on a Win32 desktop app, some details on debugging can be located <a href="../../../guide/distribution/win32Build/index.html#debugapp">here</a>.</p>
-</div>
-<div id="debugging-macos-desktop" class="section level3">
+<p>If you’re working on a Win32 desktop app, some details on debugging can be located <a href="../../../guide/distribution/win32Build/index.html#debugapp">here</a>.</p>
+</section>
+<section id="debugging-macos-desktop" class="level3">
 <h3>Debugging — macOS Desktop</h3>
-<p>If you're working on a macOS desktop app, some details on debugging can be located <a href="../../../guide/distribution/macOSBuild/index.html#debugapp">here</a>.</p>
+<p>If you’re working on a macOS desktop app, some details on debugging can be located <a href="../../../guide/distribution/macOSBuild/index.html#debugapp">here</a>.</p>
 <p><a id="common"></a></p>
-</div>
-</div>
-<div id="tips-and-common-pitfalls" class="section level2">
+</section>
+</section>
+<section id="tips-and-common-pitfalls" class="level2">
 <h2>Tips and Common Pitfalls</h2>
-<p>There are some common issues which are usually simple to resolve once you're aware of them.</p>
-<div id="proper-indentation" class="section level3">
+<p>There are some common issues which are usually simple to resolve once you’re aware of them.</p>
+<section id="proper-indentation" class="level3">
 <h3>Proper Indentation</h3>
 <p>The most important practice for code readability is proper indentation (adding tabs or spaces before lines to distinguish blocks of code). You should use a text editor or Integrated Development Environment (IDE) which handles indentions for you. Consider this code:</p>
 <pre class="brush: lua;">local function doSomething( params )
@@ -259,7 +259,7 @@ if params.someOtherValue == "test" then
 params.yetAnotherValue = params.someValue
 end
 end</pre>
-<p>Without indenting the lines to show the various blocks of code, it's very difficult to read. In fact, there's an error which would be obvious if the code was indented correctly. Compare the difference:</p>
+<p>Without indenting the lines to show the various blocks of code, it’s very difficult to read. In fact, there’s an error which would be obvious if the code was indented correctly. Compare the difference:</p>
 <pre class="brush: lua;">local function doSomething( params )
     if params.someValue == 10 then
         if params.someOtherValue == "test" then
@@ -268,8 +268,8 @@ end</pre>
     end</pre>
 <p>As you can see, there is a missing <code>end</code> keyword for the <code>doSomething</code> function, and this is clearly revealed when the code is properly indented.</p>
 <p>Many code editors can help you by automatically indenting code and, when you close a block, it will back out one level and put the <code>end</code> in the correct place. Each operating system has a selection of code editors, and better editors feature Lua syntax highlighting. For a list of recommended editors, please see our installation guides for <a href="../../../guide/start/installMac/index.html">macOS</a> or <a href="../../../guide/start/installWin/index.html">Windows</a>.</p>
-</div>
-<div id="descriptive-naming" class="section level3">
+</section>
+<section id="descriptive-naming" class="level3">
 <h3>Descriptive Naming</h3>
 <p>Another important aspect is naming variables and functions so that you and others know what they mean. Consider these two blocks of code:</p>
 <pre class="brush: lua;">local function a( b )
@@ -286,18 +286,18 @@ end</pre>
     end
     return true
 end</pre>
-<p>These functions are identical in behavior, but by using clearer variable and function names, most developers can easily figure out what you're trying to accomplish.</p>
-</div>
-<div id="device-considerations" class="section level3">
+<p>These functions are identical in behavior, but by using clearer variable and function names, most developers can easily figure out what you’re trying to accomplish.</p>
+</section>
+<section id="device-considerations" class="level3">
 <h3>Device Considerations</h3>
 <p>Some developers are dismayed to find that their project works in the Simulator but not on their actual device. Usually, one of the following factors is at fault:</p>
 <ul>
 <li><p>File names are not <nobr><strong>case-sensitive</strong></nobr>. When testing on macOS or Windows, file names are not <nobr>case-sensitive</nobr>, but when running on a device, the file names <strong>must</strong> match in case. For example, the file name <code>titleimage.png</code> and <code>TitleImage.PNG</code> are the same in the Simulator, but they are considered different on a device.</p></li>
 <li><p>There is an error in the <code>build.settings</code> file, and often this is because the various blocks and tables are not properly nested. Please see the <a href="../../../guide/distribution/buildSettings/index.html">Project Build Settings</a> guide for instructions on how to properly construct the <code>build.settings</code> file and each section within it.</p></li>
-<li><p>There's a problem with a <a href="../../../plugin/index.html">plugin</a>. Each plugin must be included exactly as specified, and several plugins require device <strong>permissions</strong> in order to function properly. Please see the appropriate <a href="../../../plugin/index.html">plugin documentation</a> for details.</p></li>
+<li><p>There’s a problem with a <a href="../../../plugin/index.html">plugin</a>. Each plugin must be included exactly as specified, and several plugins require device <strong>permissions</strong> in order to function properly. Please see the appropriate <a href="../../../plugin/index.html">plugin documentation</a> for details.</p></li>
 </ul>
-</div>
-<div id="listener-removal" class="section level3">
+</section>
+<section id="listener-removal" class="level3">
 <h3>Listener Removal</h3>
 <p>In some cases, an <a href="../../../api/event/index.html">event</a> listener function may still be running when you attempt to remove the listener, or a Solar2D library will be completing an internal process when you attempt to call a certain action. For example, you may attempt to remove a <a href="../../../api/event/location/index.html">GPS</a> listener while the GPS event is still being processed, or you may try to <a href="../../../api/type/Body/isBodyActive.html">deactivate</a> a physics body at the exact moment it collides with another object. Both of these are liable to cause an error/warning.</p>
 <p>The solution to these type of issues is to perform the necessary action after a short <a href="../../../api/library/timer/performWithDelay.html">timer</a> delay:</p>
@@ -305,23 +305,23 @@ end</pre>
     timer.performWithDelay( 10, function() Runtime:removeEventListener( "location", handleGPS ); end )
 end</pre>
 <p><a id="support"></a></p>
-</div>
-</div>
-<div id="community-support" class="section level2">
+</section>
+</section>
+<section id="community-support" class="level2">
 <h2>Community Support</h2>
-<div id="locating-solutions" class="section level3">
+<section id="locating-solutions" class="level3">
 <h3>Locating Solutions</h3>
-<p>If you have exhausted all of the above debugging methods, proceed to the <a href="https://forums.solar2d.com/">Forums</a>. There you can search for topics which describe the same issue you're struggling with. Often, another developer will have reported the same issue and, in many cases, the thread will contain the solution — as such, please do not post a new topic without first searching for the answer in existing threads.</p>
+<p>If you have exhausted all of the above debugging methods, proceed to the <a href="https://forums.solar2d.com/">Forums</a>. There you can search for topics which describe the same issue you’re struggling with. Often, another developer will have reported the same issue and, in many cases, the thread will contain the solution — as such, please do not post a new topic without first searching for the answer in existing threads.</p>
 <p>Note that new contributors will have their first post moderated — these will be entered into the system, but they will not be visible to others until approved by a moderator.</p>
-</div>
-<div id="requesting-assistance" class="section level3">
+</section>
+<section id="requesting-assistance" class="level3">
 <h3>Requesting Assistance</h3>
 <p>If you cannot locate the solution in any previous forum threads, please post a new request and follow these guidelines:</p>
 <ul>
 <li><p>Do not post the same topic multiple times. Also, choose the most appropriate <nobr>sub-forum</nobr> for your topic, and abstain from posting the same topic in multiple <nobr>sub-forums.</nobr></p></li>
 <li><p>Include enough information so that the community can help. You should provide the following:</p>
 <ul>
-<li> A detailed description of the problem you're having.<br />
+<li> A detailed description of the problem you’re having.<br />
 </li>
 <li> A concise amount of code around the problematic area, if necessary.<br />
 </li>
@@ -329,7 +329,7 @@ end</pre>
 </li>
 <li> Whether you are building for iOS, Android, macOS desktop, or Windows desktop.<br />
 </li>
-<li> Which version/build of Solar2D you're using.<br />
+<li> Which version/build of Solar2D you’re using.<br />
 </li>
 <li> The relevant error messages from your console log.<br />
 </li>
@@ -355,9 +355,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | type | Map | getUserLocation</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -70,41 +70,41 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/Map/index.html">Map</a>  ▸  <a href="../../../api/type/Map/getUserLocation.html">getUserLocation</a>
 </div>
-<div id="objectgetuserlocation" class="section level1">
+<section id="objectgetuserlocation" class="level1">
 <h1>object:getUserLocation()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Object</strong></td>
-<td align="left"><a href="../../../api/type/Map/index.html">Map</a></td>
+<td style="text-align: left;"><strong>Object</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Map/index.html">Map</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/native/index.html">native.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/native/index.html">native.*</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left"><a href="../../../api/type/Table.html">Table</a></td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Table.html">Table</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">getUserLocation</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">getUserLocation</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
-<p>Returns a <a href="../../../api/type/Table.html">table</a> containing values for the user's current location, including:</p>
+<p>Returns a <a href="../../../api/type/Table.html">table</a> containing values for the user’s current location, including:</p>
 <ul>
 <li><p><code>latitude</code> — The latitude in degrees of the current GPS location.</p></li>
 <li><p><code>longitude</code> — The longitude in degrees of the current GPS location.</p></li>
@@ -112,19 +112,19 @@
 <li><p><code>accuracy</code> — The accuracy of the GPS location in meters. If negative, the latitude and longitude are not valid.</p></li>
 <li><p><code>speed</code> — The instantaneous speed of the GPS device in meters per second. Divide the results by <code>0.447</code> to get MPH (miles per hour).</p></li>
 <li><p><code>direction</code> — The direction the device is traveling in degrees clockwise from true north. If negative, the direction is invalid.</p></li>
-<li><p><code>time</code> — Returns the UTC timestamp of the GPS location event. This is a <nobr>Unix-style</nobr> timestamp, expressed in seconds since <nobr>Jan. 1, 1970</nobr>.</p></li>
+<li><p><code>time</code> — Returns the UTC timestamp of the GPS location event. This is a <nobr>Unix-style</nobr> timestamp, expressed in seconds since <nobr>Jan. 1, 1970</nobr>.</p></li>
 <li><p><code>errorCode</code> — A platform-specific integer for an error condition that is not language dependent. See <a href="#errors">Error Handling</a> below for details.</p></li>
-<li><p><code>errorMessage</code> — A string that describes an error in acquiring a GPS location from the device. See <a href="#errors">Error Handling</a> below for details. The string may be localized according to the user's language.</p></li>
+<li><p><code>errorMessage</code> — A string that describes an error in acquiring a GPS location from the device. See <a href="#errors">Error Handling</a> below for details. The string may be localized according to the user’s language.</p></li>
 </ul>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">object:getUserLocation()</pre>
 <p><a id="errors"></a></p>
-</div>
-<div id="error-handling" class="section level2">
+</section>
+<section id="error-handling" class="level2">
 <h2>Error Handling</h2>
-<p>If the returned table's <code>errorCode</code> field is not <code>nil</code>, this indicates that the application has failed to fetch the user's current location. This can happen for the following reasons:</p>
+<p>If the returned table’s <code>errorCode</code> field is not <code>nil</code>, this indicates that the application has failed to fetch the user’s current location. This can happen for the following reasons:</p>
 <ul>
 <li>Current location has not been received yet.</li>
 <li>Current location tracking is not available on the device.</li>
@@ -135,42 +135,42 @@
 <table>
 <thead>
 <tr class="header">
-<th align="center">Code</th>
-<th align="left">Message / Description</th>
+<th style="text-align: center;">Code</th>
+<th style="text-align: left;">Message / Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center"><code>-3</code></td>
-<td align="left"><code>&quot;Current location is unknown&quot;</code> — Occurs if location services is enabled but the device's location hardware is still activating.</td>
+<td style="text-align: center;"><code>-3</code></td>
+<td style="text-align: left;"><code>"Current location is unknown"</code> — Occurs if location services is enabled but the device’s location hardware is still activating.</td>
 </tr>
 <tr class="even">
-<td align="center"><code>-2</code></td>
-<td align="left"><code>&quot;Current location tracking is not available on this device&quot;</code> — Occurs if this device doesn't have any means of determining the current location.</td>
+<td style="text-align: center;"><code>-2</code></td>
+<td style="text-align: left;"><code>"Current location tracking is not available on this device"</code> — Occurs if this device doesn’t have any means of determining the current location.</td>
 </tr>
 <tr class="odd">
-<td align="center"><code>-1</code></td>
-<td align="left"><code>&quot;Location services are disabled&quot;</code> — Occurs when the device can determine the current location, but the user has disabled location services.</td>
+<td style="text-align: center;"><code>-1</code></td>
+<td style="text-align: left;"><code>"Location services are disabled"</code> — Occurs when the device can determine the current location, but the user has disabled location services.</td>
 </tr>
 <tr class="even">
-<td align="center"><code>0</code></td>
-<td align="left"><code>&quot;Pending user authorization&quot;</code> — Occurs when the device is prompting the user for authorization to use location services.</td>
+<td style="text-align: center;"><code>0</code></td>
+<td style="text-align: left;"><code>"Pending user authorization"</code> — Occurs when the device is prompting the user for authorization to use location services.</td>
 </tr>
 <tr class="odd">
-<td align="center"><code>1</code></td>
-<td align="left"><code>&quot;App is missing location permissions&quot;</code> — Available on Android only. Occurs if neither <code>&quot;android.permission.ACCESS_FINE_LOCATION&quot;</code> nor <code>&quot;android.permission.ACCESS_COARSE_LOCATION&quot;</code> is defined in <code>build.settings</code>.</td>
+<td style="text-align: center;"><code>1</code></td>
+<td style="text-align: left;"><code>"App is missing location permissions"</code> — Available on Android only. Occurs if neither <code>"android.permission.ACCESS_FINE_LOCATION"</code> nor <code>"android.permission.ACCESS_COARSE_LOCATION"</code> is defined in <code>build.settings</code>.</td>
 </tr>
 <tr class="even">
-<td align="center"><code>2</code></td>
-<td align="left"><code>&quot;Location is denied by user&quot;</code> — On iOS, this occurs if the user has denied access to location data for the app. On Android 6.0 and above, this occurs if the user has denied the app access to location data <strong>and</strong> has requested that location permission is never requested again.</td>
+<td style="text-align: center;"><code>2</code></td>
+<td style="text-align: left;"><code>"Location is denied by user"</code> — On iOS, this occurs if the user has denied access to location data for the app. On Android 6.0 and above, this occurs if the user has denied the app access to location data <strong>and</strong> has requested that location permission is never requested again.</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="gotchas" class="section level2">
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
-<div id="android" class="section level3">
+<section id="android" class="level3">
 <h3>Android</h3>
 <p>In order to retrieve current location on Android, you must set the following permissions in the <code>build.settings</code> file.</p>
 <pre class="brush: lua;">settings =
@@ -187,8 +187,8 @@
         },
     },
 }</pre>
-</div>
-<div id="ios" class="section level3">
+</section>
+<section id="ios" class="level3">
 <h3>iOS</h3>
 <p>Starting with iOS 8, you must add the <code>NSLocationWhenInUseUsageDescription</code> key to the plist section of the <code>build.settings</code> file which contains the reason why you need access to location services.</p>
 <pre class="brush: lua;">settings =
@@ -201,9 +201,9 @@
         },
     },
 }</pre>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">-- Create a native map view
 local myMap = native.newMapView( 20, 20, 280, 360 )
@@ -247,8 +247,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | store</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -59,21 +59,21 @@
 <li><a href="#overview">Overview</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#properties">Properties</a><ul>
-<li><a href="#store.targetapi.library.store.target"><a href="../../../api/library/store/target.html">store.target</a></a></li>
-<li><a href="#store.isactiveapi.library.store.isactive"><a href="../../../api/library/store/isActive.html">store.isActive</a></a></li>
-<li><a href="#store.canloadproductsapi.library.store.canloadproducts"><a href="../../../api/library/store/canLoadProducts.html">store.canLoadProducts</a></a></li>
-<li><a href="#store.canmakepurchasesapi.library.store.canmakepurchases"><a href="../../../api/library/store/canMakePurchases.html">store.canMakePurchases</a></a></li>
+<li><a href="#store.targetapi.library.store.target"><span>store.target</span></a></li>
+<li><a href="#store.isactiveapi.library.store.isactive"><span>store.isActive</span></a></li>
+<li><a href="#store.canloadproductsapi.library.store.canloadproducts"><span>store.canLoadProducts</span></a></li>
+<li><a href="#store.canmakepurchasesapi.library.store.canmakepurchases"><span>store.canMakePurchases</span></a></li>
 </ul></li>
 <li><a href="#functions">Functions</a><ul>
-<li><a href="#store.initapi.library.store.init"><a href="../../../api/library/store/init.html">store.init()</a></a></li>
-<li><a href="#store.loadproductsapi.library.store.loadproducts"><a href="../../../api/library/store/loadProducts.html">store.loadProducts()</a></a></li>
-<li><a href="#store.purchaseapi.library.store.purchase"><a href="../../../api/library/store/purchase.html">store.purchase()</a></a></li>
-<li><a href="#store.finishtransactionapi.library.store.finishtransaction"><a href="../../../api/library/store/finishTransaction.html">store.finishTransaction()</a></a></li>
-<li><a href="#store.restoreapi.library.store.restore"><a href="../../../api/library/store/restore.html">store.restore()</a></a></li>
+<li><a href="#store.initapi.library.store.init"><span>store.init()</span></a></li>
+<li><a href="#store.loadproductsapi.library.store.loadproducts"><span>store.loadProducts()</span></a></li>
+<li><a href="#store.purchaseapi.library.store.purchase"><span>store.purchase()</span></a></li>
+<li><a href="#store.finishtransactionapi.library.store.finishtransaction"><span>store.finishTransaction()</span></a></li>
+<li><a href="#store.restoreapi.library.store.restore"><span>store.restore()</span></a></li>
 </ul></li>
 <li><a href="#events">Events</a><ul>
-<li><a href="#storetransactionapi.library.store.event.storetransaction"><a href="../../../api/library/store/event/storeTransaction/index.html">storeTransaction</a></a></li>
-<li><a href="#productlistapi.library.store.event.productlist"><a href="../../../api/library/store/event/productList/index.html">productList</a></a></li>
+<li><a href="#storetransactionapi.library.store.event.storetransaction"><span>storeTransaction</span></a></li>
+<li><a href="#productlistapi.library.store.event.productlist"><span>productList</span></a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -81,31 +81,31 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/store/index.html">store</a>
 </div>
-<div id="store.-apple-iap" class="section level1">
+<section id="store.-apple-iap" class="level1">
 <h1>store.* (Apple IAP)</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Library.html">Library</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Library.html">Library</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">Apple, IAP, in-app purchases</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">Apple, IAP, in-app purchases</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Platforms</strong></td>
-<td align="left">iOS, tvOS</td>
+<td style="text-align: left;"><strong>Platforms</strong></td>
+<td style="text-align: left;">iOS, tvOS</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>This library allows you to support <nobr>in-app</nobr> purchasing on iOS, including <nobr>in-game</nobr> currency, upgrades, and more.</p>
 <p>For in-app purchasing on other platforms, see the documentation for <a href="../../../plugin/apple-iap/index.html">Google Billing</a> or <a href="../../../plugin/amazon-iap-v3/index.html">Amazon IAP</a>.</p>
@@ -116,54 +116,54 @@ Notes
 <ul>
 <li><p>This is the legacy version of the Apple store IAP, please use the new <a href="../../../plugin/apple-iap/index.html">Apple IAP Plugin</a>.</p></li>
 <li><p>To use <nobr>in-app</nobr> purchases on iOS, you must first configure your iOS certificates, App IDs, and provisioning profiles. Please review our <a href="../../../guide/distribution/iOSBuild/index.html">Provisioning and Building</a> guide thoroughly, as this is an essential task and you must complete each step correctly. Also remember to create an App ID that is unique and fully qualified, <strong>not</strong> a wildcard App ID.</p></li>
-<li><p>Additional configuration must occur within <a href="https://itunesconnect.apple.com/">iTunes Connect</a>. If you need assistance with this process, please see Apple's <a href="https://developer.apple.com/library/ios/technotes/tn2259/_index.html">documentation</a>.</p></li>
+<li><p>Additional configuration must occur within <a href="https://itunesconnect.apple.com/">iTunes Connect</a>. If you need assistance with this process, please see Apple’s <a href="https://developer.apple.com/library/ios/technotes/tn2259/_index.html">documentation</a>.</p></li>
 <li><p>For additional functionality, please take a look at <a href="../../../plugin/apple-iap/index.html">Apple IAP</a> plugin.</p></li>
 </ul>
 </div>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">local store = require( "store" )</pre>
-</div>
-<div id="properties" class="section level2">
+</section>
+<section id="properties" class="level2">
 <h2>Properties</h2>
-<div id="store.targetapi.library.store.target" class="section level4">
+<section id="store.targetapi.library.store.target" class="level4">
 <h4><a href="../../../api/library/store/target.html">store.target</a></h4>
-</div>
-<div id="store.isactiveapi.library.store.isactive" class="section level4">
+</section>
+<section id="store.isactiveapi.library.store.isactive" class="level4">
 <h4><a href="../../../api/library/store/isActive.html">store.isActive</a></h4>
-</div>
-<div id="store.canloadproductsapi.library.store.canloadproducts" class="section level4">
+</section>
+<section id="store.canloadproductsapi.library.store.canloadproducts" class="level4">
 <h4><a href="../../../api/library/store/canLoadProducts.html">store.canLoadProducts</a></h4>
-</div>
-<div id="store.canmakepurchasesapi.library.store.canmakepurchases" class="section level4">
+</section>
+<section id="store.canmakepurchasesapi.library.store.canmakepurchases" class="level4">
 <h4><a href="../../../api/library/store/canMakePurchases.html">store.canMakePurchases</a></h4>
-</div>
-</div>
-<div id="functions" class="section level2">
+</section>
+</section>
+<section id="functions" class="level2">
 <h2>Functions</h2>
-<div id="store.initapi.library.store.init" class="section level4">
+<section id="store.initapi.library.store.init" class="level4">
 <h4><a href="../../../api/library/store/init.html">store.init()</a></h4>
-</div>
-<div id="store.loadproductsapi.library.store.loadproducts" class="section level4">
+</section>
+<section id="store.loadproductsapi.library.store.loadproducts" class="level4">
 <h4><a href="../../../api/library/store/loadProducts.html">store.loadProducts()</a></h4>
-</div>
-<div id="store.purchaseapi.library.store.purchase" class="section level4">
+</section>
+<section id="store.purchaseapi.library.store.purchase" class="level4">
 <h4><a href="../../../api/library/store/purchase.html">store.purchase()</a></h4>
-</div>
-<div id="store.finishtransactionapi.library.store.finishtransaction" class="section level4">
+</section>
+<section id="store.finishtransactionapi.library.store.finishtransaction" class="level4">
 <h4><a href="../../../api/library/store/finishTransaction.html">store.finishTransaction()</a></h4>
-</div>
-<div id="store.restoreapi.library.store.restore" class="section level4">
+</section>
+<section id="store.restoreapi.library.store.restore" class="level4">
 <h4><a href="../../../api/library/store/restore.html">store.restore()</a></h4>
-</div>
-</div>
-<div id="events" class="section level2">
+</section>
+</section>
+<section id="events" class="level2">
 <h2>Events</h2>
-<div id="storetransactionapi.library.store.event.storetransaction" class="section level4">
+<section id="storetransactionapi.library.store.event.storetransaction" class="level4">
 <h4><a href="../../../api/library/store/event/storeTransaction/index.html">storeTransaction</a></h4>
-</div>
-<div id="productlistapi.library.store.event.productlist" class="section level4">
+</section>
+<section id="productlistapi.library.store.event.productlist" class="level4">
 <h4><a href="../../../api/library/store/event/productList/index.html">productList</a></h4>
 <hr>
 <div id="footer">
@@ -175,9 +175,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

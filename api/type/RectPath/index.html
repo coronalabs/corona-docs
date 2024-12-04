@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | type | RectPath</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -74,77 +74,74 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/RectPath/index.html">RectPath</a>
 </div>
-<div id="rectpath" class="section level1">
+<section id="rectpath" class="level1">
 <h1>RectPath</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Parent</strong></td>
-<td align="left"><a href="../../../api/type/Path/index.html">Path</a></td>
+<td style="text-align: left;"><strong>Parent</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Path/index.html">Path</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/display/index.html">display.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../api/library/display/newRect.html">display.newRect()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/display/newRect.html">display.newRect()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../guide/graphics/3D.html">Perspective and Depth</a> <em>(guide)</em></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../guide/graphics/3D.html">Perspective and Depth</a> <em>(guide)</em></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>The rectangle path specifies the geometry of the corresponding <a href="../../../api/library/display/newRect.html">rectangle</a> object.</p>
 <p>This path has limited properties which let you manipulate specific aspects of the shape object. These aspects can either be set explicitly or animated via a <a href="../../../guide/media/transitionLib/index.html">transition</a>.</p>
-</div>
-<div id="properties" class="section level2">
+</section>
+<section id="properties" class="level2">
 <h2>Properties</h2>
 <p><em>(Inherits properties from <a href="../../../api/type/Path/index.html">Path</a>)</em></p>
-<div id="path.height" class="section level5">
+<section id="path.height" class="level5">
 <h5>path.height</h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> Height of the rectangle.</p>
-</div>
-<div id="path.width" class="section level5">
+</section>
+<section id="path.width" class="level5">
 <h5>path.width</h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> Width of the rectangle.</p>
-</div>
-<div id="quadrilateral-distortion" class="section level3">
+</section>
+<section id="quadrilateral-distortion" class="level3">
 <h3>Quadrilateral Distortion</h3>
 <p>The following properties allow you to distort the corners of a rectangle by specifying offsets. The corners are ordered starting with the <nobr>top-left</nobr> and going around in <nobr>counter-clockwise</nobr> order (see diagram below).</p>
 <p>Learn more about 2.5D/3D effects in the <a href="../../../guide/graphics/3D.html">Perspective and Depth</a> guide.</p>
-<div id="path.x1-path.y1" class="section level5">
+<section id="path.x1-path.y1" class="level5">
 <h5>path.x1, path.y1</h5>
 <p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The offset for the top-left corner. Defaults are <code>0,0</code>.</p>
-</div>
-<div id="path.x2-path.y2" class="section level5">
+</section>
+<section id="path.x2-path.y2" class="level5">
 <h5>path.x2, path.y2</h5>
 <p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The offset for the bottom-left corner. Defaults are <code>0,0</code>.</p>
-</div>
-<div id="path.x3-path.y3" class="section level5">
+</section>
+<section id="path.x3-path.y3" class="level5">
 <h5>path.x3, path.y3</h5>
 <p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The offset for the bottom-right corner. Defaults are <code>0,0</code>.</p>
-</div>
-<div id="path.x4-path.y4" class="section level5">
+</section>
+<section id="path.x4-path.y4" class="level5">
 <h5>path.x4, path.y4</h5>
 <p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The offset for the top-right corner. Defaults are <code>0,0</code>.</p>
-<div class="figure">
-<img src="../../../images/sdk/graphics/rect-3D.png" />
-
-</div>
-</div>
-</div>
-</div>
-<div id="example" class="section level2">
+<p><img src="../../../images/sdk/graphics/rect-3D.png" /></p>
+</section>
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local rect = display.newRect( 160, 240, 150, 50 )
 rect.path.x1 = -50
@@ -160,8 +157,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

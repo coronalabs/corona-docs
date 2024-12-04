@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Google Play Games Services | multiplayer | realtime</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../css/style.css" />
+  <link rel="stylesheet" href="../../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,24 +58,24 @@
 <li><a href="#gpgs.multiplayer.realtime">gpgs.multiplayer.realtime</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#functions">Functions</a><ul>
-<li><a href="#gpgs.multiplayer.realtime.createplugin.gpgs.multiplayer.realtime.create"><a href="../../../../plugin/gpgs/multiplayer/realtime/create.html">gpgs.multiplayer.realtime.create()</a></a></li>
-<li><a href="#gpgs.multiplayer.realtime.joinplugin.gpgs.multiplayer.realtime.join"><a href="../../../../plugin/gpgs/multiplayer/realtime/join.html">gpgs.multiplayer.realtime.join()</a></a></li>
-<li><a href="#gpgs.multiplayer.realtime.leaveplugin.gpgs.multiplayer.realtime.leave"><a href="../../../../plugin/gpgs/multiplayer/realtime/leave.html">gpgs.multiplayer.realtime.leave()</a></a></li>
-<li><a href="#gpgs.multiplayer.realtime.getroomplugin.gpgs.multiplayer.realtime.getroom"><a href="../../../../plugin/gpgs/multiplayer/realtime/getRoom.html">gpgs.multiplayer.realtime.getRoom()</a></a></li>
-<li><a href="#gpgs.multiplayer.realtime.showplugin.gpgs.multiplayer.realtime.show"><a href="../../../../plugin/gpgs/multiplayer/realtime/show.html">gpgs.multiplayer.realtime.show()</a></a></li>
-<li><a href="#gpgs.multiplayer.realtime.showselectplayersplugin.gpgs.multiplayer.realtime.showselectplayers"><a href="../../../../plugin/gpgs/multiplayer/realtime/showSelectPlayers.html">gpgs.multiplayer.realtime.showSelectPlayers()</a></a></li>
-<li><a href="#gpgs.multiplayer.realtime.sendreliablyplugin.gpgs.multiplayer.realtime.sendreliably"><a href="../../../../plugin/gpgs/multiplayer/realtime/sendReliably.html">gpgs.multiplayer.realtime.sendReliably()</a></a></li>
-<li><a href="#gpgs.multiplayer.realtime.sendunreliablyplugin.gpgs.multiplayer.realtime.sendunreliably"><a href="../../../../plugin/gpgs/multiplayer/realtime/sendUnreliably.html">gpgs.multiplayer.realtime.sendUnreliably()</a></a></li>
-<li><a href="#gpgs.multiplayer.realtime.setlistenersplugin.gpgs.multiplayer.realtime.setlisteners"><a href="../../../../plugin/gpgs/multiplayer/realtime/setListeners.html">gpgs.multiplayer.realtime.setListeners()</a></a></li>
-<li><a href="#gpgs.multiplayer.realtime.removelistenersplugin.gpgs.multiplayer.realtime.removelisteners"><a href="../../../../plugin/gpgs/multiplayer/realtime/removeListeners.html">gpgs.multiplayer.realtime.removeListeners()</a></a></li>
+<li><a href="#gpgs.multiplayer.realtime.createplugin.gpgs.multiplayer.realtime.create"><span>gpgs.multiplayer.realtime.create()</span></a></li>
+<li><a href="#gpgs.multiplayer.realtime.joinplugin.gpgs.multiplayer.realtime.join"><span>gpgs.multiplayer.realtime.join()</span></a></li>
+<li><a href="#gpgs.multiplayer.realtime.leaveplugin.gpgs.multiplayer.realtime.leave"><span>gpgs.multiplayer.realtime.leave()</span></a></li>
+<li><a href="#gpgs.multiplayer.realtime.getroomplugin.gpgs.multiplayer.realtime.getroom"><span>gpgs.multiplayer.realtime.getRoom()</span></a></li>
+<li><a href="#gpgs.multiplayer.realtime.showplugin.gpgs.multiplayer.realtime.show"><span>gpgs.multiplayer.realtime.show()</span></a></li>
+<li><a href="#gpgs.multiplayer.realtime.showselectplayersplugin.gpgs.multiplayer.realtime.showselectplayers"><span>gpgs.multiplayer.realtime.showSelectPlayers()</span></a></li>
+<li><a href="#gpgs.multiplayer.realtime.sendreliablyplugin.gpgs.multiplayer.realtime.sendreliably"><span>gpgs.multiplayer.realtime.sendReliably()</span></a></li>
+<li><a href="#gpgs.multiplayer.realtime.sendunreliablyplugin.gpgs.multiplayer.realtime.sendunreliably"><span>gpgs.multiplayer.realtime.sendUnreliably()</span></a></li>
+<li><a href="#gpgs.multiplayer.realtime.setlistenersplugin.gpgs.multiplayer.realtime.setlisteners"><span>gpgs.multiplayer.realtime.setListeners()</span></a></li>
+<li><a href="#gpgs.multiplayer.realtime.removelistenersplugin.gpgs.multiplayer.realtime.removelisteners"><span>gpgs.multiplayer.realtime.removeListeners()</span></a></li>
 </ul></li>
 <li><a href="#events">Events</a><ul>
-<li><a href="#sendreliablyplugin.gpgs.multiplayer.realtime.event.sendreliably"><a href="../../../../plugin/gpgs/multiplayer/realtime/event/sendReliably/index.html">sendReliably</a></a></li>
-<li><a href="#showplugin.gpgs.multiplayer.realtime.event.show"><a href="../../../../plugin/gpgs/multiplayer/realtime/event/show/index.html">show</a></a></li>
-<li><a href="#showselectplayersplugin.gpgs.multiplayer.realtime.event.showselectplayers"><a href="../../../../plugin/gpgs/multiplayer/realtime/event/showSelectPlayers/index.html">showSelectPlayers</a></a></li>
-<li><a href="#messageplugin.gpgs.multiplayer.realtime.event.message"><a href="../../../../plugin/gpgs/multiplayer/realtime/event/message/index.html">message</a></a></li>
-<li><a href="#roomplugin.gpgs.multiplayer.realtime.event.room"><a href="../../../../plugin/gpgs/multiplayer/realtime/event/room/index.html">room</a></a></li>
-<li><a href="#peerplugin.gpgs.multiplayer.realtime.event.peer"><a href="../../../../plugin/gpgs/multiplayer/realtime/event/peer/index.html">peer</a></a></li>
+<li><a href="#sendreliablyplugin.gpgs.multiplayer.realtime.event.sendreliably"><span>sendReliably</span></a></li>
+<li><a href="#showplugin.gpgs.multiplayer.realtime.event.show"><span>show</span></a></li>
+<li><a href="#showselectplayersplugin.gpgs.multiplayer.realtime.event.showselectplayers"><span>showSelectPlayers</span></a></li>
+<li><a href="#messageplugin.gpgs.multiplayer.realtime.event.message"><span>message</span></a></li>
+<li><a href="#roomplugin.gpgs.multiplayer.realtime.event.room"><span>room</span></a></li>
+<li><a href="#peerplugin.gpgs.multiplayer.realtime.event.peer"><span>peer</span></a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -83,97 +83,97 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../../plugin/index.html">Plugins</a>  ▸  <a href="../../../../plugin/gpgs/index.html">Google Play Games Services</a>  ▸  <a href="../../../../plugin/gpgs/multiplayer/index.html">multiplayer</a>  ▸  <a href="../../../../plugin/gpgs/multiplayer/realtime/index.html">realtime</a>
 </div>
-<div id="gpgs.multiplayer.realtime" class="section level1">
+<section id="gpgs.multiplayer.realtime" class="level1">
 <h1>gpgs.multiplayer.realtime</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../../api/type/Table.html">Table</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../../api/type/Table.html">Table</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">Google Play Games Services, game network, gpgs, multiplayer, real-time</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">Google Play Games Services, game network, gpgs, multiplayer, real-time</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../../plugin/gpgs/multiplayer/turnbased/index.html">gpgs.multiplayer.turnbased</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../../plugin/gpgs/multiplayer/turnbased/index.html">gpgs.multiplayer.turnbased</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../../plugin/gpgs/multiplayer/invitations/index.html">gpgs.multiplayer.invitations</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../../plugin/gpgs/multiplayer/invitations/index.html">gpgs.multiplayer.invitations</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../../plugin/gpgs/multiplayer/index.html">gpgs.multiplayer</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../../plugin/gpgs/multiplayer/index.html">gpgs.multiplayer</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../../plugin/gpgs/index.html">gpgs.*</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../../plugin/gpgs/index.html">gpgs.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>These functions and events pertain to the <nobr>real-time</nobr> multiplayer node.</p>
-</div>
-<div id="functions" class="section level2">
+</section>
+<section id="functions" class="level2">
 <h2>Functions</h2>
-<div id="gpgs.multiplayer.realtime.createplugin.gpgs.multiplayer.realtime.create" class="section level4">
+<section id="gpgs.multiplayer.realtime.createplugin.gpgs.multiplayer.realtime.create" class="level4">
 <h4><a href="../../../../plugin/gpgs/multiplayer/realtime/create.html">gpgs.multiplayer.realtime.create()</a></h4>
-</div>
-<div id="gpgs.multiplayer.realtime.joinplugin.gpgs.multiplayer.realtime.join" class="section level4">
+</section>
+<section id="gpgs.multiplayer.realtime.joinplugin.gpgs.multiplayer.realtime.join" class="level4">
 <h4><a href="../../../../plugin/gpgs/multiplayer/realtime/join.html">gpgs.multiplayer.realtime.join()</a></h4>
-</div>
-<div id="gpgs.multiplayer.realtime.leaveplugin.gpgs.multiplayer.realtime.leave" class="section level4">
+</section>
+<section id="gpgs.multiplayer.realtime.leaveplugin.gpgs.multiplayer.realtime.leave" class="level4">
 <h4><a href="../../../../plugin/gpgs/multiplayer/realtime/leave.html">gpgs.multiplayer.realtime.leave()</a></h4>
-</div>
-<div id="gpgs.multiplayer.realtime.getroomplugin.gpgs.multiplayer.realtime.getroom" class="section level4">
+</section>
+<section id="gpgs.multiplayer.realtime.getroomplugin.gpgs.multiplayer.realtime.getroom" class="level4">
 <h4><a href="../../../../plugin/gpgs/multiplayer/realtime/getRoom.html">gpgs.multiplayer.realtime.getRoom()</a></h4>
-</div>
-<div id="gpgs.multiplayer.realtime.showplugin.gpgs.multiplayer.realtime.show" class="section level4">
+</section>
+<section id="gpgs.multiplayer.realtime.showplugin.gpgs.multiplayer.realtime.show" class="level4">
 <h4><a href="../../../../plugin/gpgs/multiplayer/realtime/show.html">gpgs.multiplayer.realtime.show()</a></h4>
-</div>
-<div id="gpgs.multiplayer.realtime.showselectplayersplugin.gpgs.multiplayer.realtime.showselectplayers" class="section level4">
+</section>
+<section id="gpgs.multiplayer.realtime.showselectplayersplugin.gpgs.multiplayer.realtime.showselectplayers" class="level4">
 <h4><a href="../../../../plugin/gpgs/multiplayer/realtime/showSelectPlayers.html">gpgs.multiplayer.realtime.showSelectPlayers()</a></h4>
-</div>
-<div id="gpgs.multiplayer.realtime.sendreliablyplugin.gpgs.multiplayer.realtime.sendreliably" class="section level4">
+</section>
+<section id="gpgs.multiplayer.realtime.sendreliablyplugin.gpgs.multiplayer.realtime.sendreliably" class="level4">
 <h4><a href="../../../../plugin/gpgs/multiplayer/realtime/sendReliably.html">gpgs.multiplayer.realtime.sendReliably()</a></h4>
-</div>
-<div id="gpgs.multiplayer.realtime.sendunreliablyplugin.gpgs.multiplayer.realtime.sendunreliably" class="section level4">
+</section>
+<section id="gpgs.multiplayer.realtime.sendunreliablyplugin.gpgs.multiplayer.realtime.sendunreliably" class="level4">
 <h4><a href="../../../../plugin/gpgs/multiplayer/realtime/sendUnreliably.html">gpgs.multiplayer.realtime.sendUnreliably()</a></h4>
-</div>
-<div id="gpgs.multiplayer.realtime.setlistenersplugin.gpgs.multiplayer.realtime.setlisteners" class="section level4">
+</section>
+<section id="gpgs.multiplayer.realtime.setlistenersplugin.gpgs.multiplayer.realtime.setlisteners" class="level4">
 <h4><a href="../../../../plugin/gpgs/multiplayer/realtime/setListeners.html">gpgs.multiplayer.realtime.setListeners()</a></h4>
-</div>
-<div id="gpgs.multiplayer.realtime.removelistenersplugin.gpgs.multiplayer.realtime.removelisteners" class="section level4">
+</section>
+<section id="gpgs.multiplayer.realtime.removelistenersplugin.gpgs.multiplayer.realtime.removelisteners" class="level4">
 <h4><a href="../../../../plugin/gpgs/multiplayer/realtime/removeListeners.html">gpgs.multiplayer.realtime.removeListeners()</a></h4>
-</div>
-</div>
-<div id="events" class="section level2">
+</section>
+</section>
+<section id="events" class="level2">
 <h2>Events</h2>
-<div id="sendreliablyplugin.gpgs.multiplayer.realtime.event.sendreliably" class="section level4">
+<section id="sendreliablyplugin.gpgs.multiplayer.realtime.event.sendreliably" class="level4">
 <h4><a href="../../../../plugin/gpgs/multiplayer/realtime/event/sendReliably/index.html">sendReliably</a></h4>
-</div>
-<div id="showplugin.gpgs.multiplayer.realtime.event.show" class="section level4">
+</section>
+<section id="showplugin.gpgs.multiplayer.realtime.event.show" class="level4">
 <h4><a href="../../../../plugin/gpgs/multiplayer/realtime/event/show/index.html">show</a></h4>
-</div>
-<div id="showselectplayersplugin.gpgs.multiplayer.realtime.event.showselectplayers" class="section level4">
+</section>
+<section id="showselectplayersplugin.gpgs.multiplayer.realtime.event.showselectplayers" class="level4">
 <h4><a href="../../../../plugin/gpgs/multiplayer/realtime/event/showSelectPlayers/index.html">showSelectPlayers</a></h4>
-</div>
-<div id="messageplugin.gpgs.multiplayer.realtime.event.message" class="section level4">
+</section>
+<section id="messageplugin.gpgs.multiplayer.realtime.event.message" class="level4">
 <h4><a href="../../../../plugin/gpgs/multiplayer/realtime/event/message/index.html">message</a></h4>
-</div>
-<div id="roomplugin.gpgs.multiplayer.realtime.event.room" class="section level4">
+</section>
+<section id="roomplugin.gpgs.multiplayer.realtime.event.room" class="level4">
 <h4><a href="../../../../plugin/gpgs/multiplayer/realtime/event/room/index.html">room</a></h4>
-</div>
-<div id="peerplugin.gpgs.multiplayer.realtime.event.peer" class="section level4">
+</section>
+<section id="peerplugin.gpgs.multiplayer.realtime.event.peer" class="level4">
 <h4><a href="../../../../plugin/gpgs/multiplayer/realtime/event/peer/index.html">peer</a></h4>
 <hr>
 <div id="footer">
@@ -185,9 +185,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

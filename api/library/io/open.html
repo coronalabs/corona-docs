@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | io | open</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -69,72 +69,72 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/io/index.html">io</a>  ▸  <a href="../../../api/library/io/open.html">open</a>
 </div>
-<div id="io.open" class="section level1">
+<section id="io.open" class="level1">
 <h1>io.open()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/io/index.html">io.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/io/index.html">io.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Return value</strong></td>
-<td align="left"><a href="../../../api/type/Object.html">Object</a></td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Object.html">Object</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">io, open, file</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">io, open, file</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../api/library/io/close.html">io.close()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/io/close.html">io.close()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/io/read.html">io.read()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/io/read.html">io.read()</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>This function opens a file for reading or writing, in the string (default) or binary mode. It returns a new file handle or, in case of errors, <code>nil</code> plus an error message. This function can also be used to create a new file.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">io.open( file [, mode] )</pre>
-<div id="file-required" class="section level5">
+<section id="file-required" class="level5">
 <h5>file <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Object.html">Object</a>.</em> File to open. You must use <a href="../../../api/library/system/pathForFile.html">system.pathForFile()</a> to create a file name and path to the <code>system.ResourceDirectory</code>, <code>system.DocumentsDirectory</code>, <code>system.ApplicationSupportDirectory</code>, <code>system.TemporaryDirectory</code>, or <code>system.CachesDirectory</code> <a href="../../../api/type/Constant.html">constants</a>.</p>
-</div>
-<div id="mode-optional" class="section level5">
+</section>
+<section id="mode-optional" class="level5">
 <h5>mode <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/String.html">String</a>.</em> Determines which file mode to open the file in. The mode string can be any of the following:</p>
 <ul>
-<li><p><code>&quot;r&quot;</code> — Read mode (the default); the file pointer is placed at the beginning of the file.</p></li>
-<li><p><code>&quot;w&quot;</code> — Write-only mode; overwrites the file if the file exists. If the file does not exist, creates a new file for writing.</p></li>
-<li><p><code>&quot;a&quot;</code> — Append mode (write only); the file pointer is at the end of the file if the file exists (the file is in the append mode). If the file does not exist, it creates a new file for writing.</p></li>
-<li><p><code>&quot;r+&quot;</code> — Update mode (read/write); all previous data is preserved. The file pointer will be at the beginning of the file. If the file exists, it will only be overwritten if you explicitly write to it.</p></li>
-<li><p><code>&quot;w+&quot;</code> — Update mode (read/write); all previous data is erased. Overwrites the existing file if the file exists. If the file does not exist, creates a new file for reading and writing.</p></li>
-<li><p><code>&quot;a+&quot;</code> — Append update mode (read/write); previous data is preserved and writing is only allowed at the end of file. The file pointer is at the end of the file if the file exists (the file opens in the append mode). If the file does not exist, it creates a new file for reading and writing.</p></li>
+<li><p><code>"r"</code> — Read mode (the default); the file pointer is placed at the beginning of the file.</p></li>
+<li><p><code>"w"</code> — Write-only mode; overwrites the file if the file exists. If the file does not exist, creates a new file for writing.</p></li>
+<li><p><code>"a"</code> — Append mode (write only); the file pointer is at the end of the file if the file exists (the file is in the append mode). If the file does not exist, it creates a new file for writing.</p></li>
+<li><p><code>"r+"</code> — Update mode (read/write); all previous data is preserved. The file pointer will be at the beginning of the file. If the file exists, it will only be overwritten if you explicitly write to it.</p></li>
+<li><p><code>"w+"</code> — Update mode (read/write); all previous data is erased. Overwrites the existing file if the file exists. If the file does not exist, creates a new file for reading and writing.</p></li>
+<li><p><code>"a+"</code> — Append update mode (read/write); previous data is preserved and writing is only allowed at the end of file. The file pointer is at the end of the file if the file exists (the file opens in the append mode). If the file does not exist, it creates a new file for reading and writing.</p></li>
 </ul>
 <p>The mode string can also have a <code>'b'</code> at the end, which is needed in some systems to open the file in binary mode. This string is exactly what is used in the standard C function fopen.</p>
-</div>
-</div>
-<div id="gotchas" class="section level2">
+</section>
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
 <p>For security reasons, you are not allowed to <strong>write</strong> files in the <code>system.ResourceDirectory</code> (the directory where the application is stored; your project directory; where <code>main.lua</code> resides). You must specify the <code>system.DocumentsDirectory</code>, <code>system.TemporaryDirectory</code>, or <code>system.CachesDirectory</code> parameter in <a href="../../../api/library/system/pathForFile.html">system.pathForFile()</a> function when opening the file for writing.</p>
-</div>
-<div id="example" class="section level2">
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">-- Path for the file to read
 local path = system.pathForFile( "myfile.txt", system.DocumentsDirectory )
@@ -165,8 +165,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

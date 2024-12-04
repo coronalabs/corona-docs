@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Chartboost | show</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -69,158 +69,158 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/chartboost/index.html">Chartboost</a>  ▸  <a href="../../plugin/chartboost/show.html">show</a>
 </div>
-<div id="chartboost.show" class="section level1">
+<section id="chartboost.show" class="level1">
 <h1>chartboost.show()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">ads, advertising, Chartboost, show</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">ads, advertising, Chartboost, show</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../plugin/chartboost/init.html">chartboost.init()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../plugin/chartboost/init.html">chartboost.init()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/chartboost/load.html">chartboost.load()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/chartboost/load.html">chartboost.load()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../plugin/chartboost/isLoaded.html">chartboost.isLoaded()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/chartboost/isLoaded.html">chartboost.isLoaded()</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
-<p>Shows a Chartboost static interstitial, video interstitial, rewarded video, or the &quot;more apps&quot; screen.</p>
+<p>Shows a Chartboost static interstitial, video interstitial, rewarded video, or the “more apps” screen.</p>
 <div class="guide-notebox">
 <div class="notebox-title">
 Notes
 </div>
 <ul>
 <li><p>An ad should be <nobr>pre-loaded</nobr> before calling this function. Use <a href="../../plugin/chartboost/load.html">chartboost.load()</a>, or enable <nobr>auto-caching</nobr> during <a href="../../plugin/chartboost/init.html">chartboost.init()</a>.</p></li>
-<li><p>Before calling this function, you must call <a href="../../plugin/chartboost/init.html">chartboost.init()</a> and and ensure that the <code>&quot;init&quot;</code> event <a href="../../plugin/chartboost/event/adsRequest/phase.html">phase</a> occurs.</p></li>
+<li><p>Before calling this function, you must call <a href="../../plugin/chartboost/init.html">chartboost.init()</a> and and ensure that the <code>"init"</code> event <a href="../../plugin/chartboost/event/adsRequest/phase.html">phase</a> occurs.</p></li>
 </ul>
 </div>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">chartboost.show( adType [, namedLocation] )</pre>
-<div id="adtype-required" class="section level5">
+<section id="adtype-required" class="level5">
 <h5>adType <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> One of the following values:</p>
 <ul>
-<li><code>&quot;interstitial&quot;</code></li>
-<li><code>&quot;rewardedVideo&quot;</code></li>
-<li><code>&quot;moreApps&quot;</code> (Deprecated. Will be removed from the Chartboost SDK in July 2017)</li>
+<li><code>"interstitial"</code></li>
+<li><code>"rewardedVideo"</code></li>
+<li><code>"moreApps"</code> (Deprecated. Will be removed from the Chartboost SDK in July 2017)</li>
 </ul>
-</div>
-<div id="namedlocation-optional" class="section level5">
+</section>
+<section id="namedlocation-optional" class="level5">
 <h5>namedLocation <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> The advertisement location. If omitted, the legacy <code>&quot;Default&quot;</code> location will be used. Although you can specify any string, Chartboost recommends using one of their <nobr>pre-defined</nobr> locations to help keep eCPM levels as high as possible. See the <a href="#locations">list</a> below for valid <nobr>pre-defined</nobr> options.</p>
+<p><em><a href="../../api/type/String.html">String</a>.</em> The advertisement location. If omitted, the legacy <code>"Default"</code> location will be used. Although you can specify any string, Chartboost recommends using one of their <nobr>pre-defined</nobr> locations to help keep eCPM levels as high as possible. See the <a href="#locations">list</a> below for valid <nobr>pre-defined</nobr> options.</p>
 <p><a id="locations"></a></p>
-</div>
-</div>
-<div id="predefined-locations" class="section level2">
+</section>
+</section>
+<section id="predefined-locations" class="level2">
 <h2>Predefined Locations</h2>
 <p>The following list outlines the <nobr>pre-defined</nobr> locations recommended by Chartboost:</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Location</th>
-<th align="left">Scene/Description</th>
+<th style="text-align: left;">Location</th>
+<th style="text-align: left;">Scene/Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>&quot;Default&quot;</code></td>
-<td align="left">Legacy default location</td>
+<td style="text-align: left;"><code>"Default"</code></td>
+<td style="text-align: left;">Legacy default location</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;Startup&quot;</code></td>
-<td align="left">Initial startup of the game</td>
+<td style="text-align: left;"><code>"Startup"</code></td>
+<td style="text-align: left;">Initial startup of the game</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;Home Screen&quot;</code></td>
-<td align="left">Home screen which the player first sees</td>
+<td style="text-align: left;"><code>"Home Screen"</code></td>
+<td style="text-align: left;">Home screen which the player first sees</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;Main Menu&quot;</code></td>
-<td align="left">Menu which provides game options</td>
+<td style="text-align: left;"><code>"Main Menu"</code></td>
+<td style="text-align: left;">Menu which provides game options</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;Game Screen&quot;</code></td>
-<td align="left">Game screen where the magic happens</td>
+<td style="text-align: left;"><code>"Game Screen"</code></td>
+<td style="text-align: left;">Game screen where the magic happens</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;Achievements&quot;</code></td>
-<td align="left">List of achievements in the game</td>
+<td style="text-align: left;"><code>"Achievements"</code></td>
+<td style="text-align: left;">List of achievements in the game</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;Quests&quot;</code></td>
-<td align="left">Quests, missions, or goals screen</td>
+<td style="text-align: left;"><code>"Quests"</code></td>
+<td style="text-align: left;">Quests, missions, or goals screen</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;Pause&quot;</code></td>
-<td align="left">Pause screen</td>
+<td style="text-align: left;"><code>"Pause"</code></td>
+<td style="text-align: left;">Pause screen</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;Level Start&quot;</code></td>
-<td align="left">Start of the level</td>
+<td style="text-align: left;"><code>"Level Start"</code></td>
+<td style="text-align: left;">Start of the level</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;Level Complete&quot;</code></td>
-<td align="left">Completion of the level</td>
+<td style="text-align: left;"><code>"Level Complete"</code></td>
+<td style="text-align: left;">Completion of the level</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;Turn Complete&quot;</code></td>
-<td align="left">When the player finishes a turn in the game</td>
+<td style="text-align: left;"><code>"Turn Complete"</code></td>
+<td style="text-align: left;">When the player finishes a turn in the game</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;IAP Store&quot;</code></td>
-<td align="left">Store where the player uses real money to buy virtual goods</td>
+<td style="text-align: left;"><code>"IAP Store"</code></td>
+<td style="text-align: left;">Store where the player uses real money to buy virtual goods</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;Item Store&quot;</code></td>
-<td align="left">Store where the player uses virtual money to buy virtual goods</td>
+<td style="text-align: left;"><code>"Item Store"</code></td>
+<td style="text-align: left;">Store where the player uses virtual money to buy virtual goods</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;Game Over&quot;</code></td>
-<td align="left">The &quot;game over&quot; screen</td>
+<td style="text-align: left;"><code>"Game Over"</code></td>
+<td style="text-align: left;">The “game over” screen</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;Leaderboard&quot;</code></td>
-<td align="left">List of statistical leaders in the game</td>
+<td style="text-align: left;"><code>"Leaderboard"</code></td>
+<td style="text-align: left;">List of statistical leaders in the game</td>
 </tr>
 <tr class="even">
-<td align="left"><code>&quot;Settings&quot;</code></td>
-<td align="left">Screen where player can change game settings</td>
+<td style="text-align: left;"><code>"Settings"</code></td>
+<td style="text-align: left;">Screen where player can change game settings</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>&quot;Quit&quot;</code></td>
-<td align="left">Screen displayed immediately before the player exits/quits</td>
+<td style="text-align: left;"><code>"Quit"</code></td>
+<td style="text-align: left;">Screen displayed immediately before the player exits/quits</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="example" class="section level2">
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local chartboost = require( "plugin.chartboost" )
 
@@ -249,8 +249,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

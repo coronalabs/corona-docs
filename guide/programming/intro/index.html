@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Getting Started</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -77,9 +77,9 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/programming/index.html">Getting Started</a>
 </div>
-<div id="introduction-to-solar2d" class="section level1">
+<section id="introduction-to-solar2d" class="level1">
 <h1>Introduction to Solar2D</h1>
-<p>Welcome to Solar2D! Before creating an actual app, we'll provide some basic information and discuss how to get started.</p>
+<p>Welcome to Solar2D! Before creating an actual app, we’ll provide some basic information and discuss how to get started.</p>
 <div class="guides-toc">
 <ul>
 <li><a href="#whatis">What is Solar2D ?</a></li>
@@ -132,73 +132,49 @@
 
 </style>
 <p><a id="whatis"></a></p>
-<div id="what-is-solar2d" class="section level2">
+<section id="what-is-solar2d" class="level2">
 <h2>What is Solar2D ?</h2>
 <p>Solar2D is a <strong>cross-platform</strong> framework used to rapidly create apps and games for mobile devices and desktop systems. That means you can create your project once and publish it to multiple types of devices, including Apple iPhone and iPad, Android phones and tablets, Amazon Fire, Mac desktop, Windows Desktop, and even connected TVs such as Apple TV, Fire TV, and Android TV.</p>
 <!--- START PLATFORM ICONS -->
 <div class="grad-back">
 <div class="contained-cell" style="padding-left: 15px;">
 <center>
-<div class="figure">
-<img src="../../../images/docs/badge-app-store.png" />
-
-</div>
+<p><img src="../../../images/docs/badge-app-store.png" /></p>
 </center>
 </div>
 <div class="contained-cell">
 <center>
-<div class="figure">
-<img src="../../../images/docs/badge-google-play.png" />
-
-</div>
+<p><img src="../../../images/docs/badge-google-play.png" /></p>
 </center>
 </div>
 <div class="contained-cell">
 <center>
-<div class="figure">
-<img src="../../../images/docs/badge-amazon.png" />
-
-</div>
+<p><img src="../../../images/docs/badge-amazon.png" /></p>
 </center>
 </div>
 <div class="contained-cell">
 <center>
-<div class="figure">
-<img src="../../../images/docs/badge-windows.png" />
-
-</div>
+<p><img src="../../../images/docs/badge-windows.png" /></p>
 </center>
 </div>
 <div class="contained-cell">
 <center>
-<div class="figure">
-<img src="../../../images/docs/badge-mac.png" />
-
-</div>
+<p><img src="../../../images/docs/badge-mac.png" /></p>
 </center>
 </div>
 <div class="contained-cell">
 <center>
-<div class="figure">
-<img src="../../../images/docs/badge-tvos.png" />
-
-</div>
+<p><img src="../../../images/docs/badge-tvos.png" /></p>
 </center>
 </div>
 <div class="contained-cell">
 <center>
-<div class="figure">
-<img src="../../../images/docs/badge-android-tv.png" />
-
-</div>
+<p><img src="../../../images/docs/badge-android-tv.png" /></p>
 </center>
 </div>
 <div class="contained-cell" style="padding-right: 15px;">
 <center>
-<div class="figure">
-<img src="../../../images/docs/badge-steam.png" />
-
-</div>
+<p><img src="../../../images/docs/badge-steam.png" /></p>
 </center>
 </div>
 <div class="contained-cell" style="background-color: white; width: 4%;">
@@ -207,8 +183,8 @@
 </div>
 <!--- END PLATFORM ICONS -->
 <p><a id="whychoose"></a></p>
-</div>
-<div id="why-choose-solar2d" class="section level2">
+</section>
+<section id="why-choose-solar2d" class="level2">
 <h2>Why Choose Solar2D ?</h2>
 <p>Solar2D is used by professional programmers, mobile app developers, businesses, schools, and universities to develop engaging games, educational apps, business/utility apps, and more. Solar2D is easy enough to learn for those who are just starting, yet powerful enough for the experienced developer. With Solar2D you get all of these benefits:</p>
 <!--- 1 --->
@@ -284,31 +260,25 @@
 <p>Supported by <nobr>third-party</nobr> marketplaces such as <a href="https://solar2dmarketplace.com/">Solar2D Marketplace</a> and <a href="https://www.solar2dplugins.com/">Solar2D Plugins</a>.</p>
 </div>
 <p><a id="howworks"></a></p>
-</div>
-<div id="how-solar2d-works" class="section level2">
+</section>
+<section id="how-solar2d-works" class="level2">
 <h2>How Solar2D Works</h2>
 <div class="float-right" style="max-width: 330px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/corona-live-builds.png" />
-
-</div>
+<p><img src="../../../images/docs/corona-live-builds.png" /></p>
 </div>
 <p>Solar2D is a <a href="https://www.lua.org/">Lua</a>-based framework that provides a <a href="../../../api/index.html">large set of APIs</a> and <a href="https://plugins.solar2d.com/">plugins</a>, allowing developers to quickly and easily make apps that can run on multiple types of devices.</p>
-<p>With the <nobr>built-in</nobr> Simulator, you can preview how your app will appear and respond on many types of devices, all without having to compile or deploy it for testing. When you're ready, you can conduct <a href="../../../guide/distribution/liveBuild/index.html">real-time device testing</a> to see how your app performs on actual devices.</p>
+<p>With the <nobr>built-in</nobr> Simulator, you can preview how your app will appear and respond on many types of devices, all without having to compile or deploy it for testing. When you’re ready, you can conduct <a href="../../../guide/distribution/liveBuild/index.html">real-time device testing</a> to see how your app performs on actual devices.</p>
 <p>In addition to the core framework, Solar2D includes many <a href="https://plugins.solar2d.com/">plugins</a> which add specific functionality and help speed up the development of your app. Want to monetize your apps with <nobr>in-app</nobr> advertising? See our <a href="../../../guide/monetization/monetization/index.html">Monetization Guide</a> for options. Want to connect to Facebook? Simply use the convenient <a href="../../../plugin/facebook-v4/index.html">Facebook</a> plugin. By using a plugin, you are able to focus on building your app and while leveraging stable <nobr>add-ons</nobr>.</p>
 <div style="max-width: 1600px; margin-top: 12px; margin-bottom: 12px;">
-<div class="figure">
-<img src="../../../images/docs/corona-key-plugins.png" />
-
+<p><img src="../../../images/docs/corona-key-plugins.png" /></p>
 </div>
-</div>
-<p>Essentially, Solar2D focuses on helping you make your app quickly! Most developers report that they're able to complete apps much faster using Solar2D versus other systems. With the benefit of writing just one code base that can be deployed to multiple platforms, choosing Solar2D is a natural choice.</p>
+<p>Essentially, Solar2D focuses on helping you make your app quickly! Most developers report that they’re able to complete apps much faster using Solar2D versus other systems. With the benefit of writing just one code base that can be deployed to multiple platforms, choosing Solar2D is a natural choice.</p>
 <p><a id="thesuite"></a></p>
-</div>
-<div id="the-solar2d-suite" class="section level2">
+</section>
+<section id="the-solar2d-suite" class="level2">
 <h2>The Solar2D Suite</h2>
 <p>There are three variants of Solar2D so that you can use the toolset which is best for your needs:</p>
-<div id="solar2d" class="section level3">
+<section id="solar2d" class="level3">
 <h3>Solar2D</h3>
 <p><a href="https://solar2d.com/download/">Solar2D</a> is a <nobr>full-featured</nobr>, <nobr>cross-platform</nobr> framework that enables developers to create apps rapidly and publish to all major platforms. Solar2D is completely free and there are no restrictions on which supported platforms you can build and publish your projects.</p>
 <div class="docs-tip-outer" style="background-color: #ffa752;">
@@ -318,24 +288,24 @@
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>If you're new to Solar2D or app development, download <a href="https://solar2d.com/download/">Solar2D</a> — it contains all of the core features to get started quickly!</p>
+<p>If you’re new to Solar2D or app development, download <a href="https://solar2d.com/download/">Solar2D</a> — it contains all of the core features to get started quickly!</p>
 <p><a href="https://github.com/coronalabs/corona/releases" target="_blank" class="cta-button">Download Solar2D</a></p>
 </div>
 </div>
-</div>
-<div id="solar2d-native" class="section level3">
+</section>
+<section id="solar2d-native" class="level3">
 <h3>Solar2D Native</h3>
 <p>Solar2D Native provides <nobr>low-level</nobr> access to the operating system and native APIs. While most apps designed using Solar2D do not require this level of access, it allows you to use native languages like <nobr>Obj-C</nobr> or Java to pass information between the native code and Lua code.</p>
-</div>
-<div id="coronacards" class="section level3">
+</section>
+<section id="coronacards" class="level3">
 <h3>CoronaCards</h3>
 <p><a href="coronacards">CoronaCards</a> is used to implement Solar2D inside native apps or other frameworks. This allows developers to embed Solar2D resources without interfering with the main application stack.</p>
 <p><a id="systemreqs"></a></p>
-</div>
-</div>
-<div id="system-requirements" class="section level2">
+</section>
+</section>
+<section id="system-requirements" class="level2">
 <h2>System Requirements</h2>
-<p>What do you need to get started? In addition to Solar2D, you will need an IDE or a text editor (we'll discuss this further in Chapter 1).</p>
+<p>What do you need to get started? In addition to Solar2D, you will need an IDE or a text editor (we’ll discuss this further in Chapter 1).</p>
 <p>The specific system requirements depend on whether you are developing on a Mac or Windows system:</p>
 <div class="docs-tip-outer" style="background-color: #a5aec9;">
 <div class="docs-tip-inner-left">
@@ -349,7 +319,7 @@
 <li>macOS 10.11 or later</li>
 <li>Xcode (minimum version allowed by Apple to submit apps to the App Store)</li>
 </ul>
-<p>For more details, see the <a href="../../../guide/start/systemReqs/index.html">System Requirements</a> page. If you're ready to install, please proceed to <a href="../../../guide/start/installMac/index.html">Installing Solar2D — macOS</a>.</p>
+<p>For more details, see the <a href="../../../guide/start/systemReqs/index.html">System Requirements</a> page. If you’re ready to install, please proceed to <a href="../../../guide/start/installMac/index.html">Installing Solar2D — macOS</a>.</p>
 </div>
 </div>
 <div class="docs-tip-outer">
@@ -366,14 +336,14 @@
 <li>1 GB of RAM (recommended)</li>
 <li>OpenGL 2.1 or higher (available in most modern Windows systems)</li>
 </ul>
-<p>For more details, see the <a href="../../../guide/start/systemReqs/index.html">System Requirements</a> page. If you're ready to install, please proceed to <a href="../../../guide/start/installWin/index.html">Installing Solar2D — Windows</a>.</p>
+<p>For more details, see the <a href="../../../guide/start/systemReqs/index.html">System Requirements</a> page. If you’re ready to install, please proceed to <a href="../../../guide/start/installWin/index.html">Installing Solar2D — Windows</a>.</p>
 </div>
 </div>
 <p><a id="start"></a></p>
-</div>
-<div id="getting-started" class="section level2">
+</section>
+<section id="getting-started" class="level2">
 <h2>Getting Started</h2>
-<div id="join-the-community" class="section level3">
+<section id="join-the-community" class="level3">
 <h3>Join the community</h3>
 <p>The Solar2D community is friendly and helpful! You can interact with other Solar2D developers in various ways:</p>
 <ul>
@@ -408,8 +378,8 @@
 <div class="clear">
 
 </div>
-</div>
-<div id="check-the-resources" class="section level3">
+</section>
+<section id="check-the-resources" class="level3">
 <h3>Check the resources</h3>
 <p>There are several places where you can learn more about Solar2D:</p>
 <ul>
@@ -417,10 +387,10 @@
 <li>The <a href="../../../api/index.html">API Reference</a> site provides details about every API.</li>
 <li>Additional books and online courses for Solar2D can be found <a href="https://burtonsmediagroup.com/books/coronasdk/">here</a>.</li>
 </ul>
-</div>
-<div id="create-a-project" class="section level3">
+</section>
+<section id="create-a-project" class="level3">
 <h3>Create a project</h3>
-<p>The most fun way to learn Solar2D is to <a href="../../../guide/programming/01/index.html">create a simple game</a>. Don't worry if you've never created a mobile app or programmed before — the chapters in this guide will walk you through the entire process from start to finish.</p>
+<p>The most fun way to learn Solar2D is to <a href="../../../guide/programming/01/index.html">create a simple game</a>. Don’t worry if you’ve never created a mobile app or programmed before — the chapters in this guide will walk you through the entire process from start to finish.</p>
 <div class="walkthrough-nav">
 <p><a href="../../../guide/programming/01/index.html">Chapter 1 — Creating a project</a> <strong>⟩</strong></p>
 </div>
@@ -428,14 +398,14 @@
 
 </div>
 <!--- LEGAL -->
-</div>
-</div>
-<div id="section" class="section level2">
+</section>
+</section>
+<section id="section" class="level2">
 <h2></h2>
 <div class="tiny-copy">
-<p>Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc. Mac and the Mac logo are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
+<p>Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc. Mac and the Mac logo are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
 <p>Google Play, Android TV, Google Play, AdMob, and the Google Analytics logo are trademarks of Google Inc.</p>
-<p>Amazon, Kindle, Echo, Alexa, Dash, Fire and all related logos are trademarks of Amazon.com, Inc. or its affiliates.</p>
+<p>Amazon, Kindle, Echo, Alexa, Dash, Fire and all related logos are trademarks of Amazon.com, Inc. or its affiliates.</p>
 <p>Microsoft, Encarta, MSN, and Windows are either registered trademarks or trademarks of Microsoft Corporation in the United States and/or other countries.</p>
 <p>Steam and the Steam logo are trademarks and/or registered trademarks of Valve Corporation in the U.S. and/or other countries.</p>
 </div>
@@ -449,8 +419,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

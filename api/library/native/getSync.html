@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | native | getSync</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -69,39 +69,39 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/native/index.html">native</a>  ▸  <a href="../../../api/library/native/getSync.html">getSync</a>
 </div>
-<div id="native.getsync" class="section level1">
+<section id="native.getsync" class="level1">
 <h1>native.getSync()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/native/index.html">native.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/native/index.html">native.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Return value</strong></td>
-<td align="left"><a href="../../../api/type/Boolean.html">Boolean</a> and <a href="../../../api/type/String.html">String</a></td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Boolean.html">Boolean</a> and <a href="../../../api/type/String.html">String</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">sync, icloud, backup, documents</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">sync, icloud, backup, documents</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../api/library/native/setSync.html">native.setSync()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/native/setSync.html">native.setSync()</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Gets the iCloud automatic backup settings for files in the <code>system.DocumentsDirectory</code> and <code>system.ApplicationSupportDirectory</code> on macOS and iOS systems.</p>
 <p>The iCloud backup is <code>true</code> by default and must be set <code>false</code> with the <a href="../../../api/library/native/setSync.html">native.setSync()</a> API to disable automatic backup of files to iCloud.</p>
@@ -110,24 +110,24 @@
 <li><code>value</code> (<a href="../../../api/type/Boolean.html">Boolean</a>) — The <code>iCloudBackup</code> setting (<code>true</code> or <code>false</code>) for the specified file. You must check <code>errStr</code> to see if this API returned an error. Returns <code>nil</code> on Android and Windows systems since they do not support this API.</li>
 <li><code>errStr</code> (<a href="../../../api/type/String.html">String</a>) — Error message if <code>value</code> returned <code>false</code>.</li>
 </ul>
-</div>
-<div id="gotchas" class="section level2">
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
 <p>This function is for macOS and iOS platforms only.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">native.getSync( filename, params )</pre>
-<div id="filename-required" class="section level5">
+<section id="filename-required" class="level5">
 <h5>filename <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/String.html">String</a>.</em> Name of file (including path).</p>
-</div>
-<div id="params-required" class="section level5">
+</section>
+<section id="params-required" class="level5">
 <h5>params <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../../api/type/Table.html">Table</a>.</em> Table with the structure <code>{ key = &quot;iCloudBackup&quot; }</code>.</p>
-</div>
-</div>
-<div id="examples" class="section level2">
+<p><em><a href="../../../api/type/Table.html">Table</a>.</em> Table with the structure <code>{ key = "iCloudBackup" }</code>.</p>
+</section>
+</section>
+<section id="examples" class="level2">
 <h2>Examples</h2>
 <pre class="brush: lua;">-- Assumes that a file named 'SavedData.txt' is in 'system.DocumentsDirectory'
 
@@ -145,8 +145,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

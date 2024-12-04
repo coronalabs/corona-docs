@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Tutorials | Basics</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -70,13 +70,13 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/basics/index.html">Basics</a>
 </div>
-<div id="passing-data-tofrom-functions" class="section level1">
+<section id="passing-data-tofrom-functions" class="level1">
 <h1>Passing Data To/From Functions</h1>
-<p>When people first start programming, they quickly learn that writing all of their code in one large chunk becomes difficult to manage. As such, modern programming languages like Lua support a concept called <strong>functions</strong> which allow the programmer to direct parts of the program to perform a specific task. In addition to writing clean, organized code, functions are the foundation behind the concept of <strong>DRY</strong> or <nobr>&quot;Don't Repeat Yourself.&quot;</nobr></p>
+<p>When people first start programming, they quickly learn that writing all of their code in one large chunk becomes difficult to manage. As such, modern programming languages like Lua support a concept called <strong>functions</strong> which allow the programmer to direct parts of the program to perform a specific task. In addition to writing clean, organized code, functions are the foundation behind the concept of <strong>DRY</strong> or <nobr>“Don’t Repeat Yourself.”</nobr></p>
 <p>If you find yourself writing the same basic block of code multiple times, with only minor differences in each block, using a function is the best solution. Also, any time you want to do the same thing multiple times, a function is the best approach.</p>
-<div id="similar-task-functions" class="section level2">
+<section id="similar-task-functions" class="level2">
 <h2>Similar Task Functions</h2>
-<p>Let's consider a scenario where we only need to change a small portion of code around a single data value:</p>
+<p>Let’s consider a scenario where we only need to change a small portion of code around a single data value:</p>
 <pre class="brush: lua;">local tanx = math.abs( 12 ) / math.abs( 15 )
 local atanx = math.atan( tanx )  -- Result in radians
 local angle = atanx * 180 / math.pi  -- Converted to degrees
@@ -94,7 +94,7 @@ atanx = math.atan( tanx )  -- Result in radians
 angle = atanx * 180 / math.pi  -- Converted to degrees
 
 print( angle )</pre>
-<p>In this block, we are simply calculating an angle based on the width and height of a triangle. As you can see, this code quickly becomes repetitive — we are basically doing the exact same thing several times over, changing only the parameters of the triangle each time. This is a prime example of where a function is useful, so let's look at a <nobr>re-write</nobr> of this code using a function:</p>
+<p>In this block, we are simply calculating an angle based on the width and height of a triangle. As you can see, this code quickly becomes repetitive — we are basically doing the exact same thing several times over, changing only the parameters of the triangle each time. This is a prime example of where a function is useful, so let’s look at a <nobr>re-write</nobr> of this code using a function:</p>
 <pre class="brush: lua;">local function calculateAngle( sideA, sideB )
 
     local tanx = math.abs( sideB ) / math.abs( sideA )
@@ -107,25 +107,25 @@ print( calculateAngle( 15, 12 ) )
 print( calculateAngle( -16, 34 ) )
 print( calculateAngle( -4, 80 ) )</pre>
 <p>Notice that we have written the basic code just once, but we use variables <nobr>(<code>sideA</code> and <code>sideB</code>)</nobr> to do the calculations. After the function block, we output the <code>return</code> value from the <code>calculateAngle()</code> function three times, using number values similar to the original version (the usage of <code>return</code> will be discussed in detail below).</p>
-</div>
-<div id="sending-data-in" class="section level2">
+</section>
+<section id="sending-data-in" class="level2">
 <h2>Sending Data In</h2>
-<p>Data is sent to functions as <strong>parameters</strong>, or &quot;arguments&quot; as some developers refer to them. These are passed to the function as a <nobr>comma-separated</nobr> list of values/variables within the function's parentheses (<code>()</code>), for example:</p>
+<p>Data is sent to functions as <strong>parameters</strong>, or “arguments” as some developers refer to them. These are passed to the function as a <nobr>comma-separated</nobr> list of values/variables within the function’s parentheses (<code>()</code>), for example:</p>
 <pre class="brush: lua;">local picWidth = 32
 local pic = display.newImageRect( "pic.png", picWidth, 64 )</pre>
 <p>In this example, we call a common Solar2D function, <code>display.newImageRect()</code>, and pass to it:</p>
-<ol style="list-style-type: decimal">
-<li>A string value (<code>&quot;pic.png&quot;</code>).</li>
+<ol type="1">
+<li>A string value (<code>"pic.png"</code>).</li>
 <li>A variable (<code>picWidth</code>).</li>
 <li>A number (<code>64</code>).</li>
 </ol>
-<p>Spacing between the commas isn't required, but string values must be passed within quotes while variables and numbers must be passed <strong>without</strong> quotes. Other items can be passed as well, including tables of data and even other functions. Essentially, any valid Lua data type can be passed to a Lua function.</p>
-<p>Let's look at some more examples:</p>
+<p>Spacing between the commas isn’t required, but string values must be passed within quotes while variables and numbers must be passed <strong>without</strong> quotes. Other items can be passed as well, including tables of data and even other functions. Essentially, any valid Lua data type can be passed to a Lua function.</p>
+<p>Let’s look at some more examples:</p>
 <pre class="brush: lua;">local result = myFunction( "test" )</pre>
 <pre class="brush: lua;">local myString = "test"
 local result = myFunction( myString )</pre>
 <p>These two cases are identical in behavior, except that, in the second version, the sole parameter is <nobr>pre-declared</nobr> as the variable <code>myString</code>.</p>
-<p>Here's another equivalent set which passes in a table:</p>
+<p>Here’s another equivalent set which passes in a table:</p>
 <pre class="brush: lua;">local result = myFunction( { 1, 2, 3 } )</pre>
 <pre class="brush: lua;">local myTable = { 1, 2, 3 }
 
@@ -144,13 +144,13 @@ local result = myFunction( myTable )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>As illustrated so far, functions can accept parameters of one data type or a <strong>mix</strong> of data types. As a developer, it's your responsibility to ensure that the values passed to your function are what you expect them to be — don't be careless and pass a string when you intend it to be a number or <nobr>vice-versa</nobr>.</p>
+<p>As illustrated so far, functions can accept parameters of one data type or a <strong>mix</strong> of data types. As a developer, it’s your responsibility to ensure that the values passed to your function are what you expect them to be — don’t be careless and pass a string when you intend it to be a number or <nobr>vice-versa</nobr>.</p>
 </div>
 </div>
-</div>
-<div id="parameter-names" class="section level2">
+</section>
+<section id="parameter-names" class="level2">
 <h2>Parameter Names</h2>
-<p>Parameter names should be whatever makes sense to you — they are not required to be anything in particular. However, if you don't use logical and complete names, someone inspecting your code later (or even you!) might have trouble understanding what values the function is expecting. Let's inspect a touch handling function as an example:</p>
+<p>Parameter names should be whatever makes sense to you — they are not required to be anything in particular. However, if you don’t use logical and complete names, someone inspecting your code later (or even you!) might have trouble understanding what values the function is expecting. Let’s inspect a touch handling function as an example:</p>
 <pre class="brush: lua;">local function handleTouch( event )
 
     if ( event.phase == "ended" ) then
@@ -158,7 +158,7 @@ local result = myFunction( myTable )</pre>
     end
     return true
 end</pre>
-<p>This function requires just a single parameter, <code>event</code>, which is a Lua table that represents the &quot;event&quot; of the user touching the screen. Assuming this function is used as a <strong>listener</strong> function via a command like <nobr><code>Runtime:addEventListener( &quot;touch&quot;, handleTouch )</code></nobr>, this table contains various values, including the &quot;phase&quot; of the event and the <strong>x</strong>/<strong>y</strong> location of the touch coordinates on the screen.</p>
+<p>This function requires just a single parameter, <code>event</code>, which is a Lua table that represents the “event” of the user touching the screen. Assuming this function is used as a <strong>listener</strong> function via a command like <nobr><code>Runtime:addEventListener( "touch", handleTouch )</code></nobr>, this table contains various values, including the “phase” of the event and the <strong>x</strong>/<strong>y</strong> location of the touch coordinates on the screen.</p>
 <p>Note that some programmers may write the same function as follows:</p>
 <pre class="brush: lua;">local function handleTouch( e )
 
@@ -167,27 +167,27 @@ end</pre>
     end
     return true
 end</pre>
-<p>These functions are identical in behavior except that the parameter name <code>event</code> has been shortened to <code>e</code>. While <code>e</code> isn't a descriptive name, it demonstrates that the name itself doesn't matter — however, it's good practice to name parameters sensibly so you don't forget the purpose sometime in the future.</p>
-</div>
-<div id="getting-data-out" class="section level2">
+<p>These functions are identical in behavior except that the parameter name <code>event</code> has been shortened to <code>e</code>. While <code>e</code> isn’t a descriptive name, it demonstrates that the name itself doesn’t matter — however, it’s good practice to name parameters sensibly so you don’t forget the purpose sometime in the future.</p>
+</section>
+<section id="getting-data-out" class="level2">
 <h2>Getting Data Out</h2>
-<p>Frequently, it's necessary to <strong>retrieve</strong> data from a function. In the first example of this tutorial, we needed to get the <code>angle</code> value based on the parameters we passed in. Fortunately, this is easily accomplished via the simple <code>return</code> command, followed by the values to return:</p>
-<pre class="brush: lua; gutter: false; highlight: [6]; first-line: 1;">local function calculateAngle( sideA, sideB )
+<p>Frequently, it’s necessary to <strong>retrieve</strong> data from a function. In the first example of this tutorial, we needed to get the <code>angle</code> value based on the parameters we passed in. Fortunately, this is easily accomplished via the simple <code>return</code> command, followed by the values to return:</p>
+<pre class="highlight: [6]; first-line: 1; gutter: false; brush: lua;">local function calculateAngle( sideA, sideB )
 
     local tanx = math.abs( sideB ) / math.abs( sideA )
     local atanx = math.atan( tanx )  -- Result in radians
     local angle = atanx * 180 / math.pi  -- Converted to degrees
     return angle
 end</pre>
-<div id="values-plural" class="section level3">
+<section id="values-plural" class="level3">
 <h3>Values, Plural?</h3>
 <p>Unlike most other programming languages, Lua allows a function to return <strong>multiple</strong> values (other languages usually return just one). If you need to return multiple values from a Lua function, just provide a <nobr>comma-separated</nobr> list of values to <code>return</code> and, when you call the function, provide unique variables for <strong>each</strong> value returned. Compare the difference:</p>
-<pre class="brush: lua; gutter: false; highlight: [2,5]; first-line: 1;">local function returnOneNumber()
+<pre class="highlight: [2,5]; first-line: 1; gutter: false; brush: lua;">local function returnOneNumber()
     return 10
 end
 
 local value = returnOneNumber()</pre>
-<pre class="brush: lua; gutter: false; highlight: [2,5]; first-line: 1;">local function returnTwoNumbers()
+<pre class="highlight: [2,5]; first-line: 1; gutter: false; brush: lua;">local function returnTwoNumbers()
     return 10, 20
 end
 
@@ -195,11 +195,11 @@ local value1, value2 = returnTwoNumbers() </pre>
 <p>Notice that because the second function returns <strong>two</strong> values, it logically needs two variables, <code>value1</code> and <code>value2</code>, to store the returned values.</p>
 <p>This multiple return concept can be directly observed via the Solar2D API <code>myObject:getLinearVelocity()</code>, a physics function which retrieves the current linear velocity of a physical object. Because a physical linear velocity always consists of two velocity values, horizontal (<strong>x</strong>) and vertical (<strong>y</strong>), this function is typically called like this:</p>
 <pre class="brush: lua;">local linearVelocityX, linearVelocityY = myObject:getLinearVelocity()</pre>
-<p>Note, however, that you don't need to store <strong>all</strong> returned values as separate variables. For example, if you only care about the linear <strong>x</strong> velocity of the physical object, just store that value and the linear <strong>y</strong> value will be discarded:</p>
+<p>Note, however, that you don’t need to store <strong>all</strong> returned values as separate variables. For example, if you only care about the linear <strong>x</strong> velocity of the physical object, just store that value and the linear <strong>y</strong> value will be discarded:</p>
 <pre class="brush: lua;">local linearVelocityX = myObject:getLinearVelocity()</pre>
-</div>
-</div>
-<div id="variable-number-of-parameters" class="section level2">
+</section>
+</section>
+<section id="variable-number-of-parameters" class="level2">
 <h2>Variable Number of Parameters</h2>
 <p>Sometimes a function may need to accept a variable number of parameters. Lua accommodates for this with the variable parameter <code>...</code> syntax. Consider the following function which takes an unspecified amount of numerical arguments and adds them together into one sum:</p>
 <pre class="brush: lua;">local function addNumbers( ... )
@@ -216,7 +216,7 @@ end
 local finalSum =  addNumbers( 1, 12, 4, 5, 2 )
 print( finalSum )</pre>
 <p>Here, notice how Lua uses three consecutive periods (<code>...</code>) to indicate a varying number of arguments and, once inside the function, this produces a table called <code>arg</code> which is a <nobr>numerically-indexed</nobr> table (array) that can be iterated over to access each of the arguments:</p>
-<pre class="brush: lua; gutter: false; highlight: [5,6,7]; first-line: 1;">local function addNumbers( ... )
+<pre class="highlight: [5,6,7]; first-line: 1; gutter: false; brush: lua;">local function addNumbers( ... )
 
     local sum = 0
 
@@ -226,8 +226,8 @@ print( finalSum )</pre>
 
     return sum
 end</pre>
-</div>
-<div id="conclusion" class="section level2">
+</section>
+<section id="conclusion" class="level2">
 <h2>Conclusion</h2>
 <p>Hopefully this tutorial has helped you understand the nature of functions, their considerable usefulness, how to pass data of different types to functions, and how to retrieve the information you need. Remember that clean coding and smart use of functions will improve the structure and performance of your app, as well as make the program code easier to understand.</p>
 <hr>
@@ -240,8 +240,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

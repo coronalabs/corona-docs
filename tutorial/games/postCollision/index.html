@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Tutorials | Gaming/Physics</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -69,15 +69,15 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/games/index.html">Gaming/Physics</a>
 </div>
-<div id="uniqueness-of-post-collisions" class="section level1">
+<section id="uniqueness-of-post-collisions" class="level1">
 <h1>Uniqueness of <nobr>Post-Collisions</nobr></h1>
-<p>Almost every developer who uses Corona's <nobr>Box2D-based</nobr> physics engine implements some type of basic <nobr><strong>collision detection</strong> —</nobr> after all, a physics simulation without any collision events and associated game logic would be fairly lifeless.</p>
-<p>For those developers who need even more specialized collision handling, Corona also features the <a href="../../../api/event/preCollision/index.html">pre-collision</a> listener. This is reserved for specific, dedicated handling of a collision <strong>before</strong> it occurs and it's often used with the <a href="../../../api/type/PhysicsContact/index.html">PhysicsContact</a> as discussed in the <a href="../../../tutorial/games/multiElementCollision/index.html">Multi-Element Collisions</a> tutorial.</p>
+<p>Almost every developer who uses Corona’s <nobr>Box2D-based</nobr> physics engine implements some type of basic <nobr><strong>collision detection</strong> —</nobr> after all, a physics simulation without any collision events and associated game logic would be fairly lifeless.</p>
+<p>For those developers who need even more specialized collision handling, Corona also features the <a href="../../../api/event/preCollision/index.html">pre-collision</a> listener. This is reserved for specific, dedicated handling of a collision <strong>before</strong> it occurs and it’s often used with the <a href="../../../api/type/PhysicsContact/index.html">PhysicsContact</a> as discussed in the <a href="../../../tutorial/games/multiElementCollision/index.html">Multi-Element Collisions</a> tutorial.</p>
 <p>Yet a third option — less known but equally important in some cases — is the <a href="../../../api/event/postCollision/index.html">post-collision</a> listener. As the name indicates, this listener is used to gather various details of a collision <strong>after</strong> it occurs. This event also provides some physical information that no other event type provides, making it especially useful in certain cases!</p>
-<div id="configuring-post-collisions" class="section level2">
+<section id="configuring-post-collisions" class="level2">
 <h2>Configuring <nobr>Post-Collisions</nobr></h2>
-<p>This tutorial won't go into extensive detail on how to set up collision listeners since it's all outlined in the <a href="../../../guide/physics/collisionDetection/index.html">Collision Detection</a> guide. Basically, <nobr>post-collisions</nobr> are configured similarly to normal collisions:</p>
-<pre class="brush: lua; gutter: false; highlight: [10,11,12,15,16]; first-line: 1;">-- Set up physics engine
+<p>This tutorial won’t go into extensive detail on how to set up collision listeners since it’s all outlined in the <a href="../../../guide/physics/collisionDetection/index.html">Collision Detection</a> guide. Basically, <nobr>post-collisions</nobr> are configured similarly to normal collisions:</p>
+<pre class="highlight: [10,11,12,15,16]; first-line: 1; gutter: false; brush: lua;">-- Set up physics engine
 local physics = require( "physics" )
 physics.start()
 
@@ -100,40 +100,40 @@ box:addEventListener( "postCollision" )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Be aware that <nobr>post-collision</nobr> events are quite &quot;noisy&quot; and may report many times per collision contact. This may affect game performance, so you should only listen for <nobr>post-collision</nobr> events when necessary. For instance, you may consider temporarily removing the associated event listener when <nobr>post-collisions</nobr> are not a factor within the simulation:</p>
+<p>Be aware that <nobr>post-collision</nobr> events are quite “noisy” and may report many times per collision contact. This may affect game performance, so you should only listen for <nobr>post-collision</nobr> events when necessary. For instance, you may consider temporarily removing the associated event listener when <nobr>post-collisions</nobr> are not a factor within the simulation:</p>
 <pre class="brush: lua;">box:removeEventListener( "postCollision" )
 box.postCollision = nil</pre>
 </div>
 </div>
-</div>
-<div id="post-collision-applications" class="section level2">
+</section>
+<section id="post-collision-applications" class="level2">
 <h2><nobr>Post-Collision</nobr> Applications</h2>
-<p>It may seem pointless to gather details about a collision &quot;after the fact&quot; since the collision has already occurred and the physics engine has essentially moved to the next time step. However, it's exactly the instances where <nobr>post-collisions</nobr> <strong>are</strong> important that makes them an essential part of your physics toolbox.</p>
-<p>Let's explore some potential instances where <nobr>post-collisions</nobr> are unique and powerful:</p>
-<div id="detecting-collision-force" class="section level3">
+<p>It may seem pointless to gather details about a collision “after the fact” since the collision has already occurred and the physics engine has essentially moved to the next time step. However, it’s exactly the instances where <nobr>post-collisions</nobr> <strong>are</strong> important that makes them an essential part of your physics toolbox.</p>
+<p>Let’s explore some potential instances where <nobr>post-collisions</nobr> are unique and powerful:</p>
+<section id="detecting-collision-force" class="level3">
 <h3>Detecting Collision Force</h3>
 <p>The <nobr>post-collision</nobr> event is the <strong>only</strong> collision event which reports the <strong>force</strong> of the collision which just occurred. This value is reported as <code>event.force</code> in the <nobr>post-collision</nobr> listener, for example:</p>
-<pre class="brush: lua; gutter: false; highlight: [3]; first-line: 1;">local function postCollisionEvent( self, event )
+<pre class="highlight: [3]; first-line: 1; gutter: false; brush: lua;">local function postCollisionEvent( self, event )
     print( "POST-COLLISION EVENT" )
     print( "FORCE:", event.force )
 end</pre>
-<p>Where might this apply in a physics simulation? Consider the classic hit Angry Birds<span style="font-size: 80%;"><sup>™</sup></span> where each ornery avian has a different effect on different solid materials in the world — for example, the small blue birds strike particulary hard against &quot;glass&quot; blocks. If we were to implement similar game functionality, it would be easy to code a conditional check which detects if a blue bird collides with a glass block, but that limits us to a true/false relationship — we still wouldn't know exactly what <strong>force</strong> was delivered in the collision. Using the <nobr>post-collision</nobr> event, however, we can detect the amount of force and assign damage accordingly, either shattering the glass block entirely or merely cracking it partially.</p>
-</div>
-<div id="threshold-filtering" class="section level3">
+<p>Where might this apply in a physics simulation? Consider the classic hit Angry Birds<span style="font-size: 80%;"><sup>™</sup></span> where each ornery avian has a different effect on different solid materials in the world — for example, the small blue birds strike particulary hard against “glass” blocks. If we were to implement similar game functionality, it would be easy to code a conditional check which detects if a blue bird collides with a glass block, but that limits us to a true/false relationship — we still wouldn’t know exactly what <strong>force</strong> was delivered in the collision. Using the <nobr>post-collision</nobr> event, however, we can detect the amount of force and assign damage accordingly, either shattering the glass block entirely or merely cracking it partially.</p>
+</section>
+<section id="threshold-filtering" class="level3">
 <h3>Threshold Filtering</h3>
-<p>Collision forces are equally useful in &quot;filtering&quot; purposes. Consider a game where the player fires arrows at an armored enemy, for instance the armored skeleton in the <a href="../../../tutorial/games/multiElementCollision/index.html">Multi-Element Collisions</a> tutorial. In theory, the skeleton's armor has a certain threshold upon which it will block projectiles entirely, causing them to bounce off and fall to the ground. As noted above, a normal collision event can reveal that a projectile hit the skeleton, but it cannot provide details about collision <strong>force</strong>. Thus, the <nobr>post-collision</nobr> event once again becomes crucial — by implementing it, we can detect if the force is above a certain threshold and, if so, the arrow will penetrate the enemy's armor and deliver an appropriate amount of damage.</p>
-</div>
-<div id="detecting-collision-friction" class="section level3">
+<p>Collision forces are equally useful in “filtering” purposes. Consider a game where the player fires arrows at an armored enemy, for instance the armored skeleton in the <a href="../../../tutorial/games/multiElementCollision/index.html">Multi-Element Collisions</a> tutorial. In theory, the skeleton’s armor has a certain threshold upon which it will block projectiles entirely, causing them to bounce off and fall to the ground. As noted above, a normal collision event can reveal that a projectile hit the skeleton, but it cannot provide details about collision <strong>force</strong>. Thus, the <nobr>post-collision</nobr> event once again becomes crucial — by implementing it, we can detect if the force is above a certain threshold and, if so, the arrow will penetrate the enemy’s armor and deliver an appropriate amount of damage.</p>
+</section>
+<section id="detecting-collision-friction" class="level3">
 <h3>Detecting Collision Friction</h3>
 <p>The <nobr>post-collision</nobr> event is also the only collision event which reports the <strong>friction</strong> of the collision which just occurred. This value is reported as <code>event.friction</code> in the <nobr>post-collision</nobr> listener, for instance:</p>
-<pre class="brush: lua; gutter: false; highlight: [3]; first-line: 1;">local function postCollisionEvent( self, event )
+<pre class="highlight: [3]; first-line: 1; gutter: false; brush: lua;">local function postCollisionEvent( self, event )
     print( "POST-COLLISION EVENT" )
     print( "FRICTION:", event.friction )
 end</pre>
-<p>Where might this apply in a physics simulation? One example would be to detect the friction of a car or other object when it collides with a metal surface, then use that value to display a variable amount of &quot;sparks&quot; via a <a href="../../../api/library/display/newEmitter.html">particle emitter</a> or other means. For example, if the friction is very high, we could generate a more visible amount of sparks, while if the friction is low — for instance the object just barely brushed against the surface — we could generate just a small burst of sparks (or even use the filtering threshold discussed above to omit the effect entirely).</p>
-</div>
-</div>
-<div id="conclusion" class="section level2">
+<p>Where might this apply in a physics simulation? One example would be to detect the friction of a car or other object when it collides with a metal surface, then use that value to display a variable amount of “sparks” via a <a href="../../../api/library/display/newEmitter.html">particle emitter</a> or other means. For example, if the friction is very high, we could generate a more visible amount of sparks, while if the friction is low — for instance the object just barely brushed against the surface — we could generate just a small burst of sparks (or even use the filtering threshold discussed above to omit the effect entirely).</p>
+</section>
+</section>
+<section id="conclusion" class="level2">
 <h2>Conclusion</h2>
 <p>Hopefully this tutorial has outlined some valid applications for <a href="../../../api/event/postCollision/index.html">post-collision</a> events. While detecting these will never be as common as detecting normal collisions, they are unique events which can be essential to certain game logic and even to visual realism in a game.</p>
 <hr>
@@ -146,8 +146,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Building/Distribution</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -89,9 +89,9 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/distribution/index.html">Building/Distribution</a>
 </div>
-<div id="creating-macos-desktop-apps" class="section level1">
+<section id="creating-macos-desktop-apps" class="level1">
 <h1>Creating macOS Desktop Apps</h1>
-<p>This guide outlines the features of Solar2D that are specific to macOS desktop apps. A <nobr>Corona-built</nobr> macOS desktop app consists of a <code>.app</code> bundle which contains the Corona runtime engine and your Corona project's compiled code and assets.</p>
+<p>This guide outlines the features of Solar2D that are specific to macOS desktop apps. A <nobr>Corona-built</nobr> macOS desktop app consists of a <code>.app</code> bundle which contains the Corona runtime engine and your Corona project’s compiled code and assets.</p>
 <div class="guides-toc">
 <ul>
 <li><a href="#systemreqs">System Requirements</a></li>
@@ -111,7 +111,7 @@
 </ul>
 </div>
 <p><a id="systemreqs"></a></p>
-<div id="system-requirements" class="section level2">
+<section id="system-requirements" class="level2">
 <h2>System Requirements</h2>
 <ul>
 <li>macOS 10.11 or later</li>
@@ -124,19 +124,19 @@ Note
 <p>All features supported by the Corona Simulator for macOS are supported for macOS desktop builds.</p>
 </div>
 <p><a id="greatapps"></a></p>
-</div>
-<div id="building-great-macos-apps" class="section level2">
+</section>
+<section id="building-great-macos-apps" class="level2">
 <h2>Building Great macOS Apps</h2>
-<p>Many developers will start with an iOS app, intending to duplicate it on the Mac platform. First and foremost, avoid the tempting assumption that all you need to do is choose <nobr><strong>File</strong> → <strong>Build</strong> → <strong>macOS...</strong></nobr> from the Corona Simulator menu to create a macOS app from an iOS app. The desktop and device platforms are quite different, and while Corona hides many of the practical implementation details, it can't magically turn an app designed for a touch screen device into a great <nobr>mouse-based</nobr> desktop experience.</p>
+<p>Many developers will start with an iOS app, intending to duplicate it on the Mac platform. First and foremost, avoid the tempting assumption that all you need to do is choose <nobr><strong>File</strong> → <strong>Build</strong> → <strong>macOS…</strong></nobr> from the Corona Simulator menu to create a macOS app from an iOS app. The desktop and device platforms are quite different, and while Corona hides many of the practical implementation details, it can’t magically turn an app designed for a touch screen device into a great <nobr>mouse-based</nobr> desktop experience.</p>
 <p>Keep in mind that your macOS app will undergo the Apple review process before being accepted into the <nobr>Mac App Store</nobr>. This will cover the same type of issues as iOS app reviews, but there is an additional bar which must be cleared since macOS apps may be rejected on this point:</p>
 <pre class="brush: lua;">Your app appears to be a mostly unmodified port of an iOS app.</pre>
-<p>Among other things, you should consider how your app reacts to window size changes and how it works in full screen mode. The size of the content area is much more variable on the desktop than it is on devices and you will almost certainly need to make changes to your app so that it works well in the desktop environment. Remember that you can adjust both the window size and the content area and that they don't necessarily need to be the same. Also remember that landscape orientation is what users will expect, so it will be more difficult to make a good impression with a <nobr>portrait-oriented</nobr> app in the desktop environment.</p>
+<p>Among other things, you should consider how your app reacts to window size changes and how it works in full screen mode. The size of the content area is much more variable on the desktop than it is on devices and you will almost certainly need to make changes to your app so that it works well in the desktop environment. Remember that you can adjust both the window size and the content area and that they don’t necessarily need to be the same. Also remember that landscape orientation is what users will expect, so it will be more difficult to make a good impression with a <nobr>portrait-oriented</nobr> app in the desktop environment.</p>
 <p>Obviously, anything you can download from the <nobr>Mac App Store</nobr> has passed the review process, so be sure to download other apps in the same genre as yours, see how they work on the desktop, and consider how you can modify yours to work similarly.</p>
 <p><a id="windowsettings"></a></p>
-</div>
-<div id="window-settings" class="section level2">
+</section>
+<section id="window-settings" class="level2">
 <h2>Window Settings</h2>
-<p>For both macOS desktop apps and Win32 desktop apps, Corona's <code>build.settings</code> file supports a <code>window</code> table for customizing the app's desktop window, including the default width/height, the title of the window, and more.</p>
+<p>For both macOS desktop apps and Win32 desktop apps, Corona’s <code>build.settings</code> file supports a <code>window</code> table for customizing the app’s desktop window, including the default width/height, the title of the window, and more.</p>
 <pre class="brush: lua;">settings =
 {
     window =
@@ -145,9 +145,9 @@ Note
     },
 }</pre>
 <p>Within the <code>window</code> table, the following settings are supported:</p>
-<div id="defaultmode" class="section level5">
+<section id="defaultmode" class="level5">
 <h5>defaultMode</h5>
-<p>Sets how the window should be launched on startup. Supported values include <code>&quot;normal&quot;</code>, <code>&quot;minimized&quot;</code>, <code>&quot;maximized&quot;</code>, or <code>&quot;fullscreen&quot;</code>. Default is <code>&quot;normal&quot;</code>. This can also be set programmatically via the <a href="../../../api/library/native/setProperty.html">native.setProperty()</a> API.</p>
+<p>Sets how the window should be launched on startup. Supported values include <code>"normal"</code>, <code>"minimized"</code>, <code>"maximized"</code>, or <code>"fullscreen"</code>. Default is <code>"normal"</code>. This can also be set programmatically via the <a href="../../../api/library/native/setProperty.html">native.setProperty()</a> API.</p>
 <pre class="brush: lua;">settings =
 {
     window =
@@ -155,8 +155,8 @@ Note
         defaultMode = "fullscreen",
     },
 }</pre>
-</div>
-<div id="defaultviewwidth" class="section level5">
+</section>
+<section id="defaultviewwidth" class="level5">
 <h5>defaultViewWidth</h5>
 <p>Sets the default launch width of the view/client area of the window. This is the region within the borders of the window to which Corona renders. Ideally, this should match or exceed your <code>config.lua</code> content area width.</p>
 <pre class="brush: lua;">settings =
@@ -166,8 +166,8 @@ Note
         defaultViewWidth = 640,
     },
 }</pre>
-</div>
-<div id="defaultviewheight" class="section level5">
+</section>
+<section id="defaultviewheight" class="level5">
 <h5>defaultViewHeight</h5>
 <p>Sets the default launch height of the view/client area of the window. This is the region within the borders of the window to which Corona renders. Ideally, this should match or exceed your <code>config.lua</code> content area height.</p>
 <pre class="brush: lua;">settings =
@@ -177,10 +177,10 @@ Note
         defaultViewHeight = 960,
     },
 }</pre>
-</div>
-<div id="resizable" class="section level5">
+</section>
+<section id="resizable" class="level5">
 <h5>resizable</h5>
-<p>Set this to <code>true</code> to allow the end user to resize the window (the window is not resizable by default). Note that if <code>true</code>, you may need to handle Corona's <a href="../../../api/event/resize/index.html">resize</a> event to <nobr>re-layout</nobr> your content.</p>
+<p>Set this to <code>true</code> to allow the end user to resize the window (the window is not resizable by default). Note that if <code>true</code>, you may need to handle Corona’s <a href="../../../api/event/resize/index.html">resize</a> event to <nobr>re-layout</nobr> your content.</p>
 <pre class="brush: lua;">settings =
 {
     window =
@@ -188,8 +188,8 @@ Note
         resizable = true,
     },
 }</pre>
-</div>
-<div id="minviewwidth" class="section level5">
+</section>
+<section id="minviewwidth" class="level5">
 <h5>minViewWidth</h5>
 <p>This setting only applies if <code>resizable</code> is set to <code>true</code>. Prevents the user from resizing the window to a width smaller than this value. Note that this represents the width of the region within the borders of the window. If <code>resizable</code> is set to <code>true</code> and this setting is not specified, the window can be resized down to whatever width the OS allows.</p>
 <pre class="brush: lua;">settings =
@@ -199,8 +199,8 @@ Note
         minViewWidth = 320,
     },
 }</pre>
-</div>
-<div id="minviewheight" class="section level5">
+</section>
+<section id="minviewheight" class="level5">
 <h5>minViewHeight</h5>
 <p>This setting only applies if <code>resizable</code> is set to <code>true</code>. Prevents the user from resizing the window to a height smaller than this value. Note that this represents the height of the region within the borders of the window. If <code>resizable</code> is set to <code>true</code> and this setting is not specified, the window can be resized down to whatever height the OS allows.</p>
 <pre class="brush: lua;">settings =
@@ -210,10 +210,10 @@ Note
         minViewHeight = 480,
     },
 }</pre>
-</div>
-<div id="enableclosebutton" class="section level5">
+</section>
+<section id="enableclosebutton" class="level5">
 <h5>enableCloseButton</h5>
-<p>Enables or disables the window's &quot;close&quot; button <nobr>(enabled by default)</nobr>. If disabled, you must close the window in Lua via <a href="../../../api/library/native/requestExit.html">native.requestExit()</a>. Note that Corona does not currently trigger an event when the &quot;close&quot; button is clicked.</p>
+<p>Enables or disables the window’s “close” button <nobr>(enabled by default)</nobr>. If disabled, you must close the window in Lua via <a href="../../../api/library/native/requestExit.html">native.requestExit()</a>. Note that Corona does not currently trigger an event when the “close” button is clicked.</p>
 <pre class="brush: lua;">settings =
 {
     window =
@@ -221,10 +221,10 @@ Note
         enableCloseButton = true,
     },
 }</pre>
-</div>
-<div id="enableminimizebutton" class="section level5">
+</section>
+<section id="enableminimizebutton" class="level5">
 <h5>enableMinimizeButton</h5>
-<p>Enables or disables the window's &quot;minimize&quot; button <nobr>(enabled by default)</nobr>.</p>
+<p>Enables or disables the window’s “minimize” button <nobr>(enabled by default)</nobr>.</p>
 <pre class="brush: lua;">settings =
 {
     window =
@@ -232,10 +232,10 @@ Note
         enableMinimizeButton = true,
     },
 }</pre>
-</div>
-<div id="enablemaximizebutton" class="section level5">
+</section>
+<section id="enablemaximizebutton" class="level5">
 <h5>enableMaximizeButton</h5>
-<p>Enables or disables the window's &quot;maximize&quot; button <nobr>(disabled by default)</nobr>. Note that the window will be resized when maximized/restored, so if this setting is <code>true</code>, you may need to handle Corona's <a href="../../../api/event/resize/index.html">resize</a> event to <nobr>re-layout</nobr> your content.</p>
+<p>Enables or disables the window’s “maximize” button <nobr>(disabled by default)</nobr>. Note that the window will be resized when maximized/restored, so if this setting is <code>true</code>, you may need to handle Corona’s <a href="../../../api/event/resize/index.html">resize</a> event to <nobr>re-layout</nobr> your content.</p>
 <pre class="brush: lua;">settings =
 {
     window =
@@ -243,8 +243,8 @@ Note
         enableMaximizeButton = true,
     },
 }</pre>
-</div>
-<div id="suspendwhenminimized" class="section level5">
+</section>
+<section id="suspendwhenminimized" class="level5">
 <h5>suspendWhenMinimized</h5>
 <p>Tells the runtime to suspend when the window is minimized <nobr>(disabled by default)</nobr>.</p>
 <pre class="brush: lua;">settings =
@@ -254,10 +254,10 @@ Note
         suspendWhenMinimized = true,
     },
 }</pre>
-</div>
-<div id="showwindowtitle" class="section level5">
+</section>
+<section id="showwindowtitle" class="level5">
 <h5>showWindowTitle</h5>
-<p>Causes the window's title bar to be shown (by default) or hidden making the app's content fill the entire window. Dragging at the top of the window will move it as with a regular window and clicks in this area do not go to the app. This setting is supported on macOS only.</p>
+<p>Causes the window’s title bar to be shown (by default) or hidden making the app’s content fill the entire window. Dragging at the top of the window will move it as with a regular window and clicks in this area do not go to the app. This setting is supported on macOS only.</p>
 <pre class="brush: lua;">settings =
 {
     window =
@@ -265,10 +265,10 @@ Note
         showWindowTitle = false,
     },
 }</pre>
-</div>
-<div id="titletext" class="section level5">
+</section>
+<section id="titletext" class="level5">
 <h5>titleText</h5>
-<p>Sets the window's title bar text to the specified <a href="../../../api/type/String.html">string</a> (no title bar text by default). Supports <nobr>2-letter</nobr> <nobr>ISO 639‐1</nobr> <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">language codes</a> and optional <nobr>2-letter</nobr> <nobr>ISO 3166‐1</nobr> <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">country codes</a> (neither is case sensitive). The <code>default</code> title text can also be set programmatically via the <a href="../../../api/library/native/setProperty.html">native.setProperty()</a> API.</p>
+<p>Sets the window’s title bar text to the specified <a href="../../../api/type/String.html">string</a> (no title bar text by default). Supports <nobr>2-letter</nobr> <nobr>ISO 639‐1</nobr> <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">language codes</a> and optional <nobr>2-letter</nobr> <nobr>ISO 3166‐1</nobr> <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">country codes</a> (neither is case sensitive). The <code>default</code> title text can also be set programmatically via the <a href="../../../api/library/native/setProperty.html">native.setProperty()</a> API.</p>
 <pre class="brush: lua;">settings =
 {
     window =
@@ -293,17 +293,17 @@ Note
     },
 }</pre>
 <p><a id="excludingfiles"></a></p>
-</div>
-</div>
-<div id="excluding-files" class="section level2">
+</section>
+</section>
+<section id="excluding-files" class="level2">
 <h2>Excluding Files</h2>
-<p>You can exclude file(s) that aren't needed for an macOS desktop app via the <code>build.settings</code> file's <code>excludeFiles</code> pattern matching feature. Please see the <strong>Excluding Files</strong> section of the <a href="../../../guide/distribution/buildSettings/index.html#excluding-files">Project Build Settings</a> guide for more details on pattern matching.</p>
+<p>You can exclude file(s) that aren’t needed for an macOS desktop app via the <code>build.settings</code> file’s <code>excludeFiles</code> pattern matching feature. Please see the <strong>Excluding Files</strong> section of the <a href="../../../guide/distribution/buildSettings/index.html#excluding-files">Project Build Settings</a> guide for more details on pattern matching.</p>
 <p><a id="includingresources"></a></p>
-</div>
-<div id="including-resources" class="section level2">
+</section>
+<section id="including-resources" class="level2">
 <h2>Including Resources</h2>
-<p>Sometimes it's necessary to include certain files in your application to support specific macOS features. One example of this is <strong>localization</strong> which is achieved at the OS level (for example the Finder's label for an app) using <code>.lproj</code> directories in the application's <code>Resource</code> directory (<a href="https://developer.apple.com/internationalization/">background</a>) page. Note that this mechanism to include arbitrary resources in your app is only intended to enable the knowledge to complete certain tasks and is not intended to automate anything.</p>
-<p>To include arbitrary files in your app's <code>Resource</code> directory add a <code>bundleResourcesDirectory</code> entry to your project's <code>build.settings</code> for macOS builds. For example:</p>
+<p>Sometimes it’s necessary to include certain files in your application to support specific macOS features. One example of this is <strong>localization</strong> which is achieved at the OS level (for example the Finder’s label for an app) using <code>.lproj</code> directories in the application’s <code>Resource</code> directory (<a href="https://developer.apple.com/internationalization/">background</a>) page. Note that this mechanism to include arbitrary resources in your app is only intended to enable the knowledge to complete certain tasks and is not intended to automate anything.</p>
+<p>To include arbitrary files in your app’s <code>Resource</code> directory add a <code>bundleResourcesDirectory</code> entry to your project’s <code>build.settings</code> for macOS builds. For example:</p>
 <pre class="brush: lua;">settings =
 {
     macos =
@@ -319,10 +319,10 @@ InfoPlist.strings</pre>
 <p>This results in the <code>fr.lproj</code> directory ending up in <code>MyApp.app/Content/Resources/fr.lproj</code>.</p>
 <p>You will probably want to add the directory you use as <code>bundleResourcesDirectory</code> to your <a href="#excludingfiles">excluded files</a>.</p>
 <p><a id="customurlschemes"></a></p>
-</div>
-<div id="custom-url-schemes" class="section level2">
+</section>
+<section id="custom-url-schemes" class="level2">
 <h2>Custom URL Schemes</h2>
-<p>To enable a custom URL scheme in your macOS app, you'll need to set it up in the app's <code>Info.plist</code> by including a section like this in <code>build.settings</code>:</p>
+<p>To enable a custom URL scheme in your macOS app, you’ll need to set it up in the app’s <code>Info.plist</code> by including a section like this in <code>build.settings</code>:</p>
 <pre class="brush: lua;">settings =
 {
     macos =
@@ -353,11 +353,11 @@ end
 
 Runtime:addEventListener( "system", onSystemEvent )</pre>
 <p><a id="customdocumenttypes"></a></p>
-</div>
-<div id="custom-document-types" class="section level2">
+</section>
+<section id="custom-document-types" class="level2">
 <h2>Custom Document Types</h2>
-<p>Similarly to how custom URL schemes work you can set up document types that you app recognizes and which can be opened by dragging them to the app's icon in the <strong>Finder</strong> or the <strong>Dock</strong>.</p>
-<p>To enable custom document types in your macOS app, you'll need to set it up in the app's <code>Info.plist</code> by including a section like this in <code>build.settings</code>:</p>
+<p>Similarly to how custom URL schemes work you can set up document types that you app recognizes and which can be opened by dragging them to the app’s icon in the <strong>Finder</strong> or the <strong>Dock</strong>.</p>
+<p>To enable custom document types in your macOS app, you’ll need to set it up in the app’s <code>Info.plist</code> by including a section like this in <code>build.settings</code>:</p>
 <pre class="brush: lua;">settings =
 {
     macos =
@@ -392,12 +392,12 @@ Runtime:addEventListener( "system", onSystemEvent )</pre>
 end
 
 Runtime:addEventListener( "system", onSystemEvent )</pre>
-<p>This code will called when files with the configured types are dropped on your app's icon in the <strong>Finder</strong> or the <strong>Dock</strong>. More information is available in Apple's developer <a href="https://developer.apple.com/library/mac/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html">Core Foundation Keys</a> documentation.</p>
+<p>This code will called when files with the configured types are dropped on your app’s icon in the <strong>Finder</strong> or the <strong>Dock</strong>. More information is available in Apple’s developer <a href="https://developer.apple.com/library/mac/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html">Core Foundation Keys</a> documentation.</p>
 <p><a id="entitlements"></a></p>
-</div>
-<div id="entitlements" class="section level2">
+</section>
+<section id="entitlements" class="level2">
 <h2>Entitlements</h2>
-<p>If you need custom <a href="https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/AboutEntitlements.html">entitlements</a> in your macOS app, specify them in <code>build.settings</code>. For example, you might need to specify the <code>com.apple.security.personal-information.location</code> entitlement if you use Corona's <a href="../../../api/event/location/index.html">location</a> features.</p>
+<p>If you need custom <a href="https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/AboutEntitlements.html">entitlements</a> in your macOS app, specify them in <code>build.settings</code>. For example, you might need to specify the <code>com.apple.security.personal-information.location</code> entitlement if you use Corona’s <a href="../../../api/event/location/index.html">location</a> features.</p>
 <pre class="brush: lua;">settings =
 {
     macos =
@@ -408,8 +408,8 @@ Runtime:addEventListener( "system", onSystemEvent )</pre>
     },
 }</pre>
 <p><a id="copyright"></a></p>
-</div>
-<div id="copyright" class="section level2">
+</section>
+<section id="copyright" class="level2">
 <h2>Copyright</h2>
 <p>To customize the copyright message in the <strong>About</strong> box of your app, you can add the following to <code>build.settings</code>:</p>
 <pre class="brush: lua;">settings =
@@ -423,57 +423,57 @@ Runtime:addEventListener( "system", onSystemEvent )</pre>
     },
 }</pre>
 <p><a id="appicon"></a></p>
-</div>
-<div id="app-icon" class="section level2">
+</section>
+<section id="app-icon" class="level2">
 <h2>App Icon</h2>
-<p>You should add a <code>Icon-osx.icns</code> file to your Corona project's root directory to provide an icon for your application on macOS This should be an <code>.icns</code> file which contains multiple versions of your icon at different resolutions (<a href="https://en.wikipedia.org/wiki/Apple_Icon_Image_format">details</a>). This <nobr><code>Icon-osx.icns</code></nobr> file will be used to set the icon for the following:</p>
-<ol style="list-style-type: decimal">
+<p>You should add a <code>Icon-osx.icns</code> file to your Corona project’s root directory to provide an icon for your application on macOS This should be an <code>.icns</code> file which contains multiple versions of your icon at different resolutions (<a href="https://en.wikipedia.org/wiki/Apple_Icon_Image_format">details</a>). This <nobr><code>Icon-osx.icns</code></nobr> file will be used to set the icon for the following:</p>
+<ol type="1">
 <li>The icon that your <code>.app</code> bundle uses, as viewed in the Finder.</li>
 <li>The icon used by your app in the Dock.</li>
 </ol>
 <p>You can find apps in the Mac App Store to help with the creation of <code>.icns</code> files.</p>
 <p><a id="building"></a></p>
-</div>
-<div id="building-running" class="section level2">
+</section>
+<section id="building-running" class="level2">
 <h2>Building / Running</h2>
 <p>To build and run your macOS desktop app, follow these steps:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>Open the Corona Simulator.</p></li>
 <li><p>Open and run a Corona project.</p></li>
-<li><p>Select the <nobr><strong>File</strong> → <strong>Build</strong> → <strong>macOS...</strong></nobr> menu item to reveal the macOS build dialog.</p></li>
+<li><p>Select the <nobr><strong>File</strong> → <strong>Build</strong> → <strong>macOS…</strong></nobr> menu item to reveal the macOS build dialog.</p></li>
 <li><p>The <strong>Application Name</strong>, <strong>Version</strong>, and <strong>Save to Folder</strong> fields are all required. Here are notes regarding these build dialog fields:</p>
 <ul>
-<li><p><strong>Application Name</strong> — The application name you've entered can be fetched at runtime via Corona's <code>system.getInfo( &quot;appName&quot; )</code> call (<a href="../../../api/library/system/getInfo.html">reference</a>).</p></li>
-<li><p><strong>Version</strong> — The version string you've entered can be fetched at runtime via Corona's <code>system.getInfo( &quot;appVersionString&quot; )</code> call (<a href="../../../api/library/system/getInfo.html">reference</a>).</p></li>
+<li><p><strong>Application Name</strong> — The application name you’ve entered can be fetched at runtime via Corona’s <code>system.getInfo( "appName" )</code> call (<a href="../../../api/library/system/getInfo.html">reference</a>).</p></li>
+<li><p><strong>Version</strong> — The version string you’ve entered can be fetched at runtime via Corona’s <code>system.getInfo( "appVersionString" )</code> call (<a href="../../../api/library/system/getInfo.html">reference</a>).</p></li>
 <li><p><strong>Provisioning Profile</strong> — The provisioning profile for the app; see <a href="#signing">App Signing</a> below.</p></li>
 <li><p><strong>Save to Folder</strong> — The directory in which to save the built project.</p></li>
 <li><p><strong>After Build</strong> — select which action should be performed after the app is successfully built.</p></li>
 </ul></li>
-<li><p>Click the <strong>Build</strong> button to build your application to the given <strong>Save to Folder</strong> location. If you chose <nobr><strong>Send to Mac App Store...</strong></nobr>, a panel will open which allows you to select the tab for the preferred option and follow the prompts to complete your build.</p></li>
+<li><p>Click the <strong>Build</strong> button to build your application to the given <strong>Save to Folder</strong> location. If you chose <nobr><strong>Send to Mac App Store…</strong></nobr>, a panel will open which allows you to select the tab for the preferred option and follow the prompts to complete your build.</p></li>
 </ol>
 <p><a id="debugapp"></a></p>
-</div>
-<div id="debugging" class="section level2">
+</section>
+<section id="debugging" class="level2">
 <h2>Debugging</h2>
-<p>The Corona Simulator does not currently support direct simulation of an app running in macOS desktop mode, although the Simulator running a &quot;Custom Device&quot; skin is almost the same.</p>
+<p>The Corona Simulator does not currently support direct simulation of an app running in macOS desktop mode, although the Simulator running a “Custom Device” skin is almost the same.</p>
 <p>Note that when running a built macOS Corona app or the Corona Shell, all <code>print()</code> output and Lua errors/warnings will be streamed to <code>stdout</code>. There are various ways to manage this output. One way is to run the executable embedded in the app bundle in a Terminal window which will make the debug output visible. For example:</p>
 <pre class="brush: lua;">./Bridge\ for\ OS\ X/Contents/MacOS/Bridge\ for\ OS\ X</pre>
 <p>In this example, the backslashes (<code>\</code>) protect the spaces in the filename (you could alternatively use quotes).</p>
 <p>You can also use the <strong>Console</strong> app in the <nobr><strong>Applications</strong> → <strong>Utilities</strong></nobr> folder to view application output.</p>
-<p>If you run the app by choosing the <strong>After Build</strong> → <strong>Open application</strong> option in the Corona Simulator build dialog, the app's output will appear in the Corona Simulator Console window.</p>
+<p>If you run the app by choosing the <strong>After Build</strong> → <strong>Open application</strong> option in the Corona Simulator build dialog, the app’s output will appear in the Corona Simulator Console window.</p>
 <p><a id="signing"></a></p>
-</div>
-<div id="app-signing" class="section level2">
+</section>
+<section id="app-signing" class="level2">
 <h2>App Signing</h2>
-<p>You'll need a &quot;Mac Apps&quot; provisioning profile￼ from the <a href="https://developer.apple.com/">Apple Developer</a> portal in order to sign your macOS app. This works very similarly to the <a href="../../../guide/distribution/iOSBuild/index.html">iOS</a> app signing process, but you may optionally choose to create an unsigned app by selecting <strong>None</strong> in the <strong>Provisioning Profile</strong> dropdown when performing a build. Unsigned apps can be run on your own machine and, with some tweaking of the <nobr>&quot;Security &amp; Privacy&quot;</nobr> settings within &quot;System Preferences,&quot; on other Macs. However, unsigned apps can <strong>not</strong> be submitted to the Mac App Store, so you will eventually need to sort out your Mac provisioning profiles.</p>
+<p>You’ll need a “Mac Apps” provisioning profile￼ from the <a href="https://developer.apple.com/">Apple Developer</a> portal in order to sign your macOS app. This works very similarly to the <a href="../../../guide/distribution/iOSBuild/index.html">iOS</a> app signing process, but you may optionally choose to create an unsigned app by selecting <strong>None</strong> in the <strong>Provisioning Profile</strong> dropdown when performing a build. Unsigned apps can be run on your own machine and, with some tweaking of the <nobr>“Security &amp; Privacy”</nobr> settings within “System Preferences,” on other Macs. However, unsigned apps can <strong>not</strong> be submitted to the Mac App Store, so you will eventually need to sort out your Mac provisioning profiles.</p>
 <p>Provisioning profiles should be installed in <nobr><code>~/Library/MobileDevice/Provisioning Profiles</code></nobr>. It may be necessary to do this manually.</p>
-<p>For testing, it's recommended you sign the app with your Mac App signing identity by choosing it in the Corona Simulator <nobr><strong>Build for macOS</strong></nobr> dialog and then tell your testers to choose the <strong>Mac App Store and identified developers</strong> option on the <nobr>&quot;Security &amp; Privacy&quot;</nobr> panel of &quot;System Preferences&quot;.</p>
+<p>For testing, it’s recommended you sign the app with your Mac App signing identity by choosing it in the Corona Simulator <nobr><strong>Build for macOS</strong></nobr> dialog and then tell your testers to choose the <strong>Mac App Store and identified developers</strong> option on the <nobr>“Security &amp; Privacy”</nobr> panel of “System Preferences”.</p>
 <p><a id="distribution"></a></p>
-</div>
-<div id="distribution" class="section level2">
+</section>
+<section id="distribution" class="level2">
 <h2>Distribution</h2>
 <p>You can distribute your app via the Mac App Store, a <code>.dmg</code>, or any other way you may distribute an <code>.app</code> bundle.</p>
-<p>If not using the Mac App Store, we recommend that you sign the app with your Mac App signing identity by choosing it in the Corona Simulator build dialog menu and then tell your testers to choose the <strong>Mac App Store and identified developers</strong> option on the <nobr>&quot;Security &amp; Privacy&quot;</nobr> panel of &quot;System Preferences&quot;.</p>
+<p>If not using the Mac App Store, we recommend that you sign the app with your Mac App signing identity by choosing it in the Corona Simulator build dialog menu and then tell your testers to choose the <strong>Mac App Store and identified developers</strong> option on the <nobr>“Security &amp; Privacy”</nobr> panel of “System Preferences”.</p>
 <p>If using a <code>.zip</code> archive to distribute your app, be aware that there are symbolic links in the built <code>.app</code> bundle, so you must specify the <code>-y</code> option if running <code>zip</code> on the command line to create your archive (using the <strong>Compress</strong> option in the Finder does the correct thing automatically). Failure to do this will result in macOS saying the app is damaged when run on another computer. Also note that some file sharing services can corrupt macOS applications, so we recommend that you put them in <code>.zip</code> archives before uploading them.</p>
 <hr>
 <div id="footer">
@@ -485,8 +485,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

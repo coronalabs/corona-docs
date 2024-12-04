@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Tutorials | Basics</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -66,9 +66,9 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/basics/index.html">Basics</a>
 </div>
-<div id="anonymous-functions-and-closures" class="section level1">
+<section id="anonymous-functions-and-closures" class="level1">
 <h1>Anonymous Functions and Closures</h1>
-<p>This tutorial discusses the basics behind <strong>anonymous functions</strong> and <strong>closures</strong> in Lua. To begin, let's inspect how a typical Lua function looks:</p>
+<p>This tutorial discusses the basics behind <strong>anonymous functions</strong> and <strong>closures</strong> in Lua. To begin, let’s inspect how a typical Lua function looks:</p>
 <pre class="brush: lua;">local function myFunction( parameters )
     -- Function content
 end</pre>
@@ -77,16 +77,16 @@ end</pre>
 <pre class="brush: lua;">local myFunction = function( parameters )
     -- Function content
 end</pre>
-<p>In this notation, it's more clear that you're assigning a variable to a code block, or more specifically the memory address of that code block. In the end, both notations accomplish the same thing, but the second notation allows some additional flexibility. When written in this form, you are effectively taking an unnamed block of code and giving it a name.</p>
-<div id="anonymous-functions" class="section level2">
+<p>In this notation, it’s more clear that you’re assigning a variable to a code block, or more specifically the memory address of that code block. In the end, both notations accomplish the same thing, but the second notation allows some additional flexibility. When written in this form, you are effectively taking an unnamed block of code and giving it a name.</p>
+<section id="anonymous-functions" class="level2">
 <h2>Anonymous Functions</h2>
-<p>As yet another option, Lua permits you to write a function without a name. This is called an <strong>anonymous function</strong>. To understand the difference between regular functions and anonymous functions, let's look at some examples:</p>
+<p>As yet another option, Lua permits you to write a function without a name. This is called an <strong>anonymous function</strong>. To understand the difference between regular functions and anonymous functions, let’s look at some examples:</p>
 <pre class="brush: lua;">local function myFunction( parameters )
     -- Function content
 end
 
 timer.performWithDelay( 1000, myFunction, 10 )</pre>
-<p>In this case, the <code>timer.performWithDelay()</code> function is given a time interval of 1000 milliseconds, a function to execute, and an integer count to repeat. Effectively, <code>myFunction()</code> will fire 10 times at an interval of 1000 milliseconds, but what's internally happening is that Lua is passing the <strong>memory address</strong> of the <code>myFunction()</code> function to the <code>timer.performWithDelay()</code> function.</p>
+<p>In this case, the <code>timer.performWithDelay()</code> function is given a time interval of 1000 milliseconds, a function to execute, and an integer count to repeat. Effectively, <code>myFunction()</code> will fire 10 times at an interval of 1000 milliseconds, but what’s internally happening is that Lua is passing the <strong>memory address</strong> of the <code>myFunction()</code> function to the <code>timer.performWithDelay()</code> function.</p>
 <p>This means that you could also write either of these commands:</p>
 <pre class="brush: lua;">timer.performWithDelay( 1000,
     function()
@@ -101,14 +101,14 @@ timer.performWithDelay( 1000, myFunction, 10 )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>In the second example, notice the <strong>semicolon</strong> (<code>;</code>) following the <nobr><code>print( &quot;Hello World&quot; )</code></nobr> command. If you write an anonymous function with multiple commands on one line, each command <strong>must</strong> be followed by a semicolon, indicating to Lua where each new command begins.</p>
+<p>In the second example, notice the <strong>semicolon</strong> (<code>;</code>) following the <nobr><code>print( "Hello World" )</code></nobr> command. If you write an anonymous function with multiple commands on one line, each command <strong>must</strong> be followed by a semicolon, indicating to Lua where each new command begins.</p>
 </div>
 </div>
-<p>In both cases, instead of using a variable which references a function's memory address, you simply create an unnamed <strong>anonymous function</strong> that will execute when the timer fires.</p>
-</div>
-<div id="when-to-use-them" class="section level2">
+<p>In both cases, instead of using a variable which references a function’s memory address, you simply create an unnamed <strong>anonymous function</strong> that will execute when the timer fires.</p>
+</section>
+<section id="when-to-use-them" class="level2">
 <h2>When to Use Them</h2>
-<p>Anonymous functions are most useful when you need to code an <code>onComplete</code> or callback listener function, for example in <code>timer.performWithDelay()</code>, <code>transition.to()</code>, or <code>audio.play()</code> — but how often should you use them? From the perspective of code readability and sustainability, perhaps not very often, but if the function will only be used in that <strong>specific</strong> scope of your code, and it's relatively short, anonymous functions are a perfectly valid coding technique.</p>
+<p>Anonymous functions are most useful when you need to code an <code>onComplete</code> or callback listener function, for example in <code>timer.performWithDelay()</code>, <code>transition.to()</code>, or <code>audio.play()</code> — but how often should you use them? From the perspective of code readability and sustainability, perhaps not very often, but if the function will only be used in that <strong>specific</strong> scope of your code, and it’s relatively short, anonymous functions are a perfectly valid coding technique.</p>
 <div class="docs-tip-outer docs-tip-color-alert">
 <div class="docs-tip-inner-left">
 <div class="fa fa-exclamation-circle" style="font-size: 35px;">
@@ -119,16 +119,16 @@ timer.performWithDelay( 1000, myFunction, 10 )</pre>
 <p>Note that there are times when you can <strong>not</strong> use anonymous functions. One specific instance is when you assign functions to event listeners. Because the event listener system in Solar2D is based around storing the address of functions that are specified to handle events, the address that you pass in when removing an event listener via <code>object:removeEventListener()</code> must match the address that was passed in to <code>object:addEventListener()</code>.</p>
 </div>
 </div>
-</div>
-<div id="lua-closures" class="section level2">
+</section>
+<section id="lua-closures" class="level2">
 <h2>Lua Closures</h2>
-<p>Lua closures are another useful technique. Where they truly shine is in passing parameters to function handlers that are not looking for extra parameters. To illustrate this, let's look at a <code>transition.to()</code> example:</p>
+<p>Lua closures are another useful technique. Where they truly shine is in passing parameters to function handlers that are not looking for extra parameters. To illustrate this, let’s look at a <code>transition.to()</code> example:</p>
 <pre class="brush: lua;">local function myFunction( parameters )
     -- Function content
 end
 
 transition.to( playerObject, { time=1000, alpha=0, onComplete=myFunction } )</pre>
-<p>In this example, <code>myFunction()</code> will be passed a single parameter, <code>target</code>, which is the object that is transitioning. But let's assume that the display object is a member of an array and you need to know more about the object itself in the function that gets called. This can be accomplished via a <strong>Lua closure</strong>:</p>
+<p>In this example, <code>myFunction()</code> will be passed a single parameter, <code>target</code>, which is the object that is transitioning. But let’s assume that the display object is a member of an array and you need to know more about the object itself in the function that gets called. This can be accomplished via a <strong>Lua closure</strong>:</p>
 <pre class="brush: lua;">local function myFunction( parameters )
     -- Function content
 end
@@ -149,8 +149,8 @@ for i = 1,#balls do
     )
 end</pre>
 <p>In this example, instead of calling <code>myFunction()</code> as part of the callback, you call an anonymous function instead. That anonymous function takes the received <code>target</code> parameter that <code>transition.to()</code> provides and, inside it, you call your <strong>named</strong> function, passing along the <code>target</code> object reference and the <code>color</code> property of the ball.</p>
-<p>Closures are more than just anonymous functions. When you have a function inside of a function, the child function has access to all of its parent's local objects, or <strong>upvalues</strong>. Normally, when a function ends, any <nobr>locally-scoped</nobr> variables go out of scope, so when you call the function again, you begin anew. Consider this example:</p>
-<pre class="brush: lua; gutter: true; first-line: 1;">local function counter()
+<p>Closures are more than just anonymous functions. When you have a function inside of a function, the child function has access to all of its parent’s local objects, or <strong>upvalues</strong>. Normally, when a function ends, any <nobr>locally-scoped</nobr> variables go out of scope, so when you call the function again, you begin anew. Consider this example:</p>
+<pre class="first-line: 1; gutter: true; brush: lua;">local function counter()
 
     local i = 0
     while i &lt; 10 do
@@ -160,9 +160,9 @@ end</pre>
 end
 
 print( counter() )</pre>
-<p>In this case, when you call the <code>counter()</code> function, it will print the value of <code>10</code> because when the function's scope ends, so do its local variables.</p>
-<p>Now let's modify the function to actually return a function that does the counting:</p>
-<pre class="brush: lua; gutter: true; first-line: 1;">local function counter()
+<p>In this case, when you call the <code>counter()</code> function, it will print the value of <code>10</code> because when the function’s scope ends, so do its local variables.</p>
+<p>Now let’s modify the function to actually return a function that does the counting:</p>
+<pre class="first-line: 1; gutter: true; brush: lua;">local function counter()
 
     local i = 0
     return function ()
@@ -184,10 +184,10 @@ print( counter2() )  --> 1
 print( counter1() )  --> 4
 print( counter2() )  --> 2</pre>
 <p>Essentially, each version of the anonymous function holds its own <code>i</code> and keeps it scoped within itself. So, when you create a second counter, <code>i</code> resets to <code>0</code> for that instance.</p>
-</div>
-<div id="conclusion" class="section level2">
+</section>
+<section id="conclusion" class="level2">
 <h2>Conclusion</h2>
-<p>As you can see, anonymous functions and closures provide a powerful way to keep track of variable instances on a <nobr>per-function</nobr> basis. In the context of Solar2D, this allows you to pass parameters to functions in which you normally don't control the <nobr>passed-in</nobr> content.</p>
+<p>As you can see, anonymous functions and closures provide a powerful way to keep track of variable instances on a <nobr>per-function</nobr> basis. In the context of Solar2D, this allows you to pass parameters to functions in which you normally don’t control the <nobr>passed-in</nobr> content.</p>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -198,8 +198,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

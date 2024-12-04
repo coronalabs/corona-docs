@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Steamworks | setHighScore</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../css/style.css" />
+  <link rel="stylesheet" href="../../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -58,13 +58,13 @@
 <li><a href="#sethighscore">setHighScore</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#properties">Properties</a><ul>
-<li><a href="#event.currentglobalrankplugin.steamworks.event.sethighscore.currentglobalrank"><a href="../../../../plugin/steamworks/event/setHighScore/currentGlobalRank.html">event.currentGlobalRank</a></a></li>
-<li><a href="#event.iserrorplugin.steamworks.event.sethighscore.iserror"><a href="../../../../plugin/steamworks/event/setHighScore/isError.html">event.isError</a></a></li>
-<li><a href="#event.leaderboardhandleplugin.steamworks.event.sethighscore.leaderboardhandle"><a href="../../../../plugin/steamworks/event/setHighScore/leaderboardHandle.html">event.leaderboardHandle</a></a></li>
-<li><a href="#event.leaderboardnameplugin.steamworks.event.sethighscore.leaderboardname"><a href="../../../../plugin/steamworks/event/setHighScore/leaderboardName.html">event.leaderboardName</a></a></li>
-<li><a href="#event.nameplugin.steamworks.event.sethighscore.name"><a href="../../../../plugin/steamworks/event/setHighScore/name.html">event.name</a></a></li>
-<li><a href="#event.previousglobalrankplugin.steamworks.event.sethighscore.previousglobalrank"><a href="../../../../plugin/steamworks/event/setHighScore/previousGlobalRank.html">event.previousGlobalRank</a></a></li>
-<li><a href="#event.scorechangedplugin.steamworks.event.sethighscore.scorechanged"><a href="../../../../plugin/steamworks/event/setHighScore/scoreChanged.html">event.scoreChanged</a></a></li>
+<li><a href="#event.currentglobalrankplugin.steamworks.event.sethighscore.currentglobalrank"><span>event.currentGlobalRank</span></a></li>
+<li><a href="#event.iserrorplugin.steamworks.event.sethighscore.iserror"><span>event.isError</span></a></li>
+<li><a href="#event.leaderboardhandleplugin.steamworks.event.sethighscore.leaderboardhandle"><span>event.leaderboardHandle</span></a></li>
+<li><a href="#event.leaderboardnameplugin.steamworks.event.sethighscore.leaderboardname"><span>event.leaderboardName</span></a></li>
+<li><a href="#event.nameplugin.steamworks.event.sethighscore.name"><span>event.name</span></a></li>
+<li><a href="#event.previousglobalrankplugin.steamworks.event.sethighscore.previousglobalrank"><span>event.previousGlobalRank</span></a></li>
+<li><a href="#event.scorechangedplugin.steamworks.event.sethighscore.scorechanged"><span>event.scoreChanged</span></a></li>
 </ul></li>
 <li><a href="#example">Example</a></li>
 </ul></li>
@@ -73,64 +73,64 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../../plugin/index.html">Plugins</a>  ▸  <a href="../../../../plugin/steamworks/index.html">Steamworks</a>  ▸  <a href="../../../../plugin/steamworks/event/setHighScore/index.html">setHighScore</a>
 </div>
-<div id="sethighscore" class="section level1">
+<section id="sethighscore" class="level1">
 <h1>setHighScore</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../../api/type/Event.html">Event</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../../api/type/Event.html">Event</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">steam, steamworks, leaderboard, setHighScore</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">steam, steamworks, leaderboard, setHighScore</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../../plugin/steamworks/requestSetHighScore.html">steamworks.requestSetHighScore()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../../plugin/steamworks/requestSetHighScore.html">steamworks.requestSetHighScore()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../../plugin/steamworks/index.html">steamworks.*</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../../plugin/steamworks/index.html">steamworks.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
-<p>Event indicating if a call to the <a href="../../../../plugin/steamworks/requestSetHighScore.html">steamworks.requestSetHighScore()</a> function succeeded or failed. Also indicates if the score has changed and, if so, what the user's new global rank on the leaderboard is.</p>
+<p>Event indicating if a call to the <a href="../../../../plugin/steamworks/requestSetHighScore.html">steamworks.requestSetHighScore()</a> function succeeded or failed. Also indicates if the score has changed and, if so, what the user’s new global rank on the leaderboard is.</p>
 <p>This event can only be received by a <a href="../../../../api/type/Function.html">function</a> listener that has been passed to the <a href="../../../../plugin/steamworks/requestSetHighScore.html">steamworks.requestSetHighScore()</a> function.</p>
-</div>
-<div id="properties" class="section level2">
+</section>
+<section id="properties" class="level2">
 <h2>Properties</h2>
-<div id="event.currentglobalrankplugin.steamworks.event.sethighscore.currentglobalrank" class="section level4">
+<section id="event.currentglobalrankplugin.steamworks.event.sethighscore.currentglobalrank" class="level4">
 <h4><a href="../../../../plugin/steamworks/event/setHighScore/currentGlobalRank.html">event.currentGlobalRank</a></h4>
-</div>
-<div id="event.iserrorplugin.steamworks.event.sethighscore.iserror" class="section level4">
+</section>
+<section id="event.iserrorplugin.steamworks.event.sethighscore.iserror" class="level4">
 <h4><a href="../../../../plugin/steamworks/event/setHighScore/isError.html">event.isError</a></h4>
-</div>
-<div id="event.leaderboardhandleplugin.steamworks.event.sethighscore.leaderboardhandle" class="section level4">
+</section>
+<section id="event.leaderboardhandleplugin.steamworks.event.sethighscore.leaderboardhandle" class="level4">
 <h4><a href="../../../../plugin/steamworks/event/setHighScore/leaderboardHandle.html">event.leaderboardHandle</a></h4>
-</div>
-<div id="event.leaderboardnameplugin.steamworks.event.sethighscore.leaderboardname" class="section level4">
+</section>
+<section id="event.leaderboardnameplugin.steamworks.event.sethighscore.leaderboardname" class="level4">
 <h4><a href="../../../../plugin/steamworks/event/setHighScore/leaderboardName.html">event.leaderboardName</a></h4>
-</div>
-<div id="event.nameplugin.steamworks.event.sethighscore.name" class="section level4">
+</section>
+<section id="event.nameplugin.steamworks.event.sethighscore.name" class="level4">
 <h4><a href="../../../../plugin/steamworks/event/setHighScore/name.html">event.name</a></h4>
-</div>
-<div id="event.previousglobalrankplugin.steamworks.event.sethighscore.previousglobalrank" class="section level4">
+</section>
+<section id="event.previousglobalrankplugin.steamworks.event.sethighscore.previousglobalrank" class="level4">
 <h4><a href="../../../../plugin/steamworks/event/setHighScore/previousGlobalRank.html">event.previousGlobalRank</a></h4>
-</div>
-<div id="event.scorechangedplugin.steamworks.event.sethighscore.scorechanged" class="section level4">
+</section>
+<section id="event.scorechangedplugin.steamworks.event.sethighscore.scorechanged" class="level4">
 <h4><a href="../../../../plugin/steamworks/event/setHighScore/scoreChanged.html">event.scoreChanged</a></h4>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local steamworks = require( "plugin.steamworks" )
 
@@ -171,8 +171,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

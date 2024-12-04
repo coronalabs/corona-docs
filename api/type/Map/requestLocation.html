@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | type | Map | requestLocation</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -60,8 +60,6 @@
 <li><a href="#syntax">Syntax</a><ul>
 <li><a href="#location-required">location <sub><sup>(required)</sup></sub></a></li>
 <li><a href="#resulthandler-optional">resultHandler <sub><sup>(optional)</sup></sub></a></li>
-</ul></li>
-<li><a href="#gotchas"> Gotchas</a><ul>
 <li><a href="#android">Android</a></li>
 <li><a href="#ios">iOS</a></li>
 </ul></li>
@@ -72,63 +70,61 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/type/index.html">type</a>  ▸  <a href="../../../api/type/Map/index.html">Map</a>  ▸  <a href="../../../api/type/Map/requestLocation.html">requestLocation</a>
 </div>
-<div id="objectrequestlocation" class="section level1">
+<section id="objectrequestlocation" class="level1">
 <h1>object:requestLocation()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Object</strong></td>
-<td align="left"><a href="../../../api/type/Map/index.html">Map</a></td>
+<td style="text-align: left;"><strong>Object</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Map/index.html">Map</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/native/index.html">native.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/native/index.html">native.*</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">requestLocation</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">requestLocation</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../api/event/mapLocation/index.html">mapLocation</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../api/event/mapLocation/index.html">mapLocation</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>This is a replacement for the deprecated <a href="../../../api/type/Map/getAddressLocation.html">object:getAddressLocation()</a>.</p>
 <p>Returns the numerical latitude and longitude values of the given location string. The coordinates are returned as a <a href="../../../api/event/mapLocation/index.html">mapLocation</a> event. The coordinates can then be used to place a marker on the map, <nobr>re-center</nobr> the map to the desired location, or perform any of the other functions that use a latitude and longitude pair.</p>
 <p>This function will accept virtually any address or intersection format as input, along with the names of some famous landmarks.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">object:requestLocation( location, resultHandler )</pre>
-<div id="location-required" class="section level5">
+<section id="location-required" class="level5">
 <h5>location <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/String.html">String</a>.</em> The address, intersection, or landmark.</p>
-</div>
-<div id="resulthandler-optional" class="section level5">
+</section>
+<section id="resulthandler-optional" class="level5">
 <h5>resultHandler <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Listener.html">Listener</a>.</em> The listener function to be invoked for the <a href="../../../api/event/mapLocation/index.html">mapLocation</a> event.</p>
-</div>
-</div>
-<div id="gotchas" class="section level2">
-<h2> Gotchas</h2>
-<div id="android" class="section level3">
+<p>## Gotchas</p>
+</section>
+<section id="android" class="level3">
 <h3>Android</h3>
 <p>On Android, you must add the <code>INTERNET</code> permission to the <code>build.settings</code> file.</p>
 <pre class="brush: lua;">settings =
@@ -141,8 +137,8 @@
       },
    },
 }</pre>
-</div>
-<div id="ios" class="section level3">
+</section>
+<section id="ios" class="level3">
 <h3>iOS</h3>
 <p>Starting with iOS 8, you must add the <code>NSLocationWhenInUseUsageDescription</code> key to the plist section of the <code>build.settings</code> file which contains the reason why you need access to location services.</p>
 <pre class="brush: lua;">settings =
@@ -155,9 +151,9 @@
         },
     },
 }</pre>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">-- Create a native map view
 local myMap = native.newMapView( 20, 20, 280, 360 )
@@ -186,8 +182,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

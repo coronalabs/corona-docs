@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Tutorials | Gaming/Physics</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -69,15 +69,15 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/games/index.html">Gaming/Physics</a>
 </div>
-<div id="ray-casting-and-reflection" class="section level1">
+<section id="ray-casting-and-reflection" class="level1">
 <h1>Ray Casting and Reflection</h1>
-<p>This tutorial discusses <strong>ray casting</strong> and <strong>reflection</strong>, achieved via the <a href="../../../api/library/physics/rayCast.html">physics.rayCast()</a> and <a href="../../../api/library/physics/reflectRay.html">physics.reflectRay()</a> APIs respectively. It also follows along with a &quot;real world&quot; demo project available for download <a href="https://github.com/coronalabs/samples-coronasdk/tree/master/Physics/RayCasting">here</a>.</p>
-<div id="what-is-ray-casting" class="section level2">
+<p>This tutorial discusses <strong>ray casting</strong> and <strong>reflection</strong>, achieved via the <a href="../../../api/library/physics/rayCast.html">physics.rayCast()</a> and <a href="../../../api/library/physics/reflectRay.html">physics.reflectRay()</a> APIs respectively. It also follows along with a “real world” demo project available for download <a href="https://github.com/coronalabs/samples-coronasdk/tree/master/Physics/RayCasting">here</a>.</p>
+<section id="what-is-ray-casting" class="level2">
 <h2>What is Ray Casting?</h2>
-<p>At the most basic level, <strong>ray casting</strong> involves transmitting <nobr>a ray —</nobr> a straight line — from one point to another point, using it to detect if one or more <a href="../../../api/type/Body/index.html">physics bodies</a> resides in that path. Among other things, this can be used to detect if an object resides in the firing path of a gun, the <nobr>&quot;line-of-sight&quot;</nobr> of an enemy, etc. Essentially, it's a quick and efficient way to query the physics world for the presence of other physics objects.</p>
+<p>At the most basic level, <strong>ray casting</strong> involves transmitting <nobr>a ray —</nobr> a straight line — from one point to another point, using it to detect if one or more <a href="../../../api/type/Body/index.html">physics bodies</a> resides in that path. Among other things, this can be used to detect if an object resides in the firing path of a gun, the <nobr>“line-of-sight”</nobr> of an enemy, etc. Essentially, it’s a quick and efficient way to query the physics world for the presence of other physics objects.</p>
 <p>Corona also features a convenient API for <strong>reflecting</strong> a ray from any object it strikes. From any ray cast with a registered hit, <a href="../../../api/library/physics/reflectRay.html">physics.reflectRay()</a> returns a vector representing the direction of the reflection, with a magnitude (length) of <code>1</code>. This tutorial demonstrates both ray casting and ray reflection in practical usage.</p>
-</div>
-<div id="room-of-mirrors" class="section level2">
+</section>
+<section id="room-of-mirrors" class="level2">
 <h2>Room of Mirrors</h2>
 <div class="docs-tip-outer">
 <div class="docs-tip-inner-left">
@@ -86,10 +86,10 @@
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>If you haven't downloaded the <a href="https://github.com/coronalabs/samples-coronasdk/tree/master/Physics/RayCasting">demo project</a>, please do so and follow along with the code.</p>
+<p>If you haven’t downloaded the <a href="https://github.com/coronalabs/samples-coronasdk/tree/master/Physics/RayCasting">demo project</a>, please do so and follow along with the code.</p>
 </div>
 </div>
-<p>An important step in this demo is configuring the <nobr>&quot;world&quot; —</nobr> in this case a room of mirrors with a laser turret in the center. You can set up your physics world however you wish, but this example loops through a series of tables containing <code>x</code>, <code>y</code>, and <code>rotation</code> values for each mirror:</p>
+<p>An important step in this demo is configuring the <nobr>“world” —</nobr> in this case a room of mirrors with a laser turret in the center. You can set up your physics world however you wish, but this example loops through a series of tables containing <code>x</code>, <code>y</code>, and <code>rotation</code> values for each mirror:</p>
 <pre class="brush: lua;">-- Set up mirror positions relative to the center of the content area
 local mirrorSet = {
     { 0, -125, 90 },    -- top
@@ -105,32 +105,32 @@ turret = display.newImageRect( mirrorGroup, "turret.png", 48, 48 )
 physics.addBody( turret, "dynamic", { radius=18 } )
 turret.x, turret.y = display.contentCenterX, display.contentCenterY</pre>
 <p>Next, we start the turret rotating by setting its angular velocity to the <code>turretSpeed</code> variable located near the beginning of the sample code. Then, we start a repeating timer to fire the laser every 2000 milliseconds.</p>
-<pre class="brush: lua; gutter: false; highlight: [2,5]; first-line: 1;">-- Start rotating turret
+<pre class="highlight: [2,5]; first-line: 1; gutter: false; brush: lua;">-- Start rotating turret
 turret.angularVelocity = turretSpeed
 
 -- Start repeating timer to fire beams
 timer.performWithDelay( 2000, fireOnTimer, 0 )</pre>
-</div>
-<div id="casting-the-ray" class="section level2">
+</section>
+<section id="casting-the-ray" class="level2">
 <h2>Casting the Ray</h2>
 <p>Casting the actual ray is simple. Locate the <code>castRay()</code> function and inspect the highlighted line:</p>
-<pre class="brush: lua; gutter: false; highlight: [4]; first-line: 1;">local function castRay( startX, startY, endX, endY )
+<pre class="highlight: [4]; first-line: 1; gutter: false; brush: lua;">local function castRay( startX, startY, endX, endY )
 
     -- Perform ray cast
     local hits = physics.rayCast( startX, startY, endX, endY, "closest" )</pre>
 <p>The first four arguments to <a href="../../../api/library/physics/rayCast.html">physics.rayCast()</a> indicate an <strong>x</strong> and <strong>y</strong> starting position, along with an <strong>x</strong> and <strong>y</strong> destination. Here, these values are passed in to the <code>castRay()</code> function as <code>startX</code>, <code>startY</code>, <code>endX</code>, and <code>endY</code> respectively.</p>
-<p>The fifth argument, while optional, is worth noting because it indicates the &quot;type&quot; of result(s) you want returned from the ray cast. The following options are currently available:</p>
+<p>The fifth argument, while optional, is worth noting because it indicates the “type” of result(s) you want returned from the ray cast. The following options are currently available:</p>
 <ul>
-<li><code>&quot;any&quot;</code> — Returns the <strong>first</strong> valid result, but not necessarily the closest to the starting point.</li>
-<li><code>&quot;closest&quot;</code> — Returns the <strong>closest</strong> result from the starting point (default return value if no other option is specified).</li>
-<li><code>&quot;sorted&quot;</code> — Returns <strong>all</strong> of the results, sorted from closest to furthest from the starting point.</li>
-<li><code>&quot;unsorted&quot;</code> — Returns <strong>all</strong> of the results, without any sorting algorithm applied.</li>
+<li><code>"any"</code> — Returns the <strong>first</strong> valid result, but not necessarily the closest to the starting point.</li>
+<li><code>"closest"</code> — Returns the <strong>closest</strong> result from the starting point (default return value if no other option is specified).</li>
+<li><code>"sorted"</code> — Returns <strong>all</strong> of the results, sorted from closest to furthest from the starting point.</li>
+<li><code>"unsorted"</code> — Returns <strong>all</strong> of the results, without any sorting algorithm applied.</li>
 </ul>
-</div>
-<div id="utilizing-the-results" class="section level2">
+</section>
+<section id="utilizing-the-results" class="level2">
 <h2>Utilizing the Results</h2>
-<p>The <a href="../../../api/library/physics/rayCast.html">physics.rayCast()</a> API returns an <a href="../../../api/type/Array.html">array</a> of <a href="../../../api/type/Table.html">tables</a> describing each hit, but since we're only interested in the <strong>first</strong> hit that the ray cast registers (in this case the <strong>closest</strong> to the ray's starting point), we'll only deal with the first table in the array:</p>
-<pre class="brush: lua; gutter: false; highlight: [10,13]; first-line: 1;">local function castRay( startX, startY, endX, endY )
+<p>The <a href="../../../api/library/physics/rayCast.html">physics.rayCast()</a> API returns an <a href="../../../api/type/Array.html">array</a> of <a href="../../../api/type/Table.html">tables</a> describing each hit, but since we’re only interested in the <strong>first</strong> hit that the ray cast registers (in this case the <strong>closest</strong> to the ray’s starting point), we’ll only deal with the first table in the array:</p>
+<pre class="highlight: [10,13]; first-line: 1; gutter: false; brush: lua;">local function castRay( startX, startY, endX, endY )
 
     -- Perform ray cast
     local hits = physics.rayCast( startX, startY, endX, endY, "closest" )
@@ -169,11 +169,11 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Note that this sample uses three lines of varying widths, layered over each other, with a <a href="../../../api/type/DisplayObject/blendMode.html">blend mode</a> of <code>&quot;add&quot;</code>. This creates a nice visual appearance of a laser with a brighter center region that fades out to red/orange toward the edges.</p>
+<p>Note that this sample uses three lines of varying widths, layered over each other, with a <a href="../../../api/type/DisplayObject/blendMode.html">blend mode</a> of <code>"add"</code>. This creates a nice visual appearance of a laser with a brighter center region that fades out to red/orange toward the edges.</p>
 </div>
 </div>
-</div>
-<div id="reflecting-the-ray" class="section level2">
+</section>
+<section id="reflecting-the-ray" class="level2">
 <h2>Reflecting the Ray</h2>
 <p>If you wish to <strong>reflect</strong> the ray off a surface it hits, Corona provides the convenient <a href="../../../api/library/physics/reflectRay.html">physics.reflectRay()</a> API. As stated earlier, this returns a vector representing the direction of the reflection, with a magnitude (length) of <code>1</code>.</p>
 <p>Calling this function requires three arguments:</p>
@@ -183,15 +183,15 @@ end</pre>
 <li><code>hit</code> — An entry in the <code>hits</code> array, as returned by the cast ray.</li>
 </ul>
 <p>In our sample, the <a href="../../../api/library/physics/reflectRay.html">physics.reflectRay()</a> call looks like this:</p>
-<pre class="brush: lua; gutter: false; highlight: [1]; first-line: 1;">local reflectX, reflectY = physics.reflectRay( startX, startY, hitFirst )</pre>
+<pre class="highlight: [1]; first-line: 1; gutter: false; brush: lua;">local reflectX, reflectY = physics.reflectRay( startX, startY, hitFirst )</pre>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
 Important
 </div>
-<p>Notice that the <code>from_x</code> and <code>from_y</code> arguments are based on the <strong>original ray cast</strong> starting position <nobr>(<code>startX</code> and <code>startY</code>)</nobr>, <strong>not</strong> the hit position of <code>endX</code> and <code>endY</code>. In other words, <a href="../../../api/library/physics/reflectRay.html">physics.reflectRay()</a> only handles <strong>one</strong> reflection, not a recursive series of reflections. To make the laser continue bouncing/reflecting from mirror to mirror, we'll need to do another ray cast each time, as demonstrated below.</p>
+<p>Notice that the <code>from_x</code> and <code>from_y</code> arguments are based on the <strong>original ray cast</strong> starting position <nobr>(<code>startX</code> and <code>startY</code>)</nobr>, <strong>not</strong> the hit position of <code>endX</code> and <code>endY</code>. In other words, <a href="../../../api/library/physics/reflectRay.html">physics.reflectRay()</a> only handles <strong>one</strong> reflection, not a recursive series of reflections. To make the laser continue bouncing/reflecting from mirror to mirror, we’ll need to do another ray cast each time, as demonstrated below.</p>
 </div>
 <p>To extrude the reflected ray and set a destination point for it, just factor in a vector length of your choosing and sum it to the hit point:</p>
-<pre class="brush: lua; gutter: false; highlight: [2,3,4]; first-line: 1;">local reflectX, reflectY = physics.reflectRay( startX, startY, hitFirst )
+<pre class="highlight: [2,3,4]; first-line: 1; gutter: false; brush: lua;">local reflectX, reflectY = physics.reflectRay( startX, startY, hitFirst )
 local reflectLen = 1600
 local reflectEndX = ( hitX + ( reflectX * reflectLen ) )
 local reflectEndY = ( hitY + ( reflectY * reflectLen ) )</pre>
@@ -199,10 +199,10 @@ local reflectEndY = ( hitY + ( reflectY * reflectLen ) )</pre>
 <div class="notebox-title">
 Note
 </div>
-<p>In this example, we use <code>1600</code> for the reflected vector length, but it can be set to whatever you need. In fact, this value is somewhat arbitrary and, unless you have some specific need to limit the reflected ray's length, it's usually best to set this length to a value much greater than the distance it may travel before hitting another object.</p>
+<p>In this example, we use <code>1600</code> for the reflected vector length, but it can be set to whatever you need. In fact, this value is somewhat arbitrary and, unless you have some specific need to limit the reflected ray’s length, it’s usually best to set this length to a value much greater than the distance it may travel before hitting another object.</p>
 </div>
 <p>Using this new information, we can call the <code>castRay()</code> function again (after a very small delay of 40 milliseconds) to draw a new set of lines from the hit point to the next destination point:</p>
-<pre class="brush: lua; gutter: false; highlight: [6,7,8,9]; first-line: 1;">local reflectX, reflectY = physics.reflectRay( startX, startY, hitFirst )
+<pre class="highlight: [6,7,8,9]; first-line: 1; gutter: false; brush: lua;">local reflectX, reflectY = physics.reflectRay( startX, startY, hitFirst )
 local reflectLen = 1600
 local reflectEndX = ( hitX + ( reflectX * reflectLen ) )
 local reflectEndY = ( hitY + ( reflectY * reflectLen ) )
@@ -211,8 +211,8 @@ local reflectEndY = ( hitY + ( reflectY * reflectLen ) )
 if ( reflectX and reflectY ) then
     timer.performWithDelay( 40, function() castRay( hitX, hitY, reflectEndX, reflectEndY ); end )
 end</pre>
-</div>
-<div id="terminating-the-process" class="section level2">
+</section>
+<section id="terminating-the-process" class="level2">
 <h2>Terminating the Process</h2>
 <p>In the demo project, inside the <code>castRay()</code> function, inspect the following line:</p>
 <pre class="brush: lua;">if ( hits and beamGroup.numChildren &lt;= maxBeams ) then</pre>
@@ -239,9 +239,9 @@ transition.to( beamGroup, { time=800, delay=400, alpha=0, onComplete=resetBeams 
     -- Restart turret rotating after firing is finished
     turret.angularVelocity = turretSpeed
 end</pre>
-<p>This essentially completes the demo walkthrough — on a repeating timer, a ray cast is made from the turret and a set of laser lines is drawn. If the ray hits another object in the physics world, the ray's reflection is calculated and extruded to another point. Based on that data, another ray cast is performed and the process continues until there are either no more hits <strong>or</strong> the beam threshold is reached.</p>
-</div>
-<div id="conclusion" class="section level2">
+<p>This essentially completes the demo walkthrough — on a repeating timer, a ray cast is made from the turret and a set of laser lines is drawn. If the ray hits another object in the physics world, the ray’s reflection is calculated and extruded to another point. Based on that data, another ray cast is performed and the process continues until there are either no more hits <strong>or</strong> the beam threshold is reached.</p>
+</section>
+<section id="conclusion" class="level2">
 <h2>Conclusion</h2>
 <p>As you can see, ray casting can be a useful addition to your physics toolset. From querying the physics world to calculating a potential path of a moving object, ray casting is fast, simple, and can be accomplished in just a few lines of code.</p>
 <hr>
@@ -254,8 +254,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | TrialPay</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -60,11 +60,11 @@
 <li><a href="#registration">Registration</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#functions">Functions</a><ul>
-<li><a href="#trialpay.initplugin.trialpay.init"><a href="../../plugin/trialPay/init.html">trialPay.init()</a></a></li>
-<li><a href="#trialpay.showplugin.trialpay.show"><a href="../../plugin/trialPay/show.html">trialPay.show()</a></a></li>
+<li><a href="#trialpay.initplugin.trialpay.init"><span>trialPay.init()</span></a></li>
+<li><a href="#trialpay.showplugin.trialpay.show"><span>trialPay.show()</span></a></li>
 </ul></li>
 <li><a href="#events">Events</a><ul>
-<li><a href="#adsrequestplugin.trialpay.event.adsrequest"><a href="../../plugin/trialPay/event/adsRequest/index.html">adsRequest</a></a></li>
+<li><a href="#adsrequestplugin.trialpay.event.adsrequest"><span>adsRequest</span></a></li>
 </ul></li>
 <li><a href="#project-settings">Project Settings</a></li>
 <li><a href="#support">Support</a></li>
@@ -74,26 +74,26 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/trialPay/index.html">TrialPay</a>
 </div>
-<div id="trialpay." class="section level1">
+<section id="trialpay." class="level1">
 <h1>trialPay.*</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Library.html">Library</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Library.html">Library</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">ads, advertising, TrialPay</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">ads, advertising, TrialPay</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Platforms</strong></td>
-<td align="left">Android, iOS</td>
+<td style="text-align: left;"><strong>Platforms</strong></td>
+<td style="text-align: left;">Android, iOS</td>
 </tr>
 </tbody>
 </table>
@@ -103,40 +103,37 @@
 > __Sample__            [https://github.com/coronalabs/plugins-sample-trialpay](https://github.com/coronalabs/plugins-sample-trialPay)
 
 -->
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <div class="float-right" style="max-width: 240px; clear: both;">
-<div class="figure">
-<img src="../../images/docs/plugin-screenshot-trialpay.png" />
-
-</div>
+<p><img src="../../images/docs/plugin-screenshot-trialpay.png" /></p>
 </div>
 <p>The <a href="http://www.trialpay.com/">TrialPay</a> plugin allows developers to monetize their mobile app with TrialPay static interstitials, video interstitials, rewarded videos, and offer walls.</p>
-</div>
-<div id="registration" class="section level2">
+</section>
+<section id="registration" class="level2">
 <h2>Registration</h2>
 <p>Before you can use this plugin, you must <a href="https://merchant.trialpay.com/ref/?tp=Taf4gg1a&amp;d=signup&amp;t=mb">register</a> with TrialPay.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">local trialPay = require( "plugin.trialPay" )</pre>
-</div>
-<div id="functions" class="section level2">
+</section>
+<section id="functions" class="level2">
 <h2>Functions</h2>
-<div id="trialpay.initplugin.trialpay.init" class="section level4">
+<section id="trialpay.initplugin.trialpay.init" class="level4">
 <h4><a href="../../plugin/trialPay/init.html">trialPay.init()</a></h4>
-</div>
-<div id="trialpay.showplugin.trialpay.show" class="section level4">
+</section>
+<section id="trialpay.showplugin.trialpay.show" class="level4">
 <h4><a href="../../plugin/trialPay/show.html">trialPay.show()</a></h4>
-</div>
-</div>
-<div id="events" class="section level2">
+</section>
+</section>
+<section id="events" class="level2">
 <h2>Events</h2>
-<div id="adsrequestplugin.trialpay.event.adsrequest" class="section level4">
+<section id="adsrequestplugin.trialpay.event.adsrequest" class="level4">
 <h4><a href="../../plugin/trialPay/event/adsRequest/index.html">adsRequest</a></h4>
-</div>
-</div>
-<div id="project-settings" class="section level2">
+</section>
+</section>
+<section id="project-settings" class="level2">
 <h2>Project Settings</h2>
 <p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
 <pre class="brush: lua;">settings =
@@ -182,18 +179,18 @@ Note
 </div>
 <p>For Android, the following permissions/features are automatically added when using this plugin:</p>
 <ul>
-<li><code>&quot;android.permission.INTERNET&quot;</code></li>
-<li><code>&quot;android.permission.ACCESS_NETWORK_STATE&quot;</code></li>
-<li><code>&quot;android.permission.READ_PHONE_STATE&quot;</code></li>
-<li><code>&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</code></li>
-<li><code>&quot;android.permission.ACCESS_WIFI_STATE&quot;</code></li>
+<li><code>"android.permission.INTERNET"</code></li>
+<li><code>"android.permission.ACCESS_NETWORK_STATE"</code></li>
+<li><code>"android.permission.READ_PHONE_STATE"</code></li>
+<li><code>"android.permission.WRITE_EXTERNAL_STORAGE"</code></li>
+<li><code>"android.permission.ACCESS_WIFI_STATE"</code></li>
 </ul>
 </div>
-</div>
-<div id="support" class="section level2">
+</section>
+<section id="support" class="level2">
 <h2>Support</h2>
 <ul>
-<li><a href="http://trialpay.com" class="uri">http://trialpay.com</a></li>
+<li><a href="http://trialpay.com">http://trialpay.com</a></li>
 <li><a href="http://forums.coronalabs.com/forum/545-monetization-in-app-purchases-ads-etc/">Corona Forums</a></li>
 </ul>
 <hr>
@@ -206,8 +203,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

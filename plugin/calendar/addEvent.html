@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | calendar | addEvent</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -79,90 +79,90 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/calendar/index.html">calendar</a>  ▸  <a href="../../plugin/calendar/addEvent.html">addEvent</a>
 </div>
-<div id="calendar.addevent" class="section level1">
+<section id="calendar.addevent" class="level1">
 <h1>calendar.addEvent()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">calendar, event, add, addEvent</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">calendar, event, add, addEvent</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../plugin/calendar/index.html">calendar.*</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../plugin/calendar/index.html">calendar.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p><code>calendar.addEvent()</code> adds event with specified properties.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">calendar.addEvent( params )</pre>
-<div id="params-required" class="section level5">
+<section id="params-required" class="level5">
 <h5>params <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> Table containing call parameters - see next section for details.</p>
-</div>
-</div>
-<div id="parameters-table-reference" class="section level2">
+</section>
+</section>
+<section id="parameters-table-reference" class="level2">
 <h2>Parameters table reference</h2>
-<div id="listener-optional" class="section level5">
+<section id="listener-optional" class="level5">
 <h5>listener <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Listener.html">Listener</a>.</em> Listener that will receive <a href="../../plugin/calendar/event/calendarEvent/index.html">event</a> event.</p>
-</div>
-<div id="calendarid-optional" class="section level5">
+</section>
+<section id="calendarid-optional" class="level5">
 <h5>calendarId <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> Calendar identifier where calendar event should be added. Default calendar would be used if not specified.</p>
-</div>
-<div id="title-optional" class="section level5">
+</section>
+<section id="title-optional" class="level5">
 <h5>title <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> Title for new calendar event.</p>
-</div>
-<div id="startdate-optional" class="section level5">
+</section>
+<section id="startdate-optional" class="level5">
 <h5>startDate <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Number.html">Number</a>.</em> Start date for new calendar event in Unix time format.</p>
-</div>
-<div id="enddate-optional" class="section level5">
+</section>
+<section id="enddate-optional" class="level5">
 <h5>endDate <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Number.html">Number</a>.</em> End date for new calendar event in Unix time format.</p>
-</div>
-<div id="location-optional" class="section level5">
+</section>
+<section id="location-optional" class="level5">
 <h5>location <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> Location for new calendar event.</p>
-</div>
-<div id="allday-optional" class="section level5">
+</section>
+<section id="allday-optional" class="level5">
 <h5>allDay <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> Boolean value, where <code>true</code> means that new calendar event should last all day and <code>false</code> otherwise.</p>
-</div>
-<div id="repeatfrequency-optional" class="section level5">
+</section>
+<section id="repeatfrequency-optional" class="level5">
 <h5>repeatFrequency <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> Recurrency frequency for new calendar event. Valid values are: <code>day</code>, <code>week</code>, <code>month</code> and <code>year</code>. This field must be combined with <code>repeatEndDate</code>.</p>
-</div>
-<div id="repeatenddate-optional" class="section level5">
+</section>
+<section id="repeatenddate-optional" class="level5">
 <h5>repeatEndDate <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Number.html">Number</a>.</em> Recurrency end date for new calendar event in Unix time format. This field must be combined with <code>repeatFrequency</code>.</p>
-</div>
-<div id="alarms-optional" class="section level5">
+</section>
+<section id="alarms-optional" class="level5">
 <h5>alarms <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> Lua array, each entry containing number of minutes before event to trigger an alarm.</p>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local calendar = require( "plugin.calendar" )
 
@@ -195,8 +195,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

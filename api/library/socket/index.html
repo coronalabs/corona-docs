@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | socket</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -68,47 +68,47 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/socket/index.html">socket</a>
 </div>
-<div id="socket." class="section level1">
+<section id="socket." class="level1">
 <h1>socket.*</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Library.html">Library</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Library.html">Library</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">socket, LuaSocket, networking</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">socket, LuaSocket, networking</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="https://lunarmodules.github.io/luasocket/reference.html">LuaSocket Documentation</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="https://lunarmodules.github.io/luasocket/reference.html">LuaSocket Documentation</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/network/request.html">network.request()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/network/request.html">network.request()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/network/download.html">network.download()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/network/download.html">network.download()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/network/canDetectNetworkStatusChanges.html">network.canDetectNetworkStatusChanges</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/network/canDetectNetworkStatusChanges.html">network.canDetectNetworkStatusChanges</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/network/setStatusListener.html">network.setStatusListener()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/network/setStatusListener.html">network.setStatusListener()</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
@@ -118,8 +118,8 @@ Important
 </div>
 <p>Solar2D currently includes version <nobr><code>3.0-rc1</code></nobr> of the LuaSocket libraries. These Lua modules implement common network protocols such as SMTP, HTTP, and FTP. Also included are features to support MIME (common encodings), URL manipulation, and LTN12 for transferring and filtering data.</p>
 <p>For asynchronous HTTP functions instead of synchronous LuaSocket functions, see <a href="../../../api/library/network/request.html">network.request()</a> and <a href="../../../api/library/network/download.html">network.download()</a>.</p>
-</div>
-<div id="gotchas" class="section level2">
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
 <p>On Android, you must add the <code>INTERNET</code> permission to the <code>build.settings</code> file.</p>
 <pre class="brush: lua;">settings =
@@ -132,10 +132,10 @@ Important
       },
    },
 }</pre>
-</div>
-<div id="examples" class="section level2">
+</section>
+<section id="examples" class="level2">
 <h2>Examples</h2>
-<div id="retrieve-ip-address-and-port" class="section level5">
+<section id="retrieve-ip-address-and-port" class="level5">
 <h5>Retrieve IP Address and Port</h5>
 <pre class="brush: lua;">local socket = require( "socket" )
 
@@ -147,8 +147,8 @@ local ip, port = client:getsockname()
 -- Print the IP address and port to the terminal
 print( "IP Address:", ip )
 print( "Port:", port )</pre>
-</div>
-<div id="download-image-from-remote-url" class="section level5">
+</section>
+<section id="download-image-from-remote-url" class="level5">
 <h5>Download Image From Remote URL</h5>
 <pre class="brush: lua;">-- Load the relevant LuaSocket modules
 local http = require( "socket.http" )
@@ -176,9 +176,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

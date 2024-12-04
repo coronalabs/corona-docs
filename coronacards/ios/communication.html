@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — CoronaCards | iOS | communication</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -68,15 +68,15 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../coronacards/index.html">CoronaCards</a>  ▸  <a href="../../coronacards/ios/index.html">iOS</a>  ▸  <a href="../../coronacards/ios/communication.html">communication</a>
 </div>
-<div id="coronacards-ios" class="section level1">
+<section id="coronacards-ios" class="level1">
 <h1>CoronaCards — iOS</h1>
-<div id="nativelua-communication" class="section level2">
+<section id="nativelua-communication" class="level2">
 <h2>Native/Lua Communication</h2>
 <p>At this time, communication between Lua and the iOS environment is done through an <nobr>Obj-C</nobr> layer. To simplify this process, instances of <code>CoronaView</code> allow <strong>events</strong> to be sent from one environment to the other.</p>
-<p>Within Obj-C, these events are represented by <code>NSDictionary</code> instances. In Lua, they are basic Lua tables. Both follow the Corona convention for events with a required <code>&quot;name&quot;</code> key along with a string value that identifies the key. Further information can additionally be passed via a series of <nobr>key-value</nobr> pairs.</p>
-<div id="obj-c-to-lua" class="section level3">
+<p>Within Obj-C, these events are represented by <code>NSDictionary</code> instances. In Lua, they are basic Lua tables. Both follow the Corona convention for events with a required <code>"name"</code> key along with a string value that identifies the key. Further information can additionally be passed via a series of <nobr>key-value</nobr> pairs.</p>
+<section id="obj-c-to-lua" class="level3">
 <h3>Obj-C to Lua</h3>
-<p>From the Obj-C side, you can send events to a <code>CoronaView</code> instance by constructing a <nobr>Corona-style</nobr> event. For instance, if you have a <code>UIButton</code> that should trigger an event within a <code>CoronaView</code> instance, you can create a new instance of an <code>NSDictionary</code>, fill it with the information you wish to pass, and then send the event. On the Lua side, a <code>CoronaView</code> will convert this <code>NSDictionary</code> object to a Lua table and dispatch it to any Lua <code>Runtime</code> listener that's registered to listen for that event.</p>
+<p>From the Obj-C side, you can send events to a <code>CoronaView</code> instance by constructing a <nobr>Corona-style</nobr> event. For instance, if you have a <code>UIButton</code> that should trigger an event within a <code>CoronaView</code> instance, you can create a new instance of an <code>NSDictionary</code>, fill it with the information you wish to pass, and then send the event. On the Lua side, a <code>CoronaView</code> will convert this <code>NSDictionary</code> object to a Lua table and dispatch it to any Lua <code>Runtime</code> listener that’s registered to listen for that event.</p>
 <p>The following example illustrates this concept on both the <nobr>Obj-C</nobr> and Lua sides:</p>
 <pre class="brush: lua; c">// [Obj-C]
 CoronaView *view = ...
@@ -98,8 +98,8 @@ local function handlePause( event )
 end
 
 Runtime:addEventListener( "pauseEvent", handlePause )</pre>
-</div>
-<div id="lua-to-obj-c" class="section level3">
+</section>
+<section id="lua-to-obj-c" class="level3">
 <h3>Lua to Obj-C</h3>
 <p>Lua code within a <code>CoronaView</code> instance can send events to the <code>CoronaView</code>. These events should be of the type <code>coronaView</code> and you must register a <code>CoronaViewDelegate</code> <nobr>(attached to <code>CoronaView</code>)</nobr> to listen for them. In this case, the Lua <code>event</code> table will be converted to a <code>NSDictionary</code> when it is received by the delegate.</p>
 <p>The following example illustrates this concept on both the <nobr>Obj-C</nobr> and Lua sides:</p>
@@ -125,13 +125,13 @@ local function pressMe( event )
 end
 
 myObject:addEventListener( "touch", pressMe )</pre>
-</div>
-<div id="lua-modules" class="section level3">
+</section>
+<section id="lua-modules" class="level3">
 <h3>Lua Modules</h3>
 <p>A slightly lower-level way to bridge the <nobr>Obj-C</nobr> and Lua worlds is to create a Lua module. This requires using the <a href="https://www.lua.org/manual/5.1/manual.html#3">Lua C API</a> which lets you invoke Lua code from C and create wrappers to C code which you can invoke from Lua.</p>
-</div>
-</div>
-<div id="section" class="section level2">
+</section>
+</section>
+<section id="section" class="level2">
 <h2></h2>
 <div class="walkthrough-nav">
 <p><strong>⟨</strong> <a href="../../coronacards/ios/uikit.html">Obj-C/UIKit Integration</a> <em>|</em> <a href="../../coronacards/ios/support.html">Feature Comparison</a> <strong>⟩</strong></p>
@@ -146,8 +146,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

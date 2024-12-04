@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | system | getInfo</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -120,113 +120,113 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/system/index.html">system</a>  ▸  <a href="../../../api/library/system/getInfo.html">getInfo</a>
 </div>
-<div id="system.getinfo" class="section level1">
+<section id="system.getinfo" class="level1">
 <h1>system.getInfo()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/system/index.html">system.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/system/index.html">system.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">various</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">various</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">system info</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">system info</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Returns information about the system on which the application is running.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">system.getInfo( property )</pre>
-<div id="property-required" class="section level5">
+<section id="property-required" class="level5">
 <h5>property <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/String.html">String</a>.</em> The name of the property corresponding to the desired information — see the reference lists below.</p>
-</div>
-</div>
-<div id="general" class="section level2">
+</section>
+</section>
+<section id="general" class="level2">
 <h2>General</h2>
-<div id="appname" class="section level3">
+<section id="appname" class="level3">
 <h3>appName</h3>
-<p><code>&quot;appName&quot;</code> returns the application's name that is displayed to the end user.</p>
-</div>
-<div id="appversionstring" class="section level3">
+<p><code>"appName"</code> returns the application’s name that is displayed to the end user.</p>
+</section>
+<section id="appversionstring" class="level3">
 <h3>appVersionString</h3>
-<p><code>&quot;appVersionString&quot;</code> returns the application's version as a string.</p>
+<p><code>"appVersionString"</code> returns the application’s version as a string.</p>
 <ul>
-<li>Android — Returns the app's <strong>Version Name</strong>.</li>
-<li>iOS — Returns the app's <strong>CFBundleVersionString</strong>.</li>
+<li>Android — Returns the app’s <strong>Version Name</strong>.</li>
+<li>iOS — Returns the app’s <strong>CFBundleVersionString</strong>.</li>
 <li>Solar2D Simulator — (not supported)</li>
 <li>Windows desktop app — Returns the version entered into the build window.</li>
 </ul>
-</div>
-<div id="architectureinfo" class="section level3">
+</section>
+<section id="architectureinfo" class="level3">
 <h3>architectureInfo</h3>
-<p><code>&quot;architectureInfo&quot;</code> returns a string describing the underlying CPU architecture of the device you are running on. This API is mostly for internal debugging but may have uses. Strings may be subject to changes in the future depending on the changing landscape of devices and CPUs.</p>
+<p><code>"architectureInfo"</code> returns a string describing the underlying CPU architecture of the device you are running on. This API is mostly for internal debugging but may have uses. Strings may be subject to changes in the future depending on the changing landscape of devices and CPUs.</p>
 <ul>
 <li>Android on ARM devices will return <code>ARM</code> <nobr>(typically for ARMv6)</nobr> or <nobr><code>ARM Neon</code> (ARMv7)</nobr>.</li>
 <li>iOS will return values such as <code>iPhone6,1</code> or <code>iPad5,3</code>.</li>
 <li>macOS may return <code>i386</code>, <code>x86_64</code>, <code>ppc</code>, or <code>ppc64</code>.</li>
 <li>Windows Desktop can return <code>x86</code>, <code>x64</code>, <code>IA64</code>, or <code>ARM</code>.</li>
 </ul>
-</div>
-<div id="build" class="section level3">
+</section>
+<section id="build" class="level3">
 <h3>build</h3>
-<p><code>&quot;build&quot;</code> returns the build string as it appears in the <strong>About</strong> box of the Solar2D Simulator.</p>
-</div>
-<div id="bundleid" class="section level3">
+<p><code>"build"</code> returns the build string as it appears in the <strong>About</strong> box of the Solar2D Simulator.</p>
+</section>
+<section id="bundleid" class="level3">
 <h3>bundleID</h3>
-<p><code>&quot;bundleID&quot;</code> returns bundle/package identifier of the app or <code>nil</code> if not applicable.</p>
-</div>
-<div id="darkmode" class="section level3">
+<p><code>"bundleID"</code> returns bundle/package identifier of the app or <code>nil</code> if not applicable.</p>
+</section>
+<section id="darkmode" class="level3">
 <h3>darkMode</h3>
-<p><code>&quot;darkMode&quot;</code> returns either <code>true</code> or <code>false</code> on platforms that support Dark Mode.</p>
-</div>
-<div id="deviceid" class="section level3">
+<p><code>"darkMode"</code> returns either <code>true</code> or <code>false</code> on platforms that support Dark Mode.</p>
+</section>
+<section id="deviceid" class="level3">
 <h3>deviceID</h3>
-<p><code>&quot;deviceID&quot;</code> returns a &quot;unique&quot; ID for the device, with the following caveats:</p>
+<p><code>"deviceID"</code> returns a “unique” ID for the device, with the following caveats:</p>
 <ul>
-<li><p>On iOS, returns a MD5 hash of the device's <code>&quot;identifierForVendor&quot;</code>.</p></li>
-<li><p>On Android, if your app uses the <code>&quot;android.permission.READ_PHONE_STATE&quot;</code> permission, this will return <code>IMEI</code> for GSM phones, <code>MEID</code> or <code>ESN</code> for CDMA phones, or the operating system's unique ID for devices that are not phones. If your Android app does <strong>not</strong> use the <code>&quot;android.permission.READ_PHONE_STATE&quot;</code> permission, the operating system's unique ID will be returned for all devices. Note that the operating system's unique ID may change after <nobr>re-installing</nobr> the operating system on the device.</p></li>
-<li><p>On Android devices running Android 6 and higher, if your app uses the <code>READ_PHONE_STATE</code> permission and your device is a phone, it's possible for the user to change the value returned from <nobr><code>system.getInfo( &quot;deviceID&quot; )</code></nobr> by denying the app the <code>PHONE</code> permission. The first value that's retrieved from <nobr><code>system.getInfo( &quot;deviceID&quot; )</code></nobr> is cached and used throughout the lifetime of the current app instance. To ensure that your app gets a consistent value in this case, you'll need to check if the <code>PHONE</code> permission is granted and, if it's not, request permission. See the <a href="#exampleAndroid6">example</a> below for more details.</p></li>
+<li><p>On iOS, returns a MD5 hash of the device’s <code>"identifierForVendor"</code>.</p></li>
+<li><p>On Android, if your app uses the <code>"android.permission.READ_PHONE_STATE"</code> permission, this will return <code>IMEI</code> for GSM phones, <code>MEID</code> or <code>ESN</code> for CDMA phones, or the operating system’s unique ID for devices that are not phones. If your Android app does <strong>not</strong> use the <code>"android.permission.READ_PHONE_STATE"</code> permission, the operating system’s unique ID will be returned for all devices. Note that the operating system’s unique ID may change after <nobr>re-installing</nobr> the operating system on the device.</p></li>
+<li><p>On Android devices running Android 6 and higher, if your app uses the <code>READ_PHONE_STATE</code> permission and your device is a phone, it’s possible for the user to change the value returned from <nobr><code>system.getInfo( "deviceID" )</code></nobr> by denying the app the <code>PHONE</code> permission. The first value that’s retrieved from <nobr><code>system.getInfo( "deviceID" )</code></nobr> is cached and used throughout the lifetime of the current app instance. To ensure that your app gets a consistent value in this case, you’ll need to check if the <code>PHONE</code> permission is granted and, if it’s not, request permission. See the <a href="#exampleAndroid6">example</a> below for more details.</p></li>
 </ul>
-</div>
-<div id="environment" class="section level3">
+</section>
+<section id="environment" class="level3">
 <h3>environment</h3>
-<p><code>&quot;environment&quot;</code> returns the environment that the app is running in. These include:</p>
+<p><code>"environment"</code> returns the environment that the app is running in. These include:</p>
 <ul>
 <li><code>simulator</code> for the Solar2D Simulator.</li>
 <li><code>device</code> for iOS, the Xcode iOS Simulator, Android devices, the Android emulator, macOS desktop apps, and Windows desktop apps.</li>
 <li><code>browser</code> for HTML5 apps.</li>
 </ul>
-</div>
-<div id="maxtexturesize" class="section level3">
+</section>
+<section id="maxtexturesize" class="level3">
 <h3>maxTextureSize</h3>
-<p><code>&quot;maxTextureSize&quot;</code> returns the maximum texture width or height supported by the device.</p>
-</div>
-<div id="texturememoryused" class="section level3">
+<p><code>"maxTextureSize"</code> returns the maximum texture width or height supported by the device.</p>
+</section>
+<section id="texturememoryused" class="level3">
 <h3>textureMemoryUsed</h3>
-<p><code>&quot;textureMemoryUsed&quot;</code> returns the texture memory usage (in bytes). Texture memory for graphics/images tends to be the most sharply limited resource in mobile development since it runs out before normal memory.</p>
-</div>
-<div id="manufacturer" class="section level3">
+<p><code>"textureMemoryUsed"</code> returns the texture memory usage (in bytes). Texture memory for graphics/images tends to be the most sharply limited resource in mobile development since it runs out before normal memory.</p>
+</section>
+<section id="manufacturer" class="level3">
 <h3>manufacturer</h3>
-<p><code>&quot;manufacturer&quot;</code> returns the device's manufacturer. On Android, this returns the raw value of <code>android.os.Build.MANUFACTURER</code> (<a href="https://developer.android.com/reference/android/os/Build.html#MANUFACTURER">reference</a>). Examples include:</p>
+<p><code>"manufacturer"</code> returns the device’s manufacturer. On Android, this returns the raw value of <code>android.os.Build.MANUFACTURER</code> (<a href="https://developer.android.com/reference/android/os/Build.html#MANUFACTURER">reference</a>). Examples include:</p>
 <ul>
 <li><code>Apple</code> — returned on all Apple devices, iOS, macOS, or tvOS.</li>
 <li><code>Amazon</code> — returned on all <nobr>Amazon-manufactured</nobr> Android devices, Kindle tablets, Fire TV, and the Fire Phone.</li>
@@ -234,10 +234,10 @@
 <li><code>HTC</code> — returned on all <nobr>HTC-manufacturered</nobr> Android devices <nobr>(note the fully-uppercase <code>HTC</code>)</nobr>.</li>
 <li><code>LENOVO</code> — returned on Windows laptops manufactured by Lenovo <nobr>(note the fully-uppercase <code>LENOVO</code>)</nobr>.</li>
 </ul>
-</div>
-<div id="model" class="section level3">
+</section>
+<section id="model" class="level3">
 <h3>model</h3>
-<p><code>&quot;model&quot;</code> returns the device model (as specified by the manufacturer). Note that most Android devices return a model number instead of a model name. Examples include:</p>
+<p><code>"model"</code> returns the device model (as specified by the manufacturer). Note that most Android devices return a model number instead of a model name. Examples include:</p>
 <ul>
 <li><code>iPhone</code></li>
 <li><code>iPad</code></li>
@@ -248,19 +248,19 @@
 <li><code>Droid</code></li>
 <li><code>Galaxy Tab</code></li>
 </ul>
-</div>
-<div id="name" class="section level3">
+</section>
+<section id="name" class="level3">
 <h3>name</h3>
-<p><code>&quot;name&quot;</code> returns the human-readable model name. On iPhone, this would be the name of the phone as it appears in iTunes, for example <nobr><code>&quot;Steve's iPhone&quot;</code></nobr>. This is not supported on Android.</p>
-</div>
-<div id="platform" class="section level3">
+<p><code>"name"</code> returns the human-readable model name. On iPhone, this would be the name of the phone as it appears in iTunes, for example <nobr><code>"Steve's iPhone"</code></nobr>. This is not supported on Android.</p>
+</section>
+<section id="platform" class="level3">
 <h3>platform</h3>
-<p><code>&quot;platform&quot;</code> returns the operating system platform tag, which can be one of:</p>
+<p><code>"platform"</code> returns the operating system platform tag, which can be one of:</p>
 <ul>
 <li><code>android</code> — all Android devices and the Android emulator.</li>
 <li><code>ios</code> — all iOS devices and the Xcode iOS Simulator.</li>
 <li><code>macos</code> — macOS desktop apps.</li>
-<li><code>tvos</code> — Apple's tvOS (Apple TV).</li>
+<li><code>tvos</code> — Apple’s tvOS (Apple TV).</li>
 <li><code>win32</code> — Win32 desktop apps.</li>
 <li><code>html5</code> — HTML5 apps.</li>
 </ul>
@@ -270,18 +270,18 @@ Note
 </div>
 <p>In the Solar2D Simulator, the value returned depends on the skin selected, allowing you to test <nobr>platform-dependent</nobr> logic by changing skins.</p>
 </div>
-</div>
-<div id="platformname" class="section level3">
+</section>
+<section id="platformname" class="level3">
 <h3>platformName</h3>
-<p>This option is deprecated; use <code>&quot;platform&quot;</code> instead (see above).</p>
-</div>
-<div id="platformversion" class="section level3">
+<p>This option is deprecated; use <code>"platform"</code> instead (see above).</p>
+</section>
+<section id="platformversion" class="level3">
 <h3>platformVersion</h3>
-<p><code>&quot;platformVersion&quot;</code> returns a string representation of the platform version. This is sometimes, but not always, a number — for example, a Droid X currently returns <nobr><code>2.1-update1</code></nobr>.</p>
-</div>
-<div id="targetappstore" class="section level3">
+<p><code>"platformVersion"</code> returns a string representation of the platform version. This is sometimes, but not always, a number — for example, a Droid X currently returns <nobr><code>2.1-update1</code></nobr>.</p>
+</section>
+<section id="targetappstore" class="level3">
 <h3>targetAppStore</h3>
-<p><code>&quot;targetAppStore&quot;</code> returns the name of the app store that the application was built for:</p>
+<p><code>"targetAppStore"</code> returns the name of the app store that the application was built for:</p>
 <ul>
 <li><code>apple</code> — always returned on iOS and macOS</li>
 <li><code>amazon</code> — targets the Amazon app store (only returned on Android).</li>
@@ -289,125 +289,125 @@ Note
 <li><code>windows</code> — targets the Windows app store.</li>
 <li><code>none</code> — indicates that the app is not targeting a specific app store. This is always returned by the Solar2D Simulator.</li>
 </ul>
-</div>
-</div>
-<div id="android" class="section level2">
+</section>
+</section>
+<section id="android" class="level2">
 <h2>Android</h2>
-<div id="androidapilevel" class="section level3">
+<section id="androidapilevel" class="level3">
 <h3>androidApiLevel</h3>
-<p><code>&quot;androidApiLevel&quot;</code> returns an integer indicating which <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels">Android OS version</a> the app is running on. For example, <nobr>API Level 23</nobr> indicates that the OS version is Android 6.0 and <nobr>API Level 21</nobr> indicates that the OS version is Android 5.0.</p>
-</div>
-<div id="androidappversioncode" class="section level3">
+<p><code>"androidApiLevel"</code> returns an integer indicating which <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels">Android OS version</a> the app is running on. For example, <nobr>API Level 23</nobr> indicates that the OS version is Android 6.0 and <nobr>API Level 21</nobr> indicates that the OS version is Android 5.0.</p>
+</section>
+<section id="androidappversioncode" class="level3">
 <h3>androidAppVersionCode</h3>
-<p><code>&quot;androidAppVersionCode&quot;</code> returns the application's version code as a number. Returns <code>nil</code> on all other platforms.</p>
-</div>
-<div id="androidapppackagename" class="section level3">
+<p><code>"androidAppVersionCode"</code> returns the application’s version code as a number. Returns <code>nil</code> on all other platforms.</p>
+</section>
+<section id="androidapppackagename" class="level3">
 <h3>androidAppPackageName</h3>
-<p><code>&quot;androidAppPackageName&quot;</code> returns the application's unique dot-separated package name. Returns <code>nil</code> on all other platforms.</p>
-</div>
-<div id="androidgrantedapppermissions" class="section level3">
+<p><code>"androidAppPackageName"</code> returns the application’s unique dot-separated package name. Returns <code>nil</code> on all other platforms.</p>
+</section>
+<section id="androidgrantedapppermissions" class="level3">
 <h3>androidGrantedAppPermissions</h3>
-<p><code>&quot;androidGrantedAppPermissions&quot;</code> returns a table of strings representing every app permission that has been requested and granted to the app. These are in the form of standard Android permission names, such as <code>android.permission.WRITE_EXTERNAL_STORAGE</code> or <code>com.android.vending.BILLING</code>.</p>
-</div>
-<div id="androiddeniedapppermissions" class="section level3">
+<p><code>"androidGrantedAppPermissions"</code> returns a table of strings representing every app permission that has been requested and granted to the app. These are in the form of standard Android permission names, such as <code>android.permission.WRITE_EXTERNAL_STORAGE</code> or <code>com.android.vending.BILLING</code>.</p>
+</section>
+<section id="androiddeniedapppermissions" class="level3">
 <h3>androidDeniedAppPermissions</h3>
-<p><code>&quot;androidDeniedAppPermissions&quot;</code> returns a table of strings representing every app permission that has been requested and <strong>denied</strong> to the app. These are in the form of standard Android permission names, such as <code>android.permission.WRITE_EXTERNAL_STORAGE</code> or <code>com.android.vending.BILLING</code>.</p>
-</div>
-<div id="grantedapppermissions" class="section level3">
+<p><code>"androidDeniedAppPermissions"</code> returns a table of strings representing every app permission that has been requested and <strong>denied</strong> to the app. These are in the form of standard Android permission names, such as <code>android.permission.WRITE_EXTERNAL_STORAGE</code> or <code>com.android.vending.BILLING</code>.</p>
+</section>
+<section id="grantedapppermissions" class="level3">
 <h3>grantedAppPermissions</h3>
-<p><code>&quot;grantedAppPermissions&quot;</code> returns a table of strings representing every app permission that has been requested and granted to this app. This may contain a mix of <nobr>platform-agnostic</nobr> app permission names, like <code>Calendars</code>, and standard Android permission names, like <code>android.permission.INTERNET</code>.</p>
-</div>
-<div id="deniedapppermissions" class="section level3">
+<p><code>"grantedAppPermissions"</code> returns a table of strings representing every app permission that has been requested and granted to this app. This may contain a mix of <nobr>platform-agnostic</nobr> app permission names, like <code>Calendars</code>, and standard Android permission names, like <code>android.permission.INTERNET</code>.</p>
+</section>
+<section id="deniedapppermissions" class="level3">
 <h3>deniedAppPermissions</h3>
-<p><code>&quot;deniedAppPermissions&quot;</code> returns a table of strings representing every app permission that has been requested and <strong>denied</strong> to the app. This may contain a mix of <nobr>platform-agnostic</nobr> app permission names, like <code>Calendars</code>, and standard Android permission names, like <code>android.permission.INTERNET</code>.</p>
-</div>
-<div id="androiddisplayapproximatedpi" class="section level3">
+<p><code>"deniedAppPermissions"</code> returns a table of strings representing every app permission that has been requested and <strong>denied</strong> to the app. This may contain a mix of <nobr>platform-agnostic</nobr> app permission names, like <code>Calendars</code>, and standard Android permission names, like <code>android.permission.INTERNET</code>.</p>
+</section>
+<section id="androiddisplayapproximatedpi" class="level3">
 <h3>androidDisplayApproximateDpi</h3>
-<p><code>&quot;androidDisplayApproximateDpi&quot;</code> returns the approximate DPI (dots per inch) of the screen as a number. This DPI value is based on the device's assigned density name, such as <code>hdpi</code> or <code>xhdpi</code>, which provide standardized DPI values on Android. This value is typically not the actual DPI of the display, which you can fetch using <code>&quot;androidDisplayXDpi&quot;</code> and <code>&quot;androidDisplayYDpi&quot;</code>.</p>
+<p><code>"androidDisplayApproximateDpi"</code> returns the approximate DPI (dots per inch) of the screen as a number. This DPI value is based on the device’s assigned density name, such as <code>hdpi</code> or <code>xhdpi</code>, which provide standardized DPI values on Android. This value is typically not the actual DPI of the display, which you can fetch using <code>"androidDisplayXDpi"</code> and <code>"androidDisplayYDpi"</code>.</p>
 <p>The following table lists the DPI values that will be returned for each display density type. Returns <code>nil</code> on all other platforms.</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Density</th>
-<th align="center">DPI</th>
+<th style="text-align: left;">Density</th>
+<th style="text-align: center;">DPI</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>ldpi</code></td>
-<td align="center">120</td>
+<td style="text-align: left;"><code>ldpi</code></td>
+<td style="text-align: center;">120</td>
 </tr>
 <tr class="even">
-<td align="left"><code>mdpi</code></td>
-<td align="center">160</td>
+<td style="text-align: left;"><code>mdpi</code></td>
+<td style="text-align: center;">160</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>hdpi</code></td>
-<td align="center">240</td>
+<td style="text-align: left;"><code>hdpi</code></td>
+<td style="text-align: center;">240</td>
 </tr>
 <tr class="even">
-<td align="left"><code>xhdpi</code></td>
-<td align="center">320</td>
+<td style="text-align: left;"><code>xhdpi</code></td>
+<td style="text-align: center;">320</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>xxhdpi</code></td>
-<td align="center">480</td>
+<td style="text-align: left;"><code>xxhdpi</code></td>
+<td style="text-align: center;">480</td>
 </tr>
 <tr class="even">
-<td align="left"><code>xxxhdpi</code></td>
-<td align="center">640</td>
+<td style="text-align: left;"><code>xxxhdpi</code></td>
+<td style="text-align: center;">640</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>tvdpi</code></td>
-<td align="center">213</td>
+<td style="text-align: left;"><code>tvdpi</code></td>
+<td style="text-align: center;">213</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div id="androiddisplaydensityname" class="section level3">
+</section>
+<section id="androiddisplaydensityname" class="level3">
 <h3>androidDisplayDensityName</h3>
-<p><code>&quot;androidDisplayDensityName&quot;</code> returns the device's screen density as a string, which can be <code>ldpi</code>, <code>mdpi</code>, <code>hdpi</code>, <code>xhdpi</code>, <code>xxhdpi</code>, <code>xxxhdpi</code>, <code>tvdpi</code>, or <code>unknown</code>. Returns <code>nil</code> on all other platforms.</p>
-</div>
-<div id="androiddisplaywidthininches" class="section level3">
+<p><code>"androidDisplayDensityName"</code> returns the device’s screen density as a string, which can be <code>ldpi</code>, <code>mdpi</code>, <code>hdpi</code>, <code>xhdpi</code>, <code>xxhdpi</code>, <code>xxxhdpi</code>, <code>tvdpi</code>, or <code>unknown</code>. Returns <code>nil</code> on all other platforms.</p>
+</section>
+<section id="androiddisplaywidthininches" class="level3">
 <h3>androidDisplayWidthInInches</h3>
-<p><code>&quot;androidDisplayWidthInInches&quot;</code> returns the width of the application window in inches, relative to the orientation of the application. Returns <code>nil</code> on all other platforms.</p>
-</div>
-<div id="androiddisplayheightininches" class="section level3">
+<p><code>"androidDisplayWidthInInches"</code> returns the width of the application window in inches, relative to the orientation of the application. Returns <code>nil</code> on all other platforms.</p>
+</section>
+<section id="androiddisplayheightininches" class="level3">
 <h3>androidDisplayHeightInInches</h3>
-<p><code>&quot;androidDisplayHeightInInches&quot;</code> returns the height of the application window in inches, relative to the orientation of the application. Returns <code>nil</code> on all other platforms.</p>
-</div>
-<div id="androiddisplayxdpi" class="section level3">
+<p><code>"androidDisplayHeightInInches"</code> returns the height of the application window in inches, relative to the orientation of the application. Returns <code>nil</code> on all other platforms.</p>
+</section>
+<section id="androiddisplayxdpi" class="level3">
 <h3>androidDisplayXDpi</h3>
-<p><code>&quot;androidDisplayXDpi&quot;</code> returns the DPI (dots per inch) of the screen along the <strong>x</strong> axis, relative to the orientation of the application. This can be used to convert pixels to inches and vice-versa. Returns <code>nil</code> on all other platforms.</p>
-</div>
-<div id="androiddisplayydpi" class="section level3">
+<p><code>"androidDisplayXDpi"</code> returns the DPI (dots per inch) of the screen along the <strong>x</strong> axis, relative to the orientation of the application. This can be used to convert pixels to inches and vice-versa. Returns <code>nil</code> on all other platforms.</p>
+</section>
+<section id="androiddisplayydpi" class="level3">
 <h3>androidDisplayYDpi</h3>
-<p><code>&quot;androidDisplayYDpi&quot;</code> returns the DPI (dots per inch) of the screen along the <strong>y</strong> axis, relative to the orientation of the application. This can be used to convert pixels to inches and vice-versa. Returns <code>nil</code> on all other platforms.</p>
-</div>
-<div id="hassoftwarekeys" class="section level3">
+<p><code>"androidDisplayYDpi"</code> returns the DPI (dots per inch) of the screen along the <strong>y</strong> axis, relative to the orientation of the application. This can be used to convert pixels to inches and vice-versa. Returns <code>nil</code> on all other platforms.</p>
+</section>
+<section id="hassoftwarekeys" class="level3">
 <h3>hasSoftwareKeys</h3>
-<p><code>&quot;hasSoftwareKeys&quot;</code> returns boolean, <code>true</code> if Android device has a Software Keys(i.e for Home and Back Button) instead of Physical Keys. Returns <code>nil</code> on all other platforms. Requires <code>Solar2D 2023.3686</code> or a newer build.</p>
-</div>
-</div>
-<div id="ios-ipados-tvos-macos" class="section level2">
+<p><code>"hasSoftwareKeys"</code> returns boolean, <code>true</code> if Android device has a Software Keys(i.e for Home and Back Button) instead of Physical Keys. Returns <code>nil</code> on all other platforms. Requires <code>Solar2D 2023.3686</code> or a newer build.</p>
+</section>
+</section>
+<section id="ios-ipados-tvos-macos" class="level2">
 <h2>iOS / iPadOS / tvOS / macOS</h2>
-<div id="iosidentifierforvendor" class="section level3">
+<section id="iosidentifierforvendor" class="level3">
 <h3>iosIdentifierForVendor</h3>
-<p><code>&quot;iosIdentifierForVendor&quot;</code> returns an alphanumeric string that uniquely identifies a device to the app’s vendor. (See <a href="https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor">Apple documentation</a>).</p>
-</div>
-<div id="reducemotion" class="section level3">
+<p><code>"iosIdentifierForVendor"</code> returns an alphanumeric string that uniquely identifies a device to the app’s vendor. (See <a href="https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor">Apple documentation</a>).</p>
+</section>
+<section id="reducemotion" class="level3">
 <h3>reduceMotion</h3>
-<p><code>&quot;reduceMotion&quot;</code> returns a boolean indicating whether the system preference for Reduce Motion is enabled. (See <a href="https://developer.apple.com/documentation/swiftui/environmentvalues/accessibilityreducemotion">Apple documentation</a>) Requires <code>Solar2D 2023.3693</code> or later.</p>
-</div>
-<div id="reducetransparency" class="section level3">
+<p><code>"reduceMotion"</code> returns a boolean indicating whether the system preference for Reduce Motion is enabled. (See <a href="https://developer.apple.com/documentation/swiftui/environmentvalues/accessibilityreducemotion">Apple documentation</a>) Requires <code>Solar2D 2023.3693</code> or later.</p>
+</section>
+<section id="reducetransparency" class="level3">
 <h3>reduceTransparency</h3>
-<p><code>&quot;reduceTransparency&quot;</code> returns a boolean indicating whether the system preference for Reduce Transparency is enabled. (See <a href="https://developer.apple.com/documentation/swiftui/environmentvalues/accessibilityreducetransparency">Apple documentation</a>) Requires <code>Solar2D 2023.3693</code> or later.</p>
-</div>
-<div id="differentiatewithoutcolor" class="section level3">
+<p><code>"reduceTransparency"</code> returns a boolean indicating whether the system preference for Reduce Transparency is enabled. (See <a href="https://developer.apple.com/documentation/swiftui/environmentvalues/accessibilityreducetransparency">Apple documentation</a>) Requires <code>Solar2D 2023.3693</code> or later.</p>
+</section>
+<section id="differentiatewithoutcolor" class="level3">
 <h3>differentiateWithoutColor</h3>
-<p><code>&quot;differentiateWithoutColor&quot;</code> returns a boolean indicating whether the system preference for Differentiate without Color is enabled. (See <a href="https://developer.apple.com/documentation/swiftui/environmentvalues/accessibilitydifferentiatewithoutcolor/">Apple documentation</a>) Requires <code>Solar2D 2023.3693</code> or later.</p>
+<p><code>"differentiateWithoutColor"</code> returns a boolean indicating whether the system preference for Differentiate without Color is enabled. (See <a href="https://developer.apple.com/documentation/swiftui/environmentvalues/accessibilitydifferentiatewithoutcolor/">Apple documentation</a>) Requires <code>Solar2D 2023.3693</code> or later.</p>
 <!---
 
 ### isoCountryCode
@@ -419,49 +419,49 @@ Note
 `"isoLanguageCode"` returns the "ISO 639-1" language code currently selected under the system's regional settings, for example the display language.
 
 -->
-</div>
-</div>
-<div id="graphics" class="section level2">
+</section>
+</section>
+<section id="graphics" class="level2">
 <h2>Graphics</h2>
-<div id="gpusupportshighprecisionfragmentshaders" class="section level3">
+<section id="gpusupportshighprecisionfragmentshaders" class="level3">
 <h3>gpuSupportsHighPrecisionFragmentShaders</h3>
-<p><code>&quot;gpuSupportsHighPrecisionFragmentShaders&quot;</code> returns a boolean indicating whether <code>HIGHP</code> is supported in fragment shaders on this device.</p>
-</div>
-<div id="maxvertextextureunits" class="section level3">
+<p><code>"gpuSupportsHighPrecisionFragmentShaders"</code> returns a boolean indicating whether <code>HIGHP</code> is supported in fragment shaders on this device.</p>
+</section>
+<section id="maxvertextextureunits" class="level3">
 <h3>maxVertexTextureUnits</h3>
-<p><code>&quot;maxVertexTextureUnits&quot;</code> returns the number of samplers that may be used in vertex shaders on this device. See <strong>Vertex Textures</strong> in the <a href="../../../guide/graphics/customEffects.html">Custom Shader Effects</a> guide.</p>
-</div>
-<div id="gl_vendor" class="section level3">
+<p><code>"maxVertexTextureUnits"</code> returns the number of samplers that may be used in vertex shaders on this device. See <strong>Vertex Textures</strong> in the <a href="../../../guide/graphics/customEffects.html">Custom Shader Effects</a> guide.</p>
+</section>
+<section id="gl_vendor" class="level3">
 <h3>GL_VENDOR</h3>
-<p><code>&quot;GL_VENDOR&quot;</code> returns the company responsible for the GL implementation on this device. See <a href="https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml">here</a> for details.</p>
-</div>
-<div id="gl_renderer" class="section level3">
+<p><code>"GL_VENDOR"</code> returns the company responsible for the GL implementation on this device. See <a href="https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml">here</a> for details.</p>
+</section>
+<section id="gl_renderer" class="level3">
 <h3>GL_RENDERER</h3>
-<p><code>&quot;GL_RENDERER&quot;</code> returns the name of the GL renderer. See <a href="https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml">here</a> for details.</p>
-</div>
-<div id="gl_version" class="section level3">
+<p><code>"GL_RENDERER"</code> returns the name of the GL renderer. See <a href="https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml">here</a> for details.</p>
+</section>
+<section id="gl_version" class="level3">
 <h3>GL_VERSION</h3>
-<p><code>&quot;GL_VERSION&quot;</code> returns the GL version. See <a href="https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml">here</a> for details.</p>
-</div>
-<div id="gl_shading_language_version" class="section level3">
+<p><code>"GL_VERSION"</code> returns the GL version. See <a href="https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml">here</a> for details.</p>
+</section>
+<section id="gl_shading_language_version" class="level3">
 <h3>GL_SHADING_LANGUAGE_VERSION</h3>
-<p><code>&quot;GL_SHADING_LANGUAGE_VERSION&quot;</code> returns the GL version or release number for the GLSL shading language. See <a href="https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml">here</a> for details.</p>
-</div>
-<div id="gl_extensions" class="section level3">
+<p><code>"GL_SHADING_LANGUAGE_VERSION"</code> returns the GL version or release number for the GLSL shading language. See <a href="https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml">here</a> for details.</p>
+</section>
+<section id="gl_extensions" class="level3">
 <h3>GL_EXTENSIONS</h3>
-<p><code>&quot;GL_EXTENSIONS&quot;</code> returns the list of extensions supported on this device. See <a href="https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml">here</a> for details.</p>
-</div>
-</div>
-<div id="examples" class="section level2">
+<p><code>"GL_EXTENSIONS"</code> returns the list of extensions supported on this device. See <a href="https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGetString.xml">here</a> for details.</p>
+</section>
+</section>
+<section id="examples" class="level2">
 <h2>Examples</h2>
-<div id="checking-app-environment" class="section level5">
+<section id="checking-app-environment" class="level5">
 <h5>Checking App Environment</h5>
 <pre class="brush: lua;">if ( system.getInfo( "environment" ) == "simulator" ) then
     print( "You're in the Solar2D Simulator." )
 end</pre>
 <p><a id="exampleAndroid6"></a></p>
-</div>
-<div id="handling-android-6-device-id" class="section level5">
+</section>
+<section id="handling-android-6-device-id" class="level5">
 <h5>Handling Android 6 Device ID</h5>
 <pre class="brush: lua;">local storedDeviceID = ""
 
@@ -526,9 +526,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

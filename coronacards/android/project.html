@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — CoronaCards | Android | project</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -73,35 +73,35 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../coronacards/index.html">CoronaCards</a>  ▸  <a href="../../coronacards/android/index.html">Android</a>  ▸  <a href="../../coronacards/android/project.html">project</a>
 </div>
-<div id="coronacards-project-integration-android" class="section level1">
+<section id="coronacards-project-integration-android" class="level1">
 <h1>CoronaCards: Project Integration — Android</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">CoronaCards, Android</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">CoronaCards, Android</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../coronacards/android/index.html">Getting Started — Android</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../coronacards/android/index.html">Getting Started — Android</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../coronacards/android/communication.html">Native/Lua Communication — Android</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../coronacards/android/communication.html">Native/Lua Communication — Android</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>This guide explains how to integrate CoronaCards with a native Android project.</p>
-</div>
-<div id="system-requirements" class="section level2">
+</section>
+<section id="system-requirements" class="level2">
 <h2>System Requirements</h2>
 <ul>
 <li>Android SDK level 15+</li>
@@ -109,32 +109,32 @@
 <li>Android device running <strong>Android 4.0.3</strong> or higher</li>
 <li>Android device with an <strong>ARMv7</strong> processor</li>
 </ul>
-</div>
-<div id="installation" class="section level2">
+</section>
+<section id="installation" class="level2">
 <h2>Installation</h2>
 <p>Get the desired CoronaCards framework from the <a href="https://solar2d.com/download/">download page</a> and follow the instructions to install it.</p>
-</div>
-<div id="classes" class="section level2">
+</section>
+<section id="classes" class="level2">
 <h2>Classes</h2>
 <p><code>com.ansca.corona.CoronaView</code> is the main entry point — this is the view that should be added to your layout.</p>
-</div>
-<div id="usageassets" class="section level2">
+</section>
+<section id="usageassets" class="level2">
 <h2>Usage/Assets</h2>
 <p>To use CoronaCards in the designer, you need to copy the <code>.jar</code> files into the <code>[Project Directory]/[Application Name]/libs</code> folder and the <code>.so</code> files into the <code>[Project Directory]/[Application Name]/src/main/jniLibs/armeabi-v7a</code> folder. A sample folder structure can be found on <a href="https://github.com/CoronaCards/sample-android-ChildView">GitHub</a>. Android Studio will show the <code>CoronaView</code> as a custom view in the designer.</p>
-<div id="eclipse" class="section level3">
+<section id="eclipse" class="level3">
 <h3>Eclipse</h3>
 <p>To use CoronaCards in Eclipse, copy the <code>.jar</code> files into the <code>[Project Directory]/libs</code> folder and the <code>.so</code> files into the <code>[Project Directory]/libs/armeabi-v7a</code> folder.</p>
-</div>
-<div id="manifest" class="section level3">
+</section>
+<section id="manifest" class="level3">
 <h3>Manifest</h3>
 <p>Nothing needs to be added to the manifest.</p>
-</div>
-<div id="solar2d-project" class="section level3">
+</section>
+<section id="solar2d-project" class="level3">
 <h3>Solar2D Project</h3>
-<p>Place your Solar2D assets (i.e. <code>main.lua</code>) into the <code>assets</code> folder of your project. The <code>CoronaView</code> should then use this path:</p>
+<p>Place your Solar2D assets (i.e. <code>main.lua</code>) into the <code>assets</code> folder of your project. The <code>CoronaView</code> should then use this path:</p>
 <pre class="brush: lua;">CoronaView coronaView = new CoronaView(context);
 coronaView.init("");</pre>
-<div id="example" class="section level5">
+<section id="example" class="level5">
 <h5>Example</h5>
 <pre class="brush: lua;">CoronaView coronaView = new CoronaView(context);
 // Assuming 'main.lua' and all of its assets are in a folder named 'Fishies' in the 'assets' directory:
@@ -149,10 +149,10 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

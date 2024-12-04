@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Tutorials | Gaming/Physics</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -73,30 +73,27 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/games/index.html">Gaming/Physics</a>
 </div>
-<div id="multi-element-collisions" class="section level1">
+<section id="multi-element-collisions" class="level1">
 <h1><nobr>Multi-Element</nobr> Collisions</h1>
-<p>This tutorial covers an important topic regarding Corona's physics engine — in specific, advanced tactics involving <nobr>multi-element</nobr> physics bodies.</p>
-<p>First, we should define what a <nobr><strong>multi-element</strong></nobr> body is. Essentially, a <nobr>multi-element</nobr> body is a physics body composed of two or more &quot;shapes&quot; to create a whole. It does <strong>not</strong> define a physical object that you have assembled by attaching several physical bodies with weld joints or other joints (like a ragdoll). Instead, a <nobr>multi-element</nobr> body is assembled from several shapes but it's treated as a unified, solid whole, wherein the individual elements don't move or flex.</p>
-<div id="why-multi-element-bodies" class="section level2">
+<p>This tutorial covers an important topic regarding Corona’s physics engine — in specific, advanced tactics involving <nobr>multi-element</nobr> physics bodies.</p>
+<p>First, we should define what a <nobr><strong>multi-element</strong></nobr> body is. Essentially, a <nobr>multi-element</nobr> body is a physics body composed of two or more “shapes” to create a whole. It does <strong>not</strong> define a physical object that you have assembled by attaching several physical bodies with weld joints or other joints (like a ragdoll). Instead, a <nobr>multi-element</nobr> body is assembled from several shapes but it’s treated as a unified, solid whole, wherein the individual elements don’t move or flex.</p>
+<section id="why-multi-element-bodies" class="level2">
 <h2>Why Multi-Element Bodies?</h2>
 <div class="float-right" style="max-width: 295px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/multi-element-1.png" />
-
-</div>
+<p><img src="../../../images/docs/multi-element-1.png" /></p>
 </div>
 <p>This is a rehash for physics veterans, but basically, in Box2D, <strong>all</strong> <nobr>shape-based</nobr> physical bodies must obey these rules:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Must be a polygonal shape of <strong>eight sides maximum</strong>.</li>
 <li>Must <strong>not</strong> include any <strong>concave angles</strong>.</li>
 </ol>
-<p>This is fine for a body that you can define as a standard, convex polygon, but what about a body that can't be traced with only convex angles or can't be represented accurately in eight sides or less?</p>
+<p>This is fine for a body that you can define as a standard, convex polygon, but what about a body that can’t be traced with only convex angles or can’t be represented accurately in eight sides or less?</p>
 <p>The solution is a <nobr>multi-element</nobr> body where the sprite/image is represented by <strong>multiple</strong> convex shapes to create a unified body.</p>
-</div>
-<div id="per-element-collision-control" class="section level2">
+</section>
+<section id="per-element-collision-control" class="level2">
 <h2>Per-Element Collision Control</h2>
-<p>If you've worked with <nobr>multi-element</nobr> bodies before, you know that they provide some great capabilities, but they also present some limitations:</p>
-<div id="multi-element-capabilities" class="section level3">
+<p>If you’ve worked with <nobr>multi-element</nobr> bodies before, you know that they provide some great capabilities, but they also present some limitations:</p>
+<section id="multi-element-capabilities" class="level3">
 <h3>Multi-Element Capabilities</h3>
 <p>Multi-element bodies have some unique capabilities which can help you overcome various design hurdles, including:</p>
 <ul>
@@ -104,40 +101,37 @@
 <li><p>Individual elements can be set as a <strong>sensors</strong>, allowing all other objects to pass through them while still returning a collision detection event (this method is utilized in the <a href="../../../tutorial/games/allowJumps/index.html">Allowing Jumps</a> tutorial).</p></li>
 <li><p>In a collision, each element can return an integer pertaining to the <nobr><strong>order in which it was declared</strong></nobr> in the <a href="../../../api/library/physics/addBody.html">physics.addBody()</a> function — for example, the first element declared will return <code>1</code>, the second <code>2</code>, etc. This allows you to pinpoint which part of a <nobr>multi-element</nobr> body is involved in a collision event and take the appropriate action.</p></li>
 </ul>
-</div>
-<div id="multi-element-limitations" class="section level3">
+</section>
+<section id="multi-element-limitations" class="level3">
 <h3>Multi-Element Limitations</h3>
 <p>Despite the above capabilities, the following limitations remain:</p>
 <ul>
 <li><p>Once a collision filter is declared for an element or body, it cannot be changed during runtime.</p></li>
 <li><p>If an element is declared as a sensor, it cannot <strong>individually</strong> be changed to a <nobr>non-sensor</nobr> <nobr>(or vice-versa)</nobr> during runtime — only the <strong>entire body</strong> can be swapped between behavior as a sensor or a <nobr>non-sensor</nobr> after it has been created.</p></li>
 </ul>
-</div>
-<div id="overcoming-limitations" class="section level3">
+</section>
+<section id="overcoming-limitations" class="level3">
 <h3>Overcoming Limitations</h3>
-<p>Never fear, this tutorial will show you how to overcome both of the above limitations! We'll do this using the <a href="../../../api/type/PhysicsContact/index.html">physics contact</a>, a feature which allows you to predetermine, via the use of a <a href="../../../api/event/preCollision/index.html">pre-collision</a> listener, what happens when the collision actually occurs. Predominantly, this is useful for voiding a collision entirely based on your app logic and we'll extend this method to <nobr>multi-element</nobr> bodies in this tutorial.</p>
+<p>Never fear, this tutorial will show you how to overcome both of the above limitations! We’ll do this using the <a href="../../../api/type/PhysicsContact/index.html">physics contact</a>, a feature which allows you to predetermine, via the use of a <a href="../../../api/event/preCollision/index.html">pre-collision</a> listener, what happens when the collision actually occurs. Predominantly, this is useful for voiding a collision entirely based on your app logic and we’ll extend this method to <nobr>multi-element</nobr> bodies in this tutorial.</p>
 <div class="float-right" style="max-width: 200px; margin-top: 12px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/skeleton-1.png" />
-
+<p><img src="../../../images/docs/skeleton-1.png" /></p>
 </div>
-</div>
-<p>A possible usage case for this would be a multi-element &quot;armored enemy&quot; like the image shown here. In a theoretical game, the hero must attack this enemy and destroy individual pieces of its armor (helmet, chest plate, shield, etc.) to break through to the bones within. A scenario such as this requires a unique approach because the &quot;traditional&quot; methods are prone to these issues:</p>
+<p>A possible usage case for this would be a multi-element “armored enemy” like the image shown here. In a theoretical game, the hero must attack this enemy and destroy individual pieces of its armor (helmet, chest plate, shield, etc.) to break through to the bones within. A scenario such as this requires a unique approach because the “traditional” methods are prone to these issues:</p>
 <ul>
 <li><p>While the enemy could potentially be constructed from several individual and distinct bodies, then assembled using <a href="../../../guide/physics/physicsJoints/index.html#weld-joint">weld joints</a>, this creates another level of complexity in the enemy assembly, and it may cause some degree of physical instability which is inherent even with weld joints.</p></li>
-<li><p>As noted above, individual elements of a <nobr>multi-element</nobr> body can be <strong>initially</strong> set as sensors (or not), but it's <nobr>&quot;all or nothing&quot;</nobr> when using <a href="../../../api/type/Body/isSensor.html">object.isSensor</a> on the body after creating it. Thus, you can <strong>not</strong> set just one &quot;destroyed&quot; armor piece as a sensor while ensuring the others retain physical response, for example causing projectiles to physically bounce off.</p></li>
+<li><p>As noted above, individual elements of a <nobr>multi-element</nobr> body can be <strong>initially</strong> set as sensors (or not), but it’s <nobr>“all or nothing”</nobr> when using <a href="../../../api/type/Body/isSensor.html">object.isSensor</a> on the body after creating it. Thus, you can <strong>not</strong> set just one “destroyed” armor piece as a sensor while ensuring the others retain physical response, for example causing projectiles to physically bounce off.</p></li>
 </ul>
-<p>For these reasons, we turn to the <a href="../../../api/type/PhysicsContact/index.html">physics contact</a> in conjunction with <nobr>per-element</nobr> collision detection to overcome our &quot;destructible armor&quot; hurdle.</p>
-</div>
-<div id="assembling-the-body" class="section level3">
+<p>For these reasons, we turn to the <a href="../../../api/type/PhysicsContact/index.html">physics contact</a> in conjunction with <nobr>per-element</nobr> collision detection to overcome our “destructible armor” hurdle.</p>
+</section>
+<section id="assembling-the-body" class="level3">
 <h3>Assembling the Body</h3>
-<p>Let's examine how to create a <nobr>multi-element</nobr> body for this enemy. Essentially, the approach is this:</p>
-<ol style="list-style-type: decimal">
+<p>Let’s examine how to create a <nobr>multi-element</nobr> body for this enemy. Essentially, the approach is this:</p>
+<ol type="1">
 <li>Display the enemy object on the screen.</li>
 <li>Define the shapes for the body, starting at the head and basically working down for convenience.</li>
 <li>Add the physical body and pass each shape to the <a href="../../../api/library/physics/addBody.html">physics.addBody()</a> call in an ordered list of elements.</li>
 </ol>
-<pre class="brush: lua; gutter: true; highlight: [7,8,10,11,12,13,14,15,16,17,18,20,21,22,23,24,25,26,27,28,30]; first-line: 1;">-- Set up physics engine
+<pre class="highlight: [7,8,10,11,12,13,14,15,16,17,18,20,21,22,23,24,25,26,27,28,30]; first-line: 1; gutter: true; brush: lua;">-- Set up physics engine
 local physics = require( "physics" )
 physics.start()
 physics.setDrawMode( "normal" )
@@ -167,25 +161,22 @@ physics.addBody( armoredSkeleton, "dynamic",
 )
 
 local armorStates = { true, true, true, true, true, true, true }</pre>
-<p>Note that on line 30, we also declare a simple <code>armorStates</code> table to keep track of the &quot;state&quot; of each individual armor object. This will be used to determine if a particular element is <nobr><strong>on</strong> or <strong>off</strong> —</nobr> or to put it another way, to determine whether an armor element is &quot;intact&quot; or &quot;destroyed&quot; in game collision logic. For this we can use a simple <nobr>non-indexed</nobr> table of 7 boolean values <nobr>(7 armor pieces)</nobr>, all initially set to <code>true</code>.</p>
+<p>Note that on line 30, we also declare a simple <code>armorStates</code> table to keep track of the “state” of each individual armor object. This will be used to determine if a particular element is <nobr><strong>on</strong> or <strong>off</strong> —</nobr> or to put it another way, to determine whether an armor element is “intact” or “destroyed” in game collision logic. For this we can use a simple <nobr>non-indexed</nobr> table of 7 boolean values <nobr>(7 armor pieces)</nobr>, all initially set to <code>true</code>.</p>
 <div class="float-right" style="max-width: 230px; margin-top: 12px; margin-bottom: 16px; clear: both;">
-<div class="figure">
-<img src="../../../images/docs/skeleton-2.png" />
-
+<p><img src="../../../images/docs/skeleton-2.png" /></p>
 </div>
-</div>
-<p>If you set the physics draw mode to <code>&quot;hybrid&quot;</code> (line 4) and run this code, the skeleton will look something like the image here. Note that some of the armor pieces overlap other pieces — that is perfectly acceptable in this scenario because the player will still need to destroy individual pieces <nobr>one-by-one</nobr>.</p>
+<p>If you set the physics draw mode to <code>"hybrid"</code> (line 4) and run this code, the skeleton will look something like the image here. Note that some of the armor pieces overlap other pieces — that is perfectly acceptable in this scenario because the player will still need to destroy individual pieces <nobr>one-by-one</nobr>.</p>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
 Important
 </div>
-<p>The <strong>order of declaration</strong> of body elements <nobr>(lines 21-27)</nobr> should be noted for later, as it will pertain to the <strong>integer</strong> of the specific element returned during collision detection. Knowing this integer and which body element it relates to is crucial when expanding upon this basic scenario — for instance, if you know that the helmet was struck, you may want to change the skeleton image/sprite to a frame where it visually has no helmet, or you might want to deal extra damage based on a &quot;head hit&quot; versus a &quot;leg hit.&quot;</p>
+<p>The <strong>order of declaration</strong> of body elements <nobr>(lines 21-27)</nobr> should be noted for later, as it will pertain to the <strong>integer</strong> of the specific element returned during collision detection. Knowing this integer and which body element it relates to is crucial when expanding upon this basic scenario — for instance, if you know that the helmet was struck, you may want to change the skeleton image/sprite to a frame where it visually has no helmet, or you might want to deal extra damage based on a “head hit” versus a “leg hit.”</p>
 </div>
-</div>
-<div id="pre-collision-listener" class="section level3">
+</section>
+<section id="pre-collision-listener" class="level3">
 <h3>Pre-Collision Listener</h3>
-<p>Next, we'll declare the basic <a href="../../../api/event/preCollision/index.html">pre-collision</a> listener. This type of listener <strong>must</strong> be used if we intend to utilize the <a href="../../../api/type/PhysicsContact/index.html">physics contact</a>, because we'll be telling Corona to manage the collision state immediately <strong>before</strong> it occurs, not <strong>when</strong> it occurs.</p>
-<pre class="brush: lua; gutter: true; first-line: 32;">local function skeletonHit( self, event )
+<p>Next, we’ll declare the basic <a href="../../../api/event/preCollision/index.html">pre-collision</a> listener. This type of listener <strong>must</strong> be used if we intend to utilize the <a href="../../../api/type/PhysicsContact/index.html">physics contact</a>, because we’ll be telling Corona to manage the collision state immediately <strong>before</strong> it occurs, not <strong>when</strong> it occurs.</p>
+<pre class="first-line: 32; gutter: true; brush: lua;">local function skeletonHit( self, event )
 
     print( event.selfElement )
 end
@@ -193,11 +184,11 @@ end
 armoredSkeleton.preCollision = skeletonHit
 armoredSkeleton:addEventListener( "preCollision" )</pre>
 <p>This function accomplishes just the basics. Anything that collides with the skeleton will return the corresponding <strong>integer</strong> of the specific body element as <code>event.selfElement</code>, according to the order in which they were declared. So, because we declared the helmet as the first element, a collision involving it will return <code>1</code>. A collision with the mantle will return <code>2</code>, a collision with the chest will return <code>3</code>, and so forth.</p>
-</div>
-<div id="using-the-physics-contact" class="section level3">
+</section>
+<section id="using-the-physics-contact" class="level3">
 <h3>Using the Physics Contact</h3>
-<p>At this point, the <code>skeletonHit()</code> function will tell us which specific armor piece is involved in a collision, but nothing more. That doesn't reach our goal, so let's expand it to access the <code>armorStates</code> table and determine if a collision should occur or not:</p>
-<pre class="brush: lua; gutter: true; highlight: [34,35,36,37,38,39,40,41]; first-line: 32;">local function skeletonHit( self, event )
+<p>At this point, the <code>skeletonHit()</code> function will tell us which specific armor piece is involved in a collision, but nothing more. That doesn’t reach our goal, so let’s expand it to access the <code>armorStates</code> table and determine if a collision should occur or not:</p>
+<pre class="highlight: [34,35,36,37,38,39,40,41]; first-line: 32; gutter: true; brush: lua;">local function skeletonHit( self, event )
 
     -- Dictate the collision behavior based on the armor element state
     if ( armorStates[event.selfElement] == false ) then
@@ -211,8 +202,8 @@ end
 
 armoredSkeleton.preCollision = skeletonHit
 armoredSkeleton:addEventListener( "preCollision" )</pre>
-<p>Basically, if the armor element is &quot;destroyed&quot; in our game logic (line 35), we can use the physics contact (<code>event.contact</code>) to instruct Corona to void the collision entirely, making it appear as if that element doesn't even exist (our ultimate purpose). In contrast, if the armor element is still intact, we allow the collision to occur naturally but we toggle its state to &quot;destroyed&quot; by setting its index within the <code>armorStates</code> table to <code>false</code> — this will ensure that the armor element does <strong>not</strong> cause a physical response upon the <strong>next</strong> collision event.</p>
-<p>That's basically it! With this code, each individual armor piece can be toggled from an active state to an inactive state, letting you control your game logic at a <nobr>fine-tuned</nobr> level while still utilizing a single unified physics body.</p>
+<p>Basically, if the armor element is “destroyed” in our game logic (line 35), we can use the physics contact (<code>event.contact</code>) to instruct Corona to void the collision entirely, making it appear as if that element doesn’t even exist (our ultimate purpose). In contrast, if the armor element is still intact, we allow the collision to occur naturally but we toggle its state to “destroyed” by setting its index within the <code>armorStates</code> table to <code>false</code> — this will ensure that the armor element does <strong>not</strong> cause a physical response upon the <strong>next</strong> collision event.</p>
+<p>That’s basically it! With this code, each individual armor piece can be toggled from an active state to an inactive state, letting you control your game logic at a <nobr>fine-tuned</nobr> level while still utilizing a single unified physics body.</p>
 <div class="docs-tip-outer">
 <div class="docs-tip-inner-left">
 <div class="fa fa-cog">
@@ -220,11 +211,11 @@ armoredSkeleton:addEventListener( "preCollision" )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>If you really want to get creative, consider expanding this concept to <nobr><strong>armor health levels</strong></nobr>. In the scenario above, just <strong>one</strong> hit to any particular armor piece will &quot;destroy&quot; it, but that's not very realistic — after all, shouldn't armor be able to absorb some amount of damage before it's destroyed?</p>
+<p>If you really want to get creative, consider expanding this concept to <nobr><strong>armor health levels</strong></nobr>. In the scenario above, just <strong>one</strong> hit to any particular armor piece will “destroy” it, but that’s not very realistic — after all, shouldn’t armor be able to absorb some amount of damage before it’s destroyed?</p>
 <p>One way to accomplish this is to use integer health values <nobr>(not boolean <code>true</code>/<code>false</code>)</nobr> for each armor piece within the <code>armorStates</code> table. Note that we set a higher value for the chest piece (third value) compared to weaker pieces like the legs <nobr>(sixth and seventh values)</nobr>:</p>
-<pre class="brush: lua; gutter: true; highlight: [30]; first-line: 30;">local armorStates = { 10, 5, 20, 15, 8, 5, 5 }</pre>
+<pre class="highlight: [30]; first-line: 30; gutter: true; brush: lua;">local armorStates = { 10, 5, 20, 15, 8, 5, 5 }</pre>
 <p>Next, adjust the <code>skeletonHit()</code> function to handle <strong>integers</strong> instead of boolean <code>true</code>/<code>false</code> values:</p>
-<pre class="brush: lua; gutter: true; highlight: [35,40]; first-line: 32;">local function skeletonHit( self, event )
+<pre class="highlight: [35,40]; first-line: 32; gutter: true; brush: lua;">local function skeletonHit( self, event )
 
     -- Dictate the collision behavior based on the armor element state
     if ( armorStates[event.selfElement] == 0 ) then
@@ -235,7 +226,7 @@ armoredSkeleton:addEventListener( "preCollision" )</pre>
         armorStates[event.selfElement] = armorStates[event.selfElement] - 1
     end
 end</pre>
-<p>Essentially, on line 35, instead of checking for a value of <code>false</code>, we check for a <nobr>value of <code>0</code> —</nobr> this indicates that the &quot;health&quot; of the armor piece has been reduced to nothing and it can be considered destroyed. Additionally, on line 40, we subtract <code>1</code> from the piece's health instead of setting it to <code>false</code> as in the original version.</p>
+<p>Essentially, on line 35, instead of checking for a value of <code>false</code>, we check for a <nobr>value of <code>0</code> —</nobr> this indicates that the “health” of the armor piece has been reduced to nothing and it can be considered destroyed. Additionally, on line 40, we subtract <code>1</code> from the piece’s health instead of setting it to <code>false</code> as in the original version.</p>
 </div>
 </div>
 <div class="docs-tip-outer">
@@ -245,17 +236,17 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Yet another creative option is to detect collision <strong>forces</strong> upon the skeleton's armor, dealing more damage based on how hard/fast a projectile strikes a piece of armor. This method is outlined in more detail in the <a href="../../../tutorial/games/postCollision/index.html">Uniqueness of Post-Collisions</a> tutorial.</p>
+<p>Yet another creative option is to detect collision <strong>forces</strong> upon the skeleton’s armor, dealing more damage based on how hard/fast a projectile strikes a piece of armor. This method is outlined in more detail in the <a href="../../../tutorial/games/postCollision/index.html">Uniqueness of Post-Collisions</a> tutorial.</p>
 </div>
 </div>
-</div>
-</div>
-<div id="conclusion" class="section level2">
+</section>
+</section>
+<section id="conclusion" class="level2">
 <h2>Conclusion</h2>
-<p>As you've learned in this tutorial, <nobr>mutli-element</nobr> physics bodies possess some valuable traits that <nobr>joint-assembled</nobr> bodies don't, but they also present some hurdles. Hopefully these tips have shown you how to overcome those in your <nobr>physics-based</nobr> apps!</p>
+<p>As you’ve learned in this tutorial, <nobr>mutli-element</nobr> physics bodies possess some valuable traits that <nobr>joint-assembled</nobr> bodies don’t, but they also present some hurdles. Hopefully these tips have shown you how to overcome those in your <nobr>physics-based</nobr> apps!</p>
 <!--- LEGAL -->
-</div>
-<div id="section" class="section level2">
+</section>
+<section id="section" class="level2">
 <h2></h2>
 <div class="tiny-copy">
 <p>Character art in this tutorial is courtesy of <a href="https://ponywolf.com">Ponywolf</a>, creator of amazing <nobr>open-source</nobr> game templates like <a href="https://github.com/coronalabs/Match-Three-Space-RPG">Match 3 Space RPG</a>, <a href="https://github.com/coronalabs/Sticker-Knight-Platformer/">Sticker Knight Platformer</a>, and <a href="https://github.com/coronalabs/Endless-Skateborder">Endless Sk8boarder</a>.</p>
@@ -270,8 +261,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

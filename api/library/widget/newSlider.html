@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | widget | newSlider</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -68,10 +68,10 @@
 <li><a href="#listener-optional">listener <sub><sup>(optional)</sup></sub></a></li>
 </ul></li>
 <li><a href="#properties">Properties</a><ul>
-<li><a href="#object.valueapi.type.sliderwidget.value"><a href="../../../api/type/SliderWidget/value.html">object.value</a></a></li>
+<li><a href="#object.valueapi.type.sliderwidget.value"><span>object.value</span></a></li>
 </ul></li>
 <li><a href="#methods">Methods</a><ul>
-<li><a href="#objectsetvalueapi.type.sliderwidget.setvalue"><a href="../../../api/type/SliderWidget/setValue.html">object:setValue()</a></a></li>
+<li><a href="#objectsetvalueapi.type.sliderwidget.setvalue"><span>object:setValue()</span></a></li>
 </ul></li>
 <li><a href="#visual-customization">Visual Customization</a><ul>
 <li><a href="#sheet-required">sheet <sub><sup>(required)</sup></sub></a></li>
@@ -105,95 +105,95 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/widget/index.html">widget</a>  ▸  <a href="../../../api/library/widget/newSlider.html">newSlider</a>
 </div>
-<div id="widget.newslider" class="section level1">
+<section id="widget.newslider" class="level1">
 <h1>widget.newSlider()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/widget/index.html">widget.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/widget/index.html">widget.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Return value</strong></td>
-<td align="left"><a href="../../../api/type/SliderWidget/index.html">SliderWidget</a></td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/SliderWidget/index.html">SliderWidget</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">widget, slider, sliding control</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">widget, slider, sliding control</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../api/type/SliderWidget/index.html">SliderWidget</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/SliderWidget/index.html">SliderWidget</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Creates a <a href="../../../api/type/SliderWidget/index.html">SliderWidget</a> object.</p>
-</div>
-<div id="gotchas" class="section level2">
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
 <ul>
 <li><p>To conserve texture memory, a <a href="../../../api/type/SliderWidget/index.html">SliderWidget</a> object can only be created from an <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a>.</p></li>
 <li><p><a href="../../../api/type/SliderWidget/index.html">SliderWidget</a> objects do not support <a href="../../../api/type/DisplayObject/scale.html">scaling</a> nor changing the width/height via <a href="../../../api/type/DisplayObject/width.html">.width</a> or <a href="../../../api/type/DisplayObject/height.html">.height</a>.</p></li>
 </ul>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">widget.newSlider( options )</pre>
 <p>This function takes a single argument, <code>options</code>, which is a table that accepts the following parameters:</p>
-<div id="id-optional" class="section level5">
+<section id="id-optional" class="level5">
 <h5>id <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../../api/type/String.html">String</a>.</em> An optional identification to assign to the slider. Default is <code>&quot;widget_slider&quot;</code>.</p>
-</div>
-<div id="x-y-optional" class="section level5">
+<p><em><a href="../../../api/type/String.html">String</a>.</em> An optional identification to assign to the slider. Default is <code>"widget_slider"</code>.</p>
+</section>
+<section id="x-y-optional" class="level5">
 <h5>x, y <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> Coordinates for the widget's <strong>x</strong> and <strong>y</strong> center point. These values will be overridden by <code>left</code> and <code>top</code> if those values are defined.</p>
-</div>
-<div id="left-top-optional" class="section level5">
+<p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> Coordinates for the widget’s <strong>x</strong> and <strong>y</strong> center point. These values will be overridden by <code>left</code> and <code>top</code> if those values are defined.</p>
+</section>
+<section id="left-top-optional" class="level5">
 <h5>left, top <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The left and top position where the widget will be created. If specified, these values override the <code>x</code> and <code>y</code> parameters.</p>
-</div>
-<div id="orientation-optional" class="section level5">
+</section>
+<section id="orientation-optional" class="level5">
 <h5>orientation <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../../api/type/String.html">String</a>.</em> The orientation of the slider, either <code>&quot;horizontal&quot;</code> or <code>&quot;vertical&quot;</code>. Default is <code>&quot;horizontal&quot;</code>.</p>
-</div>
-<div id="width-height-required" class="section level5">
+<p><em><a href="../../../api/type/String.html">String</a>.</em> The orientation of the slider, either <code>"horizontal"</code> or <code>"vertical"</code>. Default is <code>"horizontal"</code>.</p>
+</section>
+<section id="width-height-required" class="level5">
 <h5>width, height <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The width <strong>or</strong> height of the slider, depending on the <code>orientation</code> setting (<code>width</code> for horizontal or <code>height</code> for vertical).</p>
-</div>
-<div id="value-optional" class="section level5">
+</section>
+<section id="value-optional" class="level5">
 <h5>value <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> Represents the starting value of the slider, as a percentage. Default is <code>50</code>, meaning that the slider handle will begin at 50%.</p>
-</div>
-<div id="listener-optional" class="section level5">
+</section>
+<section id="listener-optional" class="level5">
 <h5>listener <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../../api/type/Listener.html">Listener</a>.</em> The function which is called to handle slider interaction events. In this listener function, <code>event.phase</code> returns the expected touch interaction phases of <code>&quot;began&quot;</code>, <code>&quot;moved&quot;</code>, or <code>&quot;ended&quot;</code>. In addition, you can read the new value of the slider with <code>event.value</code>.</p>
-</div>
-</div>
-<div id="properties" class="section level2">
+<p><em><a href="../../../api/type/Listener.html">Listener</a>.</em> The function which is called to handle slider interaction events. In this listener function, <code>event.phase</code> returns the expected touch interaction phases of <code>"began"</code>, <code>"moved"</code>, or <code>"ended"</code>. In addition, you can read the new value of the slider with <code>event.value</code>.</p>
+</section>
+</section>
+<section id="properties" class="level2">
 <h2>Properties</h2>
-<div id="object.valueapi.type.sliderwidget.value" class="section level4">
+<section id="object.valueapi.type.sliderwidget.value" class="level4">
 <h4><a href="../../../api/type/SliderWidget/value.html">object.value</a></h4>
-</div>
-</div>
-<div id="methods" class="section level2">
+</section>
+</section>
+<section id="methods" class="level2">
 <h2>Methods</h2>
-<div id="objectsetvalueapi.type.sliderwidget.setvalue" class="section level4">
+<section id="objectsetvalueapi.type.sliderwidget.setvalue" class="level4">
 <h4><a href="../../../api/type/SliderWidget/setValue.html">object:setValue()</a></h4>
-</div>
-</div>
-<div id="visual-customization" class="section level2">
+</section>
+</section>
+<section id="visual-customization" class="level2">
 <h2>Visual Customization</h2>
 <p>The slider widget can be visually customized using an <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a>. As shown in the following example, 5 frames can be used to assemble an outer border and an inner fill bar. The outer border consists of the left cap (red), the middle span (green), and the right cap (yellow). The inner fill region (orange) will stretch to span the current slider fill percentage. All of the outer border frames and the inner fill frame should share the same width and height.</p>
 <p>The handle frame can be sized differently than the other frames. Note that all slider widgets have a limit to which the handle can be dragged in either direction. In regards to visual customization, the handle will stop when its <strong>center</strong> axis reaches either edge of the <strong>middle</strong> span section. Thus, for a horizontal slider, the handle will stop when its center axis reaches the left or right edge of the <nobr>center-spanning</nobr> section between the end caps. The same principle applies to a vertical slider, but the limits will be the top and bottom edge of the <nobr>center-spanning</nobr> section.</p>
@@ -201,83 +201,83 @@
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><img src="../../../images/simulator/widget-slider.png" /></td>
+<td style="text-align: left;"><img src="../../../images/simulator/widget-slider.png" /></td>
 <td> → </td>
 <td><img src="../../../images/simulator/widget-slider-final.png" /></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="sheet-required" class="section level5">
+<section id="sheet-required" class="level5">
 <h5>sheet <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/ImageSheet/index.html">ImageSheet</a>.</em> The <a href="../../../api/library/graphics/newImageSheet.html">image sheet</a> object for the slider.</p>
-</div>
-<div id="horizontal-slider" class="section level3">
+</section>
+<section id="horizontal-slider" class="level3">
 <h3>Horizontal Slider</h3>
-<div id="leftframe-required" class="section level5">
+<section id="leftframe-required" class="level5">
 <h5>leftFrame <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame index for the border left cap.</p>
-</div>
-<div id="middleframe-required" class="section level5">
+</section>
+<section id="middleframe-required" class="level5">
 <h5>middleFrame <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame index for the border middle span.</p>
-</div>
-<div id="rightframe-required" class="section level5">
+</section>
+<section id="rightframe-required" class="level5">
 <h5>rightFrame <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame index for the border right cap.</p>
-</div>
-<div id="fillframe-required" class="section level5">
+</section>
+<section id="fillframe-required" class="level5">
 <h5>fillFrame <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame index for the middle fill span.</p>
-</div>
-<div id="framewidth-frameheight-required" class="section level5">
+</section>
+<section id="framewidth-frameheight-required" class="level5">
 <h5>frameWidth, frameHeight <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The width/height of the border frames and middle fill span. All of these frames should share the same width and height.</p>
-</div>
-<div id="handleframe-required" class="section level5">
+</section>
+<section id="handleframe-required" class="level5">
 <h5>handleFrame <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame index for the handle element.</p>
-</div>
-<div id="handlewidth-handleheight-required" class="section level5">
+</section>
+<section id="handlewidth-handleheight-required" class="level5">
 <h5>handleWidth, handleHeight <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The width/height of the handle element frame.</p>
-</div>
-</div>
-<div id="vertical-slider" class="section level3">
+</section>
+</section>
+<section id="vertical-slider" class="level3">
 <h3>Vertical Slider</h3>
-<div id="topframe-required" class="section level5">
+<section id="topframe-required" class="level5">
 <h5>topFrame <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame index for the border top cap.</p>
-</div>
-<div id="middleverticalframe-required" class="section level5">
+</section>
+<section id="middleverticalframe-required" class="level5">
 <h5>middleVerticalFrame <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame index for the border middle span.</p>
-</div>
-<div id="bottomframe-required" class="section level5">
+</section>
+<section id="bottomframe-required" class="level5">
 <h5>bottomFrame <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame index for the border bottom cap.</p>
-</div>
-<div id="fillverticalframe-required" class="section level5">
+</section>
+<section id="fillverticalframe-required" class="level5">
 <h5>fillVerticalFrame <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame index for the middle fill span.</p>
-</div>
-<div id="framewidth-frameheight-required-1" class="section level5">
+</section>
+<section id="framewidth-frameheight-required-1" class="level5">
 <h5>frameWidth, frameHeight <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The width/height of the border frames and middle fill span. All of these frames should share the same width and height.</p>
-</div>
-<div id="handleframe-required-1" class="section level5">
+</section>
+<section id="handleframe-required-1" class="level5">
 <h5>handleFrame <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Number</a>.</em> The frame index for the handle element.</p>
-</div>
-<div id="handlewidth-handleheight-required-1" class="section level5">
+</section>
+<section id="handlewidth-handleheight-required-1" class="level5">
 <h5>handleWidth, handleHeight <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> The width/height of the handle element frame.</p>
-</div>
-</div>
-</div>
-<div id="examples" class="section level2">
+</section>
+</section>
+</section>
+<section id="examples" class="level2">
 <h2>Examples</h2>
-<div id="horizontal" class="section level5">
+<section id="horizontal" class="level5">
 <h5>Horizontal</h5>
 <pre class="brush: lua;">local widget = require( "widget" )
     
@@ -296,8 +296,8 @@ local slider = widget.newSlider(
         listener = sliderListener
     }
 )</pre>
-</div>
-<div id="vertical" class="section level5">
+</section>
+<section id="vertical" class="level5">
 <h5>Vertical</h5>
 <pre class="brush: lua;">local widget = require( "widget" )
     
@@ -317,8 +317,8 @@ local slider = widget.newSlider(
         listener = sliderListener
     }
 )</pre>
-</div>
-<div id="image-sheet" class="section level5">
+</section>
+<section id="image-sheet" class="level5">
 <h5>Image Sheet</h5>
 <pre class="brush: lua;">local widget = require( "widget" )
 
@@ -372,9 +372,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

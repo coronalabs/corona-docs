@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Developer Guides | Building/Distribution</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -55,7 +55,7 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#signing-and-building-kindlefire">Signing and Building — Kindle Fire</a><ul>
+<li><a href="#signing-and-building-kindle-fire">Signing and Building — Kindle Fire</a><ul>
 <li><a href="#preparing-for-kindle-fire">Preparing for Kindle Fire</a></li>
 <li><a href="#java-package-name">Java Package Name</a></li>
 <li><a href="#build-process">Build Process</a></li>
@@ -66,9 +66,9 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../guide/index.html">Developer Guides</a>  ▸  <a href="../../../guide/distribution/index.html">Building/Distribution</a>
 </div>
-<div id="signing-and-building-kindlefire" class="section level1">
+<section id="signing-and-building-kindle-fire" class="level1">
 <h1>Signing and Building — Kindle Fire</h1>
-<p>This guide explains how to sign, build, and test your app on Amazon's Kindle Fire devices.</p>
+<p>This guide explains how to sign, build, and test your app on Amazon’s Kindle Fire devices.</p>
 <div class="guides-toc">
 <ul>
 <li><a href="#specs">Preparing for Kindle Fire</a></li>
@@ -82,50 +82,50 @@
 Notes
 </div>
 <ul>
-<li><p>You do not need to install the Android SDK. However, you will need to install the proper version of the <strong>Java Development Kit</strong> if you're using Windows. See the <a href="../../../guide/start/installWin/index.html#jdk">Java Development Kit</a> section for details.</p></li>
+<li><p>You do not need to install the Android SDK. However, you will need to install the proper version of the <strong>Java Development Kit</strong> if you’re using Windows. See the <a href="../../../guide/start/installWin/index.html#jdk">Java Development Kit</a> section for details.</p></li>
 <li><p>As with Android, the Kindle Fire build process generates a standard <code>.apk</code> file.</p></li>
 </ul>
 </div>
 <p><a id="specs"></a></p>
-<div id="preparing-for-kindle-fire" class="section level2">
+<section id="preparing-for-kindle-fire" class="level2">
 <h2>Preparing for Kindle Fire</h2>
-<p>You don't need to do anything different to prepare your app for release on Kindle Fire, but you should note the following device specifications and design your app content accordingly. Specifications listed below are in pixels.</p>
+<p>You don’t need to do anything different to prepare your app for release on Kindle Fire, but you should note the following device specifications and design your app content accordingly. Specifications listed below are in pixels.</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Model</th>
-<th align="left">Resolution (w×h)</th>
-<th align="center">Status Bar (top)</th>
-<th align="center">Soft Keys Bar (bottom)</th>
+<th style="text-align: left;">Model</th>
+<th style="text-align: left;">Resolution (w×h)</th>
+<th style="text-align: center;">Status Bar (top)</th>
+<th style="text-align: center;">Soft Keys Bar (bottom)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Kindle Fire</td>
-<td align="left">600 × 1024</td>
-<td align="center">27</td>
-<td align="center">60</td>
+<td style="text-align: left;">Kindle Fire</td>
+<td style="text-align: left;">600 × 1024</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">60</td>
 </tr>
 <tr class="even">
-<td align="left">Kindle Fire HD 7&quot;</td>
-<td align="left">800 × 1280</td>
-<td align="center">35</td>
-<td align="center">78</td>
+<td style="text-align: left;">Kindle Fire HD 7"</td>
+<td style="text-align: left;">800 × 1280</td>
+<td style="text-align: center;">35</td>
+<td style="text-align: center;">78</td>
 </tr>
 <tr class="odd">
-<td align="left">Kindle Fire HD 8.9&quot;</td>
-<td align="left">1200 × 1920</td>
-<td align="center">40</td>
-<td align="center">90</td>
+<td style="text-align: left;">Kindle Fire HD 8.9"</td>
+<td style="text-align: left;">1200 × 1920</td>
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">90</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Also, note that Amazon prefers apps to occupy the entire screen. If you set the scale to <code>letterbox</code> in <code>config.lua</code>, make sure that you fill the &quot;empty&quot; space with actual content. See <a href="../../../guide/basics/configSettings/index.html#contentscaling">here</a> for more information on content and scaling.</p>
+<p>Also, note that Amazon prefers apps to occupy the entire screen. If you set the scale to <code>letterbox</code> in <code>config.lua</code>, make sure that you fill the “empty” space with actual content. See <a href="../../../guide/basics/configSettings/index.html#contentscaling">here</a> for more information on content and scaling.</p>
 <p><a id="javapackage"></a></p>
-</div>
-<div id="java-package-name" class="section level2">
+</section>
+<section id="java-package-name" class="level2">
 <h2>Java Package Name</h2>
 <p>When you build a Kindle Fire app using Solar2D, you must specify a <strong>package name</strong>. In general, you can specify any package name you like, but it must be chosen carefully because it should be unique to your application.</p>
 <p>The traditional Java scheme is to use the <nobr>reverse-domain</nobr> format like <code>com.acme</code>, then append the name of a division/product, and finally append the name of the app. For example, <code>com.acme.games.catchafish</code> would be a good package name, assuming you own the <code>acme.com</code> domain name.</p>
@@ -136,18 +136,18 @@ Notes
 <li><p>One of the name components contains a keyword, for example <code>com.private.idaho</code>. In this case, suffix that part of the package name with an underscore: <code>com.private_.idaho</code>.</p></li>
 </ul>
 <p><a id="signing"></a></p>
-</div>
-<div id="build-process" class="section level2">
+</section>
+<section id="build-process" class="level2">
 <h2>Build Process</h2>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
 Important
 </div>
-<p>If you aren't familiar with the available <a href="../../../guide/distribution/buildSettings/index.html#androidsettings">build settings</a> for an app, please review them before proceeding with this section.</p>
+<p>If you aren’t familiar with the available <a href="../../../guide/distribution/buildSettings/index.html#androidsettings">build settings</a> for an app, please review them before proceeding with this section.</p>
 </div>
-<ol style="list-style-type: decimal">
-<li><p>From the Solar2D Simulator, select <strong>File</strong> → <strong>Open...</strong> to load the project you wish to build.</p></li>
-<li><p>Select <strong>File</strong> → <strong>Build</strong> → <strong>Android...</strong>.</p></li>
+<ol type="1">
+<li><p>From the Solar2D Simulator, select <strong>File</strong> → <strong>Open…</strong> to load the project you wish to build.</p></li>
+<li><p>Select <strong>File</strong> → <strong>Build</strong> → <strong>Android…</strong>.</p></li>
 <li><p>Fill in the information:</p>
 <ul>
 <li><p><strong>Application Name</strong> — by default, this will match your project folder; keep this name or specify another.</p></li>
@@ -168,15 +168,15 @@ Important
 Signing for Debug Build
 </div>
 <p>For debug builds, Solar2D includes a <code>debug.keystore</code> for testing your app on devices. To use it, follow these steps:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>Select <strong>Debug</strong> from the <strong>Keystore</strong> menu.</p></li>
-<li><p>Directly to the right, <strong>Browse...</strong> to the keystore file in the Solar2D application folder:</p></li>
+<li><p>Directly to the right, <strong>Browse…</strong> to the keystore file in the Solar2D application folder:</p></li>
 </ol>
 <div class="code-indent">
 <p>Windows — <nobr><code>C:\Program Files (x86)\Corona Labs\Corona\Resources\debug.keystore</code></nobr></p>
 <p>macOS — <nobr><code>/Applications/Corona/Resources/Resource Library/Android/debug.keystore</code></nobr></p>
 </div>
-<ol start="3" style="list-style-type: decimal">
+<ol start="3" type="1">
 <li><p>Select the file and enter <code>android</code> as the password.</p></li>
 <li><p>In the <strong>Key Alias</strong> menu, select <code>androiddebugkey</code>.</p></li>
 </ol>
@@ -187,25 +187,25 @@ Signing for Debug Build
 Signing for Release Build
 </div>
 <p>For release builds, you must sign with your <strong>private key</strong>. You can generate this key using the command line program <strong>Keytool</strong>. Please follow these simple steps:</p>
-<ol style="list-style-type: decimal">
-<li><p>Open the <strong>Command Prompt</strong> in Windows or the <strong>Terminal</strong> in macOS. Once there, use the <code>cd</code> command to change to the directory where you'll keep your keystores.</p></li>
+<ol type="1">
+<li><p>Open the <strong>Command Prompt</strong> in Windows or the <strong>Terminal</strong> in macOS. Once there, use the <code>cd</code> command to change to the directory where you’ll keep your keystores.</p></li>
 <li><p>Type the following command at the prompt, replacing <code>mykeystore</code> with the name of your application and <code>aliasname</code> with a similar or equal alias name.</p></li>
 </ol>
 <div class="code-indent">
 <p><code>keytool -genkey -v -keystore mykeystore.keystore -alias aliasname -keyalg RSA -validity 999999</code></p>
 </div>
-<ol start="3" style="list-style-type: decimal">
-<li>You'll be prompted for your credentials. Supply the requested information and tap <strong>enter</strong> to sign your Android app.</li>
+<ol start="3" type="1">
+<li>You’ll be prompted for your credentials. Supply the requested information and tap <strong>enter</strong> to sign your Android app.</li>
 </ol>
 </div>
 <p><a id="installapp"></a></p>
-</div>
-<div id="installation-and-debugging" class="section level2">
+</section>
+<section id="installation-and-debugging" class="level2">
 <h2>Installation and Debugging</h2>
 <p>Once your app is compiled via Solar2D, the next step is to register as an <a href="https://developer.amazon.com/home.html">Amazon Developer</a>, configure your Kindle Fire for testing, and test/debug the app on a Kindle Fire device or the <nobr>Kindle Fire Emulator</nobr>.</p>
-<ol style="list-style-type: decimal">
-<li><p>If you haven't already signed up for an <a href="https://developer.amazon.com/home.html">Amazon Developer</a> account, please do so first.</p></li>
-<li><p>Next, you'll need to set up your Kindle Fire tablet for testing. You can use <nobr><strong>Android Debug Bridge</strong></nobr> to connect your Kindle Fire tablet to a development computer for testing and debugging. Please refer to Amazon's <a href="https://developer.amazon.com/docs/fire-tablets/connecting-adb-to-device.html">instructional guide</a> for details.</p></li>
+<ol type="1">
+<li><p>If you haven’t already signed up for an <a href="https://developer.amazon.com/home.html">Amazon Developer</a> account, please do so first.</p></li>
+<li><p>Next, you’ll need to set up your Kindle Fire tablet for testing. You can use <nobr><strong>Android Debug Bridge</strong></nobr> to connect your Kindle Fire tablet to a development computer for testing and debugging. Please refer to Amazon’s <a href="https://developer.amazon.com/docs/fire-tablets/connecting-adb-to-device.html">instructional guide</a> for details.</p></li>
 <li><p>Finally, you can refer to <a href="https://developer.amazon.com/docs/fire-tablets/ft-test-app-on-emulator-or-tablet.html">this guide</a> for details on testing your app.</p></li>
 </ol>
 <hr>
@@ -218,8 +218,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

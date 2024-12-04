@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Tutorials | Gaming/Physics</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -68,10 +68,10 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/games/index.html">Gaming/Physics</a>
 </div>
-<div id="non-physical-collisions" class="section level1">
+<section id="non-physical-collisions" class="level1">
 <h1>Non-Physical Collisions</h1>
-<p>Corona includes a robust <nobr>Box2D-powered</nobr> physics engine featuring <a href="../../../guide/physics/collisionDetection/index.html">collision detection</a> which can accomplish many things. It's even <nobr>event-driven</nobr> which means you can sense when collisions have started and ended, which two objects are involved in the collision, where they came into contact, and more. The only &quot;catch&quot; is that every colliding object must be a <nobr>physics-enabled</nobr> object under control of this physics engine which may be overkill if you're not using physics for other aspects of your game — for instance if all you need is basic knowledge of whether one simple object is occupying the same screen space as another.</p>
-<div id="alternate-detection-methods" class="section level2">
+<p>Corona includes a robust <nobr>Box2D-powered</nobr> physics engine featuring <a href="../../../guide/physics/collisionDetection/index.html">collision detection</a> which can accomplish many things. It’s even <nobr>event-driven</nobr> which means you can sense when collisions have started and ended, which two objects are involved in the collision, where they came into contact, and more. The only “catch” is that every colliding object must be a <nobr>physics-enabled</nobr> object under control of this physics engine which may be overkill if you’re not using physics for other aspects of your game — for instance if all you need is basic knowledge of whether one simple object is occupying the same screen space as another.</p>
+<section id="alternate-detection-methods" class="level2">
 <h2>Alternate Detection Methods</h2>
 <p>There are a few ways to detect collisions without using physics, including:</p>
 <ul>
@@ -80,22 +80,19 @@
 <li>Overlapping circles</li>
 <li>Overlapping rectangles</li>
 </ul>
-<p>The first method can be complex if the rectangle has any rotation applied to it, and the <a href="https://gamedevelopment.tutsplus.com/tutorials/collision-detection-using-the-separating-axis-theorem--gamedev-169">separating axis theorem</a> is fairly <nobr>math-intensive</nobr>, so neither of these will be covered in this tutorial. Instead, we'll discuss the <strong>overlapping circles</strong> and <strong>overlapping rectangles</strong> methods.</p>
+<p>The first method can be complex if the rectangle has any rotation applied to it, and the <a href="https://gamedevelopment.tutsplus.com/tutorials/collision-detection-using-the-separating-axis-theorem--gamedev-169">separating axis theorem</a> is fairly <nobr>math-intensive</nobr>, so neither of these will be covered in this tutorial. Instead, we’ll discuss the <strong>overlapping circles</strong> and <strong>overlapping rectangles</strong> methods.</p>
 <div class="guide-notebox">
 <div class="notebox-title">
 Note
 </div>
-<p>Before considering <nobr>non-physical</nobr> collision detection, remember that if your objects are not basic rectangles or circles, the physics engine is almost certainly a better option. Using it, you can define complex <nobr>polygon-based</nobr> shapes, chain lines, <nobr>multi-element</nobr> constructions, and more. Basically, the two <nobr>non-physical</nobr> methods in this tutorial follow the &quot;close enough&quot; methodology, so if you need precise collisions, <a href="../../../guide/physics/collisionDetection/index.html">physics-based collisions</a> are more appropriate.</p>
+<p>Before considering <nobr>non-physical</nobr> collision detection, remember that if your objects are not basic rectangles or circles, the physics engine is almost certainly a better option. Using it, you can define complex <nobr>polygon-based</nobr> shapes, chain lines, <nobr>multi-element</nobr> constructions, and more. Basically, the two <nobr>non-physical</nobr> methods in this tutorial follow the “close enough” methodology, so if you need precise collisions, <a href="../../../guide/physics/collisionDetection/index.html">physics-based collisions</a> are more appropriate.</p>
 </div>
-</div>
-<div id="overlapping-circles" class="section level2">
+</section>
+<section id="overlapping-circles" class="level2">
 <h2>Overlapping Circles</h2>
-<p>In some games, even objects that aren't artistically circular can often have their collision boundaries represented by a circle, for instance a circle that encloses the entire image or alternatively spans a slightly smaller area around the &quot;center&quot; of the object. During fast gameplay, the player probably won't notice exact <nobr>shape-precise</nobr> collision detection.</p>
+<p>In some games, even objects that aren’t artistically circular can often have their collision boundaries represented by a circle, for instance a circle that encloses the entire image or alternatively spans a slightly smaller area around the “center” of the object. During fast gameplay, the player probably won’t notice exact <nobr>shape-precise</nobr> collision detection.</p>
 <div style="max-width: 400px; margin-top: 16px; margin-bottom: 16px;">
-<div class="figure">
-<img src="../../../images/docs/circle-collision.png" />
-
-</div>
+<p><img src="../../../images/docs/circle-collision.png" /></p>
 </div>
 <p>Some very simple calculations can determine if any two circles of arbitrary sizes are overlapping:</p>
 <pre class="brush: lua;">local function hasCollidedCircle( obj1, obj2 )
@@ -118,11 +115,11 @@ Note
     end
     return false
 end</pre>
-<p>For this function, we simply pass in two display objects, <code>obj1</code> and <code>obj2</code>. Using the <code>contentWidth</code> property to determine their width, we check if the two circles are closer than the distance of their centers and, if so, we know that they're touching.</p>
-</div>
-<div id="overlapping-rectangles" class="section level2">
+<p>For this function, we simply pass in two display objects, <code>obj1</code> and <code>obj2</code>. Using the <code>contentWidth</code> property to determine their width, we check if the two circles are closer than the distance of their centers and, if so, we know that they’re touching.</p>
+</section>
+<section id="overlapping-rectangles" class="level2">
 <h2>Overlapping Rectangles</h2>
-<p>Overlapping rectangles are even easier to detect, using Corona's <nobr>built-in</nobr> object <code>contentBounds</code> properties:</p>
+<p>Overlapping rectangles are even easier to detect, using Corona’s <nobr>built-in</nobr> object <code>contentBounds</code> properties:</p>
 <pre class="brush: lua;">local function hasCollidedRect( obj1, obj2 )
 
     if ( obj1 == nil ) then  -- Make sure the first object exists
@@ -144,16 +141,16 @@ end</pre>
 <div class="notebox-title-imp">
 Important
 </div>
-<p>For images that have some transparency around them, note that this <strong>will</strong> include the transparent areas since the function uses the content bounds of those images. If necessary, you can adjust the math in the comparisons, for instance add or subtract a pixel value to/from the various &quot;min&quot; and &quot;max&quot; properties to account for the width of the transparency.</p>
+<p>For images that have some transparency around them, note that this <strong>will</strong> include the transparent areas since the function uses the content bounds of those images. If necessary, you can adjust the math in the comparisons, for instance add or subtract a pixel value to/from the various “min” and “max” properties to account for the width of the transparency.</p>
 </div>
-</div>
-<div id="checking-for-collisions" class="section level2">
+</section>
+<section id="checking-for-collisions" class="level2">
 <h2>Checking for Collisions</h2>
 <p>Now that you have a couple different ways to determine if two items have collided, how can you use them? Unlike <nobr>physics-based</nobr> collisions, there are not collision listener events where the system tells you exactly when objects collide. Instead, you must check periodically (or frequently) in your own code.</p>
-<p>Perhaps the most obvious method is to use an <code>&quot;enterFrame&quot;</code> Runtime listener as follows:</p>
+<p>Perhaps the most obvious method is to use an <code>"enterFrame"</code> Runtime listener as follows:</p>
 <ul>
-<li><p>As a <nobr>constantly-running</nobr> &quot;game loop&quot; where you check for collisions on every time step.</p></li>
-<li><p>As a listener method which you toggle on and off as needed, for example only when the player is <nobr>touch-dragging</nobr> an object around the screen, or when the player stops dragging (releases) an object and you need to confirm that it's not overlapping another object.</p></li>
+<li><p>As a <nobr>constantly-running</nobr> “game loop” where you check for collisions on every time step.</p></li>
+<li><p>As a listener method which you toggle on and off as needed, for example only when the player is <nobr>touch-dragging</nobr> an object around the screen, or when the player stops dragging (releases) an object and you need to confirm that it’s not overlapping another object.</p></li>
 </ul>
 <p>Consider this example function which assumes that you have a <code>myPlayer</code> object and multiple coin objects stored in a table named <code>coinCache</code>. Assuming the player can also use <nobr>circle-based</nobr> detection, this function loops through the <code>coinCache</code> table on each frame and checks if the player has come into contact with any coins:</p>
 <pre class="brush: lua;">local function gameLoop( event )
@@ -171,13 +168,13 @@ Important
     return true
 end
 Runtime:addEventListener( "enterFrame", gameLoop )</pre>
-</div>
-<div id="conclusion" class="section level2">
+</section>
+<section id="conclusion" class="level2">
 <h2>Conclusion</h2>
-<p>That concludes our tutorial on <nobr>non-physical</nobr> collision detection. As you can see, this is a convenient method when you're building an app which requires basic collision detection and the physics engine — as powerful as it can be — is beyond the required needs of your tasks.</p>
+<p>That concludes our tutorial on <nobr>non-physical</nobr> collision detection. As you can see, this is a convenient method when you’re building an app which requires basic collision detection and the physics engine — as powerful as it can be — is beyond the required needs of your tasks.</p>
 <!--- LEGAL -->
-</div>
-<div id="section" class="section level2">
+</section>
+<section id="section" class="level2">
 <h2></h2>
 <div class="tiny-copy">
 <p>Character art in this tutorial is courtesy of <a href="https://kenney.nl/">Kenney</a>. Kenney game studio supports other developers by creating free game assets and high quality learning material.</p>
@@ -192,8 +189,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Libraries | display | setDefault</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -79,63 +79,63 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/library/index.html">Libraries</a>  ▸  <a href="../../../api/library/display/index.html">display</a>  ▸  <a href="../../../api/library/display/setDefault.html">setDefault</a>
 </div>
-<div id="display.setdefault" class="section level1">
+<section id="display.setdefault" class="level1">
 <h1>display.setDefault()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Library</strong></td>
-<td align="left"><a href="../../../api/library/display/index.html">display.*</a></td>
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/display/index.html">display.*</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">defaults, set default, color, graphics, vector objects</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">defaults, set default, color, graphics, vector objects</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../api/library/display/getDefault.html">display.getDefault()</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../api/library/display/getDefault.html">display.getDefault()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../guide/graphics/path.html">Shapes — Paths, Fills, Strokes</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../guide/graphics/path.html">Shapes — Paths, Fills, Strokes</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/display/newLine.html">display.newLine()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/display/newLine.html">display.newLine()</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/library/display/newText.html">display.newText()</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/library/display/newText.html">display.newText()</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../api/type/DisplayObject/anchorX.html">object.anchorX</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/type/DisplayObject/anchorX.html">object.anchorX</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../api/type/DisplayObject/anchorY.html">object.anchorY</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../api/type/DisplayObject/anchorY.html">object.anchorY</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Set default display values including default colors for display objects, anchor point defaults, texture wrapping settings, etc.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <p>Any of the following are valid:</p>
 <pre class="brush: lua;">display.setDefault( key, value )
@@ -147,22 +147,22 @@ display.setDefault( key, r, g, b )
 display.setDefault( key, gray )
 
 display.setDefault( key, gray, alpha )</pre>
-<div id="key-required" class="section level5">
+<section id="key-required" class="level5">
 <h5>key <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../../api/type/String.html">String</a>.</em> Specifies the key to set the default value for.</p>
-</div>
-<div id="gray-r-g-b-alpha-optional" class="section level5">
+</section>
+<section id="gray-r-g-b-alpha-optional" class="level5">
 <h5>gray, r, g, b, alpha <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../../api/type/Number.html">Numbers</a>.</em> Color values between <code>0</code> and <code>1</code>.</p>
-</div>
-</div>
-<div id="display-object-keys" class="section level2">
+</section>
+</section>
+<section id="display-object-keys" class="level2">
 <h2>Display Object Keys</h2>
 <p>These keys specify default anchor values and anchor bounds for all display objects.</p>
 <ul>
-<li><p><code>&quot;anchorX&quot;</code> — The anchor alignment along the <strong>x</strong> direction. This value is used for the value of the <a href="../../../api/type/DisplayObject/anchorX.html">anchorX</a> property in new objects. The default is <code>0.5</code> (centered along the <strong>x</strong> direction).</p></li>
-<li><p><code>&quot;anchorY&quot;</code> — The anchor alignment along the <strong>y</strong> direction. This value is used for the value of the <a href="../../../api/type/DisplayObject/anchorY.html">anchorY</a> property in new objects. The default is <code>0.5</code> (centered along the <strong>y</strong> direction).</p></li>
-<li><p><code>&quot;isAnchorClamped&quot;</code> — If set to <code>false</code>, anchor positions along either the <strong>x</strong> or <strong>y</strong> direction are <strong>not</strong> constrained to values between <code>0</code> and <code>1</code>. In this case, setting anchor values outside of this range (negative or positive) will position the anchor outside the bounds of the display object. Default is <code>true</code>.</p></li>
+<li><p><code>"anchorX"</code> — The anchor alignment along the <strong>x</strong> direction. This value is used for the value of the <a href="../../../api/type/DisplayObject/anchorX.html">anchorX</a> property in new objects. The default is <code>0.5</code> (centered along the <strong>x</strong> direction).</p></li>
+<li><p><code>"anchorY"</code> — The anchor alignment along the <strong>y</strong> direction. This value is used for the value of the <a href="../../../api/type/DisplayObject/anchorY.html">anchorY</a> property in new objects. The default is <code>0.5</code> (centered along the <strong>y</strong> direction).</p></li>
+<li><p><code>"isAnchorClamped"</code> — If set to <code>false</code>, anchor positions along either the <strong>x</strong> or <strong>y</strong> direction are <strong>not</strong> constrained to values between <code>0</code> and <code>1</code>. In this case, setting anchor values outside of this range (negative or positive) will position the anchor outside the bounds of the display object. Default is <code>true</code>.</p></li>
 </ul>
 <div class="docs-tip-outer docs-tip-color-alert">
 <div class="docs-tip-inner-left">
@@ -171,64 +171,64 @@ display.setDefault( key, gray, alpha )</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Some display objects are not fully compatible with <nobr>non-center</nobr> anchor points, in particular <a href="../../../api/library/widget/index.html">widgets</a>, so you should be careful which &quot;scope&quot; you set default anchors for. Typically, changing the default anchor values should be used near the beginning of a process — for instance, displaying a series of objects which must be anchored a certain way — and then immediately after they should be <strong>reset</strong> to default (<code>0.5</code>) so that other objects are not affected inadvertently.</p>
+<p>Some display objects are not fully compatible with <nobr>non-center</nobr> anchor points, in particular <a href="../../../api/library/widget/index.html">widgets</a>, so you should be careful which “scope” you set default anchors for. Typically, changing the default anchor values should be used near the beginning of a process — for instance, displaying a series of objects which must be anchored a certain way — and then immediately after they should be <strong>reset</strong> to default (<code>0.5</code>) so that other objects are not affected inadvertently.</p>
 </div>
 </div>
-</div>
-<div id="color-keys" class="section level2">
+</section>
+<section id="color-keys" class="level2">
 <h2>Color Keys</h2>
 <p>A color key specifies which default color value to set.</p>
 <ul>
-<li><p><code>&quot;background&quot;</code> — Corresponds to the default color for that the screen is cleared with. The default is initially black (<code>0,0,0</code>).</p></li>
-<li><p><code>&quot;fillColor&quot;</code> — Corresponds to the default fill color for vector objects like <a href="../../../api/library/display/newRect.html">display.newRect()</a>. The default is initially white (<code>1,1,1</code>).</p></li>
-<li><p><code>&quot;strokeColor&quot;</code> — Corresponds to the default stroke color for vector objects like <a href="../../../api/library/display/newRect.html">display.newRect()</a>. The default is initially white (<code>1,1,1</code>).</p></li>
-<li><p><code>&quot;lineColor&quot;</code> — Corresponds to the default color for line objects like <a href="../../../api/library/display/newLine.html">display.newLine()</a>. The default is initially white (<code>1,1,1</code>).</p></li>
+<li><p><code>"background"</code> — Corresponds to the default color for that the screen is cleared with. The default is initially black (<code>0,0,0</code>).</p></li>
+<li><p><code>"fillColor"</code> — Corresponds to the default fill color for vector objects like <a href="../../../api/library/display/newRect.html">display.newRect()</a>. The default is initially white (<code>1,1,1</code>).</p></li>
+<li><p><code>"strokeColor"</code> — Corresponds to the default stroke color for vector objects like <a href="../../../api/library/display/newRect.html">display.newRect()</a>. The default is initially white (<code>1,1,1</code>).</p></li>
+<li><p><code>"lineColor"</code> — Corresponds to the default color for line objects like <a href="../../../api/library/display/newLine.html">display.newLine()</a>. The default is initially white (<code>1,1,1</code>).</p></li>
 </ul>
-</div>
-<div id="native-keys" class="section level2">
+</section>
+<section id="native-keys" class="level2">
 <h2>Native Keys</h2>
 <ul>
-<li><p><code>&quot;isNativeTextBoxFontSizeScaled&quot;</code> — Sets the default <a href="../../../api/type/Boolean.html">Boolean</a> value to be assigned to a native text box's <a href="../../../api/type/TextBox/isFontSizeScaled.html">object.isFontSizeScaled</a> property when created via the <a href="../../../api/library/native/newTextBox.html">native.newTextBox()</a> function. This is <code>true</code> by default. Set to <code>false</code> to enable legacy font handling support.</p></li>
-<li><p><code>&quot;isNativeTextFieldFontSizeScaled&quot;</code> — Sets the default <a href="../../../api/type/Boolean.html">Boolean</a> value to be assigned to a native text field's <a href="../../../api/type/TextField/isFontSizeScaled.html">object.isFontSizeScaled</a> property when created via the <a href="../../../api/library/native/newTextField.html">native.newTextField()</a> function. This is <code>true</code> by default. Set to <code>false</code> to enable legacy font handling support.</p></li>
+<li><p><code>"isNativeTextBoxFontSizeScaled"</code> — Sets the default <a href="../../../api/type/Boolean.html">Boolean</a> value to be assigned to a native text box’s <a href="../../../api/type/TextBox/isFontSizeScaled.html">object.isFontSizeScaled</a> property when created via the <a href="../../../api/library/native/newTextBox.html">native.newTextBox()</a> function. This is <code>true</code> by default. Set to <code>false</code> to enable legacy font handling support.</p></li>
+<li><p><code>"isNativeTextFieldFontSizeScaled"</code> — Sets the default <a href="../../../api/type/Boolean.html">Boolean</a> value to be assigned to a native text field’s <a href="../../../api/type/TextField/isFontSizeScaled.html">object.isFontSizeScaled</a> property when created via the <a href="../../../api/library/native/newTextField.html">native.newTextField()</a> function. This is <code>true</code> by default. Set to <code>false</code> to enable legacy font handling support.</p></li>
 </ul>
-</div>
-<div id="texture-keys" class="section level2">
+</section>
+<section id="texture-keys" class="level2">
 <h2>Texture Keys</h2>
 <ul>
-<li><p><code>&quot;preloadTextures&quot;</code> — The default behavior for texture loading is to load the texture when the display object is created or when the display object uses it. Setting this value to <code>false</code> will delay loading of the texture to when the object appears on screen or to when it becomes visible.</p></li>
-<li><p><code>&quot;isExternalTextureRetina&quot;</code> — The default behavior for external textures is to be sampled like retina textures, applying content scaling to the <code>width</code> and <code>height</code> when resolving texture coordinates. Setting this value to <code>false</code> will simply use <code>width</code> and <code>height</code> as is.</p></li>
-<li><p><code>&quot;isImageSheetFrameTrimCorrected&quot;</code> — The default (legacy) behavior for trimmed sprites can lead to strange behavior when doing rotation or scaling on them. Setting this value to <code>true</code> will apply appropriate corrections. (It will also slightly affect how <a href="../../../api/type/GroupObject/anchorChildren.html">object.anchorChildren</a> updates. See the link for further details.)</p></li>
-<li><p><code>&quot;isImageSheetSampledInsideFrame&quot;</code> — Affects how <a href="../../../api/type/ImageSheet/index.html">image sheet</a> frames are sampled. If set to <code>true</code>, sampling is intruded by half of the source texture pixel size to avoid border artifacts. Default is <code>false</code>.</p></li>
-<li><p><code>&quot;magTextureFilter&quot;</code> — The default magnification sampling filter applied whenever an image is loaded by Solar2D. Once an image is loaded the first time, the same sampling filter will be applied for any subsequent loads of the same file. This is because textures are loaded once per file. Default value is <code>&quot;linear&quot;</code>. Alternative value is <code>&quot;nearest&quot;</code>.</p></li>
-<li><p><code>&quot;minTextureFilter&quot;</code> — The default minification sampling filter applied whenever an image is loaded by Solar2D. Once an image is loaded the first time, the same sampling filter will be applied for any subsequent loads of the same file. This is because textures are loaded once per file. Default value is <code>&quot;linear&quot;</code>. Alternative value is <code>&quot;nearest&quot;</code>.</p></li>
-<li><p><code>&quot;textureWrapX&quot;</code> — The texture wrap mode along the <strong>x</strong> direction. Once an image is loaded the first time, the same wrap mode will be applied for any subsequent loads of the same file. This is because textures are loaded once per file. Default value is <code>&quot;clampToEdge&quot;</code>. Other values are useful for patterns and include <code>&quot;repeat&quot;</code> or <code>&quot;mirroredRepeat&quot;</code>.</p></li>
-<li><p><code>&quot;textureWrapY&quot;</code> — The texture wrap mode along the <strong>y</strong> direction. Once an image is loaded the first time, the same wrap mode will be applied for any subsequent loads of the same file. This is because textures are loaded once per file. Default value is <code>&quot;clampToEdge&quot;</code>. Other values are useful for patterns and include <code>&quot;repeat&quot;</code> or <code>&quot;mirroredRepeat&quot;</code>.</p></li>
+<li><p><code>"preloadTextures"</code> — The default behavior for texture loading is to load the texture when the display object is created or when the display object uses it. Setting this value to <code>false</code> will delay loading of the texture to when the object appears on screen or to when it becomes visible.</p></li>
+<li><p><code>"isExternalTextureRetina"</code> — The default behavior for external textures is to be sampled like retina textures, applying content scaling to the <code>width</code> and <code>height</code> when resolving texture coordinates. Setting this value to <code>false</code> will simply use <code>width</code> and <code>height</code> as is.</p></li>
+<li><p><code>"isImageSheetFrameTrimCorrected"</code> — The default (legacy) behavior for trimmed sprites can lead to strange behavior when doing rotation or scaling on them. Setting this value to <code>true</code> will apply appropriate corrections. (It will also slightly affect how <a href="../../../api/type/GroupObject/anchorChildren.html">object.anchorChildren</a> updates. See the link for further details.)</p></li>
+<li><p><code>"isImageSheetSampledInsideFrame"</code> — Affects how <a href="../../../api/type/ImageSheet/index.html">image sheet</a> frames are sampled. If set to <code>true</code>, sampling is intruded by half of the source texture pixel size to avoid border artifacts. Default is <code>false</code>.</p></li>
+<li><p><code>"magTextureFilter"</code> — The default magnification sampling filter applied whenever an image is loaded by Solar2D. Once an image is loaded the first time, the same sampling filter will be applied for any subsequent loads of the same file. This is because textures are loaded once per file. Default value is <code>"linear"</code>. Alternative value is <code>"nearest"</code>.</p></li>
+<li><p><code>"minTextureFilter"</code> — The default minification sampling filter applied whenever an image is loaded by Solar2D. Once an image is loaded the first time, the same sampling filter will be applied for any subsequent loads of the same file. This is because textures are loaded once per file. Default value is <code>"linear"</code>. Alternative value is <code>"nearest"</code>.</p></li>
+<li><p><code>"textureWrapX"</code> — The texture wrap mode along the <strong>x</strong> direction. Once an image is loaded the first time, the same wrap mode will be applied for any subsequent loads of the same file. This is because textures are loaded once per file. Default value is <code>"clampToEdge"</code>. Other values are useful for patterns and include <code>"repeat"</code> or <code>"mirroredRepeat"</code>.</p></li>
+<li><p><code>"textureWrapY"</code> — The texture wrap mode along the <strong>y</strong> direction. Once an image is loaded the first time, the same wrap mode will be applied for any subsequent loads of the same file. This is because textures are loaded once per file. Default value is <code>"clampToEdge"</code>. Other values are useful for patterns and include <code>"repeat"</code> or <code>"mirroredRepeat"</code>.</p></li>
 </ul>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
 Important
 </div>
 <ul>
-<li><p>For texture wrapping (<code>&quot;textureWrapX&quot;</code> and <code>&quot;textureWrapY&quot;</code>), <code>&quot;clampToEdge&quot;</code> is the only valid mode for <a href="https://www.khronos.org/opengl/wiki/NPOT_Texture">non-power-of-two textures</a>. To use <code>&quot;repeat&quot;</code> or <code>&quot;mirroredRepeat&quot;</code>, make sure the dimensions of your textures are power of two, for example <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>, <code>256</code>, etc.</p></li>
-<li><p>When using one of the non-default wrap modes (<code>&quot;repeat&quot;</code> or <code>&quot;mirroredRepeat&quot;</code>), you should revert the wrap mode to default (<code>&quot;clampToEdge&quot;</code>) when repeating fills are no longer required. For example, after filling an object with a wrapping texture, revert the wrap mode to default before proceeding with any other <a href="../../../api/type/ShapeObject/fill.html">fill</a> operations.</p></li>
+<li><p>For texture wrapping (<code>"textureWrapX"</code> and <code>"textureWrapY"</code>), <code>"clampToEdge"</code> is the only valid mode for <a href="https://www.khronos.org/opengl/wiki/NPOT_Texture">non-power-of-two textures</a>. To use <code>"repeat"</code> or <code>"mirroredRepeat"</code>, make sure the dimensions of your textures are power of two, for example <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>, <code>256</code>, etc.</p></li>
+<li><p>When using one of the non-default wrap modes (<code>"repeat"</code> or <code>"mirroredRepeat"</code>), you should revert the wrap mode to default (<code>"clampToEdge"</code>) when repeating fills are no longer required. For example, after filling an object with a wrapping texture, revert the wrap mode to default before proceeding with any other <a href="../../../api/type/ShapeObject/fill.html">fill</a> operations.</p></li>
 </ul>
 </div>
-</div>
-<div id="camera-source" class="section level2">
+</section>
+<section id="camera-source" class="level2">
 <h2>Camera Source</h2>
 <ul>
-<li><code>&quot;cameraSource&quot;</code> — The default behavior for a camera object fill is to use the back-facing camera. Setting this value to <code>&quot;front&quot;</code>, will change the behavior to use the <nobr>front-facing</nobr> camera. Note that this is an <nobr>iOS-only</nobr> feature.</li>
+<li><code>"cameraSource"</code> — The default behavior for a camera object fill is to use the back-facing camera. Setting this value to <code>"front"</code>, will change the behavior to use the <nobr>front-facing</nobr> camera. Note that this is an <nobr>iOS-only</nobr> feature.</li>
 </ul>
-</div>
-<div id="examples" class="section level2">
+</section>
+<section id="examples" class="level2">
 <h2>Examples</h2>
-<div id="default-anchors" class="section level5">
+<section id="default-anchors" class="level5">
 <h5>Default Anchors</h5>
 <pre class="brush: lua;">-- Set default anchor point for objects to bottom-left
 display.setDefault( "anchorX", 0 )
 display.setDefault( "anchorY", 1 )</pre>
-</div>
-<div id="non-clamped-anchors" class="section level5">
+</section>
+<section id="non-clamped-anchors" class="level5">
 <h5>Non-Clamped Anchors</h5>
 <pre class="brush: lua;">display.setDefault( "isAnchorClamped", false )
 --display.setDefault( "isAnchorClamped", true )
@@ -238,16 +238,16 @@ rect.anchorX = -1
 rect.anchorY = 1.5
 
 transition.to( rect, { rotation=135, delay=500 } )</pre>
-</div>
-<div id="fill-color-and-background" class="section level5">
+</section>
+<section id="fill-color-and-background" class="level5">
 <h5>Fill Color and Background</h5>
 <pre class="brush: lua;">-- Set default fill color for vector objects to red
 display.setDefault( "fillColor", 1, 0, 0 )
 
 -- Set default screen background color to blue
 display.setDefault( "background", 0, 0, 1 )</pre>
-</div>
-<div id="texture-wrap" class="section level5">
+</section>
+<section id="texture-wrap" class="level5">
 <h5>Texture Wrap</h5>
 <pre class="brush: lua;">display.setDefault( "textureWrapX", "repeat" )
 display.setDefault( "textureWrapY", "repeat" )
@@ -257,8 +257,8 @@ local o = display.newRect( x, y, display.contentWidth, display.contentHeight )
 o.fill = { type="image", filename="fish.small.red.png" }
 o.fill.scaleX = 0.1
 o.fill.scaleY = 0.1</pre>
-</div>
-<div id="camera-source-1" class="section level5">
+</section>
+<section id="camera-source-1" class="level5">
 <h5>Camera Source</h5>
 <pre class="brush: lua;">if ( system.getInfo( "environment" ) ~= "simulator" ) then
     display.setDefault( "cameraSource", "front" )   -- Front-facing camera
@@ -274,9 +274,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Steamworks</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -61,59 +61,59 @@
 <li><a href="#project-settings">Project Settings</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#functions">Functions</a><ul>
-<li><a href="#steamworks.addeventlistenerplugin.steamworks.addeventlistener"><a href="../../plugin/steamworks/addEventListener.html">steamworks.addEventListener()</a></a></li>
-<li><a href="#steamworks.getachievementimageinfoplugin.steamworks.getachievementimageinfo"><a href="../../plugin/steamworks/getAchievementImageInfo.html">steamworks.getAchievementImageInfo()</a></a></li>
-<li><a href="#steamworks.getachievementinfoplugin.steamworks.getachievementinfo"><a href="../../plugin/steamworks/getAchievementInfo.html">steamworks.getAchievementInfo()</a></a></li>
-<li><a href="#steamworks.getachievementnamesplugin.steamworks.getachievementnames"><a href="../../plugin/steamworks/getAchievementNames.html">steamworks.getAchievementNames()</a></a></li>
-<li><a href="#steamworks.getuserimageinfoplugin.steamworks.getuserimageinfo"><a href="../../plugin/steamworks/getUserImageInfo.html">steamworks.getUserImageInfo()</a></a></li>
-<li><a href="#steamworks.getuserinfoplugin.steamworks.getuserinfo"><a href="../../plugin/steamworks/getUserInfo.html">steamworks.getUserInfo()</a></a></li>
-<li><a href="#steamworks.getuserstatvalueplugin.steamworks.getuserstatvalue"><a href="../../plugin/steamworks/getUserStatValue.html">steamworks.getUserStatValue()</a></a></li>
-<li><a href="#steamworks.newimagerectplugin.steamworks.newimagerect"><a href="../../plugin/steamworks/newImageRect.html">steamworks.newImageRect()</a></a></li>
-<li><a href="#steamworks.newtextureplugin.steamworks.newtexture"><a href="../../plugin/steamworks/newTexture.html">steamworks.newTexture()</a></a></li>
-<li><a href="#steamworks.removeeventlistenerplugin.steamworks.removeeventlistener"><a href="../../plugin/steamworks/removeEventListener.html">steamworks.removeEventListener()</a></a></li>
-<li><a href="#steamworks.requestactiveplayercountplugin.steamworks.requestactiveplayercount"><a href="../../plugin/steamworks/requestActivePlayerCount.html">steamworks.requestActivePlayerCount()</a></a></li>
-<li><a href="#steamworks.requestleaderboardentriesplugin.steamworks.requestleaderboardentries"><a href="../../plugin/steamworks/requestLeaderboardEntries.html">steamworks.requestLeaderboardEntries()</a></a></li>
-<li><a href="#steamworks.requestleaderboardinfoplugin.steamworks.requestleaderboardinfo"><a href="../../plugin/steamworks/requestLeaderboardInfo.html">steamworks.requestLeaderboardInfo()</a></a></li>
-<li><a href="#steamworks.requestsethighscoreplugin.steamworks.requestsethighscore"><a href="../../plugin/steamworks/requestSetHighScore.html">steamworks.requestSetHighScore()</a></a></li>
-<li><a href="#steamworks.requestuserprogressplugin.steamworks.requestuserprogress"><a href="../../plugin/steamworks/requestUserProgress.html">steamworks.requestUserProgress()</a></a></li>
-<li><a href="#steamworks.resetuserprogressplugin.steamworks.resetuserprogress"><a href="../../plugin/steamworks/resetUserProgress.html">steamworks.resetUserProgress()</a></a></li>
-<li><a href="#steamworks.resetuserstatsplugin.steamworks.resetuserstats"><a href="../../plugin/steamworks/resetUserStats.html">steamworks.resetUserStats()</a></a></li>
-<li><a href="#steamworks.setachievementprogressplugin.steamworks.setachievementprogress"><a href="../../plugin/steamworks/setAchievementProgress.html">steamworks.setAchievementProgress()</a></a></li>
-<li><a href="#steamworks.setachievementunlockedplugin.steamworks.setachievementunlocked"><a href="../../plugin/steamworks/setAchievementUnlocked.html">steamworks.setAchievementUnlocked()</a></a></li>
-<li><a href="#steamworks.setnotificationpositionplugin.steamworks.setnotificationposition"><a href="../../plugin/steamworks/setNotificationPosition.html">steamworks.setNotificationPosition()</a></a></li>
-<li><a href="#steamworks.setuserstatvaluesplugin.steamworks.setuserstatvalues"><a href="../../plugin/steamworks/setUserStatValues.html">steamworks.setUserStatValues()</a></a></li>
-<li><a href="#steamworks.showgameoverlayplugin.steamworks.showgameoverlay"><a href="../../plugin/steamworks/showGameOverlay.html">steamworks.showGameOverlay()</a></a></li>
-<li><a href="#steamworks.showstoreoverlayplugin.steamworks.showstoreoverlay"><a href="../../plugin/steamworks/showStoreOverlay.html">steamworks.showStoreOverlay()</a></a></li>
-<li><a href="#steamworks.showuseroverlayplugin.steamworks.showuseroverlay"><a href="../../plugin/steamworks/showUserOverlay.html">steamworks.showUserOverlay()</a></a></li>
-<li><a href="#steamworks.showweboverlayplugin.steamworks.showweboverlay"><a href="../../plugin/steamworks/showWebOverlay.html">steamworks.showWebOverlay()</a></a></li>
-<li><a href="#steamworks.getauthsessionticketplugin.steamworks.getauthsessionticket"><a href="../../plugin/steamworks/getAuthSessionTicket.html">steamworks.getAuthSessionTicket()</a></a></li>
+<li><a href="#steamworks.addeventlistenerplugin.steamworks.addeventlistener"><span>steamworks.addEventListener()</span></a></li>
+<li><a href="#steamworks.getachievementimageinfoplugin.steamworks.getachievementimageinfo"><span>steamworks.getAchievementImageInfo()</span></a></li>
+<li><a href="#steamworks.getachievementinfoplugin.steamworks.getachievementinfo"><span>steamworks.getAchievementInfo()</span></a></li>
+<li><a href="#steamworks.getachievementnamesplugin.steamworks.getachievementnames"><span>steamworks.getAchievementNames()</span></a></li>
+<li><a href="#steamworks.getuserimageinfoplugin.steamworks.getuserimageinfo"><span>steamworks.getUserImageInfo()</span></a></li>
+<li><a href="#steamworks.getuserinfoplugin.steamworks.getuserinfo"><span>steamworks.getUserInfo()</span></a></li>
+<li><a href="#steamworks.getuserstatvalueplugin.steamworks.getuserstatvalue"><span>steamworks.getUserStatValue()</span></a></li>
+<li><a href="#steamworks.newimagerectplugin.steamworks.newimagerect"><span>steamworks.newImageRect()</span></a></li>
+<li><a href="#steamworks.newtextureplugin.steamworks.newtexture"><span>steamworks.newTexture()</span></a></li>
+<li><a href="#steamworks.removeeventlistenerplugin.steamworks.removeeventlistener"><span>steamworks.removeEventListener()</span></a></li>
+<li><a href="#steamworks.requestactiveplayercountplugin.steamworks.requestactiveplayercount"><span>steamworks.requestActivePlayerCount()</span></a></li>
+<li><a href="#steamworks.requestleaderboardentriesplugin.steamworks.requestleaderboardentries"><span>steamworks.requestLeaderboardEntries()</span></a></li>
+<li><a href="#steamworks.requestleaderboardinfoplugin.steamworks.requestleaderboardinfo"><span>steamworks.requestLeaderboardInfo()</span></a></li>
+<li><a href="#steamworks.requestsethighscoreplugin.steamworks.requestsethighscore"><span>steamworks.requestSetHighScore()</span></a></li>
+<li><a href="#steamworks.requestuserprogressplugin.steamworks.requestuserprogress"><span>steamworks.requestUserProgress()</span></a></li>
+<li><a href="#steamworks.resetuserprogressplugin.steamworks.resetuserprogress"><span>steamworks.resetUserProgress()</span></a></li>
+<li><a href="#steamworks.resetuserstatsplugin.steamworks.resetuserstats"><span>steamworks.resetUserStats()</span></a></li>
+<li><a href="#steamworks.setachievementprogressplugin.steamworks.setachievementprogress"><span>steamworks.setAchievementProgress()</span></a></li>
+<li><a href="#steamworks.setachievementunlockedplugin.steamworks.setachievementunlocked"><span>steamworks.setAchievementUnlocked()</span></a></li>
+<li><a href="#steamworks.setnotificationpositionplugin.steamworks.setnotificationposition"><span>steamworks.setNotificationPosition()</span></a></li>
+<li><a href="#steamworks.setuserstatvaluesplugin.steamworks.setuserstatvalues"><span>steamworks.setUserStatValues()</span></a></li>
+<li><a href="#steamworks.showgameoverlayplugin.steamworks.showgameoverlay"><span>steamworks.showGameOverlay()</span></a></li>
+<li><a href="#steamworks.showstoreoverlayplugin.steamworks.showstoreoverlay"><span>steamworks.showStoreOverlay()</span></a></li>
+<li><a href="#steamworks.showuseroverlayplugin.steamworks.showuseroverlay"><span>steamworks.showUserOverlay()</span></a></li>
+<li><a href="#steamworks.showweboverlayplugin.steamworks.showweboverlay"><span>steamworks.showWebOverlay()</span></a></li>
+<li><a href="#steamworks.getauthsessionticketplugin.steamworks.getauthsessionticket"><span>steamworks.getAuthSessionTicket()</span></a></li>
 </ul></li>
 <li><a href="#properties">Properties</a><ul>
-<li><a href="#steamworks.appidplugin.steamworks.appid"><a href="../../plugin/steamworks/appId.html">steamworks.appId</a></a></li>
-<li><a href="#steamworks.appownersteamidplugin.steamworks.appownersteamid"><a href="../../plugin/steamworks/appOwnerSteamId.html">steamworks.appOwnerSteamId</a></a></li>
-<li><a href="#steamworks.canshowoverlayplugin.steamworks.canshowoverlay"><a href="../../plugin/steamworks/canShowOverlay.html">steamworks.canShowOverlay</a></a></li>
-<li><a href="#steamworks.isloggedonplugin.steamworks.isloggedon"><a href="../../plugin/steamworks/isLoggedOn.html">steamworks.isLoggedOn</a></a></li>
-<li><a href="#steamworks.usersteamidplugin.steamworks.usersteamid"><a href="../../plugin/steamworks/userSteamId.html">steamworks.userSteamId</a></a></li>
+<li><a href="#steamworks.appidplugin.steamworks.appid"><span>steamworks.appId</span></a></li>
+<li><a href="#steamworks.appownersteamidplugin.steamworks.appownersteamid"><span>steamworks.appOwnerSteamId</span></a></li>
+<li><a href="#steamworks.canshowoverlayplugin.steamworks.canshowoverlay"><span>steamworks.canShowOverlay</span></a></li>
+<li><a href="#steamworks.isloggedonplugin.steamworks.isloggedon"><span>steamworks.isLoggedOn</span></a></li>
+<li><a href="#steamworks.usersteamidplugin.steamworks.usersteamid"><span>steamworks.userSteamId</span></a></li>
 </ul></li>
 <li><a href="#events">Events</a><ul>
-<li><a href="#achievementimageupdateplugin.steamworks.event.achievementimageupdate"><a href="../../plugin/steamworks/event/achievementImageUpdate/index.html">achievementImageUpdate</a></a></li>
-<li><a href="#achievementinfoupdateplugin.steamworks.event.achievementinfoupdate"><a href="../../plugin/steamworks/event/achievementInfoUpdate/index.html">achievementInfoUpdate</a></a></li>
-<li><a href="#activeplayercountplugin.steamworks.event.activeplayercount"><a href="../../plugin/steamworks/event/activePlayerCount/index.html">activePlayerCount</a></a></li>
-<li><a href="#leaderboardentriesplugin.steamworks.event.leaderboardentries"><a href="../../plugin/steamworks/event/leaderboardEntries/index.html">leaderboardEntries</a></a></li>
-<li><a href="#leaderboardinfoplugin.steamworks.event.leaderboardinfo"><a href="../../plugin/steamworks/event/leaderboardInfo/index.html">leaderboardInfo</a></a></li>
-<li><a href="#microtransactionauthorizationplugin.steamworks.event.microtransactionauthorization"><a href="../../plugin/steamworks/event/microtransactionAuthorization/index.html">microtransactionAuthorization</a></a></li>
-<li><a href="#overlaystatusplugin.steamworks.event.overlaystatus"><a href="../../plugin/steamworks/event/overlayStatus/index.html">overlayStatus</a></a></li>
-<li><a href="#sethighscoreplugin.steamworks.event.sethighscore"><a href="../../plugin/steamworks/event/setHighScore/index.html">setHighScore</a></a></li>
-<li><a href="#userinfoupdateplugin.steamworks.event.userinfoupdate"><a href="../../plugin/steamworks/event/userInfoUpdate/index.html">userInfoUpdate</a></a></li>
-<li><a href="#userprogresssaveplugin.steamworks.event.userprogresssave"><a href="../../plugin/steamworks/event/userProgressSave/index.html">userProgressSave</a></a></li>
-<li><a href="#userprogressunloadplugin.steamworks.event.userprogressunload"><a href="../../plugin/steamworks/event/userProgressUnload/index.html">userProgressUnload</a></a></li>
-<li><a href="#userprogressupdateplugin.steamworks.event.userprogressupdate"><a href="../../plugin/steamworks/event/userProgressUpdate/index.html">userProgressUpdate</a></a></li>
+<li><a href="#achievementimageupdateplugin.steamworks.event.achievementimageupdate"><span>achievementImageUpdate</span></a></li>
+<li><a href="#achievementinfoupdateplugin.steamworks.event.achievementinfoupdate"><span>achievementInfoUpdate</span></a></li>
+<li><a href="#activeplayercountplugin.steamworks.event.activeplayercount"><span>activePlayerCount</span></a></li>
+<li><a href="#leaderboardentriesplugin.steamworks.event.leaderboardentries"><span>leaderboardEntries</span></a></li>
+<li><a href="#leaderboardinfoplugin.steamworks.event.leaderboardinfo"><span>leaderboardInfo</span></a></li>
+<li><a href="#microtransactionauthorizationplugin.steamworks.event.microtransactionauthorization"><span>microtransactionAuthorization</span></a></li>
+<li><a href="#overlaystatusplugin.steamworks.event.overlaystatus"><span>overlayStatus</span></a></li>
+<li><a href="#sethighscoreplugin.steamworks.event.sethighscore"><span>setHighScore</span></a></li>
+<li><a href="#userinfoupdateplugin.steamworks.event.userinfoupdate"><span>userInfoUpdate</span></a></li>
+<li><a href="#userprogresssaveplugin.steamworks.event.userprogresssave"><span>userProgressSave</span></a></li>
+<li><a href="#userprogressunloadplugin.steamworks.event.userprogressunload"><span>userProgressUnload</span></a></li>
+<li><a href="#userprogressupdateplugin.steamworks.event.userprogressupdate"><span>userProgressUpdate</span></a></li>
 </ul></li>
 <li><a href="#types">Types</a><ul>
-<li><a href="#achievementinfoplugin.steamworks.type.achievementinfo"><a href="../../plugin/steamworks/type/AchievementInfo/index.html">AchievementInfo</a></a></li>
-<li><a href="#imageinfoplugin.steamworks.type.imageinfo"><a href="../../plugin/steamworks/type/ImageInfo/index.html">ImageInfo</a></a></li>
-<li><a href="#resultcodeplugin.steamworks.type.resultcode"><a href="../../plugin/steamworks/type/ResultCode/index.html">ResultCode</a></a></li>
-<li><a href="#userinfoplugin.steamworks.type.userinfo"><a href="../../plugin/steamworks/type/UserInfo/index.html">UserInfo</a></a></li>
+<li><a href="#achievementinfoplugin.steamworks.type.achievementinfo"><span>AchievementInfo</span></a></li>
+<li><a href="#imageinfoplugin.steamworks.type.imageinfo"><span>ImageInfo</span></a></li>
+<li><a href="#resultcodeplugin.steamworks.type.resultcode"><span>ResultCode</span></a></li>
+<li><a href="#userinfoplugin.steamworks.type.userinfo"><span>UserInfo</span></a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -121,35 +121,35 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/steamworks/index.html">Steamworks</a>
 </div>
-<div id="steamworks." class="section level1">
+<section id="steamworks." class="level1">
 <h1>steamworks.*</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Library.html">Library</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Library.html">Library</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">steam, steamworks, achievements, leaderboard</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">steam, steamworks, achievements, leaderboard</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Platforms</strong></td>
-<td align="left">macOS, Windows</td>
+<td style="text-align: left;"><strong>Platforms</strong></td>
+<td style="text-align: left;">macOS, Windows</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>The Steamworks plugin is intended for desktop games uploaded to Steam. It is used to handle achievements, player stats, leaderboards, and to show <nobr>in-app</nobr> overlays.</p>
-</div>
-<div id="gotchas" class="section level2">
+</section>
+<section id="gotchas" class="level2">
 <h2>Gotchas</h2>
 <p>The Steamworks plugin can be used in the Solar2D Simulator, but it has the following limitations/issues:</p>
 <ul>
@@ -159,11 +159,11 @@
 <li>Exiting the Steam client will automatically terminate the Solar2D Simulator application if you load the Steamworks plugin at least once.</li>
 </ul>
 <p><a id="project-settings"></a></p>
-</div>
-<div id="project-settings" class="section level2">
+</section>
+<section id="project-settings" class="level2">
 <h2>Project Settings</h2>
 <p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
-<pre class="brush: lua; gutter: false; highlight: [5,6,7,8]; first-line: 1;">settings =
+<pre class="highlight: [5,6,7,8]; first-line: 1; gutter: false; brush: lua;">settings =
 {
     plugins =
     {
@@ -174,168 +174,168 @@
     },
 }</pre>
 <p>You must also add the <strong>AppID</strong> assigned to your application by Steam into your <code>config.lua</code> file:</p>
-<pre class="brush: lua; gutter: false; highlight: [3,4,5,6]; first-line: 1;">application =
+<pre class="highlight: [3,4,5,6]; first-line: 1; gutter: false; brush: lua;">application =
 {
     steamworks =
     {
         appId = "YOUR_APP_ID"
     },
 }</pre>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">local steamworks = require( "plugin.steamworks" )</pre>
-</div>
-<div id="functions" class="section level2">
+</section>
+<section id="functions" class="level2">
 <h2>Functions</h2>
-<div id="steamworks.addeventlistenerplugin.steamworks.addeventlistener" class="section level4">
+<section id="steamworks.addeventlistenerplugin.steamworks.addeventlistener" class="level4">
 <h4><a href="../../plugin/steamworks/addEventListener.html">steamworks.addEventListener()</a></h4>
-</div>
-<div id="steamworks.getachievementimageinfoplugin.steamworks.getachievementimageinfo" class="section level4">
+</section>
+<section id="steamworks.getachievementimageinfoplugin.steamworks.getachievementimageinfo" class="level4">
 <h4><a href="../../plugin/steamworks/getAchievementImageInfo.html">steamworks.getAchievementImageInfo()</a></h4>
-</div>
-<div id="steamworks.getachievementinfoplugin.steamworks.getachievementinfo" class="section level4">
+</section>
+<section id="steamworks.getachievementinfoplugin.steamworks.getachievementinfo" class="level4">
 <h4><a href="../../plugin/steamworks/getAchievementInfo.html">steamworks.getAchievementInfo()</a></h4>
-</div>
-<div id="steamworks.getachievementnamesplugin.steamworks.getachievementnames" class="section level4">
+</section>
+<section id="steamworks.getachievementnamesplugin.steamworks.getachievementnames" class="level4">
 <h4><a href="../../plugin/steamworks/getAchievementNames.html">steamworks.getAchievementNames()</a></h4>
-</div>
-<div id="steamworks.getuserimageinfoplugin.steamworks.getuserimageinfo" class="section level4">
+</section>
+<section id="steamworks.getuserimageinfoplugin.steamworks.getuserimageinfo" class="level4">
 <h4><a href="../../plugin/steamworks/getUserImageInfo.html">steamworks.getUserImageInfo()</a></h4>
-</div>
-<div id="steamworks.getuserinfoplugin.steamworks.getuserinfo" class="section level4">
+</section>
+<section id="steamworks.getuserinfoplugin.steamworks.getuserinfo" class="level4">
 <h4><a href="../../plugin/steamworks/getUserInfo.html">steamworks.getUserInfo()</a></h4>
-</div>
-<div id="steamworks.getuserstatvalueplugin.steamworks.getuserstatvalue" class="section level4">
+</section>
+<section id="steamworks.getuserstatvalueplugin.steamworks.getuserstatvalue" class="level4">
 <h4><a href="../../plugin/steamworks/getUserStatValue.html">steamworks.getUserStatValue()</a></h4>
-</div>
-<div id="steamworks.newimagerectplugin.steamworks.newimagerect" class="section level4">
+</section>
+<section id="steamworks.newimagerectplugin.steamworks.newimagerect" class="level4">
 <h4><a href="../../plugin/steamworks/newImageRect.html">steamworks.newImageRect()</a></h4>
-</div>
-<div id="steamworks.newtextureplugin.steamworks.newtexture" class="section level4">
+</section>
+<section id="steamworks.newtextureplugin.steamworks.newtexture" class="level4">
 <h4><a href="../../plugin/steamworks/newTexture.html">steamworks.newTexture()</a></h4>
-</div>
-<div id="steamworks.removeeventlistenerplugin.steamworks.removeeventlistener" class="section level4">
+</section>
+<section id="steamworks.removeeventlistenerplugin.steamworks.removeeventlistener" class="level4">
 <h4><a href="../../plugin/steamworks/removeEventListener.html">steamworks.removeEventListener()</a></h4>
-</div>
-<div id="steamworks.requestactiveplayercountplugin.steamworks.requestactiveplayercount" class="section level4">
+</section>
+<section id="steamworks.requestactiveplayercountplugin.steamworks.requestactiveplayercount" class="level4">
 <h4><a href="../../plugin/steamworks/requestActivePlayerCount.html">steamworks.requestActivePlayerCount()</a></h4>
-</div>
-<div id="steamworks.requestleaderboardentriesplugin.steamworks.requestleaderboardentries" class="section level4">
+</section>
+<section id="steamworks.requestleaderboardentriesplugin.steamworks.requestleaderboardentries" class="level4">
 <h4><a href="../../plugin/steamworks/requestLeaderboardEntries.html">steamworks.requestLeaderboardEntries()</a></h4>
-</div>
-<div id="steamworks.requestleaderboardinfoplugin.steamworks.requestleaderboardinfo" class="section level4">
+</section>
+<section id="steamworks.requestleaderboardinfoplugin.steamworks.requestleaderboardinfo" class="level4">
 <h4><a href="../../plugin/steamworks/requestLeaderboardInfo.html">steamworks.requestLeaderboardInfo()</a></h4>
-</div>
-<div id="steamworks.requestsethighscoreplugin.steamworks.requestsethighscore" class="section level4">
+</section>
+<section id="steamworks.requestsethighscoreplugin.steamworks.requestsethighscore" class="level4">
 <h4><a href="../../plugin/steamworks/requestSetHighScore.html">steamworks.requestSetHighScore()</a></h4>
-</div>
-<div id="steamworks.requestuserprogressplugin.steamworks.requestuserprogress" class="section level4">
+</section>
+<section id="steamworks.requestuserprogressplugin.steamworks.requestuserprogress" class="level4">
 <h4><a href="../../plugin/steamworks/requestUserProgress.html">steamworks.requestUserProgress()</a></h4>
-</div>
-<div id="steamworks.resetuserprogressplugin.steamworks.resetuserprogress" class="section level4">
+</section>
+<section id="steamworks.resetuserprogressplugin.steamworks.resetuserprogress" class="level4">
 <h4><a href="../../plugin/steamworks/resetUserProgress.html">steamworks.resetUserProgress()</a></h4>
-</div>
-<div id="steamworks.resetuserstatsplugin.steamworks.resetuserstats" class="section level4">
+</section>
+<section id="steamworks.resetuserstatsplugin.steamworks.resetuserstats" class="level4">
 <h4><a href="../../plugin/steamworks/resetUserStats.html">steamworks.resetUserStats()</a></h4>
-</div>
-<div id="steamworks.setachievementprogressplugin.steamworks.setachievementprogress" class="section level4">
+</section>
+<section id="steamworks.setachievementprogressplugin.steamworks.setachievementprogress" class="level4">
 <h4><a href="../../plugin/steamworks/setAchievementProgress.html">steamworks.setAchievementProgress()</a></h4>
-</div>
-<div id="steamworks.setachievementunlockedplugin.steamworks.setachievementunlocked" class="section level4">
+</section>
+<section id="steamworks.setachievementunlockedplugin.steamworks.setachievementunlocked" class="level4">
 <h4><a href="../../plugin/steamworks/setAchievementUnlocked.html">steamworks.setAchievementUnlocked()</a></h4>
-</div>
-<div id="steamworks.setnotificationpositionplugin.steamworks.setnotificationposition" class="section level4">
+</section>
+<section id="steamworks.setnotificationpositionplugin.steamworks.setnotificationposition" class="level4">
 <h4><a href="../../plugin/steamworks/setNotificationPosition.html">steamworks.setNotificationPosition()</a></h4>
-</div>
-<div id="steamworks.setuserstatvaluesplugin.steamworks.setuserstatvalues" class="section level4">
+</section>
+<section id="steamworks.setuserstatvaluesplugin.steamworks.setuserstatvalues" class="level4">
 <h4><a href="../../plugin/steamworks/setUserStatValues.html">steamworks.setUserStatValues()</a></h4>
-</div>
-<div id="steamworks.showgameoverlayplugin.steamworks.showgameoverlay" class="section level4">
+</section>
+<section id="steamworks.showgameoverlayplugin.steamworks.showgameoverlay" class="level4">
 <h4><a href="../../plugin/steamworks/showGameOverlay.html">steamworks.showGameOverlay()</a></h4>
-</div>
-<div id="steamworks.showstoreoverlayplugin.steamworks.showstoreoverlay" class="section level4">
+</section>
+<section id="steamworks.showstoreoverlayplugin.steamworks.showstoreoverlay" class="level4">
 <h4><a href="../../plugin/steamworks/showStoreOverlay.html">steamworks.showStoreOverlay()</a></h4>
-</div>
-<div id="steamworks.showuseroverlayplugin.steamworks.showuseroverlay" class="section level4">
+</section>
+<section id="steamworks.showuseroverlayplugin.steamworks.showuseroverlay" class="level4">
 <h4><a href="../../plugin/steamworks/showUserOverlay.html">steamworks.showUserOverlay()</a></h4>
-</div>
-<div id="steamworks.showweboverlayplugin.steamworks.showweboverlay" class="section level4">
+</section>
+<section id="steamworks.showweboverlayplugin.steamworks.showweboverlay" class="level4">
 <h4><a href="../../plugin/steamworks/showWebOverlay.html">steamworks.showWebOverlay()</a></h4>
-</div>
-<div id="steamworks.getauthsessionticketplugin.steamworks.getauthsessionticket" class="section level4">
+</section>
+<section id="steamworks.getauthsessionticketplugin.steamworks.getauthsessionticket" class="level4">
 <h4><a href="../../plugin/steamworks/getAuthSessionTicket.html">steamworks.getAuthSessionTicket()</a></h4>
-</div>
-</div>
-<div id="properties" class="section level2">
+</section>
+</section>
+<section id="properties" class="level2">
 <h2>Properties</h2>
-<div id="steamworks.appidplugin.steamworks.appid" class="section level4">
+<section id="steamworks.appidplugin.steamworks.appid" class="level4">
 <h4><a href="../../plugin/steamworks/appId.html">steamworks.appId</a></h4>
-</div>
-<div id="steamworks.appownersteamidplugin.steamworks.appownersteamid" class="section level4">
+</section>
+<section id="steamworks.appownersteamidplugin.steamworks.appownersteamid" class="level4">
 <h4><a href="../../plugin/steamworks/appOwnerSteamId.html">steamworks.appOwnerSteamId</a></h4>
-</div>
-<div id="steamworks.canshowoverlayplugin.steamworks.canshowoverlay" class="section level4">
+</section>
+<section id="steamworks.canshowoverlayplugin.steamworks.canshowoverlay" class="level4">
 <h4><a href="../../plugin/steamworks/canShowOverlay.html">steamworks.canShowOverlay</a></h4>
-</div>
-<div id="steamworks.isloggedonplugin.steamworks.isloggedon" class="section level4">
+</section>
+<section id="steamworks.isloggedonplugin.steamworks.isloggedon" class="level4">
 <h4><a href="../../plugin/steamworks/isLoggedOn.html">steamworks.isLoggedOn</a></h4>
-</div>
-<div id="steamworks.usersteamidplugin.steamworks.usersteamid" class="section level4">
+</section>
+<section id="steamworks.usersteamidplugin.steamworks.usersteamid" class="level4">
 <h4><a href="../../plugin/steamworks/userSteamId.html">steamworks.userSteamId</a></h4>
-</div>
-</div>
-<div id="events" class="section level2">
+</section>
+</section>
+<section id="events" class="level2">
 <h2>Events</h2>
-<div id="achievementimageupdateplugin.steamworks.event.achievementimageupdate" class="section level4">
+<section id="achievementimageupdateplugin.steamworks.event.achievementimageupdate" class="level4">
 <h4><a href="../../plugin/steamworks/event/achievementImageUpdate/index.html">achievementImageUpdate</a></h4>
-</div>
-<div id="achievementinfoupdateplugin.steamworks.event.achievementinfoupdate" class="section level4">
+</section>
+<section id="achievementinfoupdateplugin.steamworks.event.achievementinfoupdate" class="level4">
 <h4><a href="../../plugin/steamworks/event/achievementInfoUpdate/index.html">achievementInfoUpdate</a></h4>
-</div>
-<div id="activeplayercountplugin.steamworks.event.activeplayercount" class="section level4">
+</section>
+<section id="activeplayercountplugin.steamworks.event.activeplayercount" class="level4">
 <h4><a href="../../plugin/steamworks/event/activePlayerCount/index.html">activePlayerCount</a></h4>
-</div>
-<div id="leaderboardentriesplugin.steamworks.event.leaderboardentries" class="section level4">
+</section>
+<section id="leaderboardentriesplugin.steamworks.event.leaderboardentries" class="level4">
 <h4><a href="../../plugin/steamworks/event/leaderboardEntries/index.html">leaderboardEntries</a></h4>
-</div>
-<div id="leaderboardinfoplugin.steamworks.event.leaderboardinfo" class="section level4">
+</section>
+<section id="leaderboardinfoplugin.steamworks.event.leaderboardinfo" class="level4">
 <h4><a href="../../plugin/steamworks/event/leaderboardInfo/index.html">leaderboardInfo</a></h4>
-</div>
-<div id="microtransactionauthorizationplugin.steamworks.event.microtransactionauthorization" class="section level4">
+</section>
+<section id="microtransactionauthorizationplugin.steamworks.event.microtransactionauthorization" class="level4">
 <h4><a href="../../plugin/steamworks/event/microtransactionAuthorization/index.html">microtransactionAuthorization</a></h4>
-</div>
-<div id="overlaystatusplugin.steamworks.event.overlaystatus" class="section level4">
+</section>
+<section id="overlaystatusplugin.steamworks.event.overlaystatus" class="level4">
 <h4><a href="../../plugin/steamworks/event/overlayStatus/index.html">overlayStatus</a></h4>
-</div>
-<div id="sethighscoreplugin.steamworks.event.sethighscore" class="section level4">
+</section>
+<section id="sethighscoreplugin.steamworks.event.sethighscore" class="level4">
 <h4><a href="../../plugin/steamworks/event/setHighScore/index.html">setHighScore</a></h4>
-</div>
-<div id="userinfoupdateplugin.steamworks.event.userinfoupdate" class="section level4">
+</section>
+<section id="userinfoupdateplugin.steamworks.event.userinfoupdate" class="level4">
 <h4><a href="../../plugin/steamworks/event/userInfoUpdate/index.html">userInfoUpdate</a></h4>
-</div>
-<div id="userprogresssaveplugin.steamworks.event.userprogresssave" class="section level4">
+</section>
+<section id="userprogresssaveplugin.steamworks.event.userprogresssave" class="level4">
 <h4><a href="../../plugin/steamworks/event/userProgressSave/index.html">userProgressSave</a></h4>
-</div>
-<div id="userprogressunloadplugin.steamworks.event.userprogressunload" class="section level4">
+</section>
+<section id="userprogressunloadplugin.steamworks.event.userprogressunload" class="level4">
 <h4><a href="../../plugin/steamworks/event/userProgressUnload/index.html">userProgressUnload</a></h4>
-</div>
-<div id="userprogressupdateplugin.steamworks.event.userprogressupdate" class="section level4">
+</section>
+<section id="userprogressupdateplugin.steamworks.event.userprogressupdate" class="level4">
 <h4><a href="../../plugin/steamworks/event/userProgressUpdate/index.html">userProgressUpdate</a></h4>
-</div>
-</div>
-<div id="types" class="section level2">
+</section>
+</section>
+<section id="types" class="level2">
 <h2>Types</h2>
-<div id="achievementinfoplugin.steamworks.type.achievementinfo" class="section level4">
+<section id="achievementinfoplugin.steamworks.type.achievementinfo" class="level4">
 <h4><a href="../../plugin/steamworks/type/AchievementInfo/index.html">AchievementInfo</a></h4>
-</div>
-<div id="imageinfoplugin.steamworks.type.imageinfo" class="section level4">
+</section>
+<section id="imageinfoplugin.steamworks.type.imageinfo" class="level4">
 <h4><a href="../../plugin/steamworks/type/ImageInfo/index.html">ImageInfo</a></h4>
-</div>
-<div id="resultcodeplugin.steamworks.type.resultcode" class="section level4">
+</section>
+<section id="resultcodeplugin.steamworks.type.resultcode" class="level4">
 <h4><a href="../../plugin/steamworks/type/ResultCode/index.html">ResultCode</a></h4>
-</div>
-<div id="userinfoplugin.steamworks.type.userinfo" class="section level4">
+</section>
+<section id="userinfoplugin.steamworks.type.userinfo" class="level4">
 <h4><a href="../../plugin/steamworks/type/UserInfo/index.html">UserInfo</a></h4>
 <hr>
 <div id="footer">
@@ -347,9 +347,9 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

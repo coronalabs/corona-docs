@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Tutorials | Data/Files/Strings</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -69,15 +69,15 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/data/index.html">Data/Files/Strings</a>
 </div>
-<div id="lua-string-magic" class="section level1">
+<section id="lua-string-magic" class="level1">
 <h1>Lua String Magic</h1>
 <p>This tutorial features Lua string manipulation and parsing techniques which can be useful in several applications, especially business or <nobr>database-powered</nobr> apps where you need to check and confirm that text is formatted properly.</p>
-<div id="splitting-strings" class="section level2">
+<section id="splitting-strings" class="level2">
 <h2>Splitting Strings</h2>
-<p>Do you have some data that's in the form of a long string and you need to break it up into smaller strings based on a custom pattern? A common example is street addresses:</p>
+<p>Do you have some data that’s in the form of a long string and you need to break it up into smaller strings based on a custom pattern? A common example is street addresses:</p>
 <pre class="brush: lua;">Flintstone, Fred, 101 Rockledge, Bedrock, 98775, 555-555-1212
 Rubble, Barney, 103 Rockledge, Bedrock, 98775, 555-555-1313</pre>
-<p>Now, let's assume you want to parse out each piece of data separated by a comma. Lua does not have a &quot;split&quot; function native to its string library, but with a small function, you can implement the same functionality. Inspect the following code:</p>
+<p>Now, let’s assume you want to parse out each piece of data separated by a comma. Lua does not have a “split” function native to its string library, but with a small function, you can implement the same functionality. Inspect the following code:</p>
 <pre class="brush: lua;">function string:split( inSplitPattern )
 
     local outResults = {}
@@ -95,24 +95,24 @@ Rubble, Barney, 103 Rockledge, Bedrock, 98775, 555-555-1313</pre>
 end</pre>
 <p>This function accomplishes the desired task gracefully, providing a <nobr>user-defined</nobr> pattern to split on, and it returns a table with the split elements.</p>
 <p>Calling the function can be done in two ways with equal results:</p>
-<pre class="brush: lua; gutter: false; highlight: [3]; first-line: 1;">local myString = "Flintstone, Fred, 101 Rockledge, Bedrock, 98775, 555-555-1212"
+<pre class="highlight: [3]; first-line: 1; gutter: false; brush: lua;">local myString = "Flintstone, Fred, 101 Rockledge, Bedrock, 98775, 555-555-1212"
 
 local myTable = myString:split( ", " )
 
 for i = 1,#myTable do
     print( myTable[i] )
 end</pre>
-<pre class="brush: lua; gutter: false; highlight: [3]; first-line: 1;">local myString = "Flintstone, Fred, 101 Rockledge, Bedrock, 98775, 555-555-1212"
+<pre class="highlight: [3]; first-line: 1; gutter: false; brush: lua;">local myString = "Flintstone, Fred, 101 Rockledge, Bedrock, 98775, 555-555-1212"
 
 local myTable = string.split( myString, ", " )
 
 for i = 1,#myTable do
     print( myTable[i] )
 end</pre>
-</div>
-<div id="trimming-strings" class="section level2">
+</section>
+<section id="trimming-strings" class="level2">
 <h2>Trimming Strings</h2>
-<p>Trimming strings can be useful in several cases, especially if you're working with data from an external source, or data that is input by the user via the device's keyboard. As with the &quot;split&quot; functionality, string trimming is not native to Lua's string library, but it can be accomplished easily enough. Inspect the following function:</p>
+<p>Trimming strings can be useful in several cases, especially if you’re working with data from an external source, or data that is input by the user via the device’s keyboard. As with the “split” functionality, string trimming is not native to Lua’s string library, but it can be accomplished easily enough. Inspect the following function:</p>
 <pre class="brush: lua;">local function trimString( s )
 
     return string.match( s, "^()%s*$" ) and "" or string.match( s, "^%s*(.*%S)" )
@@ -121,10 +121,10 @@ end</pre>
 <pre class="brush: lua;">local trimmedString = trimString( "   Some untrimmed string here.     " )
 
 print( "[" .. trimmedString .. "]" )  --> [Some untrimmed string here.]</pre>
-</div>
-<div id="formatting-as-title-case" class="section level2">
+</section>
+<section id="formatting-as-title-case" class="level2">
 <h2>Formatting as Title Case</h2>
-<p>Occasionally it's useful to convert a string into &quot;title case&quot; in which the first letter of each word is converted to uppercase while the remaining letters are set as lowercase. As an example, let's assume that a name was entered in a very sloppy format like:</p>
+<p>Occasionally it’s useful to convert a string into “title case” in which the first letter of each word is converted to uppercase while the remaining letters are set as lowercase. As an example, let’s assume that a name was entered in a very sloppy format like:</p>
 <pre class="brush: lua;">Obi-waN kEnObi</pre>
 <p>Of course, you probably want to correct this, and doing so requires just one simple function:</p>
 <pre class="brush: lua;">local function titleCase( s )
@@ -140,10 +140,10 @@ end</pre>
 <pre class="brush: lua;">local characterName = titleCase( "Obi-waN kEnObi" )
 
 print( characterName )  --> Obi-Wan Kenobi</pre>
-</div>
-<div id="strict-line-wrapping" class="section level2">
+</section>
+<section id="strict-line-wrapping" class="level2">
 <h2>Strict Line Wrapping</h2>
-<p>Sometimes you'll have a long string (paragraph) of text which needs to be <nobr>line-wrapped</nobr> at a specific character interval, not a pixel distance. Corona's <a href="../../../api/library/display/newText.html">display.newText()</a> API handles line wrapping if you provide the <code>width</code> parameter, but if you want <nobr>interval-specific</nobr> control, you may prefer the following function which allows you to set a maximum number of characters per line as the <code>limit</code> argument. In addition, it allows you to set indent values — as optional strings, not integers — for both the start of the paragraph and/or each following line.</p>
+<p>Sometimes you’ll have a long string (paragraph) of text which needs to be <nobr>line-wrapped</nobr> at a specific character interval, not a pixel distance. Corona’s <a href="../../../api/library/display/newText.html">display.newText()</a> API handles line wrapping if you provide the <code>width</code> parameter, but if you want <nobr>interval-specific</nobr> control, you may prefer the following function which allows you to set a maximum number of characters per line as the <code>limit</code> argument. In addition, it allows you to set indent values — as optional strings, not integers — for both the start of the paragraph and/or each following line.</p>
 <pre class="brush: lua;">local function textWrap( str, limit, indent, indentFirst )
 
     limit = limit or 72
@@ -160,7 +160,7 @@ print( characterName )  --> Obi-Wan Kenobi</pre>
         end
     )
 end</pre>
-<p>Let's examine the function arguments in order:</p>
+<p>Let’s examine the function arguments in order:</p>
 <pre class="brush: lua;">textWrap( str, limit, indent, indentFirst )</pre>
 <ul>
 <li><code>str</code> (required <a href="../../../api/type/String.html">string</a>) — The string of text which you want to <nobr>line-wrap</nobr>.</li>
@@ -183,10 +183,10 @@ et accusam et justo duo dolores et
 ea rebum. Stet clita kasd gubergren,
 no sea takimata sanctus est Lorem
 ipsum dolor sit amet.</pre>
-</div>
-<div id="confirm-email-format" class="section level2">
+</section>
+<section id="confirm-email-format" class="level2">
 <h2>Confirm Email Format</h2>
-<p>Another useful string check is confirming that a user has entered an email address in the proper format. Of course, this function can't check if the actual address is valid and functional, but at least it confirms that the format is basically correct.</p>
+<p>Another useful string check is confirming that a user has entered an email address in the proper format. Of course, this function can’t check if the actual address is valid and functional, but at least it confirms that the format is basically correct.</p>
 <pre class="brush: lua;">local function confirmEmail( s )
 
     if ( s:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?") ) then
@@ -199,10 +199,10 @@ end</pre>
 <pre class="brush: lua;">local isEmailFormat = confirmEmail( "username@domain.com" )
 
 print( isEmailFormat )  --> true</pre>
-</div>
-<div id="stripping-emoticons" class="section level2">
+</section>
+<section id="stripping-emoticons" class="level2">
 <h2>Stripping Emoticons</h2>
-<p>Emoticons, or &quot;emojis,&quot; are visual symbols which let people easily express a thought or feeling via text. Unfortunately, these characters can wreak havoc if you need to save strings containing emoticons to a SQLite database, encode/decode strings using JSON, etc.</p>
+<p>Emoticons, or “emojis,” are visual symbols which let people easily express a thought or feeling via text. Unfortunately, these characters can wreak havoc if you need to save strings containing emoticons to a SQLite database, encode/decode strings using JSON, etc.</p>
 <p>If your app accepts user text input <nobr>(custom player names, etc.)</nobr> in which players may include emoticons, but you need to strip them out for data storage/conversion purposes, the following function accomplishes the task:</p>
 <pre class="brush: lua;">local function stripNonStandardCharacters( s )
 
@@ -222,13 +222,13 @@ end</pre>
 </div>
 </div>
 <div class="docs-tip-inner-right">
-<p>Note that this function requires usage of the free Corona <a href="../../../plugin/utf8/index.html">UTF-8</a> plugin, so you'll need to include it in your project and <code>require()</code> it in the module which includes this <nobr>emoticon-stripping</nobr> function. See the plugin <a href="../../../plugin/utf8/index.html">documentation</a> for details.</p>
+<p>Note that this function requires usage of the free Corona <a href="../../../plugin/utf8/index.html">UTF-8</a> plugin, so you’ll need to include it in your project and <code>require()</code> it in the module which includes this <nobr>emoticon-stripping</nobr> function. See the plugin <a href="../../../plugin/utf8/index.html">documentation</a> for details.</p>
 </div>
 </div>
-</div>
-<div id="conclusion" class="section level2">
+</section>
+<section id="conclusion" class="level2">
 <h2>Conclusion</h2>
-<p>This wraps up our tutorial on Lua string &quot;magic.&quot; Hopefully you can find a place for these convenient functions in your apps!</p>
+<p>This wraps up our tutorial on Lua string “magic.” Hopefully you can find a place for these convenient functions in your apps!</p>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -239,8 +239,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

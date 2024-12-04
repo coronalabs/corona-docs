@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Steamworks | ResultCode</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../css/style.css" />
+  <link rel="stylesheet" href="../../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -63,461 +63,461 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../../plugin/index.html">Plugins</a>  ▸  <a href="../../../../plugin/steamworks/index.html">Steamworks</a>  ▸  <a href="../../../../plugin/steamworks/type/ResultCode/index.html">ResultCode</a>
 </div>
-<div id="resultcode" class="section level1">
+<section id="resultcode" class="level1">
 <h1>ResultCode</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../../api/type/Number.html">Number</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../../api/type/Number.html">Number</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">steam, steamworks, ResultCode</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">steam, steamworks, ResultCode</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../../../plugin/steamworks/event/userProgressSave/index.html">userProgressSave</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../../plugin/steamworks/event/userProgressSave/index.html">userProgressSave</a></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><a href="../../../../plugin/steamworks/event/userProgressUpdate/index.html">userProgressUpdate</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../../plugin/steamworks/event/userProgressUpdate/index.html">userProgressUpdate</a></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><a href="../../../../plugin/steamworks/index.html">steamworks.*</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../../plugin/steamworks/index.html">steamworks.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Unique integer identifier defined by Steam used to indicate the result of an operation.</p>
 <div class="inner-table">
 <table>
 <thead>
 <tr class="header">
-<th align="right">Integer ID</th>
-<th align="left">Description</th>
+<th style="text-align: right;">Integer ID</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="right">1</td>
-<td align="left">Success</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Success</td>
 </tr>
 <tr class="even">
-<td align="right">2</td>
-<td align="left">Generic failure</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Generic failure</td>
 </tr>
 <tr class="odd">
-<td align="right">3</td>
-<td align="left">No network connection</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">No network connection</td>
 </tr>
 <tr class="even">
-<td align="right">5</td>
-<td align="left">Password/ticket invalid</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Password/ticket invalid</td>
 </tr>
 <tr class="odd">
-<td align="right">6</td>
-<td align="left">Same user logged in elsewhere</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Same user logged in elsewhere</td>
 </tr>
 <tr class="even">
-<td align="right">7</td>
-<td align="left">Protocol version is incorrect</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">Protocol version is incorrect</td>
 </tr>
 <tr class="odd">
-<td align="right">8</td>
-<td align="left">Parameter is incorrect</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">Parameter is incorrect</td>
 </tr>
 <tr class="even">
-<td align="right">9</td>
-<td align="left">File not found</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">File not found</td>
 </tr>
 <tr class="odd">
-<td align="right">10</td>
-<td align="left">Called method is busy; action not taken</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">Called method is busy; action not taken</td>
 </tr>
 <tr class="even">
-<td align="right">11</td>
-<td align="left">Called object was in an invalid state</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">Called object was in an invalid state</td>
 </tr>
 <tr class="odd">
-<td align="right">12</td>
-<td align="left">Name is invalid</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">Name is invalid</td>
 </tr>
 <tr class="even">
-<td align="right">13</td>
-<td align="left">E-mail is invalid</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">E-mail is invalid</td>
 </tr>
 <tr class="odd">
-<td align="right">14</td>
-<td align="left">Name is not unique</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">Name is not unique</td>
 </tr>
 <tr class="even">
-<td align="right">15</td>
-<td align="left">Access is denied</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">Access is denied</td>
 </tr>
 <tr class="odd">
-<td align="right">16</td>
-<td align="left">Operation timed out</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">Operation timed out</td>
 </tr>
 <tr class="even">
-<td align="right">17</td>
-<td align="left">Banned via Valve Anti-Cheat</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: left;">Banned via Valve Anti-Cheat</td>
 </tr>
 <tr class="odd">
-<td align="right">18</td>
-<td align="left">Account not found</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">Account not found</td>
 </tr>
 <tr class="even">
-<td align="right">19</td>
-<td align="left">Steam ID invalid</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">Steam ID invalid</td>
 </tr>
 <tr class="odd">
-<td align="right">20</td>
-<td align="left">Requested service is currently unavailable</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: left;">Requested service is currently unavailable</td>
 </tr>
 <tr class="even">
-<td align="right">21</td>
-<td align="left">User is not logged on</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: left;">User is not logged on</td>
 </tr>
 <tr class="odd">
-<td align="right">22</td>
-<td align="left">Request is pending</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: left;">Request is pending</td>
 </tr>
 <tr class="even">
-<td align="right">23</td>
-<td align="left">Encryption or decryption failed</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: left;">Encryption or decryption failed</td>
 </tr>
 <tr class="odd">
-<td align="right">24</td>
-<td align="left">Insufficient privilege</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">Insufficient privilege</td>
 </tr>
 <tr class="even">
-<td align="right">25</td>
-<td align="left">Limit exceeded</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: left;">Limit exceeded</td>
 </tr>
 <tr class="odd">
-<td align="right">26</td>
-<td align="left">Access has been revoked</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: left;">Access has been revoked</td>
 </tr>
 <tr class="even">
-<td align="right">27</td>
-<td align="left">License or guest pass has expired</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: left;">License or guest pass has expired</td>
 </tr>
 <tr class="odd">
-<td align="right">28</td>
-<td align="left">Guest pass already redeemed by account</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: left;">Guest pass already redeemed by account</td>
 </tr>
 <tr class="even">
-<td align="right">29</td>
-<td align="left">Request is a duplicate; action has already occurred; ignored</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: left;">Request is a duplicate; action has already occurred; ignored</td>
 </tr>
 <tr class="odd">
-<td align="right">30</td>
-<td align="left">All games in guest pass redemption request are already owned by user</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: left;">All games in guest pass redemption request are already owned by user</td>
 </tr>
 <tr class="even">
-<td align="right">31</td>
-<td align="left">IP address not found</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: left;">IP address not found</td>
 </tr>
 <tr class="odd">
-<td align="right">32</td>
-<td align="left">Failed to write to the data store</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: left;">Failed to write to the data store</td>
 </tr>
 <tr class="even">
-<td align="right">33</td>
-<td align="left">Failed to acquire access lock for this operation</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: left;">Failed to acquire access lock for this operation</td>
 </tr>
 <tr class="odd">
-<td align="right">34</td>
-<td align="left">Logon session replaced</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: left;">Logon session replaced</td>
 </tr>
 <tr class="even">
-<td align="right">35</td>
-<td align="left">Connection failed</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: left;">Connection failed</td>
 </tr>
 <tr class="odd">
-<td align="right">36</td>
-<td align="left">Handshake failed</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">Handshake failed</td>
 </tr>
 <tr class="even">
-<td align="right">37</td>
-<td align="left">I/O failure</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: left;">I/O failure</td>
 </tr>
 <tr class="odd">
-<td align="right">38</td>
-<td align="left">Remote disconnect</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: left;">Remote disconnect</td>
 </tr>
 <tr class="even">
-<td align="right">39</td>
-<td align="left">Failed to find the shopping cart request</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: left;">Failed to find the shopping cart request</td>
 </tr>
 <tr class="odd">
-<td align="right">40</td>
-<td align="left">Blocked; user didn't allow it</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: left;">Blocked; user didn’t allow it</td>
 </tr>
 <tr class="even">
-<td align="right">41</td>
-<td align="left">Target is ignoring sender</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: left;">Target is ignoring sender</td>
 </tr>
 <tr class="odd">
-<td align="right">42</td>
-<td align="left">Nothing matching the request</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: left;">Nothing matching the request</td>
 </tr>
 <tr class="even">
-<td align="right">43</td>
-<td align="left">Account disabled</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: left;">Account disabled</td>
 </tr>
 <tr class="odd">
-<td align="right">44</td>
-<td align="left">Service is not accepting content changes right now</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: left;">Service is not accepting content changes right now</td>
 </tr>
 <tr class="even">
-<td align="right">45</td>
-<td align="left">Account value/feature isn't available</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: left;">Account value/feature isn’t available</td>
 </tr>
 <tr class="odd">
-<td align="right">46</td>
-<td align="left">Action allowed by administrator</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: left;">Action allowed by administrator</td>
 </tr>
 <tr class="even">
-<td align="right">47</td>
-<td align="left">Version mismatch in content transmitted within Steam protocol</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: left;">Version mismatch in content transmitted within Steam protocol</td>
 </tr>
 <tr class="odd">
-<td align="right">48</td>
-<td align="left">Current CM can't service the user making the request</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: left;">Current CM can’t service the user making the request</td>
 </tr>
 <tr class="even">
-<td align="right">49</td>
-<td align="left">Already logged in elsewhere; cached credential login has failed</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: left;">Already logged in elsewhere; cached credential login has failed</td>
 </tr>
 <tr class="odd">
-<td align="right">50</td>
-<td align="left">Already logged in elsewhere; must wait</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: left;">Already logged in elsewhere; must wait</td>
 </tr>
 <tr class="even">
-<td align="right">51</td>
-<td align="left">Long running operation was suspended</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: left;">Long running operation was suspended</td>
 </tr>
 <tr class="odd">
-<td align="right">52</td>
-<td align="left">Operation canceled by user</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: left;">Operation canceled by user</td>
 </tr>
 <tr class="even">
-<td align="right">53</td>
-<td align="left">Operation canceled due to data corruption</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: left;">Operation canceled due to data corruption</td>
 </tr>
 <tr class="odd">
-<td align="right">54</td>
-<td align="left">Operation canceled due to not enough disk space</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: left;">Operation canceled due to not enough disk space</td>
 </tr>
 <tr class="even">
-<td align="right">55</td>
-<td align="left">Remote call or IPC call failed</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: left;">Remote call or IPC call failed</td>
 </tr>
 <tr class="odd">
-<td align="right">56</td>
-<td align="left">Password could not be verified because it was unset server side</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: left;">Password could not be verified because it was unset server side</td>
 </tr>
 <tr class="even">
-<td align="right">57</td>
-<td align="left">External account is not to a Steam account</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: left;">External account is not to a Steam account</td>
 </tr>
 <tr class="odd">
-<td align="right">58</td>
-<td align="left">PSN (PlayStation Network) ticket was invalid</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: left;">PSN (PlayStation Network) ticket was invalid</td>
 </tr>
 <tr class="even">
-<td align="right">59</td>
-<td align="left">External account is already linked to another account</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: left;">External account is already linked to another account</td>
 </tr>
 <tr class="odd">
-<td align="right">60</td>
-<td align="left">Sync conflict between local and remote files</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: left;">Sync conflict between local and remote files</td>
 </tr>
 <tr class="even">
-<td align="right">61</td>
-<td align="left">Illegal password</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: left;">Illegal password</td>
 </tr>
 <tr class="odd">
-<td align="right">62</td>
-<td align="left">New value is the same as old value</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: left;">New value is the same as old value</td>
 </tr>
 <tr class="even">
-<td align="right">63</td>
-<td align="left">Login denied due to 2 factor authentication failure</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: left;">Login denied due to 2 factor authentication failure</td>
 </tr>
 <tr class="odd">
-<td align="right">64</td>
-<td align="left">Cannot use old password</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: left;">Cannot use old password</td>
 </tr>
 <tr class="even">
-<td align="right">65</td>
-<td align="left">Login authorization code invalid</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: left;">Login authorization code invalid</td>
 </tr>
 <tr class="odd">
-<td align="right">66</td>
-<td align="left">Login denied due to 2 factor authentication failure; no mail sent</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: left;">Login denied due to 2 factor authentication failure; no mail sent</td>
 </tr>
 <tr class="even">
-<td align="right">67</td>
-<td align="left">Hardware not capable of IPT (Identity Protection Technology)</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: left;">Hardware not capable of IPT (Identity Protection Technology)</td>
 </tr>
 <tr class="odd">
-<td align="right">68</td>
-<td align="left">IPT (Identity Protection Technology) initialization error</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: left;">IPT (Identity Protection Technology) initialization error</td>
 </tr>
 <tr class="even">
-<td align="right">69</td>
-<td align="left">Denied due to parental control restrictions</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: left;">Denied due to parental control restrictions</td>
 </tr>
 <tr class="odd">
-<td align="right">70</td>
-<td align="left">Facebook query returned an error</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: left;">Facebook query returned an error</td>
 </tr>
 <tr class="even">
-<td align="right">71</td>
-<td align="left">Login denied due to expired authorization code</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: left;">Login denied due to expired authorization code</td>
 </tr>
 <tr class="odd">
-<td align="right">72</td>
-<td align="left">IP login restriction failed</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: left;">IP login restriction failed</td>
 </tr>
 <tr class="even">
-<td align="right">73</td>
-<td align="left">Account locked down</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: left;">Account locked down</td>
 </tr>
 <tr class="odd">
-<td align="right">74</td>
-<td align="left">Logon denied; verification e-mail required</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: left;">Logon denied; verification e-mail required</td>
 </tr>
 <tr class="even">
-<td align="right">75</td>
-<td align="left">No matching URL</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">No matching URL</td>
 </tr>
 <tr class="odd">
-<td align="right">76</td>
-<td align="left">Bad response</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: left;">Bad response</td>
 </tr>
 <tr class="even">
-<td align="right">77</td>
-<td align="left">Password re-entry required</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: left;">Password re-entry required</td>
 </tr>
 <tr class="odd">
-<td align="right">78</td>
-<td align="left">Value is out of range</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: left;">Value is out of range</td>
 </tr>
 <tr class="even">
-<td align="right">79</td>
-<td align="left">Unexpected error</td>
+<td style="text-align: right;">79</td>
+<td style="text-align: left;">Unexpected error</td>
 </tr>
 <tr class="odd">
-<td align="right">80</td>
-<td align="left">Service is disabled</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: left;">Service is disabled</td>
 </tr>
 <tr class="even">
-<td align="right">81</td>
-<td align="left">Invalid submission to CEG server</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: left;">Invalid submission to CEG server</td>
 </tr>
 <tr class="odd">
-<td align="right">82</td>
-<td align="left">Device is not allowed to perform this action</td>
+<td style="text-align: right;">82</td>
+<td style="text-align: left;">Device is not allowed to perform this action</td>
 </tr>
 <tr class="even">
-<td align="right">83</td>
-<td align="left">Region locked</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: left;">Region locked</td>
 </tr>
 <tr class="odd">
-<td align="right">84</td>
-<td align="left">Temporary rate limit exceeded</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: left;">Temporary rate limit exceeded</td>
 </tr>
 <tr class="even">
-<td align="right">85</td>
-<td align="left">2 factor authentication required</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: left;">2 factor authentication required</td>
 </tr>
 <tr class="odd">
-<td align="right">86</td>
-<td align="left">Attempted to access deleted item</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: left;">Attempted to access deleted item</td>
 </tr>
 <tr class="even">
-<td align="right">87</td>
-<td align="left">Login failed; throttled response to possible attacker</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: left;">Login failed; throttled response to possible attacker</td>
 </tr>
 <tr class="odd">
-<td align="right">88</td>
-<td align="left">2 factor authentication mismatch</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: left;">2 factor authentication mismatch</td>
 </tr>
 <tr class="even">
-<td align="right">89</td>
-<td align="left">Activation code mismatch for 2 factor authentication</td>
+<td style="text-align: right;">89</td>
+<td style="text-align: left;">Activation code mismatch for 2 factor authentication</td>
 </tr>
 <tr class="odd">
-<td align="right">90</td>
-<td align="left">Account associated with multiple partners</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: left;">Account associated with multiple partners</td>
 </tr>
 <tr class="even">
-<td align="right">91</td>
-<td align="left">Data not modified</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: left;">Data not modified</td>
 </tr>
 <tr class="odd">
-<td align="right">92</td>
-<td align="left">Account does not have a mobile device associated with it</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: left;">Account does not have a mobile device associated with it</td>
 </tr>
 <tr class="even">
-<td align="right">93</td>
-<td align="left">Time is out of sync</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: left;">Time is out of sync</td>
 </tr>
 <tr class="odd">
-<td align="right">94</td>
-<td align="left">SMS code failure</td>
+<td style="text-align: right;">94</td>
+<td style="text-align: left;">SMS code failure</td>
 </tr>
 <tr class="even">
-<td align="right">95</td>
-<td align="left">Account limit exceeded</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: left;">Account limit exceeded</td>
 </tr>
 <tr class="odd">
-<td align="right">96</td>
-<td align="left">Too many changes to this account</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: left;">Too many changes to this account</td>
 </tr>
 <tr class="even">
-<td align="right">97</td>
-<td align="left">Too many changes to this phone</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: left;">Too many changes to this phone</td>
 </tr>
 <tr class="odd">
-<td align="right">98</td>
-<td align="left">Cannot refund payment; must use wallet</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: left;">Cannot refund payment; must use wallet</td>
 </tr>
 <tr class="even">
-<td align="right">99</td>
-<td align="left">Cannot send e-mail</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: left;">Cannot send e-mail</td>
 </tr>
 <tr class="odd">
-<td align="right">100</td>
-<td align="left">Can't perform operation till payment has settled</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">Can’t perform operation till payment has settled</td>
 </tr>
 <tr class="even">
-<td align="right">101</td>
-<td align="left">Valid captcha required</td>
+<td style="text-align: right;">101</td>
+<td style="text-align: left;">Valid captcha required</td>
 </tr>
 <tr class="odd">
-<td align="right">102</td>
-<td align="left">Game server login token has been banned</td>
+<td style="text-align: right;">102</td>
+<td style="text-align: left;">Game server login token has been banned</td>
 </tr>
 <tr class="even">
-<td align="right">103</td>
-<td align="left">Game server owner denied</td>
+<td style="text-align: right;">103</td>
+<td style="text-align: left;">Game server owner denied</td>
 </tr>
 <tr class="odd">
-<td align="right">104</td>
-<td align="left">Invalid item type</td>
+<td style="text-align: right;">104</td>
+<td style="text-align: left;">Invalid item type</td>
 </tr>
 </tbody>
 </table>
@@ -532,8 +532,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

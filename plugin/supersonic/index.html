@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | Supersonic</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -60,13 +60,13 @@
 <li><a href="#registration">Registration</a></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#functions">Functions</a><ul>
-<li><a href="#supersonic.initplugin.supersonic.init"><a href="../../plugin/supersonic/init.html">supersonic.init()</a></a></li>
-<li><a href="#supersonic.loadplugin.supersonic.load"><a href="../../plugin/supersonic/load.html">supersonic.load()</a></a></li>
-<li><a href="#supersonic.showplugin.supersonic.show"><a href="../../plugin/supersonic/show.html">supersonic.show()</a></a></li>
-<li><a href="#supersonic.isloadedplugin.supersonic.isloaded"><a href="../../plugin/supersonic/isLoaded.html">supersonic.isLoaded()</a></a></li>
+<li><a href="#supersonic.initplugin.supersonic.init"><span>supersonic.init()</span></a></li>
+<li><a href="#supersonic.loadplugin.supersonic.load"><span>supersonic.load()</span></a></li>
+<li><a href="#supersonic.showplugin.supersonic.show"><span>supersonic.show()</span></a></li>
+<li><a href="#supersonic.isloadedplugin.supersonic.isloaded"><span>supersonic.isLoaded()</span></a></li>
 </ul></li>
 <li><a href="#events">Events</a><ul>
-<li><a href="#adsrequestplugin.supersonic.event.adsrequest"><a href="../../plugin/supersonic/event/adsRequest/index.html">adsRequest</a></a></li>
+<li><a href="#adsrequestplugin.supersonic.event.adsrequest"><span>adsRequest</span></a></li>
 </ul></li>
 <li><a href="#project-settings">Project Settings</a></li>
 <li><a href="#support">Support</a></li>
@@ -76,26 +76,26 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/supersonic/index.html">Supersonic</a>
 </div>
-<div id="supersonic." class="section level1">
+<section id="supersonic." class="level1">
 <h1>supersonic.*</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Library.html">Library</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Library.html">Library</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">ads, advertising, Supersonic</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">ads, advertising, Supersonic</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Platforms</strong></td>
-<td align="left">Android, iOS</td>
+<td style="text-align: left;"><strong>Platforms</strong></td>
+<td style="text-align: left;">Android, iOS</td>
 </tr>
 </tbody>
 </table>
@@ -115,40 +115,40 @@ Important
 </div>
 <p>Check out new <code>hasUserConsent</code> init parameter to enable GDPR data collection restrictions.</p>
 </div>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p>The Supersonic plugin allows developers to monetize their mobile app with Supersonic static interstitials, rewarded videos, and offer walls.</p>
-</div>
-<div id="registration" class="section level2">
+</section>
+<section id="registration" class="level2">
 <h2>Registration</h2>
 <p>Before you can use this plugin, you must <a href="https://platform.supersonic.com/partners/signup">register</a> with Supersonic.</p>
-</div>
-<div id="syntax" class="section level2">
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">local supersonic = require( "plugin.supersonic" )</pre>
-</div>
-<div id="functions" class="section level2">
+</section>
+<section id="functions" class="level2">
 <h2>Functions</h2>
-<div id="supersonic.initplugin.supersonic.init" class="section level4">
+<section id="supersonic.initplugin.supersonic.init" class="level4">
 <h4><a href="../../plugin/supersonic/init.html">supersonic.init()</a></h4>
-</div>
-<div id="supersonic.loadplugin.supersonic.load" class="section level4">
+</section>
+<section id="supersonic.loadplugin.supersonic.load" class="level4">
 <h4><a href="../../plugin/supersonic/load.html">supersonic.load()</a></h4>
-</div>
-<div id="supersonic.showplugin.supersonic.show" class="section level4">
+</section>
+<section id="supersonic.showplugin.supersonic.show" class="level4">
 <h4><a href="../../plugin/supersonic/show.html">supersonic.show()</a></h4>
-</div>
-<div id="supersonic.isloadedplugin.supersonic.isloaded" class="section level4">
+</section>
+<section id="supersonic.isloadedplugin.supersonic.isloaded" class="level4">
 <h4><a href="../../plugin/supersonic/isLoaded.html">supersonic.isLoaded()</a></h4>
-</div>
-</div>
-<div id="events" class="section level2">
+</section>
+</section>
+<section id="events" class="level2">
 <h2>Events</h2>
-<div id="adsrequestplugin.supersonic.event.adsrequest" class="section level4">
+<section id="adsrequestplugin.supersonic.event.adsrequest" class="level4">
 <h4><a href="../../plugin/supersonic/event/adsRequest/index.html">adsRequest</a></h4>
-</div>
-</div>
-<div id="project-settings" class="section level2">
+</section>
+</section>
+<section id="project-settings" class="level2">
 <h2>Project Settings</h2>
 <p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
 <pre class="brush: lua;">settings =
@@ -187,14 +187,14 @@ Note
 </div>
 <p>For Android, the following permissions/features are automatically added when using this plugin:</p>
 <ul>
-<li><code>&quot;android.permission.INTERNET&quot;</code></li>
+<li><code>"android.permission.INTERNET"</code></li>
 </ul>
 </div>
-</div>
-<div id="support" class="section level2">
+</section>
+<section id="support" class="level2">
 <h2>Support</h2>
 <ul>
-<li><a href="http://developers.supersonic.com/submit-a-request/" class="uri">http://developers.supersonic.com/submit-a-request/</a></li>
+<li><a href="http://developers.supersonic.com/submit-a-request/">http://developers.supersonic.com/submit-a-request/</a></li>
 <li><a href="http://forums.coronalabs.com/forum/545-monetization-in-app-purchases-ads-etc/">Corona Forums</a></li>
 </ul>
 <hr>
@@ -207,8 +207,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

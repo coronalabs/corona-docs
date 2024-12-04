@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — API Reference | Events | axis | normalizedValue</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -63,36 +63,36 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../api/index.html">API Reference</a>  ▸  <a href="../../../api/event/index.html">Events</a>  ▸  <a href="../../../api/event/axis/index.html">axis</a>  ▸  <a href="../../../api/event/axis/normalizedValue.html">normalizedValue</a>
 </div>
-<div id="event.normalizedvalue" class="section level1">
+<section id="event.normalizedvalue" class="level1">
 <h1>event.normalizedValue</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../../api/type/Number.html">Number</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../api/type/Number.html">Number</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Event</strong></td>
-<td align="left"><a href="../../../api/event/axis/index.html">axis</a></td>
+<td style="text-align: left;"><strong>Event</strong></td>
+<td style="text-align: left;"><a href="../../../api/event/axis/index.html">axis</a></td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">axis, normalized, value</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">axis, normalized, value</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
-<p>This is a scaled axis value that will never exceed -1.0 and 1.0. It is intended to be used as a scale which you can apply to velocity vectors or for positioning objects onscreen. This normalized value is much more convenient to use than the <a href="../../../api/event/axis/rawValue.html">rawValue</a> property because you don't have to deal with the varying min/max axis ranges provided by different input devices, allowing your application to handle all axis data in a uniform manner.</p>
-<p>The normalized value will range between -1.0 and 1.0 if the axis' <a href="../../../api/type/InputAxis/minValue.html">min</a> and <a href="../../../api/type/InputAxis/maxValue.html">max</a> properties are negative and positive respectively. This is the range used by joysticks and scroll wheels.</p>
-<p>The normalized value will range between 0.0 and 1.0 if the axis' <a href="../../../api/type/InputAxis/minValue.html">min</a> and <a href="../../../api/type/InputAxis/maxValue.html">max</a> properties are greater than or equal to zero. This is commonly used by analog triggers on gamepads, touchscreens, touchpads, mice, and trackpads.</p>
-<p>The normalized value will range between -1.0 and 0.0 if the axis' <a href="../../../api/type/InputAxis/minValue.html">min</a> and <a href="../../../api/type/InputAxis/maxValue.html">max</a> properties are less than or equal to zero. A gamepad's analog triggers are sometimes in this range.</p>
+<p>This is a scaled axis value that will never exceed -1.0 and 1.0. It is intended to be used as a scale which you can apply to velocity vectors or for positioning objects onscreen. This normalized value is much more convenient to use than the <a href="../../../api/event/axis/rawValue.html">rawValue</a> property because you don’t have to deal with the varying min/max axis ranges provided by different input devices, allowing your application to handle all axis data in a uniform manner.</p>
+<p>The normalized value will range between -1.0 and 1.0 if the axis’ <a href="../../../api/type/InputAxis/minValue.html">min</a> and <a href="../../../api/type/InputAxis/maxValue.html">max</a> properties are negative and positive respectively. This is the range used by joysticks and scroll wheels.</p>
+<p>The normalized value will range between 0.0 and 1.0 if the axis’ <a href="../../../api/type/InputAxis/minValue.html">min</a> and <a href="../../../api/type/InputAxis/maxValue.html">max</a> properties are greater than or equal to zero. This is commonly used by analog triggers on gamepads, touchscreens, touchpads, mice, and trackpads.</p>
+<p>The normalized value will range between -1.0 and 0.0 if the axis’ <a href="../../../api/type/InputAxis/minValue.html">min</a> and <a href="../../../api/type/InputAxis/maxValue.html">max</a> properties are less than or equal to zero. A gamepad’s analog triggers are sometimes in this range.</p>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -103,8 +103,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

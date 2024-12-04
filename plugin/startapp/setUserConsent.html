@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | startapp | setUserConsent</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -72,64 +72,64 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/startapp/index.html">startapp</a>  ▸  <a href="../../plugin/startapp/setUserConsent.html">setUserConsent</a>
 </div>
-<div id="startapp.setuserconsent" class="section level1">
+<section id="startapp.setuserconsent" class="level1">
 <h1>startapp.setUserConsent()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">ads, advertising, StartApp, setUserConsent</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">ads, advertising, StartApp, setUserConsent</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../plugin/startapp/index.html">startapp.*</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../plugin/startapp/index.html">startapp.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
 <p><code>startapp.setUserConsent()</code> indicates specific type of consent from a given user.</p>
-<p>Data protection and privacy regulations may require you and your company to obtain consent from users before processing personal data and to honor users' requests for how you use their personal data. StartApp is required to record these consent logs and thus we have provided you with an API which enables you to send this consent from your user to StartApp. Based on consent signals that you send, StartApp uses the data to target the most relevant campaigns to your users. Without receiving this consent we will not be able to send targeted ads (but rather non-targeted ads)</p>
-</div>
-<div id="syntax" class="section level2">
+<p>Data protection and privacy regulations may require you and your company to obtain consent from users before processing personal data and to honor users’ requests for how you use their personal data. StartApp is required to record these consent logs and thus we have provided you with an API which enables you to send this consent from your user to StartApp. Based on consent signals that you send, StartApp uses the data to target the most relevant campaigns to your users. Without receiving this consent we will not be able to send targeted ads (but rather non-targeted ads)</p>
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">startapp.setUserConsent( params )</pre>
-<div id="params-required" class="section level5">
+<section id="params-required" class="level5">
 <h5>params <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> Table containing user-consent values — see the next section for details.</p>
-</div>
-</div>
-<div id="parameter-reference" class="section level2">
+</section>
+</section>
+<section id="parameter-reference" class="level2">
 <h2>Parameter Reference</h2>
 <p>The <code>params</code> table includes parameters for sending user consent.</p>
-<div id="consenttype-required" class="section level5">
+<section id="consenttype-required" class="level5">
 <h5>consentType <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> type of consent. For example <code>&quot;ACCESS_FINE_LOCATION&quot;</code> for ACCESS_FINE_LOCATION permission.</p>
-</div>
-<div id="timestamp-required" class="section level5">
+<p><em><a href="../../api/type/String.html">String</a>.</em> type of consent. For example <code>"ACCESS_FINE_LOCATION"</code> for ACCESS_FINE_LOCATION permission.</p>
+</section>
+<section id="timestamp-required" class="level5">
 <h5>timestamp <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Number.html">Number</a>.</em> the specific time a consent / dissent was given by the user. Use <code>os.time()</code>.</p>
-</div>
-<div id="enabled-required" class="section level5">
+</section>
+<section id="enabled-required" class="level5">
 <h5>enabled <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> <code>true</code> indicates consumer consent, <code>false</code> indicates consumer dissent.</p>
-</div>
-</div>
-<div id="example" class="section level2">
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local startapp = require( "plugin.startapp" )
 
@@ -159,8 +159,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

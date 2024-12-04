@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Plugins | fuse | register</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -79,115 +79,115 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/fuse/index.html">fuse</a>  ▸  <a href="../../plugin/fuse/register.html">register</a>
 </div>
-<div id="fuse.register" class="section level1">
+<section id="fuse.register" class="level1">
 <h1>fuse.register()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>Type</strong></td>
-<td align="left"><a href="../../api/type/Function.html">Function</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Return value</strong></td>
-<td align="left">none</td>
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>Revision</strong></td>
-<td align="left"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2024.3703</a></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Keywords</strong></td>
-<td align="left">ads, advertising, monetization, fuse, register</td>
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">ads, advertising, monetization, fuse, register</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>See also</strong></td>
-<td align="left"><a href="../../plugin/fuse/index.html">fuse.*</a></td>
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../plugin/fuse/index.html">fuse.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
-<div id="overview" class="section level2">
+<section id="overview" class="level2">
 <h2>Overview</h2>
-<p>Registers user properties with the Fuse tracking system, for example the user's level, amount of virtual currency, actual age/gender, etc. By creating distinct zones within the Fuse dashboard, you may target users based on specific registered criteria.</p>
-</div>
-<div id="syntax" class="section level2">
+<p>Registers user properties with the Fuse tracking system, for example the user’s level, amount of virtual currency, actual age/gender, etc. By creating distinct zones within the Fuse dashboard, you may target users based on specific registered criteria.</p>
+</section>
+<section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">fuse.register( propertyType [, params] )</pre>
-<div id="propertytype-required" class="section level5">
+<section id="propertytype-required" class="level5">
 <h5>propertyType <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> Specifies the type of property to register. Valid options include:</p>
 <ul>
-<li><code>&quot;currency&quot;</code> — Register a currency type and its current balance.</li>
-<li><code>&quot;level&quot;</code> — Register the user's level.</li>
-<li><code>&quot;gender&quot;</code> — Register the user's gender.</li>
-<li><code>&quot;age&quot;</code> — Register the user's age.</li>
-<li><code>&quot;birthday&quot;</code> — Register the user's birthday.</li>
-<li><code>&quot;parental&quot;</code> — Register the user's parental consent status.</li>
-<li><code>&quot;virtualGoodsPurchase&quot;</code> — Register a virtual goods purchase.</li>
-<li><code>&quot;rewardedVideo&quot;</code> — Optional custom account ID for rewarded video server verification.</li>
-<li><code>&quot;custom&quot;</code> — Register unique information on a per-user basis.</li>
-<li><code>&quot;pushToken&quot;</code> — Requests user authorization for push notifications.</li>
+<li><code>"currency"</code> — Register a currency type and its current balance.</li>
+<li><code>"level"</code> — Register the user’s level.</li>
+<li><code>"gender"</code> — Register the user’s gender.</li>
+<li><code>"age"</code> — Register the user’s age.</li>
+<li><code>"birthday"</code> — Register the user’s birthday.</li>
+<li><code>"parental"</code> — Register the user’s parental consent status.</li>
+<li><code>"virtualGoodsPurchase"</code> — Register a virtual goods purchase.</li>
+<li><code>"rewardedVideo"</code> — Optional custom account ID for rewarded video server verification.</li>
+<li><code>"custom"</code> — Register unique information on a per-user basis.</li>
+<li><code>"pushToken"</code> — Requests user authorization for push notifications.</li>
 </ul>
-</div>
-<div id="params-optional" class="section level5">
+</section>
+<section id="params-optional" class="level5">
 <h5>params <sub><sup>(optional)</sup></sub></h5>
 <p><em><a href="../../api/type/Table.html">Table</a>.</em> Table which specifies optional parameters — see the next section for details.</p>
-</div>
-</div>
-<div id="parameter-reference" class="section level2">
+</section>
+</section>
+<section id="parameter-reference" class="level2">
 <h2>Parameter Reference</h2>
 <p>The <code>params</code> table should include key-value pairs associated with the <code>propertyType</code> being registered.</p>
-<div id="currency" class="section level3">
+<section id="currency" class="level3">
 <h3>currency</h3>
-<p>Fuse supports up to 4 different types of virtual currencies per app, each associated with an integer between <code>1</code> and <code>4</code>. These currencies should represent consumable items like tokens, coins, diamonds, etc. For example, &quot;coins&quot; may be represented by the integer <code>1</code> and, by calling <code>fuse.register()</code> within the game, you may register when the user has earned 2000 coins.</p>
+<p>Fuse supports up to 4 different types of virtual currencies per app, each associated with an integer between <code>1</code> and <code>4</code>. These currencies should represent consumable items like tokens, coins, diamonds, etc. For example, “coins” may be represented by the integer <code>1</code> and, by calling <code>fuse.register()</code> within the game, you may register when the user has earned 2000 coins.</p>
 <p>The following key-value pairs pertain to registering virtual currency:</p>
 <ul>
 <li><code>currency</code> — Required <a href="../../api/type/Number.html">number</a> indicating the currency type. Valid integers are <code>1</code> to <code>4</code> inclusive.</li>
 <li><code>balance</code> — Required <a href="../../api/type/Number.html">number</a> indicating the balance for the specified currency type.</li>
 </ul>
-</div>
-<div id="level" class="section level3">
+</section>
+<section id="level" class="level3">
 <h3>level</h3>
 <ul>
-<li><code>level</code> — Required <a href="../../api/type/Number.html">number</a> indicating the user's level.</li>
+<li><code>level</code> — Required <a href="../../api/type/Number.html">number</a> indicating the user’s level.</li>
 </ul>
-</div>
-<div id="gender" class="section level3">
+</section>
+<section id="gender" class="level3">
 <h3>gender</h3>
 <ul>
-<li><code>gender</code> — Required <a href="../../api/type/String.html">string</a> value of <code>&quot;male&quot;</code> or <code>&quot;female&quot;</code>.</li>
+<li><code>gender</code> — Required <a href="../../api/type/String.html">string</a> value of <code>"male"</code> or <code>"female"</code>.</li>
 </ul>
-</div>
-<div id="age" class="section level3">
+</section>
+<section id="age" class="level3">
 <h3>age</h3>
 <ul>
-<li><code>age</code> — Required <a href="../../api/type/Number.html">number</a> indicating the user's age.</li>
+<li><code>age</code> — Required <a href="../../api/type/Number.html">number</a> indicating the user’s age.</li>
 </ul>
-</div>
-<div id="birthday" class="section level3">
+</section>
+<section id="birthday" class="level3">
 <h3>birthday</h3>
 <ul>
-<li><code>day</code> — Required <a href="../../api/type/Number.html">number</a> indicating the user's day of birth.</li>
-<li><code>month</code> — Required <a href="../../api/type/Number.html">number</a> indicating the user's month of birth.</li>
-<li><code>year</code> — Required <a href="../../api/type/Number.html">number</a> indicating the user's year of birth.</li>
+<li><code>day</code> — Required <a href="../../api/type/Number.html">number</a> indicating the user’s day of birth.</li>
+<li><code>month</code> — Required <a href="../../api/type/Number.html">number</a> indicating the user’s month of birth.</li>
+<li><code>year</code> — Required <a href="../../api/type/Number.html">number</a> indicating the user’s year of birth.</li>
 </ul>
-</div>
-<div id="parental" class="section level3">
+</section>
+<section id="parental" class="level3">
 <h3>parental</h3>
 <ul>
-<li><code>consent</code> — Required <a href="../../api/type/Boolean.html">boolean</a> value of <code>true</code> indicating that the user's parent had consented.</li>
+<li><code>consent</code> — Required <a href="../../api/type/Boolean.html">boolean</a> value of <code>true</code> indicating that the user’s parent had consented.</li>
 </ul>
-</div>
-<div id="virtualgoodspurchase" class="section level3">
+</section>
+<section id="virtualgoodspurchase" class="level3">
 <h3>virtualGoodsPurchase</h3>
 <ul>
-<li><code>virtualGoodsId</code> — Required <a href="../../api/type/Number.html">number</a> identifying the virtual good, found on the Fuse dashboard. If the purchase was initiated with <a href="../../plugin/fuse/event/adsRequest/type.html">event.type</a> of <code>&quot;rewarded&quot;</code>, this parameter should be the same as the <code>offerObjectID</code> property of <a href="../../plugin/fuse/event/adsRequest/payload.html">event.payload</a>.</li>
+<li><code>virtualGoodsId</code> — Required <a href="../../api/type/Number.html">number</a> identifying the virtual good, found on the Fuse dashboard. If the purchase was initiated with <a href="../../plugin/fuse/event/adsRequest/type.html">event.type</a> of <code>"rewarded"</code>, this parameter should be the same as the <code>offerObjectID</code> property of <a href="../../plugin/fuse/event/adsRequest/payload.html">event.payload</a>.</li>
 <li><code>currencyId</code> — Required <a href="../../api/type/Number.html">number</a> indicating the currency used, found on the Fuse dashboard.</li>
 <li><code>amount</code> — Required <a href="../../api/type/Number.html">number</a> indicating the amount of currency spent.</li>
 </ul>
-</div>
-<div id="custom" class="section level3">
+</section>
+<section id="custom" class="level3">
 <h3>custom</h3>
 <ul>
 <li><code>eventId</code> — Required <a href="../../api/type/Number.html">number</a> identifier of the event to register. This should be an integer between <code>1</code> and <code>20</code> inclusive. Event numbers <code>1</code>-<code>10</code> are reserved for integers and event numbers <code>11</code>-<code>20</code> are reserved for strings.</li>
@@ -219,13 +219,13 @@
 <li>E-mails</li>
 <li>Account info</li>
 </ul>
-</div>
-<div id="pushtoken" class="section level3">
+</section>
+<section id="pushtoken" class="level3">
 <h3>pushToken</h3>
-<p>No additional parameters are necessary for this property type — simply submit <code>&quot;pushToken&quot;</code> as the <code>propertyType</code> parameter. Then, to enable push notifications, follow the instructions related to push notification setup outlined in the <a href="../../guide/events/appNotification/index.html">Local/Push Notifications</a> guide, depending on the platforms you want to support.</p>
-</div>
-</div>
-<div id="example" class="section level2">
+<p>No additional parameters are necessary for this property type — simply submit <code>"pushToken"</code> as the <code>propertyType</code> parameter. Then, to enable push notifications, follow the instructions related to push notification setup outlined in the <a href="../../guide/events/appNotification/index.html">Local/Push Notifications</a> guide, depending on the platforms you want to support.</p>
+</section>
+</section>
+<section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local fuse = require( "plugin.fuse" )
 
@@ -280,8 +280,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

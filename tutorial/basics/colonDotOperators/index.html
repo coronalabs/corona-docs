@@ -11,8 +11,8 @@
   <meta name="generator" content="pandoc" />
   <title>Solar2D Documentation — Tutorials | Basics</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/shCoreDefault.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
+  <link rel="stylesheet" href="../../../css/shCoreDefault.css" />
 <script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -65,18 +65,18 @@
 <div id="breadcrumb">
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../tutorial/index.html">Tutorials</a>  ▸  <a href="../../../tutorial/basics/index.html">Basics</a>
 </div>
-<div id="understanding-colon-and-dot-operators" class="section level1">
+<section id="understanding-colon-and-dot-operators" class="level1">
 <h1>Understanding Colon and Dot Operators</h1>
-<p>Many programmers learning Lua for the first time struggle with the difference between a function call that uses a colon (<code>:</code>) to separate the method from the object and a call that uses a dot/period (<code>.</code>) to separate them. Let's begin by looking at two examples:</p>
+<p>Many programmers learning Lua for the first time struggle with the difference between a function call that uses a colon (<code>:</code>) to separate the method from the object and a call that uses a dot/period (<code>.</code>) to separate them. Let’s begin by looking at two examples:</p>
 <pre class="brush: lua;">local length = string.len( "Hello World" )</pre>
 <pre class="brush: lua;">Runtime:addEventListener( "enterFrame", gameLoop )</pre>
 <p>In the first example, <code>string</code> is the <strong>object</strong> and <code>len</code> is one of its <strong>methods</strong> (in this case, it gets the length of the string).</p>
-<p>The second example calls the <code>Runtime</code> object's <strong>method</strong> <code>addEventListener</code>, along with some parameters/arguments.</p>
-<div id="which-should-i-use" class="section level2">
+<p>The second example calls the <code>Runtime</code> object’s <strong>method</strong> <code>addEventListener</code>, along with some parameters/arguments.</p>
+<section id="which-should-i-use" class="level2">
 <h2>Which Should I Use?</h2>
 <p>Deciding whether to use the colon or dot syntax can often be determined by whether you need a <strong>reference to the object</strong> within the function. This is, of course, irrelevant for standalone functions, but it can be extremely important for functions which are defined as <strong>methods of objects</strong>.</p>
 <p>Consider this generic module:</p>
-<pre class="brush: lua; gutter: true; first-line: 1;">local object = {}
+<pre class="first-line: 1; gutter: true; brush: lua;">local object = {}
 
 function object.dotMethod( parameter1, parameter2 )
 
@@ -86,9 +86,9 @@ function object:colonMethod( parameter1, parameter2 )
 
 end</pre>
 <p>First, we set up an object (<code>object</code>) — in this case, just an empty Lua table.</p>
-<p>Next, for the first function, we define a <strong>method</strong> of <code>object</code> called <code>dotMethod()</code>, and this method expects two parameters: <code>parameter1</code> and <code>parameter2</code>. However, the method knows nothing about the object that it's associated with, and that may be limiting.</p>
-<p>The second function, <code>colonMethod()</code>, has one major difference — it uses the colon (<code>:</code>) operator and, as a result, the method has an additional &quot;invisible&quot; parameter called <code>self</code>. As you can probably guess, this <code>self</code> parameter is a reference to the object itself, in this case <code>object</code>. This can be tested by expanding on the code above:</p>
-<pre class="brush: lua; gutter: true; first-line: 1;">local object = {}
+<p>Next, for the first function, we define a <strong>method</strong> of <code>object</code> called <code>dotMethod()</code>, and this method expects two parameters: <code>parameter1</code> and <code>parameter2</code>. However, the method knows nothing about the object that it’s associated with, and that may be limiting.</p>
+<p>The second function, <code>colonMethod()</code>, has one major difference — it uses the colon (<code>:</code>) operator and, as a result, the method has an additional “invisible” parameter called <code>self</code>. As you can probably guess, this <code>self</code> parameter is a reference to the object itself, in this case <code>object</code>. This can be tested by expanding on the code above:</p>
+<pre class="first-line: 1; gutter: true; brush: lua;">local object = {}
 
 function object.dotMethod( parameter1, parameter2 )
     print( self.someNumber )
@@ -123,11 +123,11 @@ object.dotMethod( object, "Hello", "World" )  -- Pass "object" as first paramete
 This code will now output `10`, but it requires additional code which can simply be omitted by using the colon operator method.
 
 -->
-</div>
-<div id="be-careful" class="section level2">
+</section>
+<section id="be-careful" class="level2">
 <h2>Be Careful!</h2>
 <p>Note that using the dot or the colon at the wrong time can cause errors in your code. The Lua compiler will tell you exactly what the problem is, but deciphering the error message can be tricky. Consider the following example:</p>
-<pre class="brush: lua; gutter: true; first-line: 1;">local object = {}
+<pre class="first-line: 1; gutter: true; brush: lua;">local object = {}
 
 function object:colonMethod( parameter1, parameter2 )
     print( self )
@@ -141,21 +141,21 @@ stack traceback:
 mymodule.lua:5: in function 'colonMethod'
 mymodule.lua:8: in main chunk</pre>
 <p>Basically, this error message tells you that <code>parameter2</code> is <code>nil</code>, however this may be confusing since both parameters are clearly passed in. The reason for the error is because, as explained above, the colon method has <code>self</code> as the implicit first parameter, so as far as the function is concerned, the parameters are:</p>
-<ol style="list-style-type: decimal">
-<li><code>self</code> → <code>&quot;Hello&quot;</code></li>
-<li><code>parameter1</code> → <code>&quot;World&quot;</code></li>
+<ol type="1">
+<li><code>self</code> → <code>"Hello"</code></li>
+<li><code>parameter1</code> → <code>"World"</code></li>
 <li><code>parameter2</code> → <code>nil</code></li>
 </ol>
 <p>In contrast, try calling the function correctly like this:</p>
 <pre class="brush: lua;">object:colonMethod( "Hello", "World" )  -- COLON method called with COLON operator (correct)</pre>
-<p>Now, the results are as expected and, from the function's standpoint, the parameters are:</p>
-<ol style="list-style-type: decimal">
+<p>Now, the results are as expected and, from the function’s standpoint, the parameters are:</p>
+<ol type="1">
 <li><code>self</code> → <code>object</code></li>
-<li><code>parameter1</code> → <code>&quot;Hello&quot;</code></li>
-<li><code>parameter2</code> → <code>&quot;World&quot;</code></li>
+<li><code>parameter1</code> → <code>"Hello"</code></li>
+<li><code>parameter2</code> → <code>"World"</code></li>
 </ol>
-</div>
-<div id="conclusion" class="section level2">
+</section>
+<section id="conclusion" class="level2">
 <h2>Conclusion</h2>
 <p>Armed with this information, you can better understand when to use the colon operator and when to use the dot operator, thus ensuring that your code is logical and <nobr>bug-free</nobr>.</p>
 <hr>
@@ -168,8 +168,8 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
 <script type="text/javascript">

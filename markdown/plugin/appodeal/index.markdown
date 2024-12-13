@@ -250,12 +250,13 @@ settings =
 	{
 		-- Base
 		['plugin.appodeal.base'] = { publisherId = 'com.coronalabs' },
-
-        ['plugin.appodeal.Bidmachine'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Amazon'] = {publisherId = 'com.coronalabs'},
+        ['plugin.appodeal.Bidmachine'] = { publisherId = 'com.coronalabs' }, -- Note you need all adatper for this adapter to build properly
         ['plugin.appodeal.GoogleAdMob'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
+        ["plugin.appodeal.Pangle"] = {publisherId = 'com.coronalabs'},
         ['plugin.appodeal.Unity'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.Vungle'] = { publisherId = 'com.coronalabs' },
         ['plugin.appodeal.Yandex'] = { publisherId = 'com.coronalabs' },

@@ -1,4 +1,8 @@
 # Changelog
+##### 2024-01-22 Scott Harrison
+ * Added recordFetchFile method.
+
+
 ##### 2017-06-05  Brent Sorrentino
  * Minor edits.
 

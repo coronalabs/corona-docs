@@ -195,6 +195,8 @@ CloudKit
 
 #### [iCloud.recordAccountStatus()][plugin.iCloud.recordAccountStatus]
 
+#### [iCloud.recordFetchFile()][plugin.iCloud.recordFetch]
+
 
 ## Events
 
@@ -221,6 +223,8 @@ CloudKit
 </div>
 
 #### [iCloudRecordEvent][plugin.iCloud.event.iCloudRecordEvent]
+
+#### [iCloudFileEvent][plugin.iCloud.event.iCloudFileEvent]
 
 
 ## Types

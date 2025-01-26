@@ -322,7 +322,7 @@ Interested in [creating a plugin][native.plugin]? Please see our [Plugins][nativ
 #### [StartApp][plugin.startapp]
 #### [SuperAwesome][plugin.superawesome]
 #### [Supersonic][plugin.supersonic]
-#### [Unity Ads][plugin.unityads]
+#### [Unity Ads][plugin.unityads-v4]
 #### [Vungle 6][plugin.vungle-v6]
 
 

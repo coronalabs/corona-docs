@@ -148,6 +148,17 @@ div[id="api-reference"] div[id="typesapi.type"] h4 a {
 	cursor: pointer;  /* re-actives cursor */
 }
 
+section[id="api-reference"] section[id="librariesapi.library"] h4 a,
+section[id="api-reference"] section[id="eventsapi.event"] h4 a,
+section[id="api-reference"] section[id="typesapi.type"] h4 a {
+	font-size: 15px;
+	text-decoration: none;
+	color: #504e4e;
+	font-weight: 600;
+	line-height: 22px;
+	cursor: pointer;  /* re-actives cursor */
+}
+
 
 /* ------------------------------------------------------------
 OTHER CORE STYLES
@@ -304,7 +315,7 @@ blockquote table tr td strong, blockquote table tr td em {
 MAIN PAGE SECTION
 ------------------------------------------------------------ */
 
-.section.level1 {
+section.level1 {
 	position: absolute;
 	top: 74px;
 	left: 246px;
@@ -468,7 +479,7 @@ MEDIA QUERIES SECTION
 	body { overflow: visible; width: auto; max-width: 1200px; }
 	html { padding: 0px; }
 	#TOC { display: none; overflow: visible; }
-	.section.level1 { left: 0px; overflow: visible; }
+	section.level1 { left: 0px !important; overflow: visible !important; }
 }
 
 
@@ -600,6 +611,13 @@ div[id="api-reference"] div[id="librariesapi.library"] { width: 33%; float: left
 div[id="api-reference"] div[id="eventsapi.event"] { width: 33%; float: left; }
 div[id="api-reference"] div[id="typesapi.type"] { width: 33%; float: left; }
 div#section { clear: both; }
+
+section[id="api-reference"] section[id="librariesapi.library"] { width: 33%; float: left; }
+section[id="api-reference"] section[id="eventsapi.event"] { width: 33%; float: left; }
+section[id="api-reference"] section[id="typesapi.type"] { width: 33%; float: left; }
+section#section { clear: both; }
+
+section[id="corona-documentation"] { left: 0px !important; overflow: visible !important; }
 
 
 /* ------------------------------------------------------------
@@ -1159,6 +1177,9 @@ h3 code, h4 code, h6 code {
 div[id="methods"] pre, div[id="properties"] pre, div[id="functions"] pre {
 	margin-bottom: 16px;
 }
+section[id="methods"] pre, section[id="properties"] pre, section[id="functions"] pre {
+	margin-bottom: 16px;
+}
 
 /* ------------------------------------------------------------
 PRINTING STYLES
@@ -1168,7 +1189,7 @@ PRINTING STYLES
    body{margin:0.5in;font-family:times; display:block; page-break-before:always; overflow: visible !important;}
    *{background:#fff !important;color:#000 !important;float:none !important;width:auto !important;height:auto !important;}
    .title, .SearchBar, #TOC, #footer{display:none !important;}
-   .section.level1 {width: 100%; left: 0; overflow: visible !important; padding: 0 10px !important;}
+   section .level1 {width: 100%; left: 0; overflow: visible !important; padding: 0 10px !important;}
    .guides-toc ul {padding: 0 10px;}
    .fa-list-element {min-height: 22px;}
    .fa-list-element-tile{display:none !important;}

@@ -8,6 +8,7 @@
 > __See also__			[Local/Push Notifications][guide.events.appNotification] _(guide)_
 > --------------------- ------------------------------------------------------------------------------------------
 
+
 ## Overview
 
 This plugin provides access to local notifications and [Firebase](https://firebase.google.com) push notifications.

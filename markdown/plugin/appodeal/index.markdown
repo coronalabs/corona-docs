@@ -34,7 +34,7 @@ Beta version of Appodeal plugin is now available! Check latest note in Project S
 #### Version info
 Current plugin versions are:
 
-* Stable plugins is `2.11` for both Android and iOS. Beta plugin is not recommended to use and contains legacy version
+* Stable plugins is `3.4.0` for both Android and iOS.
 
 </div>
 
@@ -250,158 +250,25 @@ settings =
 	{
 		-- Base
 		['plugin.appodeal.base'] = { publisherId = 'com.coronalabs' },
-
-		-- All types
-		['plugin.appodeal.Bidmachine'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.GoogleAdMob'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.A4G'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.Smaato'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.StartApp'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.Unity'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.Yandex'] = { publisherId = 'com.coronalabs' },
-
-		-- Banner
-		['plugin.appodeal.AmazonAds'] = { publisherId = 'com.coronalabs' },
-
-		-- Interstitial
-		['plugin.appodeal.AdColony'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.AmazonAds'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.IronSource'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.Ogury'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.Vungle'] = { publisherId = 'com.coronalabs' },
-
-		-- Rewarded Video
-		['plugin.appodeal.AdColony'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.IronSource'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.Ogury'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.Vungle'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Amazon'] = {publisherId = 'com.coronalabs'},
+        ['plugin.appodeal.Bidmachine'] = { publisherId = 'com.coronalabs' }, -- you need all adatper for this adapter to build properly
+        ['plugin.appodeal.GoogleAdMob'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
+        ["plugin.appodeal.Pangle"] = {publisherId = 'com.coronalabs'},
+        ['plugin.appodeal.Unity'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Vungle'] = { publisherId = 'com.coronalabs' },
+        ['plugin.appodeal.Yandex'] = { publisherId = 'com.coronalabs' },
+        ["plugin.appodeal.InMobi"] = {publisherId = 'com.coronalabs'},
 	},
 }
 ``````
 
 Make sure to include `Base` block for a plugin to work correctly. Then you can just comment out unnecessary ad types blocks, so that unneded adapters are not downloaded and linked to your project.
 
-<div class="guide-notebox">
-<div class="notebox-title">Note</div>
 
-Disabling specific ad types and ad providers at this level with the help of new modular structure can greatly reduce the final build size.
 
-</div>
-
-For example, if you don't use Interstitials or Rewarded Video ad types in your app, you can comment blocks:
-
-``````lua
--- Interstitial
---['plugin.appodeal.AdColony'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Chartboost'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Flurry'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.IronSource'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Mobvista'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.StartApp'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Ogury'] = { publisherId = 'com.coronalabs' },
-
--- Rewarded Video
---['plugin.appodeal.AdColony'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Chartboost'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Flurry'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.IronSource'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Mobvista'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.StartApp'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Unity'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Vungle'] = { publisherId = 'com.coronalabs' },
---['plugin.appodeal.Tapjoy'] = { publisherId = 'com.coronalabs' },
-``````
-
-If for some reason you don't want to show ads from specific ad provider (for the sake of example, let it be `Flurry`), you can comment out it too, like this:
-
-``````lua
--- Banner
-['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.Flurry'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
--- ['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.Yandex'] = { publisherId = 'com.coronalabs' },
-``````
-
-If you are sure of your choice and want to keep your build settings nice and clean, you can remove commented ad types or/and adapters. Then for this particular example your build.settings file should look like this:
-
-``````lua
--- Base
-['plugin.appodeal.base'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.GoogleAdMob'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.StartApp'] = { publisherId = 'com.coronalabs' },
-
--- Banner
-['plugin.appodeal.AppLovin'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.FacebookAudience'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.InMobi'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.MyTarget'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.Yandex'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.AmazonAds'] = { publisherId = 'com.coronalabs' },
-['plugin.appodeal.TwitterMoPub'] = { publisherId = 'com.coronalabs' },
-``````
-
-<!--
-<div class="guide-notebox">
-<div class="notebox-title">Note</div>
-
-From now on, you can use a beta version of modular plugin system. It includes the latest Appodeal SDK Beta, some new features and improvements. To use it, you should add a `beta` tag to module declaration like this, for example:
-
-``````lua
-settings =
-{
-	android =
-	{
-		applicationChildElements =
-		{
-			[[
-				<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
-					android:value="[YOUR_ADMOB_APP_ID]"/>  -- replace with your app id. See: https://goo.gl/fQ2neu
-			]],
-		},
-	},
-	plugins =
-	{
-		['plugin.appodeal.beta.base'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.AdColony'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.AmazonAds'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.AppLovin'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.Appnext'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.Chartboost'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.FacebookAudience'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.Flurry'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.GoogleAdMob'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.InMobi'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.IronSource'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.Mobvista'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.MyTarget'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.Ogury'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.StartApp'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.Tapjoy'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.TwitterMoPub'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.Unity'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.Vungle'] = { publisherId = 'com.coronalabs' },
-		['plugin.appodeal.beta.Yandex'] = { publisherId = 'com.coronalabs' },
-	},
-}
-``````
-
-Please keep in mind, that using beta versions of both Appodeal SDK and CORONA_CORE_PRODUCT Appodeal plugin may cause unexpected issues. We've made a profound tests of a new system, but you should use it at your own risk.
-
-</div>
--->
 
 <!--- Include ATS "override" template block --->
 TEMPLATE_ATS

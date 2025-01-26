@@ -1,25 +1,25 @@
 
 # Implementing Ads
 
-CORONA_CORE_PRODUCT supports multiple plugins that allow you to show in-app advertising. These plugins all basically work the same way, however there are subtle differences you have to pay close attention to. 
+CORONA_CORE_PRODUCT supports multiple plugins that allow you to show in-app advertising. These plugins all basically work the same way; however, there are subtle differences you have to pay close attention to. 
 
 ## Basic Concepts
 
 There are some common concepts for all ad providers. Let's start with dashboard setup.
 
-Each ad provider has a dashboard that you have to create an account for, set up your apps and then get various identifiers for... and they are all different. Following their guides and documentation will help you get set up on their platform.
+Each ad provider has a dashboard that you have to create an account for, set up your apps and then get various identifiers for… and they are all different. Following their guides and documentation will help you get set up on their platform.
 
-You will need to create an "App" for each app/game you're going to implement ads for. In almost every case, within their dashboard you will define separate apps for the iOS version and the Android version. The ad providers will target iOS specific ads to iOS apps and Android specific ads to Android apps, so it makes sense if you're building for both platforms you will have two applications even though you will only have one CORONA_CORE_PRODUCT app. 
+You will need to create an “App” for each app/game you're going to implement ads for. In almost every case, within their dashboard, you will define separate apps for the iOS version and the Android version. The ad providers will target iOS specific ads to iOS apps and Android-specific ads to Android apps, so it makes sense if you're building for both platforms you will have two applications even though you will only have one CORONA_CORE_PRODUCT app. 
 
-Each vendor may use a different identifier for this, but for the purpose of this tutorial, we will refer to this as an "AppId". It will be a string. The string could be all numbers, code with hex digits, or a long string with symbols in it. To CORONA_CORE_PRODUCT these will all be strings.
+Each vendor may use a different identifier for this, but for this tutorial, we will refer to this as an “AppId". It will be a string. The string could be all numbers, code with hex digits, or a long string with symbols in it. To CORONA_CORE_PRODUCT these will all be strings.
 
-Next, you will most likely have to define what types of ads you want to show, such as banner ads, interstitial, or rewarded video ads. Depending on your app design, there may be times where you need to have multiple ads of the same type that are tracked separately. For instance, you might offer two rewards in your game for watching a rewarded video. Each reward has a different amount like 10 coins for one rewarded video and 5 gems for another. 
+Next, you will most likely have to define what types of ads you want to show, such as banner ads, interstitial, or rewarded video ads. Depending on your app design, there may be times when you need to have multiple ads for the same type that are tracked separately. For instance, you might offer two rewards in your game for watching a rewarded video. Each reward has a different amount, like 10 coins for one rewarded video and 5 gems for another. 
 
-You need to set up different values that your app needs to process. Because of this, each separately tracked ad placement will have its own identifier. This may be called a PlacementId, or and adUnitId or some other term. For this tutorial, we will refer them as `PlacementId`. Like the `AppId`, these may look like numbers, but they are all treated as strings in CORONA_CORE_PRODUCT. NOTE: The code in this tutorial uses `adUnitId` since it uses AdMob as the implementation example.
+You need to set up different values that your app needs to process. Because of this, each separately tracked ad placement will have its identifier. This may be called a PlacementId, or and adUnitId or some other term. For this tutorial, we will refer to them as `PlacementId`. Like the `AppId`, these may look like numbers, but they are all treated as strings in CORONA_CORE_PRODUCT. NOTE: The code in this tutorial uses `adUnitId` since it uses AdMob as the implementation example.
 
 These placements go with the app. If you have both an iOS app and an Android app and each app has three placements, you will have two `AppId`s and six `PlacementId`s.
 
-In your code you will need to test to see what platform you're on and initialize your plugin using the appropriate IDs for each placement. 
+In your code, you will need to test to see what platform you're on and initialize your plugin using the appropriate IDs for each placement. 
 
 ## build.settings
 
@@ -57,11 +57,11 @@ settings =
 }
 ``````
 
-Of course, this is only part of your `build.settings` file and you would add this plugin block in with the other sub-tables in the settings table.
+Of course, this is only part of your `build.settings` file, and you would add this plugin block in with the other sub-tables in the settings table.
 
 ## Requiring the plugin
 
-In every module where you need to call the advertising plugin you will need to require the plugin. Near the top of each `.lua` file simply do:
+In every module where you need to call the advertising plugin, you will need to require the plugin. Near the top of each `.lua` file, simply do:
 
 ``````lua
 local admob = require( "plugin.admob" )
@@ -161,8 +161,8 @@ local function adListener( event )
 	elseif event.phase == "failed" then
 		if event.type == "banner" then
 			-- Put your ad loading failover code here
-			-- The most common failure reason is lack of ads to show, so simply try and load another ad
-			-- You don't want to do this over and over. Eventually you should give up or try after a longer period of time
+			-- The most common failure reason is lack of ads to show, so simply try to load another ad
+			-- You don't want to do this over and over. Eventually, you should give up or try after a longer period of time
 		elseif event.type == "interstitial" then
 			-- Put your ad loading failover code here
 		elseif event.type == "rewardedVideo" then
@@ -183,13 +183,13 @@ This will only load one ad (of each type) once. Some plugins may automatically p
 
 You will notice that there isn't an attempt to load banner ads after they have been displayed. Most ad providers will rotate banner ads based on a schedule and therefore will load the next ad to be shown for you. Some ad providers will hide a showing banner ad if you try to load a new one while the current one is showing.
 
-If an ad type fails to load, you will get an `event.phase` of "failed". You can use this opportunity to attempt to load an ad from another plugin (i.e. set up your own ad waterfall.) You could also use a timer to wait for a few seconds and see if your primary ad provider has a new ad available. 
+If an ad type fails to load, you will get an `event.phase` of "failed". You can use this opportunity to attempt to load an ad from another plugin (i.e., set up your ad waterfall.) You could also use a timer to wait for a few seconds and see if your primary ad provider has a new ad available. 
 
 Setting up a waterfall system or a timed ad-reload system is beyond the scope of this tutorial.  
 
 ## Showing Ads
 
-Showing ads, from a code perspective is very easy. But something that requires considerably more thought from an app design perspective. The hard question is "When should you show ads?"
+Showing ads, from a code perspective, is effortless. But something that requires considerably more thought from an app design perspective. The hard question is "When should you show ads?"
 
 ### Banner ads
 
@@ -232,7 +232,7 @@ end
 ``````
 This will also automatically hide the banner ad when the scene terminates. 
 
-If you're using your own scene control, you can use similar code in your own framework.
+If you're using your scene control, you can use similar code in your framework.
 
 Let's break down the code a little bit. In a typical use case, you may want to show a banner ad on your menu. Normally, you want to get the menu on screen as quickly as possible. Since plugin initialization takes time and executes in the background, it's very likely you will get your menu on screen before the plugin finishes initialization. This code uses the completion of the initialization to load the first set of ads, which also will take time.
 
@@ -245,11 +245,11 @@ Because of low fill rates or other reasons, you may not get an ad to show. You d
 
 Interstitial ads are full screen ads. You will never want to show one of these during game play. These are good to show in between your game play and your next level/game over screen. However, if your game is one where play may only last a few seconds, then you may not want to show an ad every time the game is over. You may only want to show an ad every five times, for instance. 
 
-There isn't a hard set rule on how long you should wait between showing an interstitial ad. You don't want to annoy the user to a point they remove your app. It's a balancing act. 
+There isn't a hard set rule on how long you should wait between showing an interstitial ad. You would rather not annoy the user to a point they remove your app. It's a balancing act. 
 
 Interstitial ads pay significantly better than banner ads. You should consider using these in your game where possible.
 
-It makes sense to show the ad when you go to your end of game scene, next level scene, etc. You can do this in the `scene:show()` function once the scene is on the screen.
+It makes sense to show the ad when you go to your end of game scene, next-level scene, etc. You can do this in the `scene:show()` function once the scene is on the screen.
 
 ``````lua
 function scene:show( event )
@@ -286,15 +286,15 @@ Video ads are like interstitial ads in that they are full screen and fully inter
 
 Rewarded video ads are a special type of video ad where the user can earn some in-game reward for viewing these type of ads. Instead of ads that interrupt the game flow, like interstitial ads, these ads are generally tied to a button in your UI.
 
-Maybe your button shows an icon for a video and a number of coins. When the user interacts with the video and watches it to completion then they will receive the reward.
+Maybe your button shows an icon for a video and numerous coins. When the user interacts with the video and watches it to completion, then they will receive the reward.
 
-__Important__ almost every ad provider that supports rewarded video will handle this part differently. In some cases, you may just get an event saying the reward was completed and it's up to your app to grant the reward. 
+__Important__ almost every ad provider that supports rewarded video will handle this part differently. In some cases, you may just get an event saying the reward was completed, and it's up to your app to grant the reward. 
 
-Another provider may let you setup multiple rewarded video placements that have different values. That is watch video placement A and get 50 coins, watch video placement B and get 10 gems. In this case, your event that you get in your `adListener` may tell you the amount and type of reward to give.
+Another provider may let you set up multiple rewarded video placements that have different values. That is, watch video placement A and get 50 coins, watch video placement B and get 10 gems. In this case, your event that you get in your `adListener` may tell you the amount and type of reward to give.
 
 Other providers may require you to have a web server setup where you have a web script that the ad provider can call to record the reward and then when you get an event saying the rewarded video was complete, you can check with your server to get the amount and type of reward. This all should be documented on the ad provider's website.
 
-In AdMob's case, there are no server requirements, but you will get an event "reward" that contains information about the reward. You will get a member in the event table called `event.data` that contains a JSON string that can be converted to a Lua table for your use. Consider these changes to the `adListener` function:
+In AdMob's case, there are no server requirements, but you will get an event “reward” that contains information about the reward. You will get a member in the event table called `event.data` that contains a JSON string that can be converted to a Lua table for your use. Consider these changes to the `adListener` function:
 
 ``````lua
 -- AdMob listener function
@@ -311,7 +311,7 @@ local function adListener( event )
 	elseif event.phase == "failed" then
 		if event.type == "banner" then
 			-- Put your ad loading failover code here
-			-- The most common failure reason is lack of ads to show, so simply try and load another ad
+			-- The most common failure reason is lack of ads to show, so simply try to load another ad
 			-- You don't want to do this over and over. Eventually you should give up or try after a longer period of time
 		elseif event.type == "interstitial" then
 			-- Put your ad loading failover code here
@@ -354,15 +354,15 @@ To learn more about rewarded ads and implementation strategies [view this articl
 
 Because ad plugins only work on Android and iOS devices, you can only test them on a real device. Live Builds can help with the building and testing phase, but unless you're on a Mac and still have the Simulator's console log reading your device's console log, you can't get information from the device to see what's going on.
 
-If you're on a Mac, you can just have CORONA_CORE_PRODUCT install the app to your device that's tethered via USB as long as you don't close the "build complete" dialog box. Messages from your device and app will show in the CORONA_CORE_PRODUCT console log. If you close that dialog or you do not have a Mac, then you have to use other tools to watch the device's console log.
+If you're on a Mac, you can just have CORONA_CORE_PRODUCT install the app to your device that's tethered via USB, as long as you don't close the "build complete" dialog box. Messages from your device and app will show in the CORONA_CORE_PRODUCT console log. If you close that dialog, or you do not have a Mac, then you have to use other tools to watch the device's console log.
 
-For iOS, you can use Xcode's `Devices & Simulators` window and watch the device's console log. For Android, you can install a command line tool called `adb` or Android Debug Bridge. How to install `adb` is beyond the scope of this tutorial as is learning how to run it on your computer. There are plenty of general tutorials on the Internet for setting this up.
+For iOS, you can use Xcode's `Devices & Simulators` window and watch the device's console log. For Android, you can install a command line tool called `adb` or Android Debug Bridge. How to install `adb` is beyond the scope of this tutorial, as is learning how to run it on your computer. There are plenty of general tutorials on the Internet for setting this up.
 
 Assuming you can now see the device's console log, what are you looking for?
 
 All ad plugin providers return information with each event they generate: information like the `phase` of the event, if it's an error or not, a text response as to what any errors were about, and more information.
 
-The easiest way for you to learn what's going on with your app is to read this information. This is done simply by printing out the contents of the event table. CORONA_CORE_PRODUCT offers a very simple API call that lets you easily dump the contents of any table. If you look at the beginning of the `adListener()` function you will find this code:
+The easiest way for you to learn what's going on with your app is to read this information. This is done simply by printing out the contents of the event table. CORONA_CORE_PRODUCT offers a basic API call that lets you easily dump the contents of any table. If you look at the beginning of the `adListener()` function, you will find this code:
 
 ``````lua
 -- AdMob listener function
@@ -373,7 +373,7 @@ local function adListener( event )
 end
 ``````
 
-This includes the JSON library. You can of course move the line that requires the library to the top of your `main.lua` or if you're already including it, you can skip it here. The magic happens on the second print statement.
+This includes the JSON library. You can, of course, move the line that requires the library to the top of your `main.lua` or if you're already including it, you can skip it here. The magic happens on the second print statement.
 
 Using the [json.prettify][api.library.json.prettify] function along with a print statement, CORONA_CORE_PRODUCT will take the Lua table, convert it to a JSON string for you and then print the JSON string in a very readable format. You should get something that looks like:
 ``````lua
@@ -390,13 +390,14 @@ Nexus 9: }
 
 You can see what the `event.phase` is. Did you get a `loaded` event? Did you get a `reward` event? You also get an `event.response` event. Does it tell you there are no ads available? Does it tell you that you have a configuration problem? Armed with this output, if you can't solve the problem on your own, you now have information that you can copy and paste into a forum message asking the community for help.
 
-This is a critical step that many people trying to implement ads fail to look at. When you post to the forums asking "I implemented XYZ ad plugin correctly and I'm not getting ads, what is wrong?", it is impossible to answer your question without a copy of your code and console log output showing these important print statements.
+This is a critical step that many people trying to implement ads fail to look at. When you post to the forums asking "I implemented XYZ ad plugin correctly, and I'm not getting ads, what is wrong?", it is impossible to answer your question without a copy of your code and console log output showing these important print statements.
 
 ## Conclusion
 
-Implementing ads has a lot of moving parts between the ad provider portal setup, the minimum implementation code and of course your ad placement. But through some patience and understanding your apps flow, you can build a successful monetization plan in your app or game.
+Implementing ads has many moving parts between the ad provider portal setup, the minimum implementation code and of course your ad placement. But through some patience and understanding your app's flow, you can build a successful monetization plan for your app or game.
 
-Just remember: Don't annoy your users. Don't waste your advertisers inventory. Don't violate the stores' guidelines by building an app that's more ads than content or other violations [that can get you banned](https://blog.appodeal.com/how-do-i-keep-app-from-getting-banned/). To get more context on these concepts look at [this article from GameAnalytics](https://gameanalytics.com/blog/popular-mobile-game-ad-formats.html) and scroll down to the "The 5 Essentials Of Running Ads In Mobile Games" section. 
+Just remember: Don't annoy your users. Don't waste your advertisers inventory. Don't violate the stores' guidelines by building an app that's more ads than content, or other violations [that can get you banned](https://blog.appodeal.com/how-do-i-keep-app-from-getting-banned/). To get more context on these concepts, look at [this article from GameAnalytics](https://gameanalytics.com/blog/popular-mobile-game-ad-formats.html) and scroll down to the "The 5 Essentials Of Running Ads In Mobile Games" section. 
 
 Don't hesitate to ask for help. We have a great community of developers who are willing to help you out in [forums](https://forums.solar2d.com/) and [Discord](https://discord.com/invite/Abf5V9G).
+
 

@@ -46,6 +46,16 @@ _[Boolean][api.type.Boolean]._ Setting this to `true` activates "custom&nbsp;mod
 
 * Setting this to `true` ignores the Pollfish panel behavior settings in the [Pollfish portal](https://www.pollfish.com/publisher). It always omits the Pollfish button and you must explicitly call [pollfish.show()][plugin.pollfish.show] to display the loaded survey.
 
+##### rewardMode ~^(optional)^~
+_[Boolean][api.type.Boolean]._ Setting this to `true` activates "custom&nbsp;mode" as detailed below. Default is `false`.
+
+Enables Pollfish in offerwall mode. If not specified Pollfish shows one survey at a time
+
+
+##### offerwallMode ~^(optional)^~
+_[Boolean][api.type.Boolean]._ Setting this to `true` activates "offerwall&nbsp;mode" which will show an offerwall of surveys. Default is `false`.
+
+
 
 ## Example
 

@@ -124,7 +124,6 @@ You'll need a text editor or IDE to write code for your CORONA_CORE_PRODUCT proj
 Editor																Add-On Package
 ------------------------------------------------------------------	---------------------------------------------
 [Sublime Text](https://www.sublimetext.com)							[Solar2D Editor](https://github.com/coronalabs/CoronaSDK-SublimeText)
-[Atom](https://atom.io)												[autocomplete-corona](https://atom.io/packages/autocomplete-corona)
 [Visual Studio Code](https://code.visualstudio.com/)				[Solar2d-companion](https://marketplace.visualstudio.com/items?itemName=M4adan.solar2d-companion)
 [Xcode](https://developer.apple.com/xcode/)							[Xcode Editor](https://github.com/jcbnlsn/Xcode-Corona-Editor)
 [ZeroBrane Studio](https://studio.zerobrane.com)
@@ -158,7 +157,7 @@ The CORONA_CORE_PRODUCT Simulator for macOS features the following basic menu it
 
 * The standard macOS application menu provides access to the Simulator __Preferences__. It also lets you manually open/run __Corona&nbsp;Live&nbsp;Server__ for doing [Live Builds][guide.distribution.liveBuild] on actual devices.
 
-* The __File__ menu is where projects (applications) are created or opened. This is also where you __build__ your apps for distribution or testing on devices. 
+* The __File__ menu is where projects (applications) are created or opened. This is also where you __build__ your apps for distribution or testing on devices.
 
 * The __Hardware__ menu is used to simulate physical device actions such as rotating the screen.
 

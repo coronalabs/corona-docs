@@ -18,9 +18,7 @@ Returns true if notifications are enabled, false otherwise.
 
 	notifications.areNotificationsEnabled()
 
-## Examples
-
-##### Default
+## Example
 
 ``````lua
 local notifications = require( "plugin.notifications.v2" )

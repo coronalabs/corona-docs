@@ -52,7 +52,7 @@ Mask image files can be created using any standard image editing program like [P
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp title-nomargin">Mask Image Requirements</div>
 
-* The mask image must have width and height dimensions that are __divisible&nbsp;by&nbsp;4__.
+* The mask image must have width and height dimensions that are __divisible&nbsp;by&nbsp;4__. _(This is no longer required for CORONA_CORE_PRODUCT 2025.3721 and later.)_
 
 * The mask image must be bordered by at least __3&nbsp;pixels__ of black space on all four sides. You may need to increase the overall size of your mask image to include this border.
 

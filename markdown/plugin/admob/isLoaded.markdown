@@ -43,7 +43,7 @@ local function adListener( event )
 end
 
 -- Initialize the AdMob plugin
-admob.init( adListener, { appId="YOUR_ADMOB_APP_ID" } )
+admob.init( adListener, { testMode=true } )
 
 -- Sometime later, check if an interstitial ad is loaded
 print( admob.isLoaded( "interstitial" ) )

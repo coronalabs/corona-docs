@@ -50,6 +50,8 @@ To use Firebase notifications on iOS make sure to include `plugin.notifications.
 
 #### [notifications.registerForPushNotifications()][plugin.notifications-v2.registerForPushNotifications]
 
+#### [notifications.areNotificationsEnabled()][plugin.notifications-v2.areNotificationsEnabled]
+
 
 ## Project Settings
 

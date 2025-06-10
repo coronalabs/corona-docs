@@ -92,20 +92,16 @@
 <td style="text-align: left;"><strong>Platforms</strong></td>
 <td style="text-align: left;">Android</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Sample</strong></td>
-<td style="text-align: left;"><a href="https://github.com/solar2d/com.solar2d-plugin.materialYouColors/tree/master/demo">https://github.com/solar2d/com.solar2d-plugin.materialYouColors/tree/master/demo</a></td>
-</tr>
 </tbody>
 </table>
 </blockquote>
 <section id="overview" class="level2">
 <h2>Overview</h2>
-<p>The Material You Colors plugin get Material UI colors set in System Settings by the user.</p>
+<p>This plugin enables you to access Material UI colors set in System Settings by the user.</p>
 </section>
 <section id="gotchas" class="level2">
 <h2>Gotchas</h2>
-<p>This plugin is only supported on Android 12+ (Android API Level 31+) and only works with Solar2D 3672+</p>
+<p>This plugin is supported only on Android 12 and later (Android API Level 31 and later) using Solar2D 2022.3672 and later.</p>
 </section>
 <section id="syntax" class="level2">
 <h2>Syntax</h2>
@@ -115,8 +111,13 @@
 <h2>Function</h2>
 <section id="materialyoucolors.getcolors" class="level4">
 <h4>materialYouColors.getColors()</h4>
-<p>returns a 3d Array of all system colors: 1d contains 5 color groups accent colors 1,2,3 and neutral colors 1,2, 2d contains 13 different shades of the color with 1 being the lightest, and 13 being the darkest, and 3d contains red, greed, blue(in that order)</p>
-<p><img src="plugin.materialYouColors.colors.png" /></p>
+<p><strong>Returns</strong> a 3D array of all system Material UI colors, structured as follows:</p>
+<ul>
+<li><strong>1st dimension</strong>: Represents 5 color groups — <code>accent1</code>, <code>accent2</code>, <code>accent3</code>, <code>neutral1</code>, and <code>neutral2</code>.</li>
+<li><strong>2nd dimension</strong>: Contains 13 shades for each color group, where index <code>1</code> is the lightest and <code>13</code> is the darkest.</li>
+<li><strong>3rd dimension</strong>: Holds the RGB components of each shade, in the order: red, green, blue.</li>
+</ul>
+<p><embed src="images.docs.plugin-material-you-colors" /></p>
 </section>
 </section>
 <section id="sample" class="level2">
@@ -144,8 +145,9 @@ color:setFillColor(myColors[1][4][1], myColors[1][4][2], myColors[1][4][3])
 <section id="support" class="level2">
 <h2>Support</h2>
 <ul>
-<li><a href="https://github.com/solar2d/com.solar2d-plugin.materialYouColors/tree/master/demo">demo</a></li>
-<li><a href="https://forums.solar2d.com/c/corona-marketplace/13">Solar2D Forums</a></li>
+<li><a href="https://github.com/solar2d/com.solar2d-plugin.materialYouColors/">Source code</a></li>
+<li><a href="https://github.com/solar2d/com.solar2d-plugin.materialYouColors/tree/master/demo">Sample project</a></li>
+<li><a href="https://forums.solar2d.com/c/corona-marketplace/13">Forums</a></li>
 </ul>
 <hr>
 <div id="footer">

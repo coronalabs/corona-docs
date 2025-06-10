@@ -5,19 +5,18 @@
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          Material You Colors, Material UI
 > __Platforms__			Android
-> __Sample__			[https://github.com/solar2d/com.solar2d-plugin.materialYouColors/tree/master/demo](https://github.com/solar2d/com.solar2d-plugin.materialYouColors/tree/master/demo)
 > --------------------- ------------------------------------------------------------------------------------------
 
 
 ## Overview
 
-The Material You Colors plugin get Material UI colors set in System Settings by the user.
+This plugin enables you to access Material UI colors set in System Settings by the user.
 
 
 
 ## Gotchas
 
-This plugin is only supported on Android 12+ (Android API Level 31+) and only works with Solar2D 3672+
+This plugin is supported only on Android 12 and later (Android API Level 31 and later) using CORONA_CORE_PRODUCT 2022.3672 and later.
 
 
 ## Syntax
@@ -31,9 +30,14 @@ This plugin is only supported on Android 12+ (Android API Level 31+) and only wo
 
 #### materialYouColors.getColors()
 
-returns a 3d Array of all system colors: 1d contains 5 color groups accent colors 1,2,3 and neutral colors 1,2, 2d contains 13 different shades of the color with 1 being the lightest, and 13 being the darkest, and 3d contains red, greed, blue(in that order)
+**Returns** a 3D array of all system Material UI colors, structured as follows:
 
-![](plugin.materialYouColors.colors.png)
+- **1st dimension**: Represents 5 color groups — `accent1`, `accent2`, `accent3`, `neutral1`, and `neutral2`.
+- **2nd dimension**: Contains 13 shades for each color group, where index `1` is the lightest and `13` is the darkest.
+- **3rd dimension**: Holds the RGB components of each shade, in the order: red, green, blue.
+
+
+![](images.docs.plugin-material-you-colors)
 
 
 
@@ -69,5 +73,6 @@ settings =
 
 ## Support
 
-* [demo](https://github.com/solar2d/com.solar2d-plugin.materialYouColors/tree/master/demo)
-* [Solar2D Forums](https://forums.solar2d.com/c/corona-marketplace/13)
+* [Source code](https://github.com/solar2d/com.solar2d-plugin.materialYouColors/)
+* [Sample project](https://github.com/solar2d/com.solar2d-plugin.materialYouColors/tree/master/demo)
+* [Forums](https://forums.solar2d.com/c/corona-marketplace/13)

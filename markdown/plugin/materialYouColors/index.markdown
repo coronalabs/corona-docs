@@ -37,7 +37,7 @@ This plugin is supported only on Android 12 and later (Android API Level 31 and 
 - **3rd dimension**: Holds the RGB components of each shade, in the order: red, green, blue.
 
 
-![](images.docs.plugin-material-you-colors)
+![][images.docs.plugin-material-you-colors]
 
 
 

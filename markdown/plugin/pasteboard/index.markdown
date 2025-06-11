@@ -11,6 +11,9 @@
 
 The Pasteboard plugin enables you to copy/paste from/to the device's pasteboard.
 
+## Gotchas
+
+This plugin only works on iOS and Android.
 
 ## Syntax
 

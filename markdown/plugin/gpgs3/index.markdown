@@ -50,7 +50,7 @@ Initialize is now required and will attempt to sign in the player automatically
 isConnected is now async and has a callback. use isConnected to check if a player is automatically connected via [init][plugin.gpgs3.init] or manually [login][plugin.gpgs3.login] functions
 
 #### [gpgs.isAuthenticated()][plugin.gpgs3.isAuthenticated]
-isAuthenticated is actually the same but should be noted that isAuthenticated only applies for logins in via [gpgs.login()][plugin.gpgs3.login]. This is important for [Snapshots][plugin.gpgs3.snapshots] which is needed to use [gpgs.login()][plugin.gpgs3.login] for requesting __Drive&nbsp;API__ access.
+isAuthenticated is actually the same but it should be noted that isAuthenticated only applies for logins in via [gpgs.login()][plugin.gpgs3.login]. This is important for [Snapshots][plugin.gpgs3.snapshots] which is needed to use [gpgs.login()][plugin.gpgs3.login] for requesting __Drive&nbsp;API__ access.
 
 #### [gpgs.login()][plugin.gpgs3.login]
 There is a new `useDrive` param which is need for [Snapshots][plugin.gpgs3.snapshots]. It is import to note that the Drive scope is not added by default and you must set the `useDrive` param to `true`.

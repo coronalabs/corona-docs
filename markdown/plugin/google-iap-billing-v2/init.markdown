@@ -37,7 +37,7 @@ _[Listener][api.type.Listener]._ The listener that will handle [storeTransaction
 ## Example
 
 ``````lua
-local store = require( "plugin.google.iap.billing" )
+local store = require( "plugin.google.iap.billing.v2" )
 local json = require( "json" )
 
 local function transactionListener( event )

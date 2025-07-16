@@ -43,6 +43,9 @@ The `params` table includes parameters for the AppLovin initialization.
 ##### verboseLogging ~^(optional)^~
 _[Boolean][api.type.Boolean]._ Set this to `true` to output AppLovin logs to the console.
 
+##### sdkKey ~^(optional)^~
+_[String][api.type.String]._ You can manually set sdkKey
+
 ##### testMode ~^(optional)^~
 _[Boolean][api.type.Boolean]._ Set this to `true` to enable test mode. When `true`, test mode will take immediate effect and this will override the test mode setting in the [AppLovin developer portal](https://dash.applovin.com).
 

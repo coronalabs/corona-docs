@@ -113,6 +113,20 @@ application =
 
 #### [steamworks.getAuthSessionTicket()][plugin.steamworks.getAuthSessionTicket]
 
+#### [steamworks.isSteamDeck()][plugin.steamworks.isSteamDeck] *
+
+#### [steamworks.getUserStorage()][plugin.steamworks.getUserStorage] *
+
+#### [steamworks.fileExists()][plugin.steamworks.fileExists] *
+
+#### [steamworks.readFile()][plugin.steamworks.readFile] *
+
+#### [steamworks.writeFile()][plugin.steamworks.writeFile] *
+
+#### [steamworks.deleteFile()][plugin.steamworks.deleteFile] *
+
+* Only Avaiable on 2025.3722+
+
 ## Properties
 
 #### [steamworks.appId][plugin.steamworks.appId]

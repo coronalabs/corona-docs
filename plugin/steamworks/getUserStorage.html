@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Solar2D Documentation — Plugins | Steamworks | getUserStorage</title>
+  <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/shCoreDefault.css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://docs.coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../guide/index.html">Guides</a></li>
+<li><a href="../../api/index.html">API Reference</a></li>
+<li><a href="../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../plugin/index.html">Plugins</a></li>
+<li><a href="../../native/index.html">Solar2D Native</a></li>
+<li><a href="../../coronacards/index.html">CoronaCards</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#steamworks.getuserstorage">steamworks.getUserStorage</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#parameters">Parameters</a></li>
+<li><a href="#return-value">Return Value</a></li>
+</ul></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/steamworks/index.html">Steamworks</a>  ▸  <a href="../../plugin/steamworks/getUserStorage.html">getUserStorage</a>
+</div>
+<section id="steamworks.getuserstorage" class="level1">
+<h1>steamworks.getUserStorage</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Type</strong> [Function][ap</td>
+<td style="text-align: left;">i.type.Function]</td>
+</tr>
+<tr class="even">
+<td><strong>Return value</strong> [Tabl</td>
+<td style="text-align: left;">e]<a href="../../api/type/Table.html">api.type.Table</a> or [nil][api.type.nil]</td>
+</tr>
+<tr class="odd">
+<td><strong>Revision</strong> [Release</td>
+<td style="text-align: left;">2025.3721](https://solar2d.com/download/)</td>
+</tr>
+<tr class="even">
+<td><strong>Keywords</strong> steam, st</td>
+<td style="text-align: left;">eamworks, getUserStorage, cloud storage, quota</td>
+</tr>
+<tr class="odd">
+<td><strong>See also</strong> [steamwor</td>
+<td style="text-align: left;">ks.*]<a href="../../plugin/steamworks/index.html">plugin.steamworks</a>, <a href="../../plugin/steamworks/writeFile.html">steamworks.writeFile</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<section id="overview" class="level2">
+<h2>Overview</h2>
+<p>This function retrieves information about the user’s Steam Cloud storage quota. It returns a table containing total and available storage bytes, or <code>nil</code> if the operation failed.</p>
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">
+Important
+</div>
+<p>This API is only available on 2025.3722+</p>
+</div>
+<p>Steam Cloud storage has limits per application, and this function allows you to check how much storage space is available before writing large files. This is useful for managing save data and preventing storage-related errors.</p>
+<p>The function queries Steam’s Remote Storage API to get the current quota information for the user’s cloud storage.</p>
+</section>
+<section id="syntax" class="level2">
+<h2>Syntax</h2>
+<pre class="brush: lua;">steamworks.getUserStorage()</pre>
+<section id="parameters" class="level3">
+<h3>Parameters</h3>
+<p>None.</p>
+</section>
+<section id="return-value" class="level3">
+<h3>Return Value</h3>
+<p><a href="../../api/type/Table.html">Table</a> or [nil][api.type.nil]. Returns a table with storage information if successful, or <code>nil</code> if the operation failed.</p>
+<p>The returned table contains the following fields: - <strong>totalBytes</strong> (<a href="../../api/type/Number.html">Number</a>): Total cloud storage space allocated to the application in bytes - <strong>availableBytes</strong> (<a href="../../api/type/Number.html">Number</a>): Remaining available storage space in bytes</p>
+</section>
+</section>
+<section id="example" class="level2">
+<h2>Example</h2>
+<pre class="brush: lua;">local steamworks = require( "plugin.steamworks" )
+
+local function checkStorageSpace()
+    local storageInfo = steamworks.getUserStorage()
+    if storageInfo then
+        local totalMB = storageInfo.totalBytes / (1024 * 1024)
+        local availableMB = storageInfo.availableBytes / (1024 * 1024)
+        local usedMB = totalMB - availableMB
+        
+        print("Steam Cloud Storage:")
+        print("Total: " .. string.format("%.2f MB", totalMB))
+        print("Used: " .. string.format("%.2f MB", usedMB))
+        print("Available: " .. string.format("%.2f MB", availableMB))
+        
+        -- Check if we have enough space for a save file
+        local saveDataSize = 1024 -- Estimated save file size in bytes
+        if storageInfo.availableBytes >= saveDataSize then
+            print("Sufficient storage space available")
+            return true
+        else
+            print("Warning: Low storage space!")
+            return false
+        end
+    else
+        print("Failed to retrieve storage information.")
+        return false
+    end
+end
+
+-- Before saving large data, check available space
+local function safeSavePlayerData(saveData)
+    local storageInfo = steamworks.getUserStorage()
+    if not storageInfo then
+        print("Cannot check storage - proceeding anyway")
+    else
+        local jsonData = json.encode(saveData)
+        local dataSize = string.len(jsonData)
+        
+        if storageInfo.availableBytes &lt; dataSize then
+            print("Error: Not enough cloud storage space!")
+            print("Need: " .. dataSize .. " bytes")
+            print("Available: " .. storageInfo.availableBytes .. " bytes")
+            return false
+        end
+    end
+    
+    -- Proceed with save
+    return steamworks.writeFile("playerData.json", json.encode(saveData))
+end</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020-2025 Solar2D All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
+</div>
+</section>
+</section>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

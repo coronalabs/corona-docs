@@ -1,7 +1,7 @@
-# steamworks.isSteamDeck
+# steamworks.isSteamDeck()
 
 > --------------------- ------------------------------------------------------------------------------------------
-> __Type__              [Boolean][api.type.Boolean]
+> __Type__              [Function][api.type.Function]
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          steam, steamworks, isSteamDeck
 > __See also__          [steamworks.*][plugin.steamworks]
@@ -15,7 +15,7 @@ This property will be `true` if the current system is running Steam Deck hardwar
 This api is only available on 2025.3722+
 </div>
 
-If this property returns `false`, you should assume the user is not on a Steam Deck. You can still run Steam-specific APIs, but any Steam Deck-specific optimizations or input handling should be skipped.
+If this function returns `false`, you should assume the user is not on a Steam Deck. You can still run Steam-specific APIs, but any Steam Deck-specific optimizations or input handling should be skipped.
 This property is read-only and determined at application startup; it cannot change during the application's lifetime.
 
 
@@ -24,7 +24,7 @@ This property is read-only and determined at application startup; it cannot chan
 ``````lua
 local steamworks = require( "plugin.steamworks" )
 
-if steamworks.isSteamDeck then
+if steamworks.isSteamDeck() then
     print("Running on Steam Deck! Adjusting UI and input settings for deck...")
     -- Example: Enable on-screen keyboard or adjust layout
 else

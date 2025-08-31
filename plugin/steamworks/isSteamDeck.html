@@ -55,7 +55,7 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#steamworks.issteamdeck">steamworks.isSteamDeck</a><ul>
+<li><a href="#steamworks.issteamdeck">steamworks.isSteamDeck()</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#example">Example</a></li>
 </ul></li>
@@ -65,13 +65,13 @@
 <a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/steamworks/index.html">Steamworks</a>  ▸  <a href="../../plugin/steamworks/isSteamDeck.html">isSteamDeck</a>
 </div>
 <section id="steamworks.issteamdeck" class="level1">
-<h1>steamworks.isSteamDeck</h1>
+<h1>steamworks.isSteamDeck()</h1>
 <blockquote>
 <table>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Type</strong></td>
-<td style="text-align: left;"><a href="../../api/type/Boolean.html">Boolean</a></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Revision</strong></td>
@@ -97,13 +97,13 @@ Important
 </div>
 <p>This api is only available on 2025.3722+</p>
 </div>
-<p>If this property returns <code>false</code>, you should assume the user is not on a Steam Deck. You can still run Steam-specific APIs, but any Steam Deck-specific optimizations or input handling should be skipped. This property is read-only and determined at application startup; it cannot change during the application’s lifetime.</p>
+<p>If this function returns <code>false</code>, you should assume the user is not on a Steam Deck. You can still run Steam-specific APIs, but any Steam Deck-specific optimizations or input handling should be skipped. This property is read-only and determined at application startup; it cannot change during the application’s lifetime.</p>
 </section>
 <section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local steamworks = require( "plugin.steamworks" )
 
-if steamworks.isSteamDeck then
+if steamworks.isSteamDeck() then
     print("Running on Steam Deck! Adjusting UI and input settings for deck...")
     -- Example: Enable on-screen keyboard or adjust layout
 else

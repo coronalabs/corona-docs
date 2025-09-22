@@ -61,7 +61,16 @@ local function adListener( event )
 		print( event.isError )
 	end
 end
+-- Choose sdkKey depending on platform
+local sdkKey
+if system.getInfo("platform") == "android" then
+    sdkKey = "YOUR_ANDROID_SDK_KEY"
+elseif system.getInfo("platform") == "ios" then
+    sdkKey = "YOUR_IOS_SDK_KEY"
+else
+    sdkKey = "" -- fallback (unsupported)
+end
 
 -- Initialize the AppLovin plugin
-applovinMax.init( adListener, { testMode=true } )
+applovinMax.init( adListener, { testMode=true, sdkKey = sdkKey } )
 ``````

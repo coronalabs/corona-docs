@@ -10,7 +10,7 @@
 
 ## Overview
 
-This plugin is stil in alpha but is used for getting age range and app approval for the new Apple and Google apis. Google and Apple are still refining these apis. This is designed to handle new state laws in Texas and other states for app permission.  
+This plugin is still in alpha but is used for getting age range and app approval for the new Apple and Google APIs. Google and Apple are still refining these APIs. This is designed to handle new state laws in Texas and other states for app permission.
 
 
 

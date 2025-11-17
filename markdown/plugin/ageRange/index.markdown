@@ -37,7 +37,7 @@ settings =
 {
 	plugins =
 	{
-		["plugin.utf8"] =
+		["plugin.ageRange"] =
 		{
 			publisherId = "com.solar2d"
 		},

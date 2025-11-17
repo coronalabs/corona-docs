@@ -369,6 +369,7 @@ Interested in [creating a plugin][native.plugin]? Please see our [Plugins][nativ
 #### [Activity Popup][plugin.CoronaProvider_native_popup_activity]
 #### [Address Book][plugin.CoronaProvider_native_popup_addressbook]
 #### [Advertising ID][plugin.advertisingId]
+#### [Age Range][plugin.ageRange]
 #### [Animation][plugin.animation]
 #### [App Tracking Transparency][plugin.att]
 #### [Battery State][plugin.batteryState]

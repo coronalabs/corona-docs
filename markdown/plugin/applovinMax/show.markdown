@@ -40,7 +40,7 @@ The `params` table includes parameters for the AppLovin ad loading.
 _[String][api.type.String]._ The placement to be used. This must be identical to one of the placements defined for the app in the [AppLovin developer portal](https://www.applovin.com/manage).
 
 ##### y ~^(optional)^~
-_[String][api.type.String]._ Only applicable for banner ads. Valid values: `"top"`, `"center"` and `"bottom"`. Default is `"top"`.
+_[String][api.type.String]._ or _[Number][api.type.Number]._ Only applicable for banner ads. Valid String values: `"top"`, `"center"` and `"bottom"`. Default is `"top"`. If you pass is number it will be used as offset.
 
 <div class="guide-notebox">
 <div class="notebox-title">Notes</div>

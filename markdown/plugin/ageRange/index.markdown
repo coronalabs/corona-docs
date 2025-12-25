@@ -3,7 +3,7 @@
 > --------------------- ------------------------------------------------------------------------------------------
 > __Type__              [Library][api.type.Library]
 > __Revision__          [REVISION_LABEL](REVISION_URL)
-> __Keywords__          utf8, UTF-8, Unicode, string
+> __Keywords__          age, age range, AgeRange, string
 > __Platforms__         Android, iOS
 > --------------------- ------------------------------------------------------------------------------------------
 

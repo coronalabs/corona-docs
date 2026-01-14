@@ -79,20 +79,17 @@ settings =
 			publisherId = "com.coronalabs"
 		},
 	},
+	iphone =
+    {
+        plist = {
+            SKAdNetworkItems = {
+                {
+                    SKAdNetworkIdentifier = "v79kvwwj4g.skadnetwork",
+                },
+            },
+        },
+    },
 }
-``````
-
-In addition, please add the following entry to the <nobr>`settings` &rarr; `android`</nobr> table of `build.settings` to prevent your app from being installed on incompatible Android devices.
-
-``````{ brush="lua" gutter="false" first-line="1" highlight="[5]" }
-settings =
-{
-	android =
-	{
-		minSdkVersion = "17",
-	},
-}
-``````
 
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>

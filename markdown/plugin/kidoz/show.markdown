@@ -18,7 +18,7 @@ Shows a KIDOZ ad which was previously loaded via [kidoz.load()][plugin.kidoz.loa
 
 ## Gotchas
 
-This call does not necessarily reveal the actual ad view. For example, if you load a `"panelView"` ad, only the initial UI handle will be shown by default. From this point, the user can tap the handle to reveal the ad view. However, the panel view can be configured without any UI element for the user to manipulate&nbsp;&mdash; in this case, `kidoz.show()` will fully reveal the ad view.
+This call does not necessarily reveal the actual ad view. For example, if you load a `"interstitial"` ad, only the initial UI handle will be shown by default. From this point, the user can tap the handle to reveal the ad view. However, the panel view can be configured without any UI element for the user to manipulate&nbsp;&mdash; in this case, `kidoz.show()` will fully reveal the ad view.
 
 
 ## Syntax
@@ -26,7 +26,7 @@ This call does not necessarily reveal the actual ad view. For example, if you lo
 	kidoz.show( adType )
 
 ##### adType ~^(required)^~
-_[String][api.type.String]._ The ad type to show. Valid values include `"panelView"`, `"interstitial"`, `"rewardedVideo"`, and `"banner"`.
+_[String][api.type.String]._ The ad type to show. Valid values include `"interstitial"`, `"rewardedVideo"`, and `"banner"`.
 
 
 ## Example

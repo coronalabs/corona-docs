@@ -9,7 +9,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Solar2D Documentation — Plugins | ageRange | requestAgeRange</title>
+  <title>Solar2D Documentation — Plugins | ageRange | requestCommunicationPermission</title>
   <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/shCoreDefault.css" />
@@ -55,21 +55,24 @@
 </div>
 <div id="TOC">
 <ul>
-<li><a href="#agerange.requestagerange">ageRange.requestAgeRange()</a><ul>
+<li><a href="#agerange.requestcommunicationpermission">ageRange.requestCommunicationPermission()</a><ul>
 <li><a href="#overview">Overview</a><ul>
 <li><a href="#platform-behavior">Platform Behavior</a></li>
 </ul></li>
-<li><a href="#syntax">Syntax</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#handle-required">handle <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#handlekind-required">handleKind <sub><sup>(required)</sup></sub></a></li>
+</ul></li>
 <li><a href="#example">Example</a></li>
-<li><a href="#age-gated-content-example">Age-Gated Content Example</a></li>
+<li><a href="#managing-contact-approval">Managing Contact Approval</a></li>
 </ul></li>
 </ul>
 </div>
 <div id="breadcrumb">
-<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/ageRange/index.html">ageRange</a>  ▸  <a href="../../plugin/ageRange/requestAgeRange.html">requestAgeRange</a>
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../plugin/index.html">Plugins</a>  ▸  <a href="../../plugin/ageRange/index.html">ageRange</a>  ▸  <a href="../../plugin/ageRange/requestCommunicationPermission.html">requestCommunicationPermission</a>
 </div>
-<section id="agerange.requestagerange" class="level1">
-<h1>ageRange.requestAgeRange()</h1>
+<section id="agerange.requestcommunicationpermission" class="level1">
+<h1>ageRange.requestCommunicationPermission()</h1>
 <blockquote>
 <table>
 <tbody>
@@ -91,7 +94,7 @@
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Keywords</strong></td>
-<td style="text-align: left;">age range, age verification, parental controls, COPPA</td>
+<td style="text-align: left;">communication, parental consent, contact permissions, PermissionKit</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>See also</strong></td>
@@ -99,119 +102,138 @@
 </tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="../../plugin/ageRange/event/ageRange.html">ageRange</a></td>
+<td style="text-align: left;"><a href="../../plugin/ageRange/event/communication/index.html">communicationEvent</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
 <section id="overview" class="level2">
 <h2>Overview</h2>
-<p>Requests the user’s age range from the system. Results are returned through the listener function set in <a href="../../plugin/ageRange/init.html">plugin.ageRange.init()</a>.</p>
+<p>Requests parental permission for a supervised user to communicate with a specific person (phone number, email, or custom handle).</p>
 <section id="platform-behavior" class="level3">
 <h3>Platform Behavior</h3>
-<p><strong>iOS (26.0+):</strong> - Displays system UI for age range sharing - Supports custom age gates through Screen Time - Returns detailed parental control status - Respects Family Sharing settings</p>
-<p><strong>Android:</strong> - Uses Google Play’s Age Signals API - Returns verification status (verified 18+, supervised, unknown) - Provides age ranges for supervised users - Requires Play Store to be installed and enabled</p>
+<p><strong>iOS (26.1+):</strong> - Sends permission request via Messages to parent/guardian - Returns <code>questionSent</code> immediately - Responses arrive asynchronously through listener - Supports phone, email, and custom handle types - Requires PermissionKit entitlement</p>
+<p><strong>Android:</strong> - Checks if user is supervised - Returns informational message about platform differences - Apps must implement their own communication approval logic - No direct equivalent to iOS PermissionKit</p>
 </section>
 </section>
 <section id="syntax" class="level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">plugin.ageRange.requestAgeRange()</pre>
+<pre class="brush: lua;">plugin.ageRange.requestCommunicationPermission( handle, handleKind )</pre>
+<section id="handle-required" class="level5">
+<h5>handle <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> The contact identifier (phone number, email address, or custom ID).</p>
+</section>
+<section id="handlekind-required" class="level5">
+<h5>handleKind <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> Type of handle. Supported values: - <code>"phone"</code> - Phone number - <code>"email"</code> - Email address<br />
+- <code>"custom"</code> - Custom identifier (username, user ID, etc.)</p>
+</section>
 </section>
 <section id="example" class="level2">
 <h2>Example</h2>
 <pre class="brush: lua;">local ageRange = require("plugin.ageRange")
 
 local function ageRangeListener(event)
-    if event.name == "ageRangeEvent" then
-        if event.isError then
-            print("Error:", event.errorMessage)
-            if event.errorCode then
-                print("Error code:", event.errorCode)
-            end
+    if event.name == "communicationEvent" then
+        if event.platform == "android" then
+            -- Android returns supervision status
+            print("Platform:", event.platform)
+            print("Message:", event.message)
             
-        elseif not event.isAvailable then
-            print("Age range service not available")
-            
-        elseif event.declined then
-            print("User declined to share age range")
-            
-        else
-            -- Successfully received age range
-            if event.lowerBound then
-                print("Minimum age:", event.lowerBound)
-            end
-            
-            if event.upperBound then
-                print("Maximum age:", event.upperBound)
+            if event.isSupervised then
+                print("User is supervised")
+                print("Requires parental approval:", event.requiresParentalApproval)
+                -- Implement custom approval flow
+                showCustomApprovalFlow()
             else
-                print("No upper age limit (likely 18+)")
+                print("User not supervised - communication allowed")
+                enableCommunication()
             end
             
-            -- Check user status
-            if event.userStatus == "verified" then
-                print("User is a verified adult (18+)")
-                -- Grant full access to content
-                
-            elseif event.userStatus == "supervised" then
-                print("User has parental controls active")
-                print("Has parental controls:", event.hasParentalControls)
-                -- Implement age-appropriate restrictions
-                
-            elseif event.userStatus == "approvalPending" then
-                print("Waiting for parental approval (Android)")
-                
-            elseif event.userStatus == "approvalDenied" then
-                print("Parental approval denied (Android)")
-                
-            elseif event.userStatus == "unknown" then
-                print("Age status unknown (Android)")
-                -- Prompt user to verify in Play Store
-            end
-            
-            -- Android-specific fields
-            if event.installId then
-                print("Install ID:", event.installId)
-            end
-            
-            if event.mostRecentApprovalDate then
-                local dateStr = os.date("%c", event.mostRecentApprovalDate/1000)
-                print("Last approval:", dateStr)
-            end
-        end
-    end
-end
-
--- Initialize and request
-ageRange.init(ageRangeListener)
-ageRange.requestAgeRange()</pre>
-</section>
-<section id="age-gated-content-example" class="level2">
-<h2>Age-Gated Content Example</h2>
-<pre class="brush: lua;">local ageRange = require("plugin.ageRange")
-
-local function checkAgeAndLoadContent(event)
-    if event.name == "ageRangeEvent" then
-        if event.isError or not event.isAvailable or event.declined then
-            -- Default to most restrictive content
-            loadContentForAge(0)
-            return
-        end
-        
-        local minAge = event.lowerBound or 0
-        
-        -- Load appropriate content based on age
-        if minAge >= 18 then
-            loadAdultContent()
-        elseif minAge >= 13 then
-            loadTeenContent()
         else
-            loadKidsContent()
+            -- iOS behavior
+            if event.isError then
+                print("Error:", event.errorMessage)
+                
+            elseif event.questionSent then
+                print("Communication request sent to parent")
+                print("Handle:", event.handle)
+                -- Show waiting UI
+                showWaitingForApprovalUI()
+                
+            elseif event.isBackgroundResponse then
+                -- Response received asynchronously
+                if event.approved then
+                    print("Parent approved communication")
+                    -- Enable communication with contact
+                    allowCommunicationWith(event.handle)
+                else
+                    print("Parent denied communication")
+                    -- Block communication with contact
+                    blockCommunicationWith(event.handle)
+                end
+            end
         end
     end
 end
 
-ageRange.init(checkAgeAndLoadContent)
-ageRange.requestAgeRange()</pre>
+ageRange.init(ageRangeListener)
+
+-- Start listening for responses (iOS)
+ageRange.startListeningForCommunicationResponses()
+
+-- Request permission to communicate via email
+ageRange.requestCommunicationPermission("friend@example.com", "email")
+
+-- Request permission to communicate via phone
+ageRange.requestCommunicationPermission("+1234567890", "phone")
+
+-- Request permission for custom identifier (e.g., username)
+ageRange.requestCommunicationPermission("user123", "custom")</pre>
+</section>
+<section id="managing-contact-approval" class="level2">
+<h2>Managing Contact Approval</h2>
+<pre class="brush: lua;">local ageRange = require("plugin.ageRange")
+local approvedContacts = {}
+local pendingContacts = {}
+
+local function ageRangeListener(event)
+    if event.name == "communicationEvent" then
+        if event.questionSent then
+            -- Track pending request
+            pendingContacts[event.handle] = true
+            updateContactUI(event.handle, "pending")
+            
+        elseif event.isBackgroundResponse then
+            -- Remove from pending
+            pendingContacts[event.handle] = nil
+            
+            if event.approved then
+                -- Add to approved list
+                approvedContacts[event.handle] = true
+                updateContactUI(event.handle, "approved")
+                enableMessagingWith(event.handle)
+            else
+                updateContactUI(event.handle, "denied")
+            end
+        end
+    end
+end
+
+ageRange.init(ageRangeListener)
+ageRange.startListeningForCommunicationResponses()
+
+-- Check if contact is approved before allowing communication
+local function canCommunicateWith(handle)
+    return approvedContacts[handle] == true
+end
+
+-- Request approval for new contact
+local function requestContactApproval(handle, handleType)
+    if not canCommunicateWith(handle) and not pendingContacts[handle] then
+        ageRange.requestCommunicationPermission(handle, handleType)
+    end
+end</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

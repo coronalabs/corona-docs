@@ -71,16 +71,32 @@
 <h1>ageRange.init()</h1>
 <blockquote>
 <table>
-<colgroup>
-<col style="width: 19%" />
-<col style="width: 80%" />
-</colgroup>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>Type</strong> <strong>Library</strong> <strong>Return value</strong> <strong>Revision</strong> <strong>Keywords</strong> <strong>See also</strong></td>
-<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a> <a href="../../plugin/ageRange/index.html">plugin.ageRange.*</a> none <a href="https://solar2d.com/download/">Release 2025.3721</a> age range, age verification, parental controls, Screen Time, iOS 18 <a href="../../plugin/ageRange/requestAgeRange.html">plugin.ageRange.requestAgeRange()</a></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../api/type/Function.html">Function</a></td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"><strong>Library</strong></td>
+<td style="text-align: left;"><a href="../../plugin/ageRange/index.html">plugin.ageRange.*</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Return value</strong></td>
+<td style="text-align: left;">none</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="__REVISION_URL__">Release 2025.3721</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">age range, age verification, parental controls, initialization</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../plugin/ageRange/requestAgeRange.html">plugin.ageRange.requestAgeRange()</a></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><a href="../../plugin/ageRange/event/ageRange.html">ageRange</a></td>
 </tr>
@@ -89,40 +105,57 @@
 </blockquote>
 <section id="overview" class="level2">
 <h2>Overview</h2>
-<p>Initializes the Age Range plugin and sets up the listener function to receive age verification events.</p>
+<p>Initializes the Age Range plugin and sets up the listener function to receive age verification, significant update, and communication events.</p>
 </section>
 <section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">plugin.ageRange.init( listener )</pre>
 <section id="listener-required" class="level5">
 <h5>listener <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../api/type/Listener.html">Listener</a>.</em> Function that will receive <a href="../../plugin/ageRange/event/ageRange.html">ageRange</a> events.</p>
+<p><em><a href="../../api/type/Listener.html">Listener</a>.</em> Function that will receive age range events including: - <a href="../../plugin/ageRange/event/ageRange.html">ageRangeEvent</a> - Age verification responses - <a href="../../plugin/ageRange/event/significantUpdate/index.html">significantUpdateEvent</a> - App update approval responses - <a href="../../plugin/ageRange/event/communication/index.html">communicationEvent</a> - Communication permission responses</p>
 </section>
 </section>
 <section id="example" class="level2">
 <h2>Example</h2>
-<pre class="brush: lua;">local ageRange = require( "plugin.ageRange" )
+<pre class="brush: lua;">local ageRange = require("plugin.ageRange")
 
-local function ageRangeListener( event )
-    if event.isError then
-        print( "Error:", event.errorMessage )
-    elseif not event.isAvailable then
-        print( "Age range not available" )
-    elseif event.declined then
-        print( "User declined to share age range" )
-    else
-        print( "Lower bound:", event.lowerBound )
-        print( "Upper bound:", event.upperBound )
-        print( "User status:", event.userStatus )
-        print( "Has parental controls:", event.hasParentalControls )
+local function ageRangeListener(event)
+    if event.name == "ageRangeEvent" then
+        if event.isError then
+            print("Error:", event.errorMessage)
+        elseif not event.isAvailable then
+            print("Age range not available")
+        elseif event.declined then
+            print("User declined to share age range")
+        else
+            print("Lower bound:", event.lowerBound)
+            print("Upper bound:", event.upperBound)
+            print("User status:", event.userStatus)
+            print("Has parental controls:", event.hasParentalControls)
+        end
+        
+    elseif event.name == "significantUpdateEvent" then
+        if event.questionSent then
+            print("Update permission request sent")
+        elseif event.approved then
+            print("Parent approved the update")
+        else
+            print("Parent denied the update")
+        end
+        
+    elseif event.name == "communicationEvent" then
+        if event.questionSent then
+            print("Communication request sent")
+        elseif event.approved then
+            print("Communication approved")
+        else
+            print("Communication denied")
+        end
     end
 end
 
 -- Initialize the plugin
-ageRange.init( ageRangeListener )
-
--- Later, request age range
-ageRange.requestAgeRange( )</pre>
+ageRange.init(ageRangeListener)</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

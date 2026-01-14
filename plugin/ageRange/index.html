@@ -56,13 +56,28 @@
 <div id="TOC">
 <ul>
 <li><a href="#agerange.">ageRange.*</a><ul>
-<li><a href="#overview">Overview</a></li>
+<li><a href="#overview">Overview</a><ul>
+<li><a href="#platform-differences">Platform Differences</a></li>
+</ul></li>
 <li><a href="#syntax">Syntax</a></li>
 <li><a href="#functions">Functions</a><ul>
 <li><a href="#agerange.initplugin.agerange.init"><span>ageRange.init()</span></a></li>
 <li><a href="#agerange.requestagerangeplugin.agerange.requestagerange"><span>ageRange.requestAgeRange()</span></a></li>
+<li><a href="#agerange.requestsignificantupdatepermissionplugin.agerange.requestsignificantupdatepermission"><span>ageRange.requestSignificantUpdatePermission()</span></a></li>
+<li><a href="#agerange.requestcommunicationpermissionplugin.agerange.requestcommunicationpermission"><span>ageRange.requestCommunicationPermission()</span></a></li>
+<li><a href="#agerange.startlisteningforcommunicationresponsesplugin.agerange.startlisteningforcommunicationresponses"><span>ageRange.startListeningForCommunicationResponses()</span></a></li>
 </ul></li>
-<li><a href="#project-settings">Project Settings</a></li>
+<li><a href="#events">Events</a><ul>
+<li><a href="#agerangeplugin.agerange.event.agerange"><span>ageRange</span></a></li>
+<li><a href="#significantupdateeventplugin.agerange.event.significantupdate"><span>significantUpdateEvent</span></a></li>
+<li><a href="#communicationeventplugin.agerange.event.communication"><span>communicationEvent</span></a></li>
+</ul></li>
+<li><a href="#project-settings">Project Settings</a><ul>
+<li><a href="#ios-requirements">iOS Requirements</a></li>
+<li><a href="#android-requirements">Android Requirements</a></li>
+</ul></li>
+<li><a href="#sample-code">Sample Code</a></li>
+<li><a href="#support">Support</a></li>
 </ul></li>
 </ul>
 </div>
@@ -80,11 +95,11 @@
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Revision</strong></td>
-<td style="text-align: left;"><a href="https://solar2d.com/download/">Release 2025.3721</a></td>
+<td style="text-align: left;"><a href="__REVISION_URL__">Release 2025.3721</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Keywords</strong></td>
-<td style="text-align: left;">age, age range, AgeRange, string</td>
+<td style="text-align: left;">age, age range, age verification, parental controls, COPPA, iOS 26, Android</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Platforms</strong></td>
@@ -95,7 +110,12 @@
 </blockquote>
 <section id="overview" class="level2">
 <h2>Overview</h2>
-<p>This plugin is still in alpha but is used for getting age range and app approval for the new Apple and Google APIs. Google and Apple are still refining these APIs. This is designed to handle new state laws in Texas and other states for app permission.</p>
+<p>The Age Range plugin provides access to Apple’s Declared Age Range framework (iOS 26.0+) and Google’s Age Signals API (Android) for age verification and parental control management. This plugin helps apps comply with age-related regulations including state laws requiring parental consent for minors.</p>
+<section id="platform-differences" class="level3">
+<h3>Platform Differences</h3>
+<p><strong>iOS (iOS 26.0+)</strong> - Uses Apple’s Declared Age Range framework - Integrates with Screen Time and Family Sharing - Supports custom age gates (13, 15, 18, etc.) - Provides detailed parental control information - Supports PermissionKit for communication and update approvals</p>
+<p><strong>Android</strong> - Uses Google Play’s Age Signals API - Integrates with Family Link supervision - Returns age ranges for supervised users - Checks approval status through Play Console - Limited real-time permission support</p>
+</section>
 </section>
 <section id="syntax" class="level2">
 <h2>Syntax</h2>
@@ -109,11 +129,32 @@
 <section id="agerange.requestagerangeplugin.agerange.requestagerange" class="level4">
 <h4><a href="../../plugin/ageRange/requestAgeRange.html">ageRange.requestAgeRange()</a></h4>
 </section>
+<section id="agerange.requestsignificantupdatepermissionplugin.agerange.requestsignificantupdatepermission" class="level4">
+<h4><a href="../../plugin/ageRange/requestSignificantUpdatePermission.html">ageRange.requestSignificantUpdatePermission()</a></h4>
+</section>
+<section id="agerange.requestcommunicationpermissionplugin.agerange.requestcommunicationpermission" class="level4">
+<h4><a href="../../plugin/ageRange/requestCommunicationPermission.html">ageRange.requestCommunicationPermission()</a></h4>
+</section>
+<section id="agerange.startlisteningforcommunicationresponsesplugin.agerange.startlisteningforcommunicationresponses" class="level4">
+<h4><a href="../../plugin/ageRange/startListeningForCommunicationResponses.html">ageRange.startListeningForCommunicationResponses()</a></h4>
+</section>
+</section>
+<section id="events" class="level2">
+<h2>Events</h2>
+<section id="agerangeplugin.agerange.event.agerange" class="level4">
+<h4><a href="../../plugin/ageRange/event/ageRange.html">ageRange</a></h4>
+</section>
+<section id="significantupdateeventplugin.agerange.event.significantupdate" class="level4">
+<h4><a href="../../plugin/ageRange/event/significantUpdate/index.html">significantUpdateEvent</a></h4>
+</section>
+<section id="communicationeventplugin.agerange.event.communication" class="level4">
+<h4><a href="../../plugin/ageRange/event/communication/index.html">communicationEvent</a></h4>
+</section>
 </section>
 <section id="project-settings" class="level2">
 <h2>Project Settings</h2>
 <p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
-<pre class="highlight: [5,6,7,8]; first-line: 1; gutter: false; brush: lua;">settings =
+<pre class="brush: lua;">settings =
 {
     plugins =
     {
@@ -121,8 +162,81 @@
         {
             publisherId = "com.solar2d"
         },
-    },      
+    },
 }</pre>
+<section id="ios-requirements" class="level3">
+<h3>iOS Requirements</h3>
+<p>Add the following to your <code>build.settings</code> for iOS:</p>
+<pre class="brush: lua;">settings =
+{
+    iphone =
+    {
+        plist =
+        {
+            -- Required for Declared Age Range
+            ["com.apple.developer.declared-age-range"] = true,
+        },
+    },
+}</pre>
+</section>
+<section id="android-requirements" class="level3">
+<h3>Android Requirements</h3>
+<p>Ensure Google Play Services is up to date. The Age Signals API requires: - Google Play Store installed and enabled - Google Play Services 22.0.0 or later</p>
+</section>
+</section>
+<section id="sample-code" class="level2">
+<h2>Sample Code</h2>
+<pre class="brush: lua;">local ageRange = require("plugin.ageRange")
+
+local function ageRangeListener(event)
+    if event.name == "ageRangeEvent" then
+        if event.isError then
+            print("Error:", event.errorMessage)
+        elseif not event.isAvailable then
+            print("Age range not available")
+        elseif event.declined then
+            print("User declined to share age range")
+        else
+            print("Age range received:")
+            print("  Lower bound:", event.lowerBound)
+            print("  Upper bound:", event.upperBound)
+            print("  User status:", event.userStatus)
+            
+            if event.userStatus == "verified" then
+                -- User is 18+, grant full access
+            elseif event.userStatus == "supervised" then
+                -- User has parental controls, restrict content
+            end
+        end
+        
+    elseif event.name == "significantUpdateEvent" then
+        if event.questionSent then
+            print("Update permission request sent")
+        elseif event.approved then
+            print("Update approved by parent")
+        end
+        
+    elseif event.name == "communicationEvent" then
+        if event.questionSent then
+            print("Communication request sent")
+        elseif event.approved then
+            print("Communication approved by parent")
+        end
+    end
+end
+
+-- Initialize the plugin
+ageRange.init(ageRangeListener)
+
+-- Request age range
+ageRange.requestAgeRange()</pre>
+</section>
+<section id="support" class="level2">
+<h2>Support</h2>
+<ul>
+<li>GitHub: <a href="https://github.com/solar2d/plugin.ageRange">https://github.com/solar2d/plugin.ageRange</a></li>
+<li>Documentation: <a href="https://docs.coronalabs.com/plugin/ageRange">https://docs.coronalabs.com/plugin/ageRange</a></li>
+</ul>
 <hr>
 <div id="footer">
 <p class="copyright">

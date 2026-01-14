@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Cousine&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Solar2D Documentation — Plugins | ageRange | communication</title>
+  <meta name="description" content="Solar2D lets you build games/apps for all major platforms including iOS, Android, Kindle, Apple TV, Android TV, macOS, and Windows. Get the free toolset!" />
+  <link rel="stylesheet" href="../../../../css/style.css" />
+  <link rel="stylesheet" href="../../../../css/shCoreDefault.css" />
+<script src="https://corona-cdn.coronalabs.com/js/docs.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9574984-14', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div class="header"></div>
+<div class="title">
+	<span class="titleimg" onclick="window.location='https://docs.coronalabs.com/'"></span>
+	<div id="nav">
+		<ul>
+<li><a href="../../../../guide/programming/index.html">Getting Started</a></li>
+<li><a href="../../../../guide/index.html">Guides</a></li>
+<li><a href="../../../../api/index.html">API Reference</a></li>
+<li><a href="../../../../tutorial/index.html">Tutorials</a></li>
+<li><a href="../../../../plugin/index.html">Plugins</a></li>
+<li><a href="../../../../native/index.html">Solar2D Native</a></li>
+<li><a href="../../../../coronacards/index.html">CoronaCards</a></li>
+</ul>
+
+		<!--
+		<div id="resources-link"><a href="https://coronalabs.com/resources/">Corona Resources</a></div>
+		-->
+	</div>
+</div>
+
+<div class="SearchBar">
+  <form action="https://www.google.com/cse" id="cse-search-box">
+  <input type="hidden" name="cx" value="009283852522218786394:g40gqt2m6rq" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" placeholder="Search" name="q" id="q" autocomplete="off" size="40" />
+  <input type="submit" name="sa" value="Search" />
+  </form>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#event.communication">event.communication</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#properties">Properties</a><ul>
+<li><a href="#event.name">event.name</a></li>
+<li><a href="#event.iserror">event.isError</a></li>
+<li><a href="#event.handle">event.handle</a></li>
+<li><a href="#event.handlekind">event.handleKind</a></li>
+<li><a href="#event.questionsent">event.questionSent</a></li>
+<li><a href="#event.isbackgroundresponse">event.isBackgroundResponse</a></li>
+<li><a href="#event.approved">event.approved</a></li>
+<li><a href="#event.issupervised">event.isSupervised</a></li>
+<li><a href="#event.requiresparentalapproval">event.requiresParentalApproval</a></li>
+<li><a href="#event.userstatus">event.userStatus</a></li>
+<li><a href="#event.platform">event.platform</a></li>
+<li><a href="#event.store">event.store</a></li>
+<li><a href="#event.message">event.message</a></li>
+<li><a href="#event.errormessage">event.errorMessage</a></li>
+</ul></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="breadcrumb">
+<a href="https://docs.coronalabs.com">Documentation</a>  ▸  <a href="../../../../plugin/index.html">Plugins</a>  ▸  <a href="../../../../plugin/ageRange/index.html">ageRange</a>  ▸  <a href="../../../../plugin/ageRange/event/communication/index.html">communication</a>
+</div>
+<section id="event.communication" class="level1">
+<h1>event.communication</h1>
+<blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;"><a href="../../../../api/type/Event.html">Event</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><a href="__REVISION_URL__">Release 2025.3721</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Keywords</strong></td>
+<td style="text-align: left;">communication, parental approval, contact permissions, communicationEvent</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../../../plugin/ageRange/requestCommunicationPermission.html">plugin.ageRange.requestCommunicationPermission()</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../../../plugin/ageRange/index.html">plugin.ageRange.*</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<section id="overview" class="level2">
+<h2>Overview</h2>
+<p>Communication permission event dispatched in response to <a href="../../../../plugin/ageRange/requestCommunicationPermission.html">plugin.ageRange.requestCommunicationPermission()</a> and background responses.</p>
+</section>
+<section id="properties" class="level2">
+<h2>Properties</h2>
+<section id="event.name" class="level3">
+<h3>event.name</h3>
+<p><em><a href="../../../../api/type/String.html">String</a>.</em> The string <code>"communicationEvent"</code>.</p>
+<hr />
+</section>
+<section id="event.iserror" class="level3">
+<h3>event.isError</h3>
+<p><em><a href="../../../../api/type/Boolean.html">Boolean</a>.</em> <code>true</code> if an error occurred, <code>false</code> otherwise.</p>
+<hr />
+</section>
+<section id="event.handle" class="level3">
+<h3>event.handle</h3>
+<p><em><a href="../../../../api/type/String.html">String</a>.</em> The contact handle (phone, email, or custom ID) from the request.</p>
+<hr />
+</section>
+<section id="event.handlekind" class="level3">
+<h3>event.handleKind</h3>
+<p><em><a href="../../../../api/type/String.html">String</a>.</em> Type of handle: <code>"phone"</code>, <code>"email"</code>, or <code>"custom"</code>. <strong>Android only</strong> in responses.</p>
+<hr />
+</section>
+<section id="event.questionsent" class="level3">
+<h3>event.questionSent</h3>
+<p><em><a href="../../../../api/type/Boolean.html">Boolean</a>.</em> <code>true</code> if the permission request was successfully sent to the parent/guardian. <strong>iOS only.</strong></p>
+<hr />
+</section>
+<section id="event.isbackgroundresponse" class="level3">
+<h3>event.isBackgroundResponse</h3>
+<p><em><a href="../../../../api/type/Boolean.html">Boolean</a>.</em> <code>true</code> if this is an asynchronous response from a parent/guardian. <strong>iOS only.</strong></p>
+<hr />
+</section>
+<section id="event.approved" class="level3">
+<h3>event.approved</h3>
+<p><em><a href="../../../../api/type/Boolean.html">Boolean</a>.</em> <code>true</code> if the parent/guardian approved communication, <code>false</code> if denied.</p>
+<p><strong>iOS:</strong> Present when <code>isBackgroundResponse</code> is <code>true</code></p>
+<hr />
+</section>
+<section id="event.issupervised" class="level3">
+<h3>event.isSupervised</h3>
+<p><em><a href="../../../../api/type/Boolean.html">Boolean</a>.</em> <code>true</code> if user is under supervision (Family Link). <strong>Android only.</strong></p>
+<hr />
+</section>
+<section id="event.requiresparentalapproval" class="level3">
+<h3>event.requiresParentalApproval</h3>
+<p><em><a href="../../../../api/type/Boolean.html">Boolean</a>.</em> <code>true</code> if communication requires parental approval. <strong>Android only.</strong></p>
+<hr />
+</section>
+<section id="event.userstatus" class="level3">
+<h3>event.userStatus</h3>
+<p><em><a href="../../../../api/type/String.html">String</a>.</em> Supervision status. <strong>Android only.</strong></p>
+<p>Values: - <code>"supervised"</code> - User is supervised - <code>"approvalPending"</code> - Approval pending - <code>"approvalDenied"</code> - Approval denied</p>
+<hr />
+</section>
+<section id="event.platform" class="level3">
+<h3>event.platform</h3>
+<p><em><a href="../../../../api/type/String.html">String</a>.</em> Platform identifier: <code>"android"</code> or <code>"ios"</code>.</p>
+<hr />
+</section>
+<section id="event.store" class="level3">
+<h3>event.store</h3>
+<p><em><a href="../../../../api/type/String.html">String</a>.</em> App store identifier. Currently only <code>"google"</code> for Android.</p>
+<hr />
+</section>
+<section id="event.message" class="level3">
+<h3>event.message</h3>
+<p><em><a href="../../../../api/type/String.html">String</a>.</em> Platform-specific informational message.</p>
+<p><strong>Android:</strong> Explains that Android doesn’t have direct communication approval equivalent.</p>
+<hr />
+</section>
+<section id="event.errormessage" class="level3">
+<h3>event.errorMessage</h3>
+<p><em><a href="../../../../api/type/String.html">String</a>.</em> Error description if <code>isError</code> is <code>true</code>.</p>
+<hr />
+</section>
+</section>
+<section id="example" class="level2">
+<h2>Example</h2>
+<pre class="brush: lua;">local function ageRangeListener(event)
+    if event.name == "communicationEvent" then
+        print("Handle:", event.handle)
+        
+        if event.platform == "android" then
+            print("Platform:", event.platform)
+            print("Message:", event.message)
+            
+            if event.isSupervised then
+                print("User is supervised")
+                print("Requires approval:", event.requiresParentalApproval)
+                print("Status:", event.userStatus)
+            else
+                print("User not supervised")
+            end
+            
+        else
+            -- iOS
+            if event.questionSent then
+                print("Request sent to parent")
+                
+            elseif event.isBackgroundResponse then
+                if event.approved then
+                    print("Communication approved")
+                else
+                    print("Communication denied")
+                end
+            end
+        end
+        
+        if event.isError then
+            print("Error:", event.errorMessage)
+        end
+    end
+end</pre>
+<hr>
+<div id="footer">
+<p class="copyright">
+© 2020-2025 Solar2D All Rights Reserved.
+</p>
+<p class="feedback">
+Help us help you! If you notice a problem with this page, please report it.
+</p>
+<p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
+</div>
+</section>
+</section>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+<script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shAutoloader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // Define syntax highlighting scripts.
+    // N.B.: As a safeguard, you will need to whitelist the brush in filter-SyntaxHighlighter.py
+
+    SyntaxHighlighter.autoloader(
+      ['c#','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushCSharp.js'],
+      ['java','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJava.js'],
+      ['js','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushJScript.js'],
+      ['lua','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushLua.js'],
+      ['php','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushPhp.js'],
+      ['sql','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushSql.js'],
+      ['xml','https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shBrushXml.js']
+    );
+
+    // Set default configurations.
+    SyntaxHighlighter.defaults['gutter'] = false; // Disable line numbers.
+    SyntaxHighlighter.defaults['toolbar'] = false; // Disable link back to author's site. :(
+	SyntaxHighlighter.defaults['quick-code'] = false; // Disable double click feature
+
+    // Perform the highlighting.
+    SyntaxHighlighter.all();
+</script>
+</body>
+</html>

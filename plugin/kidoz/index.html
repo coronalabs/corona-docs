@@ -160,24 +160,7 @@ Note
 <section id="project-settings" class="level2">
 <h2>Project Settings</h2>
 <p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
-<pre class="highlight: [5,6,7,8]; first-line: 1; gutter: false; brush: lua;">settings =
-{
-    plugins =
-    {
-        ["plugin.kidoz"] =
-        {
-            publisherId = "com.coronalabs"
-        },
-    },
-}</pre>
-<p>In addition, please add the following entry to the <nobr><code>settings</code> → <code>android</code></nobr> table of <code>build.settings</code> to prevent your app from being installed on incompatible Android devices.</p>
-<pre class="highlight: [5]; first-line: 1; gutter: false; brush: lua;">settings =
-{
-    android =
-    {
-        minSdkVersion = "17",
-    },
-}</pre>
+<p>``````{ brush=“lua” gutter=“false” first-line=“1” highlight=“[5,6,7,8]” } settings = { plugins = { [“plugin.kidoz”] = { publisherId = “com.coronalabs” }, }, iphone = { plist = { SKAdNetworkItems = { { SKAdNetworkIdentifier = “v79kvwwj4g.skadnetwork”, }, }, }, }, }</p>
 <div class="guide-notebox">
 <div class="notebox-title">
 Note

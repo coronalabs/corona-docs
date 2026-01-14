@@ -110,14 +110,14 @@
 </section>
 <section id="gotchas" class="level2">
 <h2>Gotchas</h2>
-<p>This call does not necessarily reveal the actual ad view. For example, if you load a <code>"panelView"</code> ad, only the initial UI handle will be shown by default. From this point, the user can tap the handle to reveal the ad view. However, the panel view can be configured without any UI element for the user to manipulate — in this case, <code>kidoz.show()</code> will fully reveal the ad view.</p>
+<p>This call does not necessarily reveal the actual ad view. For example, if you load a <code>"interstitial"</code> ad, only the initial UI handle will be shown by default. From this point, the user can tap the handle to reveal the ad view. However, the panel view can be configured without any UI element for the user to manipulate — in this case, <code>kidoz.show()</code> will fully reveal the ad view.</p>
 </section>
 <section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">kidoz.show( adType )</pre>
 <section id="adtype-required" class="level5">
 <h5>adType <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> The ad type to show. Valid values include <code>"panelView"</code>, <code>"interstitial"</code>, <code>"rewardedVideo"</code>, and <code>"banner"</code>.</p>
+<p><em><a href="../../api/type/String.html">String</a>.</em> The ad type to show. Valid values include <code>"interstitial"</code>, <code>"rewardedVideo"</code>, and <code>"banner"</code>.</p>
 </section>
 </section>
 <section id="example" class="level2">

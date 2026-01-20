@@ -31,7 +31,7 @@ local function adListener( event )
 	if ( event.phase == "init" ) then  -- Successful initialization
 		-- Load an AdMob banner ad
 		admob.load( "banner", { adUnitId="YOUR_ADMOB_AD_UNIT_ID" } )
-        
+
 	elseif ( event.phase == "loaded" ) then
 		if ( event.type == "banner" ) then  -- Banner ad is loaded
 			-- Show a banner ad
@@ -41,7 +41,7 @@ local function adListener( event )
 end
 
 -- Initialize the AdMob plugin
-admob.init( adListener, { appId="YOUR_ADMOB_APP_ID" } )
+admob.init( adListener, { testMode=true } )
 
 -- Sometime later, hide the banner
 admob.hide()

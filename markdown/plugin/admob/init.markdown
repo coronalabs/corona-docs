@@ -31,8 +31,8 @@ _[Table][api.type.Table]._ Table containing AdMob initialization values — see 
 
 The `params` table includes parameters for AdMob initialization.
 
-##### appId ~^(required)^~
-_[String][api.type.String]._ The app ID for your app, gathered from the AdMob [dashboard](https://www.google.com/admob/).
+##### appId ~^(deprecated)^~
+_[String][api.type.String]._ The app ID for your app, gathered from the AdMob [dashboard](https://www.google.com/admob/). The appId should be set in build.settings. See [admob][plugin.admob] project settings.
 
 <div class="docs-tip-outer docs-tip-color-alert">
 <div class="docs-tip-inner-left">
@@ -82,5 +82,5 @@ local function adListener( event )
 end
 
 -- Initialize the AdMob plugin
-admob.init( adListener, { appId="YOUR_ADMOB_APP_ID" } )
+admob.init( adListener, { testMode=true } )
 ``````

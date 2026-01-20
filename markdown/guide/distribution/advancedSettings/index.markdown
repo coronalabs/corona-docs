@@ -397,8 +397,9 @@ Key						Platform(s)
 `appletvos`				Apple TV
 `macos`					macOS desktop
 `win32`					Windows desktop
-`["android-kindle"]`	Amazon Kindle
-`["iphone-sim"]`		Xcode iOS Simulator
+`["android-nongoogle"]`			Galaxy Store
+`["android-kindle"]`			Amazon Kindle
+`["iphone-sim"]`			Xcode iOS Simulator
 ----------------------	--------------------------------------
 
 </div>
@@ -406,13 +407,16 @@ Key						Platform(s)
 <div class="guide-notebox">
 <div class="notebox-title">Note</div>
 
-Omitting the `supportedPlatforms` table effectively includes the plugin on all platforms that it inherently supports.
+- Omitting the `supportedPlatforms` table effectively includes the plugin on all platforms that it inherently supports.
+- When building your app, you must set Target App Store to Samsung for the `["android-nongoogle"]` key to take effect. **Note:** This feature is available in CORONA_CORE_PRODUCT **2022.3665** and later.
 
 </div>
 
 ### Forcing Plugin versions
 
-You can set versions to be the same as GitHub tag name for the release for plugin found on [the Solar2D Free Plugins Directory](https://plugins.solar2d.com). For the plugin in example [here are available releases](https://github.com/coronalabs/com.coronalabs-CoronaProvider.native.popup.activity/releases) Note this requires Solar2D 3676+
+You can set versions to be the same as GitHub tag name for the release for plugin found on [the Solar2D Free Plugins Directory](https://plugins.solar2d.com). For the plugin in example [here are available releases](https://github.com/coronalabs/com.coronalabs-CoronaProvider.native.popup.activity/releases). 
+
+**Note:** This feature is available in CORONA_CORE_PRODUCT **2022.3676** and later.
 
 ``````lua
 plugins = {

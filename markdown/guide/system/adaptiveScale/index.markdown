@@ -1,6 +1,6 @@
 # Adaptive Scaling (Resolution&nbsp;Independence)
 
-This guide outlines __virtual&nbsp;pixels__ in Corona and explains how they can be made to behave like native iOS/Android virtual pixels using __adaptive__ scaling.
+This guide outlines __virtual&nbsp;pixels__ in CORONA_CORE_PRODUCT and explains how they can be made to behave like native iOS/Android virtual pixels using __adaptive__ scaling.
 
 <div class="guides-toc">
 
@@ -15,15 +15,15 @@ This guide outlines __virtual&nbsp;pixels__ in Corona and explains how they can 
 
 ## Simple Content Scaling
 
-Corona offers its own scheme for virtual pixels known as __content&nbsp;scaling__. This allows developers to specify a common set of screen coordinates while Corona automatically scales text, vector objects, and images to different resolutions depending on the device.
+CORONA_CORE_PRODUCT offers its own scheme for virtual pixels known as __content&nbsp;scaling__. This allows developers to specify a common set of screen coordinates while CORONA_CORE_PRODUCT automatically scales text, vector objects, and images to different resolutions depending on the device.
 
 There are actually multiple ways to approach content scaling. The easiest way is to just choose a single <nobr>fixed-size</nobr> virtual screen as follows:
 
-1. Define a content area __width__ and __height__ in virtual pixels <nobr>(Corona content units)</nobr>. This implicitly defines the virtual coordinate system to code around.
+1. Define a content area __width__ and __height__ in virtual pixels <nobr>(CORONA_CORE_PRODUCT content units)</nobr>. This implicitly defines the virtual coordinate system to code around.
 
-2. Specify a __scale__ mode such as `"letterbox"` or `"zoomEven"`&nbsp;&mdash; this determines how Corona fills the screen.
+2. Specify a __scale__ mode such as `"letterbox"` or `"zoomEven"`&nbsp;&mdash; this determines how CORONA_CORE_PRODUCT fills the screen.
 
-3. If using `"letterbox"` mode, design for the empty letterbox regions which occur when the aspect ratio of the virtual screen and the actual device differs&nbsp;&mdash; these are like the black bars on a TV when the show is letterboxed, except that in Corona, these regions can (and&nbsp;should) have visual content drawn into them. Alternatively, if using `"zoomEven"` mode, understand that some visual content may bleed off the screen when the aspect ratio differs.
+3. If using `"letterbox"` mode, design for the empty letterbox regions which occur when the aspect ratio of the virtual screen and the actual device differs&nbsp;&mdash; these are like the black bars on a TV when the show is letterboxed, except that in CORONA_CORE_PRODUCT, these regions can (and&nbsp;should) have visual content drawn into them. Alternatively, if using `"zoomEven"` mode, understand that some visual content may bleed off the screen when the aspect ratio differs.
 
 In practice, a simple `config.lua` may include values like these:
 
@@ -72,7 +72,7 @@ Although simple content scaling works well in most cases, it's not a panacea. In
 
 ## Adaptive Content Scaling
 
-Given the various drawbacks of simple content scaling, especially in <nobr>UI-centric</nobr> apps, it would be convenient if interface elements could be approximately the same size across all devices. Fortunately, Corona's __adaptive__ content scaling addresses this while still providing nice pixel scales and eliminating letterbox regions.
+Given the various drawbacks of simple content scaling, especially in <nobr>UI-centric</nobr> apps, it would be convenient if interface elements could be approximately the same size across all devices. Fortunately, CORONA_CORE_PRODUCT's __adaptive__ content scaling addresses this while still providing nice pixel scales and eliminating letterbox regions.
 
 To set adaptive content scaling, simply set the `scale` key within `config.lua` to `"adaptive"`:
 
@@ -95,7 +95,7 @@ Because adaptive scaling calculates the content area size as outlined in the nex
 
 ### Core Principles
 
-For adaptive scaling, Corona uses heuristics to determine an appropriate content width and height. There are three primary goals:
+For adaptive scaling, CORONA_CORE_PRODUCT uses heuristics to determine an appropriate content width and height. There are three primary goals:
 
 1. The aspect ratio of the virtual screen should match the actual device screen, meaning that there are no letterbox regions.
 

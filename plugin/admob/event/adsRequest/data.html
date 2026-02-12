@@ -57,6 +57,8 @@
 <ul>
 <li><a href="#event.data">event.data</a><ul>
 <li><a href="#overview">Overview</a></li>
+<li><a href="#precision-types">Precision Types</a></li>
+<li><a href="#example">Example</a></li>
 </ul></li>
 </ul>
 </div>
@@ -102,9 +104,83 @@
 <li><code>adUnitId</code> — The AdMob ad unit ID that generated the event.</li>
 <li><code>rewardItem</code> — The reward item name as defined in the AdMob dashboard. This is only available when <a href="../../../../plugin/admob/event/adsRequest/phase.html">event.phase</a> is <code>"reward"</code>.</li>
 <li><code>rewardAmount</code> — The reward item amount as defined in the AdMob dashboard. This is only available when <a href="../../../../plugin/admob/event/adsRequest/phase.html">event.phase</a> is <code>"reward"</code>.</li>
+<li><code>adValue</code> — The estimated revenue value for the ad impression in standard currency units <nobr>(e.g. <code>"0.005"</code> means $0.005)</nobr>. This is a string value, consistent across iOS and Android. This is only available when <a href="../../../../plugin/admob/event/adsRequest/phase.html">event.phase</a> is <code>"revenue"</code>.</li>
+<li><code>currencyCode</code> — The ISO 4217 currency code for the revenue value <nobr>(e.g. <code>"USD"</code>)</nobr>. This is only available when <a href="../../../../plugin/admob/event/adsRequest/phase.html">event.phase</a> is <code>"revenue"</code>.</li>
+<li><code>precision</code> — The precision type of the reported revenue value. Possible values are <code>0</code> (unknown), <code>1</code> (estimated), <code>2</code> (publisher provided), and <code>3</code> (precise). This is only available when <a href="../../../../plugin/admob/event/adsRequest/phase.html">event.phase</a> is <code>"revenue"</code>. See <a href="#precision-types">Precision Types</a> below for details.</li>
 <li><code>errorCode</code> — The error code for the event that failed. This is only available when <a href="../../../../plugin/admob/event/adsRequest/phase.html">event.phase</a> is <code>"failed"</code>.</li>
 <li><code>errorMsg</code> — An error message with the reason for the failure. This is only available when <a href="../../../../plugin/admob/event/adsRequest/phase.html">event.phase</a> is <code>"failed"</code>.</li>
 </ul>
+</section>
+<section id="precision-types" class="level2">
+<h2>Precision Types</h2>
+<p>The <code>precision</code> field indicates the accuracy of the reported <code>adValue</code>:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Value</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>0</code></td>
+<td>Unknown</td>
+<td>The value is not known. Returned for test ads.</td>
+</tr>
+<tr class="even">
+<td><code>1</code></td>
+<td>Estimated</td>
+<td>An estimate based on median eCPM from the ad network or mediation group. Most common in production.</td>
+</tr>
+<tr class="odd">
+<td><code>2</code></td>
+<td>Publisher Provided</td>
+<td>A manually configured CPM value from mediation group settings.</td>
+</tr>
+<tr class="even">
+<td><code>3</code></td>
+<td>Precise</td>
+<td>Exact revenue reported by the ad network. Only some networks support this.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example" class="level2">
+<h2>Example</h2>
+<pre class="brush: lua;">local json = require("json")
+
+local function adListener( event )
+
+    if ( event.phase == "revenue" ) then
+        local data = json.decode( event.data )
+
+        -- Revenue data
+        print( data.adUnitId )       -- "ca-app-pub-XXXXXXXXXXXXXXXX/YYYYYYYYYY"
+        print( data.adValue )        -- "0.005"
+        print( data.currencyCode )   -- "USD"
+        print( data.precision )      -- 1
+
+    elseif ( event.phase == "reward" ) then
+        local data = json.decode( event.data )
+
+        -- Reward data
+        print( data.rewardItem )     -- "coins"
+        print( data.rewardAmount )   -- 100
+
+    elseif ( event.phase == "failed" ) then
+        local data = json.decode( event.data )
+
+        -- Error data
+        print( data.errorCode )      -- e.g. 3
+        print( data.errorMsg )       -- e.g. "No fill"
+    end
+end</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

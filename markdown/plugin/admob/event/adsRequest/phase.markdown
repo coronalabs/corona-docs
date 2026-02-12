@@ -27,6 +27,9 @@
 
 * `"clicked"` &mdash; Indicates that an ad was clicked/tapped.
 
+
 * `"closed"` &mdash; Indicates that an `appOpen`, `interstitial`, `rewardedInterstitial` or `rewardedVideo` type ad was closed.
 
 * `"failed"` &mdash; Indicates that an ad failed to load. For this phase, [event.isError][plugin.admob.event.adsRequest.isError] will be `true` and [event.response][plugin.admob.event.adsRequest.response] provides additional context on the error. Additionally, for this phase, [event.data][plugin.admob.event.adsRequest.data] is a <nobr>JSON-formatted</nobr> string containing `errorCode` and `errorMsg` keys.
+
+* `"revenue"` &mdash; Impression-Level Ad Revenue event

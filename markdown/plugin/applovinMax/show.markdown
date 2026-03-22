@@ -42,6 +42,10 @@ _[String][api.type.String]._ The placement to be used. This must be identical to
 ##### y ~^(optional)^~
 _[String][api.type.String]._ or _[Number][api.type.Number]._ Only applicable for banner ads. Valid String values: `"top"`, `"center"` and `"bottom"`. Default is `"top"`. If you pass is number it will be used as offset.
 
+##### safeArea ~^(optional)^~
+_[Boolean][api.type.Boolean]._ boolean, defaults to true (respects safe area insets for top/bottom).
+
+
 <div class="guide-notebox">
 <div class="notebox-title">Notes</div>
 

@@ -49,6 +49,9 @@ _[String][api.type.String]._ You can manually set sdkKey
 ##### testMode ~^(optional)^~
 _[Boolean][api.type.Boolean]._ Set this to `true` to enable test mode. When `true`, test mode will take immediate effect and this will override the test mode setting in the [AppLovin developer portal](https://dash.applovin.com).
 
+##### testDeviceIds ~^(optional)^~
+_[Array][api.type.Array]._ Array of String to use testMode on based on Device Ad ID.
+
 
 ## Example
 

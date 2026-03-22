@@ -46,10 +46,10 @@ _[Table][api.type.Table]._ Table containing AppLovin ad loading options.
 
 The `params` table includes parameters for the AppLovin ad loading.
 
-##### iOSUnitId ~^(required for iOS)^~
+##### iOSUnitId (required)
 _[String][api.type.String]._ iOS Ad Unit ID, found in [AppLovin developer portal](https://www.applovin.com/manage) under `Manage` > `Ad Units`.
 
-##### androidUnitId ~^(required for android)^~
+##### androidUnitId (required for android)
 _[String][api.type.String]._ Android Ad Unit ID, found in [AppLovin developer portal](https://www.applovin.com/manage) under `Manage` > `Ad Units`.
 
 ##### bannerSize ~^(optional)^~

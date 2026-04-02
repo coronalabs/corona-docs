@@ -12,22 +12,15 @@
 
 ## Overview
 
-Shows a Unity Ads video interstitial or rewarded video ad.
-
-<div class="guide-notebox">
-<div class="notebox-title">Note</div>
-
-Unlike the previous plugin you need load placement IDs with [unityads.load()][plugin.unityads-v4.load] and will get a [event.phase][plugin.unityads-v4.event.adsRequest.phase] `loaded`
-
-</div>
+Shows a LevelPlay interstitial or rewarded video ad. The ad must be loaded first via [unityads.load()][plugin.unityads-v4.load] and the `"loaded"` [event.phase][plugin.unityads-v4.event.adsRequest.phase] received before calling this.
 
 
 ## Syntax
 
-    unityads.show( placementId )
+    unityads.show( adUnitId )
 
-##### placementId ~^(required)^~
-_[String][api.type.String]._ One of the placement IDs you've configured in the Unity&nbsp;Ads [dashboard](https://unity3d.com/services/ads).
+##### adUnitId ~^(required)^~
+_[String][api.type.String]._ The ad unit ID configured in the [LevelPlay dashboard](https://dashboard.is.com).
 
 
 ## Example
@@ -35,25 +28,23 @@ _[String][api.type.String]._ One of the placement IDs you've configured in the U
 ``````lua
 local unityads = require( "plugin.unityads.v4" )
 
+local adUnitId = "YOUR_AD_UNIT_ID"
+
 -- Unity Ads listener function
 local function adListener( event )
 
 	if ( event.phase == "init" ) then  -- Successful initialization
 		print( event.provider )
-
-    --Load ad before we show
-    unityads.load("YOUR_UNITYADS_PLACEMENT_ID")
-
+		-- Load ad after init
+		unityads.load( adUnitId )
 	end
 end
 
--- Initialize the Unity Ads plugin
-unityads.init( adListener, { gameId="YOUR_UNITYADS_GAME_ID" } )
+-- Initialize the plugin
+unityads.init( adListener, { gameId="YOUR_LEVELPLAY_APP_KEY" } )
 
-
-
--- Sometime later, show an ad
-if ( unityads.isLoaded( "YOUR_UNITYADS_PLACEMENT_ID" ) ) then
-	unityads.show( "YOUR_UNITYADS_PLACEMENT_ID" )
+-- Sometime later, show the ad
+if ( unityads.isLoaded( adUnitId ) ) then
+	unityads.show( adUnitId )
 end
 ``````

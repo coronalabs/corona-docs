@@ -19,11 +19,10 @@
 
 * `"displayed"` &mdash; Indicates that an ad has been displayed successfully via [unityads.show()][plugin.unityads-v4.show].
 
-* `"skipped"` &mdash; Indicates that video ad playback was stopped by the user before the end of playback.
+* `"clicked"` &mdash; Indicates that the user clicked on the ad.
 
-* `"completed"` &mdash; Indicates that the user viewed the video ad until its completion.
+* `"skipped"` &mdash; Indicates that rewarded video playback was stopped by the user before the end of playback. Only applies to rewarded ads.
 
-* `"completed"` &mdash; Indicates that the user viewed the video ad until its completion.
+* `"completed"` &mdash; Indicates that the user viewed the video ad until its completion. For rewarded ads, this means the reward was earned.
 
-
-* `"failed"` &mdash; Indicates that an ad failed to load. For this phase, [event.isError][plugin.unityads-v4.event.adsRequest.isError] will be `true` and [event.response][plugin.unityads-v4.event.adsRequest.response] provides additional context on the error. Additionally, for this phase, [event.data][plugin.unityads-v4.event.adsRequest.data] is a <nobr>JSON-formatted</nobr> string containing `errorCode` and `errorMsg` keys.
+* `"failed"` &mdash; Indicates that an ad failed to load or display. For this phase, [event.isError][plugin.unityads-v4.event.adsRequest.isError] will be `true` and [event.response][plugin.unityads-v4.event.adsRequest.response] provides additional context on the error. Additionally, for this phase, [event.data][plugin.unityads-v4.event.adsRequest.data] is a <nobr>JSON-formatted</nobr> string containing `errorCode` and `errorMsg` keys.

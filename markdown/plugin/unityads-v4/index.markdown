@@ -10,25 +10,29 @@
 
 ## Overview
 
-The Unity Ads plugin allows developers to monetize users through Unity Ads video interstitial and rewarded video ads.
+The Unity Ads plugin allows developers to monetize users through LevelPlay (Unity's mediation platform, powered by IronSource) video interstitial and rewarded video ads.
 
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">Important</div>
 
-This documentation is for the new Unity Ads SDK(v4), click to view the [Unity Ads legacy plugin][plugin.unityads]
+This plugin uses the **LevelPlay** backend (formerly IronSource). Click to view the [Unity Ads legacy plugin][plugin.unityads].
 
-Notable changes from old plugin include now needing to load placement IDs via [unityads.load()][plugin.unityads-v4.load] and the `placementStatus` [event.phase][plugin.unityads-v4.event.adsRequest.phase] removal.
+Notable changes from the legacy plugin:
 
-On a per-app basis, the first time a Unity ad appears, the user will see a banner with the option to opt-out of behaviorally targeted advertising. Thereafter, the user can click an information button to receive the opt-out again. Although UnityAds will automatically present users with an opportunity to opt-out of targeted advertising, with no implementation needed from the publisher, check out new `setHasUserConsent` method to enable manual GDPR data collection restrictions.
+* Ads must be loaded before showing via [unityads.load()][plugin.unityads-v4.load], which requires an **ad unit ID** (configured in the LevelPlay dashboard), not the old placement name.
+* [unityads.load()][plugin.unityads-v4.load] accepts an optional `adType` parameter (`"rewarded"` for rewarded video; defaults to interstitial).
+* The `placementStatus` [event.phase][plugin.unityads-v4.event.adsRequest.phase] has been removed.
 
-See more at [Unity Ads privacy consent documentation](https://docs.unity.com/ads/en-us/manual/ImplementingDataPrivacy).
+Check out `setHasUserConsent` to enable manual GDPR data collection restrictions.
+
+See more at the [LevelPlay privacy consent documentation](https://developers.is.com/ironsource-mobile/general/data-privacy-frameworks/).
 
 </div>
 
 
 ## Registration
 
-Before you can use this plugin, you must [register](https://unity.com/products/unity-ads) with Unity&nbsp;Ads.
+Before you can use this plugin, you must register and configure your app in the [LevelPlay dashboard](https://dashboard.is.com). Your **App Key** (used as `gameId`) and **Ad Unit IDs** are found there.
 
 
 ## Syntax
@@ -113,5 +117,5 @@ Also, minimum Android API level required is 19
 
 ## Support
 
-* [https://unity3d.com/services/ads](https://unity3d.com/services/ads)
+* [https://developers.is.com/](https://developers.is.com/)
 * [Solar2D Forums](https://forums.solar2d.com/c/corona/monetization-in-app-purchases-ads-etc/)

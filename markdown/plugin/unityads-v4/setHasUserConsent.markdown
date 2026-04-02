@@ -12,7 +12,7 @@
 
 ## Overview
 
-UnityAds SDK gives an option to work with GDPR user consent manually. You can set a flag indicating whether the user has provided the publisher opt-in consent for the collection and use of personal data.
+LevelPlay gives an option to work with GDPR user consent manually. You can set a flag indicating whether the user has provided the publisher opt-in consent for the collection and use of personal data.
 
 ## Syntax
 
@@ -36,5 +36,5 @@ local function adListener( event )
 end
 
 -- Initialize the Unity Ads plugin
-unityads.init( adListener, { appId="YOUR_UNITYADS_GAME_ID" } )
+unityads.init( adListener, { gameId="YOUR_LEVELPLAY_APP_KEY" } )
 ``````

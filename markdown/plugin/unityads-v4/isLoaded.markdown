@@ -17,10 +17,10 @@ Returns a [boolean][api.type.Boolean] indicating whether an ad is loaded and rea
 
 ## Syntax
 
-    unityads.isLoaded( placementId )
+    unityads.isLoaded( adUnitId )
 
-##### placementId ~^(required)^~
-_[String][api.type.String]._ One of the placement IDs you've configured in the Unity&nbsp;Ads [dashboard](https://unity3d.com/services/ads).
+##### adUnitId ~^(required)^~
+_[String][api.type.String]._ The ad unit ID configured in the [LevelPlay dashboard](https://dashboard.is.com).
 
 
 ## Example
@@ -36,9 +36,9 @@ local function adListener( event )
 	end
 end
 
--- Initialize the Unity Ads plugin
-unityads.init( adListener, { appId="YOUR_UNITYADS_GAME_ID" } )
+-- Initialize the plugin
+unityads.init( adListener, { gameId="YOUR_LEVELPLAY_APP_KEY" } )
 
--- Sometime later, check if an ad (placement ID) is ready for display
-print( unityads.isLoaded( "YOUR_UNITYADS_PLACEMENT_ID" ) )
+-- Sometime later, check if an ad unit ID is loaded and ready for display
+print( unityads.isLoaded( "YOUR_AD_UNIT_ID" ) )
 ``````

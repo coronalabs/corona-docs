@@ -32,7 +32,7 @@ _[Table][api.type.Table]._ Table containing Unity&nbsp;Ads initialization values
 The `params` table includes parameters for Unity&nbsp;Ads initialization.
 
 ##### gameId ~^(required)^~
-_[String][api.type.String]._ The game ID for your app, gathered from the Unity&nbsp;Ads [dashboard](https://unity3d.com/services/ads).
+_[String][api.type.String]._ The **App Key** for your app, found in the [LevelPlay dashboard](https://dashboard.is.com).
 
 ##### testMode ~^(optional)^~
 _[Boolean][api.type.Boolean]._ Set this value to `true` to enable test ads. Default is `false`.

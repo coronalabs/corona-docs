@@ -58,7 +58,7 @@
 <li><a href="#unityads.isloaded">unityads.isLoaded()</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#syntax">Syntax</a><ul>
-<li><a href="#placementid-required">placementId <sub><sup>(required)</sup></sub></a></li>
+<li><a href="#adunitid-required">adUnitId <sub><sup>(required)</sup></sub></a></li>
 </ul></li>
 <li><a href="#example">Example</a></li>
 </ul></li>
@@ -105,10 +105,10 @@
 </section>
 <section id="syntax" class="level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">unityads.isLoaded( placementId )</pre>
-<section id="placementid-required" class="level5">
-<h5>placementId <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> One of the placement IDs you’ve configured in the Unity Ads <a href="https://unity3d.com/services/ads">dashboard</a>.</p>
+<pre class="brush: lua;">unityads.isLoaded( adUnitId )</pre>
+<section id="adunitid-required" class="level5">
+<h5>adUnitId <sub><sup>(required)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> The ad unit ID configured in the <a href="https://dashboard.is.com">LevelPlay dashboard</a>.</p>
 </section>
 </section>
 <section id="example" class="level2">
@@ -123,11 +123,11 @@ local function adListener( event )
     end
 end
 
--- Initialize the Unity Ads plugin
-unityads.init( adListener, { appId="YOUR_UNITYADS_GAME_ID" } )
+-- Initialize the plugin
+unityads.init( adListener, { gameId="YOUR_LEVELPLAY_APP_KEY" } )
 
--- Sometime later, check if an ad (placement ID) is ready for display
-print( unityads.isLoaded( "YOUR_UNITYADS_PLACEMENT_ID" ) )</pre>
+-- Sometime later, check if an ad unit ID is loaded and ready for display
+print( unityads.isLoaded( "YOUR_AD_UNIT_ID" ) )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

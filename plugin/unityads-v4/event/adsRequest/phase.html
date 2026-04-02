@@ -102,10 +102,10 @@
 <li><p><code>"init"</code> — Indicates that the Unity Ads plugin was initialized successfully. You must wait for this event phase before trying to show ads.</p></li>
 <li><p><code>"loaded"</code> — Indicates that an ad has been loaded successfully via <a href="../../../../plugin/unityads-v4/load.html">unityads.load()</a>.</p></li>
 <li><p><code>"displayed"</code> — Indicates that an ad has been displayed successfully via <a href="../../../../plugin/unityads-v4/show.html">unityads.show()</a>.</p></li>
-<li><p><code>"skipped"</code> — Indicates that video ad playback was stopped by the user before the end of playback.</p></li>
-<li><p><code>"completed"</code> — Indicates that the user viewed the video ad until its completion.</p></li>
-<li><p><code>"completed"</code> — Indicates that the user viewed the video ad until its completion.</p></li>
-<li><p><code>"failed"</code> — Indicates that an ad failed to load. For this phase, <a href="../../../../plugin/unityads-v4/event/adsRequest/isError.html">event.isError</a> will be <code>true</code> and <a href="../../../../plugin/unityads-v4/event/adsRequest/response.html">event.response</a> provides additional context on the error. Additionally, for this phase, <a href="../../../../plugin/unityads-v4/event/adsRequest/data.html">event.data</a> is a <nobr>JSON-formatted</nobr> string containing <code>errorCode</code> and <code>errorMsg</code> keys.</p></li>
+<li><p><code>"clicked"</code> — Indicates that the user clicked on the ad.</p></li>
+<li><p><code>"skipped"</code> — Indicates that rewarded video playback was stopped by the user before the end of playback. Only applies to rewarded ads.</p></li>
+<li><p><code>"completed"</code> — Indicates that the user viewed the video ad until its completion. For rewarded ads, this means the reward was earned.</p></li>
+<li><p><code>"failed"</code> — Indicates that an ad failed to load or display. For this phase, <a href="../../../../plugin/unityads-v4/event/adsRequest/isError.html">event.isError</a> will be <code>true</code> and <a href="../../../../plugin/unityads-v4/event/adsRequest/response.html">event.response</a> provides additional context on the error. Additionally, for this phase, <a href="../../../../plugin/unityads-v4/event/adsRequest/data.html">event.data</a> is a <nobr>JSON-formatted</nobr> string containing <code>errorCode</code> and <code>errorMsg</code> keys.</p></li>
 </ul>
 <hr>
 <div id="footer">

@@ -86,29 +86,29 @@
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Keywords</strong></td>
-<td style="text-align: left;">ads, advertising, unityads, setHasUserConsent</td>
+<td style="text-align: left;">ads, advertising, unityads, setPersonalizedAds</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>See also</strong></td>
-<td style="text-align: left;">[unityads.init()][plugin.unityad-v4.init]</td>
+<td style="text-align: left;"><a href="../../plugin/unityads-v4/init.html">unityads.init()</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: left;">[unityads.*][plugin.unityad-v4]</td>
+<td style="text-align: left;"><a href="../../plugin/unityads-v4/index.html">unityads.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
 <section id="overview" class="level2">
 <h2>Overview</h2>
-<p>Set a user-specific flag that indicates whether a user should receive personalized or contextual advertisement before initialization (before [unityads.init()][plugin.unityad-v4.init])</p>
+<p>Set a user-specific flag that indicates whether a user should receive personalized or contextual advertisements. Call this before initialization (before <a href="../../plugin/unityads-v4/init.html">unityads.init()</a>).</p>
 </section>
 <section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">unityads.setPersonalizedAds( showPersonalizedAds )</pre>
 <section id="showpersonalizedads-required" class="level5">
 <h5>showPersonalizedAds <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> <code>false</code> indicates that the user may not receive personalized ads and <code>true</code> indicates that the user may receive personalized ads</p>
+<p><em><a href="../../api/type/Boolean.html">Boolean</a>.</em> <code>true</code> indicates that the user may receive personalized ads. <code>false</code> indicates that the user should receive only contextual (non-personalized) ads.</p>
 </section>
 </section>
 <section id="example" class="level2">
@@ -122,11 +122,11 @@ local function adListener( event )
     end
 end
 
--- Flag for personalized ads before initialize
+-- Set personalized ads flag before initialize
 unityads.setPersonalizedAds( true )
 
--- Initialize the Unity Ads plugin
-unityads.init( adListener, { appId="YOUR_UNITYADS_GAME_ID" } )</pre>
+-- Initialize the plugin
+unityads.init( adListener, { gameId="YOUR_LEVELPLAY_APP_KEY" } )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

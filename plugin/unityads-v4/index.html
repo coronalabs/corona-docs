@@ -105,20 +105,25 @@
 </blockquote>
 <section id="overview" class="level2">
 <h2>Overview</h2>
-<p>The Unity Ads plugin allows developers to monetize users through Unity Ads video interstitial and rewarded video ads.</p>
+<p>The Unity Ads plugin allows developers to monetize users through LevelPlay (Unity’s mediation platform, powered by IronSource) video interstitial and rewarded video ads.</p>
 <div class="guide-notebox-imp">
 <div class="notebox-title-imp">
 Important
 </div>
-<p>This documentation is for the new Unity Ads SDK(v4), click to view the <a href="../../plugin/unityads/index.html">Unity Ads legacy plugin</a></p>
-<p>Notable changes from old plugin include now needing to load placement IDs via <a href="../../plugin/unityads-v4/load.html">unityads.load()</a> and the <code>placementStatus</code> <a href="../../plugin/unityads-v4/event/adsRequest/phase.html">event.phase</a> removal.</p>
-<p>On a per-app basis, the first time a Unity ad appears, the user will see a banner with the option to opt-out of behaviorally targeted advertising. Thereafter, the user can click an information button to receive the opt-out again. Although UnityAds will automatically present users with an opportunity to opt-out of targeted advertising, with no implementation needed from the publisher, check out new <code>setHasUserConsent</code> method to enable manual GDPR data collection restrictions.</p>
-<p>See more at <a href="https://docs.unity.com/ads/en-us/manual/ImplementingDataPrivacy">Unity Ads privacy consent documentation</a>.</p>
+<p>This plugin uses the <strong>LevelPlay</strong> backend (formerly IronSource). Click to view the <a href="../../plugin/unityads/index.html">Unity Ads legacy plugin</a>.</p>
+<p>Notable changes from the legacy plugin:</p>
+<ul>
+<li>Ads must be loaded before showing via <a href="../../plugin/unityads-v4/load.html">unityads.load()</a>, which requires an <strong>ad unit ID</strong> (configured in the LevelPlay dashboard), not the old placement name.</li>
+<li><a href="../../plugin/unityads-v4/load.html">unityads.load()</a> accepts an optional <code>adType</code> parameter (<code>"rewarded"</code> for rewarded video; defaults to interstitial).</li>
+<li>The <code>placementStatus</code> <a href="../../plugin/unityads-v4/event/adsRequest/phase.html">event.phase</a> has been removed.</li>
+</ul>
+<p>Check out <code>setHasUserConsent</code> to enable manual GDPR data collection restrictions.</p>
+<p>See more at the <a href="https://developers.is.com/ironsource-mobile/general/data-privacy-frameworks/">LevelPlay privacy consent documentation</a>.</p>
 </div>
 </section>
 <section id="registration" class="level2">
 <h2>Registration</h2>
-<p>Before you can use this plugin, you must <a href="https://unity.com/products/unity-ads">register</a> with Unity Ads.</p>
+<p>Before you can use this plugin, you must register and configure your app in the <a href="https://dashboard.is.com">LevelPlay dashboard</a>. Your <strong>App Key</strong> (used as <code>gameId</code>) and <strong>Ad Unit IDs</strong> are found there.</p>
 </section>
 <section id="syntax" class="level2">
 <h2>Syntax</h2>
@@ -204,7 +209,7 @@ Note
 <section id="support" class="level2">
 <h2>Support</h2>
 <ul>
-<li><a href="https://unity3d.com/services/ads">https://unity3d.com/services/ads</a></li>
+<li><a href="https://developers.is.com/">https://developers.is.com/</a></li>
 <li><a href="https://forums.solar2d.com/c/corona/monetization-in-app-purchases-ads-etc/">Solar2D Forums</a></li>
 </ul>
 <hr>

@@ -86,29 +86,34 @@
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Keywords</strong></td>
-<td style="text-align: left;">ads, advertising, unityads, setHasUserConsent</td>
+<td style="text-align: left;">ads, advertising, unityads, setPrivacyMode</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>See also</strong></td>
-<td style="text-align: left;">[unityads.init()][plugin.unityad-v4.init]</td>
+<td style="text-align: left;"><a href="../../plugin/unityads-v4/init.html">unityads.init()</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: left;">[unityads.*][plugin.unityad-v4]</td>
+<td style="text-align: left;"><a href="../../plugin/unityads-v4/index.html">unityads.*</a></td>
 </tr>
 </tbody>
 </table>
 </blockquote>
 <section id="overview" class="level2">
 <h2>Overview</h2>
-<p>Set flag for compliance mode for the app before initialization (before [unityads.init()][plugin.unityad-v4.init])</p>
+<p>Set a COPPA compliance mode for the app. Call this before initialization (before <a href="../../plugin/unityads-v4/init.html">unityads.init()</a>).</p>
 </section>
 <section id="syntax" class="level2">
 <h2>Syntax</h2>
 <pre class="brush: lua;">unityads.setPrivacyMode( privacyMode )</pre>
 <section id="privacymode-required" class="level5">
 <h5>privacyMode <sub><sup>(required)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> supported modes are “app” (indicates that an app is directed at children), “mixed” (indicates that an app is directed at mixed audiences), or “none” (indicates that the entire app is not directed at children)</p>
+<p><em><a href="../../api/type/String.html">String</a>.</em> Supported modes:</p>
+<ul>
+<li><code>"app"</code> — The entire app is directed at children (COPPA applies).</li>
+<li><code>"mixed"</code> — The app has a mixed audience (COPPA applies as a precaution).</li>
+<li><code>"none"</code> — The app is not directed at children.</li>
+</ul>
 </section>
 </section>
 <section id="example" class="level2">
@@ -122,11 +127,11 @@ local function adListener( event )
     end
 end
 
--- Flag for privacy mode before initialize
+-- Set privacy mode before initialize
 unityads.setPrivacyMode( "app" )
 
--- Initialize the Unity Ads plugin
-unityads.init( adListener, { appId="YOUR_UNITYADS_GAME_ID" } )</pre>
+-- Initialize the plugin
+unityads.init( adListener, { gameId="YOUR_LEVELPLAY_APP_KEY" } )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

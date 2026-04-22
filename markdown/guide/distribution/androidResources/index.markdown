@@ -14,7 +14,7 @@ With 64-bit compatible versions of CORONA_CORE_PRODUCT (2019.3492 or later), And
 
 With Android 7 and earlier, Android icons were single layer `.PNG files` that were conveniently named for simplicity and CORONA_CORE_PRODUCT would in the background process them into a way Android would find them. These icons were located in the main project folder alongside `main.lua` and as long as you named them correctly and they were the right size, you didn't have to do much more.
 
-Android 8 and later provide a way to have launch icons more flexible. To give device manufacturers more flexibility, Google split the icon into two layers: a background layer and a foreground later. Then the OEM (Original Equipment Manufacturer) provides a mask to make the icons look unique in their system. One maker may provide square icons, while another rounded corners or another circular icons. Using a combination of background, foreground and mask, there can be different looks for different devices, as well as allowing cool animation effects like parallax when dragging icon or tapping on it.
+Android 8 and later provide a way to have launch icons more flexible. To give device manufacturers more flexibility, Google split the icon into two layers: a background layer and a foreground layer. Then the OEM (Original Equipment Manufacturer) provides a mask to make the icons look unique in their system. One maker may provide square icons, while another rounded corners or another circular icons. Using a combination of background, foreground and mask, there can be different looks for different devices, as well as allowing cool animation effects like parallax when dragging icon or tapping on it.
 
 <div style="display:grid;grid-gap:10px;width:80%">
 <div style="grid-column:1/2">

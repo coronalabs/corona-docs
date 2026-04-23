@@ -29,6 +29,8 @@
 
 #### [display.fps][api.library.display.fps]
 
+#### [display.getTimings][api.library.display.getTimings]
+
 #### [display.imageSuffix][api.library.display.imageSuffix]
 
 #### [display.pixelHeight][api.library.display.pixelHeight]

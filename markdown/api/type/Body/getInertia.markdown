@@ -6,7 +6,7 @@
 > __Library__           [physics.*][api.library.physics]
 > __Return value__      [Number][api.type.Number]
 > __Revision__          [REVISION_LABEL](REVISION_URL)
-> __Keywords__          body, getInertia
+> __Keywords__          body, inertia
 > __See also__          [physics.addBody()][api.library.physics.addBody]
 > --------------------- ------------------------------------------------------------------------------------------
 

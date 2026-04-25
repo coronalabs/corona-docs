@@ -23,10 +23,10 @@ The resulting velocity is the vector sum of the body’s center‑of‑mass velo
 	object:getLinearVelocityFromLocalPoint( localX, localY )
 
 ##### localX ~^(required)^~
-_[Number][api.type.Number]._ The x coordinate of the point in the body’s local space (pixels, relative to the body’s center).
+_[Number][api.type.Number]._ The x coordinate of the point in the body’s local space.
 
 ##### localY ~^(required)^~
-_[Number][api.type.Number]._ The y coordinate of the point in the body’s local space (pixels, relative to the body’s center).
+_[Number][api.type.Number]._ The y coordinate of the point in the body’s local space.
 
 ## Return Value
 

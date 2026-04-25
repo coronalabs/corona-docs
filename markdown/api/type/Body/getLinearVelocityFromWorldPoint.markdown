@@ -21,10 +21,10 @@ Returns the linear velocity of the point on the body that is located at the give
 	object:getLinearVelocityFromWorldPoint( worldX, worldY )
 
 ##### worldX ~^(required)^~
-_[Number][api.type.Number]._ The x coordinate of the point in world space (pixels).
+_[Number][api.type.Number]._ The x coordinate of the point in world space.
 
 ##### worldY ~^(required)^~
-_[Number][api.type.Number]._ The y coordinate of the point in world space (pixels).
+_[Number][api.type.Number]._ The y coordinate of the point in world space.
 
 ## Return Value
 

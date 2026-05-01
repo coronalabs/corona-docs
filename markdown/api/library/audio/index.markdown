@@ -68,6 +68,8 @@ The Corona Audio system gives you access to advanced OpenAL features. See the [A
 
 #### [audio.freeChannels][api.library.audio.freeChannels]
 
+#### [audio.reservedChannels][api.library.audio.reservedChannels]
+
 #### [audio.totalChannels][api.library.audio.totalChannels]
 
 #### [audio.unreservedFreeChannels][api.library.audio.unreservedFreeChannels]

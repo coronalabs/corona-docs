@@ -55,9 +55,17 @@ _(Inherits methods from [Object][api.type.Object])_
 
 #### [object:applyTorque()][api.type.Body.applyTorque]
 
+#### [object:getInertia()][api.type.Body.getInertia]
+
 #### [object:getLinearVelocity()][api.type.Body.getLinearVelocity]
 
+#### [object:getLinearVelocityFromLocalPoint()][api.type.Body.getLinearVelocityFromLocalPoint]
+
+#### [object:getLinearVelocityFromWorldPoint()][api.type.Body.getLinearVelocityFromWorldPoint]
+
 #### [object:getMassLocalCenter()][api.type.Body.getMassLocalCenter]
+
+#### [object:getWorldVector()][api.type.Body.getWorldVector]
 
 #### [object:getMassWorldCenter()][api.type.Body.getMassWorldCenter]
 

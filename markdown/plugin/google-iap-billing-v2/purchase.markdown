@@ -18,7 +18,7 @@ Initiates a purchase transaction on a provided product by sending out a purchase
 
 ## Gotchas
 
-This call does not work for subscription purchases.
+This call does not work for subscription purchases. Use [store.purchaseSubscription()][plugin.google-iap-billing-v2.purchaseSubscription] instead.
 
 
 ## Syntax

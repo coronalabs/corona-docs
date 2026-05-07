@@ -15,12 +15,6 @@
 
 Initiates a purchase transaction on a provided product by sending out a purchase request to the store, then dispatches a [storeTransaction][plugin.google-iap-billing-v2.event.storeTransaction] event to the listener defined in [store.init()][plugin.google-iap-billing-v2.init].
 
-
-## Gotchas
-
-This call does not work for subscription purchases.
-
-
 ## Syntax
 
 	store.purchaseSubscription( productIdentifier [, options] )

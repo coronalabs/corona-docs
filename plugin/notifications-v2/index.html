@@ -197,7 +197,7 @@ Important
 }</pre>
 <p>Additionally, if you want to use Google <nobr><a href="https://firebase.google.com">Firebase</a> Cloud Messaging (FCM)</nobr> for push notifications, follow these steps:</p>
 <ol type="1">
-<li><p>Copy <code>GoogleService-Info.plist</code>, provided in the Firebase console, to your Corona project’s root directory alongside <code>main.lua</code>.</p></li>
+<li><p>Copy <code>GoogleService-Info.plist</code>, provided in the Firebase console, to your Solar2D project’s root directory alongside <code>main.lua</code>.</p></li>
 <li><p>Add the following entries to the <nobr><code>iphone</code> → <code>plist</code></nobr> table of <code>build.settings</code>:</p></li>
 </ol>
 <div class="code-indent">
@@ -218,7 +218,7 @@ Important
 <h3>Android</h3>
 <p>If your app is for Android, you must follow these additional steps to ensure that Firebase notifications function properly:</p>
 <ol type="1">
-<li><p>Copy <nobr><code>google-services.json</code></nobr>, provided in the Firebase console, to your Corona project’s root directory alongside <code>main.lua</code>.</p></li>
+<li><p>Copy <nobr><code>google-services.json</code></nobr>, provided in the Firebase console, to your Solar2D project’s root directory alongside <code>main.lua</code>.</p></li>
 <li><p>Add an additional <code>useGoogleServicesJson</code> entry into the <code>android</code> table of <code>build.settings</code>. When added, the build server will read the settings from the JSON file and integrate them into your app during the build phase.</p></li>
 </ol>
 <div class="code-indent">
@@ -245,12 +245,12 @@ Important
 <section id="android-1" class="level3">
 <h3>Android</h3>
 <p>When developing natively for Android, Google wants all icons in the project’s <code>res</code> directory. This is important because Google’s Android build process generates code, creating a <code>R.java</code> file containing unique integer IDs to every resource that your project and its libraries contain. The IDs are needed to access these resources, including the notification icons.</p>
-<p>When developing with Solar2D Native, you must override Corona’s notification icon resources as follows:</p>
+<p>When developing with Solar2D Native, you must override notification icon resources as follows:</p>
 <ol type="1">
 <li><p>First, you should become familiar with how Android handles resources by reading Google’s official <a href="http://developer.android.com/guide/topics/resources/overview.html">documentation</a>.</p></li>
-<li><p>Inspect the Corona library’s resource directory (<code>./Native/Corona/android/lib/Corona/res/</code>). In this directory, every <code>drawable</code> directory contains a file named <code>corona_statusbar_icon_default.png</code>. This is the image file to override. Note that this action should be an “override” and <strong>not</strong> a replacement — you should <strong>not</strong> modify the contents of the Corona library directory!</p></li>
+<li><p>Inspect the Solar2D library’s resource directory (<code>./Native/Corona/android/lib/Corona/res/</code>). In this directory, every <code>drawable</code> directory contains a file named <code>corona_statusbar_icon_default.png</code>. This is the image file to override. Note that this action should be an “override” and <strong>not</strong> a replacement — you should <strong>not</strong> modify the contents of the Solar2D library directory!</p></li>
 <li><p>To override these notification image files with your own, you need to set up the Android project with the same <code>drawable</code> directories under your <code>res</code> directory. Add each <code>IconNotification*.png</code> icon to its respective <code>drawable</code> directory by resolution and version <nobr>(see <a href="../../guide/events/appNotification/index.html#android-icons">here</a>)</nobr>. You also <strong>must</strong> rename these files to <code>corona_statusbar_icon_default.png</code>.</p></li>
-<li><p>Make a small change to the <code>copyCoronaResources</code> task of <nobr><code>build.gradle</code> (<code>Module: app</code>)</nobr> to ignore the notification icons provided in the Corona library project. Do this by replacing the <nobr><code>from fileTree(...)</code></nobr> line with the following:</p></li>
+<li><p>Make a small change to the <code>copyCoronaResources</code> task of <nobr><code>build.gradle</code> (<code>Module: app</code>)</nobr> to ignore the notification icons provided in the Solar2D library project. Do this by replacing the <nobr><code>from fileTree(...)</code></nobr> line with the following:</p></li>
 </ol>
 <div class="code-indent">
 <pre class="brush: lua;">from fileTree(dir: "$coronaEnterpriseAndroidLibDir/res", exclude: '**/corona_statusbar_icon_default.png')</pre>

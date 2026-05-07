@@ -57,7 +57,6 @@
 <ul>
 <li><a href="#store.purchasesubscription">store.purchaseSubscription()</a><ul>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#gotchas">Gotchas</a></li>
 <li><a href="#syntax">Syntax</a><ul>
 <li><a href="#productidentifier-required">productIdentifier <sub><sup>(required)</sup></sub></a></li>
 <li><a href="#options-optional">options <sub><sup>(optional)</sup></sub></a></li>
@@ -115,10 +114,6 @@
 <section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Initiates a purchase transaction on a provided product by sending out a purchase request to the store, then dispatches a <a href="../../plugin/google-iap-billing-v2/event/storeTransaction/index.html">storeTransaction</a> event to the listener defined in <a href="../../plugin/google-iap-billing-v2/init.html">store.init()</a>.</p>
-</section>
-<section id="gotchas" class="level2">
-<h2>Gotchas</h2>
-<p>This call does not work for subscription purchases.</p>
 </section>
 <section id="syntax" class="level2">
 <h2>Syntax</h2>

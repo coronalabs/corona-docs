@@ -19,7 +19,7 @@ Updates the width and height of a [ScrollViewWidget][api.type.ScrollViewWidget].
 
 ## Gotchas
 
-Calling this function will mess with the x position of the scrollbar. To fix this, call [object:setScrollHeight()][api.type.ScrollViewWidget.setScrollHeight] after calling this method. If you would not like to reset the scroll height, then it might be a good idea to hide the scrollbar completely.
+This method will alter the scroll bar’s horizontal position. To fix this issue, call [object:setScrollWidth()][api.type.ScrollViewWidget.setScrollWidth] immediately afterwards. If you choose not to reset the scroll width, hiding the scroll bar is recommended.
 
 ## Syntax
 

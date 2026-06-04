@@ -3,13 +3,13 @@
 > --------------------- ------------------------------------------------------------------------------------------
 > __Type__              [Library][api.type.Library]
 > __Revision__          [REVISION_LABEL](__REVISION_URL__)
-> __Keywords__          age, age range, age verification, parental controls, COPPA, iOS 26, Android
-> __Platforms__         Android, iOS
+> __Keywords__          age, age range, age verification, parental controls, COPPA, iOS 26, Android, Amazon
+> __Platforms__         Android, iOS, Amazon
 > --------------------- ------------------------------------------------------------------------------------------
 
 ## Overview
 
-The Age Range plugin provides access to Apple's Declared Age Range framework (iOS 26.0+) and Google's Age Signals API (Android) for age verification and parental control management. This plugin helps apps comply with age-related regulations including state laws requiring parental consent for minors.
+The Age Range plugin provides access to **Apple’s Declared Age Range framework** (iOS 26.0+), **Google’s Age Signals API** (Android), and **Amazon’s GetUserAgeData API** (Amazon Appstore / Fire OS) for age verification and parental control management. This plugin helps apps comply with age-related regulations including state laws requiring parental consent for minors.
 
 ### Platform Differences
 
@@ -20,12 +20,19 @@ The Age Range plugin provides access to Apple's Declared Age Range framework (iO
 - Provides detailed parental control information
 - Supports PermissionKit for communication and update approvals
 
-**Android**
+**Android (Google Play)**
 - Uses Google Play's Age Signals API
 - Integrates with Family Link supervision
 - Returns age ranges for supervised users
 - Checks approval status through Play Console
 - Limited real-time permission support
+
+**Android (Amazon Appstore / Fire OS)**
+- Uses Amazon’s GetUserAgeData API
+- Integrates with Amazon Kids (child profiles)
+- Returns age range data for supervised child profiles
+- Supports age verification via Amazon’s content provider system
+- Use the Amazon App Tester or publish your app in the Amazon Appstore for testing
 
 ## Syntax
 
@@ -80,9 +87,16 @@ settings =
 
 ### Android Requirements
 
+#### Google Play Store Builds
 Ensure Google Play Services is up to date. The Age Signals API requires:
 - Google Play Store installed and enabled
 - Google Play Services 22.0.0 or later
+
+#### Amazon Appstore / Fire OS Builds
+The Age Range plugin supports Amazon’s GetUserAgeData API on Fire OS devices and any Android device running the Amazon Appstore. Requirements include:
+- Fire OS device or Android device with Amazon Appstore installed
+- Amazon Kids child profile for supervised age range data (otherwise age range may be unavailable)
+- For testing: install the Amazon App Tester or publish your app to the Amazon Appstore
 
 ## Sample Code
 ``````lua
@@ -134,5 +148,4 @@ ageRange.requestAgeRange()
 
 ## Support
 
-- GitHub: [https://github.com/solar2d/plugin.ageRange](https://github.com/solar2d/plugin.ageRange)
-- Documentation: [https://docs.coronalabs.com/plugin/ageRange](https://docs.coronalabs.com/plugin/ageRange)
+- [View on GitHub](https://github.com/solar2d/com.solar2d-plugin.ageRange)

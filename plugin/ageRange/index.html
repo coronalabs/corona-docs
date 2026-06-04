@@ -74,7 +74,10 @@
 </ul></li>
 <li><a href="#project-settings">Project Settings</a><ul>
 <li><a href="#ios-requirements">iOS Requirements</a></li>
-<li><a href="#android-requirements">Android Requirements</a></li>
+<li><a href="#android-requirements">Android Requirements</a><ul>
+<li><a href="#google-play-store-builds">Google Play Store Builds</a></li>
+<li><a href="#amazon-appstore-fire-os-builds">Amazon Appstore / Fire OS Builds</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#sample-code">Sample Code</a></li>
 <li><a href="#support">Support</a></li>
@@ -99,22 +102,23 @@
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Keywords</strong></td>
-<td style="text-align: left;">age, age range, age verification, parental controls, COPPA, iOS 26, Android</td>
+<td style="text-align: left;">age, age range, age verification, parental controls, COPPA, iOS 26, Android, Amazon</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Platforms</strong></td>
-<td style="text-align: left;">Android, iOS</td>
+<td style="text-align: left;">Android, iOS, Amazon</td>
 </tr>
 </tbody>
 </table>
 </blockquote>
 <section id="overview" class="level2">
 <h2>Overview</h2>
-<p>The Age Range plugin provides access to Apple’s Declared Age Range framework (iOS 26.0+) and Google’s Age Signals API (Android) for age verification and parental control management. This plugin helps apps comply with age-related regulations including state laws requiring parental consent for minors.</p>
+<p>The Age Range plugin provides access to <strong>Apple’s Declared Age Range framework</strong> (iOS 26.0+), <strong>Google’s Age Signals API</strong> (Android), and <strong>Amazon’s GetUserAgeData API</strong> (Amazon Appstore / Fire OS) for age verification and parental control management. This plugin helps apps comply with age-related regulations including state laws requiring parental consent for minors.</p>
 <section id="platform-differences" class="level3">
 <h3>Platform Differences</h3>
 <p><strong>iOS (iOS 26.0+)</strong> - Uses Apple’s Declared Age Range framework - Integrates with Screen Time and Family Sharing - Supports custom age gates (13, 15, 18, etc.) - Provides detailed parental control information - Supports PermissionKit for communication and update approvals</p>
-<p><strong>Android</strong> - Uses Google Play’s Age Signals API - Integrates with Family Link supervision - Returns age ranges for supervised users - Checks approval status through Play Console - Limited real-time permission support</p>
+<p><strong>Android (Google Play)</strong> - Uses Google Play’s Age Signals API - Integrates with Family Link supervision - Returns age ranges for supervised users - Checks approval status through Play Console - Limited real-time permission support</p>
+<p><strong>Android (Amazon Appstore / Fire OS)</strong> - Uses Amazon’s GetUserAgeData API - Integrates with Amazon Kids (child profiles) - Returns age range data for supervised child profiles - Supports age verification via Amazon’s content provider system - Use the Amazon App Tester or publish your app in the Amazon Appstore for testing</p>
 </section>
 </section>
 <section id="syntax" class="level2">
@@ -181,7 +185,14 @@
 </section>
 <section id="android-requirements" class="level3">
 <h3>Android Requirements</h3>
+<section id="google-play-store-builds" class="level4">
+<h4>Google Play Store Builds</h4>
 <p>Ensure Google Play Services is up to date. The Age Signals API requires: - Google Play Store installed and enabled - Google Play Services 22.0.0 or later</p>
+</section>
+<section id="amazon-appstore-fire-os-builds" class="level4">
+<h4>Amazon Appstore / Fire OS Builds</h4>
+<p>The Age Range plugin supports Amazon’s GetUserAgeData API on Fire OS devices and any Android device running the Amazon Appstore. Requirements include: - Fire OS device or Android device with Amazon Appstore installed - Amazon Kids child profile for supervised age range data (otherwise age range may be unavailable) - For testing: install the Amazon App Tester or publish your app to the Amazon Appstore</p>
+</section>
 </section>
 </section>
 <section id="sample-code" class="level2">
@@ -234,8 +245,7 @@ ageRange.requestAgeRange()</pre>
 <section id="support" class="level2">
 <h2>Support</h2>
 <ul>
-<li>GitHub: <a href="https://github.com/solar2d/plugin.ageRange">https://github.com/solar2d/plugin.ageRange</a></li>
-<li>Documentation: <a href="https://docs.coronalabs.com/plugin/ageRange">https://docs.coronalabs.com/plugin/ageRange</a></li>
+<li><a href="https://github.com/solar2d/com.solar2d-plugin.ageRange">View on GitHub</a></li>
 </ul>
 <hr>
 <div id="footer">

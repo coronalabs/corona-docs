@@ -90,15 +90,17 @@ settings =
 **Google Play Store Builds**
 
 Ensure Google Play Services is up to date. The Age Signals API requires:
-- Google Play Store installed and enabled
-- Google Play Services 22.0.0 or later
+* Google Play Store installed and enabled
+* Google Play Services 22.0.0 or later
+
 
 **Amazon Appstore / Fire OS Builds**
 
 The Age Range plugin supports Amazon’s GetUserAgeData API on Fire OS devices and any Android device running the Amazon Appstore. Requirements include:
-- Fire OS device or Android device with Amazon Appstore installed
-- Amazon Kids child profile for supervised age range data (otherwise age range may be unavailable)
-- For testing: install the Amazon App Tester or publish your app to the Amazon Appstore
+* Fire OS device or Android device with Amazon Appstore installed
+* Amazon Kids child profile for supervised age range data (otherwise age range may be unavailable)
+* For testing: install the Amazon App Tester or publish your app to the Amazon Appstore
+
 
 ## Sample Code
 ``````lua

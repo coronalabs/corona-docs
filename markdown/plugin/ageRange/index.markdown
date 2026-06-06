@@ -14,25 +14,28 @@ The Age Range plugin provides access to **Apple’s Declared Age Range framework
 ### Platform Differences
 
 **iOS (iOS 26.0+)**
-- Uses Apple's Declared Age Range framework
-- Integrates with Screen Time and Family Sharing
-- Supports custom age gates (13, 15, 18, etc.)
-- Provides detailed parental control information
-- Supports PermissionKit for communication and update approvals
+* Uses Apple's Declared Age Range framework
+* Integrates with Screen Time and Family Sharing
+* Supports custom age gates (13, 15, 18, etc.)
+* Provides detailed parental control information
+* Supports PermissionKit for communication and update approvals
+
 
 **Android (Google Play)**
-- Uses Google Play's Age Signals API
-- Integrates with Family Link supervision
-- Returns age ranges for supervised users
-- Checks approval status through Play Console
-- Limited real-time permission support
+* Uses Google Play's Age Signals API
+* Integrates with Family Link supervision
+* Returns age ranges for supervised users
+* Checks approval status through Play Console
+* Limited real-time permission support
+
 
 **Android (Amazon Appstore / Fire OS)**
-- Uses Amazon’s GetUserAgeData API
-- Integrates with Amazon Kids (child profiles)
-- Returns age range data for supervised child profiles
-- Supports age verification via Amazon’s content provider system
-- Use the Amazon App Tester or publish your app in the Amazon Appstore for testing
+* Uses Amazon’s GetUserAgeData API
+* Integrates with Amazon Kids (child profiles)
+* Returns age range data for supervised child profiles
+* Supports age verification via Amazon’s content provider system
+* Use the Amazon App Tester or publish your app in the Amazon Appstore for testing
+
 
 ## Syntax
 

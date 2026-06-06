@@ -14,25 +14,28 @@ The Age Range plugin provides access to **Apple’s Declared Age Range framework
 ### Platform Differences
 
 **iOS (iOS 26.0+)**
-- Uses Apple's Declared Age Range framework
-- Integrates with Screen Time and Family Sharing
-- Supports custom age gates (13, 15, 18, etc.)
-- Provides detailed parental control information
-- Supports PermissionKit for communication and update approvals
+* Uses Apple's Declared Age Range framework
+* Integrates with Screen Time and Family Sharing
+* Supports custom age gates (13, 15, 18, etc.)
+* Provides detailed parental control information
+* Supports PermissionKit for communication and update approvals
+
 
 **Android (Google Play)**
-- Uses Google Play's Age Signals API
-- Integrates with Family Link supervision
-- Returns age ranges for supervised users
-- Checks approval status through Play Console
-- Limited real-time permission support
+* Uses Google Play's Age Signals API
+* Integrates with Family Link supervision
+* Returns age ranges for supervised users
+* Checks approval status through Play Console
+* Limited real-time permission support
+
 
 **Android (Amazon Appstore / Fire OS)**
-- Uses Amazon’s GetUserAgeData API
-- Integrates with Amazon Kids (child profiles)
-- Returns age range data for supervised child profiles
-- Supports age verification via Amazon’s content provider system
-- Use the Amazon App Tester or publish your app in the Amazon Appstore for testing
+* Uses Amazon’s GetUserAgeData API
+* Integrates with Amazon Kids (child profiles)
+* Returns age range data for supervised child profiles
+* Supports age verification via Amazon’s content provider system
+* Use the Amazon App Tester or publish your app in the Amazon Appstore for testing
+
 
 ## Syntax
 
@@ -90,15 +93,17 @@ settings =
 **Google Play Store Builds**
 
 Ensure Google Play Services is up to date. The Age Signals API requires:
-- Google Play Store installed and enabled
-- Google Play Services 22.0.0 or later
+* Google Play Store installed and enabled
+* Google Play Services 22.0.0 or later
+
 
 **Amazon Appstore / Fire OS Builds**
 
 The Age Range plugin supports Amazon’s GetUserAgeData API on Fire OS devices and any Android device running the Amazon Appstore. Requirements include:
-- Fire OS device or Android device with Amazon Appstore installed
-- Amazon Kids child profile for supervised age range data (otherwise age range may be unavailable)
-- For testing: install the Amazon App Tester or publish your app to the Amazon Appstore
+* Fire OS device or Android device with Amazon Appstore installed
+* Amazon Kids child profile for supervised age range data (otherwise age range may be unavailable)
+* For testing: install the Amazon App Tester or publish your app to the Amazon Appstore
+
 
 ## Sample Code
 ``````lua

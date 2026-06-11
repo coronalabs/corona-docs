@@ -62,6 +62,7 @@
 <li><a href="#options-optional">options <sub><sup>(optional)</sup></sub></a></li>
 </ul></li>
 <li><a href="#conversion">Conversion</a></li>
+<li><a href="#gotchas">Gotchas</a></li>
 <li><a href="#examples">Examples</a><ul>
 <li><a href="#general">General</a></li>
 <li><a href="#console-debugging">Console Debugging</a></li>
@@ -133,9 +134,35 @@
 <li>All control chars are encoded to <code>\uXXXX</code> format, for example <code>"\021"</code> encodes to <code>"\u0015"</code>.</li>
 <li>All JSON <code>\uXXXX</code> chars are decoded to chars (<code>0</code>-<code>255</code> byte range only).</li>
 <li>JSON single line <code>//</code> and <code>/* */</code> block comments are discarded during decoding.</li>
-<li>Numerically indexed Lua arrays are encoded to JSON lists, for example <code>[1,2,3]</code>.</li>
+<li>A Lua table is encoded to a JSON array when all of its keys are positive integers (gaps are permitted), for example <code>[1,2,3]</code>. The presence of any key that isn’t a positive integer forces the entire table to be encoded as a JSON object instead.</li>
 <li>Lua dictionary tables are converted to JSON objects, for example <code>{"one":1,"two":2}</code>.</li>
 <li>By default, JSON nulls are decoded to Lua <code>nil</code> and treated by Lua in the normal way (for example, they appear not to exist — see <a href="../../../api/library/json/decode.html">json.decode()</a>).</li>
+</ol>
+</section>
+<section id="gotchas" class="level2">
+<h2>Gotchas</h2>
+<p>JSON has two collection types, arrays (<code>[]</code>) and objects (<code>{}</code>), but Lua has only the table, so <code>json.encode()</code> has to pick one. A table is encoded as an array when all of its keys are positive integers (gaps are permitted), and as an object the moment any non-integer key is present.</p>
+<p>Because JSON object keys are always strings, every key in an object-encoded table is stringified, integer keys included. Adding a single key that isn’t a positive integer therefore changes how the entire table is encoded, including its positive-integer keys:</p>
+<pre class="brush: lua;">local json = require( "json" )
+
+local t1 = {
+    [1] = 1,
+    [2] = 2,
+    [3] = 3,
+}
+print( json.encode( t1 ) )  --> [1,2,3]
+
+local t2 = {
+    [1] = 1,
+    [2] = 2,
+    [3] = 3,
+    ["a"] = "a",
+}
+print( json.encode( t2 ) )  --> {"1":1,"2":2,"a":"a","3":3}</pre>
+<p>Two consequences follow:</p>
+<ol type="1">
+<li><strong>Round-tripping does not preserve integer keys.</strong> <code>json.decode( json.encode( t2 ) )</code> returns a table keyed by the strings <code>"1"</code>, <code>"2"</code>, <code>"3"</code>, not the integers <code>1</code>, <code>2</code>, <code>3</code>. Code that later indexes with <code>t[1]</code> will get <code>nil</code>.</li>
+<li><strong>Key order in an object is not guaranteed.</strong> Do not rely on the position of keys in the encoded string.</li>
 </ol>
 </section>
 <section id="examples" class="level2">

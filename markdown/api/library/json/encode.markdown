@@ -35,9 +35,40 @@ _[Table][api.type.Table]._ Lua table containing optional directives to the JSON 
 3. All control chars are encoded to `\uXXXX` format, for example `"\021"` encodes to `"\u0015"`.
 4. All JSON `\uXXXX` chars are decoded to chars (`0`-`255` byte range only).
 5. JSON single line `//` and `/* */` block comments are discarded during decoding.
-6. Numerically indexed Lua arrays are encoded to JSON lists, for example `[1,2,3]`.
+6. A Lua table is encoded to a JSON array when all of its keys are positive integers (gaps are permitted), for example `[1,2,3]`. The presence of any key that isn't a positive integer forces the entire table to be encoded as a JSON object instead.
 7. Lua dictionary tables are converted to JSON objects, for example `{"one":1,"two":2}`.
 8. By default, JSON nulls are decoded to Lua `nil` and treated by Lua in the normal way (for example, they appear not to exist &mdash; see [json.decode()][api.library.json.decode]).
+
+
+## Gotchas
+
+JSON has two collection types, arrays (`[]`) and objects (`{}`), but Lua has only the table, so `json.encode()` has to pick one. A table is encoded as an array when all of its keys are positive integers (gaps are permitted), and as an object the moment any non-integer key is present.
+
+Because JSON object keys are always strings, every key in an object-encoded table is stringified, integer keys included. Adding a single key that isn't a positive integer therefore changes how the entire table is encoded, including its positive-integer keys:
+
+``````lua
+local json = require( "json" )
+
+local t1 = {
+	[1] = 1,
+	[2] = 2,
+	[3] = 3,
+}
+print( json.encode( t1 ) )  --> [1,2,3]
+
+local t2 = {
+	[1] = 1,
+	[2] = 2,
+	[3] = 3,
+	["a"] = "a",
+}
+print( json.encode( t2 ) )  --> {"1":1,"2":2,"a":"a","3":3}
+``````
+
+Two consequences follow:
+
+1. __Round-tripping does not preserve integer keys.__ `json.decode( json.encode( t2 ) )` returns a table keyed by the strings `"1"`, `"2"`, `"3"`, not the integers `1`, `2`, `3`. Code that later indexes with `t[1]` will get `nil`.
+2. __Key order in an object is not guaranteed.__ Do not rely on the position of keys in the encoded string.
 
 
 ## Examples

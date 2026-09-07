@@ -1,23 +1,23 @@
 
-# store.canLoadProducts
+# store.canMakePurchases
 
 > --------------------- ------------------------------------------------------------------------------------------
 > __Type__              [Boolean][api.type.Boolean]
 > __Revision__          [REVISION_LABEL](REVISION_URL)
-> __Keywords__          Google, IAP, in-app purchases, canLoadProducts
-> __See also__          [store.loadProducts()][plugin.samsung-iap.loadProducts]
->						[store.*][plugin.google-iap-v3]
+> __Keywords__          Samsung, IAP, in-app purchases, canMakePurchases
+> __See also__          [store.purchase()][plugin.samsung-iap.purchase]
+>						[store.*][plugin.samsung-iap]
 > --------------------- ------------------------------------------------------------------------------------------
 
 
 ## Overview
 
-This property will be `true` if the store supports the loading of products. Following confirmation, the [store.loadProducts()][plugin.samsung-iap.loadProducts] function can be used to retrieve information about items available for sale.
+This property will be `true` if the store supports purchases, which is the case after [store.init()][plugin.samsung-iap.init] succeeded. Following confirmation, the [store.purchase()][plugin.samsung-iap.purchase] function can be used to purchase items.
 
 
 ## Syntax
 
-	store.canLoadProducts
+	store.canMakePurchases
 
 
 ## Example
@@ -30,22 +30,11 @@ local function transactionListener( event )
 	local transaction = event.transaction
 end
 
--- Product listener function
-local function productListener( event )
-	print( "Valid products:", #event.products )
-    print( "Invalid products:", #event.invalidProducts )
-end
-
--- Initialize Google IAP
+-- Initialize Samsung IAP
 store.init( transactionListener )
 
--- Sometime later, load products
-if ( store.canLoadProducts ) then
-
-	local productIdentifiers = {
-		"com.coronalabs.ExampleInAppPurchase.Consumable",
-		"com.coronalabs.ExampleInAppPurchase.NonConsumable"
-	}
-	store.loadProducts( productIdentifiers, productListener )
+-- Sometime later, purchase an item
+if ( store.canMakePurchases ) then
+	store.purchase( "com.coronalabs.ExampleInAppPurchase.Consumable" )
 end
 ``````

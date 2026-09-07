@@ -19,6 +19,8 @@ The following event properties are passed to the listener function specified in 
 
 #### [event.products][plugin.samsung-iap.event.productList.products]
 
+#### [event.invalidProducts][plugin.samsung-iap.event.productList.invalidProducts]
+
 #### [event.isError][plugin.samsung-iap.event.productList.isError]
 
 #### [event.error][plugin.samsung-iap.event.productList.error]

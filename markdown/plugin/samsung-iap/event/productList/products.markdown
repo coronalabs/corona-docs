@@ -21,11 +21,21 @@ Lua array ([table][api.type.Table]) where each element is itself a Lua table con
 
 * `localizedPrice` &mdash; The product price as a localized currency string, for example `$0.99`.
 
+* `price` &mdash; The product price as a [number][api.type.Number].
+
+* `currencyCode` &mdash; The ISO 4217 currency code ([string][api.type.String]) of the price, for example `"USD"`.
+
+* `currencyUnit` &mdash; The currency symbol ([string][api.type.String]) of the price, for example `"$"`.
+
 * `purchaseType` &mdash; Type ([string][api.type.String]) which is either `"item"` or `"subscription"`.
 
 * `isConsumable` &mdash; A ([boolean][api.type.Boolean]) whether or not the in-app item is consumable.
 
-* `originalJson` &mdash; A JSON-formatted [string][api.type.String] representation of the product details.
+* `subscriptionDurationUnit` / `subscriptionDurationMultiplier` &mdash; For subscriptions, the billing period as unit ([string][api.type.String], for example `"MONTH"`) and multiplier ([string][api.type.String], for example `"1"`).
+
+* `freeTrialPeriod` &mdash; For subscriptions, the free trial period ([string][api.type.String]) in days, if any.
+
+* `originalJson` &mdash; A JSON-formatted [string][api.type.String] representation of the product details, including tiered subscription pricing information.
 
 * `downloadUrl` &mdash; Url as a [string][api.type.String] to download the purchased item, check out the network.download [string][api.type.String]
 

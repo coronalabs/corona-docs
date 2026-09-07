@@ -7,7 +7,7 @@
 > __Keywords__           IAP, Samsung IAP, Samsung In App Purchase, init
 > __See also__          [store.loadProducts()][plugin.samsung-iap.loadProducts]
 >						[store.purchase()][plugin.samsung-iap.purchase]
->						[store.loadProducts()][plugin.samsung-iap.purchase]
+>						[store.restore()][plugin.samsung-iap.restore]
 >						[store.*][plugin.samsung-iap]
 > --------------------- ------------------------------------------------------------------------------------------
 
@@ -16,13 +16,15 @@
 
 Initialize the Samsung IAP plugin and set store operation mode. This step is mandatory before any other methods can be used.
 
+The listener passed to this function receives the [init][plugin.samsung-iap.event.init] event and all [storeTransaction][plugin.samsung-iap.event.storeTransaction] events (purchases, restored purchases, consume and acknowledge results, subscription plan changes).
+
 
 ## Syntax
 
 	store.init( listener [,operationMode] )
 
 ##### listener ~^(required)^~
-_[Listener][api.type.Listener]._ The listener that will handle [storeTransaction][plugin.samsung-iap.event.storeTransaction] events.
+_[Listener][api.type.Listener]._ The listener that will handle [init][plugin.samsung-iap.event.init] and [storeTransaction][plugin.samsung-iap.event.storeTransaction] events.
 
 
 ##### operationMode ~^(optional)^~
@@ -33,6 +35,7 @@ _[String][api.type.String]._ can be set to "testMode", "testFailureMode", or "pr
 "testFailureMode" : meant to be a negative testing to ensure that your app can handle errors
 
 "production" : requests are processed as specified, financial transactions do occur for successful requests, and actual results are returned
+
 
 ## Example
 
@@ -56,13 +59,21 @@ local function transactionListener( event )
 	-- Store transaction event
 	elseif ( event.name == "storeTransaction" ) then
 
-		if not ( event.transaction.state == "failed" ) then  -- Successful transaction
-			print( json.prettify( event ) )
-			print( "event.transaction: " .. json.prettify( event.transaction ) )
+		local transaction = event.transaction
 
-		else  -- Unsuccessful transaction; output error details
-			print( event.transaction.errorType )
-			print( event.transaction.errorString )
+		if ( transaction.state == "purchased" or transaction.state == "restoreCompleted" ) then
+			print( "event.transaction: " .. json.prettify( transaction ) )
+
+			-- Grant the item to the user here, then tell Samsung IAP that it was delivered
+			if ( transaction.isConsumable ) then
+				store.consumePurchase( transaction.purchaseId )
+			elseif ( transaction.acknowledgedStatus ~= "acknowledged" ) then
+				store.acknowledgePurchase( transaction.purchaseId )
+			end
+
+		elseif ( transaction.state == "failed" ) then  -- Unsuccessful transaction; output error details
+			print( transaction.errorType )
+			print( transaction.errorString )
 		end
 	end
 end

@@ -23,4 +23,4 @@ Since the same listener function also handles [storeTransaction][plugin.samsung-
 
 #### [event.name][plugin.samsung-iap.event.init.name]
 
-#### [event.transaction][plugin.samsung-iap.init.transaction]
+#### [event.transaction][plugin.samsung-iap.event.init.transaction]

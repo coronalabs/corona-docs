@@ -6,7 +6,7 @@
 > __Revision__          [REVISION_LABEL](REVISION_URL)
 > __Keywords__          Samsung, IAP, in-app purchases, canLoadProducts
 > __See also__          [store.loadProducts()][plugin.samsung-iap.loadProducts]
->						[store.*][plugin.samsung-iap-v3]
+>						[store.*][plugin.samsung-iap]
 > --------------------- ------------------------------------------------------------------------------------------
 
 

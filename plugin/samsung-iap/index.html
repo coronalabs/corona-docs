@@ -57,6 +57,7 @@
 <ul>
 <li><a href="#samsung-iap.-samsung-iap">samsung-iap.* — Samsung IAP</a><ul>
 <li><a href="#overview">Overview</a></li>
+<li><a href="#requirements">Requirements</a></li>
 <li><a href="#registrationsetup">Registration/Setup</a></li>
 <li><a href="#gotchas">Gotchas</a></li>
 <li><a href="#syntax">Syntax</a></li>
@@ -72,6 +73,8 @@
 <li><a href="#store.purchaseplugin.samsung-iap.purchase"><span>store.purchase()</span></a></li>
 <li><a href="#store.restoreplugin.samsung-iap.restore"><span>store.restore()</span></a></li>
 <li><a href="#store.consumepurchaseplugin.samsung-iap.consumepurchase"><span>store.consumePurchase()</span></a></li>
+<li><a href="#store.acknowledgepurchaseplugin.samsung-iap.acknowledgepurchase"><span>store.acknowledgePurchase()</span></a></li>
+<li><a href="#store.changesubscriptionplanplugin.samsung-iap.changesubscriptionplan"><span>store.changeSubscriptionPlan()</span></a></li>
 </ul></li>
 <li><a href="#events">Events</a><ul>
 <li><a href="#initplugin.samsung-iap.event.init"><span>init</span></a></li>
@@ -116,7 +119,15 @@
 </blockquote>
 <section id="overview" class="level2">
 <h2>Overview</h2>
-<p>The Samsung IAP plugin let you make in app purchases via Samsung’s App Store.</p>
+<p>The Samsung IAP plugin lets you sell in-app items and subscriptions through the Samsung Galaxy Store. It is built on the <a href="https://developer.samsung.com/iap">Samsung In-App Purchase SDK</a> version 6.5.2 (<code>com.samsung.developer:iap</code>).</p>
+</section>
+<section id="requirements" class="level2">
+<h2>Requirements</h2>
+<ul>
+<li><p>Solar2D 2024.3709 or newer. Older Solar2D builds keep using the previous version of this plugin, which is based on Samsung IAP SDK 6.1 and does not provide <a href="../../plugin/samsung-iap/acknowledgePurchase.html">store.acknowledgePurchase()</a> or <a href="../../plugin/samsung-iap/changeSubscriptionPlan.html">store.changeSubscriptionPlan()</a>.</p></li>
+<li><p>Android 6.0 (API level 23) or newer. If <code>build.settings</code> specifies a lower <code>minSdkVersion</code>, the plugin raises it to 23 while building the app.</p></li>
+<li><p>The Samsung IAP SDK is downloaded from Maven Central while the app is built, so an internet connection is required during Android builds.</p></li>
+</ul>
 </section>
 <section id="registrationsetup" class="level2">
 <h2>Registration/Setup</h2>
@@ -124,7 +135,11 @@
 </section>
 <section id="gotchas" class="level2">
 <h2>Gotchas</h2>
-<p>While Samsung IAP does not require server, in order to verify and get receipt data you can follow <a href="https://developer.samsung.com/iap/programming-guide/samsung-iap-server-api.html">Samsung IAP Server Guide</a></p>
+<ul>
+<li><p>After a successful purchase (or a restored purchase) you must tell Samsung IAP that the item was delivered: call <a href="../../plugin/samsung-iap/consumePurchase.html">store.consumePurchase()</a> for consumable items and <a href="../../plugin/samsung-iap/acknowledgePurchase.html">store.acknowledgePurchase()</a> for non-consumable items and subscriptions. Use the <code>purchaseId</code> of the <a href="../../plugin/samsung-iap/event/storeTransaction/index.html">storeTransaction</a> event for both calls.</p></li>
+<li><p>Samsung IAP processes one request at a time. Wait for the event of the current request before starting the next one.</p></li>
+<li><p>While Samsung IAP does not require a server, in order to verify and get receipt data you can follow the <a href="https://developer.samsung.com/iap/programming-guide/samsung-iap-server-api.html">Samsung IAP Server Guide</a>.</p></li>
+</ul>
 </section>
 <section id="syntax" class="level2">
 <h2>Syntax</h2>
@@ -162,6 +177,12 @@
 <section id="store.consumepurchaseplugin.samsung-iap.consumepurchase" class="level4">
 <h4><a href="../../plugin/samsung-iap/consumePurchase.html">store.consumePurchase()</a></h4>
 </section>
+<section id="store.acknowledgepurchaseplugin.samsung-iap.acknowledgepurchase" class="level4">
+<h4><a href="../../plugin/samsung-iap/acknowledgePurchase.html">store.acknowledgePurchase()</a></h4>
+</section>
+<section id="store.changesubscriptionplanplugin.samsung-iap.changesubscriptionplan" class="level4">
+<h4><a href="../../plugin/samsung-iap/changeSubscriptionPlan.html">store.changeSubscriptionPlan()</a></h4>
+</section>
 </section>
 <section id="events" class="level2">
 <h2>Events</h2>
@@ -180,18 +201,6 @@
 <p>To use this plugin, add an entry into the <code>plugins</code> table of <code>build.settings</code>. When added, the build server will integrate the plugin during the build phase.</p>
 <pre class="brush: lua;">settings =
 {
-    android =
-    {
-            manifestChildElements =
-      {
-                    --Needed for newer versions of Android
-          [[
-                        &lt;queries>
-                           &lt;package android:name="com.sec.android.app.samsungapps" />
-                        &lt;/queries>
-          ]],
-      },
-    },
     plugins =
     {
         ["plugin.samsung.iap"] =
@@ -209,6 +218,7 @@ Note
 <li><code>"android.permission.INTERNET"</code></li>
 <li><code>"com.samsung.android.iap.permission.BILLING"</code></li>
 </ul>
+<p>The <code>&lt;queries&gt;</code> manifest element for the Galaxy Store package (<code>com.sec.android.app.samsungapps</code>) is also added automatically; the <code>manifestChildElements</code> entry that previous versions of this plugin required in <code>build.settings</code> is no longer needed, but harmless if kept.</p>
 </div>
 </section>
 <section id="support" class="level2">

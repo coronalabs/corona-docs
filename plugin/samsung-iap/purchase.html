@@ -60,8 +60,9 @@
 <li><a href="#gotchas">Gotchas</a></li>
 <li><a href="#syntax">Syntax</a><ul>
 <li><a href="#productidentifier-required">productIdentifier <sub><sup>(required)</sup></sub></a></li>
-<li><a href="#passthroughparam-optional">passThroughParam <sub><sup>(optional)</sup></sub></a></li>
+<li><a href="#options-optional">options <sub><sup>(optional)</sup></sub></a></li>
 </ul></li>
+<li><a href="#example">Example</a></li>
 </ul></li>
 </ul>
 </div>
@@ -95,6 +96,14 @@
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/samsung-iap/consumePurchase.html">store.consumePurchase()</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/samsung-iap/acknowledgePurchase.html">store.acknowledgePurchase()</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
 <td style="text-align: left;"><a href="../../plugin/samsung-iap/index.html">store.*</a></td>
 </tr>
 </tbody>
@@ -102,22 +111,42 @@
 </blockquote>
 <section id="overview" class="level2">
 <h2>Overview</h2>
-<p>Initiates a purchase transaction on a provided product by sending out a purchase request to the store, then dispatches a <a href="../../plugin/samsung-iap/event/storeTransaction/index.html">storeTransaction</a> event to the listener defined in <a href="../../plugin/samsung-iap/init.html">store.init()</a>.</p>
+<p>Initiates a purchase transaction on a provided product by sending out a purchase request to the store, then dispatches a <a href="../../plugin/samsung-iap/event/storeTransaction/index.html">storeTransaction</a> event to the listener defined in <a href="../../plugin/samsung-iap/init.html">store.init()</a>. Consumable items, non-consumable items and subscriptions can all be purchased with this function.</p>
 </section>
 <section id="gotchas" class="level2">
 <h2>Gotchas</h2>
-<p>This call does not work for subscription purchases.</p>
+<ul>
+<li><p>After the <code>"purchased"</code> event, grant the item to the user and then call <a href="../../plugin/samsung-iap/consumePurchase.html">store.consumePurchase()</a> (consumable items) or <a href="../../plugin/samsung-iap/acknowledgePurchase.html">store.acknowledgePurchase()</a> (non-consumable items and subscriptions) with the <code>purchaseId</code> of the transaction.</p></li>
+<li><p>Samsung IAP processes one request at a time; do not start another purchase before the event of the previous one arrived.</p></li>
+</ul>
 </section>
 <section id="syntax" class="level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">store.purchase( productIdentifier [,passThroughParam]  )</pre>
+<pre class="brush: lua;">store.purchase( productIdentifier [,options] )</pre>
 <section id="productidentifier-required" class="level5">
 <h5>productIdentifier <sub><sup>(required)</sup></sub></h5>
 <p><em><a href="../../api/type/String.html">String</a>.</em> String representing the product identifier of the item to purchase.</p>
 </section>
-<section id="passthroughparam-optional" class="level5">
-<h5>passThroughParam <sub><sup>(optional)</sup></sub></h5>
-<p><em><a href="../../api/type/String.html">String</a>.</em> An optional string, unique identifier (maximum: 255 bytes) assigned by your Android app to the purchase and payment transaction.</p>
+<section id="options-optional" class="level5">
+<h5>options <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/Table.html">Table</a>.</em> A table with the following optional keys:</p>
+<ul>
+<li><p><code>obfuscatedAccountId</code> — A <a href="../../api/type/String.html">string</a> (up to 64 bytes) that identifies the user’s account in your app, for example a SHA-256 hash of the account name. Samsung uses it for fraud detection and returns it in the purchase, in <a href="../../plugin/samsung-iap/restore.html">store.restore()</a> results and in receipts. Never pass the plain account name.</p></li>
+<li><p><code>obfuscatedProfileId</code> — A <a href="../../api/type/String.html">string</a> (up to 64 bytes) that identifies the user’s profile in your app, obfuscated like <code>obfuscatedAccountId</code>. Requires <code>obfuscatedAccountId</code>.</p></li>
+<li><p><code>passThroughParam</code> — A <a href="../../api/type/String.html">string</a> (up to 255 bytes) that is attached to the transaction and returned in the <code>passThroughParam</code> field of the purchase. Deprecated by Samsung since IAP SDK 6.4 in favor of the obfuscated identifiers; it is ignored when <code>obfuscatedAccountId</code> or <code>obfuscatedProfileId</code> is set.</p></li>
+</ul>
+<p>For backwards compatibility, a <a href="../../api/type/String.html">string</a> can be passed instead of the table; it is used as <code>passThroughParam</code>.</p>
+</section>
+</section>
+<section id="example" class="level2">
+<h2>Example</h2>
+<pre class="brush: lua;">-- Consumable item
+store.purchase( "com.mycompany.mygame.coins100" )
+
+-- Subscription, tagged with the (hashed) account of the signed in user
+store.purchase( "com.mycompany.mygame.premium.monthly", {
+    obfuscatedAccountId = hashedAccountId,
+} )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -128,7 +157,6 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
-</section>
 </section>
 </section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>

@@ -57,7 +57,10 @@
 <ul>
 <li><a href="#store.restore">store.restore()</a><ul>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#syntax">Syntax</a></li>
+<li><a href="#gotchas">Gotchas</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#producttype-optional">productType <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
@@ -86,6 +89,14 @@
 <td style="text-align: left;">Samsung, IAP, in-app purchases, restore</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;"><strong>See also</strong></td>
+<td style="text-align: left;"><a href="../../plugin/samsung-iap/consumePurchase.html">store.consumePurchase()</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="../../plugin/samsung-iap/acknowledgePurchase.html">store.acknowledgePurchase()</a></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><a href="../../plugin/samsung-iap/purchase.html">store.purchase()</a></td>
 </tr>
@@ -99,11 +110,21 @@
 <section id="overview" class="level2">
 <h2>Overview</h2>
 <p>Users who wipe the information on a device or buy a new device may wish to restore previously purchased items. This function initiates the process of retrieving all valid purchases. This includes consumable items that have not be consumed, non-consumable items, and active subscriptions.</p>
-<p>During this process, the <a href="../../plugin/samsung-iap/event/storeTransaction/index.html">storeTransaction</a> listener defined in <a href="../../plugin/samsung-iap/init.html">store.init()</a> may be called multiple times, once for each item.</p>
+<p>During this process, the <a href="../../plugin/samsung-iap/event/storeTransaction/index.html">storeTransaction</a> listener defined in <a href="../../plugin/samsung-iap/init.html">store.init()</a> may be called multiple times, once for each item, with a <code>state</code> of <code>"restoreCompleted"</code>. Each event provides the <code>purchaseId</code> and the <code>acknowledgedStatus</code> of the purchase: consume restored consumable items with <a href="../../plugin/samsung-iap/consumePurchase.html">store.consumePurchase()</a> and acknowledge non-consumable items and subscriptions with <code>acknowledgedStatus</code> of <code>"notAcknowledged"</code> with <a href="../../plugin/samsung-iap/acknowledgePurchase.html">store.acknowledgePurchase()</a>.</p>
+</section>
+<section id="gotchas" class="level2">
+<h2>Gotchas</h2>
+<ul>
+<li><p>No event is dispatched when the user does not own any item.</p></li>
+<li><p>Subscriptions whose price is about to increase provide a <code>subscriptionPriceChange</code> table. If its <code>priceChangeMode</code> is <code>"priceIncreaseUserAgreementRequired"</code> and <code>isConsented</code> is <code>false</code>, the user has to agree to the new price in the Galaxy Store, for example by opening <code>"samsungapps://SubscriptionDetail?purchaseId=" .. transaction.purchaseId</code> with <a href="../../api/library/system/openURL.html">system.openURL()</a>.</p></li>
+</ul>
 </section>
 <section id="syntax" class="level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">store.restore()</pre>
+<pre class="brush: lua;">store.restore( [productType] )</pre>
+<section id="producttype-optional" class="level5">
+<h5>productType <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../api/type/String.html">String</a>.</em> Which purchases to retrieve: <code>"all"</code> (default), <code>"item"</code> for consumable and non-consumable items only, or <code>"subscription"</code> for subscriptions only.</p>
 <hr>
 <div id="footer">
 <p class="copyright">
@@ -114,6 +135,7 @@ Help us help you! If you notice a problem with this page, please report it.
 </p>
 <p><a class="feedback-button" href="https://github.com/coronalabs/corona-docs/issues" target="_blank">Report an Issue</a></p>
 </div>
+</section>
 </section>
 </section>
 <script src="https://corona-cdn.coronalabs.com/js/SyntaxHighlighter/shCore.js" type="text/javascript"></script>

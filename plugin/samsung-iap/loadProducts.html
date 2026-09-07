@@ -87,7 +87,7 @@
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Keywords</strong></td>
-<td style="text-align: left;">IAP, Samsung IAP, Samsung In App Purchase, init</td>
+<td style="text-align: left;">IAP, Samsung IAP, Samsung In App Purchase, loadProducts</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>See also</strong></td>
@@ -99,7 +99,7 @@
 </tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="../../plugin/samsung-iap/purchase.html">store.restore()</a></td>
+<td style="text-align: left;"><a href="../../plugin/samsung-iap/restore.html">store.restore()</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
@@ -114,7 +114,7 @@
 </section>
 <section id="gotchas" class="level2">
 <h2>Gotchas</h2>
-<p>The <code>productListener</code> does not return invalid products and just give and error if invalid product is passed in.</p>
+<p>Product identifiers that Samsung IAP does not return are listed in <a href="../../plugin/samsung-iap/event/productList/invalidProducts.html">event.invalidProducts</a>. If Samsung IAP rejects the whole request, for instance because none of the identifiers exist, the event has <a href="../../plugin/samsung-iap/event/productList/isError.html">event.isError</a> set to <code>true</code> instead.</p>
 </section>
 <section id="syntax" class="level2">
 <h2>Syntax</h2>

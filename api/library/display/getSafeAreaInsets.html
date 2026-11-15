@@ -57,7 +57,9 @@
 <ul>
 <li><a href="#display.getsafeareainsets">display.getSafeAreaInsets()</a><ul>
 <li><a href="#overview">Overview</a></li>
-<li><a href="#syntax">Syntax</a></li>
+<li><a href="#syntax">Syntax</a><ul>
+<li><a href="#options-optional">options <sub><sup>(optional)</sup></sub></a></li>
+</ul></li>
 <li><a href="#example">Example</a></li>
 </ul></li>
 </ul>
@@ -116,7 +118,24 @@
 </section>
 <section id="syntax" class="level2">
 <h2>Syntax</h2>
-<pre class="brush: lua;">display.getSafeAreaInsets()</pre>
+<pre class="brush: lua;">display.getSafeAreaInsets()
+display.getSafeAreaInsets( options )</pre>
+<section id="options-optional" class="level5">
+<h5>options <sub><sup>(optional)</sup></sub></h5>
+<p><em><a href="../../../api/type/Table.html">Table</a>.</em> A table that accepts the following key:</p>
+<ul>
+<li><code>cornerAdaptation</code> — <a href="../../../api/type/String.html">String</a>, either <code>"vertical"</code> or <code>"horizontal"</code>. Returns a safe area for content placed in a corner of the screen. One axis grows just enough to clear a rounded display corner or the iPad window controls: <code>"vertical"</code> brings the top and bottom insets in, and <code>"horizontal"</code> brings the left and right insets in. Use this for a small corner element, such as a pause button. Leave it out for the main layout, so you don’t lose a strip along every edge.</li>
+</ul>
+<div class="guide-notebox">
+<div class="notebox-title">
+Notes
+</div>
+<ul>
+<li><p><code>cornerAdaptation</code> requires iOS 26, iPadOS 26, or tvOS 26 or later. On other platforms and older versions, it returns the same values as calling the function without options.</p></li>
+<li><p>For the exact position of a camera cutout or a fold, see <a href="../../../api/library/display/getReservedRegions.html">display.getReservedRegions()</a>.</p></li>
+</ul>
+</div>
+</section>
 </section>
 <section id="example" class="level2">
 <h2>Example</h2>
@@ -130,7 +149,11 @@ local safeArea = display.newRect(
     display.actualContentWidth - ( leftInset + rightInset ), 
     display.actualContentHeight - ( topInset + bottomInset )
 )
-safeArea:translate( safeArea.width*0.5, safeArea.height*0.5 )</pre>
+safeArea:translate( safeArea.width*0.5, safeArea.height*0.5 )
+
+-- Place a pause button in the top-left corner, clear of a rounded display corner
+local cTop, cLeft = display.getSafeAreaInsets( { cornerAdaptation = "vertical" } )
+local pauseButton = display.newRect( display.screenOriginX + cLeft + 20, display.screenOriginY + cTop + 20, 40, 40 )</pre>
 <hr>
 <div id="footer">
 <p class="copyright">

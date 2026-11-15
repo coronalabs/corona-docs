@@ -67,6 +67,7 @@
 <li><a href="#screen-support">Screen Support</a></li>
 <li><a href="#disabling-file-access">Disabling File Access</a></li>
 <li><a href="#large-heap">Large Heap</a></li>
+<li><a href="#foldables">Foldables</a></li>
 <li><a href="#android-directives">Android Directives</a></li>
 </ul></li>
 <li><a href="#plugins-supported-platforms">Plugins — Supported Platforms</a><ul>
@@ -252,6 +253,23 @@ Note
         largeHeap = true,
     },
 }</pre>
+</section>
+<section id="foldables" class="level3">
+<h3>Foldables</h3>
+<p>To receive <a href="../../../api/event/fold/index.html">fold</a> events and read <nobr><code>system.getInfo( "foldState" )</code></nobr> (<a href="../../../api/library/system/getInfo.html#foldstate">reference</a>) on foldable Android devices, add the <code>supportsFoldables</code> key with a value of <code>true</code>. This adds Jetpack WindowManager (<code>androidx.window</code>) to the build.</p>
+<pre class="highlight: [5]; first-line: 1; gutter: false; brush: lua;">settings =
+{
+    android =
+    {
+        supportsFoldables = true,
+    },
+}</pre>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>Jetpack WindowManager requires Android 6.0 (API 23). If <code>minSdkVersion</code> is lower than <code>"23"</code>, the build raises it to <code>"23"</code> and prints a warning.</p>
+</div>
 </section>
 <section id="android-directives" class="level3">
 <h3>Android Directives</h3>

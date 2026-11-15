@@ -79,6 +79,7 @@
 <li><a href="#load-achievement-image">Load Achievement Image</a></li>
 <li><a href="#load-completed-achievement-placeholder-image">Load Completed Achievement Placeholder Image</a></li>
 <li><a href="#load-incomplete-achievement-image">Load Incomplete Achievement Image</a></li>
+<li><a href="#set-access-point">Set Access Point</a></li>
 <li><a href="#load-current-player">Load Current Player</a></li>
 <li><a href="#create-match">Create Match</a></li>
 <li><a href="#quit-match">Quit Match</a></li>
@@ -169,6 +170,7 @@
 <li><code>"loadAchievementImage"</code></li>
 <li><code>"loadPlaceholderCompletedAchievementImage"</code></li>
 <li><code>"loadIncompleteAchievementImage"</code></li>
+<li><code>"setAccessPoint"</code></li>
 <li><code>"loadCurrentPlayer"</code></li>
 <li><code>"createMatch"</code></li>
 <li><code>"quitMatch"</code></li>
@@ -452,6 +454,37 @@ Note
 <h3>Load Incomplete Achievement Image</h3>
 <p>For the <code>command</code> parameter of <code>"loadIncompleteAchievementImage"</code>, this function retrieves the Apple placeholder image of an incomplete achievement and creates a display object for it, accessible via <code>event.data</code> in the callback listener.</p>
 <pre class="brush: lua;">gameNetwork.request( "loadIncompleteAchievementImage", { listener=requestCallback } )</pre>
+</section>
+<section id="set-access-point" class="level3">
+<h3>Set Access Point</h3>
+<p>For the <code>command</code> parameter of <code>"setAccessPoint"</code>, this function configures the Game Center access point — the small Game Center icon that Apple draws over your app. Tapping it opens the Game Center dashboard. This command requires iOS 14 or later and a <nobr>logged-in</nobr> player.</p>
+<pre class="brush: lua;">gameNetwork.request( "setAccessPoint",
+    {
+        active = true,
+        location = "topTrailing",
+        showHighlights = false,
+        listener = requestCallback
+    }
+)</pre>
+<p>Inside the <code>params</code> table, the following <nobr>key-values</nobr> apply. All of them are optional, and any key you leave out keeps its current value:</p>
+<ul>
+<li><code>active</code> — <a href="../../api/type/Boolean.html">Boolean</a> which shows (<code>true</code>) or hides (<code>false</code>) the access point.</li>
+<li><code>location</code> — <a href="../../api/type/String.html">String</a> corner in which the access point appears: <code>"topLeading"</code>, <code>"topTrailing"</code>, <code>"bottomLeading"</code>, or <code>"bottomTrailing"</code>. “Leading” is the left side in <nobr>left-to-right</nobr> languages.</li>
+<li><code>showHighlights</code> — <a href="../../api/type/Boolean.html">Boolean</a> which, if <code>true</code>, lets the access point expand briefly to show highlights such as the player’s rank or recent achievements.</li>
+</ul>
+<p>When handling the results of a <code>"setAccessPoint"</code> call, <code>event.data</code> in the callback listener is a table with these properties:</p>
+<ul>
+<li><code>active</code> — <a href="../../api/type/Boolean.html">Boolean</a> indicating whether the access point is enabled.</li>
+<li><code>visible</code> — <a href="../../api/type/Boolean.html">Boolean</a> indicating whether the access point is currently on screen. It can be <code>false</code> while <code>active</code> is <code>true</code>, for example while a Game Center view is open.</li>
+<li><code>location</code> — <a href="../../api/type/String.html">String</a> current corner of the access point.</li>
+<li><code>x</code>, <code>y</code>, <code>width</code>, <code>height</code> — <a href="../../api/type/Number.html">Numbers</a> giving the access point’s frame in screen points (not content units). Use them to keep your own UI clear of the icon.</li>
+</ul>
+<div class="guide-notebox">
+<div class="notebox-title">
+Note
+</div>
+<p>The plugin attaches the access point to the app’s own window. This keeps it in the correct corner in <nobr>landscape-only</nobr> apps with the status bar hidden. If GameKit chooses a window on its own, the icon has been seen about 20% down from the top edge.</p>
+</div>
 </section>
 <section id="load-current-player" class="level3">
 <h3>Load Current Player</h3>

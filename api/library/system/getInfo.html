@@ -69,6 +69,7 @@
 <li><a href="#darkmode">darkMode</a></li>
 <li><a href="#deviceid">deviceID</a></li>
 <li><a href="#environment">environment</a></li>
+<li><a href="#foldstate">foldState</a></li>
 <li><a href="#maxtexturesize">maxTextureSize</a></li>
 <li><a href="#texturememoryused">textureMemoryUsed</a></li>
 <li><a href="#manufacturer">manufacturer</a></li>
@@ -214,6 +215,15 @@
 <li><code>simulator</code> for the Solar2D Simulator.</li>
 <li><code>device</code> for iOS, the Xcode iOS Simulator, Android devices, the Android emulator, macOS desktop apps, and Windows desktop apps.</li>
 <li><code>browser</code> for HTML5 apps.</li>
+</ul>
+</section>
+<section id="foldstate" class="level3">
+<h3>foldState</h3>
+<p><code>"foldState"</code> returns the hinge state of a foldable device: <code>"closed"</code>, <code>"halfOpen"</code>, or <code>"open"</code>. It returns <code>nil</code> on devices that don’t fold. See the <a href="../../../api/event/fold/index.html">fold</a> event to be notified when the state changes.</p>
+<ul>
+<li><strong>iOS / iPadOS</strong> — Requires iOS 27.1 or later. The first call starts watching the hinge, so it may return <code>nil</code> until the state is known a moment later.</li>
+<li><strong>Android</strong> — Requires <code>supportsFoldables = true</code> in <code>build.settings</code> (see <a href="../../../guide/distribution/advancedSettings/index.html#foldables">Advanced Build Settings</a>).</li>
+<li><strong>Simulator</strong> — Returns <code>"open"</code> or <code>"closed"</code> on a foldable skin, depending on <strong>Hardware &gt; Unfold</strong>. Returns <code>nil</code> on other skins.</li>
 </ul>
 </section>
 <section id="maxtexturesize" class="level3">

@@ -48,6 +48,7 @@ For the `command` parameter, Game&nbsp;Center supports the following values:
 * `"loadAchievementImage"`
 * `"loadPlaceholderCompletedAchievementImage"`
 * `"loadIncompleteAchievementImage"`
+* `"setAccessPoint"`
 * `"loadCurrentPlayer"`
 * `"createMatch"`
 * `"quitMatch"`
@@ -419,6 +420,41 @@ For the `command` parameter of `"loadIncompleteAchievementImage"`, this function
 ``````lua
 gameNetwork.request( "loadIncompleteAchievementImage", { listener=requestCallback } )
 ``````
+
+### Set Access Point
+
+For the `command` parameter of `"setAccessPoint"`, this function configures the Game&nbsp;Center access point &mdash; the small Game&nbsp;Center icon that Apple draws over your app. Tapping it opens the Game&nbsp;Center dashboard. This command requires iOS&nbsp;14 or later and a <nobr>logged-in</nobr> player.
+
+``````lua
+gameNetwork.request( "setAccessPoint",
+	{
+		active = true,
+		location = "topTrailing",
+		showHighlights = false,
+		listener = requestCallback
+	}
+)
+``````
+
+Inside the `params` table, the following <nobr>key-values</nobr> apply. All of them are optional, and any key you leave out keeps its current value:
+
+* `active` &mdash; [Boolean][api.type.Boolean] which shows (`true`) or hides (`false`) the access point.
+* `location` &mdash; [String][api.type.String] corner in which the access point appears: `"topLeading"`, `"topTrailing"`, `"bottomLeading"`, or `"bottomTrailing"`. "Leading" is the left side in <nobr>left-to-right</nobr> languages.
+* `showHighlights` &mdash; [Boolean][api.type.Boolean] which, if `true`, lets the access point expand briefly to show highlights such as the player's rank or recent achievements.
+
+When handling the results of a `"setAccessPoint"` call, `event.data` in the callback listener is a table with these properties:
+
+* `active` &mdash; [Boolean][api.type.Boolean] indicating whether the access point is enabled.
+* `visible` &mdash; [Boolean][api.type.Boolean] indicating whether the access point is currently on screen. It can be `false` while `active` is `true`, for example while a Game&nbsp;Center view is open.
+* `location` &mdash; [String][api.type.String] current corner of the access point.
+* `x`, `y`, `width`, `height` &mdash; [Numbers][api.type.Number] giving the access point's frame in screen points (not content units). Use them to keep your own UI clear of the icon.
+
+<div class="guide-notebox">
+<div class="notebox-title">Note</div>
+
+The plugin attaches the access point to the app's own window. This keeps it in the correct corner in <nobr>landscape-only</nobr> apps with the status bar hidden. If GameKit chooses a window on its own, the icon has been seen about 20% down from the top edge.
+
+</div>
 
 ### Load Current Player
 

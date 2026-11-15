@@ -24,6 +24,8 @@
 
 #### [finalize][api.event.finalize]
 
+#### [fold][api.event.fold]
+
 #### [gameNetwork][api.event.gameNetwork]
 
 #### [gyroscope][api.event.gyroscope]

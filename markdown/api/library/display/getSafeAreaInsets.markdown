@@ -23,6 +23,21 @@ Essentially, these inset values represent the distance, in content units, betwee
 ## Syntax
 
 	display.getSafeAreaInsets()
+	display.getSafeAreaInsets( options )
+
+##### options ~^(optional)^~
+_[Table][api.type.Table]._ A table that accepts the following key:
+
+* `cornerAdaptation` &mdash; [String][api.type.String], either `"vertical"` or `"horizontal"`. Returns a safe area for content placed in a corner of the screen. One axis grows just enough to clear a rounded display corner or the iPad window controls: `"vertical"` brings the top and bottom insets in, and `"horizontal"` brings the left and right insets in. Use this for a small corner element, such as a pause button. Leave it out for the main layout, so you don't lose a strip along every edge.
+
+<div class="guide-notebox">
+<div class="notebox-title">Notes</div>
+
+* `cornerAdaptation` requires iOS&nbsp;26, iPadOS&nbsp;26, or tvOS&nbsp;26 or later. On other platforms and older versions, it returns the same values as calling the function without options.
+
+* For the exact position of a camera cutout or a fold, see [display.getReservedRegions()][api.library.display.getReservedRegions].
+
+</div>
 
 
 ## Example
@@ -39,4 +54,8 @@ local safeArea = display.newRect(
 	display.actualContentHeight - ( topInset + bottomInset )
 )
 safeArea:translate( safeArea.width*0.5, safeArea.height*0.5 )
+
+-- Place a pause button in the top-left corner, clear of a rounded display corner
+local cTop, cLeft = display.getSafeAreaInsets( { cornerAdaptation = "vertical" } )
+local pauseButton = display.newRect( display.screenOriginX + cLeft + 20, display.screenOriginY + cTop + 20, 40, 40 )
 ``````

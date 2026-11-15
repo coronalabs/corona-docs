@@ -70,6 +70,8 @@
 
 #### [display.getDefault()][api.library.display.getDefault]
 
+#### [display.getReservedRegions()][api.library.display.getReservedRegions]
+
 #### [display.getSafeAreaInsets()][api.library.display.getSafeAreaInsets]
 
 #### [display.loadRemoteImage()][api.library.display.loadRemoteImage]

@@ -210,6 +210,27 @@ settings =
 }
 ``````
 
+### Foldables
+
+To receive [fold][api.event.fold] events and read <nobr>`system.getInfo( "foldState" )`</nobr> ([reference][api.library.system.getInfo#foldstate]) on foldable Android devices, add the `supportsFoldables` key with a value of `true`. This adds Jetpack&nbsp;WindowManager (`androidx.window`) to the build.
+
+``````{ brush="lua" gutter="false" first-line="1" highlight="[5]" }
+settings =
+{
+	android =
+	{
+		supportsFoldables = true,
+	},
+}
+``````
+
+<div class="guide-notebox">
+<div class="notebox-title">Note</div>
+
+Jetpack&nbsp;WindowManager requires Android&nbsp;6.0 (API&nbsp;23). If `minSdkVersion` is lower than `"23"`, the build raises it to `"23"` and prints a warning.
+
+</div>
+
 ### Android Directives
 
 <div class="guide-notebox-imp">

@@ -27,6 +27,7 @@ _[String][api.type.String]._ The name of the event source that delivers events o
 Valid values of event sources include:
 
 * `"accelerometer"`
+* `"fold"`
 * `"gyroscope"`
 * `"heading"`
 * `"inputDeviceStatus"`

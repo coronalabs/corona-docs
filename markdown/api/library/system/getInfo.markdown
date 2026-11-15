@@ -74,6 +74,14 @@ _[String][api.type.String]._ The name of the property corresponding to the desir
 * `device` for iOS, the Xcode iOS Simulator, Android devices, the Android emulator, macOS desktop apps, and Windows desktop apps.
 * `browser` for HTML5 apps.
 
+### foldState
+
+`"foldState"` returns the hinge state of a foldable device: `"closed"`, `"halfOpen"`, or `"open"`. It returns `nil` on devices that don't fold. See the [fold][api.event.fold] event to be notified when the state changes.
+
+* __iOS / iPadOS__ &mdash; Requires iOS&nbsp;27.1 or later. The first call starts watching the hinge, so it may return `nil` until the state is known a moment later.
+* __Android__ &mdash; Requires `supportsFoldables = true` in `build.settings` (see&nbsp;[Advanced Build Settings][guide.distribution.advancedSettings#foldables]).
+* __Simulator__ &mdash; Returns `"open"` or `"closed"` on a foldable skin, depending on __Hardware&nbsp;&gt;&nbsp;Unfold__. Returns `nil` on other skins.
+
 ### maxTextureSize
 
 `"maxTextureSize"` returns the maximum texture width or height supported by the device.

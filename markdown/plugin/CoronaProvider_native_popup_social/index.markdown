@@ -22,7 +22,6 @@ For iOS 8 and later, you have to use [Activity Popup][plugin.CoronaProvider_nati
 </div>
 </div>
 
-
 ## Functions
 
 #### [native.showPopup()][plugin.CoronaProvider_native_popup_social.showPopup]
@@ -44,4 +43,15 @@ settings =
 		},
 	},
 }
+``````
+
+## Example
+
+``````lua
+local itemsSocial = {
+    image = { filename = "icon.png", baseDir = system.resourceDirectory },
+    url = { "https://solar2d.com/" }
+}
+
+native.showPopup( "social", itemsSocial )
 ``````

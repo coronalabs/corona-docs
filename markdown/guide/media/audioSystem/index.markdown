@@ -1,6 +1,6 @@
 #  Audio Usage/Functions
 
-This guide discusses how to use the Corona [audio][api.library.audio] library to play sound effects and streaming audio.
+This guide discusses how to use the [audio][api.library.audio] library to play sound effects and streaming audio.
 
 <div class="guides-toc">
 
@@ -22,7 +22,7 @@ This guide discusses how to use the Corona [audio][api.library.audio] library to
 
 ## Overview
 
-The Corona [audio][api.library.audio] system gives you access to advanced __OpenAL__ features. It features 32 distinct channels on which you can play sound effects or streaming audio files. The system offers a unique volume setting for each channel plus a master volume level for all channels.
+[Audio][api.library.audio] system gives you access to advanced __OpenAL__ features. It features 32 distinct channels on which you can play sound effects or streaming audio files. The system offers a unique volume setting for each channel plus a master volume level for all channels.
 
 The audio system is a "best&nbsp;effort" system. Requested sounds will play as quickly as possible, but there is no guarantee that they'll start or end at exact times. If you are streaming a song and there's a buffer underrun due to CPU stress, the audio system will continue playing as soon as it can, but the song may finish playing later than anticipated.
 
@@ -50,7 +50,7 @@ All of the [audio][api.library.audio] APIs can be applied to files loaded via ei
 
 ## Audio Formats
 
-The Corona audio system supports different formats depending on the environment/platform:
+Audio system supports different formats depending on the environment/platform:
 
 <div class="inner-table">
 
@@ -89,15 +89,15 @@ Note that Windows Desktop only supports .aac if the system has the DirectX Media
 
 ## Channels and Volume
 
-As stated in the overview, there are 32 audio channels available. Each sound effect or streaming audio track must play on a distinct channel. If you don't explicitly set the channel on which you want to play audio, Corona will attempt to locate a free channel on which to play the audio file.
+As stated in the overview, there are 32 audio channels available. Each sound effect or streaming audio track must play on a distinct channel. If you don't explicitly set the channel on which you want to play audio, CORONA_CORE_PRODUCT will attempt to locate a free channel on which to play the audio file.
 
 In some cases, it's useful to __reserve__ certain channels for different purposes. For example, you may want to set different volume levels for music, speech, and sound effects. In this case, you can reserve a few channels toward the lower end of the range and effectively prevent <nobr>auto-assignment</nobr> on those channels. This is done via the [audio.reserveChannels()][api.library.audio.reserveChannels] API, wherein you block off channels 1 to `x` via <nobr>`audio.reserveChannels( x )`</nobr>. Then, assuming you reserve a few channels for music and speech, the remaining channels can be used for <nobr>auto-assigned</nobr> sound effects.
 
-Corona also provides various functions to check the status of a channel. These include [audio.isChannelActive()][api.library.audio.isChannelActive], [audio.isChannelPlaying()][api.library.audio.isChannelPlaying], and [audio.isChannelPaused()][api.library.audio.isChannelPaused].
+There are various functions to check the status of a channel. These include [audio.isChannelActive()][api.library.audio.isChannelActive], [audio.isChannelPlaying()][api.library.audio.isChannelPlaying], and [audio.isChannelPaused()][api.library.audio.isChannelPaused].
 
 ### Controlling Volume
 
-The Corona audio system has both a "master" volume level and a volume level for each channel. Both the master volume and individual channel volumes can be controlled by passing a decimal representation of 0%-100% to the [audio.setVolume()][api.library.audio.setVolume] API. Note that the master volume is not necessarily the same as the device's internal volume, but all volume levels are scaled proportionally to that internal volume.
+Audio system has both a "master" volume level and a volume level for each channel. Both the master volume and individual channel volumes can be controlled by passing a decimal representation of 0%-100% to the [audio.setVolume()][api.library.audio.setVolume] API. Note that the master volume is not necessarily the same as the device's internal volume, but all volume levels are scaled proportionally to that internal volume.
 
 If you wish to set the master volume for __all__ channels, simply pass a volume level without a channel specification as follows:
 
@@ -135,7 +135,7 @@ Finally, the following functions are provided to set the minimum and maximum vol
 
 ## Audio Handles
 
-When you load an audio file using either [audio.loadSound()][api.library.audio.loadSound] or [audio.loadStream()][api.library.audio.loadStream], Corona returns a __handle__ for that audio file. This handle can then be used to reference and play the audio file, assuming the handle remains in memory.
+When you load an audio file using either [audio.loadSound()][api.library.audio.loadSound] or [audio.loadStream()][api.library.audio.loadStream], CORONA_CORE_PRODUCT returns a __handle__ for that audio file. This handle can then be used to reference and play the audio file, assuming the handle remains in memory.
 
 The following example shows how to load a basic sound file into a handle `soundEffect` and play it immediately.
 
@@ -223,7 +223,7 @@ In turn, when the listener function is called, the following `event` parameters 
 
 ## Controlling Audio
 
-In addition to the [volume](#channelvolume) control methods described above, Corona provides the following audio control functions:
+In addition to the [volume](#channelvolume) control methods described above, following audio control functions are provided:
 
 <div class="inner-table">
 

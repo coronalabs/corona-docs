@@ -27,6 +27,39 @@ This guide is intended for those who require more specialized configuration opti
 
 ## Advanced Settings &mdash; iOS
 
+### Minimum iOS Version
+
+Providing a minimum iOS version with the `MinimumOSVersion` key allows you to exclude your app from being installed on devices with older versions of iOS. It's specified within the <nobr>`iphone` &rarr; `plist`</nobr> table and corresponds to Apple's [`MinimumOSVersion`](https://developer.apple.com/documentation/BundleResources/Information-Property-List/MinimumOSVersion) property list key.
+
+``````{ brush="lua" gutter="false" first-line="1" highlight="[7]" }
+settings =
+{
+	iphone =
+	{
+		plist =
+		{
+			MinimumOSVersion = "11.0",
+		},
+	},
+}
+``````
+
+<div class="guide-notebox">
+<div class="notebox-title">Notes</div>
+
+* The value must be specified as a __string__ <nobr>(e.g. `"11.0"`)</nobr>. A numeric value such as `11.0` is ignored and the default minimum version is used instead.
+
+* If not specified, the minimum version defaults to `"8.0"`, the lowest version of iOS that Solar2D supports. However, when building against iOS&nbsp;SDK&nbsp;16.4 or later, Solar2D raises any value below `"11.0"` up to `"11.0"`. Since current versions of Xcode ship newer SDKs, `"11.0"` is effectively the lowest value you can target.
+
+</div>
+
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">Important</div>
+
+If a plugin you use requires a newer version of iOS than your app's minimum, Solar2D does __not__ raise `MinimumOSVersion` automatically to accommodate it. You must set it yourself to match the highest iOS version required by any of your plugins, otherwise the build can fail. Some plugins, such as [Appodeal][plugin.appodeal], document the exact value they require.
+
+</div>
+
 ### Device Capabilities
 
 If you wish to limit your iOS app to devices with specific capabilities, you can include the optional `UIRequiredDeviceCapabilities` key within the <nobr>`iphone` &rarr; `plist`</nobr> table. The value of this key should be a table containing specific keys matching Apple's [documentation](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html#//apple_ref/doc/uid/TP40009252-SW3). For&nbsp;example:

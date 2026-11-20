@@ -79,7 +79,7 @@ settings =
 {
     iphone =
     {
-        plist =
+        entitlements =
         {
             -- Required for Declared Age Range
             ["com.apple.developer.declared-age-range"] = true,
@@ -87,6 +87,14 @@ settings =
     },
 }
 ``````
+
+<div class="guide-notebox-imp">
+<div class="notebox-title-imp">Important</div>
+
+You need to add Declared Age Range as an Entitlement to your project identifiers on App Store Connect and create a new Provisioning Profile.
+
+</div>
+
 
 ### Android Requirements
 

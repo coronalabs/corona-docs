@@ -66,6 +66,8 @@
 
 #### [display.colorSample()][api.library.display.colorSample]
 
+#### [display.enableStatistics()][api.library.display.enableStatistics]
+
 #### [display.getCurrentStage()][api.library.display.getCurrentStage]
 
 #### [display.getDefault()][api.library.display.getDefault]
@@ -73,6 +75,10 @@
 #### [display.getReservedRegions()][api.library.display.getReservedRegions]
 
 #### [display.getSafeAreaInsets()][api.library.display.getSafeAreaInsets]
+
+#### [display.getStatistics()][api.library.display.getStatistics]
+
+#### [display.getTimings()][api.library.display.getTimings]
 
 #### [display.loadRemoteImage()][api.library.display.loadRemoteImage]
 
